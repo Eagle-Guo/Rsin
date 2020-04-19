@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.javainuse</groupId>
-	<artifactId>boot-form-handling</artifactId>
+	<groupId>sg.com.rsin</groupId>
+	<artifactId>rsin-company-project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>boot-form-handling</name>
-	<description>Demo project for Spring Boot</description>
+	<name>rsin-company-project</name>
+	<description>Rsin group Spring Boot company project</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

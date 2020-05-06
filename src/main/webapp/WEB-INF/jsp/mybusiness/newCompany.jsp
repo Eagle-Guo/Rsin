@@ -27,7 +27,7 @@
 </head>
 
 <body>
-<jsp:include page="../menu/menu.jsp" />
+<jsp:include page="../menu.jsp" />
 <!-- Main Content -->
       <div class="main-content">
         <section class="section">

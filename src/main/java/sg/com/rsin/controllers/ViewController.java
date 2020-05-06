@@ -87,6 +87,13 @@ public class ViewController {
 		ModelAndView model = new ModelAndView("mybusiness/newCompany");
 		return model;
 	}
+	
+	@RequestMapping("/coming")
+	public ModelAndView coming() {
+		ModelAndView model = new ModelAndView("coming");
+		return model;
+	}
+	
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model, String error, String logout) {

@@ -44,14 +44,18 @@ public class ViewController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView register() {
-		return new ModelAndView("registration", "user", new UserRegistration());
+		return new ModelAndView("registration", "userRegistration", new UserRegistration());
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public ModelAndView processRegister(@ModelAttribute("user") UserRegistration userRegistrationObject) {
+	public ModelAndView processRegister(@ModelAttribute("userRegistration") UserRegistration userRegistrationObject) {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 
+		if (userRegistrationObject.getEmail() == null || userRegistrationObject.getPassword() == null || 
+			userRegistrationObject.getLastName() == null || userRegistrationObject.getFirstName() == null) {
+			return new ModelAndView("redirect:/register");
+		}
 		String encodedPassword = bCryptPasswordEncoder.encode(userRegistrationObject.getPassword());
 
 		User user = new User(userRegistrationObject.getEmail(), encodedPassword, authorities);

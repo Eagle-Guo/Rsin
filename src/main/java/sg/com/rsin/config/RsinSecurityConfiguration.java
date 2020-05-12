@@ -26,7 +26,6 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private RsinAuthenticationSuccessHandler successHandler;
 	
-	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -66,6 +65,5 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		http.csrf().disable();
 	}
-
 
 }

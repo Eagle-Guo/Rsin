@@ -1,4 +1,4 @@
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -34,72 +34,72 @@
 
               <div class="card-body">
               
-                <form:form action="/register" method="post" modelAttribute="user">
+                <form:form action="/register" method="post" modelAttribute="userRegistration">
                   <div class="row">
                     <div class="form-group col-6">
-                      <label for="frist_name">名</label>
-                      <input id="frist_name" type="text" class="form-control" name="frist_name" autofocus />
+                      <form:label path="firstName">名</form:label>
+                      <form:input id="firstName" type="text" class="form-control" path="firstName" />
                     </div>
                     <div class="form-group col-6">
-                      <label for="last_name">姓</label>
-                      <input id="last_name" type="text" class="form-control" name="last_name" />
+                      <form:label path="lastName">姓</form:label>
+                      <form:input id="lastName" type="text" class="form-control" path="lastName" />
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="email">邮箱</label>
-                    <input id="email" type="email" class="form-control" name="email" />
+                   	<label for="email">邮箱</label>
+-                    <input id="email" type="email" class="form-control" name="email" required oninvalid="this.setCustomValidity('邮箱不能为空,请输入正确的邮箱！')" onchange="this.setCustomValidity('')"/>
                     <div class="invalid-feedback">
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="form-group col-6">
-                      <label for="password" class="d-block">密码</label>
-                      <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password" />
+                      <form:label path="password" class="d-block">密码</form:label>
+                      <form:input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" path="password" />
                       <div id="pwindicator" class="pwindicator">
                         <div class="bar"></div>
                         <div class="label"></div>
                       </div>
                     </div>
                     <div class="form-group col-6">
-                      <label for="password2" class="d-block">确认密码</label>
-                      <input id="password2" type="password" class="form-control" name="password-confirm" />
+                      <label class="d-block">确认密码</label>
+                      <input id="confirm_password" type="password" class="form-control" name="confirm_password" required oninvalid="this.setCustomValidity('密码不能为空！')" onchange="this.setCustomValidity('')" />
                     </div>
                   </div>
 
                   <div class="form-divider"> 地址  </div>
                   <div class="row">
                     <div class="form-group col-6">
-                      <label>国家</label>
-                      <select id="country" class="form-control selectric">
+                      <form:label path="country">国家</form:label>
+                      <form:select id="country" path="country" class="form-control selectric">
                         <option>新加坡</option>
                         <option>中国</option>
                         <option>马来西亚</option>
                         <option>泰国</option>
                         <option>印度尼西亚</option>
-                      </select>
+                      </form:select>
                     </div>
                     <div class="form-group col-6">
-                      <label>省</label>
-                      <input id="province" type="text" class="form-control" />
+                      <form:label path="province">省</form:label>
+                      <form:input id="province" path="province" type="text" class="form-control" />
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-6">
-                      <label>城市</label>
-                      <input id="city" type="text" class="form-control" />
+                      <form:label path="city">城市</form:label>
+                      <form:input id="city" type="text" class="form-control" path="city"/>
                     </div>
                     <div class="form-group col-6">
-                      <label>邮政编号</label>
-                      <input id="postalcode" type="text" class="form-control" />
+                      <form:label path="postalCode">邮政编号</form:label>
+                      <form:input id="postalCode" type="text" class="form-control" path="postalCode"/>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="agree" class="custom-control-input" id="agree" />
-                      <label class="custom-control-label" for="agree">我 阅读并接受条款</label>
+                    	<input type="checkbox" name="agree" class="custom-control-input" id="agree" required oninvalid="this.setCustomValidity('请确认并接受本条款!！')" onchange="this.setCustomValidity('')"/>
+-                      	<label class="custom-control-label" for="agree">我 阅读并接受条款</label>
                     </div>
                   </div>
 
@@ -134,5 +134,20 @@
 
   <!-- Page Specific JS File -->
   <script src="../assets/js/page/auth-register.js"></script>
+  
+  <script type="text/javascript" >
+  	var password = document.getElementById("password");
+  	var confirm_password = document.getElementById("confirm_password");
+
+	function validatePassword(){
+	  if(password.value != confirm_password.value) {
+	    confirm_password.setCustomValidity("两次输入的密码不一致!");
+	  } else {
+	    confirm_password.setCustomValidity('');
+	  }
+	}
+	password.onchange = validatePassword;
+	confirm_password.onkeyup = validatePassword;
+  </script>
 </body>
 </html>

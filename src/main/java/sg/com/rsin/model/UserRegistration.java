@@ -2,7 +2,6 @@ package sg.com.rsin.model;
 
 public class UserRegistration {
 
-	
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -40,7 +39,7 @@ public class UserRegistration {
 	public String getPassword() {
 		return password;
 	}
-
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}

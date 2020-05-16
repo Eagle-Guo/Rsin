@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import sg.com.rsin.dao.EmployeeDao;
-import sg.com.rsin.model.Employee;
+import sg.com.rsin.entity.Employee;
 import sg.com.rsin.service.EmployeeService;
 
 @Service

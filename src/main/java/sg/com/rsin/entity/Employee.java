@@ -1,4 +1,4 @@
-package sg.com.rsin.model;
+package sg.com.rsin.entity;
 
 public class Employee {
 

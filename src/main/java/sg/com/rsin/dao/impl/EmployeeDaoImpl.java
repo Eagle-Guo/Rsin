@@ -17,7 +17,7 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import sg.com.rsin.dao.EmployeeDao;
-import sg.com.rsin.model.Employee;
+import sg.com.rsin.entity.Employee;
 
 @Repository
 public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao{

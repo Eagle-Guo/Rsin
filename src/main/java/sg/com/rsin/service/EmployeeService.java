@@ -2,7 +2,7 @@ package sg.com.rsin.service;
 
 import java.util.List;
 
-import sg.com.rsin.model.Employee;
+import sg.com.rsin.entity.Employee;
 
 public interface EmployeeService {
 	void insertEmployee(Employee emp);

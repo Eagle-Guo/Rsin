@@ -56,7 +56,7 @@
                   <div class="row">
                     <div class="form-group col-6">
                       <form:label path="password" class="d-block">密码</form:label>
-                      <form:input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" path="password" />
+                      <form:input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" path="password" required="required"/>
                       <div id="pwindicator" class="pwindicator">
                         <div class="bar"></div>
                         <div class="label"></div>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="form-group col-6">
                       <label class="d-block">确认密码</label>
-                      <input id="confirm_password" type="password" class="form-control" name="confirm_password" required oninvalid="this.setCustomValidity('密码不能为空！')" onchange="this.setCustomValidity('')" />
+                      <input id="confirm_password" type="password" class="form-control" name="confirm_password" required  />
                     </div>
                   </div>
 
@@ -73,11 +73,11 @@
                     <div class="form-group col-6">
                       <form:label path="country">国家</form:label>
                       <form:select id="country" path="country" class="form-control selectric">
-                        <option>新加坡</option>
-                        <option>中国</option>
-                        <option>马来西亚</option>
-                        <option>泰国</option>
-                        <option>印度尼西亚</option>
+                        <option value="sg">新加坡</option>
+                        <option value="cn">中国</option>
+                        <option value="my">马来西亚</option>
+                        <option value="th">泰国</option>
+                        <option value="id">印度尼西亚</option>
                       </form:select>
                     </div>
                     <div class="form-group col-6">

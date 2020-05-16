@@ -1,5 +1,6 @@
 package sg.com.rsin.controllers;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,21 +17,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import sg.com.rsin.model.Employee;
-import sg.com.rsin.model.UserRegistration;
+import sg.com.rsin.entity.CommonResponse;
+import sg.com.rsin.entity.Employee;
+import sg.com.rsin.entity.UserRegistration;
+import sg.com.rsin.enums.ResponseCode;
 import sg.com.rsin.service.EmployeeService;
+import sg.com.rsin.service.UserRegistrationService;
 
 @Controller
 public class ViewController {
 
 	@Autowired
 	private EmployeeService employeeService;
-
+	
 	@Autowired
-	private JdbcUserDetailsManager jdbcUserDetailsManager;
-
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	UserRegistrationService userRegistrationService;
 
 	@RequestMapping("/")
 	public ModelAndView allPage() {
@@ -49,18 +50,12 @@ public class ViewController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ModelAndView processRegister(@ModelAttribute("userRegistration") UserRegistration userRegistrationObject) {
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-
-		if (userRegistrationObject.getEmail() == null || userRegistrationObject.getPassword() == null || 
-			userRegistrationObject.getLastName() == null || userRegistrationObject.getFirstName() == null) {
+		CommonResponse response = userRegistrationService.addNewRegistrationUser(userRegistrationObject);
+		if (response.getResponseCode().equals(ResponseCode.SUCCESS)) {
+			return new ModelAndView("redirect:/login");
+		} else {
 			return new ModelAndView("redirect:/register");
 		}
-		String encodedPassword = bCryptPasswordEncoder.encode(userRegistrationObject.getPassword());
-
-		User user = new User(userRegistrationObject.getEmail(), encodedPassword, authorities);
-		jdbcUserDetailsManager.createUser(user);
-		return new ModelAndView("redirect:/login");
 	}
 
 	@RequestMapping(value = "/addNewEmployee", method = RequestMethod.GET)

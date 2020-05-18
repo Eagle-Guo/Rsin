@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
@@ -18,6 +20,7 @@ import sg.com.rsin.handler.RsinAuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -43,6 +46,13 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		jdbcUserDetailsManager.setDataSource(dataSource);
 		return jdbcUserDetailsManager;
 	}
+	
+	@Override
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return new LightSwordUserDetailService();
+
+    }
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
@@ -63,7 +73,13 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 			   .anyRequest().authenticated().and().formLogin().successHandler(successHandler)
 			   .loginPage("/login").permitAll().and().logout().permitAll();
 
+		http.logout().logoutSuccessUrl("/");
 		http.csrf().disable();
 	}
+	
+	 @Override
+	 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		 auth.userDetailsService(userDetailsService()); // （6）
+	 }
 
 }

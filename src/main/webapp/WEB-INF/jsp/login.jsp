@@ -40,7 +40,6 @@
               <div class="form-group">
                 <label for="email"> 用户名</label>
                 <input id="username" type="email" class="form-control" name="username" tabindex="1" required autofocus>
-                <!-- <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus> -->
                 <div class="invalid-feedback">请填写您的邮箱用户名 </div>
               </div>
 

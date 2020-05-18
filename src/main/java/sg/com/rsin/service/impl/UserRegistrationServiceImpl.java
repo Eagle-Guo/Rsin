@@ -48,16 +48,14 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 		List<ErrorObject> errorList = new ArrayList<ErrorObject>();
 		CommonResponse response = new CommonResponse();
 		if (userRegistrationObject.getEmail() == null) {
-			errorList.add(new ErrorObject("Email is not null"));
+			errorList.add(new ErrorObject("邮箱为空，请重新输入！"));
 		} 
 		if (userRegistrationObject.getPassword() == null) {
-			errorList.add(new ErrorObject("Password is not null"));
+			errorList.add(new ErrorObject("密码为空，请重新输入！"));
 		}
-		if (userRegistrationObject.getLastName() == null) {
-			errorList.add(new ErrorObject("Last name is not null"));
-		}
-		if (userRegistrationObject.getFirstName() == null) {
-			errorList.add(new ErrorObject("First name is not null"));
+		if (userRegistrationObject.getLastName() == null || 
+			userRegistrationObject.getFirstName() == null) {
+			errorList.add(new ErrorObject("姓名密码为空，请重新输入！"));
 		}
 		if (errorList.size() >0 ) {
 			response.setResponseCode(ResponseCode.VALIDATE_NULL_VALUES);
@@ -68,14 +66,19 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 
 		userRegistrationObject.setPassword(encodedPassword);
 		userRegistrationObject.setStatus(UserStatus.ACTIVE);
-		try {
-			userRegistrationRepository.save(userRegistrationObject);
-		} catch (Exception ex) {
-			response.setResponseCode(ResponseCode.SAVE_INTO_DB_ERROR);
-			errorList.add(new ErrorObject("Save user Registration into DB error"));
+		userRegistrationObject.setUsername(userRegistrationObject.getEmail());
+		//try {
+		userRegistrationRepository.save(userRegistrationObject);
+		/*} catch (Exception ex) {
+			System.out.println(ex.getLocalizedMessage());
+			System.out.println(ex.getMessage());
+			System.out.println(ex.getCause().getLocalizedMessage());
+			System.out.println(ex.getCause().getMessage())
+;			response.setResponseCode(ResponseCode.SAVE_INTO_DB_ERROR);
+			errorList.add(new ErrorObject("保存注册信息异常，请联系我们的管理员"));
 			response.setErrorList(errorList);
 			return response;
-		}
+		}*/
 //		User user = new User(userRegistrationObject.getEmail(), encodedPassword, authorities);
 //		jdbcUserDetailsManager.createUser(user);
 		response.setResponseCode(ResponseCode.SUCCESS);

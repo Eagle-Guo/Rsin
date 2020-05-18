@@ -3,6 +3,7 @@ package sg.com.rsin.controllers;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import sg.com.rsin.entity.CommonResponse;
 import sg.com.rsin.entity.Employee;
+import sg.com.rsin.entity.ErrorObject;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.ResponseCode;
 import sg.com.rsin.service.EmployeeService;
@@ -47,14 +49,31 @@ public class ViewController {
 	public ModelAndView register() {
 		return new ModelAndView("registration", "userRegistration", new UserRegistration());
 	}
+	
+	@RequestMapping(value = "/error", method = RequestMethod.GET)
+	public ModelAndView error() {
+		return new ModelAndView("error/error");
+	}
+	@RequestMapping(value = "/404", method = RequestMethod.GET)
+	public ModelAndView error404() {
+		return new ModelAndView("error/404");
+	}
+	@RequestMapping(value = "/500", method = RequestMethod.GET)
+	public ModelAndView error500() {
+		return new ModelAndView("error/500");
+	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public ModelAndView processRegister(@ModelAttribute("userRegistration") UserRegistration userRegistrationObject) {
+	public String processRegister(Model model, @ModelAttribute("userRegistration") UserRegistration userRegistrationObject) {
 		CommonResponse response = userRegistrationService.addNewRegistrationUser(userRegistrationObject);
 		if (response.getResponseCode().equals(ResponseCode.SUCCESS)) {
-			return new ModelAndView("redirect:/login");
+			//return new ModelAndView("redirect:/login");
+			return "login";
 		} else {
-			return new ModelAndView("redirect:/register");
+			List<ErrorObject> errors =  response.getErrorList();
+			errors.get(0).getErrorMessage();
+			model.addAttribute("errorMsg", errors.stream().map(x-> x.getErrorMessage()).collect(Collectors.toList()));
+			return "registration";
 		}
 	}
 
@@ -96,7 +115,7 @@ public class ViewController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model, String error, String logout) {
-		if (error != null) {
+		if (error != null && !"".equals(error)) {
 			model.addAttribute("errorMsg", "您的用户名或者密码不正确！");
 		}
 

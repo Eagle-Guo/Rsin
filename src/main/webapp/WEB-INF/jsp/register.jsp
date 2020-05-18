@@ -30,7 +30,7 @@
             </div>
 
             <div class="card card-primary">
-              <div class="card-header"><h4>注册</h4></div>
+              <div class="card-header"><h4>注册111</h4></div>
 
               <div class="card-body">
               	<span>${errorMsg}</span> <br/>

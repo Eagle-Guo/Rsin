@@ -8,6 +8,7 @@ import sg.com.rsin.entity.UserRegistration;
 
 public interface UserRegistrationRepository extends CrudRepository<UserRegistration, Long> {
 	List<UserRegistration> findByEmail(String email);
+	UserRegistration findByUsername(String username);
 	
 	/*
 	 * void insertEmployee(Employee cus); void insertEmployees(List<Employee>

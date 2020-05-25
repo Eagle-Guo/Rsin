@@ -14,16 +14,14 @@
   <title>新建公司  &mdash;  睿信集团</title>
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
   
-  <!-- CSS Libraries 
-  <link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css"> -->
-
   <!-- Template CSS -->
   <link rel="stylesheet" href="../../../assets/css/style.css">
   <link rel="stylesheet" href="../../../assets/css/components.css">
   <link rel="stylesheet" href="../../../assets/css/multiplepage.css">
+  <link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
 </head>
 
 <body>
@@ -34,336 +32,305 @@
           <div class="section-header">
             <h1>创建新公司</h1>
           </div>
-          
-<!--PEN CONTENT -->
-<div class="content">
-  <!--content inner-->
-  <div class="content__inner">
-    <div class="container overflow-hidden">
-      <!--multisteps-form-->
-      <div class="multisteps-form">
-        <!--progress bar-->
-        <div class="row">
-          <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
-            <div class="multisteps-form__progress">
-              <button class="multisteps-form__progress-btn js-active" type="button" title="instruction">概述</button>
-              <button class="multisteps-form__progress-btn" type="button" title="services">选择服务</button>
-              <button class="multisteps-form__progress-btn" type="button" title="fee">服务费用</button>
-              <button class="multisteps-form__progress-btn" type="button" title="processtime">处理时间</button>
-              <button class="multisteps-form__progress-btn" type="button" title="contact">联系方式</button>
-              <button class="multisteps-form__progress-btn" type="button" title="structure">公司架构</button>
-              <button class="multisteps-form__progress-btn" type="button" title="summary">总结</button>
-            </div>
-          </div>
-        </div>
-        <!--form panels-->
-        <div class="row">
-          <div class="col-12 col-lg-8 m-auto">
-            <form class="multisteps-form__form" action="/view/registerNewCompany" method="post">
-              <!--single form panel-->
-              <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
-                <h3 class="multisteps-form__title">概述</h3>
-                <div class="multisteps-form__content">
-                  
-                  <div class="card-body">
-                    <div class="list-group">
-                      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">第一</h5>
-                        </div>
-                        <p class="mb-1">你提交的资料，我们会根据PDPA条款进行保存和使用</p>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">第二</h5>
-                          <!-- <small class="text-muted">3 days ago</small> -->
-                        </div>
-                        <p class="mb-1">请检查并确认你的公司是否正确，当你确认完毕请点击提交按钮</p>
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div class="button-row d-flex mt-4">
-                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
-                  </div>
-                </div>
-              </div>
-              
-              <!--single form panel-->
-              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                <h3 class="multisteps-form__title">选择服务</h3>
-                <div class="multisteps-form__content">
-                	<div class="control-label">请从以下选择你需要的服务</div>
-                	<ul class="list-group list-group-flush">
-	                  	<li class="list-group-item">
-		                  	<label class="custom-switch mt-2">
-		                        <span class="custom-switch-description">新建新公司</span>
-                        		<input type="checkbox" name="newCompany" class="custom-switch-input"  disabled>
-		                        <span class="custom-switch-indicator"></span>
-		                    </label>
-	                    </li>
-	                    <li class="list-group-item">
-		                    <label class="custom-switch mt-2">
-		                        <span class="custom-switch-description">每年公司的助理服务</span>
-		                        <input type="checkbox" name="assistService" class="custom-switch-input">
-		                        <span class="custom-switch-indicator"></span>
-		                    </label>
-		                </li>
-		                <li class="list-group-item">
-		                    <label class="custom-switch mt-2">
-		                        <span class="custom-switch-description">每年注册地址服务</span>
-		                        <input type="checkbox" name="addressService" class="custom-switch-input">
-		                        <span class="custom-switch-indicator"></span>
-		                    </label>
-		                </li>
-		                <li class="list-group-item">
-		                    <label class="custom-switch mt-2">
-		                        <span class="custom-switch-description">每年本地挂名股东服务</span>
-		                        <input type="checkbox" name="annualStockholderService" class="custom-switch-input">
-		                        <span class="custom-switch-indicator"></span>
-		                    </label>
-                    	</li>
-	                    <li class="list-group-item">
-		                   <label class="custom-switch mt-2">
-		                        <span class="custom-switch-description">半年本地挂名股东服务</span>
-		                        <input type="checkbox" name="halfyearStockholderService" class="custom-switch-input">
-		                        <span class="custom-switch-indicator"></span>
-		                    </label>
-		                </li>
-	            	</ul>
-                    <div class="control-label">移民服务</div>
-                    <ul class="list-group list-group-flush">
-	                    <li class="list-group-item">
-		                    <label class="custom-switch mt-2">
-		                        <span class="custom-switch-description">工作准证申请</span>
-		                        <input type="checkbox" name="applyWorkPromit" class="custom-switch-input">
-		                        <span class="custom-switch-indicator"></span>
-		                    </label>
-	                    </li>
-	                    <li class="list-group-item">
-		                    <label class="custom-switch mt-2">
-		                        <span class="custom-switch-description">家属准证申请</span>
-		                        <input type="checkbox" name="applyDependentPromit" class="custom-switch-input">
-		                        <span class="custom-switch-indicator"></span>
-		                    </label>
-	                    </li>
-                    </ul>
-                  <div class="button-row d-flex mt-4">
-                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
-                  </div>
-                </div>
-              </div>
+			<!--PEN CONTENT -->
+			<div class="content">
+			  <!--content inner-->
+			  <div class="content__inner">
+			    <div class="container overflow-hidden">
+			      <!--multisteps-form-->
+			      <div class="multisteps-form">
+			        <!--progress bar-->
+			        <div class="row">
+			        	<div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+				            <div class="multisteps-form__progress">
+				              <button class="multisteps-form__progress-btn js-active" type="button" title="公司类型">公司类型</button>
+				              <button class="multisteps-form__progress-btn" type="button" title="注册和税收">注册和税收</button>
+				              <button class="multisteps-form__progress-btn" type="button" title="服务信息">服务信息</button>
+				              <button class="multisteps-form__progress-btn" type="button" title="总结">总结</button>
+				            </div>
+			        	</div>
+			        	<!-- Left side -->
+				        <div class="col-lg-8 col-md-12 col-12 col-sm-12">
+				           <form class="multisteps-form__form" action="/view/registerNewCompany" method="post">
+				              <!--single form panel-->
+				              <div class="multisteps-form__panel shadow p-4 rounded bg-white ad js-active" data-animation="scaleIn" id="companytype">
+				                <h3 class="multisteps-form__title">公司类型</h3>
+				                <div class="multisteps-form__content">
+				                	<div class="control-label">请从以下选择你需要的服务</div>
+				                	
+				                	<ul class="list-group list-group-flush">
+					                  	<li class="list-group-item">
+						                  	<label class="custom-switch mt-2">
+							                    <span class="custom-switch-description">Renewal </span>
+					                        	<input type="checkbox" name="Renewal" class="custom-switch-input"> 
+					                        	<span class="custom-switch-indicator"></span>
+							                </label>
+					                    </li>
+				                		<li class="list-group-item">
+							                <div class="form-group">
+							                      <label for="inputAddress">UEN</label>
+							                      <input type="text" class="form-control" id="inputAddress" placeholder="请输入UEN">
+							                </div>
+							            </li>
+							            <li class="list-group-item">
+							                <div class="form-group">
+							                      <label for="companyName">公司名称</label>
+							                      <input type="text" class="form-control" id="companyName" placeholder="请输入公司名称">
+							                </div>
+						                </li> 
+						                <li class="list-group-item">
+						                    <div class="form-group row">
+						                    	<label>公司类型</label>
+						                      	<select class="form-control form-control-sm">
+						                        	<option>PRIVATE LTD.</option>
+						                        	<option>PTE. LIMITED</option>
+						                        	<option>PRIVATE LIMITED</option>
+						                        	<option>PTE. LTD.</option>
+						                      	</select>
+						                    </div>
+                    					</li>
+                    					
+                    					<li class="list-group-item"> 
+                    						<input type="button" value="添加董事" class="btn btn-primary" onclick="addDongshi()">
+                    						<input type="button" value="添加股东" class="btn btn-primary" onclick="addGudong()">
+                    					</li>
+                    					<li class="list-group-item">
+							                <div class="form-group row">
+					                      		<label for="inputEmail3" class="col-sm-3 col-form-label">挂名董事</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control" id="guamingdongshi" placeholder="挂名董事"></div> 
+					                    	</div>
+                    					</li>
+                    					
+                    					<li class="list-group-item">
+							                <div class="form-group row">
+					                      		<label for="inputEmail3" class="col-sm-3 col-form-label">董事</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control" id="dongshi" placeholder="董事"></div>
+					                    	</div>
+                    					</li>
+                    					<li class="list-group-item">
+                    						<div id="dongshidiv"></div>
+                    					</li>
+                    					
+                    					<li class="list-group-item">
+							                <div class="form-group row">
+					                      		<label for="inputEmail3" class="col-sm-3 col-form-label">股东</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control" id="gudong" placeholder="股东"></div>
+					                    	</div>
+                    					</li>
+                    					<li class="list-group-item">
+                    						<div id="gudongdiv"></div>
+                    						<div id="content"></div>
+                    					</li>
 
-              <!--single form panel-->
-              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                <h3 class="multisteps-form__title">服务费用</h3>
-                <div class="multisteps-form__content">
-                	<div class="control-label">基于以上所选择的服务，你的费用详细如下，</div>
-                	<div class="card-body">
-	                    <ul class="list-group">
-	                      <li class="list-group-item d-flex justify-content-between align-items-center"> 新建公司
-	                        <span class="badge badge-primary badge-pill">S$1800</span>
-	                      </li>
-	                      <li class="list-group-item d-flex justify-content-between align-items-center"> 每年公司的助理服务
-	                        <span class="badge badge-primary badge-pill">S$1000</span>
-	                      </li>
-	                      <li class="list-group-item d-flex justify-content-between align-items-center"> 半年本地挂名股东服务
-	                        <span class="badge badge-primary badge-pill">S$2200</span>
-	                      </li>
-	                    </ul>
-                    </div>
-                  </div>
-                  <div class="button-row d-flex mt-4">
-                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
-                  </div>
-              </div>
-              
-               <!--single form panel-->
-              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                <h3 class="multisteps-form__title">处理时间</h3>
-                <div class="multisteps-form__content">
-                	<div class="control-label">请让我们知道你计划多久建立公司，</div>
-                	<div class="card-body">
-	                    <ul class="list-group">
-	                      <li class="list-group-item d-flex justify-content-between align-items-center">
-	                      	<input class="form-check-input" type="radio" name="processTime" id="inlineRadio1" value="option1"> 我已经准备好了，让我知道下一步骤
-	                      </li>
-	                      <li class="list-group-item d-flex justify-content-between align-items-center"> 
-	                        <input class="form-check-input" type="radio" name="processTime" id="inlineRadio2" value="option2"> 我差不多准备好了，但我有一点问题需要咨询
-	                      </li>
-	                      <li class="list-group-item d-flex justify-content-between align-items-center"> 
-	                        <input class="form-check-input" type="radio" name="processTime" id="inlineRadio3" value="option3"> 我现在只是咨询一下
-	                      </li>
-	                    </ul>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="button-row d-flex mt-4 col-12">
-                      <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-                      <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
-                    </div>
-                  </div>
-              </div>
-              
-               <!--single form panel-->
-              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                <h3 class="multisteps-form__title">联系方式</h3>
-                <div class="multisteps-form__content">
-                  
-                  <div class="card-body">
-                    <div class="alert alert-info">
-                      <b>联系方式</b>
-                    </div>
-                    <div class="form-group">
-                      <label>姓名 (必填)</label>
-                      <input type="text" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                      <label>电子邮件 (必填)</label>
-                      <input type="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                      <label>手机号码 (必填)</label>
-                      <input type="tel" class="form-control" required>
-                    </div>
-                  </div>
-                  
-                  <div class="row">
-                    <div class="button-row d-flex mt-4 col-12">
-                      <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-                      <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!--single form panel-->
-              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                <h3 class="multisteps-form__title">公司架构</h3>
-                <div class="multisteps-form__content">
-                  
-                  <div class="card">
-	                  <div class="card-header">
-	                    <h4>公司名称</h4>
-	                    	请按顺序提供3个你提议的公司名称，名称必须符合商标法
-	                  </div>
-	                  <div class="card-body">
-	                    <div class="form-group row">
-	                      <label for="inputEmail3" class="col-sm-3 col-form-label">提议的公司</label>
-	                      <div class="col-sm-9">
-	                        <input type="text" class="form-control" id="preferredname" placeholder="公司名称">
+                    					<li class="list-group-item">
+							                <div class="form-group row">
+					                      		<label for="inputEmail3" class="col-sm-3 col-form-label">秘书</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control" id="mishu" placeholder="秘书"></div>
+					                    	</div>
+                    					</li>
+                    					
+                    					<li class="list-group-item">
+							                <div class="form-group row">
+					                      		<label for="inputEmail3" class="col-sm-3 col-form-label">联系人</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control" id="lianxiren" placeholder="联系人"></div>
+					                    	</div>
+                    					</li>
+                    					
+                    					<li class="list-group-item">
+							                <div class="form-group row">
+					                      		<label for="inputEmail3" class="col-sm-3 col-form-label">电话/邮箱</label>
+					                      		<div class="col-sm-9"><input type="email" class="form-control" id="lianxiren" placeholder="电话/邮箱"></div>
+					                    	</div>
+                    					</li>
+                    				</ul>
+				                    <div class="button-row d-flex mt-4">
+					                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
+					                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
+				                  </div>
+				                </div>
+				              </div>
+				
+				              <!--single form panel-->
+				              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+				                <h3 class="multisteps-form__title">注册和税收</h3>
+				                <div class="multisteps-form__content">
+				                  
+				                  <div class="card-body">
+				                    <!-- <div class="alert alert-info"><b>联系方式</b></div> -->
+				                    <div class="form-group row">
+					                      <label for="registerAmount" class="col-sm-3 col-form-label">注册资本</label>
+					                      <div class="col-sm-9">
+					                        <input type="number" class="form-control" id="registerAmount" required>
+					                      </div>
+					                </div>
+					                <div class="form-group row">
+					                      <label for="actualAmount" class="col-sm-3 col-form-label">实缴资本</label>
+					                      <div class="col-sm-9">
+					                        <input type="number" class="form-control" id="actualAmount" required>
+					                      </div>
+					                </div>
+					                <div class="form-group row">
+					                      <label for="" class="col-sm-3 col-form-label">注册时间</label>
+					                      <div class="col-sm-9">
+					                        <input type="text" class="form-control" id="registerDate" required>
+					                      </div>
+					                </div>
+					                <div class="form-group row">
+					                      <label for="planAuditDate" class="col-sm-3 col-form-label">预计年审时间</label>
+					                      <div class="col-sm-9">
+					                        <input type="text" class="form-control" id="planAuditDate">
+					                      </div>
+					                </div>
+					                <div class="form-group row">
+					                      <label for="financetDate" class="col-sm-3 col-form-label">财务年度时间</label>
+					                      <div class="col-sm-9">
+					                        <input type="text" class="form-control" id="financetDate">
+					                      </div>
+					                </div>
+					                <div class="form-group row">
+					                      <label for="gstTaxDate" class="col-sm-3 col-form-label">GST 报税</label>
+					                      <div class="col-sm-9">
+					                        <input type="text" class="form-control" id="gstTaxDate">
+					                      </div>
+					                </div>
+					                <div class="form-group row">
+					                      <label for="formClaimDate" class="col-sm-3 col-form-label">FORM C-S 申报</label>
+					                      <div class="col-sm-9">
+					                        <input type="text" class="form-control" id="formClaimDate">
+					                      </div>
+					                </div>
+					                <div class="form-group row">
+					                      <label for="formTaxDate" class="col-sm-3 col-form-label">FORM C-S 完税</label>
+					                      <div class="col-sm-9">
+					                        <input type="text" class="form-control" id="formTaxDate">
+					                      </div>
+					                </div>
+					                <div class="form-group row">
+					                      <label for="eciClaimDate" class="col-sm-3 col-form-label">ECI申报</label>
+					                      <div class="col-sm-9">
+					                        <input type="text" class="form-control" id="eciClaimDate">
+					                      </div>
+					                </div>
+					                <div class="form-group row">
+					                      <label for="ecitaxDate" class="col-sm-3 col-form-label">ECI完税</label>
+					                      <div class="col-sm-9">
+					                        <input type="text" class="form-control" id="ecitaxDate">
+					                      </div>
+					                </div>
+					                <div class="form-group row">
+					                      <label for="xbrlClaimDate" class="col-sm-3 col-form-label">XBRL申报</label>
+					                      <div class="col-sm-9">
+					                        <input type="text" class="form-control" id="xbrlClaimDate">
+					                      </div>
+					                </div>
+					                <div class="form-group row">
+					                      <label for="openAccountDate" class="col-sm-3 col-form-label">开户时间</label>
+					                      <div class="col-sm-9">
+					                        <input type="text" class="form-control" id="openAccountDate">
+					                      </div>
+					                </div>
+					                <div class="form-group row">
+					                      <label for="OpenAccountCompleteDate" class="col-sm-3 col-form-label">开户完成时间</label>
+					                      <div class="col-sm-9">
+					                        <input type="text" class="form-control" id="OpenAccountCompleteDate">
+					                      </div>
+					                </div>
+				                  </div>
+				                  
+				                  <div class="row">
+				                    <div class="button-row d-flex mt-4 col-12">
+				                      <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
+				                      <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
+				                    </div>
+				                  </div>
+				                </div>
+				              </div>
+				              
+				              <!--single form panel-->
+				              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+				                <h3 class="multisteps-form__title">服务信息</h3>
+				                	<div class="card-body">
+					                    <div class="form-group">
+					                      <label>服务记录</label>
+					                      <input type="text" id="serviceRecord" class="form-control">
+					                    </div>
+					                    <div class="form-group">
+					                      <label>服务进度</label>
+					                      <input type="text" id="serviceProgress" class="form-control" disabled value="新建">
+					                    </div>
+					                    <div class="form-group">
+					                      <label>介绍人</label>
+					                      <input type="text" id="serviceInstrutor" class="form-control">
+					                    </div>
+					                    <div class="form-group">
+					                      <label>地址</label>
+					                      <input type="text" id="serivceAddress" class="form-control">
+					                    </div>
+					                    <div class="form-group">
+					                      <label>备注</label>
+					                      <textarea id="comment" id="serviceComment" rows="4" class="form-control"></textarea>
+					                    </div>
+					                </div>
+				                  <div class="button-row d-flex mt-4">
+				                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
+				                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="listSummary()">下一步</button>
+				                  </div>
+				              </div>
+				              
+				               <!--single form panel-->
+				              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+				                <h3 class="multisteps-form__title">总结</h3>
+				                <div class="multisteps-form__content">
+				                	<div class="card-body" id="summary">
+					                   <!--  <ul class="list-group">
+                                                             <li class="list-group-item d-flex justify-content-between align-items-center"> 新建公司
+                                                               <span class="badge badge-primary badge-pill">S$1800</span>
+                                                             </li>
+                                                             <li class="list-group-item d-flex justify-content-between align-items-center"> 每年公司的助理服务
+                                                               <span class="badge badge-primary badge-pill">S$1000</span>
+                                                             </li>
+                                                             <li class="list-group-item d-flex justify-content-between align-items-center"> 半年本地挂名股东服务
+                                                               <span class="badge badge-primary badge-pill">S$2200</span>
+                                                             </li>
+                                       </ul> -->
+				                    </div>
+				                  </div>
+				                  <div class="row">
+				                    <div class="button-row d-flex mt-4 col-12">
+				                      <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
+				                      <button class="btn btn-primary ml-auto js-btn-next" type="submit" title="Send">提交</button>
+				                    </div>
+				                  </div>
+				              </div>
+				              
+				            </form>
+				          </div>
+			        		
+		        		<!-- right side -->
+		        		<div class="col-lg-4 col-md-12 col-12 col-sm-12">
+			              <!-- Right side -->
+			              <div class="summary-item">
+	                        <h6 class="mt-3">服务类型 总计  (<span class="text-muted" id="total_service"></span>)</h6>
+	                        <ul class="list-unstyled list-unstyled-border">
+	                        
+	                          <li class="media">
+	                            <a href="#">
+	                              <img alt="image" class="mr-3 rounded" width="50" src="../assets/img/products/product-2-50.png">
+	                            </a>
+	                            <div class="media-body">
+	                              <div class="media-right"><span class="text-muted" id="price"></span></div>
+	                              <div class="media-title"><a href="#">公司名称: <span class="text-muted" id="company_name"></span></a></div>
+	                            </div>
+	                          </li>
+	                        </ul>
 	                      </div>
-	                    </div>
-	                    <div class="form-group row">
-	                      <label>公司后缀</label>
-	                      <select class="form-control form-control-sm">
-	                        <option>PRIVATE LTD.</option>
-	                        <option>PTE. LIMITED</option>
-	                        <option>PRIVATE LIMITED</option>
-	                        <option>PTE. LTD.</option>
-	                      </select>
-	                    </div>
-	                   </div>
-                   
-                   		<div class="card-header">
-		                    <h4>注册地址</h4>   请提供作为你公司的新加坡地址
-		                </div>
-		                
-		                <div class="card-body">
-		                    <div class="form-group">
-		                      <label for="inputAddress">注册地址</label>
-		                      <input type="text" class="form-control" id="inputAddress" placeholder="请输入详细地址">
-		                    </div>
-		                    <div class="form-row">
-		                      <div class="form-group col-md-6">
-		                        <input type="text" class="form-control" id="inputAddress2" placeholder="街道号码或名称">
-		                      </div>
-		                      <div class="form-group col-md-6">
-		                        <input type="text" class="form-control" id="inputAddress32" placeholder="楼层或套层">
-		                      </div>
-		                    </div>
-		                    <div class="form-row">
-		                      <div class="form-group col-md-6">
-		                        <input type="text" class="form-control" id="inputCity" placeholder="城市，县或邮编">
-		                      </div>
-		                      <div class="form-group col-md-4">
-		                        <select id="country" class="form-control">
-		                          <option selected>国家</option>
-		                          <option>新加坡</option>
-		                          <option>中国</option>
-		                          <option>马来西亚</option>
-		                        </select>
-		                      </div>
-		                    </div>
-		                  </div>
-
-                  	</div>
-                </div>
-                  
-                  <div class="row">
-                    <div class="button-row d-flex mt-4 col-12">
-                      <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-                      <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
-                    </div>
-                  </div>
-              </div>
-              
-              <!--single form panel-->
-              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                <h3 class="multisteps-form__title">总结</h3>
-                <div class="multisteps-form__content">
-                  
-                  <div class="control-label">你选择的服务</div>
-                	<ul class="list-group list-group-flush">
-	                  	<li class="list-group-item">
-		                  	<label class="custom-switch mt-2">
-		                        <span class="custom-switch-description">新建新公司</span>
-		                    </label>
-	                    </li>
-	                    <li class="list-group-item">
-		                    <label class="custom-switch mt-2">
-		                        <span class="custom-switch-description">每年公司的助理服务</span>
-		                    </label>
-		                </li>
-		                <li class="list-group-item">
-		                    <label class="custom-switch mt-2">
-		                        <span class="custom-switch-description">每年注册地址服务</span>
-		                    </label>
-		                </li>
-		                <li class="list-group-item">
-		                    <label class="custom-switch mt-2">
-		                        <span class="custom-switch-description">每年本地挂名股东服务</span>
-		                    </label>
-                    	</li>
-                    </ul>
-                   	<div class="control-label">移民服务</div>
-                   	<ul class="list-group list-group-flush">
-                    	<li class="list-group-item">
-		                    <label class="custom-switch mt-2">
-		                        <span class="custom-switch-description">工作准证申请</span>
-		                    </label>
-	                    </li>
-	            	</ul>
-                    
-                  <div class="row">
-                    <div class="button-row d-flex mt-4 col-12">
-                      <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-                      <button class="btn btn-primary ml-auto" type="submit" title="Send">提交</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- partial -->
+			            </div>
+			      </div>
+			    </div>
+			  </div>
+			<!-- partial -->
+			</div>
+		 </div>
         </section>
       </div>
       <footer class="main-footer">
@@ -374,18 +341,93 @@
           1.1.0
         </div>
       </footer>
-    </div>
-  </div>
 
   <!-- General JS Scripts -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="../assets/js/stisla.js"></script>
 
-  <!-- JS Libraies -->
+    <script type="text/javascript">
+
+    $(function() {
+        $( "#registerDate" ).datepicker();
+        $( "#planAuditDate" ).datepicker();
+        $( "#actualAuditDate" ).datepicker();
+        $( "#financetDate" ).datepicker();
+        $( "#gstTaxDate" ).datepicker();
+        $( "#formClaimDate" ).datepicker();
+        $( "#formTaxDate" ).datepicker();
+        $( "#eciClaimDate" ).datepicker();
+        $( "#ecitaxDate" ).datepicker();
+        $( "#xbrlClaimDate" ).datepicker();
+        $( "#openAccountDate" ).datepicker();
+        $( "#OpenAccountCompleteDate" ).datepicker();
+      });
+    
+    var services = [];
+    services.push("创建新公司");
+
+    $(document).ready(function(){
+    	  $("#companyName").change(function(){
+    		  $("#company_name").text($("#companyName").val());
+    		  $("#price").text("S$1000");
+    	  });
+
+    	  var number = services.length;
+    	  if (number == 1) {document.getElementById("total_service").innerHTML = number + " Item";}
+    	  else {document.getElementById("total_service").innerHTML = number + " Items";}
+    	  
+    	});
+	
+	  function addGudong () {
+		  document.querySelector('#gudongdiv').insertAdjacentHTML('afterend',
+		    `<li class="list-group-item">
+				<div class="form-group row">
+					<label class="col-sm-3 col-form-label">股东</label>
+					<div class="col-sm-9"><input type="text" class="form-control" id="gudong2" placeholder="股东">
+						<input type="button" value="-" onclick="removeGuDong(this)">
+					</div>
+					
+				</div>
+            </li>`      
+		  )
+	  }
+	  function addDongshi () {
+		  document.querySelector('#dongshidiv').insertAdjacentHTML('afterend',
+		    `<li class="list-group-item">
+				<div class="form-group row">
+					<label class="col-sm-3 col-form-label">董事</label>
+					<div class="col-sm-9"><input type="text" class="form-control" id="dongshi2" placeholder="董事">
+					    <input type="button" value="-" onclick="removeDongShi(this)">
+					</div>
+					
+				</div>
+            </li>`      
+		  )
+	  }
+	  function removeGuDong (input) {
+		  input.parentNode.parentNode.parentNode.remove()
+	  }
+	  function removeDongShi (input) {
+		  input.parentNode.parentNode.parentNode.remove()
+	  }
+
+	  function listSummary() {
+		  text = "<ul class='list-group'>";
+		  for (i = 0; i < sLen; i++) {
+		    text += "<li class='list-group-item d-flex justify-content-between align-items-center'>" + services[i] + 
+		                "<span class='badge badge-primary badge-pill'>" + services[i]  + "</span>" +
+		           "</li>";
+		  }
+		  text += "</ul>";
+
+		  document.getElementById("summary").innerHTML = text;
+	  }
+    </script>
 
   <!-- Template JS File -->
   <script src="../../../assets/js/scripts.js"></script>

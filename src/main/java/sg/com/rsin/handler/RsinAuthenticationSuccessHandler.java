@@ -25,7 +25,7 @@ public class RsinAuthenticationSuccessHandler implements AuthenticationSuccessHa
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
 	@Override
-	public void onAuthenticationSuccess(HttpServletRequest arg0, HttpServletResponse arg1,
+	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
 
 		boolean hasUserRole = false;
@@ -41,10 +41,11 @@ public class RsinAuthenticationSuccessHandler implements AuthenticationSuccessHa
 			}
 		}
 
+		request.setAttribute("loginUser", authentication.getName());
 		if (hasUserRole) {
-			redirectStrategy.sendRedirect(arg0, arg1, "/addNewEmployee");
+			redirectStrategy.sendRedirect(request, response, "/addNewEmployee");
 		} else if (hasAdminRole) {
-			redirectStrategy.sendRedirect(arg0, arg1, "/userWelcome");
+			redirectStrategy.sendRedirect(request, response, "/userWelcome");
 		} else {
 			throw new IllegalStateException();
 		}

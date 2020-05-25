@@ -50,7 +50,7 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
     @Bean
     public UserDetailsService userDetailsService() {
-        return new LightSwordUserDetailService();
+        return new RsinUserDetailService();
 
     }
 
@@ -71,7 +71,7 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 			   .antMatchers("/addNewEmployee").hasAnyRole("ADMIN")
 			   .antMatchers("/mybusiness/**").hasAnyRole("USER","ADMIN")
 			   .anyRequest().authenticated().and().formLogin().successHandler(successHandler)
-			   .loginPage("/login").permitAll().and().logout().permitAll();
+			   .loginPage("/login").permitAll().and().logout().permitAll().and().rememberMe();
 
 		http.logout().logoutSuccessUrl("/");
 		http.csrf().disable();
@@ -79,7 +79,7 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	 @Override
 	 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		 auth.userDetailsService(userDetailsService()); // （6）
+		 auth.userDetailsService(userDetailsService()).passwordEncoder(new BCryptPasswordEncoder());
 	 }
 
 }

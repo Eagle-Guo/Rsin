@@ -30,10 +30,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 
 /**
-  * Created by jack on 2017/4/29.
+  * Verify the user, password and role
   */
 @Service
-class LightSwordUserDetailService implements UserDetailsService {
+class RsinUserDetailService implements UserDetailsService {
 
     @Autowired 
     UserRoleRepository userRoleRepository;
@@ -54,8 +54,7 @@ class LightSwordUserDetailService implements UserDetailsService {
     List<UserRole> userRoles = userRoleRepository.findByUserId(user.getId());
 
     for (UserRole userRole : userRoles) {
-      long roleId = userRole.getRoleId();
-      Roles role = roleRepository.findById(roleId);
+      Roles role = roleRepository.findById(userRole.getRoleId());
       if (!StringUtils.isEmpty(role.getName())) {
         authorities.add(new SimpleGrantedAuthority(role.getName()));
       }

@@ -43,10 +43,10 @@
 			        <div class="row">
 			        	<div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
 				            <div class="multisteps-form__progress">
-				              <button class="multisteps-form__progress-btn js-active" type="button" title="公司类型">公司类型</button>
-				              <button class="multisteps-form__progress-btn" type="button" title="注册和税收">注册和税收</button>
-				              <button class="multisteps-form__progress-btn" type="button" title="服务信息">服务信息</button>
-				              <button class="multisteps-form__progress-btn" type="button" title="总结">总结</button>
+				              <button class="multisteps-form__progress-btn js-active" type="button" title="选择服务">选择服务</button>
+				              <button class="multisteps-form__progress-btn" type="button" title="填报资料">填报资料</button>
+				              <button class="multisteps-form__progress-btn" type="button" title="在线确认">在线确认</button>
+				              <button class="multisteps-form__progress-btn" type="button" title="在线支付">在线支付</button>
 				            </div>
 			        	</div>
 			        	<!-- Left side -->
@@ -54,7 +54,135 @@
 				           <form class="multisteps-form__form" action="/view/registerNewCompany" method="post">
 				              <!--single form panel-->
 				              <div class="multisteps-form__panel shadow p-4 rounded bg-white ad js-active" data-animation="scaleIn" id="companytype">
-				                <h3 class="multisteps-form__title">公司类型</h3>
+				                <h3 class="multisteps-form__title">选择服务</h3>
+				                <div class="multisteps-form__content">
+				                	<div class="control-label">请从以下选择你需要的服务</div>
+				                	
+				                	<span class="custom-switch-description">公司类型</span>
+				                	<ul class="list-group">
+				                      <li class="list-group-item d-flex justify-content-between align-items-center">
+				                      	<input class="form-check-input" type="radio" name="companyType" id="companyType1" value="companyType1">私人豁免有限公司Exempt Private Limited Company (PTE LTD)
+				                      </li>
+				                      <li class="list-group-item d-flex justify-content-between align-items-center"> 
+				                        <input class="form-check-input" type="radio" name="companyType" id="companyType2" value="companyType2">公众有限责任公司Public Limited Company(Ltd.)
+				                      </li>
+				                    </ul>
+
+									<div class="control-label">可选服务</div>
+				                	<ul class="list-group list-group-flush">
+					                  	<li class="list-group-item">
+						                  	<label class="custom-switch mt-2">
+							                    <span class="custom-switch-description">新注册新加坡公司开户</span>
+					                        	<input type="checkbox" class="custom-switch-input"  id="openAccount" onclick="openAccountFunction()"> 
+					                        	<span class="custom-switch-indicator"></span>
+							                </label>
+						                	<div class="card-body" id="openAccountDeatil" style="display:none">
+							                    <ul class="list-group">
+							                      <li class="list-group-item d-flex justify-content-between align-items-center">1个户口
+							                        <span class="badge badge-primary badge-pill">S$300</span>
+							                      </li>
+							                      <li class="list-group-item d-flex justify-content-between align-items-center">押金
+							                        <span class="badge badge-primary badge-pill">S$1500</span>
+							                      </li>
+							                    </ul>
+						                    </div>
+					                    </li>
+				                		<li class="list-group-item">
+							                <label class="custom-switch mt-2">
+							                      <span class="list-group-item d-flex justify-content-between align-items-center">挂名董事
+							                        <span class="badge badge-primary badge-pill">S$1800/年</span>
+							                      </span>
+							                      <input type="checkbox" class="custom-switch-input" id="guamingdongshi"> 
+							                      <span class="custom-switch-indicator"></span>
+							                </label>
+							            </li>
+							            <li class="list-group-item">
+							                <div class="form-group">
+							                      <span class="list-group-item d-flex justify-content-between align-items-center">挂名股东
+							                        <span class="badge badge-primary badge-pill">S$1000/年</span>
+							                      </span>
+							                      <input type="checkbox" class="custom-switch-input" id="guaminggudong"> 
+							                      <span class="custom-switch-indicator"></span>
+							                </div>
+						                </li> 
+						                <li class="list-group-item">
+						                    <div class="form-group row">
+						                    	<label>共享办公室</label>
+						                      	<select class="form-control form-control-sm">
+						                        	<option>3个月 - 2400 </option>
+						                        	<option>6个月 - 4800</option>
+						                        	<option>12个月 - 9600</option>
+						                      	</select>
+						                    </div>
+                    					</li>
+                    					
+                    					<li class="list-group-item"> 
+                    						<div class="form-group">
+							                      <div class="list-group-item d-flex justify-content-between align-items-center">商标注册
+							                        <span class="badge badge-primary badge-pill">S$1200/年</span>
+							                      </div>
+							                      <input type="checkbox" class="custom-switch-input"  id="guamingdongshi"> 
+							                </div>
+                    					</li>
+                    					<li class="list-group-item">
+							                <div class="form-group row">
+					                      		<label for="inputEmail3" class="col-sm-3 col-form-label">挂名董事</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control" id="guamingdongshi" placeholder="挂名董事"></div> 
+					                    	</div>
+                    					</li>
+                    					
+                    					<li class="list-group-item">
+							                <div class="form-group row">
+					                      		<label for="inputEmail3" class="col-sm-3 col-form-label">董事</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control" id="dongshi" placeholder="董事"></div>
+					                    	</div>
+                    					</li>
+                    					<li class="list-group-item">
+                    						<div id="dongshidiv"></div>
+                    					</li>
+                    					
+                    					<li class="list-group-item">
+							                <div class="form-group row">
+					                      		<label for="inputEmail3" class="col-sm-3 col-form-label">股东</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control" id="gudong" placeholder="股东"></div>
+					                    	</div>
+                    					</li>
+                    					<li class="list-group-item">
+                    						<div id="gudongdiv"></div>
+                    						<div id="content"></div>
+                    					</li>
+
+                    					<li class="list-group-item">
+							                <div class="form-group row">
+					                      		<label for="inputEmail3" class="col-sm-3 col-form-label">秘书</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control" id="mishu" placeholder="秘书"></div>
+					                    	</div>
+                    					</li>
+                    					
+                    					<li class="list-group-item">
+							                <div class="form-group row">
+					                      		<label for="inputEmail3" class="col-sm-3 col-form-label">联系人</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control" id="lianxiren" placeholder="联系人"></div>
+					                    	</div>
+                    					</li>
+                    					
+                    					<li class="list-group-item">
+							                <div class="form-group row">
+					                      		<label for="inputEmail3" class="col-sm-3 col-form-label">电话/邮箱</label>
+					                      		<div class="col-sm-9"><input type="email" class="form-control" id="lianxiren" placeholder="电话/邮箱"></div>
+					                    	</div>
+                    					</li>
+                    				</ul>
+				                    <div class="button-row d-flex mt-4">
+					                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
+					                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
+				                  </div>
+				                </div>
+				              </div>
+				              
+				              <!--single form panel
+				              <div class="multisteps-form__panel shadow p-4 rounded bg-white ad js-active" data-animation="scaleIn" id="companytype">
+				                <h3 class="multisteps-form__title">填报资料</h3>
 				                <div class="multisteps-form__content">
 				                	<div class="control-label">请从以下选择你需要的服务</div>
 				                	
@@ -148,11 +276,11 @@
 					                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
 				                  </div>
 				                </div>
-				              </div>
+				              </div>-->
 				
 				              <!--single form panel-->
 				              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-				                <h3 class="multisteps-form__title">注册和税收</h3>
+				                <h3 class="multisteps-form__title">填报资料</h3>
 				                <div class="multisteps-form__content">
 				                  
 				                  <div class="card-body">
@@ -248,7 +376,7 @@
 				              
 				              <!--single form panel-->
 				              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-				                <h3 class="multisteps-form__title">服务信息</h3>
+				                <h3 class="multisteps-form__title">在线确认</h3>
 				                	<div class="card-body">
 					                    <div class="form-group">
 					                      <label>服务记录</label>
@@ -279,7 +407,7 @@
 				              
 				               <!--single form panel-->
 				              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-				                <h3 class="multisteps-form__title">总结</h3>
+				                <h3 class="multisteps-form__title">在线支付</h3>
 				                <div class="multisteps-form__content">
 				                	<div class="card-body" id="summary">
 					                   <!--  <ul class="list-group">
@@ -352,6 +480,19 @@
   <script src="../assets/js/stisla.js"></script>
 
     <script type="text/javascript">
+
+    function openAccountFunction() {
+    	  // Get the checkbox
+    	  var checkBox = document.getElementById("openAccount");
+    	  // Get the output text
+    	  var text = document.getElementById("openAccountDeatil");
+    	  // If the checkbox is checked, display the output text
+    	  if (checkBox.checked == true){
+    	    text.style.display = "block";
+    	  } else {
+    	    text.style.display = "none";
+    	  }
+    }
 
     $(function() {
         $( "#registerDate" ).datepicker();

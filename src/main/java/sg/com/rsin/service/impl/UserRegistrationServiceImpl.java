@@ -12,7 +12,6 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
-import jdk.internal.jline.internal.Log;
 import sg.com.rsin.dao.EmployeeDao;
 import sg.com.rsin.dao.UserRegistrationRepository;
 import sg.com.rsin.entity.CommonResponse;

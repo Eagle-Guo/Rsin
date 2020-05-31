@@ -647,17 +647,74 @@
 					                      		<div class="col-sm-9"><textarea  class="form-control"  placeholder="公司地址及邮编"></textarea></div>
 					                     </div> 			                    
 				                    <div class="section-title">董事、股东、联系人资料</div>	
-					                    <div class="form-group">
-					                      <label>职位填报类型</label>
-					                      <select class="custom-select">
-					                        <option selected>Open this select menu</option>
-					                        <option value="1">One</option>
-					                        <option value="2">Two</option>
-					                        <option value="3">Three</option>
-					                      </select>
-					                    </div>				                    
-				                    
-				                    			                    
+   							             <div class="form-group row">
+					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">职位填报类型</label>
+					                      		<div class="col-sm-9">
+								                     <select class="custom-select">
+								                        <option selected>请选择</option>
+								                        <option value="1">董事</option>
+								                        <option value="2">股东</option>
+								                        <option value="3">联系人</option>
+								                      </select>
+					                      		</div>
+					                     </div> 				                    				                    				                   			                    
+   							             <div class="form-group row">
+					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">全名（护照姓名）*</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="全名（护照姓名）"></div>
+					                     </div> 
+   							             <div class="form-group row">
+					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">国籍*</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="国籍"></div>
+					                     </div> 					                     
+   							             <div class="form-group row">
+					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">性别</label>
+					                      		<div class="col-sm-9">
+						                      	<select class="custom-select" id="inlineFormInputGroupUsername2">
+														 <option selected>男</option>
+														 <option value="1">女</option>
+												</select>
+					                      		</div>
+					                     </div> 					                     
+   							             <div class="form-group row">
+					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">身份证类型</label>
+					                      		<div class="col-sm-9">
+						                      	<select class="custom-select" id="inlineFormInputGroupUsername2">
+														 <option selected>NRIC（公民）</option>
+														 <option value="1">NRIC（永久居民）</option>
+														 <option value="2">FIN</option>														 
+														 <option value="3">护照/其他</option>														 													 
+												</select>
+					                      		</div>
+					                     </div> 					                     
+   							             <div class="form-group row">
+					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">证件号码*</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="证件号码"></div>
+					                     </div> 
+   							             <div class="form-group row">
+					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">出生国家*</label>
+					                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="出生国家"></div>
+					                     </div> 
+   							             <div class="form-group row">
+					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">出生日期*</label>
+					                      		<div class="col-sm-9"><input type="date" class="form-control"  placeholder="出生日期"></div>
+					                     </div> 
+   							             <div class="form-group row">
+					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">电子邮箱*</label>
+					                      		<div class="col-sm-9"><input type="email" class="form-control"  placeholder="电子邮箱"></div>
+					                     </div> 
+   							             <div class="form-group row">
+					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">联系电话*</label>
+					                      		<div class="col-sm-9"><input type="tel" class="form-control"  placeholder="联系电话"></div>
+					                     </div> 
+   							             <div class="form-group row">
+					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">个人地址及邮编</label>
+					                      		<div class="col-sm-9"><textarea  class="form-control"  placeholder="个人地址及邮编"></textarea></div>
+					                     </div> 
+   							             <div class="form-group row">
+					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">NRIC / ID / FIN /护照/其他</label>
+					                      		<div class="col-sm-9"><input type="file" class="form-control"  placeholder="联系电话"></div>
+					                     </div>					                     			                    
+				                    		                    			                    
 				                	<ul class="list-group list-group-flush">				                
 					                  	<li class="list-group-item">
 						                  	<label class="custom-switch mt-2 justify-content-between">
@@ -674,17 +731,6 @@
 							                      <label>国籍</label>
 							                      <input type="text" class="form-control">
 							                    </div>						                    	
-							                  <div class="card-body">
-							                    <form class="form-inline">
-							                      <label class="sr-only" for="inlineFormInputName2">性别</label>
-							                      <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
-							
-							                      <label class="sr-only" for="inlineFormInputGroupUsername2">身份证类型</label>
-							                      <div class="input-group mb-2 mr-sm-2">
-							                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
-							                      </div>
-							                    </form>
-	                 						 </div>																		                    							                    	
 						                    </div>
 					                    </li>
 					                   

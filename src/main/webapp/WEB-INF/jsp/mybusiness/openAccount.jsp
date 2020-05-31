@@ -31,7 +31,7 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>创建新公司</h1>
+            <h1>银行开户</h1>
           </div>
 			<!--PEN CONTENT -->
 			<div class="content">

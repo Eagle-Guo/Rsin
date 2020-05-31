@@ -106,6 +106,12 @@ public class ViewController {
 		return model;
 	}
 	
+	@RequestMapping("/mybusiness/openAccount")
+	public ModelAndView openAccount() {
+		ModelAndView model = new ModelAndView("mybusiness/openAccount");
+		return model;
+	}
+	
 	@RequestMapping("/coming")
 	public ModelAndView coming() {
 		ModelAndView model = new ModelAndView("coming");

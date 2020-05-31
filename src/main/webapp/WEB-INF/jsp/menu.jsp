@@ -237,7 +237,7 @@
                 <a href="coming.html" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>我的业务</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="/mybusiness/newCompany">公司注册</a></li>
-                  <li><a class="nav-link beep beep-sidebar" href="/coming">银行开户</a></li>
+                  <li><a class="nav-link beep beep-sidebar" href="/mybusiness/openAccount">银行开户</a></li>
                   <li><a class="nav-link" href="/coming">其它选择业务记录</a></li>
                 </ul>
               </li>

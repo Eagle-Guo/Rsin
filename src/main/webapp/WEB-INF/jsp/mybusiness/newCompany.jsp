@@ -623,32 +623,32 @@
 				                    <!-- <div class="alert alert-info"><b>联系方式</b></div> -->
 				                    <div class="section-title">公司资料</div>				                    				                   				             
 							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">公司名称</label>
+					                      	 <label  class="col-sm-3 col-form-label">公司名称</label>
 					                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司名称"></div>
 					                     </div>
 							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">公司备用名称</label>
+					                      	 <label  class="col-sm-3 col-form-label">公司备用名称</label>
 					                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司备用名称"></div>
 					                     </div>                    		
 							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">公司类型</label>
+					                      	 <label  class="col-sm-3 col-form-label">公司类型</label>
 					                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司类型"></div>
 					                     </div>   
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">注册资本</label>
+					                      	 <label  class="col-sm-3 col-form-label">注册资本</label>
 					                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="注册资本"></div>
 					                     </div>                    			              
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">公司商业活动</label>
+					                      	 <label  class="col-sm-3 col-form-label">公司商业活动</label>
 					                      		<div class="col-sm-9"><textarea  class="form-control"  placeholder="公司商业活动"></textarea></div>
 					                     </div>  	
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">公司地址及邮编</label>
+					                      	 <label  class="col-sm-3 col-form-label">公司地址及邮编</label>
 					                      		<div class="col-sm-9"><textarea  class="form-control"  placeholder="公司地址及邮编"></textarea></div>
 					                     </div> 			                    
 				                    <div class="section-title">董事、股东、联系人资料</div>	
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">职位填报类型</label>
+					                      	 <label  class="col-sm-3 col-form-label">职位填报类型</label>
 					                      		<div class="col-sm-9">
 								                     <select class="custom-select">
 								                        <option selected>请选择</option>
@@ -659,15 +659,15 @@
 					                      		</div>
 					                     </div> 				                    				                    				                   			                    
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">全名（护照姓名）*</label>
+					                      	 <label  class="col-sm-3 col-form-label">全名（护照姓名）*</label>
 					                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="全名（护照姓名）"></div>
 					                     </div> 
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">国籍*</label>
+					                      	 <label  class="col-sm-3 col-form-label">国籍*</label>
 					                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="国籍"></div>
 					                     </div> 					                     
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">性别</label>
+					                      	 <label  class="col-sm-3 col-form-label">性别</label>
 					                      		<div class="col-sm-9">
 						                      		<select class="custom-select" id="inlineFormInputGroupUsername2">
 														 <option selected>男</option>
@@ -676,7 +676,7 @@
 					                      		</div>
 					                     </div> 					                     
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">身份证类型</label>
+					                      	 <label  class="col-sm-3 col-form-label">身份证类型</label>
 					                      		<div class="col-sm-9">
 						                      	<select class="custom-select" id="inlineFormInputGroupUsername2">
 														 <option selected>NRIC（公民）</option>
@@ -687,35 +687,54 @@
 					                      		</div>
 					                     </div> 					                     
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">证件号码*</label>
+					                      	 <label  class="col-sm-3 col-form-label">证件号码*</label>
 					                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="证件号码"></div>
 					                     </div> 
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">出生国家*</label>
+					                      	 <label  class="col-sm-3 col-form-label">出生国家*</label>
 					                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="出生国家"></div>
 					                     </div> 
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">出生日期*</label>
+					                      	 <label  class="col-sm-3 col-form-label">出生日期*</label>
 					                      		<div class="col-sm-9"><input type="date" class="form-control"  placeholder="出生日期"></div>
 					                     </div> 
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">电子邮箱*</label>
+					                      	 <label  class="col-sm-3 col-form-label">电子邮箱*</label>
 					                      		<div class="col-sm-9"><input type="email" class="form-control"  placeholder="电子邮箱"></div>
 					                     </div> 
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">联系电话*</label>
+					                      	 <label  class="col-sm-3 col-form-label">联系电话*</label>
 					                      		<div class="col-sm-9"><input type="tel" class="form-control"  placeholder="联系电话"></div>
 					                     </div> 
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">个人地址及邮编</label>
+					                      	 <label  class="col-sm-3 col-form-label">个人地址及邮编</label>
 					                      		<div class="col-sm-9"><textarea  class="form-control"  placeholder="个人地址及邮编"></textarea></div>
 					                     </div> 
+   							             <div class="form-group row" style="margin-top: 1rem;">
+					                      	 <label  class="col-sm-3 col-form-label">NRIC / ID / FIN /护照/其他</label>
+					                      	 <div class="col-sm-8"><input type="file" class="form-control"  placeholder="资料上传"></div>
+					                      	 <div class="col-sm-1" style="margin-top:.5rem;padding-left:0;"><input type="button" value="+" onclick="addFile(1)"></div>					                      	 
+					                     </div>	
+					                      <div class="form-group row"  id="addfilediv">
+					                     </div>		
    							             <div class="form-group row">
-					                      	 <label for="inputEmail3" class="col-sm-3 col-form-label">NRIC / ID / FIN /护照/其他</label>
-					                      		<div class="col-sm-9"><input type="file" class="form-control"  placeholder="联系电话"></div>
-					                     </div>					                     			                    
-				                    		                    			                    
-				                	<ul class="list-group list-group-flush">				                
+					                      	 <label  class="col-sm-3 col-form-label">住所证明（海外）（3个月内出具）</label>
+					                      	 <div class="col-sm-8"><input type="file" class="form-control"  placeholder="资料上传"></div>
+					                      	 <div class="col-sm-1" style="margin-top:.5rem;padding-left:0;"><input type="button" value="+" onclick="addFileadd(1)"></div>					                      	 
+					                     </div>	
+					                      <div class="form-group row"  id="addfiledivadd">
+					                     </div>						                     
+   							             <div class="form-group row">
+					                      	 <label  class="col-sm-3 col-form-label">持护照(打开有照片页)正面头部照(董事和股东需要)</label>
+					                      	 <div class="col-sm-8"><input type="file" class="form-control"  placeholder="资料上传"></div>
+					                      	 <div class="col-sm-1" style="margin-top:.5rem;padding-left:0;"><input type="button" value="+" onclick="addFilepimg(1)"></div>					                      	 
+					                     </div>	
+					                      <div class="form-group row"  id="addfiledivpimg">
+					                     </div>						                     
+					                     									 			                     			                    					                     	    				
+					                     				
+					                     				                    		                    			                    
+				                	<!--<ul class="list-group list-group-flush">				                
 					                  	<li class="list-group-item">
 						                  	<label class="custom-switch mt-2 justify-content-between">
 							                    <span class="custom-switch-description nc_subttitle">增加填报资料 </span>
@@ -734,7 +753,7 @@
 						                    </div>
 					                    </li>
 					                   
-                    				</ul>
+                    				</ul>-->
 				                    <div class="button-row d-flex mt-4">
 					                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
 					                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
@@ -1204,7 +1223,51 @@
 	  		z= [];		
  	}	
      }  
-	      	
+
+		  function addFile (x) {
+			  document.querySelector('#addfilediv').insertAdjacentHTML('afterend',
+			    ` <div class="form-group row"  style="padding-left:15px;">
+	              <label class="col-sm-3 col-form-label">NRIC / ID / FIN /护照/其他</label>
+	              <div class="col-sm-8"><input type="file" class="form-control"  placeholder="联系电话"></div>
+	              <div class="col-sm-1" style="margin-top:.5rem;padding-left:0;"><input type="button" value="-" onclick="removeFile(this)"></div>	              
+					 </div>		 
+	            </li>`      
+			  )
+		  }		 
+		  function removeFile (input) {
+			  input.parentNode.parentNode.remove()
+		  }
+
+		  
+		  function addFileadd (x) {
+			  document.querySelector('#addfiledivadd').insertAdjacentHTML('afterend',
+			    ` <div class="form-group row"  style="padding-left:15px;">
+	              <label class="col-sm-3 col-form-label">住所证明（海外）（3个月内出具）</label>
+	              <div class="col-sm-8"><input type="file" class="form-control"  placeholder="联系电话"></div>
+	              <div class="col-sm-1" style="margin-top:.5rem;padding-left:0;"><input type="button" value="-" onclick="removeFileadd(this)"></div>	              
+					 </div>		 
+	            </li>`      
+			  )
+		  }		 
+		  function removeFileadd (input) {
+			  input.parentNode.parentNode.remove()
+		  }
+
+		  function addFilepimg (x) {
+			  document.querySelector('#addfiledivpimg').insertAdjacentHTML('afterend',
+			    ` <div class="form-group row"  style="padding-left:15px;">
+	              <label class="col-sm-3 col-form-label">持护照(打开有照片页)正面头部照(董事和股东需要)</label>
+	              <div class="col-sm-8"><input type="file" class="form-control"  placeholder="联系电话"></div>
+	              <div class="col-sm-1" style="margin-top:.5rem;padding-left:0;"><input type="button" value="-" onclick="removeFilepimg(this)"></div>	              
+					 </div>		 
+	            </li>`      
+			  )
+		  }		 
+		  function removeFilepimg (input) {
+			  input.parentNode.parentNode.remove()
+		  }
+
+		  
 </script>
 
   <!-- Template JS File -->

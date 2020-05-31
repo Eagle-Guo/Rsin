@@ -674,17 +674,17 @@
 							                      <label>国籍</label>
 							                      <input type="text" class="form-control">
 							                    </div>						                    	
-                  <div class="card-body">
-                    <form class="form-inline">
-                      <label class="sr-only" for="inlineFormInputName2">性别</label>
-                      <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
-
-                      <label class="sr-only" for="inlineFormInputGroupUsername2">身份证类型</label>
-                      <div class="input-group mb-2 mr-sm-2">
-                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
-                      </div>
-                    </form>
-                  </div>																		                    							                    	
+							                  <div class="card-body">
+							                    <form class="form-inline">
+							                      <label class="sr-only" for="inlineFormInputName2">性别</label>
+							                      <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
+							
+							                      <label class="sr-only" for="inlineFormInputGroupUsername2">身份证类型</label>
+							                      <div class="input-group mb-2 mr-sm-2">
+							                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+							                      </div>
+							                    </form>
+	                 						 </div>																		                    							                    	
 						                    </div>
 					                    </li>
 					                   
@@ -693,6 +693,7 @@
 					                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
 					                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
 				                  </div>
+				                </div>
 				                </div>
 				              </div>
 				              
@@ -947,21 +948,7 @@
 		        		<!-- right side -->
 		        		<div class="col-lg-4 col-md-12 col-12 col-sm-12">
 			              <!-- Right side -->
-			              <div class="summary-item">
-	                        <h6 class="mt-3">服务类型 总计  (<span class="text-muted" id="total_service"></span>)</h6>
-	                        <ul class="list-unstyled list-unstyled-border">
-	                        
-	                          <li class="media">
-	                            <a href="#">
-	                              <img alt="image" class="mr-3 rounded" width="50" src="../assets/img/products/product-2-50.png">
-	                            </a>
-	                            <div class="media-body">
-	                              <div class="media-right"><span class="text-muted" id="price"></span></div>
-	                              <div class="media-title"><a href="#">公司名称: <span class="text-muted" id="company_name"></span></a></div>
-	                            </div>
-	                          </li>
-	                        </ul>
-	                      </div>
+			              <div class="summary-item" id="selected_summary"> </div>
 			            </div>
 			      </div>
 			    </div>
@@ -1020,18 +1007,32 @@
       });
     
     var services = [];
-    services.push("创建新公司");
+    services.push({name:"创建新公司",price:5000});
+    services.push({name:"公司",price:800});
 
     $(document).ready(function(){
-    	  $("#companyName").change(function(){
-    		  $("#company_name").text($("#companyName").val());
-    		  $("#price").text("S$1000");
-    	  });
-
     	  var number = services.length;
-    	  if (number == 1) {document.getElementById("total_service").innerHTML = number + " Item";}
-    	  else {document.getElementById("total_service").innerHTML = number + " Items";}
+    	  var selectedsummaryhtml = "<h6 class='mt-3'>服务类型详细清单</h6><ul class='list-unstyled list-unstyled-border'>";
+    	  var totalamount = 0;
     	  
+    	  for (let i=0; i<services.length; i+=1) {
+    		  totalamount = totalamount + services[i].price;
+    		  selectedsummaryhtml += 
+        		   `<li class="media"><a href="#"><img alt="image" class="mr-3 rounded" width="50" src="../assets/img/products/product-2-50.png"></a>
+        	            <div class="media-body"><div class="media-right"><span class="text-muted" id="price">`;
+              selectedsummaryhtml += services[i].price;
+              selectedsummaryhtml += `</span></div><div class="media-title"><a href="#">`;
+              selectedsummaryhtml += `<span class="text-muted" id="company_name">`;
+              selectedsummaryhtml += services[i].name; 
+              selectedsummaryhtml += "</span></a></div></div></li>";
+    	  }                  
+    	  selectedsummaryhtml += "</ul>";
+ 
+    	  selectedsummaryhtml += `<h6 class="mt-3">总计服务<span class="text-muted media-left">(`;
+    	  selectedsummaryhtml += services.length
+    	  selectedsummaryhtml += ") </span>  总计金额  (<span class='text-muted media-right'>" + totalamount + "</span>)</h6>";
+    	  document.getElementById("selected_summary").innerHTML = selectedsummaryhtml;
+    	  ///////////
     	});
 	
 	  function addGudong () {
@@ -1079,19 +1080,12 @@
 		  document.getElementById("summary").innerHTML = text;
 	  }
 
-
-//    function choosedsv(){  
-	   //    var myli = document.getElementById("choosedsvr");
-     //    myli.style.background-color = "#f8fafb";
-     //  }
-
-
-function choosedsv(x)
-{
-	//document.getElementsByClassName("choosedsvr")[x].style.backgroundColor= '#f8fafb'; 	
-	var element = document.getElementsByClassName("choosedsvr")[x];
-	element.classList.toggle("choosesv");	
-}
+	function choosedsv(x)
+	{
+		//document.getElementsByClassName("choosedsvr")[x].style.backgroundColor= '#f8fafb'; 	
+		var element = document.getElementsByClassName("choosedsvr")[x];
+		element.classList.toggle("choosesv");	
+	}
 </script>
 <script>		
 	var z= [];

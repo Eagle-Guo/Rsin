@@ -34,7 +34,7 @@
             <h1>创建新公司</h1>
           </div>
 			<!--PEN CONTENT -->
-			<div class="content">
+			<div class="content" style="overflow: auto;">
 			  <!--content inner-->
 			  <div class="content__inner">
 			    <div class="container overflow-hidden">
@@ -1030,10 +1030,144 @@
     	  // Get the output text
     	  var text = document.getElementById(y);
     	  // If the checkbox is checked, display the output text
+    	  
     	  if (checkBox.checked == true){
     	    text.style.display = "block";
-    	  } else {
+
+    	    switch (x) {
+    	    case "openAccount":
+    	    	z.push(document.getElementById("inputGroupSelect04").value);
+    			z.push(document.getElementById("countYear").value);
+    	    	if (services.some(el => el.name === "新注册新加坡公司开户")){
+    				services = services.filter(item => item.name !== "新注册新加坡公司开户")
+    			}
+    			services.push({name:"新注册新加坡公司开户",price:300});
+    			refreshRightSummary();
+    			z=[];
+    	        break;
+    	    case "openAccount2":
+    	    	z.push(document.getElementById("inputGroupSelect04").value);
+    			z.push(document.getElementById("countYear").value);
+    	    	if (services.some(el => el.name === "挂名董事")){
+    				services = services.filter(item => item.name !== "挂名董事")
+    				services = services.filter(item => item.name !== "押金")
+    			}
+    			services.push({name:"挂名董事",price:z[0]*z[1]*1800});
+    			services.push({name:"押金",price:1500});
+    			refreshRightSummary();
+    			z=[];
+    	        break;
+    	    case "openAccount3":
+      	    	z.push(document.getElementById("countGuDong").value);
+      			z.push(document.getElementById("countYearGuDong").value);
+      	    	if (services.some(el => el.name === "挂名股东")){
+      				services = services.filter(item => item.name !== "挂名股东")
+      			}
+      			services.push({name:"挂名股东",price:z[0]*z[1]*1800});
+      			refreshRightSummary();
+      			z=[];
+      	        break;
+    	    case "openAccount4":
+    	    	z.push(document.getElementById("countoffice").value);
+      			z.push(document.getElementById("countMoffice").value);
+      	    	if (services.some(el => el.name === "共享办公室")){
+      				services = services.filter(item => item.name !== "共享办公室")
+      			}
+      			services.push({name:"共享办公室",price:z[0]*z[1]*1800});
+      			refreshRightSummary();
+      			z=[];
+      	        break;
+    	    case "openAccount5":
+      	    	if (services.some(el => el.name === "商标注册")){
+      				services = services.filter(item => item.name !== "商标注册")
+      			}
+      			services.push({name:"商标注册",price:2100});
+      			refreshRightSummary();
+      			z=[];
+      	        break;
+    	    case "openAccount6":
+      	    	z.push(document.getElementById("countapgst").value);
+      	    	if (services.some(el => el.name === "GST消费税注册")){
+      				services = services.filter(item => item.name !== "GST消费税注册")
+      			}
+      			services.push({name:"GST消费税注册",price:z[0]*300+1800});
+      			refreshRightSummary();
+      			z=[];
+      	        break;
+    	    case "openAccount7":
+      	    	z.push(document.getElementById("countsgtel").value);
+      	    	z.push(document.getElementById("countglotel").value);
+      	    	if (services.some(el => el.name === "虚拟电话")){
+      				services = services.filter(item => item.name !== "虚拟电话")
+      			}
+      			services.push({name:"虚拟电话",price:z[0]*200+700});
+      			refreshRightSummary();
+      			z=[];
+      	        break;
+    	    case "openAccount8":
+      	    	z.push(document.getElementById("countapgst").value);
+      	    	if (services.some(el => el.name === "GST消费税注册")){
+      				services = services.filter(item => item.name !== "GST消费税注册")
+      			}
+      			services.push({name:"GST消费税注册",price:z[0]*300+z[1]*500});
+      			refreshRightSummary();
+      			z=[];
+      	        break;   
+    	    } 
+    	  
+  	    } else {
     	    text.style.display = "none";
+    	    switch (x) {
+    	    case "openAccount":
+    	    	if (services.some(el => el.name === "新注册新加坡公司开户")){
+    				services = services.filter(item => item.name !== "新注册新加坡公司开户")
+    			}
+    			refreshRightSummary();
+    	        break;
+    	    case "openAccount2":
+    	    	if (services.some(el => el.name === "挂名董事")){
+    				services = services.filter(item => item.name !== "挂名董事")
+    				services = services.filter(item => item.name !== "押金")
+    			}
+    			refreshRightSummary();
+    	        break;
+    	    case "openAccount3":
+      	    	if (services.some(el => el.name === "挂名股东")){
+      				services = services.filter(item => item.name !== "挂名股东")
+      			}
+      			refreshRightSummary();
+      	        break;
+    	    case "openAccount4":
+      	    	if (services.some(el => el.name === "共享办公室")){
+      				services = services.filter(item => item.name !== "共享办公室")
+      			}
+      			refreshRightSummary();
+      	        break;
+    	    case "openAccount5":
+      	    	if (services.some(el => el.name === "商标注册")){
+      				services = services.filter(item => item.name !== "商标注册")
+      			}
+      			refreshRightSummary();
+      	        break;
+    	    case "openAccount6":
+      	    	if (services.some(el => el.name === "GST消费税注册")){
+      				services = services.filter(item => item.name !== "GST消费税注册")
+      			}
+      			refreshRightSummary();
+      	        break;
+    	    case "openAccount7":
+      	    	if (services.some(el => el.name === "虚拟电话")){
+      				services = services.filter(item => item.name !== "虚拟电话")
+      			}
+      			refreshRightSummary();
+      	        break;
+    	    case "openAccount8":
+      	    	if (services.some(el => el.name === "GST消费税注册")){
+      				services = services.filter(item => item.name !== "GST消费税注册")
+      			}
+      			refreshRightSummary();
+      	        break;   
+    	    } 
     	  }
     }
 
@@ -1053,35 +1187,37 @@
       });
     
     var services = [];
-    services.push({name:"创建新公司",price:5000});
-    services.push({name:"公司",price:800});
+    //services.push({name:"创建新公司",price:5000});
+    //services.push({name:"公司",price:800});
 
     $(document).ready(function(){
-    	  var number = services.length;
-    	  var selectedsummaryhtml = "<h6 class='mt-3'>服务类型详细清单</h6><ul class='list-unstyled list-unstyled-border'>";
-    	  var totalamount = 0;
-    	  
-    	  for (let i=0; i<services.length; i+=1) {
-    		  totalamount = totalamount + services[i].price;
-    		  selectedsummaryhtml += 
-        		   `<li class="media"><a href="#"><img alt="image" class="mr-3 rounded" width="50" src="../assets/img/products/product-2-50.png"></a>
-        	            <div class="media-body"><div class="media-right"><span class="text-muted" id="price">`;
-              selectedsummaryhtml += services[i].price;
-              selectedsummaryhtml += `</span></div><div class="media-title"><a href="#">`;
-              selectedsummaryhtml += `<span class="text-muted" id="company_name">`;
-              selectedsummaryhtml += services[i].name; 
-              selectedsummaryhtml += "</span></a></div></div></li>";
-    	  }                  
-    	  selectedsummaryhtml += "</ul>";
- 
-    	  selectedsummaryhtml += `<h6 class="mt-3">总计服务<span class="text-muted media-left">(`;
-    	  selectedsummaryhtml += services.length
-    	  selectedsummaryhtml += ") </span>  总计金额  (<span class='text-muted media-right'>" + totalamount + "</span>)</h6>";
-    	  document.getElementById("selected_summary").innerHTML = selectedsummaryhtml;
-    	  ///////////
-    	});
-	
-	  function addGudong () {
+    	refreshRightSummary();
+      });
+	  
+        function refreshRightSummary() {
+        	var number = services.length;
+            var selectedsummaryhtml = "<h6 class='mt-3'>服务类型详细清单</h6><ul class='list-unstyled list-unstyled-border'>";
+            var totalamount = 0;
+      	  
+            for (let i=0; i<services.length; i+=1) {
+                totalamount = totalamount + services[i].price;
+                selectedsummaryhtml += 
+          		   `<li class="media"><a href="#"><img alt="image" class="mr-3 rounded" width="50" src="../assets/img/products/product-2-50.png"></a>
+          	            <div class="media-body"><div class="media-right"><span class="text-muted" id="price">`;
+                selectedsummaryhtml += services[i].price;
+                selectedsummaryhtml += `</span></div><div class="media-title"><a href="#">`;
+                selectedsummaryhtml += `<span class="text-muted" id="company_name">`;
+                selectedsummaryhtml += services[i].name; 
+                selectedsummaryhtml += "</span></a></div></div></li>";
+            }                  
+            selectedsummaryhtml += "</ul>";
+   
+            selectedsummaryhtml += `<h6 class="mt-3">总计服务<span class="text-muted media-left">(`;
+            selectedsummaryhtml += services.length
+            selectedsummaryhtml += ") </span>  总计金额  (<span class='text-muted media-right'>" + totalamount + "</span>)</h6>";
+            document.getElementById("selected_summary").innerHTML = selectedsummaryhtml;
+        }		
+	    function addGudong () {
 		  document.querySelector('#gudongdiv').insertAdjacentHTML('afterend',
 		    `<li class="list-group-item">
 				<div class="form-group row">
@@ -1093,8 +1229,8 @@
 				</div>
             </li>`      
 		  )
-	  }
-	  function addDongshi () {
+	    }
+	    function addDongshi () {
 		  document.querySelector('#dongshidiv').insertAdjacentHTML('afterend',
 		    `<li class="list-group-item">
 				<div class="form-group row">
@@ -1106,15 +1242,15 @@
 				</div>
             </li>`      
 		  )
-	  }
-	  function removeGuDong (input) {
+	    }
+	    function removeGuDong (input) {
 		  input.parentNode.parentNode.parentNode.remove()
-	  }
-	  function removeDongShi (input) {
+	    }
+	    function removeDongShi (input) {
 		  input.parentNode.parentNode.parentNode.remove()
-	  }
+	    }
 
-	  function listSummary() {
+	    function listSummary() {
 		  text = "<ul class='list-group'>";
 		  for (i = 0; i < sLen; i++) {
 		    text += "<li class='list-group-item d-flex justify-content-between align-items-center'>" + services[i] + 
@@ -1124,85 +1260,120 @@
 		  text += "</ul>";
 
 		  document.getElementById("summary").innerHTML = text;
-	  }
+	    }
 
-	function choosedsv(x)
-	{
-		//document.getElementsByClassName("choosedsvr")[x].style.backgroundColor= '#f8fafb'; 	
-		var element = document.getElementsByClassName("choosedsvr")[x];
-		element.classList.toggle("choosesv");	
-	}
-</script>
-<script>		
-	var z= [];
-    function run(x) {
-			z.push(document.getElementById("inputGroupSelect04").value);
-			z.push(document.getElementById("countYear").value);
-		if (z.length ==2){
+	    function choosedsv(x) {
+		    //document.getElementsByClassName("choosedsvr")[x].style.backgroundColor= '#f8fafb'; 	
+		    var element = document.getElementsByClassName("choosedsvr")[x];
+		    element.classList.toggle("choosesv");	
+	  }		
+	  var z= [];
+      function run(x) {
+		z.push(document.getElementById("inputGroupSelect04").value);
+		z.push(document.getElementById("countYear").value);
+		if (z.length == 2){
 			document.getElementById("priceDongshi").innerHTML = "S$"+z[0]*z[1]*1800;
+			if (services.some(el => el.name === "添加董事")){
+				services = services.filter(item => item.name !== "添加董事")
+			}
+			services.push({name:"添加董事",price:z[0]*z[1]*1800});
+			refreshRightSummary();
 			z= [];
 		}
-		
-        //z.value=document.getElementById("inputGroupSelect04").value * document.getElementById("countYear").value*1800;
     }
     
     function runGuDong(x) {
 		z.push(document.getElementById("countGuDong").value);
 		z.push(document.getElementById("countYearGuDong").value);
-	if (z.length ==2){
-		document.getElementById("priceGuDong").innerHTML = "S$"+z[0]*z[1]*1000;
-		z= [];
-	}
+		if (z.length ==2){
+			document.getElementById("priceGuDong").innerHTML = "S$"+z[0]*z[1]*1000;
+			if (services.some(el => el.name === "挂名股东")){
+				services = services.filter(item => item.name !== "挂名股东")
+			}
+			services.push({name:"挂名股东",price:z[0]*z[1]*1000});
+			refreshRightSummary();
+			z= [];
+		}
     }
     
     function runoffice(x) {
 		z.push(document.getElementById("countoffice").value);
 		z.push(document.getElementById("countMoffice").value);
-	if (z.length ==2){
-		document.getElementById("priceoffice").innerHTML = "S$"+z[0]*z[1]*800;
-		z= [];
-	}	
+		if (z.length ==2){
+			document.getElementById("priceoffice").innerHTML = "S$"+z[0]*z[1]*800;
+			if (services.some(el => el.name === "共享办公室")){
+				services = services.filter(item => item.name !== "共享办公室")
+			}
+			services.push({name:"共享办公室",price:z[0]*z[1]*800});
+			refreshRightSummary();
+			z= [];
+		}	
     }   	
 
     function rungst(x) {
 		z.push(document.getElementById("countapgst").value);
 		//z.push(document.getElementById("countMoffice").value);
-	if (z.length ==1){
-		document.getElementById("priceapgst").innerHTML = "S$"+z[0]*300;
-		z= [];
-	}	
+		if (z.length ==1){
+			document.getElementById("priceapgst").innerHTML = "S$"+z[0]*300;
+			if (services.some(el => el.name === "GST申报")){
+				services = services.filter(item => item.name !== "GST申报")
+			}
+			services.push({name:"GST申报",price:z[0]*z[1]*300});
+			refreshRightSummary();
+			z= [];
+		}	
     } 
 
     function runsgtel(x) {
 		z.push(document.getElementById("countsgtel").value);
 		if (z.length ==1){
-		document.getElementById("pricesgtel").innerHTML = "S$"+z[0]*200;
-		z= [];
-	}	
+			document.getElementById("pricesgtel").innerHTML = "S$"+z[0]*200;
+			if (services.some(el => el.name === "新加坡固定座机无人应答")){
+				services = services.filter(item => item.name !== "新加坡固定座机无人应答")
+			}
+			services.push({name:"新加坡固定座机无人应答",price:z[0]*z[1]*200});
+			refreshRightSummary();
+			z= [];
+		}	
     } 
 
       function runglotel(x) {
   		z.push(document.getElementById("countglotel").value);
   		if (z.length ==1){
-  		document.getElementById("priceglotel").innerHTML = "S$"+z[0]*500;
-  		z= [];
-	}	
+	  		document.getElementById("priceglotel").innerHTML = "S$"+z[0]*500;
+	  		if (services.some(el => el.name === "新加坡固定座机全球呼叫转移")){
+				services = services.filter(item => item.name !== "新加坡固定座机全球呼叫转移")
+			}
+			services.push({name:"新加坡固定座机全球呼叫转移",price:z[0]*z[1]*500});
+			refreshRightSummary();
+	  		z= [];
+		}	
     }     
 
 	   function runmail(x) {
-	  		z.push(document.getElementById("countmail").value);
+	  	   z.push(document.getElementById("countmail").value);
 	  	   if (z.length ==1){
-	  		document.getElementById("pricemail").innerHTML = "S$"+z[0]*600;
-	  		z= [];	
-  	}	
+		  		document.getElementById("pricemail").innerHTML = "S$"+z[0]*600;
+		  		if (services.some(el => el.name === "寄信服务")){
+					services = services.filter(item => item.name !== "寄信服务")
+				}
+				services.push({name:"寄信服务",price:z[0]*z[1]*500});
+				refreshRightSummary();
+		  		z= [];	
+	  	   }	
       }  
 
-	      function runaccounting(x) {
-	  		z.push(document.getElementById("countaccounting").value);
-	  	    if (z.length ==1){
+      function runaccounting(x) {
+  		z.push(document.getElementById("countaccounting").value);
+  	    if (z.length ==1){
 	  		document.getElementById("priceaccounting").innerHTML = "S$"+z[0];
+	  		if (services.some(el => el.name === "会计记账")){
+				services = services.filter(item => item.name !== "会计记账")
+			}
+			services.push({name:"会计记账",price:z[0]*z[1]*500});
+			refreshRightSummary();
 	  		z= [];		
- 	}	
+	 	}	
      }  
 	      	
 </script>

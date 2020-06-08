@@ -118,7 +118,6 @@ public class ViewController {
 		return model;
 	}
 	
-
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model, String error, String logout) {
 		if (error != null && !"".equals(error)) {

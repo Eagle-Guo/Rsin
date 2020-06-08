@@ -13,7 +13,6 @@ const DOMstrings = {
 
 //remove class from a set of items
 const removeClasses = (elemSet, className) => {
-
   elemSet.forEach(elem => {
 
     elem.classList.remove(className);
@@ -64,9 +63,7 @@ const getActivePanel = () => {
   DOMstrings.stepFormPanels.forEach(elem => {
 
     if (elem.classList.contains('js-active')) {
-
       activePanel = elem;
-
     }
 
   });
@@ -84,11 +81,8 @@ const setActivePanel = activePanelNum => {
   //show active panel
   DOMstrings.stepFormPanels.forEach((elem, index) => {
     if (index === activePanelNum) {
-
       elem.classList.add('js-active');
-
       setFormHeight(elem);
-
     }
   });
 
@@ -124,7 +118,6 @@ DOMstrings.stepsBar.addEventListener('click', e => {
 
   //set all steps before clicked (and clicked too) to active
   setActiveStep(activeStep);
-
   //open active panel
   setActivePanel(activeStep);
 });
@@ -148,11 +141,8 @@ DOMstrings.stepsForm.addEventListener('click', e => {
   //set active step and active panel onclick
   if (eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`)) {
     activePanelNum--;
-
   } else {
-
     activePanelNum++;
-
   }
 
   setActiveStep(activePanelNum);

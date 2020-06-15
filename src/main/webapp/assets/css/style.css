@@ -505,7 +505,8 @@ select.form-control:not([size]):not([multiple]) {
 .list-unstyled-border li {
   border-bottom: 1px solid #f9f9f9;
   padding-bottom: 15px;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  cursor: pointer; }
   .list-unstyled-border li .custom-checkbox {
     margin-right: 15px; }
   .list-unstyled-border li:last-child {
@@ -2985,4 +2986,109 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 .choosesv {
   background-color:#f8fafb;
 }
+
+ /* 6.2 pages new css- notice.jsp*/
  
+#notice {
+	}	
+#notice ul li .media-title:hover, #notice ul li .media-title .active {
+  font-size: 17px;
+	}	
+#notice .btn .btn-primary {
+  color:white;
+	}	
+	
+.fixcardhieht {
+	height: 35rem;	
+	}	
+	
+.secDesc .sdActive.view, .sgHe .sdActive.view, .pubDesc.view, .priDesc.view, .cpubDesc.view, .pubDescnzl.view {
+	display: block
+}
+
+.secDesc .sdActive, .sgHe .sdActive, .pubDesc, .priDesc, .cpubDesc, .pubDescnzl {
+	display: none;
+}
+ 
+ 		.pubDesc, .priDesc, .cpubDesc, .pubDescnzl {
+			width: 100%;
+		}
+		
+/*			.pubDesc img, .pubDesc .text, .priDesc img, .priDesc .text, .cpubDesc img, .cpubDesc .text, .pubDescnzl img, .pubDescnzl .text {
+				text-align: left;
+				line-height: 1.5em
+			}*/
+			
+/*.secDesc, .sgHe, .pubDesc, .priDesc, .cpubDesc, .pubDescnzl {
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	/*left: 40%;*/
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: white
+}*/
+
+
+/*.pubDesc, .priDesc, .cpubDesc, .pubDescnzl {
+	color: white;
+	/*width: 36em;*/
+	width: 80%;
+}*/
+
+/*	.pubDesc .heavy, .priDesc .heavy, .cpubDesc .heavy, .pubDescnzl .heavy {
+		font-weight: 900;
+		text-align: center;
+		padding-bottom: 1em !important;
+		font-size: 18px !important;
+	}*/
+
+/*	.pubDesc .heavy, .priDesc .heavy_en, .cpubDesc .heavy, .pubDescnzl .heavy {
+		font-weight: 900;
+		text-align: center;
+		padding-bottom: 1em;
+		font-size: 14px;
+		margin-top: -.5rem;
+	}*/
+/*.pubDesc img, .pubDesc .text, .priDesc img, .priDesc .text, .cpubDesc img, .pubDescnzl .text, .pubDesc img, .cpubDesc .text {
+	text-align: justify;
+	line-height: 2em;
+	margin-bottom: .2rem;
+}*/
+
+/*.pubDesc img, .priDesc img, .cpubDesc img, .pubDescnzl img {
+	padding-right: .5em
+}	*/	
+
+ /* 6.2 pages new css- oneKeyService.jsp*/	
+ 	
+.btnfontcw{
+  color:white;
+	}			
+		
+/*a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}*/
+
+#oneKeyService {
+}
+
+#oneKeyService .summary-info {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0px 0;
+}
+#oneKeyService .summary-info img {vertical-align: middle;}
+#oneKeyService .summary-info .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}	
+
+	

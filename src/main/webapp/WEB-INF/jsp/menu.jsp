@@ -214,24 +214,27 @@
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">后台管理</li>
-              <li class="nav-item dropdown active">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>最新通告</span></a>
-                <ul class="dropdown-menu">
-                  <li class="active"><a class="nav-link" href="/coming">年审</a></li>
-                  <li><a class="nav-link" href="/coming">付款状态</a></li>
-                  <li><a class="nav-link" href="/coming">新功能上线</a></li>
-                </ul>
+              <li>
+                <a href="/notice/notice" class="nav-link"><i class="fas fa-fire"></i><span>最新通告</span></a>
               </li>
+              <li class="nav-item dropdown active">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-square"></i><span>待办事项</span></a>
+                <ul class="dropdown-menu">
+                  <li class="active"><a class="nav-link" href="/annualReviewList">年审安排</a></li>
+                 <!--   <li><a class="nav-link" href="/coming">已提交末付款业务</a></li>-->
+                </ul>
+              </li>              
               <li class="menu-header">快速服务</li>
-              <!-- <li class="nav-item dropdown">
+              <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>一键式服务平台</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="layout-default.html">Default Layout</a></li>
-                  <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
-                  <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+                  <li><a class="nav-link" href="/onekey/oneKeyService">新加坡与海外离岸公司注册</a></li>
+                  <li><a class="nav-link" href="/onekey/oneKeyService">商业服务</a></li>
+                  <li><a class="nav-link" href="/onekey/oneKeyService">公司管理维护</a></li>
+                  <li><a class="nav-link" href="/onekey/oneKeyService">云商业服务</a></li> 
+                  <li><a class="nav-link" href="/onekey/oneKeyService">法律服务</a></li>                                        
                 </ul>
-              </li> -->
-              <li><a class="nav-link" href="/coming"><i class="far fa-square"></i> <span>一键式服务平台</span></a></li>
+              </li>
               <li class="menu-header">我的业务</li>
               <li class="nav-item dropdown">
                 <a href="coming.html" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>我的业务</span></a>

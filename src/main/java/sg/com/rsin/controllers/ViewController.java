@@ -106,6 +106,24 @@ public class ViewController {
 		return model;
 	}
 	
+	@RequestMapping("/onekey/oneKeyService")
+	public ModelAndView oneKeyService() {
+		ModelAndView model = new ModelAndView("onekey/oneKeyService");
+		return model;
+	}
+
+	@RequestMapping("/notice/notice")
+	public ModelAndView notice() {
+		ModelAndView model = new ModelAndView("notice/notice");
+		return model;
+	}
+
+	@RequestMapping("/annualReviewList")
+	public ModelAndView annualReviewList() {
+		ModelAndView model = new ModelAndView("todolist/annualReviewList");
+		return model;
+	}	
+	
 	@RequestMapping("/mybusiness/openAccount")
 	public ModelAndView openAccount() {
 		ModelAndView model = new ModelAndView("mybusiness/openAccount");

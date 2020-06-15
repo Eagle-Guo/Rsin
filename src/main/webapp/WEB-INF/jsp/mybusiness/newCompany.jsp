@@ -851,6 +851,20 @@
 		<div class="footer-right">1.1.0</div>
 	</footer>
 
+    <!-- General JS Scripts -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	<script src="../../../assets/js/stisla.js"></script>
+	<!-- Template JS File -->
+	<script src="../../../assets/js/scripts.js"></script>
+	<script src="../../../assets/js/custom.js"></script>
+	<script src="../../../assets/js/multiplepage.js"></script>
+	<!-- Page Specific JS File -->
+
 	<script type="text/javascript">
     function openAccountFunction(x,y) {
           // Get the checkbox
@@ -1189,7 +1203,7 @@
         document.getElementById("shareholder_summary").innerHTML = shareholdertext;
     }
 
-    function confirmAndSend() {
+    /* function confirmAndSend() {
     	alert("submit and confirm");
     	$.post("/api/newcompany/sendemail",
     	{
@@ -1200,7 +1214,7 @@
     	function(data, status){ //Call back function
     		alert("Data: " + data + "\nStatus: " + status);
     	});
-    }
+    } */
         
     function choosedsv(x) {
         //document.getElementsByClassName("choosedsvr")[x].style.backgroundColor= '#f8fafb';     
@@ -1358,19 +1372,6 @@
           input.parentNode.parentNode.remove()
       }
 </script>
-
-    <!-- General JS Scripts -->
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<script	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
-	<script	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-	<script src="../../../assets/js/stisla.js"></script>
-	<!-- Template JS File -->
-	<script src="../../../assets/js/scripts.js"></script>
-	<script src="../../../assets/js/custom.js"></script>
-	<script src="../../../assets/js/multiplepage.js"></script>
-	<!-- Page Specific JS File -->
+   
 </body>
 </html>

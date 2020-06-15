@@ -63,10 +63,10 @@
 						                  	<li class="list-group-item">
 							                  	<label class="custom-switch mt-2 justify-content-between">
 								                    <span class="custom-switch-description nc_subttitle">新建坡面签开户</span>
-						                        	<input type="checkbox" class="custom-switch-input"  id="openAccount" onclick="openAccountFunction('openAccount','openAccountDeatil')"> 
+						                        	<input type="checkbox" class="custom-switch-input"  id="openSignatureAccount" onclick="openAccountFunction('openSignatureAccount','openSignatureAccountDetail')"> 
 						                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
 								                </label>
-							                	<div class="card-body" id="openAccountDeatil" style="display:none">
+							                	<div class="card-body" id="openSignatureAccountDetail" style="display:none">
 								                    <ul class="list-group" >
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(0)" >					                      						                      							                    
 								                       <div class="form-group" style="margin-bottom: 0px;">
@@ -84,7 +84,7 @@
 									                          <option value="10">10</option>									                          							                          
 									                        </select>
 									                        <div class="input-group-append">
-									                          <button class="btn">个户口</button>
+									                          <label class="btn">个户口</label>
 									                        </div>							                        
 									                      </div>
 									                    </div>
@@ -97,10 +97,10 @@
 						                  	<li class="list-group-item">
 							                  	<label class="custom-switch mt-2 justify-content-between">
 								                    <span class="custom-switch-description nc_subttitle">远程开户</span>
-						                        	<input type="checkbox" class="custom-switch-input"  id="openAccount2" onclick="openAccountFunction('openAccount2','openAccountDeatil2')"> 
+						                        	<input type="checkbox" class="custom-switch-input"  id="openRemoteAccount" onclick="openAccountFunction('openRemoteAccount','openRemoteAccountDeatil')"> 
 						                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
 								                </label>
-							                	<div class="card-body" id="openAccountDeatil2" style="display:none">
+							                	<div class="card-body" id="openRemoteAccountDeatil" style="display:none">
 								                    <ul class="list-group">
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(1)" >					                      						                      							                    
 								                       <div class="form-group" style="margin-bottom: 0px;">
@@ -118,7 +118,7 @@
 									                          <option value="10">10</option>									                          							                          
 									                        </select>
 									                        <div class="input-group-append">
-									                          <button class="btn">个户口</button>
+									                          <label class="btn">个户口</label>
 									                        </div>							                        
 									                      </div>
 									                    </div>
@@ -133,10 +133,10 @@
 						                  	<li class="list-group-item">
 							                  	<label class="custom-switch mt-2 justify-content-between">
 								                    <span class="custom-switch-description nc_subttitle">私人银行贵宾户口</span>
-						                        	<input type="checkbox" class="custom-switch-input"  id="openAccount3" onclick="openAccountFunction('openAccount3','openAccountDeatil3')"> 
+						                        	<input type="checkbox" class="custom-switch-input"  id="openPriviteVIPAccount" onclick="openAccountFunction('openPriviteVIPAccount','openPriviteVIPAccountDeatil')"> 
 						                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
 								                </label>
-							                	<div class="card-body" id="openAccountDeatil3" style="display:none">
+							                	<div class="card-body" id="openPriviteVIPAccountDeatil" style="display:none">
 								                    <ul class="list-group" >
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(2)" >					                      						                      							                    
 								                       <div class="form-group" style="margin-bottom: 0px;">
@@ -154,7 +154,7 @@
 									                          <option value="10">10</option>									                          							                          
 									                        </select>
 									                        <div class="input-group-append">
-									                          <button class="btn">个户口</button>
+									                          <label class="btn">个户口</label>
 									                        </div>							                        
 									                      </div>
 									                    </div>
@@ -169,10 +169,10 @@
 						                  	<li class="list-group-item">
 							                  	<label class="custom-switch mt-2 justify-content-between">
 								                    <span class="custom-switch-description nc_subttitle">新加坡公司开户</span>
-						                        	<input type="checkbox" class="custom-switch-input"  id="openAccount4" onclick="openAccountFunction('openAccount4','openAccountDeatil4')"> 
+						                        	<input type="checkbox" class="custom-switch-input"  id="openCompanyAccount" onclick="openAccountFunction('openCompanyAccount','openCompanyAccountDeatil')"> 
 						                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
 								                </label>
-							                	<div class="card-body" id="openAccountDeatil4" style="display:none">
+							                	<div class="card-body" id="openCompanyAccountDeatil" style="display:none">
 								                    <ul class="list-group" >
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(3)" >					                      						                      							                    
 								                       <div class="form-group" style="margin-bottom: 0px;">
@@ -190,7 +190,7 @@
 									                          <option value="10">10</option>									                          							                          
 									                        </select>
 									                        <div class="input-group-append">
-									                          <button class="btn">个户口</button>
+									                          <label class="btn">个户口</label>
 									                        </div>							                        
 									                      </div>
 									                    </div>
@@ -434,8 +434,72 @@
     	  // If the checkbox is checked, display the output text
     	  if (checkBox.checked == true){
     	    text.style.display = "block";
+    	    switch (x) {
+            case "openSignatureAccount":
+            	z.push(document.getElementById("inputGroupSelect04").value);
+            	if (services.some(el => el.name === "新建坡面签开户")){
+                    services = services.filter(item => item.name !== "新建坡面签开户")
+                 }
+                 services.push({name:"新建坡面签开户",price:z[0]*2500});
+                 refreshRightSummary();
+                 z= [];
+                 break;
+            case "openRemoteAccount":
+            	z.push(document.getElementById("inputGroupSelect043").value);
+            	if (services.some(el => el.name === "远程开户")){
+                    services = services.filter(item => item.name !== "远程开户")
+                 }
+                 services.push({name:"远程开户",price:z[0]*3500});
+                 refreshRightSummary();
+                 z= [];
+                 break;
+            case "openPriviteVIPAccount":
+            	z.push(document.getElementById("inputGroupSelect041").value);
+            	if (services.some(el => el.name === "私人银行贵宾户口")){
+                    services = services.filter(item => item.name !== "私人银行贵宾户口")
+                 }
+                 services.push({name:"私人银行贵宾户口",price:z[0]*1200});
+                 refreshRightSummary();
+                 z= [];
+                 break;
+            case "openCompanyAccount":
+            	z.push(document.getElementById("inputGroupSelect042").value);
+            	if (services.some(el => el.name === "新加坡公司开户")){
+                    services = services.filter(item => item.name !== "新加坡公司开户")
+                 }
+                 services.push({name:"新加坡公司开户",price:z[0]*500});
+                 refreshRightSummary();
+                 z= [];
+                 break;
+    	    }
     	  } else {
     	    text.style.display = "none";
+    	    switch (x) {
+            case "openSignatureAccount":
+                if (services.some(el => el.name === "新建坡面签开户")){
+                    services = services.filter(item => item.name !== "新建坡面签开户")
+                }
+                refreshRightSummary();
+                break;
+            case "openRemoteAccount":
+                if (services.some(el => el.name === "远程开户")){
+                    services = services.filter(item => item.name !== "远程开户")
+                }
+                refreshRightSummary();
+                break;
+            case "openPriviteVIPAccount":
+                if (services.some(el => el.name === "私人银行贵宾户口")){
+                    services = services.filter(item => item.name !== "私人银行贵宾户口")
+                }
+                refreshRightSummary();
+                break;
+            case "openCompanyAccount":
+                if (services.some(el => el.name === "新加坡公司开户")){
+                    services = services.filter(item => item.name !== "新加坡公司开户")
+                }
+                refreshRightSummary();
+                break;
+    	    }
     	  }
     }
 
@@ -455,34 +519,35 @@
       });
     
     var services = [];
-    services.push({name:"创建新公司",price:5000});
-    services.push({name:"公司",price:800});
 
     $(document).ready(function(){
-    	  var number = services.length;
-    	  var selectedsummaryhtml = "<h6 class='mt-3'>服务类型详细清单</h6><ul class='list-unstyled list-unstyled-border'>";
-    	  var totalamount = 0;
-    	  
-    	  for (let i=0; i<services.length; i+=1) {
-    		  totalamount = totalamount + services[i].price;
-    		  selectedsummaryhtml += 
-        		   `<li class="media"><a href="#"><img alt="image" class="mr-3 rounded" width="50" src="../assets/img/products/product-2-50.png"></a>
-        	            <div class="media-body"><div class="media-right"><span class="text-muted" id="price">`;
-              selectedsummaryhtml += services[i].price;
-              selectedsummaryhtml += `</span></div><div class="media-title"><a href="#">`;
-              selectedsummaryhtml += `<span class="text-muted" id="company_name">`;
-              selectedsummaryhtml += services[i].name; 
-              selectedsummaryhtml += "</span></a></div></div></li>";
-    	  }                  
-    	  selectedsummaryhtml += "</ul>";
- 
-    	  selectedsummaryhtml += `<h6 class="mt-3">总计服务<span class="text-muted media-left">(`;
-    	  selectedsummaryhtml += services.length
-    	  selectedsummaryhtml += ") </span>  总计金额  (<span class='text-muted media-right'>" + totalamount + "</span>)</h6>";
-    	  document.getElementById("selected_summary").innerHTML = selectedsummaryhtml;
-    	  ///////////
-    	});
-	
+    	refreshRightSummary();
+    });
+
+    function refreshRightSummary() {
+        var number = services.length;
+        var selectedsummaryhtml = "<h6 class='mt-3'>服务类型详细清单</h6><ul class='list-unstyled list-unstyled-border'>";
+        var totalamount = 0;
+        
+        for (let i=0; i<services.length; i+=1) {
+            totalamount = totalamount + services[i].price;
+            selectedsummaryhtml += 
+                 `<li class="media"><a href="#"><img alt="image" class="mr-3 rounded" width="50" src="../assets/img/products/product-2-50.png"></a>
+                      <div class="media-body"><div class="media-right"><span class="text-muted" id="price">`;
+            selectedsummaryhtml += services[i].price;
+            selectedsummaryhtml += `</span></div><div class="media-title"><a href="#">`;
+            selectedsummaryhtml += `<span class="text-muted" id="company_name">`;
+            selectedsummaryhtml += services[i].name; 
+            selectedsummaryhtml += "</span></a></div></div></li>";
+        }                  
+        selectedsummaryhtml += "</ul>";
+
+        selectedsummaryhtml += `<h6 class="mt-3">总计服务<span class="text-muted media-left">(`;
+        selectedsummaryhtml += services.length
+        selectedsummaryhtml += ") </span>  总计金额  (<span class='text-muted media-right'>" + totalamount + "</span>)</h6>";
+        document.getElementById("selected_summary").innerHTML = selectedsummaryhtml;
+    }        
+    	
 	  function addGudong () {
 		  document.querySelector('#gudongdiv').insertAdjacentHTML('afterend',
 		    `<li class="list-group-item">
@@ -534,44 +599,61 @@
 		var element = document.getElementsByClassName("choosedsvr")[x];
 		element.classList.toggle("choosesv");	
 	}
-</script>
-<script>		
+
 	var z= [];
     function run(x) {
-			z.push(document.getElementById("inputGroupSelect04").value);
-			//z.push(document.getElementById("countYear").value);
+		z.push(document.getElementById("inputGroupSelect04").value);
 		if (z.length ==1){
 			document.getElementById("pricebvisg").innerHTML = "S$"+z[0]*2500;
-			z= [];
+            if (services.some(el => el.name === "新建坡面签开户")){
+               services = services.filter(item => item.name !== "新建坡面签开户")
+            }
+            services.push({name:"新建坡面签开户",price:z[0]*2500});
+            refreshRightSummary();
+            z= [];
 		}
     }
     
     function run1(x) {
 		z.push(document.getElementById("inputGroupSelect041").value);
 		//z.push(document.getElementById("countYear").value);
-	if (z.length ==1){
-		document.getElementById("pricebvisg1").innerHTML = "S$"+z[0]*1200;
-		z= [];
+		if (z.length ==1){
+			document.getElementById("pricebvisg1").innerHTML = "S$"+z[0]*1200;
+			if (services.some(el => el.name === "私人银行贵宾户口")){
+	            services = services.filter(item => item.name !== "私人银行贵宾户口")
+	         }
+	         services.push({name:"私人银行贵宾户口",price:z[0]*1200});
+	         refreshRightSummary();
+			z= [];
+		}
 	}
-}
 
     function run2(x) {
 		z.push(document.getElementById("inputGroupSelect042").value);
-		//z.push(document.getElementById("countYear").value);
-	if (z.length ==1){
-		document.getElementById("pricebvisg2").innerHTML = "S$"+z[0]*500;
-		z= [];
-	}
-}   
+		if (z.length ==1){
+			document.getElementById("pricebvisg2").innerHTML = "S$"+z[0]*500;
+			if (services.some(el => el.name === "新加坡公司开户")){
+	            services = services.filter(item => item.name !== "新加坡公司开户")
+	         }
+	         services.push({name:"新加坡公司开户",price:z[0]*500});
+	         refreshRightSummary();
+			z= [];
+		}
+	}   
 
     function run3(x) {
 		z.push(document.getElementById("inputGroupSelect043").value);
 		//z.push(document.getElementById("countYear").value);
-	if (z.length ==1){
-		document.getElementById("pricebvisg3").innerHTML = "S$"+z[0]*3500;
-		z= [];
-	}
-}   
+		if (z.length ==1){
+			document.getElementById("pricebvisg3").innerHTML = "S$"+z[0]*3500;
+	    	if (services.some(el => el.name === "远程开户")){
+	            services = services.filter(item => item.name !== "远程开户")
+	         }
+	         services.push({name:"远程开户",price:z[0]*3500});
+	         refreshRightSummary();
+			z= [];
+		}
+	}   
 
 
 

@@ -2975,9 +2975,86 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
     
  /* 6.1 pages new css- NewCompany.jsp*/
+#newcompany { 
+	}
+#newcompany .leftside { 
+	}	
+#newcompany .leftside .btntop {
+     margin-top: -.2rem;
+  }	
+#newcompany .leftside label {
+      display: inline;
+      height: 2rem;
+    /* margin-bottom: .5rem; */
+  }		
+  #newcompany .leftside label_info {
+    display: inline;
+    height: auto;
+}
+#newcompany .leftside .right {
+      text-align: right;
+  }	
+#newcompany .leftside .telleft {
+      margin-left:5rem;
+  }		
+#newcompany .leftside .telleft2 {
+       margin-left: -1rem;
+  }		
+    
  
+  #newcompany .leftside .emailleft {
+      margin-left: 4rem;
+  }	
+    #newcompany .leftside .accleft {
+        margin-left: 12rem;
+  }	
+     #newcompany .leftside .dontshileft {
+       margin-left: 10%;
+  }  
+
+
+    #newcompany .badge.badge-primary {
+    background-color: #e9ecef;
+    color: black;
+}
+
+
+    #newcompany .badge-pill1 {
+    padding-right: .6em;
+    padding-left: .6em;
+    border-radius: 10rem;
+}
+
+    #newcompany .custom-select {
+	border: none;
+    width: 4rem;
+    height: 2rem;
+}
+
+#newcompany .c-select-v2 {
+    width: 11rem !important;
+}
+
+
+#newcompany .c-select-info {
+    width: 11rem !important;
+    height: calc(2.25rem + 6px) !important;
+    border-color: #e4e6fc !important;
+    background-color: #fdfdff !important;
+    border: 1px solid #e4e6fc !important;
+}
+
+
+.choosedsvbtn {
+    background-color:#6777ef !important;
+    color: white !important;
+    cursor:pointer;
+}
+
+
  .nc_subttitle {
-  margin-left: -8%;
+  /*margin-left: -8%;*/
+  margin-left: 0%;
   }
    .nc_bttextbtn {
   /*margin-left: 17rem;*/
@@ -2985,7 +3062,14 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
   
 .choosesv {
   background-color:#f8fafb;
+  border-top: 1px solid #6777ef;
+  border-bottom: 1px solid #6777ef;
 }
+
+ 
+
+
+
 
  /* 6.2 pages new css- notice.jsp*/
  

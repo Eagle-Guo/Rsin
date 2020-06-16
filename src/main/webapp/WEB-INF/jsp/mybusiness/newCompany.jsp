@@ -33,7 +33,7 @@
 <body>
 	<jsp:include page="../menu.jsp" />
 	<!-- Main Content -->
-	<div class="main-content">
+	<div class="main-content" id="newcompany">
 		<section class="section">
 			<div class="section-header">
 				<h1>创建新公司</h1>
@@ -55,12 +55,12 @@
 											title="填报资料">填报资料</button>
 										<button class="multisteps-form__progress-btn" type="button"
 											title="在线确认">在线确认</button>
-										<button class="multisteps-form__progress-btn" type="button"
-											title="在线支付">在线支付</button>
+									
+											
 									</div>
 								</div>
 								<!-- Left side -->
-								<div class="col-lg-8 col-md-12 col-12 col-sm-12">
+								<div class="col-lg-8 col-md-12 col-12 col-sm-12 leftside">
 									<form class="multisteps-form__form"
 										action="/view/registerNewCompany" method="post">
 										<!--single form panel-->
@@ -87,14 +87,20 @@
 
 												<ul class="list-group list-group-flush">
 
-													<li class="list-group-item"><label
-														class="custom-switch mt-2 justify-content-between">
-															<span class="custom-switch-description nc_subttitle">新注册新加坡公司开户</span>
-															<input type="checkbox" class="custom-switch-input"
-															id="openAccount"
-															onclick="openAccountFunction('openAccount','openAccountDeatil')">
-															<span class="custom-switch-indicator  nc_bttextbtn"></span>
-													</label>
+													<li class="list-group-item">
+														<label> 
+															 <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">新注册新加坡公司开户</span>	
+																 </div>	
+														  	 	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+																	<input type="checkbox" class="custom-switch-input"
+																	id="openAccount"
+																	onclick="openAccountFunction('openAccount','openAccountDeatil')">
+																	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>
 														<div class="card-body" id="openAccountDeatil"
 															style="display: none">
 															<ul class="list-group">
@@ -106,14 +112,20 @@
 
 															</ul>
 														</div></li>
-													<li class="list-group-item"><label
-														class="custom-switch mt-2 justify-content-between">
-															<span class="custom-switch-description nc_subttitle">挂名董事</span>
-															<input type="checkbox" class="custom-switch-input"
-															id="openAccount2"
-															onclick="openAccountFunction('openAccount2','openAccountDeatil2')">
-															<span class="custom-switch-indicator  nc_bttextbtn"></span>
-													</label>
+													<li class="list-group-item">
+													<label> 
+															 <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">挂名董事</span>	
+																 </div>	
+														  	 	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+																	<input type="checkbox" class="custom-switch-input"
+																		id="openAccount2"
+																		onclick="openAccountFunction('openAccount2','openAccountDeatil2')">
+																	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>								
 														<div class="card-body" id="openAccountDeatil2"
 															style="display: none">
 															<ul class="list-group">
@@ -136,7 +148,7 @@
 																				<option value="10">10</option>
 																			</select>
 																			<div class="input-group-append">
-																				<button class="btn">人</button>
+																				<button class="btn" disabled="disabled">人</button>
 																			</div>
 																			<select class="custom-select" id="countYear"
 																				onchange="run(2)" style="border: none;">
@@ -148,25 +160,31 @@
 																				<option value="6">6</option>
 																			</select>
 																			<div class="input-group-append">
-																				<button class="btn">年</button>
+																				<button class="btn" disabled="disabled">年</button>
 																			</div>
 																		</div>
 																	</div> <span id="priceDongshi"
-																	class="badge badge-primary badge-pill">S$1800</span> <br />
-																	<span style="margin-top: 0rem;">押金</span> <span
-																	class="badge badge-primary badge-pill">S$1500</span>
+																	class="badge badge-primary badge-pill dontshileft">S$3300(含押金S$1500)</span> <br />
+																	<!-- <span style="margin-top: 0rem;">押金</span> <span
+																	class="badge badge-primary badge-pill1">S$1500</span> -->
 																</li>
 															</ul>
 														</div></li>
 
-													<li class="list-group-item"><label
-														class="custom-switch mt-2 justify-content-between">
-															<span class="custom-switch-description nc_subttitle">挂名股东</span>
-															<input type="checkbox" class="custom-switch-input"
-															id="openAccount3"
-															onclick="openAccountFunction('openAccount3','openAccountDeatil3')">
-															<span class="custom-switch-indicator  nc_bttextbtn"></span>
-													</label>
+													<li class="list-group-item">
+													<label> 
+															 <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">挂名股东</span>	
+																 </div>	
+														  	 	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+																	<input type="checkbox" class="custom-switch-input"
+																	id="openAccount3"
+													        		onclick="openAccountFunction('openAccount3','openAccountDeatil3')">
+																	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>																																	
 														<div class="card-body" id="openAccountDeatil3"
 															style="display: none">
 															<ul class="list-group">
@@ -189,7 +207,7 @@
 																				<option value="10">10</option>
 																			</select>
 																			<div class="input-group-append">
-																				<button class="btn">人</button>
+																				<button class="btn" disabled="disabled">人</button>																			
 																			</div>
 																			<select class="custom-select" id="countYearGuDong"
 																				onchange="runGuDong(2)" style="border: none;">
@@ -201,7 +219,7 @@
 																				<option value="6">6</option>
 																			</select>
 																			<div class="input-group-append">
-																				<button class="btn">年</button>
+																				<button class="btn" disabled="disabled">年</button>
 																			</div>
 																		</div>
 																	</div> <span id="priceGuDong"
@@ -210,14 +228,27 @@
 															</ul>
 														</div></li>
 
-													<li class="list-group-item"><label
+													<li class="list-group-item"><!--<label
 														class="custom-switch mt-2 justify-content-between">
 															<span class="custom-switch-description nc_subttitle">共享办公室</span>
 															<input type="checkbox" class="custom-switch-input"
 															id="openAccount4"
 															onclick="openAccountFunction('openAccount4','openAccountDeatil4')">
 															<span class="custom-switch-indicator  nc_bttextbtn"></span>
-													</label>
+													</label>  -->
+													<label> 
+															 <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">共享办公室</span>	
+																 </div>	
+														  	 	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+																	<input type="checkbox" class="custom-switch-input"
+																	id="openAccount4"
+																	onclick="openAccountFunction('openAccount4','openAccountDeatil4')">
+																	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>														
 														<div class="card-body" id="openAccountDeatil4"
 															style="display: none">
 															<ul class="list-group">
@@ -240,7 +271,7 @@
 																				<option value="10">10</option>
 																			</select>
 																			<div class="input-group-append">
-																				<button class="btn">卡位</button>
+																				<button class="btn" disabled="disabled">卡位</button>
 																			</div>
 																			<select class="custom-select" id="countMoffice"
 																				onchange="runoffice(2)" style="border: none;">
@@ -249,7 +280,7 @@
 																				<option value="12">12</option>
 																			</select>
 																			<div class="input-group-append">
-																				<button class="btn">个月</button>
+																				<button class="btn" disabled="disabled">个月</button>
 																			</div>
 																		</div>
 																	</div> <span id="priceoffice"
@@ -259,14 +290,27 @@
 														</div></li>
 
 
-													<li class="list-group-item"><label
+													<li class="list-group-item"><!--  <label
 														class="custom-switch mt-2 justify-content-between">
 															<span class="custom-switch-description nc_subttitle">商标注册</span>
 															<input type="checkbox" class="custom-switch-input"
 															id="openAccount5"
 															onclick="openAccountFunction('openAccount5','openAccountDeatil5')">
 															<span class="custom-switch-indicator  nc_bttextbtn"></span>
-													</label>
+													</label>-->
+													<label> 
+															 <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">商标注册</span>	
+																 </div>	
+														  	 	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+																	<input type="checkbox" class="custom-switch-input"
+																		id="openAccount5"
+																		onclick="openAccountFunction('openAccount5','openAccountDeatil5')">
+																	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>														
 														<div class="card-body" id="openAccountDeatil5"
 															style="display: none">
 															<ul class="list-group">
@@ -280,7 +324,7 @@
 																			aria-describedby="passwordHelpBlock"> <small
 																			id="passwordHelpBlock" class="form-text text-muted">
 																			备注：如不清楚商标分类编号，请填写您的所在行业范围，客户将于24小时与您核实。 </small>
-																	</div> <span class="badge badge-primary badge-pill">S$1200</span>
+																	</div> <span class="badge badge-primary badge-pill ">S$1200</span>
 																</li>
 
 																<li
@@ -292,14 +336,27 @@
 														</div></li>
 
 
-													<li class="list-group-item"><label
+													<li class="list-group-item"><!-- <label
 														class="custom-switch mt-2 justify-content-between">
 															<span class="custom-switch-description nc_subttitle">GST消费税注册
 														</span> <input type="checkbox" class="custom-switch-input"
 															id="openAccount6"
 															onclick="openAccountFunction('openAccount6','openAccountDeatil6')">
 															<span class="custom-switch-indicator  nc_bttextbtn"></span>
-													</label>
+													</label> -->
+													<label> 
+															 <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">GST消费税注册</span>	
+																 </div>	
+														  	 	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+																	<input type="checkbox" class="custom-switch-input"
+																	id="openAccount6"
+																	onclick="openAccountFunction('openAccount6','openAccountDeatil6')">
+																	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>													
 														<div class="card-body" id="openAccountDeatil6"
 															style="display: none">
 															<ul class="list-group">
@@ -309,12 +366,13 @@
 																	class="badge badge-primary badge-pill">S$400</span>
 																</li>
 																<li
-																	class="list-group-item d-flex justify-content-between align-items-center choosedsvr"
-																	onclick="choosedsv(7)"><span
-																	style="margin-top: 0rem;">GST申报</span>
-																	<div class="form-group" style="margin-bottom: 0px;">
-																		<div class="input-group">
-																			<select class="custom-select" id="countapgst"
+																	class="list-group-item justify-content-between align-items-center choosedsvr"
+																	onclick="choosedsv(7)">																	
+																	 <div class="row">																								
+																		<div class="col-lg-4 col-md-4 col-sm-4 col-4" style="margin-top: 0rem;">GST申报</div>
+																		<div class="form-group col-lg-4 col-md-4 col-sm-4 col-4" style="margin-bottom: 0px;">
+																			<div class="input-group">
+																				<select class="custom-select" id="countapgst"
 																				onchange="rungst(1)" style="border: none;">
 																				<option selected>1</option>
 																				<option value="2">2</option>
@@ -326,13 +384,16 @@
 																				<option value="8">8</option>
 																				<option value="9">9</option>
 																				<option value="10">10</option>
-																			</select>
-																			<div class="input-group-append">
-																				<button class="btn">次</button>
+																				</select>
+																				<div class="input-group-append">
+																					<button class="btn" disabled="disabled">次</button>
+																				</div>
 																			</div>
 																		</div>
-																	</div> <span id="priceapgst"
-																	class="badge badge-primary badge-pill">S$300</span> <br />
+																	 <div class="col-lg-4 col-md-4 col-sm-4 col-4 right">																	
+																  		 <div id="priceapgst" class="badge badge-primary badge-pill">S$300</div> 
+																  	 </div>	<br />
+																 </div>
 																</li>
 																<li
 																	class="list-group-item d-flex justify-content-between align-items-center choosedsvr"
@@ -342,14 +403,27 @@
 															</ul>
 														</div></li>
 
-													<li class="list-group-item"><label
+													<li class="list-group-item"><!-- <label
 														class="custom-switch mt-2 justify-content-between">
 															<span class="custom-switch-description nc_subttitle">虚拟电话
 														</span> <input type="checkbox" class="custom-switch-input"
 															id="openAccount7"
 															onclick="openAccountFunction('openAccount7','openAccountDeatil7')">
 															<span class="custom-switch-indicator  nc_bttextbtn"></span>
-													</label>
+													</label> -->
+													<label> 
+															 <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">虚拟电话</span>	
+																 </div>	
+														  	 	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+																	<input type="checkbox" class="custom-switch-input"
+																	id="openAccount7"
+																	onclick="openAccountFunction('openAccount7','openAccountDeatil7')">
+																	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>													
 														<div class="card-body" id="openAccountDeatil7"
 															style="display: none">
 															<ul class="list-group">
@@ -373,11 +447,11 @@
 																				<option value="10">10</option>
 																			</select>
 																			<div class="input-group-append">
-																				<button class="btn">季度</button>
+																				<button class="btn" disabled="disabled">季度</button>
 																			</div>
 																		</div>
 																	</div> <span id="pricesgtel"
-																	class="badge badge-primary badge-pill">S$200</span> <br />
+																	class="badge badge-primary badge-pill telleft">S$200</span> <br />
 																</li>
 																<li
 																	class="list-group-item d-flex justify-content-between align-items-center choosedsvr"
@@ -399,24 +473,37 @@
 																				<option value="10">10</option>
 																			</select>
 																			<div class="input-group-append">
-																				<button class="btn">季度</button>
+																				<button class="btn" disabled="disabled">季度</button>
 																			</div>
 																		</div>
 																	</div> <span id="priceglotel"
-																	class="badge badge-primary badge-pill">S$500</span> <br />
+																	class="badge badge-primary badge-pill telleft2">S$500</span> <br />
 																</li>
 															</ul>
 														</div></li>
 
 
-													<li class="list-group-item"><label
+													<li class="list-group-item"><!--  <label
 														class="custom-switch mt-2 justify-content-between">
 															<span class="custom-switch-description nc_subttitle">收信转寄服务
 														</span> <input type="checkbox" class="custom-switch-input"
 															id="openAccount8"
 															onclick="openAccountFunction('openAccount8','openAccountDeatil8')">
 															<span class="custom-switch-indicator  nc_bttextbtn"></span>
-													</label>
+													</label>-->
+													<label> 
+															 <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">收信转寄服务</span>	
+																 </div>	
+														  	 	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+																	<input type="checkbox" class="custom-switch-input"
+																	id="openAccount8"
+																	onclick="openAccountFunction('openAccount8','openAccountDeatil8')">
+																	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>													
 														<div class="card-body" id="openAccountDeatil8"
 															style="display: none">
 															<ul class="list-group">
@@ -433,23 +520,36 @@
 																				<option value="3">3</option>
 																			</select>
 																			<div class="input-group-append">
-																				<button class="btn">年</button>
+																				<button class="btn" disabled="disabled">年</button>
 																			</div>
 																		</div>
 																	</div> <span id="pricemail"
-																	class="badge badge-primary badge-pill">S$600</span> <br />
+																	class="badge badge-primary badge-pill emailleft">S$600</span> <br />
 																</li>
 															</ul>
 														</div></li>
 
-													<li class="list-group-item"><label
+													<li class="list-group-item"><!--  <label
 														class="custom-switch mt-2 justify-content-between">
 															<span class="custom-switch-description nc_subttitle">会计记账
 														</span> <input type="checkbox" class="custom-switch-input"
 															id="openAccount9"
 															onclick="openAccountFunction('openAccount9','openAccountDeatil9')">
 															<span class="custom-switch-indicator  nc_bttextbtn"></span>
-													</label>
+													</label>-->
+													<label> 
+															 <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">会计记账</span>	
+																 </div>	
+														  	 	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+																	<input type="checkbox" class="custom-switch-input"
+																	id="openAccount9"
+																	onclick="openAccountFunction('openAccount9','openAccountDeatil9')">
+																	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>													
 														<div class="card-body" id="openAccountDeatil9"
 															style="display: none">
 															<ul class="list-group">
@@ -459,7 +559,7 @@
 
 																	<div class="form-group" style="margin-bottom: 0px;">
 																		<div class="input-group">
-																			<select class="custom-select" id="countaccounting"
+																			<select class="custom-select c-select-v2" id="countaccounting"
 																				onchange="runaccounting(1)" style="border: none;">
 																				<option value="300" selected>0-50笔交易</option>
 																				<option value="450">50-150笔交易</option>
@@ -469,19 +569,32 @@
 																			</select>
 																		</div>
 																	</div> <span id="priceaccounting"
-																	class="badge badge-primary badge-pill">S$300</span> <br />
+																	class="badge badge-primary badge-pill accleft">S$300</span> <br />
 																</li>
 															</ul>
 														</div></li>
 
-													<li class="list-group-item"><label
+													<li class="list-group-item"><!--  <label
 														class="custom-switch mt-2 justify-content-between">
 															<span class="custom-switch-description nc_subttitle">注册时间
 														</span> <input type="checkbox" class="custom-switch-input"
 															id="openAccount10"
 															onclick="openAccountFunction('openAccount10','openAccountDeatil10')">
 															<span class="custom-switch-indicator  nc_bttextbtn"></span>
-													</label>
+													</label>-->
+													<label> 
+															 <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">注册时间</span>	
+																 </div>	
+														  	 	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+																	<input type="checkbox" class="custom-switch-input"
+																	id="openAccount10"
+																	onclick="openAccountFunction('openAccount10','openAccountDeatil10')">
+																	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>														
 														<div class="card-body" id="openAccountDeatil10"
 															style="display: none">
 															<ul class="list-group">
@@ -497,82 +610,6 @@
 																</li>
 															</ul>
 														</div></li>
-
-													<!-- <li class="list-group-item">
-                                            <label class="custom-switch mt-2">
-                                                  <span class="list-group-item d-flex justify-content-between align-items-center">挂名董事
-                                                    <span class="badge badge-primary badge-pill">S$1800/年</span>
-                                                  </span>
-                                                  <input type="checkbox" class="custom-switch-input" id="guamingdongshi"> 
-                                                  <span class="custom-switch-indicator"></span>
-                                            </label>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="form-group">
-                                                  <span class="list-group-item d-flex justify-content-between align-items-center">挂名股东
-                                                    <span class="badge badge-primary badge-pill">S$1000/年</span>
-                                                  </span>
-                                                  <input type="checkbox" class="custom-switch-input" id="guaminggudong"> 
-                                                  <span class="custom-switch-indicator"></span>
-                                            </div>
-                                        </li> 
-                                        <li class="list-group-item">
-                                            <div class="form-group row">
-                                                <label>共享办公室</label>
-                                                  <select class="form-control form-control-sm">
-                                                    <option>3个月 - 2400 </option>
-                                                    <option>6个月 - 4800</option>
-                                                    <option>12个月 - 9600</option>
-                                                  </select>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="list-group-item"> 
-                                            <div class="form-group">
-                                                  <div class="list-group-item d-flex justify-content-between align-items-center">商标注册
-                                                    <span class="badge badge-primary badge-pill">S$1200/年</span>
-                                                  </div>
-                                                  <input type="checkbox" class="custom-switch-input"  id="guamingdongshi"> 
-                                            </div>
-                                        </li>
-
-                                        
-
-                                        <li class="list-group-item">
-                                            <div id="dongshidiv"></div>
-                                        </li>
-                                        
-                                        <li class="list-group-item">
-                                            <div class="form-group row">
-                                                  <label for="inputEmail3" class="col-sm-3 col-form-label">股东</label>
-                                                  <div class="col-sm-9"><input type="text" class="form-control" id="gudong" placeholder="股东"></div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div id="gudongdiv"></div>
-                                            <div id="content"></div>
-                                        </li>
-
-                                        <li class="list-group-item">
-                                            <div class="form-group row">
-                                                  <label for="inputEmail3" class="col-sm-3 col-form-label">秘书</label>
-                                                  <div class="col-sm-9"><input type="text" class="form-control" id="mishu" placeholder="秘书"></div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="list-group-item">
-                                            <div class="form-group row">
-                                                  <label for="inputEmail3" class="col-sm-3 col-form-label">联系人</label>
-                                                  <div class="col-sm-9"><input type="text" class="form-control" id="lianxiren" placeholder="联系人"></div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="list-group-item">
-                                            <div class="form-group row">
-                                                  <label for="inputEmail3" class="col-sm-3 col-form-label">电话/邮箱</label>
-                                                  <div class="col-sm-9"><input type="email" class="form-control" id="lianxiren" placeholder="电话/邮箱"></div>
-                                            </div>
-                                        </li> -->
 												</ul>
 												<div class="button-row d-flex mt-4">
 													<button class="btn btn-primary js-btn-prev" type="button"
@@ -637,13 +674,27 @@
 													<div class="section-title">董事、股东、联系人资料</div>
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">职位填报类型</label>
-														<div class="col-sm-9">
-															<select class="custom-select" id="positionType">
+														<div class="col-sm-9">																											
+															 <div class="form-group">
+										                      <div class="form-check form-check-inline">
+										                        <input class="form-check-input" type="checkbox" id="checkb_dongshi" value="dongshi">
+										                        <label style="height:auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
+										                      </div>
+										                      <div class="form-check form-check-inline">
+										                        <input class="form-check-input" type="checkbox" id="checkb_gudon" value="gudon" onclick="addMoreQ()"	>
+										                        <label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
+										                      </div>
+										                      <div class="form-check form-check-inline">
+										                        <input class="form-check-input" type="checkbox" id="checkb_contactpeopple" value="contactpeopple">
+										                        <label style="height:auto;"  class="form-check-label" for="inlineCheckbox3">联系人</label>
+										                      </div>
+										                    </div>																															
+														<!--  	<select class="custom-select c-select-info" id="positionType">
 																<option selected>请选择</option>
 																<option value="董事">董事</option>
 																<option value="股东">股东</option>
 																<option value="联系人">联系人</option>
-															</select>
+															</select>-->
 														</div>
 													</div>
 													<div class="form-group row">
@@ -663,7 +714,7 @@
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">性别</label>
 														<div class="col-sm-9">
-															<select class="custom-select" id="gender">
+															<select class="custom-select c-select-info" id="gender">
 																<option selected>男</option>
 																<option value="1">女</option>
 															</select>
@@ -672,7 +723,7 @@
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">身份证类型</label>
 														<div class="col-sm-9">
-															<select class="custom-select" id="ICType">
+															<select class="custom-select c-select-info" id="ICType">
 																<option value="公民" selected>NRIC（公民）</option>
 																<option value="永久居民">NRIC（永久居民）</option>
 																<option value="FIN">FIN</option>
@@ -715,6 +766,29 @@
 																id="contractNumber" placeholder="联系电话">
 														</div>
 													</div>
+													<div style="display:none;" id="addmoreqtext"> 
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">发行股份数量*</label>
+														<div class="col-sm-9">
+															<input type="tel" class="form-control"
+																id="numberofSharesIssued" placeholder="发行股份数量">
+														</div>
+													</div>													
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">实缴股份数量*</label>
+														<div class="col-sm-9">
+															<input type="tel" class="form-control"
+																id="numberofPaid-inShares" placeholder="实缴股份数量">
+														</div>
+													</div>													
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">每股价值*</label>
+														<div class="col-sm-9">
+															<input type="tel" class="form-control"
+																id="aluePerShare" placeholder="每股价值">
+														</div>
+													</div>	
+													</div>											
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">个人地址及邮编</label>
 														<div class="col-sm-9">
@@ -758,7 +832,14 @@
 															<input type="button" value="+" onclick="addFilepimg(1)">
 														</div>
 													</div>
-													<div class="form-group row" id="addfiledivpimg"></div>
+													<div class="form-group row" id="addContactPDiv"></div>
+
+														<div class="col-sm-12"
+															style="margin-top: .5rem; padding-left: 0;">
+															<input type="button" value="+" onclick="addContactP(1)">
+														</div>
+														<div class="form-group row" id="addfiledivpimg"></div>
+
 
 													<div class="button-row d-flex mt-4">
 														<button class="btn btn-primary js-btn-prev" type="button"
@@ -892,10 +973,10 @@
                 z.push(document.getElementById("countYear").value);
                 if (services.some(el => el.name === "挂名董事")){
                     services = services.filter(item => item.name !== "挂名董事")
-                    services = services.filter(item => item.name !== "押金")
+                    //services = services.filter(item => item.name !== "押金")
                 }
-                services.push({name:"挂名董事",price:z[0]*z[1]*1800});
-                services.push({name:"押金",price:1500});
+                services.push({name:"挂名董事",price:z[0]*z[1]*1800+1500});
+                //services.push({name:"押金",price:1500});
                 refreshRightSummary();
                 z=[];
                 break;
@@ -986,7 +1067,7 @@
             case "openAccount2":
                 if (services.some(el => el.name === "挂名董事")){
                     services = services.filter(item => item.name !== "挂名董事")
-                    services = services.filter(item => item.name !== "押金")
+                    //services = services.filter(item => item.name !== "押金")
                 }
                 refreshRightSummary();
                 break;
@@ -1219,18 +1300,20 @@
     function choosedsv(x) {
         //document.getElementsByClassName("choosedsvr")[x].style.backgroundColor= '#f8fafb';     
         var element = document.getElementsByClassName("choosedsvr")[x];
+        var btn = document.getElementsByClassName("badge-pill")[x];
         element.classList.toggle("choosesv");    
+        btn.classList.toggle("choosedsvbtn");
     }
     var z= [];
     function run(x) {
             z.push(document.getElementById("inputGroupSelect04").value);
             z.push(document.getElementById("countYear").value);
             if (z.length == 2){
-                document.getElementById("priceDongshi").innerHTML = "S$"+z[0]*z[1]*1800;
+                document.getElementById("priceDongshi").innerHTML = "S$"+(z[0]*z[1]*1800+1500)+"（含押金S$1500）";
                 if (services.some(el => el.name === "挂名董事")){
                     services = services.filter(item => item.name !== "挂名董事")
                 }
-            services.push({name:"挂名董事",price:z[0]*z[1]*1800});
+            services.push({name:"挂名董事",price:z[0]*z[1]*1800+1500});
             refreshRightSummary();
             z= [];
         }
@@ -1371,6 +1454,186 @@
       function removeFilepimg (input) {
           input.parentNode.parentNode.remove()
       }
+
+
+      function addMoreQ() {
+    	  var checkBox = document.getElementById("checkb_gudon");
+    	  var text = document.getElementById("addmoreqtext");
+    	  if (checkBox.checked == true){
+    	    text.style.display = "block";
+    	  } else {
+    	     text.style.display = "none";
+    	  }
+    	}
+
+      function addContactP (x) {
+          document.querySelector('#addContactPDiv').insertAdjacentHTML('afterend',
+            ` 													<div class="section-title">董事、股东、联系人资料</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">职位填报类型</label>
+														<div class="col-sm-9">																											
+															 <div class="form-group">
+										                      <div class="form-check form-check-inline">
+										                        <input class="form-check-input" type="checkbox" id="checkb_dongshi" value="dongshi">
+										                        <label style="height:auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
+										                      </div>
+										                      <div class="form-check form-check-inline">
+										                        <input class="form-check-input" type="checkbox" id="checkb_gudon" value="gudon" onclick="addMoreQ()"	>
+										                        <label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
+										                      </div>
+										                      <div class="form-check form-check-inline">
+										                        <input class="form-check-input" type="checkbox" id="checkb_contactpeopple" value="contactpeopple">
+										                        <label style="height:auto;"  class="form-check-label" for="inlineCheckbox3">联系人</label>
+										                      </div>
+										                    </div>																															
+														<!--  	<select class="custom-select c-select-info" id="positionType">
+																<option selected>请选择</option>
+																<option value="董事">董事</option>
+																<option value="股东">股东</option>
+																<option value="联系人">联系人</option>
+															</select>-->
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">全名（护照姓名）*</label>
+														<div class="col-sm-9">
+															<input type="text" class="form-control" id="fullName"
+																placeholder="全名（护照姓名）">
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">国籍*</label>
+														<div class="col-sm-9">
+															<input type="text" class="form-control" id="nationality"
+																placeholder="国籍">
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">性别</label>
+														<div class="col-sm-9">
+															<select class="custom-select c-select-info" id="gender">
+																<option selected>男</option>
+																<option value="1">女</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">身份证类型</label>
+														<div class="col-sm-9">
+															<select class="custom-select c-select-info" id="ICType">
+																<option value="公民" selected>NRIC（公民）</option>
+																<option value="永久居民">NRIC（永久居民）</option>
+																<option value="FIN">FIN</option>
+																<option value="护照/其他">护照/其他</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">证件号码*</label>
+														<div class="col-sm-9">
+															<input type="text" class="form-control" id="ICNumber"
+																placeholder="证件号码">
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">出生国家*</label>
+														<div class="col-sm-9">
+															<input type="text" class="form-control" id="birthCountry"
+																placeholder="出生国家">
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">出生日期*</label>
+														<div class="col-sm-9">
+															<input type="date" class="form-control" id="dateOfBirth"
+																placeholder="出生日期">
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">电子邮箱*</label>
+														<div class="col-sm-9">
+															<input type="email" class="form-control" id="email"
+																placeholder="电子邮箱">
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">联系电话*</label>
+														<div class="col-sm-9">
+															<input type="tel" class="form-control"
+																id="contractNumber" placeholder="联系电话">
+														</div>
+													</div>
+													<div style="display:none;" id="addmoreqtext"> 
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">发行股份数量*</label>
+														<div class="col-sm-9">
+															<input type="tel" class="form-control"
+																id="numberofSharesIssued" placeholder="发行股份数量">
+														</div>
+													</div>													
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">实缴股份数量*</label>
+														<div class="col-sm-9">
+															<input type="tel" class="form-control"
+																id="numberofPaid-inShares" placeholder="实缴股份数量">
+														</div>
+													</div>													
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">每股价值*</label>
+														<div class="col-sm-9">
+															<input type="tel" class="form-control"
+																id="aluePerShare" placeholder="每股价值">
+														</div>
+													</div>	
+													</div>											
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">个人地址及邮编</label>
+														<div class="col-sm-9">
+															<textarea class="form-control"
+																id="personalAddressAndPostalCode" placeholder="个人地址及邮编"></textarea>
+														</div>
+													</div>
+													<div class="form-group row" style="margin-top: 1rem;">
+														<label class="col-sm-3 col-form-label">NRIC / ID /
+															FIN /护照/其他</label>
+														<div class="col-sm-8">
+															<input type="file" class="form-control" id="uploadIC1"
+																placeholder="资料上传">
+														</div>
+														<div class="col-sm-1"
+															style="margin-top: .5rem; padding-left: 0;">
+															<input type="button" value="+" onclick="addFile(1)">
+														</div>
+													</div>
+													<div class="form-group row" id="addfilediv"></div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">住所证明（海外）（3个月内出具）</label>
+														<div class="col-sm-8">
+															<input type="file" class="form-control"
+																id="uploadAddress1" placeholder="资料上传">
+														</div>
+														<div class="col-sm-1"
+															style="margin-top: .5rem; padding-left: 0;">
+															<input type="button" value="+" onclick="addFileadd(1)">
+														</div>
+													</div>
+													<div class="form-group row" id="addfiledivadd"></div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">持护照(打开有照片页)正面头部照(董事和股东需要)</label>
+														<div class="col-sm-8">
+															<input type="file" class="form-control"
+																id="uploadpassport1" placeholder="资料上传">
+														</div>
+														<div class="col-sm-1"
+															style="margin-top: .5rem; padding-left: 0;">
+															<input type="button" value="+" onclick="addFilepimg(1)">
+														</div>
+													</div>
+													<div class="form-group row" id="addContactPDiv"></div>
+													<input type="button" value="-" onclick="removeFileadd(this)">`      
+          )
+      } 
+      
 </script>
    
 </body>

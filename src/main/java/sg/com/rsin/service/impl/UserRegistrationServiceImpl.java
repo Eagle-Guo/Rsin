@@ -66,18 +66,19 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 		userRegistrationObject.setPassword(encodedPassword);
 		userRegistrationObject.setStatus(UserStatus.ACTIVE);
 		userRegistrationObject.setUsername(userRegistrationObject.getEmail());
-		//try {
-		userRegistrationRepository.save(userRegistrationObject);
-		/*} catch (Exception ex) {
+		
+		try {
+				userRegistrationRepository.save(userRegistrationObject);
+		} catch (Exception ex) {
 			System.out.println(ex.getLocalizedMessage());
 			System.out.println(ex.getMessage());
 			System.out.println(ex.getCause().getLocalizedMessage());
-			System.out.println(ex.getCause().getMessage())
-;			response.setResponseCode(ResponseCode.SAVE_INTO_DB_ERROR);
+			System.out.println(ex.getCause().getMessage());	
+			response.setResponseCode(ResponseCode.SAVE_INTO_DB_ERROR);
 			errorList.add(new ErrorObject("保存注册信息异常，请联系我们的管理员"));
 			response.setErrorList(errorList);
 			return response;
-		}*/
+		}
 //		User user = new User(userRegistrationObject.getEmail(), encodedPassword, authorities);
 //		jdbcUserDetailsManager.createUser(user);
 		response.setResponseCode(ResponseCode.SUCCESS);

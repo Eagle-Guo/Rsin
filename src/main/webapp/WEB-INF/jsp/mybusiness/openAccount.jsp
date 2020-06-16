@@ -336,7 +336,7 @@
 				              <!--single form panel-->
 				              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
 				                <h3 class="multisteps-form__title">在线确认</h3>
-				                	<div class="card-body">
+				                	<!-- <div class="card-body">
 					                    <div class="form-group">
 					                      <label>服务记录</label>
 					                      <input type="text" id="serviceRecord" class="form-control">
@@ -357,7 +357,7 @@
 					                      <label>备注</label>
 					                      <textarea id="comment" id="serviceComment" rows="4" class="form-control"></textarea>
 					                    </div>
-					                </div>
+					                </div> -->
 				                  <div class="button-row d-flex mt-4">
 				                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
 				                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="listSummary()">下一步</button>
@@ -655,9 +655,6 @@
 		}
 	}   
 
-
-
-	      	
 </script>
 
   <!-- Template JS File -->

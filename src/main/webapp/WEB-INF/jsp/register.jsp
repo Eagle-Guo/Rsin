@@ -10,6 +10,7 @@
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="build/css/intlTelInput.css">
 
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="../node_modules/selectric/public/selectric.css">
@@ -50,6 +51,14 @@
                   <div class="form-group">
                    	<label for="email">邮箱</label>
 -                    <input id="email" type="email" class="form-control" name="email" required oninvalid="this.setCustomValidity('邮箱不能为空,请输入正确的邮箱！')" onchange="this.setCustomValidity('')"/>
+                    <div class="invalid-feedback">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                   	<label for="mobile">手机号码</label>
+                   	 <input type="tel" id="mobile" placeholder="">
+-                    <input id="mobile" type="text" class="form-control" name="mobile" required oninvalid="this.setCustomValidity('手机号码不能为空,请输入正确的手机号码！')" onchange="this.setCustomValidity('')"/>
                     <div class="invalid-feedback">
                     </div>
                   </div>
@@ -124,6 +133,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="../assets/js/stisla.js"></script>
+  <script src="build/js/intlTelInput.js"></script>
 
   <!-- JS Libraies -->
   <script src="../node_modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
@@ -137,6 +147,9 @@
   <script src="../assets/js/page/auth-register.js"></script>
   
   <script type="text/javascript" >
+    $(function() {
+    	$("#mobile").intlTelInput();
+    });
   	var password = document.getElementById("password");
   	var confirm_password = document.getElementById("confirm_password");
 

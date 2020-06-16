@@ -8,9 +8,11 @@
   <title>注册  &mdash;  睿信集团</title>
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link rel="stylesheet" href="../assets/css/intlTel/intlTelInput.css">
+  <link rel="stylesheet" href="./assets/css/intlTel/demo.css">
+  
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="../node_modules/selectric/public/selectric.css">
 
@@ -52,6 +54,11 @@
 -                    <input id="email" type="email" class="form-control" name="email" required oninvalid="this.setCustomValidity('邮箱不能为空,请输入正确的邮箱！')" onchange="this.setCustomValidity('')"/>
                     <div class="invalid-feedback">
                     </div>
+                  </div>
+                  
+                  <div class="form-group">
+                   	 <label for="phone">手机号码</label>
+                   	 <form:input id="phone" type="text" placeholder="手机号码" path="phone" />
                   </div>
 
                   <div class="row">
@@ -118,12 +125,13 @@
   </div>
 
   <!-- General JS Scripts -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="../assets/js/stisla.js"></script>
+  <script src="../assets/js/intlTel/intlTelInput.js"></script>
 
   <!-- JS Libraies -->
   <script src="../node_modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
@@ -137,8 +145,12 @@
   <script src="../assets/js/page/auth-register.js"></script>
   
   <script type="text/javascript" >
-  	var password = document.getElementById("password");
-  	var confirm_password = document.getElementById("confirm_password");
+	  var input = document.querySelector("#phone");
+	  window.intlTelInput(input, {
+	    // any initialisation options go here
+	  });
+  	  var password = document.getElementById("password");
+  	  var confirm_password = document.getElementById("confirm_password");
 
 	function validatePassword(){
 	  if(password.value != confirm_password.value) {

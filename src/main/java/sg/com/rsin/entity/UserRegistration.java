@@ -29,6 +29,9 @@ public class UserRegistration {
 	@Column(name = "email", length = 50)
 	private String email;
 	
+	@Column(name = "phone", length = 50)
+	private String phone;
+	
 	@Column(name = "password", length = 120)
 	private String password;
 	
@@ -84,6 +87,12 @@ public class UserRegistration {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public String getPassword() {
 		return password;

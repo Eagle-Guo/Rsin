@@ -96,24 +96,10 @@
                   <div class="row">
                     <div class="form-group col-6">
                       <form:label path="country">国家</form:label>
-		         		<form>
-							<div class="form-item">
-								<input id="country_selector"  class="telinput"  type="text">
-								<label for="country_selector" style="display:none;">Select a country here...</label>
-							</div>
-							<div class="form-item" style="display:none;">
-								<input type="text" id="country_selector_code" name="country_selector_code" data-countrycodeinput="1" readonly="readonly" placeholder="Selected country code will appear here" />
-								<label for="country_selector_code">...and the selected country code will be updated here</label>
-							</div>
-							<button type="submit" style="display:none;">Submit</button>
-						</form>                      
-                   <!--     <form:select id="country" path="country" class="form-control selectric">
-                        <option value="sg">新加坡</option>
-                        <option value="cn">中国</option>
-                        <option value="my">马来西亚</option>
-                        <option value="th">泰国</option>
-                        <option value="id">印度尼西亚</option>
-                      </form:select>-->
+						<div class="form-item">
+							<form:input id="country"  class="telinput" path="country" type="text" />
+							<label for="country" style="display:none;">Select a country here...</label>
+						</div>
                     </div>                                   
                     <div class="form-group col-6">
                       <form:label path="province">城市</form:label>
@@ -171,8 +157,8 @@
   <!-- Page Specific JS File -->
   <script src="../assets/js/page/auth-register.js"></script>
   
-   <!-- CountrySelect JS File --> 
-  	<script src="../assets/js/intlTel/countrySelect.js"></script>
+  <!-- CountrySelect JS File --> 
+  <script src="../assets/js/intlTel/countrySelect.js"></script>
   
   
   <script type="text/javascript" >
@@ -194,11 +180,11 @@
 	confirm_password.onkeyup = validatePassword;
 
 
-	$("#country_selector").countrySelect({
+	$("#country").countrySelect({
 		// defaultCountry: "jp",
 		// onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
 		// responsiveDropdown: true,
-		preferredCountries: ['ca', 'gb', 'us']
+		preferredCountries: ['sg', 'cn', 'my']
 	});
 	
   </script>

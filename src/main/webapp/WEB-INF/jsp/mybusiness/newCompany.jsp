@@ -956,170 +956,9 @@
           
           if (checkBox.checked == true){
             text.style.display = "block";
-
-            switch (x) {
-            case "openAccount":
-                z.push(document.getElementById("inputGroupSelect04").value);
-                z.push(document.getElementById("countYear").value);
-                if (services.some(el => el.name === "新注册新加坡公司开户")){
-                    services = services.filter(item => item.name !== "新注册新加坡公司开户")
-                }
-                services.push({name:"新注册新加坡公司开户",price:300});
-                refreshRightSummary();
-                z=[];
-                break;
-            case "openAccount2":
-                z.push(document.getElementById("inputGroupSelect04").value);
-                z.push(document.getElementById("countYear").value);
-                if (services.some(el => el.name === "挂名董事")){
-                    services = services.filter(item => item.name !== "挂名董事")
-                    //services = services.filter(item => item.name !== "押金")
-                }
-                services.push({name:"挂名董事",price:z[0]*z[1]*1800+1500});
-                //services.push({name:"押金",price:1500});
-                refreshRightSummary();
-                z=[];
-                break;
-            case "openAccount3":
-                  z.push(document.getElementById("countGuDong").value);
-                  z.push(document.getElementById("countYearGuDong").value);
-                  if (services.some(el => el.name === "挂名股东")){
-                      services = services.filter(item => item.name !== "挂名股东")
-                  }
-                  services.push({name:"挂名股东",price:z[0]*z[1]*1000});
-                  refreshRightSummary();
-                  z=[];
-                  break;
-            case "openAccount4":
-                z.push(document.getElementById("countoffice").value);
-                  z.push(document.getElementById("countMoffice").value);
-                  if (services.some(el => el.name === "共享办公室")){
-                      services = services.filter(item => item.name !== "共享办公室")
-                  }
-                  services.push({name:"共享办公室",price:z[0]*z[1]*800});
-                  refreshRightSummary();
-                  z=[];
-                  break;
-            case "openAccount5":
-                  if (services.some(el => el.name === "商标注册")){
-                      services = services.filter(item => item.name !== "商标注册")
-                  }
-                  services.push({name:"商标注册",price:2100});
-                  refreshRightSummary();
-                  z=[];
-                  break;
-            case "openAccount6":
-                  z.push(document.getElementById("countapgst").value);
-                  if (services.some(el => el.name === "GST消费税注册")){
-                      services = services.filter(item => item.name !== "GST消费税注册")
-                  }
-                  services.push({name:"GST消费税注册",price:z[0]*300+1800});
-                  refreshRightSummary();
-                  z=[];
-                  break;
-            case "openAccount7":
-                  z.push(document.getElementById("countsgtel").value);
-                  z.push(document.getElementById("countglotel").value);
-                  if (services.some(el => el.name === "虚拟电话")){
-                      services = services.filter(item => item.name !== "虚拟电话")
-                  }
-                  services.push({name:"虚拟电话",price:z[0]*200+z[1]*500});
-                  refreshRightSummary();
-                  z=[];
-                  break;
-            case "openAccount8":
-                  z.push(document.getElementById("countmail").value);
-                  if (services.some(el => el.name === "收信转寄服务")){
-                      services = services.filter(item => item.name !== "收信转寄服务")
-                  }
-                  services.push({name:"收信转寄服务",price:z[0]*600});
-                  refreshRightSummary();
-                  z=[];
-                  break; 
-            case "openAccount9":
-                  z.push(document.getElementById("countaccounting").value);
-                  if (services.some(el => el.name === "会计记账")){
-                      services = services.filter(item => item.name !== "会计记账")
-                  }
-                  services.push({name:"会计记账",price:z[0]});
-                  refreshRightSummary();
-                  z=[];
-                  break;   
-            case "openAccount10":
-                  if (services.some(el => el.name === "注册时间")){
-                      services = services.filter(item => item.name !== "注册时间")
-                  }
-                  services.push({name:"注册时间",price:300});
-                  refreshRightSummary();
-                  z=[];
-                  break;     
-            }
           
           } else {
             text.style.display = "none";
-            switch (x) {
-            case "openAccount":
-                if (services.some(el => el.name === "新注册新加坡公司开户")){
-                    services = services.filter(item => item.name !== "新注册新加坡公司开户")
-                }
-                refreshRightSummary();
-                break;
-            case "openAccount2":
-                if (services.some(el => el.name === "挂名董事")){
-                    services = services.filter(item => item.name !== "挂名董事")
-                    //services = services.filter(item => item.name !== "押金")
-                }
-                refreshRightSummary();
-                break;
-            case "openAccount3":
-                  if (services.some(el => el.name === "挂名股东")){
-                      services = services.filter(item => item.name !== "挂名股东")
-                  }
-                  refreshRightSummary();
-                  break;
-            case "openAccount4":
-                  if (services.some(el => el.name === "共享办公室")){
-                      services = services.filter(item => item.name !== "共享办公室")
-                  }
-                  refreshRightSummary();
-                  break;
-            case "openAccount5":
-                  if (services.some(el => el.name === "商标注册")){
-                      services = services.filter(item => item.name !== "商标注册")
-                  }
-                  refreshRightSummary();
-                  break;
-            case "openAccount6":
-                  if (services.some(el => el.name === "GST消费税注册")){
-                      services = services.filter(item => item.name !== "GST消费税注册")
-                  }
-                  refreshRightSummary();
-                  break;
-            case "openAccount7":
-                  if (services.some(el => el.name === "虚拟电话")){
-                      services = services.filter(item => item.name !== "虚拟电话")
-                  }
-                  refreshRightSummary();
-                  break;
-            case "openAccount8":
-                  if (services.some(el => el.name === "收信转寄服务")){
-                      services = services.filter(item => item.name !== "收信转寄服务")
-                  }
-                  refreshRightSummary();
-                  break; 
-            case "openAccount9":
-                  if (services.some(el => el.name === "会计记账")){
-                      services = services.filter(item => item.name !== "会计记账")
-                  }
-                  refreshRightSummary();
-                  break;   
-            case "openAccount10":
-                  if (services.some(el => el.name === "注册时间")){
-                      services = services.filter(item => item.name !== "注册时间")
-                  }
-                  refreshRightSummary();
-                  break;     
-            } 
          }
     }
 
@@ -1301,6 +1140,244 @@
         //document.getElementsByClassName("choosedsvr")[x].style.backgroundColor= '#f8fafb';     
         var element = document.getElementsByClassName("choosedsvr")[x];
         var btn = document.getElementsByClassName("badge-pill")[x];
+        
+        if (!element.classList.contains('choosesv')) {
+        	switch (x) {
+            case 0:
+                if (services.some(el => el.name === "新注册新加坡公司开户")){
+                    services = services.filter(item => item.name !== "新注册新加坡公司开户")
+                }
+                services.push({name:"新注册新加坡公司开户",price:300});
+                refreshRightSummary();
+                break;
+            case 1:
+            	z.push(document.getElementById("inputGroupSelect04").value);
+                z.push(document.getElementById("countYear").value);
+                if (services.some(el => el.name === "挂名董事")){
+                    services = services.filter(item => item.name !== "挂名董事")
+                    //services = services.filter(item => item.name !== "押金")
+                }
+                services.push({name:"挂名董事",price:z[0]*z[1]*1800+1500});
+                //services.push({name:"押金",price:1500});
+                refreshRightSummary();
+                z=[];
+                break;
+            case 2:
+                  z.push(document.getElementById("countGuDong").value);
+                  z.push(document.getElementById("countYearGuDong").value);
+                  if (services.some(el => el.name === "挂名股东")){
+                      services = services.filter(item => item.name !== "挂名股东")
+                  }
+                  services.push({name:"挂名股东",price:z[0]*z[1]*1000});
+                  refreshRightSummary();
+                  z=[];
+                  break;
+            case 3:
+                  z.push(document.getElementById("countoffice").value);
+                  z.push(document.getElementById("countMoffice").value);
+                  if (services.some(el => el.name === "共享办公室")){
+                      services = services.filter(item => item.name !== "共享办公室")
+                  }
+                  services.push({name:"共享办公室",price:z[0]*z[1]*800});
+                  refreshRightSummary();
+                  z=[];
+                  break;
+            case 4:
+            	  if (services.some(el => el.name === "商标注册")){
+                    services = services.filter(item => item.name !== "商标注册")
+                  }
+                  var bigClass = document.getElementsByClassName("choosedsvr")[x+1];
+                  if (!bigClass.classList.contains('choosesv')) {
+                	  services.push({name:"商标注册",price:1200});
+                  } else {
+                      services.push({name:"商标注册",price:2100});
+                  }
+                  refreshRightSummary();
+                  break;
+            case 5:
+                  if (services.some(el => el.name === "商标注册")){
+                      services = services.filter(item => item.name !== "商标注册")
+                  }
+                  var bigClass = document.getElementsByClassName("choosedsvr")[x-1];
+              	  if (!bigClass.classList.contains('choosesv')) {
+              		services.push({name:"商标注册",price:900});
+              	  } else {
+              		services.push({name:"商标注册",price:2100});
+                  }
+                  refreshRightSummary();
+                  break;
+            case 6:
+            	z.push(document.getElementById("countapgst").value);
+                  if (services.some(el => el.name === "GST消费税注册")){
+                      services = services.filter(item => item.name !== "GST消费税注册")
+                  }
+                  var gstClaim = document.getElementsByClassName("choosedsvr")[x+1];
+                  var requestClaim = document.getElementsByClassName("choosedsvr")[x+2];
+              	  if (!gstClaim.classList.contains('choosesv')) {
+                  	  if (!requestClaim.classList.contains('choosesv')){
+                  		services.push({name:"GST消费税注册",price:400});
+                      } else {
+                    	  services.push({name:"GST消费税注册",price:400+1400});
+                      }
+              	  } else {
+              		if (!requestClaim.classList.contains('choosesv')){
+                  		services.push({name:"GST消费税注册",price:400+300*z[0]});
+                      } else {
+                    	  services.push({name:"GST消费税注册",price:400+300*z[0]+1400});
+                      }
+                  }
+                  refreshRightSummary();
+                  break;
+            case 7:
+                z.push(document.getElementById("countapgst").value);
+                if (services.some(el => el.name === "GST消费税注册")){
+                    services = services.filter(item => item.name !== "GST消费税注册")
+                }
+                var oneTimeReg = document.getElementsByClassName("choosedsvr")[x-1];
+                var requestClaim = document.getElementsByClassName("choosedsvr")[x+1];
+            	  if (!oneTimeReg.classList.contains('choosesv')) {
+                	  if (!requestClaim.classList.contains('choosesv')){
+                		services.push({name:"GST消费税注册",price:300*z[0]});
+                      } else {
+                  	    services.push({name:"GST消费税注册",price:300*z[0]+1400});
+                      }
+            	  } else {
+            		if (!requestClaim.classList.contains('choosesv')){
+                		services.push({name:"GST消费税注册",price:400+300*z[0]});
+                    } else {
+                  	  services.push({name:"GST消费税注册",price:400+300*z[0]+1400});
+                    }
+                }
+                refreshRightSummary();
+                z=[];
+                break;
+            case 8:
+            	z.push(document.getElementById("countapgst").value);
+            	if (services.some(el => el.name === "GST消费税注册")){
+                    services = services.filter(item => item.name !== "GST消费税注册")
+                }
+                var gstClaim = document.getElementsByClassName("choosedsvr")[x-1];
+                var oneTimeReg = document.getElementsByClassName("choosedsvr")[x-2];
+            	  if (!gstClaim.classList.contains('choosesv')) {
+                	  if (!oneTimeReg.classList.contains('choosesv')){
+                		services.push({name:"GST消费税注册",price:1400});
+                    } else {
+                  	  services.push({name:"GST消费税注册",price:400+1400});
+                    }
+            	  } else {
+            		if (!oneTimeReg.classList.contains('choosesv')){
+                		services.push({name:"GST消费税注册",price:1400+300*z[0]});
+                    } else {
+                  	  services.push({name:"GST消费税注册",price:400+300*z[0]+1400});
+                    }
+                }
+                refreshRightSummary();
+                break;
+
+            case 9:
+                  z.push(document.getElementById("countsgtel").value);
+                  z.push(document.getElementById("countglotel").value);
+                  if (services.some(el => el.name === "虚拟电话")){
+                      services = services.filter(item => item.name !== "虚拟电话")
+                  }
+                  services.push({name:"虚拟电话",price:z[0]*200+z[1]*500});
+                  refreshRightSummary();
+                  z=[];
+                  break;
+            case 10:
+                  z.push(document.getElementById("countmail").value);
+                  if (services.some(el => el.name === "收信转寄服务")){
+                      services = services.filter(item => item.name !== "收信转寄服务")
+                  }
+                  services.push({name:"收信转寄服务",price:z[0]*600});
+                  refreshRightSummary();
+                  z=[];
+                  break; 
+            case "openAccount9":
+                  z.push(document.getElementById("countaccounting").value);
+                  if (services.some(el => el.name === "会计记账")){
+                      services = services.filter(item => item.name !== "会计记账")
+                  }
+                  services.push({name:"会计记账",price:z[0]});
+                  refreshRightSummary();
+                  z=[];
+                  break;   
+            case "openAccount10":
+                  if (services.some(el => el.name === "注册时间")){
+                      services = services.filter(item => item.name !== "注册时间")
+                  }
+                  services.push({name:"注册时间",price:300});
+                  refreshRightSummary();
+                  z=[];
+                  break;     
+            }
+        } else {
+        	switch (x) {
+            case 0:
+            	if (services.some(el => el.name === "新注册新加坡公司开户")){
+                    services = services.filter(item => item.name !== "新注册新加坡公司开户")
+                }
+                refreshRightSummary();
+                break;
+            case 1:
+            	if (services.some(el => el.name === "挂名董事")){
+                    services = services.filter(item => item.name !== "挂名董事")
+                    //services = services.filter(item => item.name !== "押金")
+                }
+                refreshRightSummary();
+                break;
+            case 2:
+                  if (services.some(el => el.name === "挂名股东")){
+                      services = services.filter(item => item.name !== "挂名股东")
+                  }
+                  refreshRightSummary();
+                  break;
+            case 3:
+                  if (services.some(el => el.name === "共享办公室")){
+                      services = services.filter(item => item.name !== "共享办公室")
+                  }
+                  refreshRightSummary();
+                  break;
+            case 4:
+                  if (services.some(el => el.name === "商标注册")){
+                      services = services.filter(item => item.name !== "商标注册")
+                  }
+                  refreshRightSummary();
+                  break;
+            case 6:
+                  if (services.some(el => el.name === "GST消费税注册")){
+                      services = services.filter(item => item.name !== "GST消费税注册")
+                  }
+                  refreshRightSummary();
+                  break;
+            case 8:
+                  if (services.some(el => el.name === "虚拟电话")){
+                      services = services.filter(item => item.name !== "虚拟电话")
+                  }
+                  refreshRightSummary();
+                  break;
+            case 9:
+                  if (services.some(el => el.name === "收信转寄服务")){
+                      services = services.filter(item => item.name !== "收信转寄服务")
+                  }
+                  refreshRightSummary();
+                  break; 
+            case 10:
+                  if (services.some(el => el.name === "会计记账")){
+                      services = services.filter(item => item.name !== "会计记账")
+                  }
+                  refreshRightSummary();
+                  break;   
+            case 11:
+                  if (services.some(el => el.name === "注册时间")){
+                      services = services.filter(item => item.name !== "注册时间")
+                  }
+                  refreshRightSummary();
+                  break;     
+            } 
+        }
+        
+        
         element.classList.toggle("choosesv");    
         btn.classList.toggle("choosedsvbtn");
     }

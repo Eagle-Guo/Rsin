@@ -47,22 +47,22 @@
                       <form:input id="lastName" type="text" class="form-control" path="lastName" />
                     </div>
                   </div>
-
-                  <div class="form-group">
-                   	<label for="email">邮箱</label>
--                    <input id="email" type="email" class="form-control" name="email" required oninvalid="this.setCustomValidity('邮箱不能为空,请输入正确的邮箱！')" onchange="this.setCustomValidity('')"/>
-                    <div class="invalid-feedback">
-                    </div>
-                  </div>
-                  
-                  <div class="form-group">
-                   	<label for="mobile">手机号码</label>
-                   	 <input type="tel" id="mobile" placeholder="">
--                    <input id="mobile" type="text" class="form-control" name="mobile" required oninvalid="this.setCustomValidity('手机号码不能为空,请输入正确的手机号码！')" onchange="this.setCustomValidity('')"/>
-                    <div class="invalid-feedback">
-                    </div>
-                  </div>
-
+                  <div class="row">
+	                  <div class="form-group col-6">
+	                   	<label for="email">邮箱</label>
+	-                    <input id="email" type="email" class="form-control" name="email" required oninvalid="this.setCustomValidity('邮箱不能为空,请输入正确的邮箱！')" onchange="this.setCustomValidity('')"/>
+	                    <div class="invalid-feedback">
+	                    </div>
+	                  </div>
+	                  
+	                  <div class="form-group col-6">
+	                   	<label for="mobile">手机号码</label>
+	                   	 <input type="tel" id="mobile" placeholder="">
+	-                    <input id="mobile" type="text" class="form-control" name="mobile" required oninvalid="this.setCustomValidity('手机号码不能为空,请输入正确的手机号码！')" onchange="this.setCustomValidity('')"/>
+	                    <div class="invalid-feedback">
+	                    </div>
+	                  </div>
+   				 </div>
                   <div class="row">
                     <div class="form-group col-6">
                       <form:label path="password" class="d-block">密码</form:label>
@@ -91,13 +91,13 @@
                       </form:select>
                     </div>
                     <div class="form-group col-6">
-                      <form:label path="province">省</form:label>
+                      <form:label path="province">城市</form:label>
                       <form:input id="province" path="province" type="text" class="form-control" />
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-6">
-                      <form:label path="city">城市</form:label>
+                      <form:label path="city">地址</form:label>
                       <form:input id="city" type="text" class="form-control" path="city"/>
                     </div>
                     <div class="form-group col-6">

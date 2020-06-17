@@ -28,7 +28,7 @@
 <body>
 <jsp:include page="../menu.jsp" />
 <!-- Main Content -->
-      <div class="main-content">
+      <div class="main-content" id="openaccount">
         <section class="section">
           <div class="section-header">
             <h1>银行开户</h1>
@@ -51,7 +51,7 @@
 				            </div>
 			        	</div>
 			        	<!-- Left side -->
-				        <div class="col-lg-8 col-md-12 col-12 col-sm-12">
+				        <div class="col-lg-8 col-md-12 col-12 col-sm-12  leftside" >
 				           <form class="multisteps-form__form" action="/view/registerNewCompany" method="post">
 				              <!--single form panel-->
 				              <div class="multisteps-form__panel shadow p-4 rounded bg-white ad js-active" data-animation="scaleIn" id="companytype">
@@ -61,11 +61,22 @@
 				                    <div class="section-title">离岸公司新加坡离岸银行户口</div>
 				                		<ul class="list-group list-group-flush">
 						                  	<li class="list-group-item">
-							                  	<label class="custom-switch mt-2 justify-content-between">
+							                  <!--  <label class="custom-switch mt-2 justify-content-between">
 								                    <span class="custom-switch-description nc_subttitle">新建坡面签开户</span>
 						                        	<input type="checkbox" class="custom-switch-input"  id="openSignatureAccount" onclick="openAccountFunction('openSignatureAccount','openSignatureAccountDetail')"> 
 						                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
-								                </label>
+								                </label>-->	
+													<label> 
+															 <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">新建坡面签开户</span>	
+																 </div>	
+														  	 	 <div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+																	<input type="checkbox" class="custom-switch-input"  id="openSignatureAccount" onclick="openAccountFunction('openSignatureAccount','openSignatureAccountDetail')"> 
+						                        	            	 <span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>									                
 							                	<div class="card-body" id="openSignatureAccountDetail" style="display:none">
 								                    <ul class="list-group" >
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(0)" >					                      						                      							                    
@@ -95,11 +106,22 @@
 							                    </div>                						                    
 						                    </li>
 						                  	<li class="list-group-item">
-							                  	<label class="custom-switch mt-2 justify-content-between">
+							                  <!--  	<label class="custom-switch mt-2 justify-content-between">
 								                    <span class="custom-switch-description nc_subttitle">远程开户</span>
 						                        	<input type="checkbox" class="custom-switch-input"  id="openRemoteAccount" onclick="openAccountFunction('openRemoteAccount','openRemoteAccountDeatil')"> 
 						                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
-								                </label>
+								                </label>-->
+													<label> 
+														  <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">远程开户</span>	
+																 </div>	
+														  	 	 <div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+										                        	<input type="checkbox" class="custom-switch-input"  id="openRemoteAccount" onclick="openAccountFunction('openRemoteAccount','openRemoteAccountDeatil')"> 
+										                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>								                
 							                	<div class="card-body" id="openRemoteAccountDeatil" style="display:none">
 								                    <ul class="list-group">
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(1)" >					                      						                      							                    
@@ -131,11 +153,22 @@
 				                    <div class="section-title">私人银行贵宾户口</div>
 				                		<ul class="list-group list-group-flush">
 						                  	<li class="list-group-item">
-							                  	<label class="custom-switch mt-2 justify-content-between">
+							                  	<!--  <label class="custom-switch mt-2 justify-content-between">
 								                    <span class="custom-switch-description nc_subttitle">私人银行贵宾户口</span>
 						                        	<input type="checkbox" class="custom-switch-input"  id="openPriviteVIPAccount" onclick="openAccountFunction('openPriviteVIPAccount','openPriviteVIPAccountDeatil')"> 
 						                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
-								                </label>
+								                </label>-->
+													<label> 
+														  <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">私人银行贵宾户口</span>	
+																 </div>	
+														  	 	 <div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+										                        	<input type="checkbox" class="custom-switch-input"  id="openPriviteVIPAccount" onclick="openAccountFunction('openPriviteVIPAccount','openPriviteVIPAccountDeatil')"> 
+										                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>								                
 							                	<div class="card-body" id="openPriviteVIPAccountDeatil" style="display:none">
 								                    <ul class="list-group" >
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(2)" >					                      						                      							                    
@@ -167,11 +200,22 @@
 				                    <div class="section-title">新加坡公司开户</div>
 				                		<ul class="list-group list-group-flush">
 						                  	<li class="list-group-item">
-							                  	<label class="custom-switch mt-2 justify-content-between">
+							                  <!--  <label class="custom-switch mt-2 justify-content-between">
 								                    <span class="custom-switch-description nc_subttitle">新加坡公司开户</span>
 						                        	<input type="checkbox" class="custom-switch-input"  id="openCompanyAccount" onclick="openAccountFunction('openCompanyAccount','openCompanyAccountDeatil')"> 
 						                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
-								                </label>
+								                </label>-->	
+													<label> 
+														  <div class="row">
+																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+																	<span class="custom-switch-description nc_subttitle">新加坡公司开户</span>	
+																 </div>	
+														  	 	 <div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
+										                        	<input type="checkbox" class="custom-switch-input"  id="openCompanyAccount" onclick="openAccountFunction('openCompanyAccount','openCompanyAccountDeatil')"> 
+										                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+																</div>	
+															</div>
+														</label>									                
 							                	<div class="card-body" id="openCompanyAccountDeatil" style="display:none">
 								                    <ul class="list-group" >
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(3)" >					                      						                      							                    

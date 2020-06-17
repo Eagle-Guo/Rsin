@@ -207,10 +207,10 @@
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="/userWelcome">睿信集团</a>
+            <a href="/notice/notice">睿信集团</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="/userWelcome">睿信</a>
+            <a href="/notice/notice">睿信</a>
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">后台管理</li>
@@ -251,7 +251,7 @@
                   <li><a class="nav-link" href="/coming">已付款，进行中业务</a></li>
                   <li><a class="nav-link" href="/coming">已提交末付款业务</a></li>
                   <li><a class="nav-link" href="/coming">关闭业务</a></li>
-                  <li><a class="nav-link" href="/coming">其它付款</a></li>
+                  <li><a class="nav-link" href="/userWelcome">其它付款</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">

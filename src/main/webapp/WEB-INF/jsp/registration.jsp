@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
   <link rel="stylesheet" href="../assets/css/intlTel/intlTelInput.css">
   <link rel="stylesheet" href="./assets/css/intlTel/demo.css">
+  <link rel="stylesheet" href="./assets/css/intlTel/countrySelect.css">
   
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="../node_modules/selectric/public/selectric.css">
@@ -19,6 +20,22 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/components.css">
+ <style> 
+ ::-webkit-input-placeholder {
+  color: gray;
+}
+:-moz-placeholder {/* Firefox 18- */
+  color: gray;
+}
+::-moz-placeholder{/* Firefox 19+ */
+ color: gray;
+}
+:-ms-input-placeholder {
+  color: gray;
+}
+ </style>
+  
+  
 </head>
 
 <body>
@@ -31,7 +48,7 @@
               <img src="../../assets/img/login_logo.jpg" alt="logo" width="100" class="shadow-light rounded-circle">
             </div>
 
-            <div class="card card-primary">
+            <div class="card card-primary" >
               <div class="card-header"><h4>注册</h4></div>
 
               <div class="card-body">
@@ -41,30 +58,29 @@
                   <div class="row">
                     <div class="form-group col-6">
                       <form:label path="firstName">名</form:label>
-                      <form:input id="firstName" type="text" class="form-control" path="firstName" />
+                      <form:input id="firstName" type="text" class="form-control" path="firstName"  placeholder="名" />
                     </div>
                     <div class="form-group col-6">
                       <form:label path="lastName">姓</form:label>
-                      <form:input id="lastName" type="text" class="form-control" path="lastName" />
+                      <form:input id="lastName" type="text" class="form-control" path="lastName"  placeholder="姓" />
                     </div>
                   </div>
-
-                  <div class="form-group">
-                   	<label for="email">邮箱</label>
--                    <input id="email" type="email" class="form-control" name="email" required oninvalid="this.setCustomValidity('邮箱不能为空,请输入正确的邮箱！')" onchange="this.setCustomValidity('')"/>
-                    <div class="invalid-feedback">
-                    </div>
+                  <div class="row">
+	                  <div class="form-group col-6">
+	                   	<label for="email">邮箱</label>
+						<input id="email" type="email" class="form-control" placeholder="邮箱" name="email" required oninvalid="this.setCustomValidity('邮箱不能为空,请输入正确的邮箱！')" onchange="this.setCustomValidity('')"/>
+	                    <div class="invalid-feedback">
+	                    </div>
+	                  </div>                  
+	                  <div class="form-group col-6">
+	                   	 <label for="phone">手机号码</label><br/>
+	                   	 <form:input id="phone" type="text" class="telinput" placeholder="手机号码" path="phone" />
+	                  </div>
                   </div>
-                  
-                  <div class="form-group">
-                   	 <label for="phone">手机号码</label>
-                   	 <form:input id="phone" type="text" placeholder="手机号码" path="phone" />
-                  </div>
-
                   <div class="row">
                     <div class="form-group col-6">
                       <form:label path="password" class="d-block">密码</form:label>
-                      <form:input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" path="password" required="required"/>
+                      <form:input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" path="password" required="required"  placeholder="密码" />
                       <div id="pwindicator" class="pwindicator">
                         <div class="bar"></div>
                         <div class="label"></div>
@@ -72,7 +88,7 @@
                     </div>
                     <div class="form-group col-6">
                       <label class="d-block">确认密码</label>
-                      <input id="confirm_password" type="password" class="form-control" name="confirm_password" required  />
+                      <input id="confirm_password" type="password" class="form-control" name="confirm_password" required  placeholder="确认密码"  />
                     </div>
                   </div>
 
@@ -80,40 +96,51 @@
                   <div class="row">
                     <div class="form-group col-6">
                       <form:label path="country">国家</form:label>
-                      <form:select id="country" path="country" class="form-control selectric">
+		         		<form>
+							<div class="form-item">
+								<input id="country_selector"  class="telinput"  type="text">
+								<label for="country_selector" style="display:none;">Select a country here...</label>
+							</div>
+							<div class="form-item" style="display:none;">
+								<input type="text" id="country_selector_code" name="country_selector_code" data-countrycodeinput="1" readonly="readonly" placeholder="Selected country code will appear here" />
+								<label for="country_selector_code">...and the selected country code will be updated here</label>
+							</div>
+							<button type="submit" style="display:none;">Submit</button>
+						</form>                      
+                   <!--     <form:select id="country" path="country" class="form-control selectric">
                         <option value="sg">新加坡</option>
                         <option value="cn">中国</option>
                         <option value="my">马来西亚</option>
                         <option value="th">泰国</option>
                         <option value="id">印度尼西亚</option>
-                      </form:select>
-                    </div>
+                      </form:select>-->
+                    </div>                                   
                     <div class="form-group col-6">
-                      <form:label path="province">省</form:label>
-                      <form:input id="province" path="province" type="text" class="form-control" />
+                      <form:label path="province">城市</form:label>
+                      <form:input id="province" path="province" type="text" class="form-control" placeholder="城市" />
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-6">
-                      <form:label path="city">城市</form:label>
-                      <form:input id="city" type="text" class="form-control" path="city"/>
+                      <form:label path="city">地址</form:label>
+                      <form:input id="city" type="text" class="form-control" path="city"  placeholder="地址" />
                     </div>
                     <div class="form-group col-6">
                       <form:label path="postalCode">邮政编号</form:label>
-                      <form:input id="postalCode" type="text" class="form-control" path="postalCode"/>
+                      <form:input id="postalCode" type="text" class="form-control" path="postalCode"  placeholder="邮政编号" />
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="custom-control custom-checkbox">
                     	<input type="checkbox" name="agree" class="custom-control-input" id="agree" required oninvalid="this.setCustomValidity('请确认并接受本条款!！')" onchange="this.setCustomValidity('')"/>
--                      	<label class="custom-control-label" for="agree">我 阅读并接受条款</label>
+                     	<label class="custom-control-label" for="agree">我 阅读并接受条款</label>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <form:button type="submit" class="btn btn-primary btn-lg btn-block"> 注册  </form:button>
-                  </div>
+                  </div><br/><br/><br/>
                 </form:form>
               </div>
             </div>
@@ -144,6 +171,10 @@
   <!-- Page Specific JS File -->
   <script src="../assets/js/page/auth-register.js"></script>
   
+   <!-- CountrySelect JS File --> 
+  	<script src="../assets/js/intlTel/countrySelect.js"></script>
+  
+  
   <script type="text/javascript" >
 	  var input = document.querySelector("#phone");
 	  window.intlTelInput(input, {
@@ -161,6 +192,15 @@
 	}
 	password.onchange = validatePassword;
 	confirm_password.onkeyup = validatePassword;
+
+
+	$("#country_selector").countrySelect({
+		// defaultCountry: "jp",
+		// onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+		// responsiveDropdown: true,
+		preferredCountries: ['ca', 'gb', 'us']
+	});
+	
   </script>
 </body>
 </html>

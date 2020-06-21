@@ -22,7 +22,7 @@
 		// Display only these countries
 		onlyCountries: [],
 		// The countries at the top of the list. Defaults to United States and United Kingdom
-		preferredCountries: [ "us", "gb" ],
+		preferredCountries: [ "sg", "cn" ],
 		// Set the dropdown's width to be the same as the input. This is automatically enabled for small screens.
 		responsiveDropdown: ($(window).width() < 768 ? true : false),
 	}, keys = {

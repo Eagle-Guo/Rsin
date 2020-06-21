@@ -681,20 +681,15 @@
 										                        <label style="height:auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
 										                      </div>
 										                      <div class="form-check form-check-inline">
-										                        <input class="form-check-input" type="checkbox" id="checkb_gudon" value="gudon" onclick="addMoreQ()"	>
+										                        <input class="form-check-input" type="checkbox" id="checkb_gudon1" value="gudon" onclick="addMoreQ(1)"	>
 										                        <label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
-										                      </div>
+										                      </div>										                      
 										                      <div class="form-check form-check-inline">
 										                        <input class="form-check-input" type="checkbox" id="checkb_contactpeopple" value="contactpeopple">
 										                        <label style="height:auto;"  class="form-check-label" for="inlineCheckbox3">联系人</label>
 										                      </div>
 										                    </div>																															
-														<!--  	<select class="custom-select c-select-info" id="positionType">
-																<option selected>请选择</option>
-																<option value="董事">董事</option>
-																<option value="股东">股东</option>
-																<option value="联系人">联系人</option>
-															</select>-->
+
 														</div>
 													</div>
 													<div class="form-group row">
@@ -766,7 +761,7 @@
 																id="contractNumber" placeholder="联系电话">
 														</div>
 													</div>
-													<div style="display:none;" id="addmoreqtext"> 
+													<div style="display:none;" id="addmoreqtext1"> 
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">发行股份数量*</label>
 														<div class="col-sm-9">
@@ -805,42 +800,42 @@
 														</div>
 														<div class="col-sm-1"
 															style="margin-top: .5rem; padding-left: 0;">
-															<input type="button" value="+" onclick="addFile(1)">
+															<input type="button" value="+" onclick="addFile(0)">
 														</div>
 													</div>
-													<div class="form-group row" id="addfilediv"></div>
+													<div class="form-group row" id="addfilediv0"></div>
 													<div class="form-group row">
-														<label class="col-sm-3 col-form-label">住所证明（海外）（3个月内出具）</label>
+														<label class="col-sm-3 col-form-label">住所证明（海外,3个月内）</label>
 														<div class="col-sm-8">
 															<input type="file" class="form-control"
 																id="uploadAddress1" placeholder="资料上传">
 														</div>
 														<div class="col-sm-1"
 															style="margin-top: .5rem; padding-left: 0;">
-															<input type="button" value="+" onclick="addFileadd(1)">
+															<input type="button" value="+" onclick="addFileadd(0)">
 														</div>
 													</div>
-													<div class="form-group row" id="addfiledivadd"></div>
+													<div class="form-group row" id="addfiledivadd0"></div>
 													<div class="form-group row">
-														<label class="col-sm-3 col-form-label">持护照(打开有照片页)正面头部照(董事和股东需要)</label>
+														<label class="col-sm-3 col-form-label">持护照(有照片页)正面头部照</label>
 														<div class="col-sm-8">
 															<input type="file" class="form-control"
 																id="uploadpassport1" placeholder="资料上传">
 														</div>
 														<div class="col-sm-1"
 															style="margin-top: .5rem; padding-left: 0;">
-															<input type="button" value="+" onclick="addFilepimg(1)">
+															<input type="button" value="+" onclick="addFilepimg(0)">
 														</div>
 													</div>
-													<div class="form-group row" id="addContactPDiv"></div>
 
-														<div class="col-sm-12"
-															style="margin-top: .5rem; padding-left: 0;">
-															<input type="button" value="+" onclick="addContactP(1)">
+													<div class="form-group row" id="addfiledivpimg0"></div>													
+														<br/><br/>
+														<div class="row">
+														    <a class="btn btn-icon icon-left btn-warning" onclick="addContactP(0)"><i class="far fa-user"></i> 增加填报人员</a>															
 														</div>
-														<div class="form-group row" id="addfiledivpimg"></div>
-
-
+														
+													<div class="form-group row" id="addContactPDiv0"></div>
+													
 													<div class="button-row d-flex mt-4">
 														<button class="btn btn-primary js-btn-prev" type="button"
 															title="Prev">上一步</button>
@@ -1258,10 +1253,10 @@
             shareholderInfos.push({name:"NRIC/ID/FIN/护照/其他",description:document.getElementById("uploadIC1").value});
         }
         if (document.getElementById("uploadAddress1").value!="") {
-            shareholderInfos.push({name:"住所证明（海外）（3个月内出具）",description:document.getElementById("uploadAddress1").value});
+            shareholderInfos.push({name:"住所证明（海外,3个月内）",description:document.getElementById("uploadAddress1").value});
         }
         if (document.getElementById("uploadpassport1").value!="") {
-            shareholderInfos.push({name:"持护照(打开有照片页)正面头部照(董事和股东需要)",description:document.getElementById("uploadpassport1").value});
+            shareholderInfos.push({name:"持护照(有照片页)正面头部照",description:document.getElementById("uploadpassport1").value});
         }
 
         companytext = "<ul class='list-group'>";
@@ -1414,7 +1409,7 @@
     }  
 
     function addFile (x) {
-        document.querySelector('#addfilediv').insertAdjacentHTML('afterend',
+        document.querySelector('#addfilediv'+x).insertAdjacentHTML('afterend',
             ` <div class="form-group row"  style="padding-left:15px;">
               <label class="col-sm-3 col-form-label">NRIC / ID / FIN /护照/其他</label>
               <div class="col-sm-8"><input type="file" class="form-control"  placeholder="联系电话"></div>
@@ -1428,9 +1423,9 @@
     }
 
       function addFileadd (x) {
-          document.querySelector('#addfiledivadd').insertAdjacentHTML('afterend',
+          document.querySelector('#addfiledivadd'+x).insertAdjacentHTML('afterend',
             ` <div class="form-group row"  style="padding-left:15px;">
-              <label class="col-sm-3 col-form-label">住所证明（海外）（3个月内出具）</label>
+              <label class="col-sm-3 col-form-label">住所证明（海外,3个月内）</label>
               <div class="col-sm-8"><input type="file" class="form-control"  placeholder="联系电话"></div>
               <div class="col-sm-1" style="margin-top:.5rem;padding-left:0;"><input type="button" value="-" onclick="removeFileadd(this)"></div>                  
                  </div>         
@@ -1442,9 +1437,9 @@
       }
 
       function addFilepimg (x) {
-          document.querySelector('#addfiledivpimg').insertAdjacentHTML('afterend',
+          document.querySelector('#addfiledivpimg'+x).insertAdjacentHTML('afterend',
             ` <div class="form-group row"  style="padding-left:15px;">
-              <label class="col-sm-3 col-form-label">持护照(打开有照片页)正面头部照(董事和股东需要)</label>
+              <label class="col-sm-3 col-form-label">持护照(有照片页)正面头部照</label>
               <div class="col-sm-8"><input type="file" class="form-control"  placeholder="联系电话"></div>
               <div class="col-sm-1" style="margin-top:.5rem;padding-left:0;"><input type="button" value="-" onclick="removeFilepimg(this)"></div>                  
                  </div>         
@@ -1456,9 +1451,9 @@
       }
 
 
-      function addMoreQ() {
-    	  var checkBox = document.getElementById("checkb_gudon");
-    	  var text = document.getElementById("addmoreqtext");
+      function addMoreQ(x) {
+    	  var checkBox = document.getElementById("checkb_gudon"+x);
+    	  var text = document.getElementById("addmoreqtext"+x);
     	  if (checkBox.checked == true){
     	    text.style.display = "block";
     	  } else {
@@ -1467,31 +1462,26 @@
     	}
 
       function addContactP (x) {
-          document.querySelector('#addContactPDiv').insertAdjacentHTML('afterend',
-  ` 													<div class="section-title">董事、股东、联系人资料</div>
+          //var x=a+1;
+          document.querySelector('#addContactPDiv'+x).insertAdjacentHTML('afterend',
+          ` <br/><br/><div class="section-title">董事、股东、联系人资料</div>
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">职位填报类型</label>
 				<div class="col-sm-9">																											
 					 <div class="form-group">
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="checkb_dongshi" value="dongshi">
+                        <input class="form-check-input" type="checkbox" id="checkb_dongshi"+x value="dongshi">
                         <label style="height:auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
                       </div>
+                      <div class="form-check form-check-inline">`
+                      +"<input class='form-check-input' type='checkbox' id='checkb_gudon'+x value='gudon' onclick='addMoreQ("+x+")'>"+
+                        `<label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
+                      </div>                     
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="checkb_gudon" value="gudon" onclick="addMoreQ()"	>
-                        <label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="checkb_contactpeopple" value="contactpeopple">
+                        <input class="form-check-input" type="checkbox" id="checkb_contactpeopple"+x value="contactpeopple">
                         <label style="height:auto;"  class="form-check-label" for="inlineCheckbox3">联系人</label>
                       </div>
                     </div>																															
-				<!--  	<select class="custom-select c-select-info" id="positionType">
-						<option selected>请选择</option>
-						<option value="董事">董事</option>
-						<option value="股东">股东</option>
-						<option value="联系人">联系人</option>
-					</select>-->
 				</div>
 			</div>
 			<div class="form-group row">
@@ -1562,27 +1552,27 @@
 					<input type="tel" class="form-control"
 						id="contractNumber" placeholder="联系电话">
 				</div>
-			</div>
-			<div style="display:none;" id="addmoreqtext"> 
-			<div class="form-group row">
+			</div>`+
+			"<div style='display:none;' id='addmoreqtext"+x+"'> " +
+			`<div class="form-group row">
 				<label class="col-sm-3 col-form-label">发行股份数量*</label>
 				<div class="col-sm-9">
 					<input type="tel" class="form-control"
-						id="numberofSharesIssued" placeholder="发行股份数量">
+						id="numberofSharesIssued"+x placeholder="发行股份数量">
 				</div>
 			</div>													
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">实缴股份数量*</label>
 				<div class="col-sm-9">
 					<input type="tel" class="form-control"
-						id="numberofPaid-inShares" placeholder="实缴股份数量">
+						id="numberofPaid-inShares"+x placeholder="实缴股份数量">
 				</div>
 			</div>													
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">每股价值*</label>
 				<div class="col-sm-9">
 					<input type="tel" class="form-control"
-						id="aluePerShare" placeholder="每股价值">
+						id="aluePerShare"+x placeholder="每股价值">
 				</div>
 			</div>	
 			</div>											
@@ -1594,43 +1584,45 @@
 				</div>
 			</div>
 			<div class="form-group row" style="margin-top: 1rem;">
-				<label class="col-sm-3 col-form-label">NRIC / ID /
-					FIN /护照/其他</label>
+				<label class="col-sm-3 col-form-label">NRIC / ID / FIN /护照/其他</label>
 				<div class="col-sm-8">
-					<input type="file" class="form-control" id="uploadIC1"
-						placeholder="资料上传">
+					<input type="file" class="form-control" id="uploadIC"+x placeholder="资料上传">
 				</div>
 				<div class="col-sm-1"
-					style="margin-top: .5rem; padding-left: 0;">
-					<input type="button" value="+" onclick="addFile(1)">
-				</div>
-			</div>
-			<div class="form-group row" id="addfilediv"></div>
-			<div class="form-group row">
-				<label class="col-sm-3 col-form-label">住所证明（海外）（3个月内出具）</label>
+					style="margin-top: .5rem; padding-left: 0;">`
+					+"<input type='button' value='+' onclick='addFile("+(x+1)+")'>"+
+				`</div>
+			</div>`+
+			"<div class='form-group row' id='addfilediv"+x+"'></div>" +
+			`<div class="form-group row">
+				<label class="col-sm-3 col-form-label">住所证明（海外,3个月内）</label>
 				<div class="col-sm-8">
 					<input type="file" class="form-control"
-						id="uploadAddress1" placeholder="资料上传">
+						id="uploadAddress"+x placeholder="资料上传">
 				</div>
 				<div class="col-sm-1"
-					style="margin-top: .5rem; padding-left: 0;">
-					<input type="button" value="+" onclick="addFileadd(1)">
-				</div>
-			</div>
-			<div class="form-group row" id="addfiledivadd"></div>
-			<div class="form-group row">
-				<label class="col-sm-3 col-form-label">持护照(打开有照片页)正面头部照(董事和股东需要)</label>
+					style="margin-top: .5rem; padding-left: 0;">`
+					+"<input type='button' value='+' onclick='addFileadd("+(x+1)+")'>"+
+				`</div>
+			</div>`+
+			"<div class='form-group row' id='addfiledivadd"+(x+1)+"'></div>"+
+			`<div class="form-group row">
+				<label class="col-sm-3 col-form-label">持护照(有照片页)正面头部照</label>
 				<div class="col-sm-8">
 					<input type="file" class="form-control"
-						id="uploadpassport1" placeholder="资料上传">
+						id="uploadpassport"+x placeholder="资料上传">
 				</div>
 				<div class="col-sm-1"
-					style="margin-top: .5rem; padding-left: 0;">
-					<input type="button" value="+" onclick="addFilepimg(1)">
-				</div>
+					style="margin-top: .5rem; padding-left: 0;">`
+					+"<input type='button' value='+' onclick='addFilepimg("+(x+1)+")'>"+
+				`</div>
 			</div>
-			<div class="form-group row" id="addContactPDiv"></div>
-			<input type="button" value="-" onclick="removeFileadd(this)">`      
+			<!--
+			`+
+			"<div class='form-group row' id='addContactPDiv"+x+"'></div>"+
+			` 
+			-->
+			<input type="button" value="-" onclick="removeFileadd(this)">`
           )
       } 
       

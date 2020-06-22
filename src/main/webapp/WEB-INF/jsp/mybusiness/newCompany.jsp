@@ -401,7 +401,8 @@
 																	class="badge badge-primary badge-pill">S$1400</span>
 																</li>
 															</ul>
-														</div></li>
+														</div>
+													</li>
 
 													<li class="list-group-item"><!-- <label
 														class="custom-switch mt-2 justify-content-between">
@@ -417,8 +418,7 @@
 																	<span class="custom-switch-description nc_subttitle">虚拟电话</span>	
 																 </div>	
 														  	 	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
-																	<input type="checkbox" class="custom-switch-input"
-																	id="openAccount7"
+																	<input type="checkbox" class="custom-switch-input" id="openAccount7"
 																	onclick="openAccountFunction('openAccount7','openAccountDeatil7')">
 																	<span class="custom-switch-indicator  nc_bttextbtn"></span>
 																</div>	
@@ -427,8 +427,7 @@
 														<div class="card-body" id="openAccountDeatil7"
 															style="display: none">
 															<ul class="list-group">
-																<li
-																	class="list-group-item d-flex justify-content-between align-items-center choosedsvr"
+																<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr"
 																	onclick="choosedsv(9)"><span
 																	style="margin-top: 0rem;">新加坡固定座机无人应答</span>
 																	<div class="form-group" style="margin-bottom: 0px;">
@@ -1000,7 +999,7 @@
         selectedsummaryhtml += services.length
         selectedsummaryhtml += ") </span>  总计金额  (<span class='text-muted media-right'>" + totalamount + "</span>)</h6>";
         document.getElementById("selected_summary").innerHTML = selectedsummaryhtml;
-    }        
+    }
     function addGudong () {
       document.querySelector('#gudongdiv').insertAdjacentHTML('afterend',
         `<li class="list-group-item">
@@ -1119,18 +1118,19 @@
     }
 
     /* function confirmAndSend() {
-    	alert("submit and confirm");
-    	$.post("/api/newcompany/sendemail",
-    	{
-        	"This is Test"
-    	    //name: "Donald Duck",
-    		//city: "Duckburg"
-    	},
-    	function(data, status){ //Call back function
-    		alert("Data: " + data + "\nStatus: " + status);
-    	});
-    } */
+           alert("submit and confirm");
+           $.post("/api/newcompany/sendemail",
+           {
+                   "This is Test"
+               //name: "Donald Duck",
+                   //city: "Duckburg"
+           },
+           function(data, status){ //Call back function
+                   alert("Data: " + data + "\nStatus: " + status);
+           });
+        } */
         
+    
     function choosedsv(x) {
         //document.getElementsByClassName("choosedsvr")[x].style.backgroundColor= '#f8fafb';     
         var element = document.getElementsByClassName("choosedsvr")[x];
@@ -1254,7 +1254,7 @@
                 var gstClaim = document.getElementsByClassName("choosedsvr")[x-1];
                 var oneTimeReg = document.getElementsByClassName("choosedsvr")[x-2];
             	  if (!gstClaim.classList.contains('choosesv')) {
-                	  if (!oneTimeReg.classList.contains('choosesv')){
+                	if (!oneTimeReg.classList.contains('choosesv')){
                 		services.push({name:"GST消费税注册",price:1400});
                     } else {
                   	  services.push({name:"GST消费税注册",price:400+1400});
@@ -1275,11 +1275,33 @@
                   if (services.some(el => el.name === "虚拟电话")){
                       services = services.filter(item => item.name !== "虚拟电话")
                   }
-                  services.push({name:"虚拟电话",price:z[0]*200+z[1]*500});
+                  
+                  var nextClass = document.getElementsByClassName("choosedsvr")[x+1];
+                  if (!nextClass.classList.contains('choosesv')) {
+                	  services.push({name:"虚拟电话",price:z[0]*200});
+                  } else {
+                      services.push({name:"虚拟电话",price:z[0]*200+z[1]*500});
+                  }
                   refreshRightSummary();
                   z=[];
                   break;
             case 10:
+                z.push(document.getElementById("countsgtel").value);
+                z.push(document.getElementById("countglotel").value);
+                if (services.some(el => el.name === "虚拟电话")){
+                    services = services.filter(item => item.name !== "虚拟电话")
+                }
+                
+                var previousClass = document.getElementsByClassName("choosedsvr")[x-1];
+                if (!previousClass.classList.contains('choosesv')) {
+              	  services.push({name:"虚拟电话",price:z[1]*500});
+                } else {
+                    services.push({name:"虚拟电话",price:z[0]*200+z[1]*500});
+                }
+                refreshRightSummary();
+                z=[];
+                break;
+            case 11:
                   z.push(document.getElementById("countmail").value);
                   if (services.some(el => el.name === "收信转寄服务")){
                       services = services.filter(item => item.name !== "收信转寄服务")
@@ -1288,7 +1310,7 @@
                   refreshRightSummary();
                   z=[];
                   break; 
-            case "openAccount9":
+            case 12:
                   z.push(document.getElementById("countaccounting").value);
                   if (services.some(el => el.name === "会计记账")){
                       services = services.filter(item => item.name !== "会计记账")
@@ -1297,14 +1319,33 @@
                   refreshRightSummary();
                   z=[];
                   break;   
-            case "openAccount10":
+            case 13:
                   if (services.some(el => el.name === "注册时间")){
                       services = services.filter(item => item.name !== "注册时间")
                   }
-                  services.push({name:"注册时间",price:300});
+                  var urgent = document.getElementsByClassName("choosedsvr")[x+1];
+                  if (!urgent.classList.contains('choosesv')) {
+                	  services.push({name:"注册时间",price:0});
+                  } else {
+                      services.push({name:"注册时间",price:300});
+                  }
                   refreshRightSummary();
                   z=[];
-                  break;     
+                  break; 
+            case 14:
+                if (services.some(el => el.name === "注册时间")){
+                    services = services.filter(item => item.name !== "注册时间")
+                }
+                services.push({name:"注册时间",price:300});
+                var normal = document.getElementsByClassName("choosedsvr")[x-1];
+                if (!normal.classList.contains('choosesv')) {
+              	  services.push({name:"注册时间",price:300});
+                } else {
+                    services.push({name:"注册时间",price:0});
+                }
+                refreshRightSummary();
+                z=[];
+                break; 
             }
         } else {
         	switch (x) {
@@ -1317,62 +1358,157 @@
             case 1:
             	if (services.some(el => el.name === "挂名董事")){
                     services = services.filter(item => item.name !== "挂名董事")
-                    //services = services.filter(item => item.name !== "押金")
                 }
                 refreshRightSummary();
                 break;
             case 2:
-                  if (services.some(el => el.name === "挂名股东")){
-                      services = services.filter(item => item.name !== "挂名股东")
-                  }
-                  refreshRightSummary();
-                  break;
+                if (services.some(el => el.name === "挂名股东")){
+                    services = services.filter(item => item.name !== "挂名股东")
+                }
+                refreshRightSummary();
+                break;
             case 3:
-                  if (services.some(el => el.name === "共享办公室")){
-                      services = services.filter(item => item.name !== "共享办公室")
-                  }
-                  refreshRightSummary();
-                  break;
+                if (services.some(el => el.name === "共享办公室")){
+                    services = services.filter(item => item.name !== "共享办公室")
+                }
+                refreshRightSummary();
+                break;
             case 4:
-                  if (services.some(el => el.name === "商标注册")){
-                      services = services.filter(item => item.name !== "商标注册")
-                  }
-                  refreshRightSummary();
-                  break;
+            	if (services.some(el => el.name === "商标注册")){
+                    services = services.filter(item => item.name !== "商标注册")
+                }
+            	var nextClass = document.getElementsByClassName("choosedsvr")[x+1];
+                if (nextClass.classList.contains('choosesv')) {
+              	  services.push({name:"商标注册",price:900});
+                }
+                refreshRightSummary();
+                break;
+            case 5:
+                if (services.some(el => el.name === "商标注册")){
+                    services = services.filter(item => item.name !== "商标注册")
+                }
+                var previousClass = document.getElementsByClassName("choosedsvr")[x-1];
+                if (previousClass.classList.contains('choosesv')) {
+              	  services.push({name:"商标注册",price:1200});
+                }
+                refreshRightSummary();
+                break;
             case 6:
-                  if (services.some(el => el.name === "GST消费税注册")){
-                      services = services.filter(item => item.name !== "GST消费税注册")
-                  }
-                  refreshRightSummary();
-                  break;
+            	z.push(document.getElementById("countapgst").value);
+                if (services.some(el => el.name === "GST消费税注册")){
+                    services = services.filter(item => item.name !== "GST消费税注册")
+                }
+                
+                var gstClaim = document.getElementsByClassName("choosedsvr")[x+1];
+                var requestClaim = document.getElementsByClassName("choosedsvr")[x+2];
+            	if (gstClaim.classList.contains('choosesv')) {
+                    if (requestClaim.classList.contains('choosesv')){
+                		services.push({name:"GST消费税注册",price:300*z[0]+1400});
+                    } else {
+                  	    services.push({name:"GST消费税注册",price:300*z[0]});
+                    }
+            	} else {
+            		if (requestClaim.classList.contains('choosesv')){
+                		services.push({name:"GST消费税注册",price:1400});
+                    }
+                }
+            	z=[];
+                refreshRightSummary();
+                break;
+            case 7:
+            	if (services.some(el => el.name === "GST消费税注册")){
+                    services = services.filter(item => item.name !== "GST消费税注册")
+                }
+                var oneTimeReg = document.getElementsByClassName("choosedsvr")[x-1];
+                var requestClaim = document.getElementsByClassName("choosedsvr")[x+1];
+                if (oneTimeReg.classList.contains('choosesv')) {
+                    if (requestClaim.classList.contains('choosesv')) {
+              	        services.push({name:"GST消费税注册",price:400+1400});
+                    } else {
+                	    services.push({name:"GST消费税注册",price:400});
+                    }
+          	    } else {
+          		    if (requestClaim.classList.contains('choosesv')) {
+                	  services.push({name:"GST消费税注册",price:1400});
+                    }
+                }
+                refreshRightSummary();
+                break;
             case 8:
-                  if (services.some(el => el.name === "虚拟电话")){
-                      services = services.filter(item => item.name !== "虚拟电话")
-                  }
-                  refreshRightSummary();
-                  break;
+            	z.push(document.getElementById("countapgst").value);
+                if (services.some(el => el.name === "GST消费税注册")){
+                    services = services.filter(item => item.name !== "GST消费税注册")
+                }
+                var gstClaim = document.getElementsByClassName("choosedsvr")[x-1];
+                var oneTimeReg = document.getElementsByClassName("choosedsvr")[x-2];
+            	if (gstClaim.classList.contains('choosesv')) {
+                    if (oneTimeReg.classList.contains('choosesv')){
+                       services.push({name:"GST消费税注册",price:400+300*z[0]});
+                    } else {
+                  	    services.push({name:"GST消费税注册",price:300*z[0]});
+                    }
+                } else {
+            		if (oneTimeReg.classList.contains('choosesv')){
+                		services.push({name:"GST消费税注册",price:400});
+                    }
+                }
+            	z=[];
+                refreshRightSummary();
+                break;
             case 9:
-                  if (services.some(el => el.name === "收信转寄服务")){
-                      services = services.filter(item => item.name !== "收信转寄服务")
-                  }
-                  refreshRightSummary();
-                  break; 
+                z.push(document.getElementById("countglotel").value);
+                if (services.some(el => el.name === "虚拟电话")){
+                    services = services.filter(item => item.name !== "虚拟电话")
+                }
+                var nextClass = document.getElementsByClassName("choosedsvr")[x+1];
+                if (nextClass.classList.contains('choosesv')) {
+              	  services.push({name:"虚拟电话",price:z[0]*500});
+                }
+                z=[];
+                refreshRightSummary();
+                break;
             case 10:
-                  if (services.some(el => el.name === "会计记账")){
-                      services = services.filter(item => item.name !== "会计记账")
-                  }
-                  refreshRightSummary();
-                  break;   
+            	z.push(document.getElementById("countsgtel").value);
+                if (services.some(el => el.name === "虚拟电话")){
+                    services = services.filter(item => item.name !== "虚拟电话")
+                }
+                var previousClass = document.getElementsByClassName("choosedsvr")[x-1];
+                if (previousClass.classList.contains('choosesv')) {
+              	  services.push({name:"虚拟电话",price:z[0]*200});
+                }
+                z=[];
+                refreshRightSummary();
+                break;
             case 11:
-                  if (services.some(el => el.name === "注册时间")){
-                      services = services.filter(item => item.name !== "注册时间")
-                  }
-                  refreshRightSummary();
-                  break;     
+                if (services.some(el => el.name === "收信转寄服务")){
+                    services = services.filter(item => item.name !== "收信转寄服务")
+                }
+                refreshRightSummary();
+                break; 
+            case 12:
+                if (services.some(el => el.name === "会计记账")){
+                    services = services.filter(item => item.name !== "会计记账")
+                }
+                refreshRightSummary();
+                break;   
+            case 13:
+                if (services.some(el => el.name === "注册时间")){
+                    services = services.filter(item => item.name !== "注册时间")
+                }
+                var nextClass = document.getElementsByClassName("choosedsvr")[x+1];
+                if (nextClass.classList.contains('choosesv')) {
+              	  services.push({name:"注册时间",price:300});
+                }
+                refreshRightSummary();
+                break;  
+            case 14:
+                if (services.some(el => el.name === "注册时间")){
+                    services = services.filter(item => item.name !== "注册时间")
+                }
+                refreshRightSummary();
+                break;    
             } 
         }
-        
-        
         element.classList.toggle("choosesv");    
         btn.classList.toggle("choosedsvbtn");
     }
@@ -1479,7 +1615,7 @@
               if (services.some(el => el.name === "会计记账")){
                 services = services.filter(item => item.name !== "会计记账")
             }
-            services.push({name:"会计记账",price:z[0]*500});
+            services.push({name:"会计记账",price:z[0]});
             refreshRightSummary();
               z= [];        
          }    

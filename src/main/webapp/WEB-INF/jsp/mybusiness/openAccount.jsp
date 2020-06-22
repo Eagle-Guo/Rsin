@@ -11,7 +11,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>新建公司  &mdash;  睿信集团</title>
+  <title>银行开户  &mdash;  睿信集团</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
@@ -82,7 +82,7 @@
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(0)" >					                      						                      							                    
 								                       <div class="form-group" style="margin-bottom: 0px;">
 									                      <div class="input-group">
-									                        <select class="custom-select" id="inputGroupSelect04" onchange="run(1)"  style="border:none;">
+									                        <select class="custom-select" id="selectNewSignAccount" onchange="run(1)"  style="border:none;">
 									                          <option value="1" selected>1</option>
 									                          <option value="2">2</option>
 									                          <option value="3">3</option>
@@ -127,7 +127,7 @@
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(1)" >					                      						                      							                    
 								                       <div class="form-group" style="margin-bottom: 0px;">
 									                      <div class="input-group">
-									                        <select class="custom-select" id="inputGroupSelect043" onchange="run3(1)"  style="border:none;">
+									                        <select class="custom-select" id="selectRemoteAccount" onchange="run3(1)"  style="border:none;">
 									                          <option value="1" selected>1</option>
 									                          <option value="2">2</option>
 									                          <option value="3">3</option>
@@ -174,7 +174,7 @@
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(2)" >					                      						                      							                    
 								                       <div class="form-group" style="margin-bottom: 0px;">
 									                      <div class="input-group">
-									                        <select class="custom-select" id="inputGroupSelect041" onchange="run1(1)"  style="border:none;">
+									                        <select class="custom-select" id="selectVIPAccount" onchange="run1(1)"  style="border:none;">
 									                          <option value="1" selected>1</option>
 									                          <option value="2">2</option>
 									                          <option value="3">3</option>
@@ -221,7 +221,7 @@
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(3)" >					                      						                      							                    
 								                       <div class="form-group" style="margin-bottom: 0px;">
 									                      <div class="input-group">
-									                        <select class="custom-select" id="inputGroupSelect042" onchange="run2(1)"  style="border:none;">
+									                        <select class="custom-select" id="selectOpenCompanyAccount" onchange="run2(1)"  style="border:none;">
 									                          <option value="1" selected>1</option>
 									                          <option value="2">2</option>
 									                          <option value="3">3</option>
@@ -413,17 +413,6 @@
 				                <h3 class="multisteps-form__title">在线支付</h3>
 				                <div class="multisteps-form__content">
 				                	<div class="card-body" id="summary">
-					                   <!--  <ul class="list-group">
-                                                             <li class="list-group-item d-flex justify-content-between align-items-center"> 新建公司
-                                                               <span class="badge badge-primary badge-pill">S$1800</span>
-                                                             </li>
-                                                             <li class="list-group-item d-flex justify-content-between align-items-center"> 每年公司的助理服务
-                                                               <span class="badge badge-primary badge-pill">S$1000</span>
-                                                             </li>
-                                                             <li class="list-group-item d-flex justify-content-between align-items-center"> 半年本地挂名股东服务
-                                                               <span class="badge badge-primary badge-pill">S$2200</span>
-                                                             </li>
-                                       </ul> -->
 				                    </div>
 				                  </div>
 				                  <div class="row">
@@ -478,72 +467,8 @@
     	  // If the checkbox is checked, display the output text
     	  if (checkBox.checked == true){
     	    text.style.display = "block";
-    	    switch (x) {
-            case "openSignatureAccount":
-            	z.push(document.getElementById("inputGroupSelect04").value);
-            	if (services.some(el => el.name === "新建坡面签开户")){
-                    services = services.filter(item => item.name !== "新建坡面签开户")
-                 }
-                 services.push({name:"新建坡面签开户",price:z[0]*2500});
-                 refreshRightSummary();
-                 z= [];
-                 break;
-            case "openRemoteAccount":
-            	z.push(document.getElementById("inputGroupSelect043").value);
-            	if (services.some(el => el.name === "远程开户")){
-                    services = services.filter(item => item.name !== "远程开户")
-                 }
-                 services.push({name:"远程开户",price:z[0]*3500});
-                 refreshRightSummary();
-                 z= [];
-                 break;
-            case "openPriviteVIPAccount":
-            	z.push(document.getElementById("inputGroupSelect041").value);
-            	if (services.some(el => el.name === "私人银行贵宾户口")){
-                    services = services.filter(item => item.name !== "私人银行贵宾户口")
-                 }
-                 services.push({name:"私人银行贵宾户口",price:z[0]*1200});
-                 refreshRightSummary();
-                 z= [];
-                 break;
-            case "openCompanyAccount":
-            	z.push(document.getElementById("inputGroupSelect042").value);
-            	if (services.some(el => el.name === "新加坡公司开户")){
-                    services = services.filter(item => item.name !== "新加坡公司开户")
-                 }
-                 services.push({name:"新加坡公司开户",price:z[0]*500});
-                 refreshRightSummary();
-                 z= [];
-                 break;
-    	    }
     	  } else {
     	    text.style.display = "none";
-    	    switch (x) {
-            case "openSignatureAccount":
-                if (services.some(el => el.name === "新建坡面签开户")){
-                    services = services.filter(item => item.name !== "新建坡面签开户")
-                }
-                refreshRightSummary();
-                break;
-            case "openRemoteAccount":
-                if (services.some(el => el.name === "远程开户")){
-                    services = services.filter(item => item.name !== "远程开户")
-                }
-                refreshRightSummary();
-                break;
-            case "openPriviteVIPAccount":
-                if (services.some(el => el.name === "私人银行贵宾户口")){
-                    services = services.filter(item => item.name !== "私人银行贵宾户口")
-                }
-                refreshRightSummary();
-                break;
-            case "openCompanyAccount":
-                if (services.some(el => el.name === "新加坡公司开户")){
-                    services = services.filter(item => item.name !== "新加坡公司开户")
-                }
-                refreshRightSummary();
-                break;
-    	    }
     	  }
     }
 
@@ -590,7 +515,7 @@
         selectedsummaryhtml += services.length
         selectedsummaryhtml += ") </span>  总计金额  (<span class='text-muted media-right'>" + totalamount + "</span>)</h6>";
         document.getElementById("selected_summary").innerHTML = selectedsummaryhtml;
-    }        
+     }        
     	
 	  function addGudong () {
 		  document.querySelector('#gudongdiv').insertAdjacentHTML('afterend',
@@ -641,12 +566,82 @@
 	{
 		//document.getElementsByClassName("choosedsvr")[x].style.backgroundColor= '#f8fafb'; 	
 		var element = document.getElementsByClassName("choosedsvr")[x];
-		element.classList.toggle("choosesv");	
+        var btn = document.getElementsByClassName("badge-pill")[x];
+        
+        if (!element.classList.contains('choosesv')) {
+        	switch (x) {
+            case 0:
+            	z.push(document.getElementById("selectNewSignAccount").value);
+            	if (services.some(el => el.name === "新建坡面签开户")){
+                    services = services.filter(item => item.name !== "新建坡面签开户")
+                 }
+                 services.push({name:"新建坡面签开户",price:z[0]*2500});
+                 refreshRightSummary();
+                 z= [];
+                 break;
+            case 1:
+            	z.push(document.getElementById("selectRemoteAccount").value);
+                if (services.some(el => el.name === "远程开户")){
+                    services = services.filter(item => item.name !== "远程开户")
+                }
+                services.push({name:"远程开户",price:z[0]*3500});
+                refreshRightSummary();
+                z=[];
+                break;
+            case 2:
+            	z.push(document.getElementById("selectVIPAccount").value);
+            	if (services.some(el => el.name === "私人银行贵宾户口")){
+                    services = services.filter(item => item.name !== "私人银行贵宾户口")
+                 }
+                 services.push({name:"私人银行贵宾户口",price:z[0]*1200});
+                 refreshRightSummary();
+                 z=[];
+                 break;
+            case 3:
+            	z.push(document.getElementById("selectOpenCompanyAccount").value);
+            	if (services.some(el => el.name === "新加坡公司开户")){
+                    services = services.filter(item => item.name !== "新加坡公司开户")
+                 }
+                 services.push({name:"新加坡公司开户",price:z[0]*500});
+                 refreshRightSummary();
+                 z= [];
+                 break;
+            }
+        } else {
+        	switch (x) {
+        	case 0:
+                if (services.some(el => el.name === "新建坡面签开户")){
+                    services = services.filter(item => item.name !== "新建坡面签开户")
+                }
+                refreshRightSummary();
+                break;
+            case 1:
+                if (services.some(el => el.name === "远程开户")){
+                    services = services.filter(item => item.name !== "远程开户")
+                }
+                refreshRightSummary();
+                break;
+            case 2:
+                if (services.some(el => el.name === "私人银行贵宾户口")){
+                    services = services.filter(item => item.name !== "私人银行贵宾户口")
+                }
+                refreshRightSummary();
+                break;
+            case 3:
+                if (services.some(el => el.name === "新加坡公司开户")){
+                    services = services.filter(item => item.name !== "新加坡公司开户")
+                }
+                refreshRightSummary();
+                break;
+            } 
+        }
+		element.classList.toggle("choosesv");
+		btn.classList.toggle("choosedsvbtn");
 	}
 
 	var z= [];
     function run(x) {
-		z.push(document.getElementById("inputGroupSelect04").value);
+		z.push(document.getElementById("selectNewSignAccount").value);
 		if (z.length ==1){
 			document.getElementById("pricebvisg").innerHTML = "S$"+z[0]*2500;
             if (services.some(el => el.name === "新建坡面签开户")){
@@ -659,7 +654,7 @@
     }
     
     function run1(x) {
-		z.push(document.getElementById("inputGroupSelect041").value);
+		z.push(document.getElementById("selectVIPAccount").value);
 		//z.push(document.getElementById("countYear").value);
 		if (z.length ==1){
 			document.getElementById("pricebvisg1").innerHTML = "S$"+z[0]*1200;
@@ -673,7 +668,7 @@
 	}
 
     function run2(x) {
-		z.push(document.getElementById("inputGroupSelect042").value);
+		z.push(document.getElementById("selectOpenCompanyAccount").value);
 		if (z.length ==1){
 			document.getElementById("pricebvisg2").innerHTML = "S$"+z[0]*500;
 			if (services.some(el => el.name === "新加坡公司开户")){
@@ -686,7 +681,7 @@
 	}   
 
     function run3(x) {
-		z.push(document.getElementById("inputGroupSelect043").value);
+		z.push(document.getElementById("selectRemoteAccount").value);
 		//z.push(document.getElementById("countYear").value);
 		if (z.length ==1){
 			document.getElementById("pricebvisg3").innerHTML = "S$"+z[0]*3500;

@@ -71,18 +71,16 @@
 											<div class="multisteps-form__content">
 												<div class="control-label">请从以下选择你需要的服务</div>
 												<div class="section-title">新注册公司类型</div>
-												<div class="custom-control custom-radio">
-													<input type="radio" id="customRadio1" name="customRadio"
-														class="custom-control-input"> <label
-														class="custom-control-label" for="customRadio1">私人豁免有限公司Exempt
-														Private Limited Company (PTE LTD)</label>
-												</div>
-												<div class="custom-control custom-radio">
-													<input type="radio" id="customRadio2" name="customRadio"
-														class="custom-control-input"> <label
-														class="custom-control-label" for="customRadio2">公众有限责任公司Public
-														Limited Company(Ltd.)</label>
-												</div>
+												<fieldset id="company_type">
+													<div class="custom-control custom-radio">
+														<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="private" > 
+														<label class="custom-control-label" for="customRadio1"> 私人豁免有限公司Exempt Private Limited Company (PTE LTD)</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="public">
+														<label class="custom-control-label" for="customRadio2">公众有限责任公司Public Limited Company(Ltd.)</label>
+													</div>
+												</fieldset>
 												<div class="section-title">可选服务</div>
 
 												<ul class="list-group list-group-flush">
@@ -611,8 +609,8 @@
 														</div></li>
 												</ul>
 												<div class="button-row d-flex mt-4">
-													<button class="btn btn-primary js-btn-prev" type="button"
-														title="Prev">上一步</button>
+													<!-- <button class="btn btn-primary js-btn-prev" type="button"
+														title="Prev">上一步</button> -->
 													<button class="btn btn-primary ml-auto js-btn-next"
 														type="button" title="Next">下一步</button>
 												</div>
@@ -969,6 +967,21 @@
         $( "#xbrlClaimDate" ).datepicker();
         $( "#openAccountDate" ).datepicker();
         $( "#OpenAccountCompleteDate" ).datepicker();
+        $('#company_type input[type=radio]').change(function(){
+            if ($(this).val() == "private") {
+            	if (services.some(el => el.name === "公众有限责任公司")){
+                    services = services.filter(item => item.name !== "公众有限责任公司")
+                }
+                services.push({name:"私人豁免有限公司",price:850});
+            } else {
+            	if (services.some(el => el.name === "私人豁免有限公司")){
+            		services = services.filter(item => item.name !== "私人豁免有限公司")
+                }
+            	
+                services.push({name:"公众有限责任公司",price:1200});
+            }
+            refreshRightSummary();
+            })
       });
     
     var services = [];
@@ -1034,6 +1047,7 @@
     }
 
     function listSummary() {
+        alert("abcd");
         var companyInfos = [];
         var shareholderInfos = [];
         if (document.getElementById("companyName").value!="") {

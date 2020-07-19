@@ -674,15 +674,15 @@
 														<div class="col-sm-9">																											
 															 <div class="form-group">
 										                      <div class="form-check form-check-inline">
-										                        <input class="form-check-input" type="checkbox" id="checkb_dongshi" value="dongshi">
+										                        <input class="form-check-input" type="checkbox" id="checkb_dongshi1">
 										                        <label style="height:auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
 										                      </div>
 										                      <div class="form-check form-check-inline">
-										                        <input class="form-check-input" type="checkbox" id="checkb_gudon1" value="gudon" onclick="addMoreQ(1)"	>
+										                        <input class="form-check-input" type="checkbox" id="checkb_gudong1" onclick="addMoreQ(1)"	>
 										                        <label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
 										                      </div>										                      
 										                      <div class="form-check form-check-inline">
-										                        <input class="form-check-input" type="checkbox" id="checkb_contactpeopple" value="contactpeopple">
+										                        <input class="form-check-input" type="checkbox" id="checkb_contactpeople1">
 										                        <label style="height:auto;"  class="form-check-label" for="inlineCheckbox3">联系人</label>
 										                      </div>
 										                    </div>																															
@@ -864,7 +864,7 @@
 											</div>
 											<div class="button-row d-flex mt-4">
 												<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-												<button class="btn btn-primary js-btn-prev" type="button" title="SendEmail" onclick="confirmAndSend()">发送确认邮件</button>
+												<button class="btn btn-primary js-btn-prev" type="button" title="SendEmail" id="send_email">发送确认邮件</button>
 												<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
 											</div>
 										</div>
@@ -985,9 +985,23 @@
       });
     
     var services = [];
-
+    var companyInfos = [];
+    var shareholderInfos = [];
     $(document).ready(function(){
         refreshRightSummary();
+
+        $("#send_email").click(function(event){
+        	   alert("submit and confirm");
+            $.post( 
+               "/api/sendemail",
+               { companyInfos: companyInfos},
+               function(data, status) {
+            	   alert("Data: " + data + "\nStatus: " + status);
+             <!--     $('#stage').html(data); -->
+               }
+            );
+					
+         });
       });
       
     function refreshRightSummary() {
@@ -1047,9 +1061,6 @@
     }
 
     function listSummary() {
-        alert("abcd");
-        var companyInfos = [];
-        var shareholderInfos = [];
         if (document.getElementById("companyName").value!="") {
             companyInfos.push({name:"公司名称",description:document.getElementById("companyName").value});
         }
@@ -1068,9 +1079,22 @@
         if (document.getElementById("conpanyAddressAndPostalCode").value!="") {
             companyInfos.push({name:"公司地址及邮编",description:document.getElementById("conpanyAddressAndPostalCode").value});
         }
-        if (document.getElementById("positionType").value!="" && document.getElementById("positionType").value!="请选择" ) {
-            shareholderInfos.push({name:"职位填报类型",description:document.getElementById("positionType").value});
+
+        var position = "";
+        if (document.getElementById("checkb_dongshi1").checked) {
+        	position = position + "董事, " ;
         }
+        if (document.getElementById("checkb_gudong1").checked) {
+        	position = position + "股东, ";
+        }
+        if (document.getElementById("checkb_contactpeople1").checked) {
+        	position = position + "联系人, ";
+        }
+        if (position != "") {
+            var pos = position.substring(0, position.length-2);
+        	shareholderInfos.push({name:"职位填报类型", description:pos});
+        }
+        
         if (document.getElementById("fullName").value!="") {
             shareholderInfos.push({name:"全名（护照姓名）",description:document.getElementById("fullName").value});
         }
@@ -1131,20 +1155,6 @@
         document.getElementById("shareholder_summary").innerHTML = shareholdertext;
     }
 
-    /* function confirmAndSend() {
-           alert("submit and confirm");
-           $.post("/api/newcompany/sendemail",
-           {
-                   "This is Test"
-               //name: "Donald Duck",
-                   //city: "Duckburg"
-           },
-           function(data, status){ //Call back function
-                   alert("Data: " + data + "\nStatus: " + status);
-           });
-        } */
-        
-    
     function choosedsv(x) {
         //document.getElementsByClassName("choosedsvr")[x].style.backgroundColor= '#f8fafb';     
         var element = document.getElementsByClassName("choosedsvr")[x];
@@ -1701,11 +1711,11 @@
                         <label style="height:auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
                       </div>
                       <div class="form-check form-check-inline">`
-                      +"<input class='form-check-input' type='checkbox' id='checkb_gudon'+x value='gudon' onclick='addMoreQ("+x+")'>"+
+                      + "<input class='form-check-input' type='checkbox' id='checkb_gudong'+x value='gudong' onclick='addMoreQ("+x+")'>"+
                         `<label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
                       </div>                     
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="checkb_contactpeopple"+x value="contactpeopple">
+                        <input class="form-check-input" type="checkbox" id="checkb_contactpeopple"+x value="contactpeople">
                         <label style="height:auto;"  class="form-check-label" for="inlineCheckbox3">联系人</label>
                       </div>
                     </div>																															

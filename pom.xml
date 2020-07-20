@@ -48,13 +48,13 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- Need this to compile JSP,
-			tomcat-embed-jasper version is not working, no idea why 
+			tomcat-embed-jasper version is not working, no idea why -->
 		<dependency>
 			<groupId>org.eclipse.jdt.core.compiler</groupId>
 			<artifactId>ecj</artifactId>
 			<version>4.6.1</version>
 			<scope>provided</scope>
-		</dependency>-->
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -114,6 +114,28 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
+        
+        <!-- data jar -->
+		<dependency>
+		    <groupId>com.intuit.quickbooks-online</groupId>
+		    <artifactId>ipp-v3-java-data</artifactId>
+		    <version>4.0.1</version>
+		</dependency>
+		
+		<!-- devkit jar with dependencies-->
+		<dependency>
+		    <groupId>com.intuit.quickbooks-online</groupId>
+		    <artifactId>ipp-v3-java-devkit</artifactId>
+		    <version>4.0.1</version>
+		</dependency>
+		
+		<!-- oauth jar with dependencies-->
+		<dependency>
+		    <groupId>com.intuit.quickbooks-online</groupId>
+		    <artifactId>oauth2-platform-api</artifactId>
+		    <classifier>jar-with-dependencies</classifier>
+		    <version>4.0.1</version>
+		</dependency>
 		
 	</dependencies>
 

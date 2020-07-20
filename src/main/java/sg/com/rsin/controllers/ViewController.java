@@ -37,7 +37,8 @@ public class ViewController {
 
 	@RequestMapping("/")
 	public ModelAndView allPage() {
-		return new ModelAndView("userWelcome");
+		//return new ModelAndView("userWelcome");
+		return new ModelAndView("login");
 	}
 	
 	@RequestMapping("/userWelcome")

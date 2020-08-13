@@ -49,12 +49,9 @@
 							<div class="row">
 								<div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
 									<div class="multisteps-form__progress">
-										<button class="multisteps-form__progress-btn js-active"
-											type="button" title="选择服务">选择服务</button>
-										<button class="multisteps-form__progress-btn" type="button"
-											title="填报资料">填报资料</button>
-										<button class="multisteps-form__progress-btn" type="button"
-											title="在线确认">在线确认</button>
+										<button class="multisteps-form__progress-btn js-active"	type="button" title="选择服务">选择服务</button>
+										<button class="multisteps-form__progress-btn" type="button" title="填报资料">填报资料</button>
+										<button class="multisteps-form__progress-btn" type="button" title="在线确认">在线确认</button>
 									
 											
 									</div>
@@ -157,8 +154,7 @@
 																				<option value="5">5</option>
 																				<option value="6">6</option>
 																			</select>
-																			<div class="input-group-append">
-																				<button class="btn" disabled="disabled">年</button>
+																			<div class="input-group-append"><button class="btn" disabled="disabled">年</button>
 																			</div>
 																		</div>
 																	</div> <span id="priceDongshi"
@@ -402,15 +398,8 @@
 														</div>
 													</li>
 
-													<li class="list-group-item"><!-- <label
-														class="custom-switch mt-2 justify-content-between">
-															<span class="custom-switch-description nc_subttitle">虚拟电话
-														</span> <input type="checkbox" class="custom-switch-input"
-															id="openAccount7"
-															onclick="openAccountFunction('openAccount7','openAccountDeatil7')">
-															<span class="custom-switch-indicator  nc_bttextbtn"></span>
-													</label> -->
-													<label> 
+													<li class="list-group-item">
+														<label> 
 															 <div class="row">
 																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
 																	<span class="custom-switch-description nc_subttitle">虚拟电话</span>	
@@ -480,23 +469,14 @@
 														</div></li>
 
 
-													<li class="list-group-item"><!--  <label
-														class="custom-switch mt-2 justify-content-between">
-															<span class="custom-switch-description nc_subttitle">收信转寄服务
-														</span> <input type="checkbox" class="custom-switch-input"
-															id="openAccount8"
-															onclick="openAccountFunction('openAccount8','openAccountDeatil8')">
-															<span class="custom-switch-indicator  nc_bttextbtn"></span>
-													</label>-->
-													<label> 
+													<li class="list-group-item">
+														<label> 
 															 <div class="row">
 																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
 																	<span class="custom-switch-description nc_subttitle">收信转寄服务</span>	
 																 </div>	
 														  	 	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">												
-																	<input type="checkbox" class="custom-switch-input"
-																	id="openAccount8"
-																	onclick="openAccountFunction('openAccount8','openAccountDeatil8')">
+																	<input type="checkbox" class="custom-switch-input" id="openAccount8" onclick="openAccountFunction('openAccount8','openAccountDeatil8')">
 																	<span class="custom-switch-indicator  nc_bttextbtn"></span>
 																</div>	
 															</div>
@@ -611,8 +591,7 @@
 												<div class="button-row d-flex mt-4">
 													<!-- <button class="btn btn-primary js-btn-prev" type="button"
 														title="Prev">上一步</button> -->
-													<button class="btn btn-primary ml-auto js-btn-next"
-														type="button" title="Next">下一步</button>
+													<button class="btn btn-primary ml-auto js-btn-next"	type="button" title="Next">下一步</button>
 												</div>
 											</div>
 										</div>
@@ -690,10 +669,10 @@
 														</div>
 													</div>
 													<div class="form-group row">
-														<label class="col-sm-3 col-form-label">全名（护照姓名）*</label>
+														<label class="col-sm-3 col-form-label">全名(护照姓名)*</label>
 														<div class="col-sm-9">
 															<input type="text" class="form-control" id="fullName"
-																placeholder="全名（护照姓名）">
+																placeholder="全名(护照姓名)">
 														</div>
 													</div>
 													<div class="form-group row">
@@ -865,7 +844,7 @@
 											<div class="button-row d-flex mt-4">
 												<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
 												<button class="btn btn-primary js-btn-prev" type="button" title="SendEmail" id="send_email">发送确认邮件</button>
-												<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
+												<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="saveToBackend()">下一步</button>
 											</div>
 										</div>
 
@@ -875,19 +854,7 @@
 											data-animation="scaleIn">
 											<h3 class="multisteps-form__title">在线支付</h3>
 											<div class="multisteps-form__content">
-												<div class="card-body" id="summary">
-													<!--  <ul class="list-group">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center"> 新建公司
-                                                  <span class="badge badge-primary badge-pill">S$1800</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center"> 每年公司的助理服务
-                                                  <span class="badge badge-primary badge-pill">S$1000</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center"> 半年本地挂名股东服务
-                                                  <span class="badge badge-primary badge-pill">S$2200</span>
-                                                </li>
-                                       </ul> -->
-												</div>
+												<div class="card-body" id="summary"></div>
 											</div>
 											<div class="row">
 												<div class="button-row d-flex mt-4 col-12">
@@ -988,22 +955,38 @@
     var companyInfos = [];
     var shareholderInfos = [];
     $(document).ready(function(){
-        refreshRightSummary();
-
         $("#send_email").click(function(event){
         	   alert("submit and confirm");
-            $.post( 
+        	   console.log(JSON.stringify(services));
+        	   console.log(JSON.stringify(companyInfos));
+        	   console.log(JSON.stringify(shareholderInfos));
+            $.post(
                "/api/sendemail",
-               { companyInfos: companyInfos},
+               { "services" : JSON.stringify(services),
+                 "companyInfos": JSON.stringify(companyInfos),
+                 "shareholderInfos" : JSON.stringify(shareholderInfos)},
                function(data, status) {
             	   alert("Data: " + data + "\nStatus: " + status);
-             <!--     $('#stage').html(data); -->
+             	<!--     $('#stage').html(data); -->
                }
             );
 					
          });
       });
-      
+
+    function saveToBackend() {
+    	alert("save To Backend");
+    	$.post(
+                "/api/newCompany",
+                { "services" : JSON.stringify(services),
+                  "companyInfos": JSON.stringify(companyInfos),
+                  "shareholderInfos" : JSON.stringify(shareholderInfos)},
+                function(data, status) {
+             	   alert("Data: " + data + "\nStatus: " + status);
+              	<!--     $('#stage').html(data); -->
+                }
+             );
+    }
     function refreshRightSummary() {
         var number = services.length;
         var selectedsummaryhtml = "<h6 class='mt-3'>服务类型详细清单</h6><ul class='list-unstyled list-unstyled-border'>";
@@ -1061,6 +1044,8 @@
     }
 
     function listSummary() {
+    	companyInfos = [];
+    	shareholderInfos = [];
         if (document.getElementById("companyName").value!="") {
             companyInfos.push({name:"公司名称",description:document.getElementById("companyName").value});
         }
@@ -1096,7 +1081,7 @@
         }
         
         if (document.getElementById("fullName").value!="") {
-            shareholderInfos.push({name:"全名（护照姓名）",description:document.getElementById("fullName").value});
+            shareholderInfos.push({name:"全名",description:document.getElementById("fullName").value});
         }
         if (document.getElementById("nationality").value!="") {
             shareholderInfos.push({name:"国籍",description:document.getElementById("nationality").value});
@@ -1689,7 +1674,7 @@
 
 
       function addMoreQ(x) {
-    	  var checkBox = document.getElementById("checkb_gudon"+x);
+    	  var checkBox = document.getElementById("checkb_gudong"+x);
     	  var text = document.getElementById("addmoreqtext"+x);
     	  if (checkBox.checked == true){
     	    text.style.display = "block";
@@ -1722,10 +1707,10 @@
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-3 col-form-label">全名（护照姓名）*</label>
+				<label class="col-sm-3 col-form-label">全名(护照姓名)*</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control" id="fullName"
-						placeholder="全名（护照姓名）">
+						placeholder="全名(护照姓名)">
 				</div>
 			</div>
 			<div class="form-group row">

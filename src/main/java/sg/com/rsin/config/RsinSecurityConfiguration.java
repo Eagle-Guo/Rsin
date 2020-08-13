@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 
 import sg.com.rsin.handler.RsinAuthenticationSuccessHandler;
 
@@ -47,6 +48,13 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return jdbcUserDetailsManager;
 	}
 	
+	@Bean
+    public FreeMarkerConfigurationFactoryBean getFreeMarkerConfiguration() {
+        FreeMarkerConfigurationFactoryBean bean = new FreeMarkerConfigurationFactoryBean();
+        bean.setTemplateLoaderPath("/templates/");
+        return bean;
+    }
+	
 	@Override
     @Bean
     public UserDetailsService userDetailsService() {
@@ -72,6 +80,7 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 			   .antMatchers("/mybusiness/**").hasAnyRole("USER","ADMIN")
 			   .antMatchers("/quickbooks/**").permitAll()
 			   .antMatchers("/oauth2redirect").permitAll()
+			   .antMatchers("/newcompany_confirm").permitAll()
 			   .anyRequest().authenticated().and().formLogin().successHandler(successHandler)
 			   .loginPage("/login").permitAll().and().logout().permitAll().and().rememberMe();
 

@@ -2,12 +2,8 @@ package sg.com.rsin.entity;
 
 import java.util.List;
 
-import lombok.Getter;
-import lombok.Setter;
 import sg.com.rsin.enums.ResponseCode;
 
-@Getter
-@Setter
 public class CommonResponse {
 	String plainBody;
 	List<String> bodyList;

@@ -1,5 +1,9 @@
 package sg.com.rsin.restController;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +22,7 @@ public class APIController {
     public String  all() {
         return "This information from API controller";
     }
-     
+    
     @PostMapping("/api/newcompany/sendemail")
     public String newCompanySendEmail(@RequestBody String data) {
         String response = "Your request Data is : " + data;
@@ -29,7 +33,16 @@ public class APIController {
     
     @PostMapping("/api/sendemail") 
     public void sendEmail(@RequestBody String data) {
-    	System.out.println("Recevied data:[" + data + "] and Sending email....");
-    	emailService.sendEmail(data);
+    	String result = "";
+    	String toRecipient = "yuzhiqwe@gmail.com";
+    	try {
+    		result = URLDecoder.decode(data, StandardCharsets.UTF_8.toString());
+    		System.out.println("Recevied data:[" + result + "] and Sending email....");
+    	    //result = java.net.URLDecoder.decode(data, StandardCharsets.UTF_8.name());
+    	    //System.out.println("Recevied data:[" + result + "] and Sending email....");
+    	} catch (UnsupportedEncodingException e) {
+    	    e.printStackTrace();
+    	}
+    	emailService.sendEmail(result, toRecipient);
     }
 }

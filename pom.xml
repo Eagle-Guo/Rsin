@@ -95,13 +95,6 @@
 		    <artifactId>spring-security-taglibs</artifactId>
 		</dependency>
 		
-		<!-- Google Guava -->
-		<dependency>
-		   <groupId>org.projectlombok</groupId>
-		   <artifactId>lombok</artifactId>
-		   <optional>true</optional>
-		</dependency>
-		
 		<!-- Log -->
 		<dependency>
 		    <groupId>log4j</groupId>
@@ -136,7 +129,17 @@
 		    <classifier>jar-with-dependencies</classifier>
 		    <version>4.0.1</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 		
+		<dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+        </dependency>
 	</dependencies>
 
 	<build>

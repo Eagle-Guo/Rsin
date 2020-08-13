@@ -1,10 +1,5 @@
 package sg.com.rsin.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class ErrorObject {
 	String errorCode;
 	String errorMessage;

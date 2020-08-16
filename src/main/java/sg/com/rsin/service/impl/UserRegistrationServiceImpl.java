@@ -68,7 +68,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 		userRegistrationObject.setUsername(userRegistrationObject.getEmail());
 		
 		try {
-				userRegistrationRepository.save(userRegistrationObject);
+			userRegistrationRepository.save(userRegistrationObject);
 		} catch (Exception ex) {
 			System.out.println(ex.getLocalizedMessage());
 			System.out.println(ex.getMessage());
@@ -83,19 +83,6 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 //		jdbcUserDetailsManager.createUser(user);
 		response.setResponseCode(ResponseCode.SUCCESS);
 		return response;
-	}
-
-	public void insertEmployees(List<Employee> employees) {
-		employeeDao.insertEmployees(employees);
-	}
-
-	public List<Employee> getAllEmployees() {
-		return employeeDao.getAllEmployees();
-	}
-
-	public void getEmployeeById(String empId) {
-		Employee employee = employeeDao.getEmployeeById(empId);
-		System.out.println(employee);
 	}
 
 }

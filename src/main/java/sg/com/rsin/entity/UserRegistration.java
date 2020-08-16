@@ -1,13 +1,19 @@
 package sg.com.rsin.entity;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
 
 import sg.com.rsin.enums.UserStatus;
 
@@ -19,6 +25,9 @@ public class UserRegistration {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id") 
     private long id;
+	
+	@Column(name = "username", length = 50)
+	private String username;
 	
 	@Column(name = "first_name", length = 50)
 	private String firstName;
@@ -61,8 +70,10 @@ public class UserRegistration {
 	@Column(name = "postal_code", length = 10)
 	private String postalCode;
 	
-	@Column(name = "username", length = 50)
-	private String username;
+	@ManyToMany(cascade=CascadeType.MERGE)
+	@JoinTable(name="user_role",joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
+	    inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
+	private List<Role> roles;
 
 	public long getId() {
 		return id;

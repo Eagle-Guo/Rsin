@@ -13,9 +13,4 @@ public interface UserRegistrationRepository extends CrudRepository<UserRegistrat
 	List<UserRegistration> findByEmail(String email);
 	UserRegistration findByUsername(String username);
 	
-	/*
-	 * void insertEmployee(Employee cus); void insertEmployees(List<Employee>
-	 * employees); List<Employee> getAllEmployees(); Employee getEmployeeById(String
-	 * empId);
-	 */
 }

@@ -8,7 +8,7 @@ import java.util.List;
 import sg.com.rsin.dao.RoleRepository;
 import sg.com.rsin.dao.UserRegistrationRepository;
 import sg.com.rsin.dao.UserRoleRepository;
-import sg.com.rsin.entity.Roles;
+import sg.com.rsin.entity.Role;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.entity.UserRole;
 
@@ -18,17 +18,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
-//import java.util.*;
-//
-//import com.springboot.in.action.dao.{RoleDao, UserDao, UserRoleDao};
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.core.authority.SimpleGrantedAuthority;
-//import org.springframework.security.core.userdetails.{User, UserDetails, UserDetailsService, UsernameNotFoundException};
-//import org.springframework.stereotype.Service;
-//import org.springframework.util.StringUtils;
-
-
 /**
   * Verify the user, password and role
   */
@@ -54,7 +43,7 @@ class RsinUserDetailService implements UserDetailsService {
     List<UserRole> userRoles = userRoleRepository.findByUserId(user.getId());
 
     for (UserRole userRole : userRoles) {
-      Roles role = roleRepository.findById(userRole.getRoleId());
+      Role role = roleRepository.findById(userRole.getRoleId());
       if (!StringUtils.isEmpty(role.getName())) {
         authorities.add(new SimpleGrantedAuthority(role.getName()));
       }

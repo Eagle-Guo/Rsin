@@ -9,16 +9,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "roles")
-public class Roles {
+public class Role {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "name", unique = true, nullable = false, length = 50)
     private String name;
 	
-    public Roles() {}
+    public Role() {}
     
-    public Roles(Integer id, String name) {
+    public Role(Integer id, String name) {
 		super();
 		this.id = id;
 		this.name = name;

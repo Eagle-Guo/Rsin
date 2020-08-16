@@ -1,7 +1,7 @@
 CREATE TABLE `role_user` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `role_id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `role_id` (`role_id`),
@@ -9,19 +9,19 @@ CREATE TABLE `role_user` (
   CONSTRAINT `role_user_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `authorities` (
-  `username` varchar(50) NOT NULL,
-  `authority` varchar(50) NOT NULL,
-  KEY `username` (`username`),
-  CONSTRAINT `authorities_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `roles` (
+  `id` varchar(50) NOT NULL auto_increment,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
 
 CREATE TABLE `users` (
-	  `id` int(11) NOT NULL,
+	  `id` int(11) NOT NULL auto_increment,
+	  `username` varchar(50) NOT NULL,
 	  `first_name` varchar(50) DEFAULT NULL,
 	  `last_name` varchar(50) DEFAULT NULL,
-	  `email` varchar(50) DEFAULT NULL,
+	  `email` varchar(50) NOT NULL,
 	  `password` varchar(120) NOT NULL,
 	  `status` varchar(50) DEFAULT NULL,
 	  `enabled` tinyint(1) DEFAULT '1',
@@ -33,8 +33,9 @@ CREATE TABLE `users` (
 	  `city` varchar(50) DEFAULT NULL,
 	  `postal_code` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARACTER SET = utf8;
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE `authorities` (
   `username` varchar(50) NOT NULL,

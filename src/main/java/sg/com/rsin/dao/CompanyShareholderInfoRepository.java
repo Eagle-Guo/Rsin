@@ -9,5 +9,5 @@ import sg.com.rsin.entity.CompanyShareholderInfo;
 public interface CompanyShareholderInfoRepository extends CrudRepository<CompanyShareholderInfo, Long> {
 	CompanyShareholderInfo findById(long id);
 	List<CompanyShareholderInfo> findByName(String name);
-	
+	List<CompanyShareholderInfo> findByDescription (String description);
 }

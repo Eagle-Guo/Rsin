@@ -1,6 +1,6 @@
 package sg.com.rsin.dao;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -8,6 +8,6 @@ import sg.com.rsin.entity.Role;
 
 public interface RoleRepository extends CrudRepository<Role, Long> {
 	Role findById(long id);
-	List<Role> findByName(String name);
+	Set<Role> findByName(String name);
 	
 }

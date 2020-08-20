@@ -1,7 +1,7 @@
 package sg.com.rsin.entity;
 
 import java.sql.Date;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -70,10 +70,10 @@ public class UserRegistration {
 	@Column(name = "postal_code", length = 10)
 	private String postalCode;
 	
-	@ManyToMany(cascade=CascadeType.MERGE)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name="user_role",joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
 	    inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
-	private List<Role> roles;
+	private Set<Role> roles;
 
 	public long getId() {
 		return id;
@@ -170,5 +170,11 @@ public class UserRegistration {
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public Set<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 }

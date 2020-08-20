@@ -1,7 +1,12 @@
 package sg.com.rsin.config;
 
+import java.io.IOException;
+import java.util.Properties;
+
 import javax.sql.DataSource;
 
+import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.exception.VelocityException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +21,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
+import org.springframework.ui.velocity.VelocityEngineFactory;
 
 import sg.com.rsin.handler.RsinAuthenticationSuccessHandler;
 
@@ -48,11 +54,22 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return jdbcUserDetailsManager;
 	}
 	
+//	@Bean
+//    public FreeMarkerConfigurationFactoryBean getFreeMarkerConfiguration() {
+//        FreeMarkerConfigurationFactoryBean bean = new FreeMarkerConfigurationFactoryBean();
+//        bean.setTemplateLoaderPath("/templates/");
+//        return bean;
+//    }
+	
 	@Bean
-    public FreeMarkerConfigurationFactoryBean getFreeMarkerConfiguration() {
-        FreeMarkerConfigurationFactoryBean bean = new FreeMarkerConfigurationFactoryBean();
-        bean.setTemplateLoaderPath("/templates/");
-        return bean;
+    public VelocityEngine getVelocityEngine() throws VelocityException, IOException {
+        VelocityEngineFactory factory = new VelocityEngineFactory();
+        Properties props = new Properties();
+        props.put("resource.loader", "class");
+        props.put("class.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+ 
+        factory.setVelocityProperties(props);
+        return factory.createVelocityEngine();
     }
 	
 	@Override

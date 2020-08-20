@@ -1,11 +1,9 @@
 package sg.com.rsin.service;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.mail.MessagingException;
 
-import freemarker.template.TemplateException;
+//import freemarker.template.TemplateException;
 import sg.com.rsin.entity.Mail;
 
 public interface EmailService {
@@ -16,6 +14,7 @@ public interface EmailService {
 	
 	void sendEmailWithAttachment() throws MessagingException, IOException;
 	
-	void sendSimpleMessage(Mail mail) throws MessagingException, IOException, TemplateException;
+	void sendSimpleMessage(Mail mail) throws MessagingException, IOException;
 
+	void sendEmail(Mail mail);
 }

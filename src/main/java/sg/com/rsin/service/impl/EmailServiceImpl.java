@@ -3,13 +3,13 @@ package sg.com.rsin.service.impl;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
-import java.util.List;
+import java.util.Map;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
+import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.ClassPathResource;
@@ -17,12 +17,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
-import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
-
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
+import org.springframework.ui.velocity.VelocityEngineUtils;
 import sg.com.rsin.entity.Mail;
 import sg.com.rsin.service.EmailService;
 
@@ -32,13 +27,12 @@ public class EmailServiceImpl implements EmailService {
 	@Autowired
 	private JavaMailSender mailSender;
 	
-	@Autowired
-	@Qualifier("freeMarkerConfiguration")
-    private Configuration freemarkerConfig;
-	
 	@Value("${email.send.from}")
 	private String sendFrom;
-	
+
+	@Autowired
+    VelocityEngine velocityEngine;
+
 	public void sendEmail() {
 
         SimpleMailMessage msg = new SimpleMailMessage();
@@ -72,7 +66,8 @@ public class EmailServiceImpl implements EmailService {
 	 * @throws IOException
 	 * @throws TemplateException
 	 */
-	public void sendSimpleMessage(Mail mail) throws MessagingException, IOException, TemplateException {
+	//public void sendSimpleMessage(Mail mail) throws MessagingException, IOException, TemplateException {
+	public void sendSimpleMessage(Mail mail) throws MessagingException, IOException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message,
                 MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
@@ -81,8 +76,8 @@ public class EmailServiceImpl implements EmailService {
         //add attachment
         //helper.addAttachment("logo.png", new ClassPathResource("emails/logo.jpg"));
 
-        Template t = freemarkerConfig.getTemplate("newcompany-email.ftl");
-        String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, mail.getModel());
+        //Template t = freemarkerConfig.getTemplate("newcompany-email.ftl");
+        String html = "Email Template";//FreeMarkerTemplateUtils.processTemplateIntoString(t, mail.getModel());
 
         helper.setFrom(sendFrom);
         helper.setTo(mail.getTo());
@@ -116,5 +111,34 @@ public class EmailServiceImpl implements EmailService {
         helper.addAttachment("my_photo.png", new ClassPathResource("android.png"));
 
         mailSender.send(msg);
+    }
+	
+	public void sendEmail(Mail mail) {
+        MimeMessage mimeMessage = mailSender.createMimeMessage();
+ 
+        try {
+ 
+            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
+ 
+            mimeMessageHelper.setSubject(mail.getSubject());
+            mimeMessageHelper.setFrom(sendFrom);
+            mimeMessageHelper.setTo(mail.getTo());
+            mail.setContent(geContentFromTemplate(mail.getModel()));
+            mimeMessageHelper.setText(mail.getContent(), true);
+ 
+            mailSender.send(mimeMessageHelper.getMimeMessage());
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
+ 
+    public String geContentFromTemplate(Map <String, String> model) {
+        StringBuffer content = new StringBuffer();
+        try {
+            content.append(VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "/templates/newcompany-email.vm", "UTF-8", model));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return content.toString();
     }
 }

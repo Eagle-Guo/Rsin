@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.mail.MessagingException;
@@ -29,12 +30,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import freemarker.template.TemplateException;
+//import freemarker.template.TemplateException;
 import sg.com.rsin.dao.CompanyInfoRepository;
 import sg.com.rsin.dao.CompanyOTHAccessRepository;
 import sg.com.rsin.dao.CompanyServiceRepository;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
 import sg.com.rsin.dao.NewCompanyRepository;
+import sg.com.rsin.dao.RoleRepository;
 import sg.com.rsin.dao.UserRegistrationRepository;
 import sg.com.rsin.entity.CompanyInfo;
 import sg.com.rsin.entity.CompanyOTHAccess;
@@ -42,6 +44,7 @@ import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.Mail;
 import sg.com.rsin.entity.NewCompany;
+import sg.com.rsin.entity.Role;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.entity.UserRole;
 import sg.com.rsin.enums.NewCompanyInfoEnum;
@@ -74,6 +77,8 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 	UserRegistrationRepository userRegistrationRepository;
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	@Autowired
+	private RoleRepository roleRepository;
 	
 	
 	@Value("${rsin.application.domain}")
@@ -139,7 +144,15 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 		List<CompanyShareholderInfo> allShareholderName = companyShareholderInfos.stream()
 				.filter(shareholder -> shareholder.getName().equals("全名")).collect(Collectors.toList());
 		for (CompanyShareholderInfo shareholderName: allShareholderName) {
-			sendEmailToShareHolder(newCompany, shareholderName);
+			try {
+				sendEmailToShareHolder(newCompany, shareholderName);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		List<CompanyShareholderInfo> allShareholderEmail = companyShareholderInfos.stream()
@@ -151,21 +164,18 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 			List<UserRegistration> emails =  userRegistrationRepository.findByEmail(shareholderEmail.getDescription());
 			// create the default account to new email user
 			if (ObjectUtils.isEmpty(emails)) {
-				//TODO create new user into users table and user_role table
+				Set<Role> role = roleRepository.findByName("ROLE_USER");
 				UserRegistration userRegistration = new UserRegistration();
 				userRegistration.setUsername(shareholderEmail.getDescription());
 				userRegistration.setEmail(shareholderEmail.getDescription());
-				
 				userRegistration.setPassword(bCryptPasswordEncoder.encode(defaultPassword));
-				userRegistrationRepository.save(userRegistration);
 				
-				UserRole userRole = new UserRole();
-				userRole.setRoleId(roleId);
-				userRole.setUserId(userId);
+				userRegistration.setRoles(role);
+				userRegistrationRepository.save(userRegistration);
 			}
 		}
 	}
-	private void sendEmailToShareHolder(NewCompany newCompany, CompanyShareholderInfo companyShareholderInfo) {
+	private void sendEmailToShareHolder(NewCompany newCompany, CompanyShareholderInfo companyShareholderInfo) throws MessagingException, IOException {
 		//Send email to ShareHolder and Director
 		//1. Get the access link
 		String password = CommonUtils.getHashValue("" + newCompany.getId() + newCompany.getStatus() + 
@@ -193,14 +203,6 @@ public class NewCompanyServiceImpl implements NewCompanyService {
         model.put("signature", "睿信集团");
         mail.setModel(model);
         
-        try {
-			emailService.sendSimpleMessage(mail);
-		} catch (MessagingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (TemplateException e) {
-			e.printStackTrace();
-		}
+        emailService.sendEmail(mail);
 	}
 }

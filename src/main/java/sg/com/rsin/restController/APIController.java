@@ -27,7 +27,6 @@ public class APIController {
     public String newCompanySendEmail(@RequestBody String data) {
         String response = "Your request Data is : " + data;
         
-        System.out.println(response);
         return response;
     }
     
@@ -37,9 +36,9 @@ public class APIController {
     	String toRecipient = "yuzhiqwe@gmail.com";
     	try {
     		result = URLDecoder.decode(data, StandardCharsets.UTF_8.toString());
-    		System.out.println("Recevied data:[" + result + "] and Sending email....");
+    		System.out.println("Recevied data output:[" + result + "] and Sending email....");
     	    //result = java.net.URLDecoder.decode(data, StandardCharsets.UTF_8.name());
-    	    //System.out.println("Recevied data:[" + result + "] and Sending email....");
+    	    //logger.info("Recevied data:[" + result + "] and Sending email....");
     	} catch (UnsupportedEncodingException e) {
     	    e.printStackTrace();
     	}

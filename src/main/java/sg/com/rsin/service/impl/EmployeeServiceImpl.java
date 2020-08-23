@@ -31,8 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void getEmployeeById(String empId) {
-		Employee employee = employeeDao.getEmployeeById(empId);
-		System.out.println(employee);
+		employeeDao.getEmployeeById(empId);
 	}
 
 }

@@ -30,7 +30,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-//import freemarker.template.TemplateException;
 import sg.com.rsin.dao.CompanyInfoRepository;
 import sg.com.rsin.dao.CompanyOTHAccessRepository;
 import sg.com.rsin.dao.CompanyServiceRepository;
@@ -46,7 +45,6 @@ import sg.com.rsin.entity.Mail;
 import sg.com.rsin.entity.NewCompany;
 import sg.com.rsin.entity.Role;
 import sg.com.rsin.entity.UserRegistration;
-import sg.com.rsin.entity.UserRole;
 import sg.com.rsin.enums.NewCompanyInfoEnum;
 import sg.com.rsin.restController.NewCompanyController;
 import sg.com.rsin.service.EmailService;
@@ -120,7 +118,10 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 		} catch (JsonProcessingException e) {
 			logger.error("Get error to parse new company data to json ");
 			e.printStackTrace();
-		};
+		} catch (Exception e) {
+			logger.error("Get error to parse new company data to json ");
+			e.printStackTrace();
+		} ;
 		
 		//Save to DB
 		NewCompany newCompany = new NewCompany();
@@ -202,7 +203,8 @@ public class NewCompanyServiceImpl implements NewCompanyService {
         model.put("completedLink", URL);
         model.put("signature", "睿信集团");
         mail.setModel(model);
-        
+        logger.info("Prepare to send email....with URL" + URL);
         emailService.sendEmail(mail);
+        
 	}
 }

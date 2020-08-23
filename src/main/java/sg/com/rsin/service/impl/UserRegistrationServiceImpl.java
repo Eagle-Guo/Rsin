@@ -6,22 +6,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 
 import sg.com.rsin.dao.EmployeeDao;
 import sg.com.rsin.dao.UserRegistrationRepository;
 import sg.com.rsin.entity.CommonResponse;
-import sg.com.rsin.entity.Employee;
 import sg.com.rsin.entity.ErrorObject;
 import sg.com.rsin.entity.UserRegistration;
-import sg.com.rsin.enums.ErrorCode;
 import sg.com.rsin.enums.ResponseCode;
 import sg.com.rsin.enums.UserStatus;
-import sg.com.rsin.service.EmployeeService;
 import sg.com.rsin.service.UserRegistrationService;
 
 @Service
@@ -30,8 +24,8 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 	@Autowired
 	EmployeeDao employeeDao;
 	
-	@Autowired
-	private JdbcUserDetailsManager jdbcUserDetailsManager;
+	//@Autowired
+	// JdbcUserDetailsManager jdbcUserDetailsManager;
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;

@@ -115,7 +115,6 @@ public class EmailServiceImpl implements EmailService {
 	
 	public void sendEmail(Mail mail) {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
- 
         try {
  
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
@@ -125,9 +124,12 @@ public class EmailServiceImpl implements EmailService {
             mimeMessageHelper.setTo(mail.getTo());
             mail.setContent(geContentFromTemplate(mail.getModel()));
             mimeMessageHelper.setText(mail.getContent(), true);
- 
+            System.out.println("Email content..."+ mail.getContent());
             mailSender.send(mimeMessageHelper.getMimeMessage());
+            System.out.println("Email sent successful!!!!!");
         } catch (MessagingException e) {
+        	System.out.println(e.getLocalizedMessage());
+        	System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }

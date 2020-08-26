@@ -220,6 +220,7 @@
               <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-square"></i><span>待办事项</span></a>
                 <ul class="dropdown-menu">
+                  <li class="active"><a class="nav-link" href="/onlineSignature">在线签名</a></li>
                   <li class="active"><a class="nav-link" href="/annualReviewList">年审安排</a></li>
                  <!--   <li><a class="nav-link" href="/coming">已提交末付款业务</a></li>-->
                 </ul>

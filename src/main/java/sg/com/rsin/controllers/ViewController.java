@@ -125,6 +125,12 @@ public class ViewController {
 		return model;
 	}	
 	
+	@RequestMapping("/onlineSignature")
+	public ModelAndView onlineSignature() {
+		ModelAndView model = new ModelAndView("todolist/onlineSignature");
+		return model;
+	}	
+	
 	@RequestMapping("/mybusiness/openAccount")
 	public ModelAndView openAccount() {
 		ModelAndView model = new ModelAndView("mybusiness/openAccount");

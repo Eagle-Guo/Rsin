@@ -170,7 +170,7 @@ select.form-control:not([size]):not([multiple]),
 .form-control:not(.form-control-sm):not(.form-control-lg) {
   font-size: 14px;
   padding: 10px 15px;
-  height: 42px;}
+  height: 28px;}
 
 textarea.form-control {
   height: 64px; }
@@ -504,8 +504,8 @@ select.form-control:not([size]):not([multiple]) {
 /* 3.3 List */
 .list-unstyled-border li {
   border-bottom: 1px solid #f9f9f9;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
   cursor: pointer; }
   .list-unstyled-border li .custom-checkbox {
     margin-right: 15px; }
@@ -923,7 +923,7 @@ select.form-control:not([size]):not([multiple]) {
     border-top: none; }
   .table:not(.table-sm):not(.table-md):not(.dataTable) td,
   .table:not(.table-sm):not(.table-md):not(.dataTable) th {
-    padding: 0 25px;
+    padding: 0 10px;
     height: 60px;
     vertical-align: middle; }
   .table:not(.table-sm) thead th {
@@ -2032,7 +2032,8 @@ a.bb {
 
 .text-small {
   font-size: 12px;
-  line-height: 20px; }
+  line-height: 20px; 
+      width: 75%;}
 
 .text-title {
   font-size: 14px;
@@ -2985,6 +2986,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 #newcompany .leftside label {
       display: inline;
       height: 2rem;
+      padding-right: 0;
     /* margin-bottom: .5rem; */
   }		
   #newcompany .leftside label_info {
@@ -3044,6 +3046,13 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     border: 1px solid #e4e6fc !important;
 }
 
+#newcompany .c-select-info.appinfo {
+	height: 28px !important;
+    padding: 0 1rem;
+    width: 100% !IMPORTANT;
+    font-size: 14px;
+    color: gray;
+}
 
 .choosedsvbtn {
     background-color:#6777ef !important;
@@ -3066,10 +3075,17 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
   border-bottom: 1px solid #6777ef;
 }
 
- 
+ #newcompany .textareaheight { 
+ 		height: 58px !important;
+	}
 
-
-
+ #newcompany .multisteps-form__content { 
+ 		margin-top: -5%;
+	}
+ #newcompany label input{
+      display: inline;
+  }	
+  
 
  /* 6.2 pages new css- notice.jsp*/
  
@@ -3172,7 +3188,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
   background: rgba(0, 0, 0, 0); /* Black background with 0.5 opacity */
   color: #f1f1f1;
   width: 100%;
-  padding: 20px;
+  padding: 50px;
 }	
 
 
@@ -3260,5 +3276,88 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     border: 1px solid #e4e6fc !important;
 }
 
+ /* 6.5 pages new css- onlineSignature.jsp*/
 
-	
+#onlineSignature .dis_inline {
+    display:inline;
+}
+#onlineSignature .list_btn {
+        color: #6777ef;
+}
+.media-content{
+        height: 25rem;
+   	 	overflow-y: auto;
+   	 	padding:.5rem 1rem;
+    	overflow-x: hidden;  	 	
+}
+
+.text_centre {
+        text-align: center !important;
+}
+ .text_signfile {
+        font-weight: 800 !important;
+        line-height: .4rem;
+        font-size: 12px;
+        text-align: justify;
+}
+ .text_signfile span {
+        line-height: .9rem !important;
+        text-align: justify;
+}	
+
+ .s_content_sty .text_signfile {
+        font-weight: 800 !important;
+        line-height: .1rem;
+        font-size: 12px;
+        text-align: justify;
+}
+ .text_di2 .col-md-2 {
+        max-width: 12.666667%;
+}	
+ .text_di2 .col-md-10 {
+        max-width: 87.33333%;
+}	
+ .text_no_di2 .col-md-2 {
+        max-width: 6.666667%;
+        padding-right: 0;
+}	
+ .text_no_di2 .col-md-10 {
+        max-width: 93.33333%;
+        padding: 0;
+        margin-top: -1%;
+}
+ .radiosty {
+       font-size: 1.1rem;
+       font-weight: 800;
+       margin-right: 5rem;
+}
+ .signaturediv {
+        width: 40%;
+	    padding: 10px;
+	    height: 8rem !important;
+	    margin-left: 4%;
+	    margin-top: 1%;
+	    margin-bottom: 1%;
+}
+ .sign_btn {
+        margin-left: 2.5%;
+}
+ #OfflineSign ul {
+        margin-top: 2%;
+        width: 70%;
+}  
+ #OfflineSign ul input {
+        height: 30px !important;
+        padding: 0px 0px !important;
+}  
+#signdiv .tab button{
+        box-shadow: 0 2px 6px #acb5f6;
+   		 background-color: #6777ef;
+  		  border-color: #6777ef;
+   		 border: none;
+  		  color: white;
+  		  padding: .2rem .5rem;
+  		  font-size: 1rem;
+  		  margin-right: 1rem;
+}  
+

@@ -51,13 +51,22 @@
 									<div class="multisteps-form__progress">
 										<button class="multisteps-form__progress-btn js-active"	type="button" title="选择服务">选择服务</button>
 										<button class="multisteps-form__progress-btn" type="button" title="填报资料">填报资料</button>
-										<button class="multisteps-form__progress-btn" type="button" title="在线确认">在线确认</button>
-									
-											
-									</div>
+										<button class="multisteps-form__progress-btn" type="button" title="在线确认">在线确认</button>																				
+									</div>								
 								</div>
+					<div class="col-lg-12 col-md-12 col-12 col-sm-12  alert alert-primary alert-dismissible show fade" style="margin:15px;">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>&times;</span>
+                        </button>
+                        <p><b>申请前提示</b></p>
+                        <p>1. 此申请步骤约需20分钟；</p>
+                        <p>2. 在申请前请先准备以下相关资料，以备登记相关信息所需: 1>新加坡公民或PR，需准备IC; 2>中国公民，需准备护照、中国身份证；3>其它国家公民，需准备护照、住所证明。</p>
+                        <p>3. 请确保所填内容是英文形式。</p>
+                      </div>
+                    </div>	
 								<!-- Left side -->
-								<div class="col-lg-8 col-md-12 col-12 col-sm-12 leftside">
+								<div class="col-lg-8 col-md-12 col-12 col-sm-12 leftside">																
 									<form class="multisteps-form__form"
 										action="/view/registerNewCompany" method="post">
 										<!--single form panel-->
@@ -609,32 +618,41 @@
 														<label class="col-sm-3 col-form-label">公司名称</label>
 														<div class="col-sm-9">
 															<input type="text" class="form-control" id="companyName"
-																placeholder="公司名称">
+																placeholder="限英文，填写示范：RSIN GROUP" onkeypress="return /[a-z ]/i.test(event.key)">
 														</div>
 													</div>
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">公司备用名称</label>
 														<div class="col-sm-9">
 															<input type="text" class="form-control"
-																id="companyBackupName" placeholder="公司备用名称">
+																id="companyBackupName" placeholder="限英文，填写示范：XXXX"  onkeypress="return /[a-z ]/i.test(event.key)">
 														</div>
 													</div>
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">公司类型</label>
 														<div class="col-sm-9">
-															<input type="text" class="form-control" id="companyType"
-																placeholder="公司类型">
+															<select class="custom-select c-select-info appinfo " id="companyType">
+																<option selected>私人豁免有限公司 (PTE. LTD.)</option>
+																<option value="1">公众有限责任公司(Ltd.)</option>
+															</select>
 														</div>
 													</div>
 													<div class="form-group row">
-														<label class="col-sm-3 col-form-label">注册资本</label>
-														<div class="col-sm-9">
-															<input type="text" class="form-control"
-																id="registeredCapital" placeholder="注册资本">
+														<label class="col-sm-3 col-form-label">发行股份资本（总）</label>
+														<div class="col-sm-9" >
+															<input type="text" class="form-control"  disabled="disabled" 
+																id="registeredCapital1" placeholder="自动计算">
 														</div>
 													</div>
 													<div class="form-group row">
-														<label class="col-sm-3 col-form-label">公司商业活动</label>
+														<label class="col-sm-3 col-form-label">实缴股份资本（总）</label>
+														<div class="col-sm-9" >
+															<input type="text" class="form-control"  disabled="disabled" 
+																id="registeredCapital2" placeholder="自动计算">
+														</div>
+													</div>													
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">公司商业活动1</label>
 														<div class="col-sm-9">
 															<textarea class="form-control" id="businessEvent"
 																placeholder="公司商业活动"></textarea>
@@ -643,13 +661,13 @@
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">公司地址及邮编</label>
 														<div class="col-sm-9">
-															<textarea class="form-control"
-																id="conpanyAddressAndPostalCode" placeholder="公司地址及邮编"></textarea>
+															<textarea class="form-control textareaheight"
+																id="conpanyAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098" onkeypress="return /[a-z, #0-9-.()]/i.test(event.key)"></textarea>
 														</div>
 													</div>
 													<div class="section-title">董事、股东、联系人资料</div>
 													<div class="form-group row">
-														<label class="col-sm-3 col-form-label">职位填报类型</label>
+														<label class="col-sm-3 col-form-label">职位类型（可多选）*</label>
 														<div class="col-sm-9">																											
 															 <div class="form-group">
 										                      <div class="form-check form-check-inline">
@@ -671,10 +689,59 @@
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">全名(护照姓名)*</label>
 														<div class="col-sm-9">
-															<input type="text" class="form-control" id="fullName"
-																placeholder="全名(护照姓名)">
+															<input type="text" class="form-control" id="fullName" 
+																placeholder="限英文" onkeyup="checkChinese(this)" onkeypress="return /[a-z ]/i.test(event.key)">
 														</div>
 													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">身份类型（单选）*</label>
+														<div class="col-sm-9">																											
+														  <div class="form-group">
+															 <div class="radio">
+																<label>
+																	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 新加坡公民，
+																</label>
+															</div>
+															 <div class="radio">
+																<label>
+																	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 选项 1
+																</label>
+																<div class="row" >
+																		<label class="col-sm-2 col-form-label"  style="display:inline;">NRIC*</label>
+																		<div class="col-sm-10"  style="display:inline;">
+																			<input type="text" class="form-control" id="nationality"
+																				placeholder="请填入NRIC号码">
+																		</div>
+																	</div>	
+															</div>															
+										                      <div class="radio">
+										                        <input class="form-check-input" type="radio" id="checkb_nationality1">
+											                        <label style="height:auto;" class="form-check-label" for="inlineCheckbox1">
+											                        	新加坡公民，
+											                        </label>
+											                        <div class="row" >
+																		<label class="col-sm-2 col-form-label"  style="display:inline;">NRIC*</label>
+																		<div class="col-sm-10"  style="display:inline;">
+																			<input type="text" class="form-control" id="nationality"
+																				placeholder="请填入NRIC号码">
+																		</div>
+																	</div>											                        
+										                      </div>
+										                      <div class="radio">
+										                        <input class="form-check-input" type="radio" id="checkb_nationality2" onclick="addMoreQ(1)"	>
+										                        <label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">中国公民(非新加坡PR)</label>
+										                      </div>										                      
+										                      <div class="radio">
+										                        <input class="form-check-input" type="radio" id="checkb_nationality3">
+										                        <label style="height:auto;"  class="form-check-label" for="inlineCheckbox3">其它国家公民</label>
+										                      </div>
+										                    </div>																															
+
+														</div>
+													</div>													
+													
+													
+												
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">国籍*</label>
 														<div class="col-sm-9">
@@ -709,7 +776,7 @@
 																placeholder="证件号码">
 														</div>
 													</div>
-													<div class="form-group row">
+													<!--  <div class="form-group row">
 														<label class="col-sm-3 col-form-label">出生国家*</label>
 														<div class="col-sm-9">
 															<input type="text" class="form-control" id="birthCountry"
@@ -722,7 +789,7 @@
 															<input type="date" class="form-control" id="dateOfBirth"
 																placeholder="出生日期">
 														</div>
-													</div>
+													</div>-->
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">电子邮箱*</label>
 														<div class="col-sm-9">
@@ -995,7 +1062,7 @@
         for (let i=0; i<services.length; i+=1) {
             totalamount = totalamount + services[i].price;
             selectedsummaryhtml += 
-                 `<li class="media"><a href="#"><img alt="image" class="mr-3 rounded" width="50" src="../assets/img/products/product-2-50.png"></a>
+                 `<li class="media"><a href="#"><img alt="image" class="mr-3 rounded" width="40" src="../assets/img/products/product-2-50.png"></a>
                       <div class="media-body"><div class="media-right"><span class="text-muted" id="price">`;
             selectedsummaryhtml += services[i].price;
             selectedsummaryhtml += `</span></div><div class="media-title"><a href="#">`;
@@ -1007,7 +1074,7 @@
 
         selectedsummaryhtml += `<h6 class="mt-3">总计服务<span class="text-muted media-left">(`;
         selectedsummaryhtml += services.length
-        selectedsummaryhtml += ") </span>  总计金额  (<span class='text-muted media-right'>" + totalamount + "</span>)</h6>";
+        selectedsummaryhtml += ") </span>  总计金额（S$）  (<span class='text-muted media-right'>" + totalamount + "</span>)</h6>";
         document.getElementById("selected_summary").innerHTML = selectedsummaryhtml;
     }
     function addGudong () {
@@ -1847,7 +1914,10 @@
 			<input type="button" value="-" onclick="removeFileadd(this)">`
           )
       } 
-      
+
+
+
+        
 </script>
    
 </body>

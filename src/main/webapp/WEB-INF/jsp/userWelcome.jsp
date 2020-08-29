@@ -16,12 +16,12 @@
 </head>
 
 <body>
-<jsp:include page="menu.jsp" />
+<jsp:include page="user_menu.jsp" />
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>后台管理</h1>
+            <h1>用户后台管理</h1>
           </div>
           <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">

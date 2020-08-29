@@ -1,0 +1,46 @@
+/* .container{
+    width: 50%;
+    margin: 0 auto;
+}
+ */
+.upload-area{
+    width: 400px;
+    height: 40px;
+    border: 2px solid lightgray;
+    border-radius: 1px;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: center;
+    overflow: auto;
+}
+
+.upload-area:hover{
+    cursor: pointer;
+}
+
+.upload-area h4 {
+    text-align: center;
+    font-weight: normal;
+    font-family: sans-serif;
+    line-height: 25px;
+    color: darkslategray;
+}
+
+#uploadIC1{
+    display: none;
+}
+
+/* Thumbnail */
+.thumbnail{
+    width: 80px;
+    height: 80px;
+    padding: 2px;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+    float: left;
+    margin: 5px;
+}
+
+.size{
+    font-size:14px;
+}

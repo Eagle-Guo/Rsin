@@ -37,13 +37,17 @@ public class ViewController {
 
 	@RequestMapping("/")
 	public ModelAndView allPage() {
-		//return new ModelAndView("userWelcome");
 		return new ModelAndView("login");
 	}
 	
 	@RequestMapping("/userWelcome")
-	public ModelAndView firstPage() {
+	public ModelAndView userPage() {
 		return new ModelAndView("userWelcome");
+	}
+	
+	@RequestMapping("/adminWelcome")
+	public ModelAndView adminPage() {
+		return new ModelAndView("adminWelcome");
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)

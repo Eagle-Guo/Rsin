@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-  <div id="app">
-    <div class="main-wrapper">
+<!--  <div id="app">
+    <div class="main-wrapper"> --> 
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
@@ -12,6 +12,8 @@
             <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
             <button class="btn" type="submit"><i class="fas fa-search"></i></button>
             <div class="search-backdrop"></div>
+            
+            <!-- header search -->
             <div class="search-result">
               <div class="search-header"> 历史记录   </div>
               <div class="search-item">
@@ -54,8 +56,10 @@
                 </a>
               </div>
             </div>
+            
           </div>
         </form>
+        
         <ul class="navbar-nav navbar-right">
           <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
@@ -204,6 +208,8 @@
           </li>
         </ul>
       </nav>
+      
+      <!-- left side menu  -->
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
@@ -220,9 +226,8 @@
               <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-square"></i><span>待办事项</span></a>
                 <ul class="dropdown-menu">
-                  <li class="active"><a class="nav-link" href="/onlineSignature">在线签名</a></li>
-                  <li class="active"><a class="nav-link" href="/annualReviewList">年审安排</a></li>
-                 <!--   <li><a class="nav-link" href="/coming">已提交末付款业务</a></li>-->
+                	<li class="active"><a class="nav-link" href="/annualReviewList">公司注册</a></li>
+                  	<li class="active"><a class="nav-link" href="/annualReviewList">年审安排</a></li>
                 </ul>
               </li>              
               <li class="menu-header">快速服务</li>

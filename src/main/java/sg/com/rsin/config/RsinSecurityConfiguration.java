@@ -104,7 +104,6 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 			   .antMatchers("/quickbooks/**").permitAll()
 			   .antMatchers("/oauth2redirect").permitAll()
 			   .antMatchers("/newcompany_confirm").permitAll()
-		       
 			   .anyRequest().authenticated().and().formLogin().successHandler(successHandler)
 			   .loginPage("/login").permitAll().and().logout().permitAll().and().rememberMe();
 

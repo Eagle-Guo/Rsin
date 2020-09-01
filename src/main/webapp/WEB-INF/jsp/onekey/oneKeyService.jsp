@@ -127,7 +127,7 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-1-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-primary">在线咨询</a></div>
+                             <div class="float-right"><a  href="#" class="btn btn-primary">在线咨询</a></div>
                             <div class="media-title"><a href="#">香港公司注册</a></div>
                             <div class="text-muted text-small">香港是四大离岸金融中心之一，蕴藏着无限商机，是通往全球经贸的平台，香港的优势广为人知。</div>
                           </div>
@@ -137,7 +137,7 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-1-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-primary">在线咨询</a></div>
+                             <div class="float-right"><a  href="#" class="btn btn-primary">在线咨询</a></div>
                             <div class="media-title"><a href="#">开曼群岛公司注册</a></div>
                             <div class="text-muted text-small">开曼群岛完全没有直接税收，无论是对个人、公司还是信托行业都不征任何直接税，因此它获得了“避税天堂”的美称。</div>
                           </div>
@@ -147,7 +147,7 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-1-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-primary">在线咨询</a></div>
+                             <div class="float-right"><a  href="#" class="btn btn-primary">在线咨询</a></div>
                             <div class="media-title"><a href="#">BVI公司注册</a></div>
                             <div class="text-muted text-small">英属维尔京群岛（BVI）无须缴税，无外汇管制，任何货币的流通都没有限制。</div>
                           </div>
@@ -157,7 +157,7 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-1-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-primary">在线咨询</a></div>
+                             <div class="float-right"><a  href="#" class="btn btn-primary">在线咨询</a></div>
                             <div class="media-title"><a href="#">马绍尔公司注册</a></div>
                             <div class="text-muted text-small">马绍尔群岛（Marshall Islands）无须缴税，无外汇管制，任何货币的流通都没有限制。</div>
                           </div>
@@ -167,7 +167,7 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-1-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-primary">在线咨询</a></div>
+                             <div class="float-right"><a  href="#" class="btn btn-primary">在线咨询</a></div>
                             <div class="media-title"><a href="#">塞舌尔公司注册</a></div>
                             <div class="text-muted text-small">塞舌尔（Seychelles）实行单一税，国际商业公司不必就在塞舌尔共和国以外地方进行的商业活动或交易纳税。</div>
                           </div>
@@ -213,8 +213,8 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-4-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                            <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-warning">在线注册</a></div>
-                            <div class="media-title"><a href="/mybusiness/newCompany">新加坡公司年审</a></div>
+                            <div class="float-right"><a  href="/mybusiness/annualReview" class="btn btn-warning">在线注册</a></div>
+                            <div class="media-title"><a href="/mybusiness/annualReview">新加坡公司年审</a></div>
                             <div class="text-muted text-small">为客户提供新加坡公司年审服务。根据新加坡公司法的规定，每家新加坡公司都必须在规定时间内完成公司年报，否则将会产生罚款。</div>
                           </div>
                         </li>
@@ -223,7 +223,7 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-1-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-primary">在线咨询</a></div>
+                             <div class="float-right"><a  href="#" class="btn btn-primary">在线咨询</a></div>
                             <div class="media-title"><a href="#">海外公司年审</a></div>
                             <div class="text-muted text-small">为客户提供海外公司年审服务。各国对公司年审要求不同，我们可以帮助您处理各类年审事务。</div>
                           </div>
@@ -243,8 +243,8 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-4-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-warning">在线注册</a></div>
-                            <div class="media-title"><a href="#">新加坡会计服务</a></div>
+                             <div class="float-right"><a  href="/mybusiness/accountingServices" class="btn btn-warning">在线注册</a></div>
+                            <div class="media-title"><a href="/mybusiness/accountingServices">新加坡会计服务</a></div>
                             <div class="text-muted text-small">为客户提供新加坡会计服务。</div>
                           </div>
                         </li>                        
@@ -253,7 +253,7 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-1-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-primary">在线咨询</a></div>
+                             <div class="float-right"><a  href="#" class="btn btn-primary">在线咨询</a></div>
                             <div class="media-title"><a href="#">新加坡公司税务服务</a></div>
                             <div class="text-muted text-small">所有新加坡公司都必须做纳税申报。申报时间取决于公司的财政年度截止日。我们能协助您准备并递交符合要求的税务申报表。</div>
                           </div>
@@ -303,8 +303,8 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-4-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                            <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-warning">在线注册</a></div>
-                            <div class="media-title"><a href="/mybusiness/newCompany">新加坡银行开户</a></div>
+                            <div class="float-right"><a  href="/mybusiness/openAccount" class="btn btn-warning">在线注册</a></div>
+                            <div class="media-title"><a href="/mybusiness/openAccount">新加坡银行开户</a></div>
                             <div class="text-muted text-small">各银行的业务和优势不尽相同，我们能够依据客户的业务需求，为客户推荐和办理各类的银行服务。</div>
                           </div>
                         </li>
@@ -313,8 +313,8 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-4-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-warning">在线注册</a></div>
-                            <div class="media-title"><a href="#">离岸银行开户</a></div>
+                             <div class="float-right"><a  href="/mybusiness/openAccount" class="btn btn-warning">在线注册</a></div>
+                            <div class="media-title"><a href="/mybusiness/openAccount">离岸银行开户</a></div>
                             <div class="text-muted text-small">为客户提供离岸银行开户服务。</div>
                           </div>
                         </li>
@@ -323,7 +323,7 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-1-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-primary">在线咨询</a></div>
+                             <div class="float-right"><a  href="#" class="btn btn-primary">在线咨询</a></div>
                             <div class="media-title"><a href="#">签证工作准证申请与更新</a></div>
                             <div class="text-muted text-small">为客户提供短期商务签证、工作准证、企业家准证、家属准证DP或长期社访准证LTVP等各类签证的申请服务。</div>
                           </div>
@@ -333,7 +333,7 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-1-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-primary">在线咨询</a></div>
+                             <div class="float-right"><a  href="#" class="btn btn-primary">在线咨询</a></div>
                             <div class="media-title"><a href="#">新加坡PR申请与延期</a></div>
                             <div class="text-muted text-small">为客户提供新加坡PR申请与延期服务，其中新加坡PR申请有2种，分别是工作准证持有人申请PR方式和通过全球投资者计划方式。</div>
                           </div>
@@ -343,8 +343,8 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-4-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-warning">在线注册</a></div>
-                            <div class="media-title"><a href="#">新加坡商标与执照申请</a></div>
+                             <div class="float-right"><a  href="/mybusiness/licenseApplication" class="btn btn-warning">在线注册</a></div>
+                            <div class="media-title"><a href="/mybusiness/licenseApplication">新加坡商标与执照申请</a></div>
                             <div class="text-muted text-small">为客户提供新加坡商标TRADMARK申请和新加坡商业执照LICENCE申请的服务。</div>
                           </div>
                         </li>  
@@ -353,8 +353,8 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-4-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-warning">在线注册</a></div>
-                            <div class="media-title"><a href="#">新加坡消费税申请</a></div>
+                             <div class="float-right"><a  href="/mybusiness/GSTApplication" class="btn btn-warning">在线注册</a></div>
+                            <div class="media-title"><a href="/mybusiness/GSTApplication">新加坡消费税申请</a></div>
                             <div class="text-muted text-small">为客户提供快捷的新加坡消费税申请和代缴服务。新加坡的消费税，即货物和劳务税(Goods and Services Tax，简称GST)。</div>
                           </div>
                         </li>  
@@ -440,8 +440,8 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-1-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                            <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-primary">在线咨询</a></div>
-                            <div class="media-title"><a href="/mybusiness/newCompany">云会计系统/应用</a></div>
+                            <div class="float-right"><a  href="#" class="btn btn-primary">在线咨询</a></div>
+                            <div class="media-title"><a href="#">云会计系统/应用</a></div>
                             <div class="text-muted text-small">我们提供云会计系统/应用服务，欢迎咨询。</div>
                           </div>
                         </li>
@@ -450,8 +450,8 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-4-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-warning">在线注册</a></div>
-                            <div class="media-title"><a href="#">呼叫转移服务</a></div>
+                             <div class="float-right"><a  href="/mybusiness/callService" class="btn btn-warning">在线注册</a></div>
+                            <div class="media-title"><a href="/mybusiness/callService">呼叫转移服务</a></div>
                             <div class="text-muted text-small">我们提供新加坡固定座机全球呼叫转移和新加坡固定座机无人应笘的虚拟电话服务。</div>
                           </div>
                         </li>
@@ -460,8 +460,8 @@
                             <img class="mr-3 rounded" width="50" src="../assets/img/products/product-4-50.png" alt="product">
                           </a>
                           <div class="media-body">
-                             <div class="float-right"><a  href="/mybusiness/newCompany" class="btn btn-warning">在线注册</a></div>
-                            <div class="media-title"><a href="#">新加坡共享办公室</a></div>
+                             <div class="float-right"><a  href="/mybusiness/officeService" class="btn btn-warning">在线注册</a></div>
+                            <div class="media-title"><a href="/mybusiness/officeService">新加坡共享办公室</a></div>
                             <div class="text-muted text-small">共享服务式办公室是新加坡创业初始或办公人员不多的情况下，最适宜的选择！我们提供3个月、6个月和12个月为周期的新加坡共享办公室服务。</div>
                           </div>
                         </li>

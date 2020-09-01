@@ -510,7 +510,7 @@
 											<!--single form panel-->
 											<div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
 												<h3 class="multisteps-form__title">填报资料</h3>
-												<div class="multisteps-form__content">
+												<div class="multisteps-form__content c_top">
 													<div class="card-body">
 														<!-- <div class="alert alert-info"><b>联系方式</b></div> -->
 														<div class="section-title">公司资料</div>
@@ -518,16 +518,14 @@
 															<label class="col-sm-3 col-form-label">公司名称</label>
 															<div class="col-sm-9">
 																<input type="text" class="form-control" id="companyName"
-																	placeholder="限英文，填写示范：RSIN GROUP"
-																	onkeypress="return /[a-z ]/i.test(event.key)">
+																	placeholder="限英文，填写示范：RSIN GROUP" onkeypress="return /[a-z ]/i.test(event.key)">
 															</div>
 														</div>
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">公司备用名称</label>
 															<div class="col-sm-9">
 																<input type="text" class="form-control"
-																	id="companyBackupName" placeholder="限英文，填写示范：XXXX"
-																	onkeypress="return /[a-z ]/i.test(event.key)">
+																	id="companyBackupName" placeholder="限英文，填写示范：XXXX" onkeypress="return /[a-z ]/i.test(event.key)">
 															</div>
 														</div>
 														<div class="form-group row">
@@ -548,29 +546,21 @@
 																	placeholder="自动计算">
 															</div>
 														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">实缴股份资本（总）</label>
-															<div class="col-sm-9">
-																<input type="text" class="form-control"
-																	disabled="disabled" id="registeredCapital2"
-																	placeholder="自动计算">
-															</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">公司商业活动1</label>
+														<div class="col-sm-9">
+															<select class="custom-select c-select-info appinfo " id="companyType">
+																<option selected>公司商业活动</option>
+																<option value="1"></option>
+															</select>
 														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">公司商业活动1</label>
-															<div class="col-sm-9">
-																<textarea class="form-control" id="businessEvent"
-																	placeholder="公司商业活动"></textarea>
-															</div>
-														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">公司地址及邮编</label>
-															<div class="col-sm-9">
-																<textarea class="form-control textareaheight"
-																	id="conpanyAddressAndPostalCode"
-																	placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"
-																	onkeypress="return /[a-z, #0-9-.()]/i.test(event.key)"></textarea>
-															</div>
+													</div>																											
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">公司地址及邮编</label>
+														<div class="col-sm-9">
+															<textarea class="form-control textareaheight"
+																id="conpanyAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098" onkeypress="return /[a-z, #0-9-.()]/i.test(event.key)">
+																</textarea>
 														</div>
 														<div class="section-title">董事、股东、联系人资料</div>
 														<div class="form-group row">
@@ -661,8 +651,6 @@
 	
 															</div>
 														</div>
-	
-	
 	
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">国籍*</label>
@@ -822,7 +810,6 @@
 													<div class="form-group row">
 														<div id="companyinfo_summary"></div>
 													</div>
-													
 													<div class="section-title">董事、股东、联系人资料</div>
 													<div class="form-group row">
 														<div id="shareholder_summary"></div>

@@ -3079,7 +3079,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
  		height: 58px !important;
 	}
 
- #newcompany .multisteps-form__content { 
+ #newcompany .c_top { 
  		margin-top: -5%;
 	}
  #newcompany label input{

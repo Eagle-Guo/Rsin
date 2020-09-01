@@ -110,6 +110,42 @@ public class ViewController {
 		ModelAndView model = new ModelAndView("mybusiness/newCompany");
 		return model;
 	}
+
+	@RequestMapping("/mybusiness/licenseApplication")
+	public ModelAndView licenseApplication() {
+		ModelAndView model = new ModelAndView("mybusiness/licenseApplication");
+		return model;
+	}	
+	
+	@RequestMapping("/mybusiness/GSTApplication")
+	public ModelAndView GSTApplication() {
+		ModelAndView model = new ModelAndView("mybusiness/GSTApplication");
+		return model;
+	}	
+
+	@RequestMapping("/mybusiness/annualReview")
+	public ModelAndView annualReview() {
+		ModelAndView model = new ModelAndView("mybusiness/annualReview");
+		return model;
+	}	
+	
+	@RequestMapping("/mybusiness/accountingServices")
+	public ModelAndView accountingServices() {
+		ModelAndView model = new ModelAndView("mybusiness/accountingServices");
+		return model;
+	}	
+	
+	@RequestMapping("/mybusiness/callService")
+	public ModelAndView callService() {
+		ModelAndView model = new ModelAndView("mybusiness/callService");
+		return model;
+	}	
+	
+	@RequestMapping("/mybusiness/officeService")
+	public ModelAndView officeService() {
+		ModelAndView model = new ModelAndView("mybusiness/officeService");
+		return model;
+	}	
 	
 	@RequestMapping("/onekey/oneKeyService")
 	public ModelAndView oneKeyService() {
@@ -134,6 +170,12 @@ public class ViewController {
 		ModelAndView model = new ModelAndView("todolist/onlineSignature");
 		return model;
 	}	
+
+	@RequestMapping("/uploadPage")
+	public ModelAndView uploadPage() {
+		ModelAndView model = new ModelAndView("todolist/uploadPage");
+		return model;
+	}		
 	
 	@RequestMapping("/mybusiness/openAccount")
 	public ModelAndView openAccount() {

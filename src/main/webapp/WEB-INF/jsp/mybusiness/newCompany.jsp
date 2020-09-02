@@ -549,9 +549,7 @@
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">实缴股份资本（总）</label>
 															<div class="col-sm-9">
-																<input type="text" class="form-control"
-																	disabled="disabled" id="registeredCapital2"
-																	placeholder="自动计算">
+																<input type="text" class="form-control" disabled="disabled" id="registeredCapital2" placeholder="自动计算">
 															</div>
 														</div>														
 													<div class="form-group row">

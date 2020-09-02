@@ -263,7 +263,7 @@
 																		<span class="custom-switch-description nc_subttitle">商标注册</span>
 																	</div>
 																	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">
-																		<input type="checkbox" class="custom-switch-input" id="openAccount5" donclick="openAccountFunction('openAccount5','openAccountDeatil5')">
+																		<input type="checkbox" class="custom-switch-input" id="openAccount5" onclick="openAccountFunction('openAccount5','openAccountDeatil5')">
 																		<span class="custom-switch-indicator nc_bttextbtn"></span>
 																	</div>
 																</div>
@@ -546,25 +546,31 @@
 																	placeholder="自动计算">
 															</div>
 														</div>
+														<div class="form-group row">
+															<label class="col-sm-3 col-form-label">实缴股份资本（总）</label>
+															<div class="col-sm-9">
+																<input type="text" class="form-control"
+																	disabled="disabled" id="registeredCapital2"
+																	placeholder="自动计算">
+															</div>
+														</div>														
 													<div class="form-group row">
-														<label class="col-sm-3 col-form-label">公司商业活动1</label>
+														<label class="col-sm-3 col-form-label">公司商业活动</label>
 														<div class="col-sm-9">
-															<select class="custom-select c-select-info appinfo " id="companyType">
-																<option selected>公司商业活动</option>
-																<option value="1"></option>
-															</select>
+															<input class="form-control" id="businessEvent"
+																placeholder="公司商业活动"></input>
 														</div>
-													</div>																											
+													</div>
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">公司地址及邮编</label>
 														<div class="col-sm-9">
 															<textarea class="form-control textareaheight"
-																id="conpanyAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098" onkeypress="return /[a-z, #0-9-.()]/i.test(event.key)">
-																</textarea>
+																id="conpanyAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098" onkeypress="return /[a-z, #0-9-.()]/i.test(event.key)"></textarea>
 														</div>
+													</div>
 														<div class="section-title">董事、股东、联系人资料</div>
 														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">职位类型（可多选）*</label>
+															<label class="col-sm-3 col-form-label">职位类型（可多选）</label>
 															<div class="col-sm-9">
 																<div class="form-group">
 																	<div class="form-check form-check-inline">
@@ -588,116 +594,78 @@
 															<div class="col-sm-9">
 																<input type="text" class="form-control" id="fullName" placeholder="限英文" onkeyup="checkChinese(this)" onkeypress="return /[a-z ]/i.test(event.key)">
 															</div>
-														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">身份类型（单选）*</label>
-															<div class="col-sm-9">
-																<div class="form-group">
-																	<div class="radio">
-																		<label> <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 新加坡公民 </label>
-																	</div>
-																	<div class="radio">
-																		<label> <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 选项 1 </label>
-																		<div class="row">
-																			<label class="col-sm-2 col-form-label" style="display: inline;">NRIC*</label>
-																			<div class="col-sm-10" style="display: inline;">
-																				<input type="text" class="form-control" id="nationality" placeholder="请填入NRIC号码">
-																			</div>
-																		</div>
-																	</div>
-																	<div class="radio">
-																		<input class="form-check-input" type="radio" id="checkb_nationality1"> 
-																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox1"> 新加坡公民， </label>
-																		<div class="row">
-																			<label class="col-sm-2 col-form-label" style="display: inline;">NRIC*</label>
-																			<div class="col-sm-10" style="display: inline;">
-																				<input type="text" class="form-control" id="nationality" placeholder="请填入NRIC号码">
-																			</div>
-																		</div>
-																	</div>
-																	<div class="radio">
-																		<input class="form-check-input" type="radio" id="checkb_nationality2" onclick="addMoreQ(1)">
-																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox2">中国公民(非新加坡PR)</label>
-																	</div>
-																	<div class="radio">
-																		<input class="form-check-input" type="radio" id="checkb_nationality3"> 
-																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox3">其它国家公民</label>
-																	</div>
-																</div>
-	
-															</div>
-														</div>
-	
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">国籍*</label>
-															<div class="col-sm-9">
-																<input type="text" class="form-control" id="nationality" placeholder="国籍">
-															</div>
-														</div>
+														</div>	
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">性别</label>
 															<div class="col-sm-9">
-																<select class="custom-select c-select-info" id="gender">
+																<select class="custom-select c-select-info  appinfo" id="gender">
 																	<option value="0" selected>男</option>
 																	<option value="1">女</option>
 																</select>
 															</div>
 														</div>
 														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">身份证类型</label>
+															<label class="col-sm-3 col-form-label">国籍</label>
 															<div class="col-sm-9">
-																<select class="custom-select c-select-info" id="ICType">
-																	<option value="公民" selected>NRIC（公民）</option>
-																	<option value="永久居民">NRIC（永久居民）</option>
-																	<option value="FIN">FIN</option>
-																	<option value="护照/其他">护照/其他</option>
+																<input type="text" class="form-control" id="nationality" placeholder="国籍">
+															</div>
+														</div>														
+														<div class="form-group row">
+															<label class="col-sm-3 col-form-label">身份类型</label>
+															<div class="col-sm-9">
+																<select class="custom-select c-select-info  appinfo" id="ICType">
+																	<option value="公民" selected>新加坡公民（NRIC）</option>
+																	<option value="永久居民">新加坡PR（NRIC）</option>
+																	<option value="CH">非新加坡PR的中国公民（中国护照）</option>
+																	<option value="护照/其他">其它（所在国护照）</option>
 																</select>
 															</div>
 														</div>
 														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">证件号码*</label>
+															<label class="col-sm-3 col-form-label">证件号码</label>
 															<div class="col-sm-9">
 																<input type="text" class="form-control" id="ICNumber" placeholder="证件号码">
 															</div>
 														</div>
 														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">电子邮箱*</label>
+															<label class="col-sm-3 col-form-label">电子邮箱</label>
 															<div class="col-sm-9">
 																<input type="email" class="form-control" id="email" placeholder="电子邮箱">
 															</div>
 														</div>
 														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">联系电话*</label>
+															<label class="col-sm-3 col-form-label">联系电话</label>
 															<div class="col-sm-9">
 																<input type="tel" class="form-control" id="contractNumber" placeholder="联系电话">
 															</div>
 														</div>
 														<div style="display: none;" id="addmoreqtext1">
 															<div class="form-group row">
-																<label class="col-sm-3 col-form-label">发行股份数量*</label>
+																<label class="col-sm-3 col-form-label">发行股份数量</label>
 																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="numberofSharesIssued" placeholder="发行股份数量">
+																	<input type="tel" class="form-control" id="numberofSharesIssued" placeholder="建议10000-50000股">
 																</div>
 															</div>
 															<div class="form-group row">
-																<label class="col-sm-3 col-form-label">实缴股份数量*</label>
+																<label class="col-sm-3 col-form-label">实缴股份数量</label>
 																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="numberofPaid-inShares" placeholder="实缴股份数量">
+																	<input type="tel" class="form-control" id="numberofPaid-inShares" placeholder="建议与发行股份一致">
 																</div>
 															</div>
 															<div class="form-group row">
-																<label class="col-sm-3 col-form-label">每股价值*</label>
+																<label class="col-sm-3 col-form-label">每股价值S$</label>
 																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="aluePerShare" placeholder="每股价值">
+																	<input type="tel" class="form-control" id="aluePerShare" placeholder="每股价值" value="1">
 																</div>
 															</div>
 														</div>
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">个人地址及邮编</label>
 															<div class="col-sm-9">
-																<textarea class="form-control" id="personalAddressAndPostalCode" placeholder="个人地址及邮编"></textarea>
+																<textarea class="form-control textareaheight"
+																	id="personalAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098" onkeypress="return /[a-z, #0-9-.()]/i.test(event.key)"></textarea>
 															</div>
-														</div>
+													    </div>						
 														<div class="form-group row" style="margin-top: 1rem;">
 															<label class="col-sm-3 col-form-label">NRIC / ID / FIN /护照/其他</label>
 															<div class="col-sm-8">
@@ -757,7 +725,8 @@
 													</div>
 												</div>
 											</div>
-	
+											</div>
+
 											<!--single form panel-->
 											<div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
 												<h3 class="multisteps-form__title">在线确认</h3>

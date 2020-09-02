@@ -267,8 +267,8 @@
 					                        	<input type="checkbox" class="custom-switch-input"  id="openAccount5" onclick="openAccountFunction('openAccount5','openAccountDeatil5')"> 
 					                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
 							                </label>
-						                	<div class="card-body" id="openAccountDeatil5" style="display:none">
-		   							             <div class="form-group row">
+						                	<div class="card-body" id="openAccountDeatil5" style="display:none">						                	
+		   							             <!--<div class="form-group row">
 							                      	 <label  class="col-sm-3 col-form-label">类型</label>
 							                      		<div class="col-sm-9">
 										                     <select class="custom-select">
@@ -276,7 +276,17 @@
 										                        <option value="2">远程开户</option>
 										                      </select>
 							                      		</div>
-							                     </div> 						                	
+							                     </div> -->
+							    				 <div class="form-group row">
+															<label class="col-sm-3 col-form-label">类型</label>
+															<div class="col-sm-9">
+																<select class="custom-select c-select-info appinfo "
+																	id="Type">
+																	<option value="1" selected>新建坡面签开户</option>
+										                        <option value="2">远程开户</option>
+																</select>
+															</div>
+												 </div>                 						                	
 									             <div class="form-group row">
 							                      	 <label  class="col-sm-3 col-form-label">公司名称</label>
 							                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司名称"></div>
@@ -299,7 +309,7 @@
 							                     </div>  	
 		   							             <div class="form-group row">
 							                      	 <label  class="col-sm-3 col-form-label">其它联系方式</label>
-							                      		<div class="col-sm-9"><textarea  class="form-control"  placeholder="其它联系方式"></textarea></div>
+							                      		<div class="col-sm-9"><input class="form-control"  placeholder="其它联系方式"></input></div>
 							                     </div> 	
 							                  <!--   <div class="col-sm-12" ><input type="button" value="+离岸公司新加坡离岸银行户口" onclick="addFilebank1(1)"></div>	
 							                     <div class="form-group row"  id="addfilebankdiv1">	 --> 		                    	
@@ -330,7 +340,7 @@
 							                     </div>  	
 		   							             <div class="form-group row">
 							                      	 <label  class="col-sm-3 col-form-label">其它联系方式</label>
-							                      		<div class="col-sm-9"><textarea  class="form-control"  placeholder="其它联系方式"></textarea></div>
+							                      		<div class="col-sm-9"><input class="form-control"  placeholder="其它联系方式"></input></div>
 							                     </div> 					                    	
 						                    </div>
 					                    </li>		
@@ -363,7 +373,7 @@
 							                     </div>  	
 		   							             <div class="form-group row">
 							                      	 <label  class="col-sm-3 col-form-label">其它联系方式</label>
-							                      		<div class="col-sm-9"><textarea  class="form-control"  placeholder="其它联系方式"></textarea></div>
+							                      		<div class="col-sm-9"><input class="form-control"  placeholder="其它联系方式"></input></div>
 							                     </div> 					                    	
 						                    </div>
 					                    </li>					                    			                    				                   

@@ -58,7 +58,7 @@
 	                  <div class="form-group col-6">
 	                   	<label for="mobile">手机号码</label>
 	                   	 <input type="tel" id="mobile" placeholder="">
-	-                    <input id="mobile" type="text" class="form-control" name="mobile" required oninvalid="this.setCustomValidity('手机号码不能为空,请输入正确的手机号码！')" onchange="this.setCustomValidity('')"/>
+	-                    <input id="mobile" type="text" class="form-control reg_input_hei" name="mobile" required oninvalid="this.setCustomValidity('手机号码不能为空,请输入正确的手机号码！')" onchange="this.setCustomValidity('')"/>
 	                    <div class="invalid-feedback">
 	                    </div>
 	                  </div>
@@ -109,7 +109,7 @@
                   <div class="form-group">
                     <div class="custom-control custom-checkbox">
                     	<input type="checkbox" name="agree" class="custom-control-input" id="agree" required oninvalid="this.setCustomValidity('请确认并接受本条款!！')" onchange="this.setCustomValidity('')"/>
--                      	<label class="custom-control-label" for="agree">我 阅读并接受条款</label>
+-                      	<label class="custom-control-label" for="agree">我阅读并接受条款</label>
                     </div>
                   </div>
 

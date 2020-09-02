@@ -723,7 +723,7 @@
 													</div>
 												</div>
 											</div>
-											</div>
+											
 
 											<!--single form panel-->
 											<div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">

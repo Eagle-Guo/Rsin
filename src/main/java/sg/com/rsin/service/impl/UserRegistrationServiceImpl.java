@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import sg.com.rsin.dao.EmployeeDao;
@@ -28,7 +29,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 	// JdbcUserDetailsManager jdbcUserDetailsManager;
 
 	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	private PasswordEncoder  passwordEncoder;
 	
 	@Autowired
 	UserRegistrationRepository userRegistrationRepository;
@@ -55,7 +56,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 			response.setErrorList(errorList);
 			return response;
 		}
-		String encodedPassword = bCryptPasswordEncoder.encode(userRegistrationObject.getPassword());
+		String encodedPassword = passwordEncoder.encode(userRegistrationObject.getPassword());
 
 		userRegistrationObject.setPassword(encodedPassword);
 		userRegistrationObject.setStatus(UserStatus.ACTIVE);

@@ -568,22 +568,16 @@
 															<div class="col-sm-9">
 																<div class="form-group">
 																	<div class="form-check form-check-inline">
-																		<input class="form-check-input" type="checkbox"
-																			id="checkb_dongshi1"> <label
-																			style="height: auto;" class="form-check-label"
-																			for="inlineCheckbox1">董事</label>
+																		<input class="form-check-input" type="checkbox" id="checkb_dongshi1"> 
+																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
 																	</div>
 																	<div class="form-check form-check-inline">
-																		<input class="form-check-input" type="checkbox"
-																			id="checkb_gudong1" onclick="addMoreQ(1)"> <label
-																			style="height: auto;" class="form-check-label"
-																			for="inlineCheckbox2">股东</label>
+																		<input class="form-check-input" type="checkbox" id="checkb_gudong1" onclick="addMoreQ(1)">
+																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox2">股东</label>
 																	</div>
 																	<div class="form-check form-check-inline">
-																		<input class="form-check-input" type="checkbox"
-																			id="checkb_contactpeople1"> <label
-																			style="height: auto;" class="form-check-label"
-																			for="inlineCheckbox3">联系人</label>
+																		<input class="form-check-input" type="checkbox" id="checkb_contactpeople1"> 
+																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox3">联系人</label>
 																	</div>
 																</div>
 	
@@ -592,9 +586,7 @@
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">全名(护照姓名)*</label>
 															<div class="col-sm-9">
-																<input type="text" class="form-control" id="fullName"
-																	placeholder="限英文" onkeyup="checkChinese(this)"
-																	onkeypress="return /[a-z ]/i.test(event.key)">
+																<input type="text" class="form-control" id="fullName" placeholder="限英文" onkeyup="checkChinese(this)" onkeypress="return /[a-z ]/i.test(event.key)">
 															</div>
 														</div>
 														<div class="form-group row">
@@ -602,50 +594,34 @@
 															<div class="col-sm-9">
 																<div class="form-group">
 																	<div class="radio">
-																		<label> <input type="radio"
-																			name="optionsRadios" id="optionsRadios1"
-																			value="option1" checked> 新加坡公民，
-																		</label>
+																		<label> <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 新加坡公民 </label>
 																	</div>
 																	<div class="radio">
-																		<label> <input type="radio"
-																			name="optionsRadios" id="optionsRadios1"
-																			value="option1" checked> 选项 1
-																		</label>
+																		<label> <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 选项 1 </label>
 																		<div class="row">
-																			<label class="col-sm-2 col-form-label"
-																				style="display: inline;">NRIC*</label>
+																			<label class="col-sm-2 col-form-label" style="display: inline;">NRIC*</label>
 																			<div class="col-sm-10" style="display: inline;">
-																				<input type="text" class="form-control"
-																					id="nationality" placeholder="请填入NRIC号码">
+																				<input type="text" class="form-control" id="nationality" placeholder="请填入NRIC号码">
 																			</div>
 																		</div>
 																	</div>
 																	<div class="radio">
-																		<input class="form-check-input" type="radio"
-																			id="checkb_nationality1"> <label
-																			style="height: auto;" class="form-check-label"
-																			for="inlineCheckbox1"> 新加坡公民， </label>
+																		<input class="form-check-input" type="radio" id="checkb_nationality1"> 
+																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox1"> 新加坡公民， </label>
 																		<div class="row">
-																			<label class="col-sm-2 col-form-label"
-																				style="display: inline;">NRIC*</label>
+																			<label class="col-sm-2 col-form-label" style="display: inline;">NRIC*</label>
 																			<div class="col-sm-10" style="display: inline;">
-																				<input type="text" class="form-control"
-																					id="nationality" placeholder="请填入NRIC号码">
+																				<input type="text" class="form-control" id="nationality" placeholder="请填入NRIC号码">
 																			</div>
 																		</div>
 																	</div>
 																	<div class="radio">
-																		<input class="form-check-input" type="radio"
-																			id="checkb_nationality2" onclick="addMoreQ(1)">
-																		<label style="height: auto;" class="form-check-label"
-																			for="inlineCheckbox2">中国公民(非新加坡PR)</label>
+																		<input class="form-check-input" type="radio" id="checkb_nationality2" onclick="addMoreQ(1)">
+																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox2">中国公民(非新加坡PR)</label>
 																	</div>
 																	<div class="radio">
-																		<input class="form-check-input" type="radio"
-																			id="checkb_nationality3"> <label
-																			style="height: auto;" class="form-check-label"
-																			for="inlineCheckbox3">其它国家公民</label>
+																		<input class="form-check-input" type="radio" id="checkb_nationality3"> 
+																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox3">其它国家公民</label>
 																	</div>
 																</div>
 	
@@ -655,15 +631,14 @@
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">国籍*</label>
 															<div class="col-sm-9">
-																<input type="text" class="form-control" id="nationality"
-																	placeholder="国籍">
+																<input type="text" class="form-control" id="nationality" placeholder="国籍">
 															</div>
 														</div>
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">性别</label>
 															<div class="col-sm-9">
 																<select class="custom-select c-select-info" id="gender">
-																	<option selected>男</option>
+																	<option value="0" selected>男</option>
 																	<option value="1">女</option>
 																</select>
 															</div>
@@ -685,74 +660,53 @@
 																<input type="text" class="form-control" id="ICNumber" placeholder="证件号码">
 															</div>
 														</div>
-														<!--  <div class="form-group row">
-															<label class="col-sm-3 col-form-label">出生国家*</label>
-															<div class="col-sm-9">
-																<input type="text" class="form-control" id="birthCountry"
-																	placeholder="出生国家">
-															</div>
-														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">出生日期*</label>
-															<div class="col-sm-9">
-																<input type="date" class="form-control" id="dateOfBirth"
-																	placeholder="出生日期">
-															</div>
-														</div>-->
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">电子邮箱*</label>
 															<div class="col-sm-9">
-																<input type="email" class="form-control" id="email"
-																	placeholder="电子邮箱">
+																<input type="email" class="form-control" id="email" placeholder="电子邮箱">
 															</div>
 														</div>
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">联系电话*</label>
 															<div class="col-sm-9">
-																<input type="tel" class="form-control"
-																	id="contractNumber" placeholder="联系电话">
+																<input type="tel" class="form-control" id="contractNumber" placeholder="联系电话">
 															</div>
 														</div>
 														<div style="display: none;" id="addmoreqtext1">
 															<div class="form-group row">
 																<label class="col-sm-3 col-form-label">发行股份数量*</label>
 																<div class="col-sm-9">
-																	<input type="tel" class="form-control"
-																		id="numberofSharesIssued" placeholder="发行股份数量">
+																	<input type="tel" class="form-control" id="numberofSharesIssued" placeholder="发行股份数量">
 																</div>
 															</div>
 															<div class="form-group row">
 																<label class="col-sm-3 col-form-label">实缴股份数量*</label>
 																<div class="col-sm-9">
-																	<input type="tel" class="form-control"
-																		id="numberofPaid-inShares" placeholder="实缴股份数量">
+																	<input type="tel" class="form-control" id="numberofPaid-inShares" placeholder="实缴股份数量">
 																</div>
 															</div>
 															<div class="form-group row">
 																<label class="col-sm-3 col-form-label">每股价值*</label>
 																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="aluePerShare"
-																		placeholder="每股价值">
+																	<input type="tel" class="form-control" id="aluePerShare" placeholder="每股价值">
 																</div>
 															</div>
 														</div>
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">个人地址及邮编</label>
 															<div class="col-sm-9">
-																<textarea class="form-control"
-																	id="personalAddressAndPostalCode" placeholder="个人地址及邮编"></textarea>
+																<textarea class="form-control" id="personalAddressAndPostalCode" placeholder="个人地址及邮编"></textarea>
 															</div>
 														</div>
 														<div class="form-group row" style="margin-top: 1rem;">
 															<label class="col-sm-3 col-form-label">NRIC / ID / FIN /护照/其他</label>
 															<div class="col-sm-8">
-																<input type="file" class="form-control" id="uploadIC1" placeholder="资料上传">
+																<input type="file" class="form-control filehiden" id="uploadIC1" placeholder="资料上传">
 																<div class="upload-area"  id="uploadICdiv">
-													                <h4>点击或将图片拖拽到此区域</h4>
+													                <h6>点击或将图片拖拽到此区域</h6>
 													            </div>
 															</div>
-															<div class="col-sm-1"
-																style="margin-top: .5rem; padding-left: 0;">
+															<div class="col-sm-1" style="margin-top: .5rem; padding-left: 0;">
 																<input type="button" value="+" onclick="addFile(0)">
 															</div>
 														</div>
@@ -760,8 +714,10 @@
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">住所证明（海外,3个月内）</label>
 															<div class="col-sm-8">
-																<input type="file" class="form-control"
-																	id="uploadAddress1" placeholder="资料上传">
+																<input type="file" class="form-control filehiden" id="uploadAddress1" placeholder="资料上传">
+																<div class="upload-area"  id="uploadAddressdiv">
+													                <h6>点击或将图片拖拽到此区域</h6>
+													            </div>
 															</div>
 															<div class="col-sm-1"
 																style="margin-top: .5rem; padding-left: 0;">
@@ -772,22 +728,22 @@
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">持护照(有照片页)正面头部照</label>
 															<div class="col-sm-8">
-																<input type="file" class="form-control"
-																	id="uploadpassport1" placeholder="资料上传">
+																<input type="file" class="form-control filehiden" id="uploadpassport1" placeholder="资料上传">
+																<div class="upload-area"  id="uploadPassworddiv">
+													                <h6>点击或将图片拖拽到此区域</h6>
+													            </div>
 															</div>
-															<div class="col-sm-1"
-																style="margin-top: .5rem; padding-left: 0;">
+															<div class="col-sm-1" style="margin-top: .5rem; padding-left: 0;">
 																<input type="button" value="+" onclick="addFilepimg(0)">
 															</div>
 														</div>
 	
 														<div class="form-group row" id="addfiledivpimg0"></div>
-														<br />
-														<br />
+														<br /> <br />
 														<div class="row">
-															<a class="btn btn-icon icon-left btn-warning"
-																onclick="addContactP(0)"><i class="far fa-user"></i>
-																增加填报人员</a>
+															<a class="btn btn-icon icon-left btn-warning" onclick="addContactP(0)">
+																<i class="far fa-user"></i>增加填报人员
+															</a>
 														</div>
 	
 														<div class="form-group row" id="addContactPDiv0"></div>

@@ -52,15 +52,15 @@ public class APIController {
     	logger.debug("Single file upload!");
 
         if (uploadfile.isEmpty()) {
-            return new ResponseEntity("please select a file!", HttpStatus.OK);
+            return new ResponseEntity("Please Select a file!", HttpStatus.NOT_FOUND);
         }
         try {
             saveUploadedFiles(Arrays.asList(uploadfile));
         } catch (IOException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
-        return new ResponseEntity("Successfully uploaded - " + 
+        logger.debug("file name " + uploadfile.getOriginalFilename());
+        return new ResponseEntity("Successfully uploaded - " +
                 uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
 
     }

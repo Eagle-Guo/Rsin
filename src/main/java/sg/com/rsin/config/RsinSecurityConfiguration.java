@@ -37,10 +37,11 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private RsinAuthenticationSuccessHandler successHandler;
 	
 	@Bean
+	
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
+	
 	// Enable jdbc authentication
 	@Autowired
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {

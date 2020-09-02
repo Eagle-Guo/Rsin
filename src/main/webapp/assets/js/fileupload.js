@@ -1,93 +1,164 @@
+var file_name, file_size;
 $(function() {
-
     // preventing page from redirecting
-    $("html").on("dragover", function(e) {
+    /*$("html").on("dragover", function(e) {
         e.preventDefault();
         e.stopPropagation();
-        $("h4").text("拖到这里");
-    });
+        $("h6").text("拖到这里");
+    });*/
 
     $("html").on("drop", function(e) { e.preventDefault(); e.stopPropagation(); });
 
     // Drag enter
-    $('.upload-area').on('dragenter', function (e) {
+    $("#uploadICdiv").on('dragenter', function (e) {
         e.stopPropagation();
         e.preventDefault();
-        $("h4").text("放");
+        $("h6").text("请释放");
     });
-
-    // Drag over
-    $('.upload-area').on('dragover', function (e) {
+    $("#uploadICdiv").on('dragover', function (e) {
         e.stopPropagation();
         e.preventDefault();
-        $("h4").text("放");
+        $("h6").text("请释放...");
     });
-
     // Drop
-    $('.upload-area').on('drop', function (e) {
+    $("#uploadICdiv").on('drop', function (e) {
         e.stopPropagation();
         e.preventDefault();
-
-        $("h4").text("已上传");
-
+        $("h6").text("上传中...");
         var file = e.originalEvent.dataTransfer.files;
         var fd = new FormData();
         fd.append('file', file[0]);
-        uploadData(fd);
+        uploadData(fd, "uploadICdiv");
     });
+    $("#uploadICdiv").on('dragend', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $("h6").text("点击或将图片拖拽到此区域");
+    });
+
+    $("#uploadAddressdiv").on('dragenter', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $("h6").text("请释放");
+    });
+    $("#uploadAddressdiv").on('dragover', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $("h6").text("请释放");
+    });
+    // Drop
+    $("#uploadAddressdiv").on('drop', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $("h6").text("上传中...");
+        var file = e.originalEvent.dataTransfer.files;
+        var fd = new FormData();
+        fd.append('file', file[0]);
+        uploadData(fd, "uploadAddressdiv");
+    });
+
+    $("#uploadPassworddiv").on('dragenter', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $("h6").text("请释放");
+    });
+    // Drag over
+    $("#uploadPassworddiv").on('dragover', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $("h6").text("请释放");
+    });
+    // Drop
+    $("#uploadPassworddiv").on('drop', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $("h6").text("上传中...");
+        var file = e.originalEvent.dataTransfer.files;
+        var fd = new FormData();
+        fd.append('file', file[0]);
+        uploadData(fd,"uploadPassworddiv");
+    });
+   
 
     // Open file selector on div click
     $("#uploadICdiv").click(function(){
         $("#uploadIC1").click();
     });
-
     // file selected
     $("#uploadIC1").change(function(){
         var fd = new FormData();
         var files = $('#uploadIC1')[0].files[0];
         fd.append('file',files);
+        file_name = files.name;
+        file_size = files.size;
         uploadData(fd);
     });
+    
+    $("#uploadAddressdiv").click(function(){
+        $("#uploadAddress1").click();
+    });
+    $("#uploadAddress1").change(function(){
+        var fd = new FormData();
+        var files = $('#uploadAddress1')[0].files[0];
+        fd.append('file',files);
+        file_name = files.name;
+        file_size = files.size;
+        uploadData(fd);
+    });
+    $("#uploadPassworddiv").click(function(){
+        $("#uploadpassport1").click();
+    });
+    $("#uploadpassport1").change(function(){
+        var fd = new FormData();
+        var files = $('#uploadpassport1')[0].files[0];
+        fd.append('file',files);
+        file_name = files.name;
+        file_size = files.size;
+        uploadData(fd);
+    });
+    
 });
 
 // Sending AJAX request and upload file
-function uploadData(formdata){
+function uploadData(formdata, uploadType){
     $.ajax({
         url: '/api/uploadfile',
         type : "POST",
         enctype: 'multipart/form-data',
         data: formdata,
-        contentType: false,
+        contentType: false,  // tell jQuery not to set contentType
         processData: false, //prevent jQuery from automatically transforming the data into a query string
-        dataType: 'json',
         cache: false,
         timeout: 600000,
         success: function(response){
         	console.log("Upload Successful", response);
-            //addThumbnail(response);
+            addThumbnail(formdata, uploadType);
         },
         error: function(e) {
-        console.log("ERROR : ", e);
+        console.error("ERROR : ", e);
     }
     });
 }
 
 // Added thumbnail
-function addThumbnail(data){
-    $("#uploadICdiv h4").remove();
+function addThumbnail(data, uploadType){
+	console.log(data);
+	console.log(uploadType);
+    $("#uploadICdiv h6").remove();
     var len = $("#uploadICdiv div.thumbnail").length;
 
     var num = Number(len);
     num = num + 1;
 
-    var name = data.name;
-    var size = convertSize(data.size);
-    var src = data.src;
+    //var name = file_name; //data.name;
+    var size = convertSize(file_size);
+    //var src = data.src;
 
     // Creating an thumbnail
-    $("#uploadICdiv").append('<div id="thumbnail_'+num+'" class="thumbnail"></div>');
-    $("#thumbnail_"+num).append('<img src="'+src+'" width="100%" height="78%">');
-    $("#thumbnail_"+num).append('<span class="size">'+size+'<span>');
+    $("#uploadICdiv").append('<h6>文件 '+file_name+' 上传成功! 文件大小为' + size + '<h6>');
+//    $("#uploadICdiv").append('<div id="thumbnail_'+num+'" class="thumbnail"></div>');
+//    $("#thumbnail_"+num).append('<span class="size">'+file_name+'<span>');
+//    $("#thumbnail_"+num).append('<span class="size">'+size+'<span>');
 
 }
 

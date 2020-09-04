@@ -14,9 +14,6 @@
   <link rel="stylesheet" href="./assets/css/intlTel/demo.css">
   <link rel="stylesheet" href="./assets/css/intlTel/countrySelect.css">
   
-  <!-- CSS Libraries -->
-  <link rel="stylesheet" href="../node_modules/selectric/public/selectric.css">
-
   <!-- Template CSS -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/components.css">

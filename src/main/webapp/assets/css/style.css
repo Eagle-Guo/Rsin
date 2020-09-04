@@ -3200,12 +3200,13 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
  	background-color: #fdfdff;
     border-color: #e4e6fc;
     font-size: 14px;
-    /* padding: 10px 15px; */
-    height: 42px;
-    width: 146%;
+    /* padding: 10px 15px;
+    height: 42px; */
+    width: 174%;
     border-radius: 5px;
+    padding-left: 3rem;
 }
-	
+    
  /* 6.5 pages new css- openAccount.jsp*/
 #openaccount { 
 	}

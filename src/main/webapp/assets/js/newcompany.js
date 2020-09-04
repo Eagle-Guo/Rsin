@@ -1,4 +1,4 @@
-    function openAccountFunction(x,y) {
+   function openAccountFunction(x,y) {
           // Get the checkbox
           var checkBox = document.getElementById(x);
           // Get the output text

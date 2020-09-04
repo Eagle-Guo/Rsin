@@ -22,6 +22,8 @@
 		<link rel="stylesheet" href="../../../assets/css/components.css">
 		<link rel="stylesheet" href="../../../assets/css/multiplepage.css">
 		<link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
+		<link rel="stylesheet" href="../../../assets/css/intlTel/countrySelect.css">
+		<link rel="stylesheet" href="../../../assets/css/intlTel/intlTelInput.css">
 		
 		<link rel="stylesheet" type="text/css" href="../../../assets/css/fileupload.css" >
 	</head>
@@ -518,14 +520,14 @@
 															<label class="col-sm-3 col-form-label">公司名称</label>
 															<div class="col-sm-9">
 																<input type="text" class="form-control" id="companyName"
-																	placeholder="限英文，填写示范：RSIN GROUP" onkeypress="return /[a-z ]/i.test(event.key)">
+																	placeholder="限英文，填写示范：RSIN GROUP"  onkeyup="value=value.replace(/[^\w\.\s\/]/ig,'')">
 															</div>
 														</div>
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">公司备用名称</label>
 															<div class="col-sm-9">
 																<input type="text" class="form-control"
-																	id="companyBackupName" placeholder="限英文，填写示范：XXXX" onkeypress="return /[a-z ]/i.test(event.key)">
+																	id="companyBackupName" placeholder="限英文，填写示范：XXXX" onkeyup="value=value.replace(/[^\w\.\s\/]/ig,'')">
 															</div>
 														</div>
 														<div class="form-group row">
@@ -563,7 +565,7 @@
 														<label class="col-sm-3 col-form-label">公司地址及邮编</label>
 														<div class="col-sm-9">
 															<textarea class="form-control textareaheight"
-																id="conpanyAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098" onkeypress="return /[a-z, #0-9-.()]/i.test(event.key)"></textarea>
+																id="conpanyAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
 														</div>
 													</div>
 														<div class="section-title">董事、股东、联系人资料</div>
@@ -588,9 +590,9 @@
 															</div>
 														</div>
 														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">全名(护照姓名)*</label>
+															<label class="col-sm-3 col-form-label">全名(护照姓名)</label>
 															<div class="col-sm-9">
-																<input type="text" class="form-control" id="fullName" placeholder="限英文" onkeyup="checkChinese(this)" onkeypress="return /[a-z ]/i.test(event.key)">
+																<input type="text" class="form-control" id="fullName" placeholder="限英文"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')">
 															</div>
 														</div>	
 														<div class="form-group row">
@@ -603,11 +605,13 @@
 															</div>
 														</div>
 														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">国籍</label>
-															<div class="col-sm-9">
-																<input type="text" class="form-control" id="nationality" placeholder="国籍">
+									                      <label class="col-sm-3 col-form-label">国籍</label>
+															<div class="form-item  col-sm-9">
+																<input id="country" class="form-control" type="text" style="width:178%;"/>
+																<label for="country" style="display:none;">Select a country here...</label>
 															</div>
-														</div>														
+									                    </div>
+
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">身份类型</label>
 															<div class="col-sm-9">
@@ -628,32 +632,32 @@
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">电子邮箱</label>
 															<div class="col-sm-9">
-																<input type="email" class="form-control" id="email" placeholder="电子邮箱">
+																<input type="email" class="form-control" id="email" placeholder="电子邮箱"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\@\/]/ig,'')">
 															</div>
 														</div>
 														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">联系电话</label>
-															<div class="col-sm-9">
-																<input type="tel" class="form-control" id="contractNumber" placeholder="联系电话">
-															</div>
-														</div>
+										                   	 <label for="phone" class="col-sm-3 col-form-label">联系电话</label><br/>
+										                   	 <div class="col-sm-9">
+										                   	    <input id="phone" type="text" class="form-control telinput" placeholder="联系电话"/>
+										                   	 </div>
+										                </div>											                    										                                  
 														<div style="display: none;" id="addmoreqtext1">
 															<div class="form-group row">
 																<label class="col-sm-3 col-form-label">发行股份数量</label>
 																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="numberofSharesIssued" placeholder="建议10000-50000股">
+																	<input type="tel" class="form-control" id="numberofSharesIssued" placeholder="建议10000-50000股"   onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
 																</div>
 															</div>
 															<div class="form-group row">
 																<label class="col-sm-3 col-form-label">实缴股份数量</label>
 																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="numberofPaid-inShares" placeholder="建议与发行股份一致">
+																	<input type="tel" class="form-control" id="numberofPaid-inShares" placeholder="建议与发行股份一致"   onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
 																</div>
 															</div>
 															<div class="form-group row">
 																<label class="col-sm-3 col-form-label">每股价值S$</label>
 																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="aluePerShare" placeholder="每股价值" value="1">
+																	<input type="tel" class="form-control" id="aluePerShare" placeholder="每股价值" value="1"   onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
 																</div>
 															</div>
 														</div>
@@ -661,10 +665,10 @@
 															<label class="col-sm-3 col-form-label">个人地址及邮编</label>
 															<div class="col-sm-9">
 																<textarea class="form-control textareaheight"
-																	id="personalAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098" onkeypress="return /[a-z, #0-9-.()]/i.test(event.key)"></textarea>
+																	id="personalAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
 															</div>
 													    </div>						
-														<div class="form-group row" style="margin-top: 1rem;">
+														<!--<div class="form-group row" style="margin-top: 1rem;">
 															<label class="col-sm-3 col-form-label">NRIC / ID / FIN /护照/其他</label>
 															<div class="col-sm-8">
 																<input type="file" class="form-control filehiden" id="uploadIC1" placeholder="资料上传">
@@ -704,7 +708,7 @@
 															</div>
 														</div>
 	
-														<div class="form-group row" id="addfiledivpimg0"></div>
+														<div class="form-group row" id="addfiledivpimg0"></div>-->
 														<br /> <br />
 														<div class="row">
 															<a class="btn btn-icon icon-left btn-warning" onclick="addContactP(0)">
@@ -800,6 +804,20 @@
 		<script src="../../../assets/js/multiplepage.js"></script>
 		<!-- Page Specific JS File -->
 	    <script src="../../../assets/js/newcompany.js"></script>
-	    <script src="../../../assets/js/fileupload.js" type="text/javascript"></script>
+	    <script src="../../../assets/js/fileupload.js"></script>  
+        <script src="../../../assets/js/intlTel/countrySelect.js"></script>
+        <script src="../../../assets/js/intlTel/intlTelInput.js"></script>
+        <script>
+        var input = document.querySelector("#phone");
+	  	  window.intlTelInput(input, {
+	  	    // any initialisation options go here
+	  	});
+        $("#country").countrySelect({
+    		// defaultCountry: "jp",
+    		// onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+    		// responsiveDropdown: true,
+    		preferredCountries: ['sg', 'cn', 'my']
+    	});
+        </script>
 	</body>
 </html>

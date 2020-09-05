@@ -20,7 +20,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
-import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 import org.springframework.ui.velocity.VelocityEngineFactory;
 
 import sg.com.rsin.handler.RsinAuthenticationSuccessHandler;
@@ -88,7 +87,7 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/register").permitAll()
-		       .antMatchers("/api/*").permitAll()
+		       .antMatchers("/api/**").permitAll()
 		       .antMatchers("/employees").permitAll()
 		       .antMatchers("/assets/**").permitAll()
 //		       .antMatchers("/userWelcome").hasAnyRole("USER","ADMIN")

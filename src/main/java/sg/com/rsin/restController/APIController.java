@@ -17,13 +17,16 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import sg.com.rsin.entity.Industry;
 import sg.com.rsin.service.EmailService;
+import sg.com.rsin.service.IndustryService;
 
 @RestController
 public class APIController {
@@ -35,6 +38,8 @@ public class APIController {
     
 	@Autowired
 	EmailService emailService;
+	@Autowired
+	IndustryService industryService;
 	
     @GetMapping("/api/employees")
     public String  all() {
@@ -64,7 +69,7 @@ public class APIController {
                 uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
 
     }
-    
+
     //save file
     private void saveUploadedFiles(List<MultipartFile> files) throws IOException {
 
@@ -76,9 +81,7 @@ public class APIController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
             Files.write(path, bytes);
-
         }
-
     }
     
     @PostMapping("/api/sendemail") 
@@ -94,5 +97,10 @@ public class APIController {
     	    e.printStackTrace();
     	}
     	emailService.sendEmail(result, toRecipient);
+    }
+    
+    @GetMapping("/api/categories") 
+    public List<String> getCategories() {
+    	return industryService.getAllIndustries();
     }
 }

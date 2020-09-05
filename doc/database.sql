@@ -95,3 +95,13 @@ CREATE TABLE `company_othaccess` (
   CONSTRAINT `othaccess_company_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`),
   CONSTRAINT `othaccess_shareholder_fk` FOREIGN KEY (`shareholder_id`) REFERENCES `company_shareholder_info` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE `industry` (
+  `id` int(11) NOT NULL auto_increment,
+  `ssic` varchar(10) NOT NULL,
+  `name_cn` varchar(100) NOT NULL,
+  `name_en` varchar(100) NOT NULL,
+  `category` varchar(5) NOT NULL,
+  `flag` int(1) NOT NULL default 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;

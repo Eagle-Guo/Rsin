@@ -12,6 +12,33 @@
             text.style.display = "none";
          }
     }
+    
+    $(function() {
+        $( "#businessEvent" ).autocomplete({
+        	minChars: 1,
+            max: 5,
+            autoFill: true,
+            mustMatch: true,
+            matchContains: true,
+            scrollHeight: 220,
+            autoFocus:true,
+            source: function(request, response) {
+                $.ajax({
+                    url: "/api/categories",
+                    dataType: "json",
+                    data: request,
+                    success: function( data, textStatus, jqXHR) {
+                        console.log( data);
+                        var items = data;
+                        response(items);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                         console.log( textStatus);
+                    }
+                });
+            },
+        });
+    });  
 
     $(function() {
         $( "#registerDate" ).datepicker();

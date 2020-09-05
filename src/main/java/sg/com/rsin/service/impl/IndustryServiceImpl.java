@@ -18,11 +18,10 @@ public class IndustryServiceImpl implements IndustryService {
 	@Autowired
 	IndustryRepository industryRepository;
 	
-	public List<String> getIndustryByName(String name){
-		List<Industry> industries = industryRepository.findByNameEN(name);
-		List <String> names = industries.parallelStream().map(Industry::getNameEN).collect(Collectors.toList());
-		logger.info("Get industry count" + names.size());
-		return names;
+	public List<Industry> getIndustryByName(String name){
+		List<Industry> industries = industryRepository.findByNameENContaining(name);
+		logger.info("Get industry count" + industries.size());
+		return industries;
 	}
 	
 	public List<String> getAllIndustries() {

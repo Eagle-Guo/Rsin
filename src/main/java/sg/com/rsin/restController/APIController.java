@@ -9,6 +9,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -102,5 +105,10 @@ public class APIController {
     @GetMapping("/api/categories") 
     public List<String> getCategories() {
     	return industryService.getAllIndustries();
+    }
+    
+    @GetMapping("/api/category") 
+    public List<Industry> getCategoryByName(@RequestParam("term") String name) {
+    	return industryService.getIndustryByName(name);
     }
 }

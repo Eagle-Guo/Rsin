@@ -15,22 +15,29 @@
     
     $(function() {
         $( "#businessEvent" ).autocomplete({
-        	minChars: 1,
-            max: 5,
-            autoFill: true,
+        	minLength: 1,
+            max: 10,
+            width: 150,
+            //autoFill: true,
             mustMatch: true,
             matchContains: true,
             scrollHeight: 220,
-            autoFocus:true,
+            autoFocus: true,
+            delay: 100,
+            classes: {"ui-autocomplete": "highlight"},
             source: function(request, response) {
                 $.ajax({
-                    url: "/api/categories",
+                    url: "/api/category",
                     dataType: "json",
-                    data: request,
-                    success: function( data, textStatus, jqXHR) {
-                        console.log( data);
-                        var items = data;
-                        response(items);
+                    data: {term: request.term},
+                    success: function(data) {
+                    	console.log(data);
+                    	response($.map(data, function (item) {
+                            return {
+                                label: item.nameEN,
+                                value: item.nameCN
+                            };
+                        }));
                     },
                     error: function(jqXHR, textStatus, errorThrown){
                          console.log( textStatus);

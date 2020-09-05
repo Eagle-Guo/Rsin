@@ -71,7 +71,7 @@
 	                  </div>                  
 	                  <div class="form-group col-6">
 	                   	 <label for="phone">手机号码</label><br/>
-	                   	 <form:input id="phone" type="text" class="telinput" placeholder="手机号码" path="phone" />
+	                   	 <form:input id="phone" type="text" class="telinput chcss" placeholder="手机号码" path="phone" />
 	                  </div>
                   </div>
                   <div class="row">
@@ -94,7 +94,7 @@
                     <div class="form-group col-6">
                       <form:label path="country">国家</form:label>
 						<div class="form-item">
-							<form:input id="country"  class="telinput" path="country" type="text" />
+							<form:input id="country"  class="telinput chcss" path="country" type="text" />
 							<label for="country" style="display:none;">Select a country here...</label>
 						</div>
                     </div>                                   

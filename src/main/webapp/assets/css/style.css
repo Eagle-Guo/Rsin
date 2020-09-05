@@ -3206,6 +3206,12 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     border-radius: 5px;
     padding-left: 3rem;
 }
+  #app .telinput.chcss {
+   height: 1.7rem !important;
+    width: 155% !important;
+}   
+    
+ 
     
  /* 6.5 pages new css- openAccount.jsp*/
 #openaccount { 

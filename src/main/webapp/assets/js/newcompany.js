@@ -15,7 +15,7 @@
     
     $(function() {
         $( "#businessEvent" ).autocomplete({
-        	minLength: 1,
+        	minLength: 0,
             max: 10,
             width: 150,
             //autoFill: true,
@@ -34,8 +34,8 @@
                     	console.log(data);
                     	response($.map(data, function (item) {
                             return {
-                                label: item.nameEN,
-                                value: item.nameCN
+                                label: (item.nameEN + ": " + item.nameCN),
+                                value: (item.nameEN + ": " + item.nameCN)
                             };
                         }));
                     },
@@ -44,7 +44,9 @@
                     }
                 });
             },
-        });
+        }).focus(function() {
+            $(this).autocomplete('search', $(this).val())
+        });;
     });  
 
     

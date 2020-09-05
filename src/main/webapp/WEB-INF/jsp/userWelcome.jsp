@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<jsp:include page="user_menu.jsp" />
+<jsp:include page="userMenu.jsp" />
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">

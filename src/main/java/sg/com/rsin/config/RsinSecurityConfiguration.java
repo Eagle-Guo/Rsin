@@ -90,11 +90,11 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		       .antMatchers("/api/**").permitAll()
 		       .antMatchers("/employees").permitAll()
 		       .antMatchers("/assets/**").permitAll()
-//		       .antMatchers("/userWelcome").hasAnyRole("USER","ADMIN")
-//		       .antMatchers("/adminWelcome").hasAnyRole("ADMIN")
-//		       .antMatchers("/getEmployees").hasAnyRole("USER", "ADMIN")
-//			   .antMatchers("/addNewEmployee").hasAnyRole("ADMIN")
-//			   .antMatchers("/mybusiness/**").hasAnyRole("USER","ADMIN")
+		       .antMatchers("/userWelcome").hasAnyRole("USER","ADMIN")
+		       .antMatchers("/adminWelcome").hasAnyRole("ADMIN")
+		       .antMatchers("/getEmployees").hasAnyRole("USER", "ADMIN")
+			   .antMatchers("/addNewEmployee").hasAnyRole("ADMIN")
+			   .antMatchers("/mybusiness/**").hasAnyRole("USER","ADMIN")
 		       .antMatchers("/userWelcome").permitAll()
 		       .antMatchers("/adminWelcome").permitAll()
 		       .antMatchers("/getEmployees").permitAll()
@@ -103,7 +103,7 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 			   
 			   .antMatchers("/quickbooks/**").permitAll()
 			   .antMatchers("/oauth2redirect").permitAll()
-			   .antMatchers("/newcompany_confirm").permitAll()
+			   .antMatchers("/newcompany_confirm").hasAnyRole("USER")
 			   .anyRequest().authenticated().and().formLogin().successHandler(successHandler)
 			   .loginPage("/login").permitAll().and().logout().permitAll().and().rememberMe();
 

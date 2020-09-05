@@ -26,7 +26,7 @@
 </head>
 
 <body>
-<jsp:include page="../menu.jsp" />
+<jsp:include page="../userMenu.jsp" />
 <!-- Main Content -->
       <div class="main-content" id="openaccount">
         <section class="section">

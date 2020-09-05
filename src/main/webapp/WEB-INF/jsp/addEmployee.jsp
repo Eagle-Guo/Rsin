@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add Employee</title>
 </head>
-<jsp:include page="menu.jsp" />
+<jsp:include page="userMenu.jsp" />
 <body>
 	<h3 style="color: red;">Add New Employee</h3>
 

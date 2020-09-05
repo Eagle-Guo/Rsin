@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<jsp:include page="menu.jsp" />
+<jsp:include page="adminMenu.jsp" />
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">

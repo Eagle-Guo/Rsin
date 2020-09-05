@@ -47,6 +47,7 @@
         });
     });  
 
+    
     $(function() {
         $( "#registerDate" ).datepicker();
         $( "#planAuditDate" ).datepicker();
@@ -81,6 +82,14 @@
     var companyInfos = [];
     var shareholderInfos = [];
     $(document).ready(function(){
+    	$('#step2next').attr('disabled',true);
+        $('#email').keyup(function(){
+            if($(this).val().length !=0)
+                $('#step2next').attr('disabled', false);            
+            else
+                $('#step2next').attr('disabled',true);
+        })
+        
         $("#send_email").click(function(event){
         	   alert("submit and confirm");
         	   console.log(JSON.stringify(services));
@@ -181,8 +190,11 @@
         if (document.getElementById("companyType").value!="") {
             companyInfos.push({name:"公司类型",description:document.getElementById("companyType").value});
         }
-        if (document.getElementById("registeredCapital").value!="") {
-            companyInfos.push({name:"注册资本",description:document.getElementById("registeredCapital").value});
+        if (document.getElementById("registeredCapital1").value!="") {
+            companyInfos.push({name:"发行股份资本",description:document.getElementById("registeredCapital1").value});
+        }
+        if (document.getElementById("registeredCapital2").value!="") {
+            companyInfos.push({name:"实缴股份资本",description:document.getElementById("registeredCapital2").value});
         }
         if (document.getElementById("businessEvent").value!="") {
             companyInfos.push({name:"公司商业活动",description:document.getElementById("businessEvent").value});
@@ -209,8 +221,8 @@
         if (document.getElementById("fullName").value!="") {
             shareholderInfos.push({name:"全名",description:document.getElementById("fullName").value});
         }
-        if (document.getElementById("nationality").value!="") {
-            shareholderInfos.push({name:"国籍",description:document.getElementById("nationality").value});
+        if (document.getElementById("country").value!="") {
+            shareholderInfos.push({name:"国籍",description:document.getElementById("country").value});
         }
         if (document.getElementById("gender").value!="") {
             shareholderInfos.push({name:"性别",description:document.getElementById("gender").value});
@@ -221,31 +233,17 @@
         if (document.getElementById("ICNumber").value!="") {
             shareholderInfos.push({name:"证件号码",description:document.getElementById("ICNumber").value});
         }
-        if (document.getElementById("birthCountry").value!="") {
-            shareholderInfos.push({name:"出生国家",description:document.getElementById("birthCountry").value});
-        }
-        if (document.getElementById("dateOfBirth").value!="") {
-            shareholderInfos.push({name:"出生日期",description:document.getElementById("dateOfBirth").value});
-        }
         if (document.getElementById("email").value!="") {
             shareholderInfos.push({name:"电子邮箱",description:document.getElementById("email").value});
         }
-        if (document.getElementById("contractNumber").value!="") {
-            shareholderInfos.push({name:"联系电话",description:document.getElementById("contractNumber").value});
+        if (document.getElementById("phone").value!="") {
+            shareholderInfos.push({name:"联系电话",description:document.getElementById("phone").value});
         }
         if (document.getElementById("personalAddressAndPostalCode").value!="") {
             shareholderInfos.push({name:"个人地址及邮编",description:document.getElementById("personalAddressAndPostalCode").value});
         }
-        if (document.getElementById("uploadIC1").value!="") {
-            shareholderInfos.push({name:"NRIC/ID/FIN/护照/其他",description:document.getElementById("uploadIC1").value});
-        }
-        if (document.getElementById("uploadAddress1").value!="") {
-            shareholderInfos.push({name:"住所证明（海外,3个月内）",description:document.getElementById("uploadAddress1").value});
-        }
-        if (document.getElementById("uploadpassport1").value!="") {
-            shareholderInfos.push({name:"持护照(有照片页)正面头部照",description:document.getElementById("uploadpassport1").value});
-        }
-
+        console.log("companyInfos" + companyInfos);
+        console.log("shareholderInfos" + shareholderInfos);
         companytext = "<ul class='list-group'>";
         for (i = 0; i < companyInfos.length; i++) {
             companytext += "<li class='list-group-item d-flex justify-content-between align-items-center'>" + companyInfos[i].name + 

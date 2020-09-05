@@ -29,7 +29,7 @@
 	</head>
 
 	<body>
-		<jsp:include page="../menu.jsp" />
+		<jsp:include page="../adminMenu.jsp" />
 		<!-- Main Content -->
 		<div class="main-content" id="newcompany">
 			<section class="section">
@@ -598,8 +598,8 @@
 															<label class="col-sm-3 col-form-label">性别</label>
 															<div class="col-sm-9">
 																<select class="custom-select c-select-info  appinfo" id="gender">
-																	<option value="0" selected>男</option>
-																	<option value="1">女</option>
+																	<option value="男" selected>男</option>
+																	<option value="女">女</option>
 																</select>
 															</div>
 														</div>
@@ -615,10 +615,10 @@
 															<label class="col-sm-3 col-form-label">身份类型</label>
 															<div class="col-sm-9">
 																<select class="custom-select c-select-info  appinfo" id="ICType">
-																	<option value="公民" selected>新加坡公民（NRIC）</option>
-																	<option value="永久居民">新加坡PR（NRIC）</option>
-																	<option value="CH">非新加坡PR的中国公民（中国护照）</option>
-																	<option value="护照/其他">其它（所在国护照）</option>
+																	<option value="公民" selected>新加坡公民(NRIC)</option>
+																	<option value="永久居民">新加坡PR(NRIC)</option>
+																	<option value="非PR中国公民">非新加坡PR的中国公民(中国护照)</option>
+																	<option value="其他">其它(所在国护照)</option>
 																</select>
 															</div>
 														</div>
@@ -667,47 +667,6 @@
 																	id="personalAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
 															</div>
 													    </div>						
-														<!--<div class="form-group row" style="margin-top: 1rem;">
-															<label class="col-sm-3 col-form-label">NRIC / ID / FIN /护照/其他</label>
-															<div class="col-sm-8">
-																<input type="file" class="form-control filehiden" id="uploadIC1" placeholder="资料上传">
-																<div class="upload-area"  id="uploadICdiv">
-													                <h6>点击或将图片拖拽到此区域</h6>
-													            </div>
-															</div>
-															<div class="col-sm-1" style="margin-top: .5rem; padding-left: 0;">
-																<input type="button" value="+" onclick="addFile(0)">
-															</div>
-														</div>
-														<div class="form-group row" id="addfilediv0"></div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">住所证明（海外,3个月内）</label>
-															<div class="col-sm-8">
-																<input type="file" class="form-control filehiden" id="uploadAddress1" placeholder="资料上传">
-																<div class="upload-area"  id="uploadAddressdiv">
-													                <h6>点击或将图片拖拽到此区域</h6>
-													            </div>
-															</div>
-															<div class="col-sm-1"
-																style="margin-top: .5rem; padding-left: 0;">
-																<input type="button" value="+" onclick="addFileadd(0)">
-															</div>
-														</div>
-														<div class="form-group row" id="addfiledivadd0"></div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">持护照(有照片页)正面头部照</label>
-															<div class="col-sm-8">
-																<input type="file" class="form-control filehiden" id="uploadpassport1" placeholder="资料上传">
-																<div class="upload-area"  id="uploadPassworddiv">
-													                <h6>点击或将图片拖拽到此区域</h6>
-													            </div>
-															</div>
-															<div class="col-sm-1" style="margin-top: .5rem; padding-left: 0;">
-																<input type="button" value="+" onclick="addFilepimg(0)">
-															</div>
-														</div>
-	
-														<div class="form-group row" id="addfiledivpimg0"></div>-->
 														<br /> <br />
 														<div class="row">
 															<a class="btn btn-icon icon-left btn-warning" onclick="addContactP(0)">
@@ -718,10 +677,8 @@
 														<div class="form-group row" id="addContactPDiv0"></div>
 	
 														<div class="button-row d-flex mt-4">
-															<button class="btn btn-primary js-btn-prev" type="button"
-																title="Prev">上一步</button>
-															<button class="btn btn-primary ml-auto js-btn-next"
-																type="button" title="Next" onclick="listSummary()">下一步</button>
+															<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
+															<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="listSummary()" id="step2next">下一步</button>
 														</div>
 													</div>
 												</div>
@@ -757,8 +714,7 @@
 												</div>
 												<div class="row">
 													<div class="button-row d-flex mt-4 col-12">
-														<button class="btn btn-primary js-btn-prev" type="button"
-															title="Prev">上一步</button>
+														<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
 														<button class="btn btn-primary ml-auto js-btn-next" type="submit" title="Send">提交</button>
 													</div>
 												</div>

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -24,6 +26,7 @@ import sg.com.rsin.entity.ErrorObject;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.ResponseCode;
 import sg.com.rsin.service.EmployeeService;
+import sg.com.rsin.service.OnlineSignatureService;
 import sg.com.rsin.service.UserRegistrationService;
 
 @Controller
@@ -34,6 +37,9 @@ public class ViewController {
 	
 	@Autowired
 	UserRegistrationService userRegistrationService;
+	
+	@Autowired
+	OnlineSignatureService onlineSignatureService;
 
 	@RequestMapping("/")
 	public ModelAndView allPage() {
@@ -166,8 +172,12 @@ public class ViewController {
 	}	
 	
 	@RequestMapping("/onlineSignature")
-	public ModelAndView onlineSignature() {
+	public ModelAndView onlineSignature(HttpServletRequest request) {
+		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		ModelAndView model = new ModelAndView("todolist/onlineSignature");
+		
+		onlineSignatureService.getAllPageData(model, userEmail);
+		
 		return model;
 	}	
 

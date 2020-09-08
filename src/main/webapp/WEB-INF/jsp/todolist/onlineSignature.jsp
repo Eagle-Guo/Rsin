@@ -30,49 +30,49 @@
                   <ul class="list-unstyled list-unstyled-border">
                     <li class="media leftTab active"  id="b-1" onclick="viewPri(1)" onmouseover="viewPri(1)" >
                       <div class="media-body">
-                        <div class="float-right list_btn"><button id="downloadDoc1">下载</button></div>
+                        <div class="float-right list_btn" id="downloadDoc1">下载</div>
                         <div class="">First Director Meeting Resolution</div>                       
                       </div>
                     </li>
                     <li class="media leftTab active"  id="b-2" onclick="viewPri(2)" onmouseover="viewPri(2)" >
                       <div class="media-body">
-                        <div class="float-right list_btn"><button id="downloadDoc2">下载</button></div>
+                        <div class="float-right list_btn" id="downloadDoc2">下载</div>
                         <div class="">Secretary Agreement </div>                       
                       </div>
                     </li>
                     <li class="media leftTab active"  id="b-3" onclick="viewPri(3)" onmouseover="viewPri(3)" >
                       <div class="media-body">
-                        <div class="float-right list_btn"><button id="downloadDoc3">下载</button></div>
+                        <div class="float-right list_btn" id="downloadDoc3">下载</div>
                         <div class="">ANNEX B - Notice for Controllers</div>                       
                       </div>
                     </li>   
                     <li class="media leftTab active"  id="b-4" onclick="viewPri(4)" onmouseover="viewPri(4)" >
                       <div class="media-body">
-                        <div class="float-right list_btn"><button id="downloadDoc4">下载</button></div>
+                        <div class="float-right list_btn" id="downloadDoc4">下载</div>
                         <div class="">Application of Shares</div>                       
                       </div>
                     </li>
                     <li class="media leftTab active"  id="b-5" onclick="viewPri(5)" onmouseover="viewPri(5)" >
                       <div class="media-body">
-                        <div class="float-right list_btn"><button id="downloadDoc5">下载</button></div>
+                        <div class="float-right list_btn" id="downloadDoc5">下载</div>
                         <div class="">Client Acceptance Form</div>                       
                       </div>
                     </li>
                     <li class="media leftTab active"  id="b-6" onclick="viewPri(6)" onmouseover="viewPri(6)" >
                       <div class="media-body">
-                        <div class="float-right list_btn"><button id="downloadDoc6">下载</button></div>
+                        <div class="float-right list_btn" id="downloadDoc6">下载</div>
                         <div class="">Form 45 / 201</div>                       
                       </div>
                     </li>   
                     <li class="media leftTab active"  id="b-7" onclick="viewPri(7)" onmouseover="viewPri(7)" >
                       <div class="media-body">
-                        <div class="float-right list_btn"><button id="downloadDoc7">下载</button></div>
+                        <div class="float-right list_btn" id="downloadDoc7">下载</div>
                         <div class="">Share Certificate</div>                       
                       </div>
                     </li>
                     <li class="media leftTab active"  id="b-8" onclick="viewPri(8)" onmouseover="viewPri(8)" >
                       <div class="media-body">
-                        <div class="float-right list_btn"><button id="downloadDoc8">下载</button></div>
+                        <div class="float-right list_btn" id="downloadDoc8">下载</div>
                         <div class="">Nominee's+Dir's+Authrn_Final</div>                       
                       </div>
                     </li>                    

@@ -2781,30 +2781,56 @@
                 </div>
                   <div class="card-body fixcardhieht"> 
 					 <div class="tab">
-					  <button class="tablinks" onclick="openCity(event, 'onlineSign')">在线签名</button>
-					  <button class="tablinks" onclick="openCity(event, 'OfflineSign')">线下签名</button>
+					  <button class="tablinks" onclick="openSignboard(event, 'onlineSign')">在线签名</button>
+					  <button class="tablinks" onclick="openSignboard(event, 'offlineSign')">线下签名</button>
 					 </div>
                      <br/>
- 					<div id="onlineSign" style="display:none;" class="tabcontent">                    
+ 					<div id="onlineSign" class="tabcontent">                    
 	                     <div class="custom-control custom-checkbox">
-	                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+	                        <input type="checkbox" class="custom-control-input" id="customCheck1" onchange="document.getElementById('submit_sign').disabled = !this.checked;" >
 	                        <label class="custom-control-label" for="customCheck1">我选择在线签名，我已阅读并接受以上文件内容，同意签名确认。</label>
 	                    </div> 
 						<div class="form-group row">
-							<textarea class="form-control textareaheight signaturediv"
+						
+							<!-- signature pad -->
+							<div id="signature-pad" class="signature-pad">
+							    <div class="signature-pad--body">
+							      <canvas></canvas>
+							    </div>
+							    <div class="signature-pad--footer">
+							      <div class="signature-pad--actions">
+							      <div class="buttons sign_btn">                    
+				                      <button class="btn btn-icon icon-left btn-primary" id="submit_sign"><i class="fas fa-check"></i> 提交</button>
+				                      <button class="btn btn-icon icon-left btn-primary" data-action="clear"><i class="fas fa-times"></i>清空</button>
+				                      <button class="btn btn-icon icon-left btn-primary" data-action="change-color"><i class="fas fa-times"></i>改变颜色</button>
+				                      <button class="btn btn-icon icon-left btn-primary" data-action="undo"><i class="fas fa-times"></i>撤销还原</button>
+				                  </div>	
+	                    
+							        <!-- <div>
+							          <button type="button" class="button clear" data-action="clear">Clear</button>
+							          <button type="button" class="button" data-action="change-color">Change color</button>
+							          <button type="button" class="button" data-action="undo">Undo</button>
+							
+							        </div>
+							        <div>
+							          <button type="button" class="button save" data-action="save-png">Save as PNG</button>
+							          <button type="button" class="button save" data-action="save-jpg">Save as JPG</button>
+							          <button type="button" class="button save" data-action="save-svg">Save as SVG</button>
+							        </div> -->
+							      </div>
+							    </div>
+							</div>
+							<!-- <textarea class="form-control textareaheight signaturediv"
 										id="signaturediv" placeholder="请在此处签名" >
-							</textarea>										
+							</textarea>	 -->
 						</div>	  
-	                    <div class="buttons sign_btn">                    
-	                      <a href="#" class="btn btn-icon icon-left btn-primary"><i class="fas fa-check"></i> 提交</a>
-	                      <a class="btn btn-icon icon-left btn-secondary" onclick="delete()"><i class="fas fa-times"></i>清空</a>
-	                    </div>						
+	                    					
                      <br/><br/>
 	                     <div class="">	                        
 	                        <label class=" ">请查看或者下载签名文件：</label>
 	                    </div> 	                    
 					</div>                    
- 					<div id="OfflineSign" style="display:none;"  class="tabcontent">                    
+ 					<div id="offlineSign" style="display:none;"  class="tabcontent">                    
 	                     <div class="">
 	                        <label class="">选择线下签名，请下载所有待签名文件，签名后进行扫描上传至以下表格中。</label>
 	                    </div>   
@@ -2884,5 +2910,7 @@
   
   <script src="../../../assets/js/page/index-0.js"></script>
   <script src="../../../assets/js/onlineSignature.js"></script>
+  <script src="../../../assets/js/signaturePad/signature_pad.umd.js"></script>
+  <script src="../../../assets/js/signaturePad/app.js"></script>
 </body>
 </html>

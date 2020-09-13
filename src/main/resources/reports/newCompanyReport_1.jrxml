@@ -1,45 +1,26 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
-<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
-   http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
-              name="report2" pageWidth="595" pageHeight="842"
-              columnWidth="555" leftMargin="20" rightMargin="20"
-              topMargin="20" bottomMargin="20">
-    <parameter name="createdBy" class="java.lang.String"/>
-    <field name="Id" class="java.lang.Integer">
-        <fieldDescription>
-            <![CDATA[id]]>
-        </fieldDescription>
-    </field>
-    <field name="Name" class="java.lang.String">
-        <fieldDescription>
-            <![CDATA[name]]>
-        </fieldDescription>
-    </field>
-    <field name="Designation" class="java.lang.String">
-        <fieldDescription>
-            <![CDATA[designation]]>
-        </fieldDescription>
-    </field>
-    <field name="Department" class="java.lang.String">
-        <fieldDescription>
-            <![CDATA[department]]>
-        </fieldDescription>
-    </field>
-    <background>
-        <band splitType="Stretch"/>
-    </background>
-    <title>
-        <band height="42" splitType="Stretch">
-            <staticText>
-                <reportElement x="64" y="0" width="481" height="42"/>
-                <textElement textAlignment="Center">
-                    <font size="20" isBold="true"/>
-                </textElement>
-                <text>
-                    <![CDATA[Employee Report]]>
-                </text>
-            </staticText>
-        </band>
-    </title>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="doc1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ee58a80f-23a5-4ca1-a4fc-af1c0fee132d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement key="" x="280" y="7" width="190" height="45" forecolor="#000000" uuid="e0b4a85b-125c-4d05-a0ad-115e9d4e07dd"/>
+				<textElement>
+					<font size="29"/>
+				</textElement>
+				<text><![CDATA[World]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" x="20" y="5" width="220" height="45" uuid="e0b4a85b-125c-4d05-a0ad-115e9d4e07dd"/>
+				<textElement>
+					<font size="25"/>
+				</textElement>
+				<text><![CDATA[Hello]]></text>
+			</staticText>
+		</band>
+	</detail>
 </jasperReport>

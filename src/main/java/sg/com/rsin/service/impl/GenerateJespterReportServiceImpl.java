@@ -31,45 +31,23 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	
 	public byte[] exportReport(String reportFormat) {
 		try { 
-			File file = ResourceUtils.getFile("classpath:reports/newCompanyReport_1.jrxml");
+			File file = ResourceUtils.getFile("classpath:reports/First_Director_Meeting_Resolution.jrxml");
 			InputStream employeeReportStream  = new FileInputStream(file);
 			JasperReport jasperReport = JasperCompileManager.compileReport(employeeReportStream);
 			List<Employee> emp = employeeDao.getAllEmployees();
 			JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource (emp);
 			
 			Map<String, Object> parameters = new HashMap<>();
-			parameters.put("title", "Employee Report");
-			parameters.put("minSalary", 15000.0);
 			parameters.put("createdBy", "Huanping");
 			
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 			
 			if ("pdf".equalsIgnoreCase(reportFormat)) {
-				JasperExportManager.exportReportToPdfFile(jasperPrint, "D:\\FirstPDF.pdf");
+				JasperExportManager.exportReportToPdfFile(jasperPrint, "D:\\First_Director_Meeting_Resolution.pdf");
 				return JasperExportManager.exportReportToPdf(jasperPrint);
 			}
 			// export to pdf
 			//JRPdfExporter exporter = new JRPdfExporter();
-			 
-			/*
-			 * exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
-			 * exporter.setExporterOutput( new
-			 * SimpleOutputStreamExporterOutput("employeeReport.pdf"));
-			 * 
-			 * SimplePdfReportConfiguration reportConfig = new
-			 * SimplePdfReportConfiguration(); reportConfig.setSizePageToContent(true);
-			 * reportConfig.setForceLineBreakPolicy(false);
-			 * 
-			 * SimplePdfExporterConfiguration exportConfig = new
-			 * SimplePdfExporterConfiguration(); exportConfig.setMetadataAuthor("baeldung");
-			 * exportConfig.setEncrypted(true);
-			 * exportConfig.setAllowedPermissionsHint("PRINTING");
-			 * 
-			 * exporter.setConfiguration(reportConfig);
-			 * exporter.setConfiguration(exportConfig);
-			 * 
-			 * exporter.exportReport();
-			 */
 			 
 		} catch (JRException jre) {
 			jre.printStackTrace();

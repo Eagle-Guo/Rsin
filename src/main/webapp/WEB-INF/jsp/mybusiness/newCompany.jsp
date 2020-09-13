@@ -607,8 +607,15 @@
 														<div class="form-group row">
 									                      <label class="col-sm-3 col-form-label">国籍</label>
 															<div class="form-item  col-sm-9">
-																<input id="country" class="form-control" type="text"/>
-																<label for="country" style="display:none;">Select a country here...</label>
+																<input id="country11" class="form-control" type="text"/>
+																<label for="country11" style="display:none;">Select a country here...</label>
+															</div>
+									                    </div>
+									                    <div class="form-group row">
+									                      <label class="col-sm-3 col-form-label">国籍</label>
+															<div class="form-item  col-sm-9">
+																<input id="country0" class="form-control" type="text"/>
+																<label for="country0" style="display:none;">Select a country here...</label>
 															</div>
 									                    </div>
 
@@ -847,11 +854,14 @@
 	  	  window.intlTelInput(input, {
 	  	    // any initialisation options go here
 	  	});
-        $("#country").countrySelect({
-    		// defaultCountry: "jp",
-    		// onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-    		// responsiveDropdown: true,
+        $("#country11").countrySelect({
     		preferredCountries: ['sg', 'cn', 'my']
+    	});
+        $("#country0").countrySelect({
+    		preferredCountries: ['sg', 'cn', 'my']
+    	});
+        $("#country1").countrySelect({
+    		preferredCountries: ['cn', 'sg', 'my']
     	});
         </script>
 	</body>

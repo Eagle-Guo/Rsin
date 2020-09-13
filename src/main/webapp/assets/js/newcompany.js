@@ -811,111 +811,109 @@
 
       function addContactP (x) {
           //var x=a+1;
-          document.querySelector('#addContactPDiv'+x).insertAdjacentHTML('afterend',
-        		  							` <br/><br/>														<div class="section-title">董事、股东、联系人资料</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">职位类型（可多选）</label>
-															<div class="col-sm-9">
-																<div class="form-group">
-																	<div class="form-check form-check-inline">
-																		<input class="form-check-input" type="checkbox" id="checkb_dongshi1"> 
-																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
-																	</div>
-																	<div class="form-check form-check-inline">`
-												                      + "<input class='form-check-input' type='checkbox' id='checkb_gudong'+x value='gudong' onclick='addMoreQ("+x+")'>"+
-												                        `<label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
-												                      </div>   
-																	<div class="form-check form-check-inline">
-																		<input class="form-check-input" type="checkbox" id="checkb_contactpeople1"> 
-																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox3">联系人</label>
-																	</div>
-																</div>
-	
-															</div>
-														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">全名(护照姓名)</label>
-															<div class="col-sm-9">
-																<input type="text" class="form-control" id="fullName" placeholder="限英文"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\\\*\\\·\\\/]/ig,'')">
-															</div>
-														</div>	
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">性别</label>
-															<div class="col-sm-9">
-																<select class="custom-select c-select-info  appinfo" id="gender">
-																	<option value="男" selected>男</option>
-																	<option value="女">女</option>
-																</select>
-															</div>
-														</div>
-														<div class="form-group row">
-									                      <label class="col-sm-3 col-form-label">国籍</label>
-															<div class="form-item  col-sm-9">
-																<input id="country" class="form-control" type="text"/>
-																<label for="country" style="display:none;">Select a country here...</label>
-															</div>
-									                    </div>
+    	  console.log("x:" + x);
+    	  var contact = ` <br/><br/>														<div class="section-title">董事、股东、联系人资料</div>
+				<div class="form-group row">
+				<label class="col-sm-3 col-form-label">职位类型（可多选）</label>
+				<div class="col-sm-9">
+					<div class="form-group">
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="checkbox" id="checkb_dongshi1"> 
+							<label style="height: auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
+						</div>
+						<div class="form-check form-check-inline">`
+	                      + "<input class='form-check-input' type='checkbox' id='checkb_gudong"+x + "' value='gudong' onclick='addMoreQ("+x+")'>"+
+	                        `<label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
+	                      </div>   
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="checkbox" id="checkb_contactpeople1"> 
+							<label style="height: auto;" class="form-check-label" for="inlineCheckbox3">联系人</label>
+						</div>
+					</div>
 
-														<div class="form-group row">
-					 										<label class="col-sm-3 col-form-label">身份类型</label>
-															<div class="col-sm-9">
-																<select class="custom-select c-select-info  appinfo" id="ICType">
-																	<option value="公民" selected>新加坡公民(NRIC)</option>
-																	<option value="永久居民">新加坡PR(NRIC)</option>
-																	<option value="非PR中国公民">非新加坡PR的中国公民(中国护照)</option>
-																	<option value="其他">其它(所在国护照)</option>
-																</select>
-															</div>
-														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">证件号码</label>
-															<div class="col-sm-9">
-																<input type="text" class="form-control" id="ICNumber" placeholder="证件号码">
-															</div>
-														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">电子邮箱</label>
-															<div class="col-sm-9">
-																<input type="email" class="form-control" id="email" placeholder="电子邮箱"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\*\\\·\\\@\\\/]/ig,'')">
-															</div>
-														</div>
-														<div class="form-group row">
-										                   	 <label for="phone" class="col-sm-3 col-form-label">联系电话</label><br/>
-										                   	 <div class="col-sm-9">
-										                   	    <input style="padding-left:3rem;" id="phone" type="text" class="form-control telinput" placeholder="联系电话"/>
-										                   	 </div>
-										                </div>											                    										                                  
-														`+
-														"<div style='display:none;' id='addmoreqtext"+x+"'> " +
-														`<div class="form-group row">
-															<label class="col-sm-3 col-form-label">发行股份数量</label>
-															<div class="col-sm-9">
-																<input type="tel" class="form-control"
-																	id="numberofSharesIssued"+x placeholder="建议10000-50000股"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
-															</div>
-														</div>													
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">实缴股份数量</label>
-															<div class="col-sm-9">
-																<input type="tel" class="form-control"
-																	id="numberofPaid-inShares"+x placeholder="建议与发行股份一致"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
-															</div>
-														</div>													
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">每股价值</label>
-															<div class="col-sm-9">
-																<input type="tel" class="form-control"
-																	id="aluePerShare"+x placeholder="每股价值" value="1"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
-															</div>
-														</div>	
-														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">个人地址及邮编</label>
-															<div class="col-sm-9">
-																<textarea class="form-control textareaheight"
-																	id="personalAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\\\*\\\·\\\/]/ig,'')"></textarea>
-															</div>
-													    </div>						
-														<br /> <br />`
-          )
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">全名(护照姓名)</label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" id="fullName" placeholder="限英文"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\\\*\\\·\\\/]/ig,'')">
+				</div>
+			</div>	
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">性别</label>
+				<div class="col-sm-9">
+					<select class="custom-select c-select-info  appinfo" id="gender">
+						<option value="男" selected>男</option>
+						<option value="女">女</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group row">
+            <label class="col-sm-3 col-form-label">国籍</label>
+				<div class="form-item  col-sm-9">` + 
+				"<input id='country" + x+1 + "' class='form-control' type='text'>" + 
+				"	<label for='country"+ x+1 + "' style='display:none;'>Select a country here...</label> </div>  </div>" +
+			`<div class="form-group row">
+				<label class="col-sm-3 col-form-label">身份类型</label>
+				<div class="col-sm-9">
+					<select class="custom-select c-select-info  appinfo" id="ICType">
+						<option value="公民" selected>新加坡公民(NRIC)</option>
+						<option value="永久居民">新加坡PR(NRIC)</option>
+						<option value="非PR中国公民">非新加坡PR的中国公民(中国护照)</option>
+						<option value="其他">其它(所在国护照)</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">证件号码</label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" id="ICNumber" placeholder="证件号码">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">电子邮箱</label>
+				<div class="col-sm-9">
+					<input type="email" class="form-control" id="email" placeholder="电子邮箱"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\*\\\·\\\@\\\/]/ig,'')">
+				</div>
+			</div>
+			<div class="form-group row">
+             	 <label for="phone" class="col-sm-3 col-form-label">联系电话</label><br/>
+             	 <div class="col-sm-9">
+             	    <input style="padding-left:3rem;" id="phone" type="text" class="form-control telinput" placeholder="联系电话"/>
+             	 </div>
+          </div>											                    										                                  
+			`+
+			"<div style='display:none;' id='addmoreqtext"+x+"'> " +
+			`<div class="form-group row">
+				<label class="col-sm-3 col-form-label">发行股份数量</label>
+				<div class="col-sm-9">
+					<input type="tel" class="form-control"
+						id="numberofSharesIssued"+x placeholder="建议10000-50000股"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
+				</div>
+			</div>													
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">实缴股份数量</label>
+				<div class="col-sm-9">
+					<input type="tel" class="form-control"
+						id="numberofPaid-inShares"+x placeholder="建议与发行股份一致"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
+				</div>
+			</div>													
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">每股价值</label>
+				<div class="col-sm-9">
+					<input type="tel" class="form-control"
+						id="aluePerShare"+x placeholder="每股价值" value="1"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
+				</div>
+			</div>	
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">个人地址及邮编</label>
+				<div class="col-sm-9">
+					<textarea class="form-control textareaheight"
+						id="personalAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\\\*\\\·\\\/]/ig,'')"></textarea>
+				</div>
+		    </div>						
+			<br /> <br />`;
+    	  console.log("contact:" + contact);
+          document.querySelector('#addContactPDiv'+x).insertAdjacentHTML('afterend',contact);
       } 

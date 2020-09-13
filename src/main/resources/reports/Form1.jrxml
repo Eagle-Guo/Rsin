@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Form1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="934c42e2-6d04-4109-90e1-661b66ee480e">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="1802" splitType="Immediate">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.layout"/>
+			<staticText>
+				<reportElement x="0" y="152" width="60" height="30" uuid="10318c18-5d01-4825-93b4-3c241c3c8019"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="152" width="484" height="30" uuid="6401b7e9-d203-4e68-9100-121ae3f6427c"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALLOTMENT OF ADDITIONAL SHARES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="177" width="490" height="75" uuid="cc7f7c10-41f9-4259-9ec8-543f8f60c330"/>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Subject to authority being given under section 161 of the Companies Act (Cap.
+50), new additional shares, be and are hereby allotted for cash, and that the Common Seal of the Company be affixed the share certificate to be issued in accordance with the Constitution of the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-2" y="259" width="60" height="30" uuid="728f8f48-6db8-41fc-a958-07d4e686293d"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="57" y="259" width="484" height="30" uuid="42370751-1645-4366-aa02-c556c961fbac"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICATE OF INCORPORATION AND CONSTITUTION OF COMPANY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="284" width="490" height="63" uuid="e0aa958d-4d53-4259-90a4-9a38924e6941"/>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[It be noted that the company was incorporated as per ACRA Bizfile and that the Registration Number assigned to it as per ACRA Bizfile. The Notice of Incorporation was tabled together with a copy of the Constitution of the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="348" width="60" height="30" uuid="2ddb2872-28dc-411c-bf46-5b51a587a75d"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="348" width="484" height="30" uuid="7c44e503-5acd-432b-9db0-61ee9e716dd9"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRST DIRECTORS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="370" width="490" height="63" uuid="40e66663-6b56-4fd2-99d3-ddbe5a0de64c"/>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[It was resolved that the following persons stated in ACRA Bizfile profile be confirmed as First Directors of the Company retrospective from the date of incorporation of the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="443" width="60" height="30" uuid="1893ccc5-203f-478c-8ed3-fb0a4e72602f"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="443" width="484" height="30" uuid="06fb4454-34a3-4950-865d-52c231b68a29"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REGISTERED OFFICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="469" width="490" height="63" uuid="0c776344-b47b-43fc-9701-03c59398cabf"/>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[It was resolved that the situation of the Company’s Registered Office at 111 NORTH BRIDGE ROAD #29-06A PENINSULA PLAZA S179098 retrospective from the date of incorporation to be confirmed.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="534" width="60" height="30" uuid="c9e688aa-61f7-40ac-829a-f67215f155b1"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="534" width="484" height="30" uuid="fceb3312-b1eb-496a-b8f8-14dbed023afa"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FINANCIAL YEAR END]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="559" width="490" height="86" uuid="6b060ad7-74cb-43b8-ad58-2a715c3aa027"/>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[It was resolved that the first financial period of the Company be made up for the period from the date of incorporation to the last day of the 11th month since incorporation and that the subsequent financial year end will be the same  annually until otherwise decided.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="642" width="60" height="30" uuid="383bab9c-76d3-4c5c-a028-1ab1797a916a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="642" width="484" height="30" uuid="ee79fe03-6837-4b66-b45b-91e1b9349c82"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALLOTMENT AND ISSUE OF SHARES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="669" width="490" height="110" uuid="11e31565-b32f-44ba-8b73-dda36b1c760d"/>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[It was resolved that the signatories to the Memorandum be registered as members in respect of the shares which are subscribed at an issue price of SGD $1 per share namely:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="179" y="119" width="200" height="30" uuid="fa73e27c-d160-4963-847e-b8514dd13b1f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AGENDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="82" width="559" height="30" uuid="4f918d69-10b4-4f2c-8a74-dc974c16274b"/>
+				<textElement markup="none">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINUTES OF THE FIRST BOARD OF DIRECTORS MEETING OF THE COMPANY ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="77" y="59" width="400" height="30" uuid="d156e01e-67fa-4e8c-a210-566f41975a98"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[(INCORPORATED IN THE REPUBLIC OF SINGAPORE)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="922" width="60" height="30" uuid="c780e417-938c-4da3-b89c-527dca71f386"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="922" width="484" height="30" uuid="193827ac-e493-4085-88ea-6faf3be19105"/>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DISPENSING WITH DIRECTOR MEETING]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="949" width="490" height="151" uuid="ced77a72-54f8-4f09-9c02-6fdcd5de4c42"/>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Resolved that pursuant to the provision of the Companies Act, Cap 50, the company hereby dispenses with the holding of first director meetings and all subsequent director meeting, and that this resolution shall remain in full force and effect until otherwise resolved by shareholders or overridden by the operation of any provision of the Companies Act, Cap 50. Therefore while this resolution remains in force, matters which would normally be put before the director when they meet to hold the Meeting, shall instead be circulated to the directors and resolved by written means.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1081" width="60" height="30" uuid="5131a785-032b-4d1b-a149-3da0cf70919a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="1081" width="484" height="30" uuid="b87db8b1-e1aa-4650-9873-baabd08d8567"/>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONCLUSION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="1108" width="490" height="32" uuid="e597ce87-6070-4608-82c4-1d55fa1e5877"/>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[There being no other business, the meeting was ended.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1200" width="484" height="30" uuid="1d8c3d7d-c686-45cf-92cc-ea348953551e"/>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SIGNED AS A CORRECT RECORD
+
+
+
+
+DIRECTOR 董事
+Dated this Signing Date日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1320" width="180" height="50" uuid="c0f08a87-3c8e-4ae3-911b-8f4c563f587a"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DIRECTOR
+Dated this Signing Date]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

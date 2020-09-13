@@ -1,0 +1,2 @@
+generate pdf from html div tool: 
+	jspdf: https://mrrio.github.io/jsPDF/#

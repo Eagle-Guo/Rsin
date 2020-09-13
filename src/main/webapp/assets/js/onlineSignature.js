@@ -1,10 +1,4 @@
-		  var specialElementHandlers = {
-		      '#editor': function (element, renderer) {
-		    	  console.log("#editor" + element);
-		          return true;
-		      }
-		  };
-		  function clone_pdf_div(div_id) {
+		function clone_pdf_div(div_id) {
 			  $(div_id).clone().appendTo('#temporary');
 			  // remove the class text_cn
 			  $("#temporary").find('.text_cn').remove();
@@ -13,95 +7,101 @@
 			  
 	      function remove_clone_div() {
 	    	  $("#temporary").empty();
+	    	  //console.log("remove temporary clone div");
 		  };
 		  
 		  $('#downloadDoc1').click(function () {
-			  var doc = new jsPDF();
-			  clone_pdf_div("#b1");
-			  var source_html = $('#temporary').html();
-			  var source = $('#temporary');
-			  console.log(source_html);
-			  console.log(source);
-			  doc.fromHTML(source_html, 15, 15, {
-	                 'width': 170,
-	                 'elementHandlers': specialElementHandlers
-	  		  });
-		      doc.save('First-Director-Meeting-Resolution.pdf');
-		      remove_clone_div();
+			 var urlToSend = "/api/downloadFile";
+		     var req = new XMLHttpRequest();
+		     req.open("GET", urlToSend, true);
+		     req.responseType = "blob";
+		     req.onload = function (event) {
+		         var blob = req.response;
+		         var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
+		         var link=document.createElement('a');
+		         link.href=window.URL.createObjectURL(blob);
+		         link.download=fileName;
+		         link.click();
+		     };
+
+		     req.send();
 		  });
+		  
 		  $('#downloadDoc2').click(function () {
-			  var doc = new jsPDF();
-			  console.log($('#temporary').html());
 			  clone_pdf_div("#b2");
-			  console.log($('#temporary').html());
-			  doc.fromHTML($('#temporary').html(), 15, 15, {
-	                 'width': 170,
-	                 'elementHandlers': specialElementHandlers
-	  		  });
-		      doc.save('Secretary-Agreement.pdf');
+			  html2canvas(document.getElementById('temporary')).then(function (canvas) {
+				  var img = canvas.toDataURL("image/png");
+				  var doc = new jsPDF();
+				  doc.addImage(img, 'JPEG', 20, 20);
+				  doc.save('Secretary-Agreement.pdf');        
+				});
 		      remove_clone_div();
 		  });
 		  $('#downloadDoc3').click(function () {
-			  var doc = new jsPDF();
 			  clone_pdf_div("#b3");
-			  doc.fromHTML($('#temporary').html(), 15, 15, {
-	                 'width': 170,
-	                 'elementHandlers': specialElementHandlers
-	  		  });
-		      doc.save('Notice-for-Controllers.pdf');
+			  html2canvas(document.getElementById('temporary')).then(function (canvas) {
+				  var img = canvas.toDataURL("image/png");
+				  var doc = new jsPDF();
+				  doc.addImage(img, 'JPEG', 20, 20);
+				  doc.save('Notice-for-Controllers.pdf');        
+				});
 		      remove_clone_div();
 		  });
 		  $('#downloadDoc4').click(function () {
-			  var doc = new jsPDF();
 			  clone_pdf_div("#b4");
-			  doc.fromHTML($('#temporary').html(), 15, 15, {
-	                 'width': 170,
-	                 'elementHandlers': specialElementHandlers
-	  		  });
-		      doc.save('Application-of-Shares.pdf');
+			  html2canvas(document.getElementById('temporary')).then(function (canvas) {
+				  var img = canvas.toDataURL("image/png");
+				  var doc = new jsPDF();
+				  doc.addImage(img, 'JPEG', 20, 20);
+				  doc.save('Application-of-Shares.pdf');        
+				});
 		      remove_clone_div();
 		  });
 		  $('#downloadDoc5').click(function () {
-			  var doc = new jsPDF();
 			  clone_pdf_div("#b5");
-			  doc.fromHTML($('#temporary').html(), 15, 15, {
-	                 'width': 170,
-	                 'elementHandlers': specialElementHandlers
-	  		  });
-		      doc.save('Client-Acceptance-Form.pdf');
+			  html2canvas(document.getElementById('temporary')).then(function (canvas) {
+				  var img = canvas.toDataURL("image/png");
+				  var doc = new jsPDF();
+				  doc.addImage(img, 'JPEG', 20, 20);
+				  doc.save('Client-Acceptance-Form.pdf');        
+				});
 		      remove_clone_div();
 		  });
 		  $('#downloadDoc6').click(function () {
-			  var doc = new jsPDF();
 			  clone_pdf_div("#b6");
-			  doc.fromHTML($('#temporary').html(), 15, 15, {
-	                 'width': 170,
-	                 'elementHandlers': specialElementHandlers
-	  		  });
-		      doc.save('Form-45-201.pdf');
+			  html2canvas(document.getElementById('temporary')).then(function (canvas) {
+				  var img = canvas.toDataURL("image/png");
+				  var doc = new jsPDF();
+				  doc.addImage(img, 'JPEG', 20, 20);
+				  doc.save('Form-45-201.pdf');        
+				});
 		      remove_clone_div();
 		  });
 		  $('#downloadDoc7').click(function () {
-			  var doc = new jsPDF();
 			  clone_pdf_div("#b7");
-			  doc.fromHTML($('#temporary').html(), 15, 15, {
-	                 'width': 170,
-	                 'elementHandlers': specialElementHandlers
-	  		  });
-		      doc.save('Share-Certificate.pdf');
+			  html2canvas(document.getElementById('temporary')).then(function (canvas) {
+				  var img = canvas.toDataURL("image/png");
+				  var doc = new jsPDF();
+				  doc.addImage(img, 'JPEG', 20, 20);
+				  doc.save('Share-Certificate.pdf');        
+				});
 		      remove_clone_div();
 		  });
 		  $('#downloadDoc8').click(function () {
-			  var doc = new jsPDF();
 			  clone_pdf_div("#b8");
-			  doc.fromHTML($('#temporary').html(), 15, 15, {
-	                 'width': 170,
-	                 'elementHandlers': specialElementHandlers
-	  		  });
-		      doc.save('Nominee-Dir-Authrn-Final.pdf');
+			  html2canvas(document.getElementById('temporary')).then(function (canvas) {
+				  var img = canvas.toDataURL("image/png");
+				  var doc = new jsPDF();
+				  doc.addImage(img, 'JPEG', 20, 20);
+				  doc.save('Nominee-Dir-Authrn-Final.pdf');        
+				});
 		      remove_clone_div();
 		  });
 		  
+		  $('#download_all').click(function () {
+			 
+		  });
+
         function viewPri(x) {
             document.getElementsByClassName("leftTab active")[0].classList.remove("active");
             document.getElementsByClassName("priDesc view")[0].classList.remove("view");

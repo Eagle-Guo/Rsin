@@ -108,6 +108,25 @@
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
         
+        <!-- PDF -->
+        <dependency>
+	      <groupId>com.itextpdf</groupId>
+	      <artifactId>itextpdf</artifactId>
+	      <version>5.5.13</version>
+	    </dependency>
+	    <!-- https://mvnrepository.com/artifact/com.itextpdf/itext-asian -->
+	    <dependency>
+	      <groupId>com.itextpdf</groupId>
+	      <artifactId>itext-asian</artifactId>
+	      <version>5.2.0</version>
+	    </dependency>
+    
+	    <!-- Jaspter report -->
+	    <dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.11.0</version>
+		</dependency>
         <!-- data jar -->
 		<dependency>
 		    <groupId>com.intuit.quickbooks-online</groupId>

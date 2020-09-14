@@ -3,6 +3,7 @@ package sg.com.rsin.service.impl;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
@@ -37,6 +39,10 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	
 	@Value("${upload.path}")
 	private String uploadFilePathRoot;
+	
+	@Autowired
+	ResourceLoader resourceLoader;
+
 	 
 	public String getCompanyId (String userid) {
 		if (userid == null || "".equals(userid)) {
@@ -54,8 +60,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		    if (! directory.exists()){
 		        directory.mkdirs();
 		    }
-			File file = ResourceUtils.getFile("classpath:reports/First_Director_Meeting_Resolution.jrxml");
-			InputStream employeeReportStream  = new FileInputStream(file);
+			InputStream employeeReportStream = resourceLoader.getResource("classpath:reports/First_Director_Meeting_Resolution.jrxml").getInputStream();
 			JasperReport jasperReport = JasperCompileManager.compileReport(employeeReportStream);
 			List<Employee> emp = employeeDao.getAllEmployees();
 			JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource (emp);
@@ -75,6 +80,8 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		} catch (JRException jre) {
 			jre.printStackTrace();
 		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return null;

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
@@ -19,7 +20,9 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import sg.com.rsin.dao.CompanyShareholderInfoRepository;
 import sg.com.rsin.dao.EmployeeDao;
+import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.Employee;
 import sg.com.rsin.service.GenerateJespterReportService;
 
@@ -29,8 +32,28 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	@Autowired
 	EmployeeDao employeeDao;
 	
-	public byte[] exportReport(String reportFormat) {
-		try { 
+	@Autowired
+	CompanyShareholderInfoRepository companyShareHolderInfoRepository;
+	
+	@Value("${upload.path}")
+	private String uploadFilePathRoot;
+	 
+	public String getCompanyId (String userid) {
+		if (userid == null || "".equals(userid)) {
+			return "";
+		}
+		List<CompanyShareholderInfo> companyShareholderInfos = companyShareHolderInfoRepository.findByDescription(userid);
+		return (companyShareholderInfos.size()>0 ? companyShareholderInfos.get(0).getNewCompany().getId().toString():"");
+	}
+	 
+	public byte[] exportReport(String reportFormat, String companyId, String fileName) {
+		
+		try {
+			String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
+			File directory = new File(fileDirectory);
+		    if (! directory.exists()){
+		        directory.mkdirs();
+		    }
 			File file = ResourceUtils.getFile("classpath:reports/First_Director_Meeting_Resolution.jrxml");
 			InputStream employeeReportStream  = new FileInputStream(file);
 			JasperReport jasperReport = JasperCompileManager.compileReport(employeeReportStream);
@@ -43,7 +66,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 			
 			if ("pdf".equalsIgnoreCase(reportFormat)) {
-				JasperExportManager.exportReportToPdfFile(jasperPrint, "D:\\First_Director_Meeting_Resolution.pdf");
+				JasperExportManager.exportReportToPdfFile(jasperPrint, fileDirectory + fileName);
 				return JasperExportManager.exportReportToPdf(jasperPrint);
 			}
 			// export to pdf

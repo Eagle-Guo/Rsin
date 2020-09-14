@@ -3,7 +3,6 @@
      req.open("GET", "/api/downloadSignature/1", true);
      req.responseType = "blob";
      req.onload = function (event) {
-    	 alert("onload request" + req.getResponseHeader("fileName"));
          var blob = req.response;
          var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
          var link=document.createElement('a');

@@ -58,6 +58,63 @@ function download(dataURL, filename) {
   }
 }
 
+function dataURLtoBlob2(dataurl) {
+	  var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+	      bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+	  while(n--){
+	    u8arr[n] = bstr.charCodeAt(n);
+	  }
+	  return new Blob([u8arr], {type:mime});
+}
+function uploadSignature(mimetype) {
+	    var dataurl = signaturePad.toDataURL(mimetype);
+	    var blobdata = dataURLtoBlob2(dataurl);
+
+	    var fd = new FormData(document.getElementById("UploadForm"));
+	    //fd.append("data[signature]", blobdata, "filename");
+	    fd.append('signature',blobdata);
+        /** will result in normal file upload with post name "signature" on target url **/
+	    $.ajax({
+	        url: "/api/uploadSignture",
+	        type: 'POST',
+	        data: fd,
+	        processData: false,
+	        contentType: false,
+	        dataType: 'html',
+	        success: function (response) {
+	            alert("AJAX OK: uploadSignature() ok");
+	            console.log(response);
+	        },
+	        error: function (e) {
+	            alert("AJAX ERROR: uploadSignature() upload error");
+	            console.log(e);
+	        }
+	    });
+	}
+
+//function uploadSignature(dataURL) {
+//	console.log(dataURL);
+//    var blob = dataURLtoBlob(dataURL);
+//    console.log(blob);
+//    $.ajax({
+//        url: '/api/insertSignture',
+//        type : "POST",
+//        enctype: 'application/octet-stream',
+//        data: new FormData().append("file",blob),
+//        contentType: false,  // tell jQuery not to set contentType
+//        processData: false, //prevent jQuery from automatically transforming the data into a query string
+//        cache: false,
+//        timeout: 600000,
+//        success: function(response){
+//        	console.log("Upload Successful", response);
+//            addThumbnail(formdata, uploadType);
+//        },
+//        error: function(e) {
+//        	console.error("ERROR : ", e);
+//        }	
+//    });
+//}
+
 // One could simply use Canvas#toBlob method instead, but it's just to show
 // that it can be done using result of SignaturePad#toDataURL.
 function dataURLToBlob(dataURL) {
@@ -99,10 +156,11 @@ changeColorButton.addEventListener("click", function (event) {
 
 savePNGButton.addEventListener("click", function (event) {
   if (signaturePad.isEmpty()) {
-    alert("Please provide a signature first.");
+	  return ("请先输入您的签名!");
   } else {
-    var dataURL = signaturePad.toDataURL();
-    download(dataURL, "signature.png");
+    var dataURL = signaturePad.toDataURL('image/png');
+    console.log("dataURL" + dataURL);
+    uploadSignature('image/png');
   }
 });
 

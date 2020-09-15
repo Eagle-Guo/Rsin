@@ -100,8 +100,8 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		       .antMatchers("/getEmployees").permitAll()
 			   .antMatchers("/addNewEmployee").permitAll()
 			   .antMatchers("/mybusiness/**").permitAll()
-			   
 			   .antMatchers("/quickbooks/**").permitAll()
+			   .antMatchers("/onlineSignature").permitAll()
 			   .antMatchers("/oauth2redirect").permitAll()
 			   .antMatchers("/newcompany_confirm").hasAnyRole("USER")
 			   .anyRequest().authenticated().and().formLogin().successHandler(successHandler)

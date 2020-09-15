@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CLIENT_ACCEPTANCE_FORM" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3453c36b-3501-48b3-a432-863478d97ce1">
+	<subDataset name="Dataset1" uuid="3ef0230a-0405-4c09-959c-92e47c9a12e6">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="3000" splitType="Immediate">
+			<staticText>
+				<reportElement x="1" y="0" width="218" height="30" uuid="32c88799-6075-4057-ad35-e3e40cf95af5"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLIENT ACCEPTANCE FORM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="27" width="551" height="30" uuid="4644e114-cc88-48c3-83aa-1c6cbb66dd71"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[PART 1 – INFORMATION ABOUT CLIENT(S) / DIRECTOR (S) / BENEFICIAL OWNER(S)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="42" width="551" height="30" uuid="ec8531b7-ffe1-4818-bb3c-5abeaae60b11"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(to be completed by every individual connected to the (proposed) company).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="68" width="551" height="30" uuid="6ae3ab20-6869-46c1-8203-7e7a8b96558f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SECTION A – INFORMATION ON INDIVIDUAL (S) / CLIENT(S)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="91" width="551" height="30" uuid="93c8f8fb-4e2b-4bc5-b237-48b1f8bd0903"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1.Source and description of your wealth to start this company:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="92" width="117" height="18" uuid="ef52f8eb-2ecb-4304-aad7-1abfbad0f1d5"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Saving from income]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="114" width="208" height="16" uuid="e7e678f9-efa3-444e-9fb6-12b3bb28517a"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[2.FULL NAME (INCLUDING ALIAS) :    ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="140" width="208" height="16" uuid="51fbd186-0da1-4017-9af6-d3133e10a87c"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[3.NIRC/PASSPORT/BIRTH CERTIFICATE NO. : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="164" width="551" height="30" uuid="f5871cea-6ac4-4858-9494-cba758070fd3"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[4.DATE OF BIRTH (dd/mm/yyyy) : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="187" width="208" height="16" uuid="43c13574-e3fa-4454-97fc-dc8942ce8e93"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[5.NATIONALITY :  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="213" width="208" height="16" uuid="88a43c16-2200-473a-a059-67bc25045cfb"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[6.RESIDENTIAL ADDRESS :    ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="238" width="551" height="30" uuid="2b9f66d1-6594-489b-9ba8-b59217fac191"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[7.GENDER : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="261" width="208" height="16" uuid="77b13d5f-14df-499f-8c43-b9870f30646e"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[8.CONTACT NO: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="287" width="208" height="16" uuid="f4570989-ba3e-4b65-9e6a-58a31c480284"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[9.Past 5 years of working experience: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="311" width="551" height="30" uuid="5c58674d-f768-4371-a5b4-3ab59bb3a7b1"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[10.Highest Qualification from which education institution: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="334" width="208" height="16" uuid="655e79d2-1077-4b3c-a5ef-fac8f39d73fd"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[11.HAVE YOU EVER BEEN CRIMINALLY CONVICTED? : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="370" width="551" height="30" uuid="dfb1733a-1e53-48a0-9ae2-cf564f43b13a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SECTION B - Description of the Company]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="393" width="551" height="30" uuid="dcdbedc7-187d-4011-805c-f303345125e2"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1.What type of business activities the Company is to perform:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="440" width="208" height="16" uuid="7cbee7eb-bfa1-4751-9efa-1c0df9649843"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[2.Source of fund to start the Company:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="491" width="551" height="30" uuid="fc2c17fc-a2ea-49cd-996b-b793ad3153c5"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[3.How is the sales of the Company being generated:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="538" width="208" height="16" uuid="be6b97be-9feb-48ca-adcb-9df500039470"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[4.What the estimated turnover for the next 12 months:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="583" width="551" height="30" uuid="32488f02-996c-452f-8896-3d66acb0f2ad"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[5.Names of some of your supplier (If any)   ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="630" width="208" height="16" uuid="29c7e276-ec29-4828-b0ab-5c4a12061d2c"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[6.Names of your customer (if any)  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="681" width="551" height="30" uuid="f26ecc95-e7cf-49e0-849e-c0dee382fa88"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[7.Background of the directors (e.g. Local or Foreigner, Past working experience etc ):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="728" width="550" height="16" uuid="072c478c-db6e-431a-a2a9-af01f6d797f6"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[8.What will the company's bank account be used mostly for? (eg. investments or operational account):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="775" width="551" height="30" uuid="c12babf3-e479-450f-bd2b-b61f44e9426a"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[9.Source of incoming funds into the bank account (Eg. operational revenue, funds from investors or holding company):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="836" width="550" height="48" uuid="ad12a406-c69f-4c78-854f-e6d3fbd4f40f"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[10.Source and intended destination of outgoing funds from the company's bank account (Eg operational expenses, remit back to holding company or etc):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="897" width="551" height="30" uuid="83f7804e-6633-4e39-8530-a7d1240e0163"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SECTION C – IDENTIFICATION OF BENEFICIAL OWNER (S)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="920" width="551" height="30" uuid="d379ac2b-b08a-476d-952c-78655dde163a"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[*BENEFICIAL OWNER means beside oneself there is an individual or group of individuals that, either directly or indirectly, has the actual power to vote or influence the transaction decisions of the company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="971" width="551" height="30" uuid="11d57543-f80d-4986-9517-a24052d249d5"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Is the beneficial owner the same person as Section A? 
+(If No, please provide the details as below)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="1009" width="208" height="16" uuid="d5304032-96e8-40a1-8e0a-3e2af834821a"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1.FULL NAME (INCLUDING ALIAS) :    ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="1156" width="208" height="16" uuid="7502a32a-ba12-4c1e-80ce-a7a81d9c50cb"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[7.CONTACT NO: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="1133" width="551" height="30" uuid="19b8b6d7-ae8b-451a-92f1-3d8453381ecc"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[6.GENDER : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="1108" width="208" height="16" uuid="6e397599-32fc-4c89-b4a5-696526529bb5"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[5.RESIDENTIAL ADDRESS :    ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="1082" width="208" height="16" uuid="683c52da-4648-4328-9041-d59436825871"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[4.NATIONALITY :  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="1059" width="551" height="30" uuid="0b93da94-4a45-4545-83c3-676c9cceeefc"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[3.DATE OF BIRTH (dd/mm/yyyy) : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="1035" width="208" height="16" uuid="44feae97-09e0-405b-8ceb-f06558f34eee"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[2.NIRC/PASSPORT/BIRTH CERTIFICATE NO. : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1190" width="551" height="30" uuid="d793f87c-5602-4d48-ac07-1602e75b4347"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[PLEASE PROVIDE THE INFORMATION OF NATURE OF ARRANGEMENT (SUCH AS STRUCTURE OR OWNERSHIP) YOU HAVE WITH THE BENEFICIAL OWNER:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1240" width="551" height="30" uuid="49f7450c-78dc-486b-baa8-7e9a1f2d0518"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[This person is a shareholder of the company]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1280" width="551" height="60" uuid="8c2c377e-868a-4caf-92bf-a40a44199b86"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[*BENEFICIAL OWNER means beside oneself there is an individual or group of individuals that, either directly or indirectly, has the actual power to vote or influence the transaction decisions of the company.
+The Beneficial Owner confirms herewith that he / she has read and understood the foregoing and confirms that all statements made are truthful and correct.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1362" width="551" height="38" uuid="ce6263a8-bba7-4116-8e47-1398dcac6d17"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SECTION D – INFORMATION OF POLITICALLY EXPOSED PERSONS, THEIR IMMEDIATE FAMILY MEMBERS AND CLOSE ASSOCIATES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1411" width="551" height="49" uuid="4cad0e19-e76c-4e40-a0b0-affbe50070a1"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Are any of the persons listed above a politically exposed person, that is, a person who is or has been entrusted with any prominent public function in Singapore, a country or territory outside Singapore, or by an international organisation at present?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="1580" width="551" height="49" uuid="9d9bbe30-6cff-411f-ab63-20c231ce28ee"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Are any of the persons listed above an immediate family member or a close associate of a politically exposed or a politically exposed person who has stepped down?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="1643" width="551" height="20" uuid="fed39592-ce2c-48c9-8d01-d29446361963"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Client’s Declaration
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="1491" width="551" height="49" uuid="b8eb3186-5e03-4638-8ccd-6d2f2e6c013a"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Are any of the persons listed above a politically exposed person, that is, a person who is or has been entrusted with any prominent public function in Singapore, a country or territory outside Singapore, or by an international organisation who has stepped down from his prominent public function?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="1657" width="551" height="49" uuid="88e69f38-347a-4da3-9178-24825da95960"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I declare that the information provided in this form is true and correct. I am aware that i may be subject to prosecution and criminal sanctions if I am found to have made any false statement which I know to be false or which l do not believe to be true, or if I have intentionally suppressed any material fact.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1736" width="551" height="14" uuid="c91be02c-8c2d-46f2-8b37-d0a2ecde861d"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Dated this ：(mm/dd/yyyy)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="1749" width="551" height="14" uuid="b00645b4-3c8f-4920-9794-40def08b6fc8"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signature:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1830" width="551" height="14" uuid="db8b4833-cd1a-4389-8477-a2337ed5d534"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="1843" width="551" height="14" uuid="089e50e8-1c13-4124-89de-b090a10ceb67"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NRIC No./Passport ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="1855" width="551" height="14" uuid="f2fd3995-719a-4985-aecb-0e9ad947fc90"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[No.: ]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

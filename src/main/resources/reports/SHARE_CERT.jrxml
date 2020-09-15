@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SHARE CERT" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="97f38bd7-b3f0-4cf7-b5cf-9d65bdc92465">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="555" splitType="Immediate">
+			<staticText>
+				<reportElement x="0" y="0" width="201" height="31" uuid="d1b15798-ea78-4488-9cc3-711b623297b4"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Certificate Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="19" width="120" height="31" uuid="2a59a414-7b81-4140-888b-86d71f7873bf"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="600" y="0" width="201" height="31" uuid="fc1dfc42-4b4c-479e-91cb-1e1e7d0963cc"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Number of Shares]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="681" y="21" width="120" height="31" uuid="7871f659-9622-4569-bcd3-490ff2044166"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[2500]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="71" width="801" height="31" uuid="37434f93-03c5-434f-a1ca-4e47b350bc4d"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPANY NAME PTE. LTD.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="94" width="801" height="31" uuid="3059f3a7-f380-419c-bc67-6d2133e09930"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(Incorporated in the Republic of Singapore under The Companies Act, Cap. 50)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="137" width="189" height="31" uuid="f20ebd9e-4068-446e-9df6-98a33ee04cb7"/>
+				<textElement textAlignment="Left">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[This is to certify that]]></text>
+			</staticText>
+			<line>
+				<reportElement x="190" y="157" width="612" height="1" uuid="69316e64-42f9-4ef5-b68a-25c406ee9c44"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="171" width="189" height="31" uuid="7f4b5e99-455b-41d4-8dbb-ba7576a50a00"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[of]]></text>
+			</staticText>
+			<line>
+				<reportElement x="32" y="191" width="770" height="1" uuid="82f19a5e-fa1d-4b58-a90f-d46433b0e09e"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="202" width="189" height="31" uuid="59def9b1-52cc-4d8d-b120-7d059f75fc4b"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[is the registered owner of ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="171" y="222" width="560" height="1" uuid="7343b443-c3b5-4a31-8c8c-a048bda9a848">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="1" y="232" width="279" height="31" uuid="14f7b6af-7186-4a9e-879b-1238e083c9d6"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[shares of One Dollar each fully paid in ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="252" y="252" width="496" height="1" uuid="6fdcaaff-7014-4c55-95fb-eafe7ca83eb8">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="-1" y="264" width="351" height="31" uuid="b46c21d2-ca5b-437d-9259-fb08a5c38e6e"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[to the Constitution of the Company]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="292" width="411" height="31" uuid="cd9f774d-36a6-4fcb-b5d4-6303e7976174"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Given under the Common Seal of the Company on ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="327" y="312" width="470" height="1" uuid="d1c77500-182d-4705-892e-64ef596794f3"/>
+			</line>
+			<staticText>
+				<reportElement x="611" y="202" width="189" height="31" uuid="d1db8a9b-fdb6-4b1f-8adf-fdb571eca2d5"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ordinary ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="616" y="230" width="189" height="31" uuid="0f50d613-bb67-4851-ac4c-367792f7b69f"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[subject ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="397" width="189" height="30" uuid="478621f4-8102-4d6b-b9c3-36b43872f170"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed By Director :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="340" width="228" height="30" uuid="986fa290-3932-41df-bb53-e6c08b89aee4"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SIGNATURE OF DIRECTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="448" width="228" height="30" uuid="bf7a846f-5d31-44ed-b6fd-108f66fcb04d"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SIGNATURE OF SECRETARY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="505" width="249" height="30" uuid="bb60c019-7bdf-4912-af72-0558dd32e116"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed By Secretary: ]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

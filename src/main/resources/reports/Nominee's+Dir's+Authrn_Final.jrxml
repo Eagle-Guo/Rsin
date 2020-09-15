@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Nominee&apos;s+Dir&apos;s+Authrn_Final" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dc98f0f8-bf7d-43de-a10a-22bb876569c9">
+	<subDataset name="Dataset1" uuid="cac269b0-e878-4964-8a45-0c040c606a74">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<detail>
+		<band height="4000" splitType="Immediate">
+			<staticText>
+				<reportElement x="0" y="0" width="560" height="17" uuid="16661f69-4b2e-4983-985b-6e4001ae5582">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[THIS AGREEMENT is dated the : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="560" height="17" uuid="7bf6e475-9bac-4013-9317-f070bd7f1298">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AGREEMENT FOR APPOINTMENT OF NOMINEE DIRECTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="72" width="560" height="17" uuid="a01fdf6e-ba23-4741-af97-0614c909f3c9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Between]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="87" width="560" height="17" uuid="bb5e5f45-9f99-4d6c-8a79-c907cc5627f4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(the “Nominee”)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="102" width="560" height="17" uuid="f28cd4a7-168e-4548-b75b-b3b8f18adc68">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[and]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="117" width="560" height="17" uuid="4cb1ecba-5275-4693-845c-d3d541e57acc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Company Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="132" width="550" height="35" uuid="08800cbe-4af2-4ace-9537-04a17b1429ab">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ (Company Registration No. [              ]), a company incorporated in the Republic of Singapore and having its registered address at [111 North Bridge Road #29-06A Peninsula Plaza Singapore 179098] (“Company”);]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="172" width="560" height="30" uuid="0592d8e2-d694-40bf-bb70-79f3aaec849b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[WHEREAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="201" width="550" height="49" uuid="e2eb418b-774f-4c5d-9d41-8fa212192b81">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The Company has requested the Nominee to provide the services of a nominee who shall, and the Nominee has agreed to, be appointed as a nominee director of the Company (“Nominee Director”) upon the terms and conditions as stated herein.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="250" width="550" height="30" uuid="875cea4d-3bc1-4481-9d28-943d27c7522d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(The above-mentioned parties shall alternatively be referred to individually as “Party”, and collectively as “Parties”.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="295" width="560" height="30" uuid="3e63f018-74cf-4b34-b282-54332c8bf8ac">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOW, THEREFORE, THE PARTIES, HEREBY AGREE AS FOLLOWS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="324" width="560" height="30" uuid="2cdd5439-ce79-4c93-81a5-0cb2bc292f0c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A.	APPOINTMENT AND DUTIES OF THE NOMINEE DIRECTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="351" width="510" height="49" uuid="55dab731-8e25-4f1b-8073-a45c39097e76">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The Company has requested the Nominee to provide the services of a nominee who shall, and the Nominee has agreed to, be appointed as a nominee director of the Company (“Nominee Director”) upon the terms and conditions as stated herein.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="351" width="30" height="30" uuid="c0d5e540-126b-464c-ac99-3a0f98276c9f"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="411" width="30" height="30" uuid="543e4bde-cd2e-4442-b98b-03eae164edb7"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="411" width="510" height="49" uuid="9a478b64-5257-408f-92ed-f50f10388c02">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The duties of the Nominee Director shall be limited to the signing of statutory forms and board resolutions in order to comply with the requirements of the Companies Act, Cap. 50 and its regulations and the Company’s Constitution. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="471" width="30" height="30" uuid="77314f61-12b8-4812-a74d-264d0c66b2af"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="471" width="510" height="109" uuid="4da00f73-8230-4dc9-a78a-02fa201d0840">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[For the avoidance of doubt, the Nominee Director shall not be required to participate, in any manner whatsoever, in the management or decision-making of the Company and shall not be required to sign or execute any agreement, assurance, guarantee or other documents which would incur or in any way impose any personal liability on the Nominee Director, whether as a principal or guarantor, notwithstanding that the same is purportedly for the benefit of the Company or any other third party.  The Nominee Director shall also not be required to comply with any instructions which may be unlawful under the laws of Singapore as well as all other laws which may be applicable.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="588" width="30" height="30" uuid="cd3fa8c8-2cd6-4f51-8115-e2afa535814e"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="588" width="510" height="22" uuid="263ef15e-82c9-4d0b-8729-92a816ffcbc9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Statement on matters regarding assistance bank account opening:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="620" width="20" height="30" uuid="3db13789-211a-479c-9b63-b056ab12560a"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[a)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="620" width="489" height="80" uuid="bd9c8d74-bc7d-436f-bbc5-1035191231c2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[In the event of requirement, the Nominee Director will provide assistance pertaining to matters of local bank account opening by providing valid personal identification documents to the bank. The Nominee Director retains the legal right to claim full indemnity, compensation and accountability from the Company should the Company submit the Nominee Director’s personal identification for any other uses beside bank account opening. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="708" width="20" height="30" uuid="bb5bdc23-dc0b-409d-8b2f-92cc141fc5b4"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[b)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="708" width="489" height="62" uuid="060a52e2-3960-4864-a501-dab27b9fede4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Assistance for opening bank account will only be provided by the Nominee Director in the event that the bank in question is a local (Singapore) bank. The Nominee Director reserves the rights to reject the Company’s request (if any) for bank account opening at an overseas bank, except that this does not apply to requests for opening an account at a bank in China. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="786" width="30" height="30" uuid="45afd3ca-d842-4ae8-afbc-29f2fcb6ba6b"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[5.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="786" width="510" height="104" uuid="da9554cb-257e-4c02-ab6f-43d58d3edef3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The Nominee Director shall execute the Authorisation substantially in the form and manner as in the Appendix A to this Agreement for authorising the collection, use and disclosure by the Rsin Group Pte Ltd of relevant particulars of the Nominee Director in accordance with the Personal Data Protection Act of the Singapore statutes, for the purposes of submissions to the various government or regulatory bodies, such as, CPF Board, ACRA, IRAS, Ministry of Manpower, Agri-Food and Veterinary Authority of Singapore (AVA) and to the banks, as and when so required; and also for authorising the setting up and use of the CorpPass when required, for and on behalf of the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="903" width="560" height="30" uuid="7dab35a8-bf17-4363-8140-85f8c9225a3c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[B.	TERMINATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="930" width="510" height="49" uuid="66cf819b-f04a-447f-a2bd-9062a7084c87">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1.Either Party may terminate this Agreement at any time by providing the other Party with prior one (1) month’s notice in writing.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="930" width="30" height="30" uuid="752c941b-3f7e-4e43-8a15-d865586134f4"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="974" width="30" height="30" uuid="2fdb9d85-5c4b-40b0-8b50-5ca436b877c1"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="974" width="510" height="86" uuid="7083cb98-3039-466e-8711-d2c9365d7f09">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[In the event of ceasing (for whatever reason) to provide the services of the Nominee Director, the board of directors of the Company shall accept the resignation of the Nominee Director and where required under the Companies Act, Cap. 50 and its regulations or the Company’s Constitution, shall take immediate steps to appoint another person in place of the Nominee Director as a director of the Company on or before the date of termination and/or cessation of the appointment of the Nominee Director.  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1076" width="30" height="30" uuid="9545773b-88d1-45f1-ba8e-20fbd63b40fe"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="1076" width="510" height="44" uuid="7cb575d1-033b-4aab-9b2b-9ec78629fc48">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The Company shall provide with satisfactory documentary evidence that such changes have been effected and notified to the ACRA.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1122" width="560" height="30" uuid="4e4202cf-1d52-46c9-92cf-801c0406b2a5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C.	WARRANTIES AND COVENANTS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1149" width="510" height="71" uuid="399f73e7-5d5e-4d68-b4c6-512a58055448">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The Company hereby undertakes and warrants that all acts required to be done by the Nominee Director shall be lawful under the laws of Singapore as well as all other laws which may be applicable and that all statements and documents, which the Nominee Director is requested to sign, shall be true, accurate and not misleading and for lawful purposes.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1149" width="30" height="30" uuid="d74ac883-a502-4240-bd7a-57f6d2954a6a"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1223" width="30" height="30" uuid="05654c37-def6-455a-bde2-2a98725f72af"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="1223" width="510" height="71" uuid="9c58724c-345e-4e9b-afce-9d2fc6af77f4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The Company hereby undertakes and warrants that the Company will keep proper accounts and will file all income tax returns and all papers and documents which are required by law to be filed with any authority and that all taxes required to be paid by the Company will be duly paid.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1280" width="30" height="30" uuid="8dbe3787-cefd-4e6b-a55d-10611e848b75"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1280" width="510" height="135" uuid="63303eb8-b23e-49db-895d-8b8109ed8d1f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The Company shall indemnify, hold harmless and/or defend the Nominee Director from and against all liabilities, actions, proceedings, penalties, damages, costs, charges, expenses, fines, claims, demands and/or suits that may be made or imposed against or on the Nominee Director by reason of any act, deed, matter or thing done or omitted to be done by the Nominee Director and/or the Company for whatsoever reason, and pay all of the Nominee Director’s solicitor’s fees on a full indemnity basis in the the Nominee Director take any steps or commences any legal action to enforce his or her rights under this Agreement and/or in law. The Nominee Director shall not be liable in any way whatsoever for any non-fulfillment of the Company’s compliance obligations for any reason whatsoever and howsoever arising.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1424" width="510" height="71" uuid="89c7b7ed-2473-48d8-a194-9f808a1fa737">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The Company shall be liable for and pay the Nominee Director all disbursements, costs and expenses (including but not limited to expenses, penalties and/or legal fees), which may be incurred by the Nominee Director in connection with and/or arising from this Agreement and/or in discharging his or her duties and responsibilities as the Nominee Director.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1424" width="30" height="30" uuid="e7b92c6b-c93f-4c1a-985d-96dca57c022a"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1501" width="560" height="30" uuid="caf06299-1c2c-4f78-873d-f508bb2fe6a4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[D.	GENERAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1528" width="30" height="30" uuid="befd500e-13b2-4396-9487-f8973b08d1da"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1528" width="510" height="52" uuid="48b2c816-90db-427d-ada0-bf6dab45a8ce">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[If any of the provisions of this Agreement becomes invalid, illegal or unenforceable in any respect under any law, the validity, legality and enforceability of the remaining provisions shall not in any way be affected or impaired.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1591" width="30" height="30" uuid="c8c75ef9-b114-4759-bd51-c29a9084ca60"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1591" width="510" height="71" uuid="d28d822f-2eca-4026-8e29-9b6fdfb96917">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[This Agreement embodies the entire understanding of the Parties and there are no promises, terms and conditions or disclosures or obligations, oral or written, express or implied other than those contained herein, save and except those mutually agreed to in writing between the Parties after the due execution of this Agreement and each Party acknowledges that it has not relied on any oral or written representations made to it by the other or its employees or agents.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1680" width="30" height="30" uuid="d35b3d6e-b2c9-4b01-8497-ebbee349f584"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1680" width="510" height="71" uuid="c29cf3f7-732c-411d-b7f0-24f0aac908cf">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Time wherever mentioned in this Agreement shall be of the essence of this Agreement. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1712" width="30" height="30" uuid="55628e46-6d72-4f1f-b00e-8667d610144b"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1712" width="510" height="108" uuid="5cfcb9fe-068d-4b29-af74-4b2d369d890e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Subject as otherwise provided herein, all notices, demands or other communications required or permitted to be given or made hereunder shall be in writing and delivered personally or sent by prepaid registered post or certificate of posting or by facsimile message addressed to the intended recipient thereof at its address or its facsimile number set out herein (or to such other address or facsimile number as any Party may from time to time notify the other Party and the Nominee Director for the purpose of this clause) or by other means which Parties may agree in writing thereafter. Any notice, demand or communication shall be deemed to have been duly served:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="1828" width="20" height="30" uuid="e88369a5-23b7-499b-9ef0-2a9b67e72eca"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[(a)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="1828" width="489" height="22" uuid="f434683d-7fd2-419a-b119-8ed4f49c77f7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[if delivered personally, on the day of delivery;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="1861" width="20" height="30" uuid="9c4d961d-194c-4b2a-99ec-e2f7447dce43"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[(b)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="1861" width="489" height="22" uuid="7421403f-1caf-4cb7-bd09-b3c9c6efd597">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[if sent by facsimile, on the day of the conclusion of transmission; ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="1892" width="20" height="30" uuid="a2db7061-cc0d-45c0-bf23-e421c2bf04fc"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[(c)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="1892" width="489" height="68" uuid="0b3d5b6d-d0c4-4839-853b-05eaccfc23c1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[if sent by letter to a local address, two (2) business days after posting and in proving the same it shall be sufficient to show that the envelope containing the notice, demand or communication was duly addressed, stamped and posted. Such posting shall be preceded by a facsimile of the cover page; and]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="1965" width="20" height="30" uuid="7ac5c1d0-9282-4496-9247-a7c064198b41"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[(d)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="1965" width="489" height="68" uuid="becd79a4-37bb-4b0e-a200-d6620a31b15e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[if sent by letter to an overseas address, seven (7) business days after posting and in proving the same it shall be sufficient to show that the envelope containing the notice, demand or communication was duly addressed, stamped and posted. Such posting shall be preceded by a facsimile of the cover page.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2042" width="30" height="30" uuid="950229b6-b857-4e6b-9dda-c390828f4377"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[5.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2042" width="510" height="38" uuid="34afd3ee-f7c8-49c1-acb8-1edf9606a621">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[This Agreement shall be binding on each of the Parties and their respective assignees, executors and administrators.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2088" width="30" height="30" uuid="9ffd6e40-8786-4bdb-bd4d-884bddbfe5ec"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[6.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2088" width="510" height="38" uuid="a2e6203d-d2d8-4d79-80b4-6f51df538c05">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[A person who is not a party to this Agreement has no rights under the Contracts (Rights of Third Parties) Act (Cap. 53B) to enforce any term of this Agreement.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2134" width="30" height="30" uuid="f7df3e3d-adcb-4ba8-8463-b7ad46f40d5c"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[7.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2134" width="510" height="77" uuid="e1ae53ee-0d3c-488c-886d-185502b60ce5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Termination of this Agreement for whatever reason shall not release either Party from any obligations which, either expressly or by implication, are intended to survive the termination of this Agreement, nor will it affect the rights and liabilities of the Parties, as at the date of termination.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2190" width="30" height="30" uuid="2e525b8b-dca8-4928-8cfd-1724bba7516e"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[8.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2190" width="510" height="19" uuid="54b7b6df-fcb3-4096-b465-3b308f92e8f7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Words denoting the singular number only shall include the plural number and vice versa.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="2221" width="30" height="30" uuid="8108c537-1d2c-4690-b152-5eab2f0d0a62"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[9.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="2221" width="510" height="19" uuid="4307927d-cd9c-453c-bbd0-b2238b364246">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Words denoting the masculine gender only shall include the feminine and neuter genders.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="2250" width="30" height="30" uuid="b5b7e396-f85f-4bf8-af29-5e82e0532296"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[10.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="2250" width="510" height="19" uuid="0b2c3b67-a341-46ff-aea0-80496b592fca">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[References to persons shall be deemed to include bodies incorporated or unincorporated.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="2280" width="510" height="19" uuid="7f40f8b3-7a03-4aff-8c03-62cbb4aa9b60">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The Recitals to this Agreement shall be and form an integral part of this Agreement.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="2280" width="30" height="30" uuid="0475cc25-58d9-4c48-81e1-f3420a953d76"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[11.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="2309" width="30" height="30" uuid="4973e8a1-c463-46f2-8d0f-7ee21a575cf6"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[12.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="2309" width="510" height="35" uuid="195242bc-addb-44a4-b534-eb9547086573">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Headings in this Agreement are for convenient reference only and shall not be used to construe or interpret this Agreement.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="2352" width="30" height="18" uuid="c04488c2-4446-4285-8d79-cc52b5a848eb"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[13.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="2352" width="510" height="28" uuid="f939d913-1226-445a-990b-f235924ac8c6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Any reference to a statutory provision shall include such provision and any regulations made in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="2442" width="30" height="30" uuid="2d3b4a00-7c0c-4935-b144-318caf6798a3"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[14.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="2442" width="510" height="56" uuid="c20d19b8-bd1c-428f-b61a-a8bc8d898a6c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[“Dollars" and the sign "$" shall mean the lawful currency of Singapore.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="2473" width="30" height="30" uuid="81577a57-c7dc-407c-8e5f-48eb325eb298"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[15.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="2473" width="510" height="56" uuid="1e2aca96-7da4-465c-93bc-0cc6209b9b0c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[This Agreement shall be governed by and construed in accordance with the laws of the Republic of Singapore and Parties agree to submit to the non-exclusive jurisdiction of the courts of the Republic of Singapore.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="2532" width="550" height="30" uuid="06e6b111-e1e3-4911-8526-1afa4786a28a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IN WITNESS whereof the Parties have duly executed this Agreement as of the date and year written above.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="2578" width="228" height="30" uuid="f77b3b7e-9175-48b5-ae57-f3d5580c958f"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="2670" width="180" height="48" uuid="137b6404-a12c-4f59-9941-80c995c55d86">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+					<paragraph lineSpacing="Fixed" lineSpacingSize="4.0"/>
+				</textElement>
+				<text><![CDATA[Name:						
+NRIC No.: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="2670" width="187" height="50" uuid="50a1bd21-2cd0-4718-b2d1-dac5025f8c1a"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Director]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="2578" width="235" height="30" uuid="a66e7ed4-0b12-4186-81ae-ab1f2a1e2b4d"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed for and on behalf]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="2750" width="187" height="50" uuid="057e013c-4b37-4609-adaf-e93237e67cab"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Secretary]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2879" width="551" height="30" uuid="6fcc0932-4a06-40f9-adb5-8d5c383c2b08">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APPENDIX A ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2914" width="551" height="20" uuid="b4790d43-d981-48d9-b866-403d819dc9f2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(Letter of Authorisation of Rsin Group Pte Ltd as in accordance with Section A clause 5 herein.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="2949" width="551" height="70" uuid="a80128ec-abce-41d8-baed-f90d42908991">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I, [full name, (NRIC No.),] of [complete address of Nominee Director], the Nominee Director of [full name of the Company (UEN No.)], (the “Company”), with the full and unconditional approval of the substantive foreign directors of the Company, hereby authorize the representatives of Rsin Group Pte Ltd as particularised in Section 1 herein (the “Authorised Representatives”), to carry out the acts as set out in Section 2 herein.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3020" width="551" height="20" uuid="1ffca95a-353d-47fa-9770-9f321755ba27">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Section 1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="3049" width="551" height="20" uuid="695a3232-e761-45b2-86ee-27610c117774">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The particulars of the Authorised Representatives are as follows:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="3181" width="551" height="20" uuid="79a2fc86-6fd6-4ab5-8fde-2fa6fff718d4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Section 2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3211" width="30" height="18" uuid="302f40db-cc65-4252-82ac-3ff4f1e484c5"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[1. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="3211" width="510" height="79" uuid="5fe84ebc-81b6-47eb-accc-1e969b6bf627">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Disclose my personal data to various governmental bodies of Singapore, such as but not limited to the CPF Board, ACRA, IRAS, Ministry of Manpower, Agri-Food and Veterinary Authority of Singapore (AVA), (the “Relevant Bodies”), and to banks with which the Company has or intends to have bank accounts with, (the “Bank(s)”), all for the limited purpose of facilitating the conduct of the management, administration, operations and/or business of the Company (the “Purpose”).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3301" width="30" height="18" uuid="c2022e35-80bf-432e-b23d-e94539e386c6"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[2. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="3301" width="489" height="49" uuid="5f4b52c4-a4f3-4c0d-b72c-3e8d713ce770">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I further hereby confirm that I have been made aware of the Personal Data Protection Act of the Singapore statutes, and voluntarily provide and/or allow my personal data to be collected for use for the Purpose.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="3302" width="30" height="18" uuid="f27217b5-c594-4989-9eeb-10b4e2bd0435"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[a)	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="3362" width="30" height="18" uuid="952dc617-8974-4e35-be20-8bf95bc36fff"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[b)	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="3361" width="489" height="49" uuid="6ffadeba-6591-42ad-b1ba-b45bf533e5b5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I also hereby give my consent for the appropriate and necessary personal data of myself to be disclosed to the Relevant Bodies and/or the Bank(s) for the Purpose.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="3404" width="30" height="18" uuid="129f34b4-c656-4f8d-b9cf-2955c2ca0cd5"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[c)	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="3403" width="489" height="49" uuid="92a5068a-932c-401c-8122-5053389e1ebe">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I am aware that I may revoke the above-mentioned consent at any time upon giving notice to the Authorised Representatives sated above in Section 1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3451" width="30" height="18" uuid="d5e04b9c-46fa-43c2-aa70-1244601a18d5"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[3. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="3451" width="510" height="79" uuid="8e90c523-e3ac-4a2f-8e96-c6180d002c64">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I, in discharge of my duties as the Nominee Director of the Company, hereby confirm and agreed as follows, namely, I shall: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="3505" width="551" height="20" uuid="574431ff-b519-4f10-8e20-fa902a04a0b9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CorpPass]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="3536" width="510" height="79" uuid="6d4b0ee1-6804-46df-ae04-c399652bf283">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[a)  assist in registration and signing up of Company CorpPass when necessary.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="3568" width="510" height="79" uuid="a75eb000-9630-43f9-b30b-28c7307c35b5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[b)  authorize and add user for CorpPass when required.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3600" width="551" height="20" uuid="4a29b0a4-98f4-4f1f-be07-238d82e8cb0c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Banking matters  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="3632" width="550" height="79" uuid="1621f4e6-6491-4b13-972f-d5a4dfaccf97">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[c)  assist to facilitate the opening of bank accounts of the Company; and]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="3661" width="550" height="79" uuid="46b5113c-9562-4c3b-b7bb-d7adb34c3179">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[d)  sign letters and documents on behalf of the Company as may be requested by the Bank(s) from time to time.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2394" width="510" height="28" uuid="6e932778-7247-4a12-be10-2abb5eb0e4d1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[pursuance thereof as from time to time modified or reenacted whether before or after the date of this Agreement.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="3845" width="180" height="48" uuid="bf030efa-767c-47bb-b3a0-e5afdec5f457">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+					<paragraph lineSpacing="Fixed" lineSpacingSize="4.0"/>
+				</textElement>
+				<text><![CDATA[Name:						
+Date.: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="3756" width="550" height="79" uuid="8f6e769d-913b-4604-ba6f-a02d7bb91e9f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by the above-mentioned		
+Nominee Director of the Company]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

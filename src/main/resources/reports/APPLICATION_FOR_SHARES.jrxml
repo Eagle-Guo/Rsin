@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="APPLICATION_FOR_SHARES" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7ae0b24f-59e0-4574-a554-5cd374c3eb3a">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="802" splitType="Immediate">
+			<staticText>
+				<reportElement x="-1" y="20" width="559" height="30" uuid="1653a18a-9ce1-4319-b318-daad9e53cb43"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APPLICATION FOR SHARES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="70" width="30" height="30" uuid="ce6b02be-9ee3-4efb-8482-ac278150b4c9"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[To: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="70" width="249" height="30" uuid="97d45da6-5e2a-41b9-b7a5-d2ead08c0597"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[COMPANY NAME PTE. LTD.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="90" width="249" height="30" uuid="3ec9d9c3-1eba-4b82-8a8b-48d167883481"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[REGISTERED ADDRESS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="110" width="249" height="30" uuid="f409da3a-4d7b-4554-b1fd-b1e8dc10b97d"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Singapore]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="164" width="249" height="30" uuid="302bcb40-1c96-406b-b2f1-9ba995f942bd"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Dear Sirs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="190" width="460" height="30" uuid="af746a21-475e-4d30-a2e0-0e425e41d05a"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I, the undersigned, hereby apply for and request you to allot to me ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="192" width="45" height="30" uuid="32efefbb-ea93-4400-abc3-024d8007143f"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ 2500 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="474" y="192" width="76" height="30" uuid="0cc42a80-c2e7-4093-83ef-2fb7f188df13"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[rdinary]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="207" width="90" height="30" uuid="3691c664-f93a-4d68-b9e0-c7b26cf8d605"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[shares at]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="207" width="70" height="30" uuid="42acf8b8-b08f-4b1b-9879-8575220cf9c1"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SGD1.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="207" width="141" height="30" uuid="2e200f1b-3dec-4f05-8d1f-ddde30bba8d5"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ach in the capital of ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="208" width="268" height="30" uuid="057d4e4b-83d0-4f9f-9e2c-69d22ce9c2be"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[COMPANY NAME PTE. LTD. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="225" width="249" height="30" uuid="50bdb844-5edd-4e1d-984d-2c2c0b0f6455"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(the “Company”), and I agree to pay]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="226" width="120" height="30" uuid="924ee2c9-5716-4377-be78-4325eb0c62a5"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SGD2500.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="227" width="210" height="30" uuid="b3bf7bbe-1bff-48cf-a6b4-423204df1d31"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[for the above-mentioned shares]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="246" width="210" height="30" uuid="1b18b30c-f69f-4b7a-860d-9c8625d23318"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[in full in cash.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="278" width="550" height="70" uuid="10f9c7a1-03ec-4006-be1f-e0e2d6be03d4"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I further undertake and agree to accept the number of shares that you may allot to me, subject to the conditions of the Constitution of the Company, and I authorize you to place my name on the Register of Members as holder in respect of the shares so allotted.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="341" width="550" height="19" uuid="4d3d8dcc-7dc0-4a75-a1c4-29641d0a6344"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I also agree that this application is irrevocable and cannot be withdrawn.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-3" y="380" width="550" height="70" uuid="92c8b905-5877-4068-80b1-a7cb5aef075c"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Share capital will be payable by cash or via through shareholder loan.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="510" width="106" height="20" uuid="4f9be6ce-e48c-4d18-99c3-9332dd5987fb"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Shareholder  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="530" width="106" height="20" uuid="12f00edd-f981-467a-8d3c-9362cc28bdc3"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signature:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="553" width="106" height="20" uuid="244e6872-8072-4254-8c6d-c971f789cf61"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by:]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

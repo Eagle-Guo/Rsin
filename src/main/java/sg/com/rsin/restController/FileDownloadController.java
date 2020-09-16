@@ -15,7 +15,9 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 
 import sg.com.rsin.service.GenerateJespterReportService;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -67,4 +69,17 @@ public class FileDownloadController {
 		
 		return new ResponseEntity(signFileAndName, HttpStatus.OK);
     }
+	
+	@RequestMapping(value = "/downloadFiles/{file_name}", method = RequestMethod.GET)
+	public void getFile( @PathVariable("file_name") String fileName, HttpServletRequest request, HttpServletResponse response) {
+		String userId = (String) request.getSession().getAttribute("loginUsername");
+		try {
+			InputStream is = generateJespterReportService.downloadWithSignatureFile(fileName, userId);
+		    org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
+		    response.flushBuffer();
+	    } catch (IOException ex) {
+	      //log.info("Error writing file to output stream. Filename was '{}'", fileName, ex);
+	      throw new RuntimeException("IOError writing file to output stream");
+	    }
+	}
 }

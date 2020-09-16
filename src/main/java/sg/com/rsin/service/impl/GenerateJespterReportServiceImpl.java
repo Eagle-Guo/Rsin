@@ -3,6 +3,7 @@ package sg.com.rsin.service.impl;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -144,8 +145,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			
 			ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
 		    BufferedImage image = ImageIO.read(bis);
-            
-			//reportParamMapTwo.put("signImage", image);
+		    reportParamMapTwo.put("signImage", bis);
 			JasperPrint jasperPrintTwo = JasperFillManager.fillReport(signatureReport, reportParamMapTwo, new JREmptyDataSource());
 			jasperPrintList.add(jasperPrintTwo);
 
@@ -161,7 +161,13 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			Map<String, String> signatureAndPath = new HashMap<String, String>();
 			signatureAndPath.put(fileName, "WithSign_" + fileName + ".pdf");
 			signatureAndPath.put("Secretary_Agreement", "WithSign_Secretary_Agreement.pdf");
-			signatureAndPath.put("Notice_for_Controllers", "Notice_for_Controllers.pdf");
+			//signatureAndPath.put("Notice_for_Controllers", "WithSign_Notice_for_Controllers.pdf");
+			//signatureAndPath.put("Application_of_Shares", "WithSign_Application_of_Shares.pdf");
+			//signatureAndPath.put("Client_Acceptance_Form", "WithSign_Client_Acceptance_Form.pdf");
+			//signatureAndPath.put("Form_45_201", "WithSign_Form_45_201.pdf");
+			//signatureAndPath.put("Share_Certificate", "WithSign_Share_Certificate.pdf");
+			//signatureAndPath.put("Nominee_Dir_Authrn_Final", "Nominee_Dir_Authrn_Final.pdf");
+			
 			return signatureAndPath;
 			
 		} catch (JRException jre) {
@@ -202,5 +208,19 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		}
 		
 		return new HashMap<String, String>();
+	}
+	
+	public InputStream downloadWithSignatureFile(String fileName, String userId) {
+		Map<String, String> userData = onlineSignatureService.getAllPageData(userId);
+		String companyId = userData.get("companyId");
+		try {
+			String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
+	    	File initialFile = new File(fileDirectory, fileName);
+	        InputStream is = new FileInputStream(initialFile);
+	        return is;
+	    } catch (IOException ex) {
+	      //log.info("Error writing file to output stream. Filename was '{}'", fileName, ex);
+	      throw new RuntimeException("IOError writing file to output stream");
+	    }
 	}
 }

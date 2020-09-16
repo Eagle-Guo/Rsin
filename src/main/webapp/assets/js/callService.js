@@ -13,7 +13,20 @@
             text.style.display = "none";
          }
     }
-    
+	function runglotel(x) {
+		var z = [];
+        z.push(document.getElementById("countglotel").value);
+        if (z.length ==1){
+            document.getElementById("priceglotel").innerHTML = "S$"+z[0] * 500;
+            if (services.some(el => el.name === "新加坡固定座机无人应答")){
+                services = services.filter(item => item.name !== "新加坡固定座机无人应答")
+            }
+            services.push({name:"新加坡固定座机无人应答",price:z[0] * 500});
+            refreshRightSummary();
+            z = [];
+        }    
+    } 
+	
     var services = [];
     var companyInfos = [];
     var shareholderInfos = [];

@@ -81,6 +81,20 @@
         document.getElementById("selected_summary").innerHTML = selectedsummaryhtml;
     }
 
+    function runaccounting(x) {
+		var z = [];
+        z.push(document.getElementById("countaccounting").value);
+        if (z.length ==1){
+            document.getElementById("priceaccounting").innerHTML = "S$"+z[0];
+            if (services.some(el => el.name === "会计记账")){
+                services = services.filter(item => item.name !== "会计记账")
+            }
+            services.push({name:"会计记账",price:z[0]});
+            refreshRightSummary();
+            z = [];
+        }    
+    } 
+    
     function listSummary() {
     	companyInfos = [];
         if (document.getElementById("companyName").value!="") {

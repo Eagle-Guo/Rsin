@@ -106,10 +106,10 @@
 																				<div class="input-group-append">
 																					<button class="btn" disabled="disabled">卡位</button>
 																				</div>
-																				<select class="custom-select" id="countMoffice" onchange="runoffice(2)" style="border: none;">
-																					<option value="1" selected>3</option>
-																					<option value="2">6</option>
-																					<option value="4">12</option>
+																				<select class="custom-select" id="countMoffice" onchange="runoffice(0)" style="border: none;">
+																					<option value="3" selected>3</option>
+																					<option value="6">6</option>
+																					<option value="12">12</option>
 																				</select>
 																				<div class="input-group-append">
 																					<button class="btn" disabled="disabled">个月</button>

@@ -80,7 +80,21 @@
         selectedsummaryhtml += ") </span>  总计金额（S$）  (<span class='text-muted media-right'>" + totalamount + "</span>)</h6>";
         document.getElementById("selected_summary").innerHTML = selectedsummaryhtml;
     }
-
+    function runoffice(x) {
+		var z = [];
+        z.push(document.getElementById("countoffice").value);
+        z.push(document.getElementById("countMoffice").value);
+        if (z.length ==2){
+            document.getElementById("priceoffice").innerHTML = "S$"+z[0]*z[1]*800 ;
+            if (services.some(el => el.name === "共享办公室")){
+                services = services.filter(item => item.name !== "共享办公室")
+            }
+            services.push({name:"共享办公室",price:z[0]*z[1]*800});
+            refreshRightSummary();
+            z = [];
+        }    
+    } 
+    
     function listSummary() {
     	companyInfos = [];
         if (document.getElementById("companyName").value!="") {

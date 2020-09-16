@@ -1,4 +1,5 @@
-   function openAccountFunction(x,y) {
+    var COUNTRY_COUNT=0;
+	function openAccountFunction(x,y) {
           // Get the checkbox
           var checkBox = document.getElementById(x);
           // Get the output text
@@ -206,13 +207,13 @@
         }
 
         var position = "";
-        if (document.getElementById("checkb_dongshi1").checked) {
+        if (document.getElementById("checkb_dongshi0").checked) {
         	position = position + "董事, " ;
         }
-        if (document.getElementById("checkb_gudong1").checked) {
+        if (document.getElementById("checkb_gudong0").checked) {
         	position = position + "股东, ";
         }
-        if (document.getElementById("checkb_contactpeople1").checked) {
+        if (document.getElementById("checkb_contactpeople0").checked) {
         	position = position + "联系人, ";
         }
         if (position != "") {
@@ -223,8 +224,8 @@
         if (document.getElementById("fullName").value!="") {
             shareholderInfos.push({name:"全名",description:document.getElementById("fullName").value});
         }
-        if (document.getElementById("country").value!="") {
-            shareholderInfos.push({name:"国籍",description:document.getElementById("country").value});
+        if (document.getElementById("country0").value!="") {
+            shareholderInfos.push({name:"国籍",description:document.getElementById("country0").value});
         }
         if (document.getElementById("gender").value!="") {
             shareholderInfos.push({name:"性别",description:document.getElementById("gender").value});
@@ -808,11 +809,18 @@
     	     text.style.display = "none";
     	  }
     	}
+      $("input[id^='calc']").change(function () {
+    	  var issueNo = $("#calcNumberofSharesIssued0").val();
+    	  var payNo = $("#calcNumberofPaid-inShares0").val();
+    	  var pershare = $("#calcPerShare0").val();
+    	  $("#registeredCapital1").val(issueNo * pershare);
+    	  $("#registeredCapital2").val(payNo * pershare);
+      }).change();
 
-      function addContactP (x) {
-          //var x=a+1;
-    	  console.log("x:" + x);
-    	  var contact = ` <br/><br/>														<div class="section-title">董事、股东、联系人资料</div>
+      function addContactP () {
+    	  COUNTRY_COUNT = COUNTRY_COUNT + 1;
+    	  console.log("x:" + COUNTRY_COUNT);
+    	  var contact = ` <br/><br/><div class="section-title">董事、股东、联系人资料</div>
 				<div class="form-group row">
 				<label class="col-sm-3 col-form-label">职位类型（可多选）</label>
 				<div class="col-sm-9">
@@ -822,7 +830,7 @@
 							<label style="height: auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
 						</div>
 						<div class="form-check form-check-inline">`
-	                      + "<input class='form-check-input' type='checkbox' id='checkb_gudong"+x + "' value='gudong' onclick='addMoreQ("+x+")'>"+
+	                      + "<input class='form-check-input' type='checkbox' id='checkb_gudong"+ COUNTRY_COUNT + "' value='gudong' onclick='addMoreQ(" + COUNTRY_COUNT + ")'>"+
 	                        `<label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
 	                      </div>   
 						<div class="form-check form-check-inline">
@@ -851,8 +859,8 @@
 			<div class="form-group row">
             <label class="col-sm-3 col-form-label">国籍</label>
 				<div class="form-item  col-sm-9">` + 
-				"<input id='country" + x+1 + "' class='form-control' type='text'>" + 
-				"	<label for='country"+ x+1 + "' style='display:none;'>Select a country here...</label> </div>  </div>" +
+				"<input id='country" + COUNTRY_COUNT + "' class='form-control' type='text'>" + 
+				"	<label for='country"+ COUNTRY_COUNT + "' style='display:none;'>Select a country here...</label> </div>  </div>" +
 			`<div class="form-group row">
 				<label class="col-sm-3 col-form-label">身份类型</label>
 				<div class="col-sm-9">
@@ -876,33 +884,34 @@
 					<input type="email" class="form-control" id="email" placeholder="电子邮箱"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\*\\\·\\\@\\\/]/ig,'')">
 				</div>
 			</div>
+			
 			<div class="form-group row">
-             	 <label for="phone" class="col-sm-3 col-form-label">联系电话</label><br/>
+             	 <label for="phone` + COUNTRY_COUNT + `" class="col-sm-3 col-form-label">联系电话</label><br/>
              	 <div class="col-sm-9">
-             	    <input style="padding-left:3rem;" id="phone" type="text" class="form-control telinput" placeholder="联系电话"/>
+             	    <input style="padding-left:3rem;" id="phone` + COUNTRY_COUNT + `" type="text" class="form-control telinput" placeholder="联系电话"/>
              	 </div>
           </div>											                    										                                  
 			`+
-			"<div style='display:none;' id='addmoreqtext"+x+"'> " +
+			"<div style='display:none;' id='addmoreqtext"+ COUNTRY_COUNT +"'> " +
 			`<div class="form-group row">
 				<label class="col-sm-3 col-form-label">发行股份数量</label>
 				<div class="col-sm-9">
 					<input type="tel" class="form-control"
-						id="numberofSharesIssued"+x placeholder="建议10000-50000股"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
+						id="calcNumberofSharesIssued` + COUNTRY_COUNT + `" placeholder="建议10000-50000股"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
 				</div>
 			</div>													
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">实缴股份数量</label>
 				<div class="col-sm-9">
 					<input type="tel" class="form-control"
-						id="numberofPaid-inShares"+x placeholder="建议与发行股份一致"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
+						id="calcNumberofPaid-inShares` + COUNTRY_COUNT + `" placeholder="建议与发行股份一致"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
 				</div>
 			</div>													
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">每股价值</label>
 				<div class="col-sm-9">
 					<input type="tel" class="form-control"
-						id="aluePerShare"+x placeholder="每股价值" value="1"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
+						id="calcPerShare`+ COUNTRY_COUNT + `" placeholder="每股价值" value="1"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
 				</div>
 			</div>	
 			</div>
@@ -914,6 +923,27 @@
 				</div>
 		    </div>						
 			<br /> <br />`;
-    	  console.log("contact:" + contact);
-          document.querySelector('#addContactPDiv'+x).insertAdjacentHTML('afterend',contact);
+          document.querySelector('#addContactPDiv0').insertAdjacentHTML('afterend',contact);
+          $("#country" + COUNTRY_COUNT ).countrySelect({
+      		preferredCountries: ['sg', 'cn', 'my']
+      	  });
+          var input = document.querySelector("#phone" + COUNTRY_COUNT );
+	  	  window.intlTelInput(input, {
+	  	    // any initialisation options go here
+	  	  });
+	  	  
+	  	  $("input[id^='calc']").change(function () {
+	  		  var totalIssue = 0;
+	  		  var totalpay = 0;
+	  		  $("input[id^='calcPerShare']").each(function(i) {
+	  			var issueNo = $("#calcNumberofSharesIssued"+i).val();
+		    	var payNo = $("#calcNumberofPaid-inShares"+i).val();
+		    	var pershare = $("#calcPerShare"+i).val();
+		    	totalIssue = totalIssue + issueNo * pershare;
+		    	totalpay = totalpay + payNo * pershare;
+	  		  });
+	    	
+	    	$("#registeredCapital1").val(totalIssue);
+	    	$("#registeredCapital2").val(totalpay);
+	      }).change();
       } 

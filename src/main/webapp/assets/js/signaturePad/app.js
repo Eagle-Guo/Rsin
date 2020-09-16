@@ -82,11 +82,19 @@ function uploadSignature(mimetype) {
 	        contentType: false,
 	        dataType: 'html',
 	        success: function (response) {
-	            alert("AJAX OK: uploadSignature() ok");
-	            console.log(response);
+	        	alert(response);
+	        	for(var p in response) {
+	        		var str = str + response[p]+',';
+	        		console.log("str" + str);
+	        	}
+	        	
+	        	//$.each(response, function(name, value){
+	        	//    console.log(name + "--> " + value);   
+	        	    //var result = "<div> <a href = '" + key +"' class='fa fa-file-pdf-o' style='font-size:120px;color:red'></a> <br />" + value + "</div>";
+	        		//$('#withSingatureDoc').insertAdjacentHTML("beforeend", result);  
+	        	// });  
 	        },
 	        error: function (e) {
-	            alert("AJAX ERROR: uploadSignature() upload error");
 	            console.log(e);
 	        }
 	    });

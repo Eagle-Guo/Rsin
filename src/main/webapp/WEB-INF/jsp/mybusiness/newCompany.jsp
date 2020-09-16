@@ -574,15 +574,15 @@
 															<div class="col-sm-9">
 																<div class="form-group">
 																	<div class="form-check form-check-inline">
-																		<input class="form-check-input" type="checkbox" id="checkb_dongshi1"> 
+																		<input class="form-check-input" type="checkbox" id="checkb_dongshi0"> 
 																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
 																	</div>
 																	<div class="form-check form-check-inline">
-																		<input class="form-check-input" type="checkbox" id="checkb_gudong1" onclick="addMoreQ(1)">
+																		<input class="form-check-input" type="checkbox" id="checkb_gudong0" onclick="addMoreQ(0)">
 																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox2">股东</label>
 																	</div>
 																	<div class="form-check form-check-inline">
-																		<input class="form-check-input" type="checkbox" id="checkb_contactpeople1"> 
+																		<input class="form-check-input" type="checkbox" id="checkb_contactpeople0"> 
 																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox3">联系人</label>
 																	</div>
 																</div>
@@ -604,13 +604,6 @@
 																</select>
 															</div>
 														</div>
-														<div class="form-group row">
-									                      <label class="col-sm-3 col-form-label">国籍</label>
-															<div class="form-item  col-sm-9">
-																<input id="country11" class="form-control" type="text"/>
-																<label for="country11" style="display:none;">Select a country here...</label>
-															</div>
-									                    </div>
 									                    <div class="form-group row">
 									                      <label class="col-sm-3 col-form-label">国籍</label>
 															<div class="form-item  col-sm-9">
@@ -647,24 +640,24 @@
 										                   	 <div class="col-sm-9">
 										                   	    <input style="padding-left:3rem;" id="phone" type="text" class="form-control telinput" placeholder="联系电话"/>
 										                   	 </div>
-										                </div>											                    										                                  
-														<div style="display: none;" id="addmoreqtext1">
+										                </div>
+														<div style="display: none;" id="addmoreqtext0">
 															<div class="form-group row">
 																<label class="col-sm-3 col-form-label">发行股份数量</label>
 																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="numberofSharesIssued" placeholder="建议10000-50000股"   onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+																	<input type="tel" class="form-control" id="calcNumberofSharesIssued0" placeholder="建议10000-50000股"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
 																</div>
 															</div>
 															<div class="form-group row">
 																<label class="col-sm-3 col-form-label">实缴股份数量</label>
 																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="numberofPaid-inShares" placeholder="建议与发行股份一致"   onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+																	<input type="tel" class="form-control" id="calcNumberofPaid-inShares0" placeholder="建议与发行股份一致"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
 																</div>
 															</div>
 															<div class="form-group row">
 																<label class="col-sm-3 col-form-label">每股价值S$</label>
 																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="aluePerShare" placeholder="每股价值" value="1"   onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+																	<input type="tel" class="form-control" id="calcPerShare0" placeholder="每股价值" value="1"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
 																</div>
 															</div>
 														</div>
@@ -677,7 +670,7 @@
 													    </div>						
 														<br /> <br />
 														<div class="row">
-															<a class="btn btn-icon icon-left btn-warning" onclick="addContactP(0)">
+															<a class="btn btn-icon icon-left btn-warning" onclick="addContactP()">
 																<i class="far fa-user"></i>增加填报人员
 															</a>
 														</div>
@@ -854,14 +847,8 @@
 	  	  window.intlTelInput(input, {
 	  	    // any initialisation options go here
 	  	});
-        $("#country11").countrySelect({
-    		preferredCountries: ['sg', 'cn', 'my']
-    	});
         $("#country0").countrySelect({
     		preferredCountries: ['sg', 'cn', 'my']
-    	});
-        $("#country1").countrySelect({
-    		preferredCountries: ['cn', 'sg', 'my']
     	});
         </script>
 	</body>

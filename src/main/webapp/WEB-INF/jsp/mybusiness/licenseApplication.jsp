@@ -82,12 +82,12 @@
 																		<span class="custom-switch-description nc_subttitle">商标注册</span>
 																	</div>
 																	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">
-																		<input type="checkbox" class="custom-switch-input" id="openAccount5" onclick="openAccountFunction('openAccount5','openAccountDeatil5')">
+																		<input type="checkbox" class="custom-switch-input" id="openLicense" onclick="openLicenseFunction('openLicense','openLicenseDeatil')">
 																		<span class="custom-switch-indicator nc_bttextbtn"></span>
 																	</div>
 																</div>
 															</label>
-															<div class="card-body" id="openAccountDeatil5">
+															<div class="card-body" id="openLicenseDeatil">
 																<ul class="list-group">
 																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(0)">
 																		<div class="form-group" style="margin-right: 5rem; margin-bottom: 0rem;">
@@ -131,7 +131,7 @@
 											    </div>
 											    <div class="button-row d-flex mt-4">
 													<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-													<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="saveToBackend()">下一步</button>
+													<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="listSummary()">下一步</button>
 												</div>
 											</div>
 
@@ -148,7 +148,7 @@
 												<div class="button-row d-flex mt-4">
 													<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
 													<!-- <button class="btn btn-primary js-btn-prev" type="button" title="SendEmail" id="send_email">发送确认邮件</button> -->
-													<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="saveToBackend()">下一步</button>
+													<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
 												</div>
 											</div>
 	
@@ -195,17 +195,13 @@
 		<!-- General JS Scripts -->
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 		<script src="../../../assets/js/stisla.js"></script>
 		<!-- Template JS File -->
 		<script src="../../../assets/js/scripts.js"></script>
 		<script src="../../../assets/js/custom.js"></script>
 		<script src="../../../assets/js/multiplepage.js"></script>
 		<!-- Page Specific JS File -->
-	    <script src="../../../assets/js/newcompany.js"></script>
+	    <script src="../../../assets/js/licenseApplication.js"></script>
 	    <script src="../../../assets/js/fileupload.js" type="text/javascript"></script>
 	</body>
 </html>

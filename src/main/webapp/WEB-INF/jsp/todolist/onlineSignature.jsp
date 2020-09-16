@@ -9,7 +9,7 @@
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" >
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Template CSS -->
   <link rel="stylesheet" href="../../../assets/css/style.css">
   <link rel="stylesheet" href="../../../assets/css/components.css">
@@ -2803,7 +2803,7 @@
 							    <div class="signature-pad--footer">
 							      <div class="signature-pad--actions">
 							      <div class="buttons sign_btn">                    
-				                      <button class="btn btn-icon icon-left btn-primary" id="submit_sign" data-action="save-png"><i class="fas fa-check"></i> 提交</button>
+				                      <button class="btn btn-icon icon-left btn-primary" id="submit_sign" disabled data-action="save-png"><i class="fas fa-check"></i> 提交</button>
 				                      <button class="btn btn-icon icon-left btn-primary" data-action="clear"><i class="fas fa-times"></i>清空</button>
 				                      <button class="btn btn-icon icon-left btn-primary" data-action="change-color"><i class="fas fa-times"></i>改变颜色</button>
 				                      <button class="btn btn-icon icon-left btn-primary" data-action="undo"><i class="fas fa-times"></i>撤销还原</button>
@@ -2831,7 +2831,12 @@
                      <br/><br/>
 	                     <div class="">	                        
 	                        <label class=" ">请查看或者下载签名文件：</label>
-	                    </div> 	                    
+	                    </div>
+	                    <div class="signature-pad--footer">
+						      <div class="signature-pad--actions">
+							      <div class="buttons sign_btn" id="withSingatureDoc"></div>	
+						      </div>
+						</div>
 					</div>                    
  					<div id="offlineSign" style="display:none;"  class="tabcontent">                    
 	                     <div class="">

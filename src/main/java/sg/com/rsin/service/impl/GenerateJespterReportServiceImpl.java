@@ -1,5 +1,7 @@
 package sg.com.rsin.service.impl;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,6 +14,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.imageio.ImageIO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -95,7 +99,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		return null;
 	}
 	
-	public byte[] generateNewCompanyPDFWithSignature(String userId, byte[] bytes) {
+	public Map<String, String> generateNewCompanyPDFWithSignature(String userId, byte[] bytes) {
 
 		List<JasperPrint> jasperPrintList = new ArrayList<JasperPrint>();
 		Map<String, String> userData = onlineSignatureService.getAllPageData(userId);
@@ -137,7 +141,11 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			
 			Map<String, Object> reportParamMapTwo = new HashMap<String, Object>();
 			reportParamMapTwo.put("createdBy", "Rsin Group");
-			reportParamMapTwo.put("signImage", bytes);
+			
+			ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+		    BufferedImage image = ImageIO.read(bis);
+            
+			//reportParamMapTwo.put("signImage", image);
 			JasperPrint jasperPrintTwo = JasperFillManager.fillReport(signatureReport, reportParamMapTwo, new JREmptyDataSource());
 			jasperPrintList.add(jasperPrintTwo);
 
@@ -149,9 +157,13 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			//configuration.setCreatingBatchModeBookmarks(true); //add this so your bookmarks work, you may set other parameters
 			//exporter.setConfiguration(configuration);
 			exporter.exportReport();
+			JasperExportManager.exportReportToPdf(jasperPrintOne);
+			Map<String, String> signatureAndPath = new HashMap<String, String>();
+			signatureAndPath.put(fileName, "WithSign_" + fileName + ".pdf");
+			signatureAndPath.put("Secretary_Agreement", "WithSign_Secretary_Agreement.pdf");
+			signatureAndPath.put("Notice_for_Controllers", "Notice_for_Controllers.pdf");
+			return signatureAndPath;
 			
-			JasperExportManager.exportReportToPdfFile(jasperPrintOne, fileDirectory + fileName  + ".pdf");
-			return JasperExportManager.exportReportToPdf(jasperPrintOne);
 		} catch (JRException jre) {
 			jre.printStackTrace();
 		} catch (FileNotFoundException e) {
@@ -166,7 +178,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		return generateNewCompanyPDF(userId, fileName, id);
 	}
 	
-	public byte[] uploadSignature(String userId, MultipartFile uploadfile) {
+	public Map<String, String> uploadSignature(String userId, MultipartFile uploadfile) {
 		Map<String, String> userData = onlineSignatureService.getAllPageData(userId);
 		String companyId = userData.get("companyId");
 		String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
@@ -180,7 +192,8 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	            byte[] bytes = file.getBytes();
 	            Path path = Paths.get(fileDirectory, userId + "_Sigature.png");
 	            Files.write(path, bytes);
-	            generateNewCompanyPDFWithSignature(userId, bytes);
+	            Map<String, String> signFileAndPath= generateNewCompanyPDFWithSignature(userId, bytes);
+	            return signFileAndPath;
 	        }
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -188,8 +201,6 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			e.printStackTrace();
 		}
 		
-		
-		
-		return null;
+		return new HashMap<String, String>();
 	}
 }

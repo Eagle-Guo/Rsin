@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 import sg.com.rsin.service.GenerateJespterReportService;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -62,8 +63,8 @@ public class FileDownloadController {
     public ResponseEntity<?> uploadSignatureFile(@RequestParam("signature") MultipartFile uploadfile, HttpServletRequest request) throws IOException {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
 		
-		generateJespterReportService.uploadSignature(userId, uploadfile);
+		Map<String, String> signFileAndName = generateJespterReportService.uploadSignature(userId, uploadfile);
 		
-		return new ResponseEntity("Successfully uploaded", new HttpHeaders(), HttpStatus.OK);
+		return new ResponseEntity(signFileAndName, HttpStatus.OK);
     }
 }

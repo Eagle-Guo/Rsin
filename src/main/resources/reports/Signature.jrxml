@@ -28,7 +28,6 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<parameter name="signImage" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -87,7 +86,7 @@
 				<text><![CDATA[IP Address:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="310" y="180" width="234" height="18" uuid="b33e72f5-f7d0-4acf-ae37-5e263bba91a9"/>
+				<reportElement x="310" y="180" width="234" height="100" uuid="b33e72f5-f7d0-4acf-ae37-5e263bba91a9"/>
 				<box>
 					<pen lineWidth="1.0"/>
 				</box>
@@ -110,11 +109,6 @@
 				</textElement>
 				<text><![CDATA[Audit]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="310" y="202" width="234" height="80" uuid="df3de780-8063-438b-bfce-eceb7e6e1f68"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64($P{signImage}.getBytes()))]]></textFieldExpression>
-			</textField>
 		</band>
 	</detail>
 </jasperReport>

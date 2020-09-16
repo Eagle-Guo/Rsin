@@ -7,10 +7,10 @@
   <title>睿信集团&mdash; 控制面版</title>
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-  <!-- Template CSS -->
+<!-- Template CSS -->
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
 </head>
@@ -34,44 +34,50 @@
                   
                     <li class="media leftTab active"  id="b-1" onclick="viewPri(1)" onmouseover="viewPri(1)" >
                       <div class="media-body">
-                        <div class="float-right list_btn">上传</div>
                         <div class="float-right list_btn marginright1">下载</div>
-                        <div class="">IC(正面)</div>                       
+                        <div class="">IC(正面)</div>
+                        <input type="file" name="fileName" id="fileICFront" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#fileICFront', '#onLoadImageICFront')">
+    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileICFront', '#onLoadImageICFront')" value="上传"/>
                       </div>
                     </li>
                     <li class="media leftTab active"  id="b-2" onclick="viewPri(2)" onmouseover="viewPri(2)" >
                       <div class="media-body">
-                         <div class="float-right list_btn">上传</div>
                         <div class="float-right list_btn  marginright1">下载</div>
-                        <div class="">IC(背面) </div>                       
+                        <div class="">IC(背面) </div>           
+                        <input type="file" name="fileName" id="fileICBack" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#fileICBack', '#onLoadImageICBack')">
+    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileICBack', '#onLoadImageICBack')" value="上传"/>            
                       </div>
                     </li>
                     <li class="media leftTab active"  id="b-3" onclick="viewPri(3)" onmouseover="viewPri(3)" >
                       <div class="media-body">
-                         <div class="float-right list_btn">上传</div>
                         <div class="float-right list_btn  marginright1">下载</div>
-                        <div class="">护照（有照片页）</div>                       
+                        <div class="">护照（有照片页）</div>
+						<input type="file" name="fileName" id="filePassport" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#filePassport', '#onLoadImagePassport')">
+    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePassport', '#onLoadImagePassport')" value="上传"/>
                       </div>
                     </li>   
                     <li class="media leftTab active"  id="b-4" onclick="viewPri(4)" onmouseover="viewPri(4)" >
                       <div class="media-body">
-                         <div class="float-right list_btn">上传</div>
                         <div class="float-right list_btn  marginright1">下载</div>
-                        <div class="">中国身份证</div>                       
+                        <div class="">中国身份证</div>
+                        <input type="file" name="fileName" id="filePRCIC" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#filePRCIC', '#onLoadImagePRCIC')">
+    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePRCIC', '#onLoadImagePRCIC')" value="上传"/>                    
                       </div>
                     </li>
                      <li class="media leftTab active"  id="b-5" onclick="viewPri(5)" onmouseover="viewPri(5)" >
                       <div class="media-body">
-                         <div class="float-right list_btn">上传</div>
                         <div class="float-right list_btn  marginright1">下载</div>
-                        <div class="">住所证明 </div>                       
+                        <div class="">住所证明 </div>
+                        <input type="file" name="fileName" id="fileAddress" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#fileAddress', '#onLoadImageAddress')">
+    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileAddress', '#onLoadImageAddress')" value="上传"/>
                       </div>
                     </li>
                     <li class="media leftTab active"  id="b-6" onclick="viewPri(6)" onmouseover="viewPri(6)" >
                       <div class="media-body">
-                         <div class="float-right list_btn">上传</div>
                         <div class="float-right list_btn  marginright1">下载</div>
-                        <div class="">持护照（打开有照片页）上半身照</div>                       
+                        <div class="">持护照（打开有照片页）上半身照</div>
+                        <input type="file" name="fileName" id="filePersonalPhoto" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#filePersonalPhoto', '#onLoadImagePersonalPhoto')">
+    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePersonalPhoto', '#onLoadImagePersonalPhoto')" value="上传"/>
                       </div>
                     </li>                      
                   </ul>                                                     
@@ -85,6 +91,7 @@
                 </div>
                 <div class="card-body fixcardhieht">
                      <h4><b>IC(正面)</b></h4><br/>
+                     <div id="onLoadImageICFront"></div>
                 </div>
               </div>              
               <div class="card priDesc"  id="b2" >
@@ -93,6 +100,7 @@
                 </div>
                 <div class="card-body fixcardhieht">
                      <h4><b>IC(背面)</b></h4><br/>
+                     <div id="onLoadImageICBack"></div>
                 </div>
               </div>   
                <div class="card priDesc"  id="b3" >
@@ -101,6 +109,7 @@
                 </div>
                 <div class="card-body fixcardhieht">
                      <h4><b>护照（有照片页）</b></h4><br/>
+                     <div id="onLoadImagePassport"></div>
                 </div>
               </div>              
               <div class="card priDesc"  id="b4" >
@@ -109,6 +118,7 @@
                 </div>
                 <div class="card-body fixcardhieht">
                      <h4><b>中国身份证</b></h4><br/>
+                     <div id="onLoadImagePRCIC"></div>
                 </div>
               </div>               
               <div class="card priDesc"  id="b5" >
@@ -117,6 +127,7 @@
                 </div>
                 <div class="card-body fixcardhieht">
                      <h4><b>住所证明</b></h4><br/>
+                     <div id="onLoadImageAddress"></div>
                 </div>
               </div>               
               <div class="card priDesc"  id="b6" >
@@ -125,6 +136,7 @@
                 </div>
                 <div class="card-body fixcardhieht">
                      <h4><b>持护照（打开有照片页）上半身照</b></h4><br/>
+                     <div id="onLoadImagePersonalPhoto"></div>
                 </div>
               </div>                                                                                              
             </div>
@@ -143,51 +155,11 @@
   
 
   <!-- General JS Scripts -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="../assets/js/stisla.js"></script>
-
-  <!-- JS Libraies -->
-  <script src="../node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
-  <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
-  <script src="../node_modules/jqvmap/dist/jquery.vmap.min.js"></script>
-  <script src="../node_modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-  <script src="../node_modules/summernote/dist/summernote-bs4.js"></script>
-  <script src="../node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
-
-  <!-- Template JS File -->
-  <script src="../assets/js/scripts.js"></script>
-  <script src="../assets/js/custom.js"></script>
-
-  <!-- Page Specific JS File -->
-  <script src="../assets/js/page/index-0.js"></script>
-  
-  <script type="text/javascript">    
-        function viewPri(x) {
-            document.getElementsByClassName("leftTab active")[0].classList.remove("active");
-            document.getElementsByClassName("priDesc view")[0].classList.remove("view");
-            document.getElementById("b-" + x).classList.add("active");
-            document.getElementById("b" + x).classList.add("view");
-           /* document.getElementById("rightImgPri").src = "images/abroad/ca/Primary/sc/Ontario/fprivate" + x + ".jpg";*/
-        }
-
-        function openCity(evt, cityName) {
-          var i, tabcontent, tablinks;
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-          }
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-          document.getElementById(cityName).style.display = "block";
-          evt.currentTarget.className += " active";
-        }
-
-	</script>
+  <script src="../../../assets/js/uploadPage.js"></script>
 </body>
 </html>

@@ -1,10 +1,11 @@
 package sg.com.rsin.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 
 import sg.com.rsin.dao.CompanyInfoRepository;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
@@ -21,7 +22,11 @@ public class OnlineSignatureServiceImpl implements OnlineSignatureService {
 	@Autowired
 	CompanyShareholderInfoRepository companyShareholderInfoRepository;
 	
-	public void getAllPageData (ModelAndView model, String userEmail) {
+	public Map<String, String> getAllPageData (String userEmail) {
+		if (userEmail == null || "".equals(userEmail)) {
+			return new HashMap<String, String>();
+		}
+		Map<String, String> pageData = new HashMap<String, String>();
 		
 		List<CompanyShareholderInfo> companyShareholderInfos = companyShareholderInfoRepository.findByDescription(userEmail);
 		
@@ -29,18 +34,22 @@ public class OnlineSignatureServiceImpl implements OnlineSignatureService {
 			List<CompanyInfo> companyInfos = companyInfoRepository.findByCompanyId(companyShareholderInfo.getNewCompany().getId());
 			for (CompanyInfo companyInfo : companyInfos) {
 				if ("公司名称".equals(companyInfo.getName())) {
-					model.addObject("companyName", companyInfo.getDescription());
+					pageData.put("companyName", companyInfo.getDescription());
 					break;
 				}
 			}
 			List<CompanyShareholderInfo> CompanyShareholderInfos = companyShareholderInfoRepository.findByCompanyId(companyShareholderInfo.getNewCompany().getId());
 			for (CompanyShareholderInfo shareholderInfo : CompanyShareholderInfos) {
 				if ("个人地址及邮编".equals(shareholderInfo.getName())) {
-					model.addObject("address", shareholderInfo.getDescription());
+					pageData.put("address", shareholderInfo.getDescription());
 					break;
 				}
 			}
+			
+			pageData.put("companyId", companyShareholderInfo.getNewCompany().getId().toString());
+			
 		}
+		return pageData;
 	}
 	
 }

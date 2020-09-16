@@ -1,18 +1,12 @@
 package sg.com.rsin.controllers;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -176,8 +170,9 @@ public class ViewController {
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		ModelAndView model = new ModelAndView("todolist/onlineSignature");
 		
-		onlineSignatureService.getAllPageData(model, userEmail);
-		
+		Map<String, String> pageData = onlineSignatureService.getAllPageData(userEmail);
+		model.addObject("companyName", pageData.get("companyName"));
+		model.addObject("address", pageData.get("address")); 
 		return model;
 	}	
 

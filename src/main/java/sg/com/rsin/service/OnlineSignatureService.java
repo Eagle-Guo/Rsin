@@ -1,7 +1,7 @@
 package sg.com.rsin.service;
 
-import org.springframework.web.servlet.ModelAndView;
+import java.util.Map;
 
 public interface OnlineSignatureService {
-	public void getAllPageData (ModelAndView model, String userEmail);
+	public Map<String, String> getAllPageData (String userEmail);
 }

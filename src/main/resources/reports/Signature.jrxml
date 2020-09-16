@@ -28,10 +28,7 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<subDataset name="Empty Dataset1" uuid="db39a40f-4cf3-440d-bc06-e89c6247aaf5"/>
-	<queryString>
-		<![CDATA[]]>
-	</queryString>
+	<parameter name="signImage" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -76,7 +73,7 @@
 				<text><![CDATA[Online Document Signing]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="180" width="170" height="30" uuid="ff72fe06-6597-4228-a649-8ecf4691a85e"/>
+				<reportElement x="30" y="180" width="170" height="18" uuid="ff72fe06-6597-4228-a649-8ecf4691a85e"/>
 				<textElement>
 					<font size="14" isBold="false"/>
 				</textElement>
@@ -90,7 +87,7 @@
 				<text><![CDATA[IP Address:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="310" y="180" width="234" height="100" uuid="b33e72f5-f7d0-4acf-ae37-5e263bba91a9"/>
+				<reportElement x="310" y="180" width="234" height="18" uuid="b33e72f5-f7d0-4acf-ae37-5e263bba91a9"/>
 				<box>
 					<pen lineWidth="1.0"/>
 				</box>
@@ -113,10 +110,11 @@
 				</textElement>
 				<text><![CDATA[Audit]]></text>
 			</staticText>
-			<image>
-				<reportElement x="470" y="676" width="80" height="80" uuid="227a4437-4eda-423a-aee3-4d1b722ecbf8"/>
-				<imageExpression><![CDATA[""]]></imageExpression>
-			</image>
+			<textField>
+				<reportElement x="310" y="202" width="234" height="80" uuid="df3de780-8063-438b-bfce-eceb7e6e1f68"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64($P{signImage}.getBytes()))]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>

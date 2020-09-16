@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Form1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="934c42e2-6d04-4109-90e1-661b66ee480e">
+	<parameter name="companyname" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -228,6 +229,13 @@ Dated this Signing Date日期]]></text>
 				<text><![CDATA[DIRECTOR
 Dated this Signing Date]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="12" y="12" width="531" height="30" uuid="3e2716e6-e215-4337-aee8-dbb7e7597ab2"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyname}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>

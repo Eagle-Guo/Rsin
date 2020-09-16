@@ -314,7 +314,7 @@
 																			<div class="col-lg-4 col-md-4 col-sm-4 col-4" style="margin-top: 0rem;">GST申报</div>
 																			<div class="form-group col-lg-4 col-md-4 col-sm-4 col-4" style="margin-bottom: 0px;">
 																				<div class="input-group">
-																					<select class="custom-select" id="countapgst" donchange="rungst(1)" style="border: none;">
+																					<select class="custom-select" id="countapgst" onchange="rungst(1)" style="border: none;">
 																						<option selected>1</option>
 																						<option value="2">2</option>
 																						<option value="3">3</option>

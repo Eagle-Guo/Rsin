@@ -48,6 +48,7 @@
 											<button class="multisteps-form__progress-btn js-active" type="button" title="选择服务">选择服务</button>
 											<button class="multisteps-form__progress-btn" type="button" title="填报资料">填报资料</button>
 											<button class="multisteps-form__progress-btn" type="button" title="在线确认">在线确认</button>
+											<button class="multisteps-form__progress-btn" type="button" title="在线确认">在线支付</button>											
 										</div>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 col-sm-12  alert alert-primary alert-dismissible show fade" style="margin: 15px;">
@@ -106,9 +107,9 @@
 																					<button class="btn" disabled="disabled">卡位</button>
 																				</div>
 																				<select class="custom-select" id="countMoffice" onchange="runoffice(2)" style="border: none;">
-																					<option value="3" selected>3</option>
-																					<option value="6">6</option>
-																					<option value="12">12</option>
+																					<option value="1" selected>3</option>
+																					<option value="2">6</option>
+																					<option value="4">12</option>
 																				</select>
 																				<div class="input-group-append">
 																					<button class="btn" disabled="disabled">个月</button>
@@ -145,7 +146,7 @@
 											    </div>
 											    <div class="button-row d-flex mt-4">
 													<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-													<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="saveToBackend()">下一步</button>
+													<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="listSummary()">下一步</button>
 												</div>
 											</div>
 
@@ -219,7 +220,7 @@
 		<script src="../../../assets/js/custom.js"></script>
 		<script src="../../../assets/js/multiplepage.js"></script>
 		<!-- Page Specific JS File -->
-	    <script src="../../../assets/js/newcompany.js"></script>
+	    <script src="../../../assets/js/officeService.js"></script>
 	    <script src="../../../assets/js/fileupload.js" type="text/javascript"></script>
 	</body>
 </html>

@@ -48,6 +48,7 @@
 											<button class="multisteps-form__progress-btn js-active" type="button" title="选择服务">选择服务</button>
 											<button class="multisteps-form__progress-btn" type="button" title="填报资料">填报资料</button>
 											<button class="multisteps-form__progress-btn" type="button" title="在线确认">在线确认</button>
+											<button class="multisteps-form__progress-btn" type="button" title="在线确认">在线支付</button>
 										</div>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 col-sm-12  alert alert-primary alert-dismissible show fade" style="margin: 15px;">

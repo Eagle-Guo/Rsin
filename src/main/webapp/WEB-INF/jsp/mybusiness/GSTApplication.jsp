@@ -48,6 +48,7 @@
 											<button class="multisteps-form__progress-btn js-active" type="button" title="选择服务">选择服务</button>
 											<button class="multisteps-form__progress-btn" type="button" title="填报资料">填报资料</button>
 											<button class="multisteps-form__progress-btn" type="button" title="在线确认">在线确认</button>
+											<button class="multisteps-form__progress-btn" type="button" title="在线确认">在线支付</button>
 										</div>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 col-sm-12  alert alert-primary alert-dismissible show fade" style="margin: 15px;">
@@ -96,7 +97,7 @@
 																			<div class="col-lg-4 col-md-4 col-sm-4 col-4" style="margin-top: 0rem;">GST申报</div>
 																			<div class="form-group col-lg-4 col-md-4 col-sm-4 col-4" style="margin-bottom: 0px;">
 																				<div class="input-group">
-																					<select class="custom-select" id="countapgst" onchange="rungst(1)" style="border: none;">
+																					<select class="custom-select" id="countapgst" onchange="reCalcgst(0)" style="border: none;">
 																						<option selected>1</option>
 																						<option value="2">2</option>
 																						<option value="3">3</option>
@@ -153,7 +154,7 @@
 											    </div>
 											    <div class="button-row d-flex mt-4">
 													<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-													<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="saveToBackend()">下一步</button>
+													<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="listSummary()">下一步</button>
 												</div>
 											</div>
 
@@ -170,7 +171,7 @@
 												<div class="button-row d-flex mt-4">
 													<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
 													<!-- <button class="btn btn-primary js-btn-prev" type="button" title="SendEmail" id="send_email">发送确认邮件</button> -->
-													<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="saveToBackend()">下一步</button>
+													<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
 												</div>
 											</div>
 	
@@ -227,7 +228,7 @@
 		<script src="../../../assets/js/custom.js"></script>
 		<script src="../../../assets/js/multiplepage.js"></script>
 		<!-- Page Specific JS File -->
-	    <script src="../../../assets/js/newcompany.js"></script>
+	     <script src="../../../assets/js/GSTApplication.js"></script>
 	    <script src="../../../assets/js/fileupload.js" type="text/javascript"></script>
 	</body>
 </html>

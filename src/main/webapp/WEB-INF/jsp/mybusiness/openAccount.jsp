@@ -82,7 +82,8 @@
 								                      <li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(0)" >					                      						                      							                    
 								                       <div class="form-group" style="margin-bottom: 0px;">
 									                      <div class="input-group">
-									                        <select class="custom-select" id="selectNewSignAccount" onchange="run(1)"  style="border:none;">
+									                        <select class="custom-select" id="selectNewSignAccount" onchange="run(1)">
+									                        
 									                          <option value="1" selected>1</option>
 									                          <option value="2">2</option>
 									                          <option value="3">3</option>
@@ -106,11 +107,6 @@
 							                    </div>                						                    
 						                    </li>
 						                  	<li class="list-group-item">
-							                  <!--  	<label class="custom-switch mt-2 justify-content-between">
-								                    <span class="custom-switch-description nc_subttitle">远程开户</span>
-						                        	<input type="checkbox" class="custom-switch-input"  id="openRemoteAccount" onclick="openAccountFunction('openRemoteAccount','openRemoteAccountDeatil')"> 
-						                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
-								                </label>-->
 													<label> 
 														  <div class="row">
 																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
@@ -153,11 +149,6 @@
 				                    <div class="section-title">私人银行贵宾户口</div>
 				                		<ul class="list-group list-group-flush">
 						                  	<li class="list-group-item">
-							                  	<!--  <label class="custom-switch mt-2 justify-content-between">
-								                    <span class="custom-switch-description nc_subttitle">私人银行贵宾户口</span>
-						                        	<input type="checkbox" class="custom-switch-input"  id="openPriviteVIPAccount" onclick="openAccountFunction('openPriviteVIPAccount','openPriviteVIPAccountDeatil')"> 
-						                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
-								                </label>-->
 													<label> 
 														  <div class="row">
 																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
@@ -200,11 +191,6 @@
 				                    <div class="section-title">新加坡公司开户</div>
 				                		<ul class="list-group list-group-flush">
 						                  	<li class="list-group-item">
-							                  <!--  <label class="custom-switch mt-2 justify-content-between">
-								                    <span class="custom-switch-description nc_subttitle">新加坡公司开户</span>
-						                        	<input type="checkbox" class="custom-switch-input"  id="openCompanyAccount" onclick="openAccountFunction('openCompanyAccount','openCompanyAccountDeatil')"> 
-						                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
-								                </label>-->	
 													<label> 
 														  <div class="row">
 																 <div class="col-lg-10 col-md-10 col-sm-10 col-10">
@@ -260,33 +246,14 @@
 				                <div class="multisteps-form__content">
 				                  
 				                  <div class="card-body">
-				                	<ul class="list-group list-group-flush">				                
-					                  	<li class="list-group-item">
+				                	<ul class="list-group list-group-flush" >				                
+					                  	<li class="list-group-item" id="InfoBVI" style="display:none;">
 						                  	<label class="custom-switch mt-2 justify-content-between">
-							                    <span class="custom-switch-description nc_subttitle"><b>离岸公司新加坡离岸银行户口</b> </span>
+							                    <span class="custom-switch-description nc_subttitle"><b>离岸公司新加坡离岸银行户口-新建坡面签开户</b> </span>
 					                        	<input type="checkbox" class="custom-switch-input"  id="openAccount5" onclick="openAccountFunction('openAccount5','openAccountDeatil5')"> 
 					                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
 							                </label>
-						                	<div class="card-body" id="openAccountDeatil5" style="display:none">						                	
-		   							             <!--<div class="form-group row">
-							                      	 <label  class="col-sm-3 col-form-label">类型</label>
-							                      		<div class="col-sm-9">
-										                     <select class="custom-select">
-										                        <option value="1" selected>新建坡面签开户</option>
-										                        <option value="2">远程开户</option>
-										                      </select>
-							                      		</div>
-							                     </div> -->
-							    				 <div class="form-group row">
-															<label class="col-sm-3 col-form-label">类型</label>
-															<div class="col-sm-9">
-																<select class="custom-select c-select-info appinfo "
-																	id="Type">
-																	<option value="1" selected>新建坡面签开户</option>
-										                        <option value="2">远程开户</option>
-																</select>
-															</div>
-												 </div>                 						                	
+						                	<div class="card-body" id="openAccountDeatil5" style="display:none">						                	               						                	
 									             <div class="form-group row">
 							                      	 <label  class="col-sm-3 col-form-label">公司名称</label>
 							                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司名称"></div>
@@ -310,18 +277,49 @@
 		   							             <div class="form-group row">
 							                      	 <label  class="col-sm-3 col-form-label">其它联系方式</label>
 							                      		<div class="col-sm-9"><input class="form-control"  placeholder="其它联系方式"></input></div>
-							                     </div> 	
-							                  <!--   <div class="col-sm-12" ><input type="button" value="+离岸公司新加坡离岸银行户口" onclick="addFilebank1(1)"></div>	
-							                     <div class="form-group row"  id="addfilebankdiv1">	 --> 		                    	
+							                     </div> 		                    	
 						                    </div>
 					                    </li>	
-					                  	<li class="list-group-item">
+					                  	<li class="list-group-item" id="InfoRemote" style="display:none;" >
 						                  	<label class="custom-switch mt-2 justify-content-between">
-							                    <span class="custom-switch-description nc_subttitle"><b>私人银行贵宾户口</b> </span>
+							                    <span class="custom-switch-description nc_subttitle"><b>离岸公司新加坡离岸银行户口-远程开户</b> </span>
 					                        	<input type="checkbox" class="custom-switch-input"  id="openAccount6" onclick="openAccountFunction('openAccount6','openAccountDeatil6')"> 
 					                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
 							                </label>
-						                	<div class="card-body" id="openAccountDeatil6" style="display:none">
+						                	<div class="card-body" id="openAccountDeatil6" style="display:none">						                	               						                	
+									             <div class="form-group row">
+							                      	 <label  class="col-sm-3 col-form-label">公司名称</label>
+							                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司名称"></div>
+							                     </div>
+									             <div class="form-group row">
+							                      	 <label  class="col-sm-3 col-form-label">公司注册国家</label>
+							                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司注册国家"></div>
+							                     </div>                    		
+									             <div class="form-group row">
+							                      	 <label  class="col-sm-3 col-form-label">公司法人信息</label>
+							                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司法人信息"></div>
+							                     </div>    
+		   							             <div class="form-group row">
+							                      	 <label  class="col-sm-3 col-form-label">联系人电话</label>
+							                      		<div class="col-sm-9"><input type="tel" class="form-control"  placeholder="联系人电话"></div>
+							                     </div>    							             
+							                     <div class="form-group row">
+							                      	 <label  class="col-sm-3 col-form-label">联系人邮箱</label>
+							                      		<div class="col-sm-9"><input type="email" class="form-control"  placeholder="联系人邮箱"></div>
+							                     </div>  	
+		   							             <div class="form-group row">
+							                      	 <label  class="col-sm-3 col-form-label">其它联系方式</label>
+							                      		<div class="col-sm-9"><input class="form-control"  placeholder="其它联系方式"></input></div>
+							                     </div> 		                    	
+						                    </div>
+					                    </li>						                    
+					                  	<li class="list-group-item" id="InfoVIP" style="display:none;">
+						                  	<label class="custom-switch mt-2 justify-content-between">
+							                    <span class="custom-switch-description nc_subttitle"><b>私人银行贵宾户口</b> </span>
+					                        	<input type="checkbox" class="custom-switch-input"  id="openAccount7" onclick="openAccountFunction('openAccount7','openAccountDeatil7')"> 
+					                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
+							                </label>
+						                	<div class="card-body" id="openAccountDeatil67" style="display:none">
 									             <div class="form-group row">
 							                      	 <label  class="col-sm-3 col-form-label">个人姓名</label>
 							                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="个人姓名"></div>
@@ -344,13 +342,13 @@
 							                     </div> 					                    	
 						                    </div>
 					                    </li>		
-					                  	<li class="list-group-item">
+					                  	<li class="list-group-item" id="InfoSG" style="display:none;">
 						                  	<label class="custom-switch mt-2 justify-content-between">
 							                    <span class="custom-switch-description nc_subttitle"><b>新加坡公司开户</b> </span>
-					                        	<input type="checkbox" class="custom-switch-input"  id="openAccount7" onclick="openAccountFunction('openAccount7','openAccountDeatil7')"> 
+					                        	<input type="checkbox" class="custom-switch-input"  id="openAccount8" onclick="openAccountFunction('openAccount8','openAccountDeatil8')"> 
 					                        	<span class="custom-switch-indicator  nc_bttextbtn"></span>
 							                </label>
-						                	<div class="card-body" id="openAccountDeatil7" style="display:none">					                	
+						                	<div class="card-body" id="openAccountDeatil8" style="display:none">					                	
 									             <div class="form-group row">
 							                      	 <label  class="col-sm-3 col-form-label">公司名称</label>
 							                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司名称"></div>
@@ -390,28 +388,6 @@
 				              <!--single form panel-->
 				              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
 				                <h3 class="multisteps-form__title">在线确认</h3>
-				                	<!-- <div class="card-body">
-					                    <div class="form-group">
-					                      <label>服务记录</label>
-					                      <input type="text" id="serviceRecord" class="form-control">
-					                    </div>
-					                    <div class="form-group">
-					                      <label>服务进度</label>
-					                      <input type="text" id="serviceProgress" class="form-control" disabled value="新建">
-					                    </div>
-					                    <div class="form-group">
-					                      <label>介绍人</label>
-					                      <input type="text" id="serviceInstrutor" class="form-control">
-					                    </div>
-					                    <div class="form-group">
-					                      <label>地址</label>
-					                      <input type="text" id="serivceAddress" class="form-control">
-					                    </div>
-					                    <div class="form-group">
-					                      <label>备注</label>
-					                      <textarea id="comment" id="serviceComment" rows="4" class="form-control"></textarea>
-					                    </div>
-					                </div> -->
 				                  <div class="button-row d-flex mt-4">
 				                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
 				                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="listSummary()">下一步</button>
@@ -481,6 +457,15 @@
     	    text.style.display = "none";
     	  }
     }
+    function openInfoDiv(x,y) {
+  	  var countDiv = document.getElementById(x);
+  	  var text = document.getElementById(y);
+  	  if (countDiv.checked == true){
+  	    text.style.display = "block";
+  	  } else {
+  	    text.style.display = "none";
+  	  }
+  }    
 
     $(function() {
         $( "#registerDate" ).datepicker();
@@ -579,6 +564,7 @@
         var btn = document.getElementsByClassName("badge-pill")[x];
         
         if (!element.classList.contains('choosesv')) {
+            
         	switch (x) {
             case 0:
             	z.push(document.getElementById("selectNewSignAccount").value);
@@ -588,6 +574,7 @@
                  services.push({name:"新建坡面签开户",price:z[0]*2500});
                  refreshRightSummary();
                  z= [];
+                 document.getElementById("InfoBVI").style.display="block";
                  break;
             case 1:
             	z.push(document.getElementById("selectRemoteAccount").value);
@@ -597,6 +584,7 @@
                 services.push({name:"远程开户",price:z[0]*3500});
                 refreshRightSummary();
                 z=[];
+                document.getElementById("InfoRemote").style.display="block";
                 break;
             case 2:
             	z.push(document.getElementById("selectVIPAccount").value);
@@ -606,6 +594,7 @@
                  services.push({name:"私人银行贵宾户口",price:z[0]*1200});
                  refreshRightSummary();
                  z=[];
+                 document.getElementById("InfoVIP").style.display="block";
                  break;
             case 3:
             	z.push(document.getElementById("selectOpenCompanyAccount").value);
@@ -615,33 +604,38 @@
                  services.push({name:"新加坡公司开户",price:z[0]*500});
                  refreshRightSummary();
                  z= [];
+                 document.getElementById("InfoSG").style.display="block";
                  break;
             }
-        } else {
+        } else {        	        	
         	switch (x) {
         	case 0:
                 if (services.some(el => el.name === "新建坡面签开户")){
                     services = services.filter(item => item.name !== "新建坡面签开户")
                 }
                 refreshRightSummary();
+                document.getElementById("InfoBVI").style.display="none";
                 break;
             case 1:
                 if (services.some(el => el.name === "远程开户")){
                     services = services.filter(item => item.name !== "远程开户")
                 }
                 refreshRightSummary();
+                document.getElementById("InfoRemote").style.display="none";
                 break;
             case 2:
                 if (services.some(el => el.name === "私人银行贵宾户口")){
                     services = services.filter(item => item.name !== "私人银行贵宾户口")
                 }
                 refreshRightSummary();
+                document.getElementById("InfoVIP").style.display="none";
                 break;
             case 3:
                 if (services.some(el => el.name === "新加坡公司开户")){
                     services = services.filter(item => item.name !== "新加坡公司开户")
                 }
                 refreshRightSummary();
+                document.getElementById("InfoSG").style.display="none";
                 break;
             } 
         }
@@ -659,10 +653,53 @@
             }
             services.push({name:"新建坡面签开户",price:z[0]*2500});
             refreshRightSummary();
-            z= [];
-		}
+            z= [];            
+            openInfoDiv();            
+		}		
     }
-    
+    function openInfoDiv() {
+    	  var checkBox = document.getElementById("selectNewSignAccount").value;
+    	  var text = document.getElementById("InfoBVI");
+    	  var aaaa = "";
+    	  for (var i=0;i<checkBox;i++)
+    	  {      
+    	 aaaa = aaaa + `<br/><br/>              	
+    	    <li class="list-group-item" id="InfoBVI">
+    							                  	<label class="custom-switch mt-2 justify-content-between">
+    								                    <span class="custom-switch-description nc_subttitle"><b>离岸公司新加坡离岸银行户口-新建坡面签开户</b> </span>
+    								                </label>
+    							                	<div class="card-body" id="openAccountDeatil5">						                	               						                	
+    										             <div class="form-group row">
+    								                      	 <label  class="col-sm-3 col-form-label">公司名称</label>
+    								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司名称"></div>
+    								                     </div>
+    										             <div class="form-group row">
+    								                      	 <label  class="col-sm-3 col-form-label">公司注册国家</label>
+    								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司注册国家"></div>
+    								                     </div>                    		
+    										             <div class="form-group row">
+    								                      	 <label  class="col-sm-3 col-form-label">公司法人信息</label>
+    								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司法人信息"></div>
+    								                     </div>    
+    			   							             <div class="form-group row">
+    								                      	 <label  class="col-sm-3 col-form-label">联系人电话</label>
+    								                      		<div class="col-sm-9"><input type="tel" class="form-control"  placeholder="联系人电话"></div>
+    								                     </div>    							             
+    								                     <div class="form-group row">
+    								                      	 <label  class="col-sm-3 col-form-label">联系人邮箱</label>
+    								                      		<div class="col-sm-9"><input type="email" class="form-control"  placeholder="联系人邮箱"></div>
+    								                     </div>  	
+    			   							             <div class="form-group row">
+    								                      	 <label  class="col-sm-3 col-form-label">其它联系方式</label>
+    								                      		<div class="col-sm-9"><input class="form-control"  placeholder="其它联系方式"></input></div>
+    								                     </div> 	
+    								                  <!--   <div class="col-sm-12" ><input type="button" value="+离岸公司新加坡离岸银行户口" onclick="addFilebank1(1)"></div>	
+    								                     <div class="form-group row"  id="addfilebankdiv1">	 --> 		                    	
+    							                    </div>
+    						                    </li>`;  
+    	  }
+    	  text.innerHTML = aaaa;
+    	}    
     function run1(x) {
 		z.push(document.getElementById("selectVIPAccount").value);
 		//z.push(document.getElementById("countYear").value);
@@ -687,9 +724,50 @@
 	         services.push({name:"新加坡公司开户",price:z[0]*500});
 	         refreshRightSummary();
 			z= [];
+			openInfoSGDiv();
 		}
 	}   
-
+    function openInfoSGDiv() {
+    	  var checkBox = document.getElementById("selectOpenCompanyAccount").value;
+    	  var text = document.getElementById("InfoSG");
+    	  var aaaa = "";
+    	  for (var i=0;i<checkBox;i++)
+    	  {      
+    	 aaaa = aaaa + `<br/><br/>              	
+    	    <li class="list-group-item" id="InfoSG">
+    							                  	<label class="custom-switch mt-2 justify-content-between">
+    								                    <span class="custom-switch-description nc_subttitle"><b>新加坡公司开户</b> </span>
+    								                </label>
+    							                	<div class="card-body" id="openAccountDeatil8">						                	               						                	
+    										             <div class="form-group row">
+    								                      	 <label  class="col-sm-3 col-form-label">公司名称</label>
+    								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司名称"></div>
+    								                     </div>
+    										             <div class="form-group row">
+    								                      	 <label  class="col-sm-3 col-form-label">公司注册号</label>
+    								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司注册号"></div>
+    								                     </div>                    		
+    										             <div class="form-group row">
+    								                      	 <label  class="col-sm-3 col-form-label">公司法人信息</label>
+    								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司法人信息"></div>
+    								                     </div>    
+    			   							             <div class="form-group row">
+    								                      	 <label  class="col-sm-3 col-form-label">联系人电话</label>
+    								                      		<div class="col-sm-9"><input type="tel" class="form-control"  placeholder="联系人电话"></div>
+    								                     </div>    							             
+    								                     <div class="form-group row">
+    								                      	 <label  class="col-sm-3 col-form-label">联系人邮箱</label>
+    								                      		<div class="col-sm-9"><input type="email" class="form-control"  placeholder="联系人邮箱"></div>
+    								                     </div>  	
+    			   							             <div class="form-group row">
+    								                      	 <label  class="col-sm-3 col-form-label">其它联系方式</label>
+    								                      		<div class="col-sm-9"><input class="form-control"  placeholder="其它联系方式"></input></div>
+    								                     </div> 			                    	
+    							                    </div>
+    						                    </li>`;  
+    	  }
+    	  text.innerHTML = aaaa;
+    	}    
     function run3(x) {
 		z.push(document.getElementById("selectRemoteAccount").value);
 		//z.push(document.getElementById("countYear").value);
@@ -701,9 +779,103 @@
 	         services.push({name:"远程开户",price:z[0]*3500});
 	         refreshRightSummary();
 			z= [];
+			openInfoRemoteDiv();
 		}
+        
 	}   
-
+    function openInfoRemoteDiv() {
+  	  var checkBox = document.getElementById("selectRemoteAccount").value;
+  	  var text = document.getElementById("InfoRemote");
+  	  var aaaa = "";
+  	  for (var i=0;i<checkBox;i++)
+  	  {      
+  	 aaaa = aaaa + `<br/><br/>              	
+  	    <li class="list-group-item" id="InfoRemote">
+  							                  	<label class="custom-switch mt-2 justify-content-between">
+  								                    <span class="custom-switch-description nc_subttitle"><b>离岸公司新加坡离岸银行户口-远程开户</b> </span>
+  								                </label>
+  							                	<div class="card-body" id="openAccountDeatil6">						                	               						                	
+  										             <div class="form-group row">
+  								                      	 <label  class="col-sm-3 col-form-label">公司名称</label>
+  								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司名称"></div>
+  								                     </div>
+  										             <div class="form-group row">
+  								                      	 <label  class="col-sm-3 col-form-label">公司注册国家</label>
+  								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司注册国家"></div>
+  								                     </div>                    		
+  										             <div class="form-group row">
+  								                      	 <label  class="col-sm-3 col-form-label">公司法人信息</label>
+  								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="公司法人信息"></div>
+  								                     </div>    
+  			   							             <div class="form-group row">
+  								                      	 <label  class="col-sm-3 col-form-label">联系人电话</label>
+  								                      		<div class="col-sm-9"><input type="tel" class="form-control"  placeholder="联系人电话"></div>
+  								                     </div>    							             
+  								                     <div class="form-group row">
+  								                      	 <label  class="col-sm-3 col-form-label">联系人邮箱</label>
+  								                      		<div class="col-sm-9"><input type="email" class="form-control"  placeholder="联系人邮箱"></div>
+  								                     </div>  	
+  			   							             <div class="form-group row">
+  								                      	 <label  class="col-sm-3 col-form-label">其它联系方式</label>
+  								                      		<div class="col-sm-9"><input class="form-control"  placeholder="其它联系方式"></input></div>
+  								                     </div> 			                    	
+  							                    </div>
+  						                    </li>`;  
+  	  }
+  	  text.innerHTML = aaaa;
+  	}    
+  function run1(x) {
+		z.push(document.getElementById("selectVIPAccount").value);
+		//z.push(document.getElementById("countYear").value);
+		if (z.length ==1){
+			document.getElementById("pricebvisg1").innerHTML = "S$"+z[0]*1200;
+			if (services.some(el => el.name === "私人银行贵宾户口")){
+	            services = services.filter(item => item.name !== "私人银行贵宾户口")
+	         }
+	         services.push({name:"私人银行贵宾户口",price:z[0]*1200});
+	         refreshRightSummary();
+			z= [];
+			openInfoVIPDiv();
+		}
+	}
+  function openInfoVIPDiv() {
+	  var checkBox = document.getElementById("selectVIPAccount").value;
+	  var text = document.getElementById("InfoVIP");
+	  var aaaa = "";
+	  for (var i=0;i<checkBox;i++)
+	  {      
+	 aaaa = aaaa + `<br/><br/>              	
+	    <li class="list-group-item" id="InfoVIP">
+							                  	<label class="custom-switch mt-2 justify-content-between">
+								                    <span class="custom-switch-description nc_subttitle"><b>私人银行贵宾户口</b> </span>
+								                </label>
+							                	<div class="card-body" id="openAccountDeatil7">						                	               						                	
+										             <div class="form-group row">
+								                      	 <label  class="col-sm-3 col-form-label">个人姓名</label>
+								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="个人姓名"></div>
+								                     </div>
+										             <div class="form-group row">
+								                      	 <label  class="col-sm-3 col-form-label">开户国籍</label>
+								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="开户国籍"></div>
+								                     </div>                    		
+										             <div class="form-group row">
+								                      	 <label  class="col-sm-3 col-form-label">联系人电话</label>
+								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="联系人电话"></div>
+								                     </div>     							             
+								                     <div class="form-group row">
+								                      	 <label  class="col-sm-3 col-form-label">联系人邮箱</label>
+								                      		<div class="col-sm-9"><input type="email" class="form-control"  placeholder="联系人邮箱"></div>
+								                     </div>  	
+			   							             <div class="form-group row">
+								                      	 <label  class="col-sm-3 col-form-label">其它联系方式</label>
+								                      		<div class="col-sm-9"><input class="form-control"  placeholder="其它联系方式"></input></div>
+								                     </div> 			                    	
+							                    </div>
+						                    </li>`;  
+	  }
+	  text.innerHTML = aaaa;
+	} 
+	
 </script>
 
   <!-- Template JS File -->

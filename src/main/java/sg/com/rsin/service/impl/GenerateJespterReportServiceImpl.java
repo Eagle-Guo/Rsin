@@ -143,9 +143,10 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			Map<String, Object> reportParamMapTwo = new HashMap<String, Object>();
 			reportParamMapTwo.put("createdBy", "Rsin Group");
 			
-			ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
-		    BufferedImage image = ImageIO.read(bis);
-		    reportParamMapTwo.put("signImage", bis);
+			InputStream in = new ByteArrayInputStream(bytes);
+	        BufferedImage bImageFromConvert = ImageIO.read(in);
+	        
+		    reportParamMapTwo.put("signImage", bImageFromConvert);
 			JasperPrint jasperPrintTwo = JasperFillManager.fillReport(signatureReport, reportParamMapTwo, new JREmptyDataSource());
 			jasperPrintList.add(jasperPrintTwo);
 

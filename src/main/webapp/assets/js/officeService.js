@@ -123,7 +123,7 @@
                 }
                 var countoffice = document.getElementById("countoffice").value;
                 var countMoffice = document.getElementById("countMoffice").value;
-                services.push({name:"共享办公室",price:countoffice * countMoffice * 2400 });
+                services.push({name:"共享办公室",price:countoffice * countMoffice * 800 });
                 refreshRightSummary();
                 break;
             }

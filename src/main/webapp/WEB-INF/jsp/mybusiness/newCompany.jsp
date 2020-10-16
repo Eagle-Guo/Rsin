@@ -125,172 +125,12 @@
 															</label>
 															<div class="card-body" id="openAccountDeatil2" style="display: none">
 																<ul class="list-group">
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(1)">
-																		<div class="form-group" style="margin-bottom: 0px;">
-																			<div class="input-group">
-																				<select class="custom-select" id="inputGroupSelect04" onchange="run(1)" style="border: none;">
-																					<option value="1" selected>1</option>
-																					<option value="2">2</option>
-																					<option value="3">3</option>
-																					<option value="4">4</option>
-																					<option value="5">5</option>
-																					<option value="6">6</option>
-																					<option value="7">7</option>
-																					<option value="8">8</option>
-																					<option value="9">9</option>
-																					<option value="10">10</option>
-																				</select>
-																				<div class="input-group-append"><button class="btn" disabled="disabled">人</button></div>
-																				<select class="custom-select" id="countYear" onchange="run(2)" style="border: none;">
-																					<option value="1" selected>1</option>
-																					<option value="2">2</option>
-																					<option value="3">3</option>
-																					<option value="4">4</option>
-																					<option value="5">5</option>
-																					<option value="6">6</option>
-																				</select>
-																				<div class="input-group-append">
-																					<button class="btn" disabled="disabled">年</button>
-																				</div>
-																			</div>
-																		</div> 
+																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(1)">1人1年
 																		<span id="priceDongshi" class="badge badge-primary badge-pill dontshileft">S$3300(含押金S$1500)</span>
-																		<br />
-																	</li>
+																	</li>																
 																</ul>
 															</div>
 														</li>
-	
-														<li class="list-group-item">
-															<label>
-																<div class="row">
-																	<div class="col-lg-10 col-md-10 col-sm-10 col-10">
-																		<span class="custom-switch-description nc_subttitle">挂名股东</span>
-																	</div>
-																	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">
-																		<input type="checkbox" class="custom-switch-input" id="openAccount3" onclick="openAccountFunction('openAccount3','openAccountDeatil3')">
-																		<span class="custom-switch-indicator  nc_bttextbtn"></span>
-																	</div>
-																</div>
-															</label>
-															<div class="card-body" id="openAccountDeatil3" style="display: none">
-																<ul class="list-group">
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(2)">
-																		<div class="form-group" style="margin-bottom: 0px;">
-																			<div class="input-group">
-																				<select class="custom-select" id="countGuDong" onchange="runGuDong(1)" style="border: none;">
-																					<option value="1" selected>1</option>
-																					<option value="2">2</option>
-																					<option value="3">3</option>
-																					<option value="4">4</option>
-																					<option value="5">5</option>
-																					<option value="6">6</option>
-																					<option value="7">7</option>
-																					<option value="8">8</option>
-																					<option value="9">9</option>
-																					<option value="10">10</option>
-																				</select>
-																				<div class="input-group-append">
-																					<button class="btn" disabled="disabled">人</button>
-																				</div>
-																				<select class="custom-select" id="countYearGuDong" onchange="runGuDong(2)" style="border: none;">
-																					<option value="1" selected>1</option>
-																					<option value="2">2</option>
-																					<option value="3">3</option>
-																					<option value="4">4</option>
-																					<option value="5">5</option>
-																					<option value="6">6</option>
-																				</select>
-																				<div class="input-group-append">
-																					<button class="btn" disabled="disabled">年</button>
-																				</div>
-																			</div>
-																		</div> <span id="priceGuDong" class="badge badge-primary badge-pill">S$1000</span>
-																	</li>
-																</ul>
-															</div>
-														</li>
-	
-														<li class="list-group-item">
-															<label>
-																<div class="row">
-																	<div class="col-lg-10 col-md-10 col-sm-10 col-10">
-																		<span class="custom-switch-description nc_subttitle">共享办公室</span>
-																	</div>
-																	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">
-																		<input type="checkbox" class="custom-switch-input" id="openAccount4" onclick="openAccountFunction('openAccount4','openAccountDeatil4')">
-																		<span class="custom-switch-indicator  nc_bttextbtn"></span>
-																	</div>
-																</div>
-															</label>
-															<div class="card-body" id="openAccountDeatil4" style="display: none">
-																<ul class="list-group">
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(3)">
-																		<div class="form-group" style="margin-bottom: 0px;">
-																			<div class="input-group">
-																				<select class="custom-select" id="countoffice" onchange="runoffice(1)" style="border: none;">
-																					<option value="1" selected>1</option>
-																					<option value="2">2</option>
-																					<option value="3">3</option>
-																					<option value="4">4</option>
-																					<option value="5">5</option>
-																					<option value="6">6</option>
-																					<option value="7">7</option>
-																					<option value="8">8</option>
-																					<option value="9">9</option>
-																					<option value="10">10</option>
-																				</select>
-																				<div class="input-group-append">
-																					<button class="btn" disabled="disabled">卡位</button>
-																				</div>
-																				<select class="custom-select" id="countMoffice" onchange="runoffice(2)" style="border: none;">
-																					<option value="3" selected>3</option>
-																					<option value="6">6</option>
-																					<option value="12">12</option>
-																				</select>
-																				<div class="input-group-append">
-																					<button class="btn" disabled="disabled">个月</button>
-																				</div>
-																			</div>
-																		</div> 
-																		<span id="priceoffice" class="badge badge-primary badge-pill">S$2400</span>
-																	</li>
-																</ul>
-															</div>
-														</li>
-
-														<li class="list-group-item">
-															<label>
-																<div class="row">
-																	<div class="col-lg-10 col-md-10 col-sm-10 col-10">
-																		<span class="custom-switch-description nc_subttitle">商标注册</span>
-																	</div>
-																	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">
-																		<input type="checkbox" class="custom-switch-input" id="openAccount5" onclick="openAccountFunction('openAccount5','openAccountDeatil5')">
-																		<span class="custom-switch-indicator nc_bttextbtn"></span>
-																	</div>
-																</div>
-															</label>
-															<div class="card-body" id="openAccountDeatil5" style="display: none">
-																<ul class="list-group">
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(4)">
-																		<div class="form-group" style="margin-right: 5rem; margin-bottom: 0rem;">
-																			<label for="inputPassword5">请填写商标分类编号</label> 
-																			<input type="text" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"> 
-																				<small id="passwordHelpBlock" class="form-text text-muted">
-																					备注：如不清楚商标分类编号，请填写您的所在行业范围，客户将于24小时与您核实。
-																				</small>
-																		</div> 
-																		<span class="badge badge-primary badge-pill ">S$1200</span>
-																	</li>
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(5)">
-																		是否需要附加大类 
-																		<span class="badge badge-primary badge-pill">S$900</span>
-																	</li>
-																</ul>
-															</div>
-														</li>
-	
 														<li class="list-group-item">
 															<label>
 																<div class="row">
@@ -305,41 +145,13 @@
 														 	</label>
 															<div class="card-body" id="openAccountDeatil6" style="display: none">
 																<ul class="list-group">
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(6)">
+																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(2)">
 																		一次性注册 
 																		<span class="badge badge-primary badge-pill">S$400</span>
 																	</li>
-																	<li class="list-group-item justify-content-between align-items-center choosedsvr" onclick="choosedsv(7)">
-																		<div class="row">
-																			<div class="col-lg-4 col-md-4 col-sm-4 col-4" style="margin-top: 0rem;">GST申报</div>
-																			<div class="form-group col-lg-4 col-md-4 col-sm-4 col-4" style="margin-bottom: 0px;">
-																				<div class="input-group">
-																					<select class="custom-select" id="countapgst" onchange="rungst(1)" style="border: none;">
-																						<option selected>1</option>
-																						<option value="2">2</option>
-																						<option value="3">3</option>
-																						<option value="4">4</option>
-																						<option value="5">5</option>
-																						<option value="6">6</option>
-																						<option value="7">7</option>
-																						<option value="8">8</option>
-																						<option value="9">9</option>
-																						<option value="10">10</option>
-																					</select>
-																					<div class="input-group-append">
-																						<button class="btn" disabled="disabled">次</button>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="col-lg-4 col-md-4 col-sm-4 col-4 right">
-																				<div id="priceapgst" class="badge badge-primary badge-pill">S$300</div>
-																			</div>
-																			<br />
-																		</div>
-																	</li>
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(8)">
+																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(3)">
 																		申请加4次申报配套 
-																		<span class="badge badge-primary badge-pill">S$1400</span>
+																		<span class="badge badge-primary badge-pill">S$1200</span>
 																	</li>
 																</ul>
 															</div>
@@ -359,7 +171,7 @@
 															</label>
 															<div class="card-body" id="openAccountDeatil7" style="display: none">
 																<ul class="list-group">
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(9)">
+																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(4)">
 																		<span style="margin-top: 0rem;">新加坡固定座机无人应答</span>
 																		<div class="form-group" style="margin-bottom: 0px;">
 																			<div class="input-group">
@@ -382,7 +194,7 @@
 																		</div> <span id="pricesgtel" class="badge badge-primary badge-pill telleft">S$200</span>
 																		<br />
 																	</li>
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(10)">
+																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(5)">
 																		<span style="margin-top: 0rem;">新加坡固定座机全球呼叫转移（话费另算）</span>
 																		<div class="form-group" style="margin-bottom: 0px;">
 																			<div class="input-group">
@@ -424,8 +236,8 @@
 															</label>
 															<div class="card-body" id="openAccountDeatil8" style="display: none">
 																<ul class="list-group">
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(11)">
-																		<span style="margin-top: 0rem;">寄信服务1次*12次（邮费倒付）</span>
+																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(6)">
+																		<span style="margin-top: 0rem;">寄信服务12次（邮费倒付）</span>
 																		<div class="form-group" style="margin-bottom: 0px;">
 																			<div class="input-group">
 																				<select class="custom-select" id="countmail" onchange="runmail(1)" style="border: none;">
@@ -460,7 +272,7 @@
 															<div class="card-body" id="openAccountDeatil9"
 																style="display: none">
 																<ul class="list-group">
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(12)">
+																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(7)">
 																		<div class="form-group" style="margin-bottom: 0px;">
 																			<div class="input-group">
 																				<select class="custom-select c-select-v2" id="countaccounting" onchange="runaccounting(1)" style="border: none;">
@@ -483,7 +295,7 @@
 															<label>
 																<div class="row">
 																	<div class="col-lg-10 col-md-10 col-sm-10 col-10">
-																		<span class="custom-switch-description nc_subttitle">注册时间</span>
+																		<span class="custom-switch-description nc_subttitle">注册加急</span>
 																	</div>
 																	<div class="col-lg-2 col-md-2 col-sm-2 col-2 btntop">
 																		<input type="checkbox" class="custom-switch-input" id="openAccount10" onclick="openAccountFunction('openAccount10','openAccountDeatil10')">
@@ -493,10 +305,10 @@
 														    </label>
 															<div class="card-body" id="openAccountDeatil10" style="display: none">
 																<ul class="list-group">
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(13)">正常（正常懦况下5个工作日以内） 
+																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(8)">正常（正常情况下5个工作日以内） 
 																		<span class="badge badge-primary badge-pill">S$0</span>
 																	</li>
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(14)">加急（加急3个工作日以内） 
+																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(9)">加急（加急3个工作日以内） 
 																		<span class="badge badge-primary badge-pill">S$300</span>
 																	</li>
 																</ul>
@@ -521,27 +333,27 @@
 															<label class="col-sm-3 col-form-label">公司名称</label>
 															<div class="col-sm-9">
 																<input type="text" class="form-control" id="companyName"
-																	placeholder="限英文，填写示范：RSIN GROUP"  onkeyup="value=value.replace(/[^\w\.\s\/]/ig,'')">
+																	placeholder="限英文，填写示范：ABC TRADE"  onkeyup="value=value.replace(/[^\w\.\s\/]/ig,'')">
 															</div>
 														</div>
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">公司备用名称</label>
 															<div class="col-sm-9">
 																<input type="text" class="form-control"
-																	id="companyBackupName" placeholder="限英文，填写示范：XXXX" onkeyup="value=value.replace(/[^\w\.\s\/]/ig,'')">
+																	id="companyBackupName" placeholder="限英文，填写示范：EFD TRADE" onkeyup="value=value.replace(/[^\w\.\s\/]/ig,'')">
 															</div>
 														</div>
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">公司类型</label>
 															<div class="col-sm-9">
-																<select class="custom-select c-select-info appinfo "
+																<select class="custom-select c-select-info appinfo " disabled="disabled"
 																	id="companyType">
-																	<option selected>私人豁免有限公司 (PTE. LTD.)</option>
+																	<option selected>私人有限公司 (PTE. LTD.)</option>
 																	<option value="1">公众有限责任公司(Ltd.)</option>
 																</select>
 															</div>
 														</div>
-														<div class="form-group row">
+														<div class="form-group row" style="display:none;">
 															<label class="col-sm-3 col-form-label">发行股份资本（总）</label>
 															<div class="col-sm-9">
 																<input type="text" class="form-control"
@@ -549,23 +361,29 @@
 																	placeholder="自动计算">
 															</div>
 														</div>
-														<div class="form-group row">
+														<div class="form-group row" style="display:none;">
 															<label class="col-sm-3 col-form-label">实缴股份资本（总）</label>
 															<div class="col-sm-9">
 																<input type="text" class="form-control" disabled="disabled" id="registeredCapital2" placeholder="自动计算">
 															</div>
 														</div>														
 													<div class="form-group row">
-														<label class="col-sm-3 col-form-label">公司商业活动</label>
+														<label class="col-sm-3 col-form-label">公司商业活动1</label>
 														<div class="col-sm-9" style="width:300px;">
-															<input type="text" class="form-control" id="businessEvent" placeholder="限英文，请输入关键词进行搜索" onkeyup="value=value.replace(/[^\w\.\s\/]/ig,'')"></input>
+															<input type="text" class="form-control" id="businessEvent" placeholder="限英文，请输入关键词进行搜索" ></input>
 														</div>
 													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">公司商业活动2</label>
+														<div class="col-sm-9" style="width:300px;">
+															<input type="text" class="form-control" id="businessEvent2" placeholder="限英文，请输入关键词进行搜索" ></input>
+														</div>
+													</div>													
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">公司地址及邮编</label>
 														<div class="col-sm-9">
 															<textarea class="form-control textareaheight"
-																id="conpanyAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
+																id="conpanyAddressAndPostalCode" placeholder="限英文，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
 														</div>
 													</div>
 														<div class="section-title">董事、股东、联系人资料</div>
@@ -613,13 +431,12 @@
 									                    </div>
 
 														<div class="form-group row">
-					 										<label class="col-sm-3 col-form-label">身份类型</label>
+					 										<label class="col-sm-3 col-form-label">证件类型</label>
 															<div class="col-sm-9">
 																<select class="custom-select c-select-info  appinfo" id="ICType">
 																	<option value="公民" selected>新加坡公民(NRIC)</option>
 																	<option value="永久居民">新加坡PR(NRIC)</option>
-																	<option value="非PR中国公民">非新加坡PR的中国公民(中国护照)</option>
-																	<option value="其他">其它(所在国护照)</option>
+																	<option value="其他">国际护照</option>
 																</select>
 															</div>
 														</div>
@@ -665,7 +482,7 @@
 															<label class="col-sm-3 col-form-label">个人地址及邮编</label>
 															<div class="col-sm-9">
 																<textarea class="form-control textareaheight"
-																	id="personalAddressAndPostalCode" placeholder="如中文地址请留空，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
+																	id="personalAddressAndPostalCode" placeholder="限英文，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
 															</div>
 													    </div>						
 														<br /> <br />

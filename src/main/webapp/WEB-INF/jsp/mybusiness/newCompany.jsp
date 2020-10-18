@@ -356,9 +356,7 @@
 														<div class="form-group row" style="display:none;">
 															<label class="col-sm-3 col-form-label">发行股份资本（总）</label>
 															<div class="col-sm-9">
-																<input type="text" class="form-control"
-																	disabled="disabled" id="registeredCapital1"
-																	placeholder="自动计算">
+																<input type="text" class="form-control" disabled="disabled" id="registeredCapital1" placeholder="自动计算">
 															</div>
 														</div>
 														<div class="form-group row" style="display:none;">
@@ -366,11 +364,11 @@
 															<div class="col-sm-9">
 																<input type="text" class="form-control" disabled="disabled" id="registeredCapital2" placeholder="自动计算">
 															</div>
-														</div>														
+														</div>
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">公司商业活动1</label>
 														<div class="col-sm-9" style="width:300px;">
-															<input type="text" class="form-control" id="businessEvent" placeholder="限英文，请输入关键词进行搜索" ></input>
+															<input type="text" class="form-control" id="businessEvent1" placeholder="限英文，请输入关键词进行搜索" ></input>
 														</div>
 													</div>
 													<div class="form-group row">
@@ -487,9 +485,21 @@
 													    </div>						
 														<br /> <br />
 														<div class="row">
-															<a class="btn btn-icon icon-left btn-warning" onclick="addContactP()">
-																<i class="far fa-user"></i>增加填报人员
-															</a>
+															<div class="col-sm-9">
+																<select class="custom-select c-select-info  appinfo" id="addContactNo">
+																	<option value="1" selected>1</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																</select>
+															</div>
+															<a class="btn btn-icon icon-left btn-warning" onclick="addContactP()">	<i class="far fa-user"></i>增加填报人员 </a>
 														</div>
 	
 														<div class="form-group row" id="addContactPDiv0"></div>

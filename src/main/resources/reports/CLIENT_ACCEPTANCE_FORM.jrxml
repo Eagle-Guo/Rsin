@@ -7,6 +7,37 @@
 			<![CDATA[]]>
 		</queryString>
 	</subDataset>
+	<parameter name="fullName" class="java.lang.String"/>
+	<parameter name="id" class="java.lang.String"/>
+	<parameter name="birthDate" class="java.lang.String"/>
+	<parameter name="nationality" class="java.lang.String"/>
+	<parameter name="homeAddress" class="java.lang.String"/>
+	<parameter name="gender" class="java.lang.String"/>
+	<parameter name="tel" class="java.lang.String"/>
+	<parameter name="workingExperience" class="java.lang.String"/>
+	<parameter name="highestQualification" class="java.lang.String"/>
+	<parameter name="criminallyConvicted" class="java.lang.String"/>
+	<parameter name="questionOfCompany1" class="java.lang.String"/>
+	<parameter name="questionOfCompany2" class="java.lang.String"/>
+	<parameter name="questionOfCompany3" class="java.lang.String"/>
+	<parameter name="questionOfCompany4" class="java.lang.String"/>
+	<parameter name="questionOfCompany5" class="java.lang.String"/>
+	<parameter name="questionOfCompany6" class="java.lang.String"/>
+	<parameter name="questionOfCompany7" class="java.lang.String"/>
+	<parameter name="questionOfCompany8" class="java.lang.String"/>
+	<parameter name="questionOfCompany9" class="java.lang.String"/>
+	<parameter name="questionOfCompany10" class="java.lang.String"/>
+	<parameter name="beneficialOwner" class="java.lang.String"/>
+	<parameter name="fullNameOfBeneficialOwner" class="java.lang.String"/>
+	<parameter name="idOfBeneficialOwner" class="java.lang.String"/>
+	<parameter name="birthDateOfBeneficialOwner" class="java.lang.String"/>
+	<parameter name="nationalityOfBeneficialOwner" class="java.lang.String"/>
+	<parameter name="homeAddressOfBeneficialOwner" class="java.lang.String"/>
+	<parameter name="genderOfBeneficialOwner" class="java.lang.String"/>
+	<parameter name="telOfBeneficialOwner" class="java.lang.String"/>
+	<parameter name="question1OfSectionD" class="java.lang.String"/>
+	<parameter name="question2OfSectionD" class="java.lang.String"/>
+	<parameter name="question3OfSectionD" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -16,281 +47,297 @@
 	<detail>
 		<band height="3000" splitType="Immediate">
 			<staticText>
-				<reportElement x="1" y="0" width="218" height="30" uuid="32c88799-6075-4057-ad35-e3e40cf95af5"/>
+				<reportElement x="41" y="41" width="218" height="20" uuid="32c88799-6075-4057-ad35-e3e40cf95af5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CLIENT ACCEPTANCE FORM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="27" width="551" height="30" uuid="4644e114-cc88-48c3-83aa-1c6cbb66dd71"/>
+				<reportElement x="42" y="93" width="488" height="20" uuid="4644e114-cc88-48c3-83aa-1c6cbb66dd71">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[PART 1 – INFORMATION ABOUT CLIENT(S) / DIRECTOR (S) / BENEFICIAL OWNER(S)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="42" width="551" height="30" uuid="ec8531b7-ffe1-4818-bb3c-5abeaae60b11"/>
+				<reportElement x="40" y="113" width="489" height="18" uuid="ec8531b7-ffe1-4818-bb3c-5abeaae60b11">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[(to be completed by every individual connected to the (proposed) company).]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="68" width="551" height="30" uuid="6ae3ab20-6869-46c1-8203-7e7a8b96558f"/>
+				<reportElement x="40" y="160" width="488" height="20" uuid="6ae3ab20-6869-46c1-8203-7e7a8b96558f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SECTION A – INFORMATION ON INDIVIDUAL (S) / CLIENT(S)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="91" width="551" height="30" uuid="93c8f8fb-4e2b-4bc5-b237-48b1f8bd0903"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[1.Source and description of your wealth to start this company:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="315" y="92" width="117" height="18" uuid="ef52f8eb-2ecb-4304-aad7-1abfbad0f1d5"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Saving from income]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="114" width="208" height="16" uuid="e7e678f9-efa3-444e-9fb6-12b3bb28517a"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[2.FULL NAME (INCLUDING ALIAS) :    ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="140" width="208" height="16" uuid="51fbd186-0da1-4017-9af6-d3133e10a87c"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[3.NIRC/PASSPORT/BIRTH CERTIFICATE NO. : ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="164" width="551" height="30" uuid="f5871cea-6ac4-4858-9494-cba758070fd3"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[4.DATE OF BIRTH (dd/mm/yyyy) : ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="187" width="208" height="16" uuid="43c13574-e3fa-4454-97fc-dc8942ce8e93"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[5.NATIONALITY :  ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="213" width="208" height="16" uuid="88a43c16-2200-473a-a059-67bc25045cfb"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[6.RESIDENTIAL ADDRESS :    ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="238" width="551" height="30" uuid="2b9f66d1-6594-489b-9ba8-b59217fac191"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[7.GENDER : ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="261" width="208" height="16" uuid="77b13d5f-14df-499f-8c43-b9870f30646e"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[8.CONTACT NO: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="287" width="208" height="16" uuid="f4570989-ba3e-4b65-9e6a-58a31c480284"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[9.Past 5 years of working experience: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="311" width="551" height="30" uuid="5c58674d-f768-4371-a5b4-3ab59bb3a7b1"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[10.Highest Qualification from which education institution: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="334" width="208" height="16" uuid="655e79d2-1077-4b3c-a5ef-fac8f39d73fd"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[11.HAVE YOU EVER BEEN CRIMINALLY CONVICTED? : ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="370" width="551" height="30" uuid="dfb1733a-1e53-48a0-9ae2-cf564f43b13a"/>
-				<textElement>
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[SECTION B - Description of the Company]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="393" width="551" height="30" uuid="dcdbedc7-187d-4011-805c-f303345125e2"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[1.What type of business activities the Company is to perform:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="440" width="208" height="16" uuid="7cbee7eb-bfa1-4751-9efa-1c0df9649843"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[2.Source of fund to start the Company:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="491" width="551" height="30" uuid="fc2c17fc-a2ea-49cd-996b-b793ad3153c5"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[3.How is the sales of the Company being generated:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="538" width="208" height="16" uuid="be6b97be-9feb-48ca-adcb-9df500039470"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[4.What the estimated turnover for the next 12 months:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="583" width="551" height="30" uuid="32488f02-996c-452f-8896-3d66acb0f2ad"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[5.Names of some of your supplier (If any)   ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="630" width="208" height="16" uuid="29c7e276-ec29-4828-b0ab-5c4a12061d2c"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[6.Names of your customer (if any)  ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="681" width="551" height="30" uuid="f26ecc95-e7cf-49e0-849e-c0dee382fa88"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[7.Background of the directors (e.g. Local or Foreigner, Past working experience etc ):]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="728" width="550" height="16" uuid="072c478c-db6e-431a-a2a9-af01f6d797f6"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[8.What will the company's bank account be used mostly for? (eg. investments or operational account):]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="775" width="551" height="30" uuid="c12babf3-e479-450f-bd2b-b61f44e9426a"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[9.Source of incoming funds into the bank account (Eg. operational revenue, funds from investors or holding company):]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="836" width="550" height="48" uuid="ad12a406-c69f-4c78-854f-e6d3fbd4f40f"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[10.Source and intended destination of outgoing funds from the company's bank account (Eg operational expenses, remit back to holding company or etc):]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="897" width="551" height="30" uuid="83f7804e-6633-4e39-8530-a7d1240e0163"/>
-				<textElement>
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[SECTION C – IDENTIFICATION OF BENEFICIAL OWNER (S)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="920" width="551" height="30" uuid="d379ac2b-b08a-476d-952c-78655dde163a"/>
-				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[*BENEFICIAL OWNER means beside oneself there is an individual or group of individuals that, either directly or indirectly, has the actual power to vote or influence the transaction decisions of the company.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="4" y="971" width="551" height="30" uuid="11d57543-f80d-4986-9517-a24052d249d5"/>
-				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Is the beneficial owner the same person as Section A? 
-(If No, please provide the details as below)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="4" y="1009" width="208" height="16" uuid="d5304032-96e8-40a1-8e0a-3e2af834821a"/>
+				<reportElement x="40" y="1674" width="198" height="18" uuid="e7e678f9-efa3-444e-9fb6-12b3bb28517a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[1.FULL NAME (INCLUDING ALIAS) :    ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="5" y="1156" width="208" height="16" uuid="7502a32a-ba12-4c1e-80ce-a7a81d9c50cb"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[7.CONTACT NO: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="5" y="1133" width="551" height="30" uuid="19b8b6d7-ae8b-451a-92f1-3d8453381ecc"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[6.GENDER : ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="4" y="1108" width="208" height="16" uuid="6e397599-32fc-4c89-b4a5-696526529bb5"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[5.RESIDENTIAL ADDRESS :    ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="4" y="1082" width="208" height="16" uuid="683c52da-4648-4328-9041-d59436825871"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[4.NATIONALITY :  ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="4" y="1059" width="551" height="30" uuid="0b93da94-4a45-4545-83c3-676c9cceeefc"/>
-				<textElement>
-					<font size="11" isBold="false"/>
-				</textElement>
-				<text><![CDATA[3.DATE OF BIRTH (dd/mm/yyyy) : ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="4" y="1035" width="208" height="16" uuid="44feae97-09e0-405b-8ceb-f06558f34eee"/>
+				<reportElement x="40" y="1723" width="278" height="18" uuid="51fbd186-0da1-4017-9af6-d3133e10a87c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[2.NIRC/PASSPORT/BIRTH CERTIFICATE NO. : ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="1190" width="551" height="30" uuid="d793f87c-5602-4d48-ac07-1602e75b4347"/>
+				<reportElement x="40" y="1773" width="189" height="18" uuid="f5871cea-6ac4-4858-9494-cba758070fd3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[3.DATE OF BIRTH (dd/mm/yyyy) : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="1824" width="98" height="18" uuid="43c13574-e3fa-4454-97fc-dc8942ce8e93">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[4.NATIONALITY :  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1874" width="149" height="18" uuid="88a43c16-2200-473a-a059-67bc25045cfb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[5.RESIDENTIAL ADDRESS :    ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="510" width="69" height="18" uuid="2b9f66d1-6594-489b-9ba8-b59217fac191">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[7.GENDER : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="562" width="89" height="18" uuid="77b13d5f-14df-499f-8c43-b9870f30646e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[8.CONTACT NO: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="614" width="188" height="18" uuid="f4570989-ba3e-4b65-9e6a-58a31c480284">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[9.Past 5 years of working experience: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="666" width="286" height="18" uuid="5c58674d-f768-4371-a5b4-3ab59bb3a7b1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[10.Highest Qualification from which education institution: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="718" width="299" height="18" uuid="655e79d2-1077-4b3c-a5ef-fac8f39d73fd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[11.HAVE YOU EVER BEEN CRIMINALLY CONVICTED? : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="781" width="251" height="20" uuid="dfb1733a-1e53-48a0-9ae2-cf564f43b13a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SECTION B - Description of the Company]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="831" width="311" height="18" uuid="dcdbedc7-187d-4011-805c-f303345125e2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1.What type of business activities the Company is to perform:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="882" width="198" height="18" uuid="7cbee7eb-bfa1-4751-9efa-1c0df9649843">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[2.Source of fund to start the Company:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="935" width="268" height="18" uuid="fc2c17fc-a2ea-49cd-996b-b793ad3153c5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[3.How is the sales of the Company being generated:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="986" width="268" height="18" uuid="be6b97be-9feb-48ca-adcb-9df500039470">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[4.What the estimated turnover for the next 12 months:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1038" width="218" height="18" uuid="32488f02-996c-452f-8896-3d66acb0f2ad">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[5.Names of some of your supplier (If any)   ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1089" width="176" height="18" uuid="29c7e276-ec29-4828-b0ab-5c4a12061d2c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[6.Names of your customer (if any)  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1141" width="426" height="18" uuid="f26ecc95-e7cf-49e0-849e-c0dee382fa88">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[7.Background of the directors (e.g. Local or Foreigner, Past working experience etc ):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1209" width="486" height="31" uuid="072c478c-db6e-431a-a2a9-af01f6d797f6">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[8.What will the company's bank account be used mostly for? (eg. investments or operational account):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1291" width="486" height="38" uuid="c12babf3-e479-450f-bd2b-b61f44e9426a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[9.Source of incoming funds into the bank account (Eg. operational revenue, funds from investors or holding company):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1376" width="486" height="36" uuid="ad12a406-c69f-4c78-854f-e6d3fbd4f40f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[10.Source and intended destination of outgoing funds from the company's bank account (Eg operational expenses, remit back to holding company or etc):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1476" width="486" height="20" uuid="83f7804e-6633-4e39-8530-a7d1240e0163">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SECTION C – IDENTIFICATION OF BENEFICIAL OWNER (S)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1523" width="486" height="46" uuid="d379ac2b-b08a-476d-952c-78655dde163a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[*BENEFICIAL OWNER means beside oneself there is an individual or group of individuals that, either directly or indirectly, has the actual power to vote or influence the transaction decisions of the company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1598" width="269" height="18" uuid="11d57543-f80d-4986-9517-a24052d249d5">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Is the beneficial owner the same person as Section A? ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1931" width="486" height="40" uuid="d793f87c-5602-4d48-ac07-1602e75b4347">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[PLEASE PROVIDE THE INFORMATION OF NATURE OF ARRANGEMENT (SUCH AS STRUCTURE OR OWNERSHIP) YOU HAVE WITH THE BENEFICIAL OWNER:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="1240" width="551" height="30" uuid="49f7450c-78dc-486b-baa8-7e9a1f2d0518"/>
+				<reportElement x="40" y="1992" width="486" height="18" uuid="49f7450c-78dc-486b-baa8-7e9a1f2d0518">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[This person is a shareholder of the company]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="1280" width="551" height="60" uuid="8c2c377e-868a-4caf-92bf-a40a44199b86"/>
+				<reportElement x="40" y="2029" width="486" height="71" uuid="8c2c377e-868a-4caf-92bf-a40a44199b86">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
@@ -298,28 +345,38 @@
 The Beneficial Owner confirms herewith that he / she has read and understood the foregoing and confirms that all statements made are truthful and correct.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="1362" width="551" height="38" uuid="ce6263a8-bba7-4116-8e47-1398dcac6d17"/>
+				<reportElement x="40" y="2142" width="486" height="40" uuid="ce6263a8-bba7-4116-8e47-1398dcac6d17">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SECTION D – INFORMATION OF POLITICALLY EXPOSED PERSONS, THEIR IMMEDIATE FAMILY MEMBERS AND CLOSE ASSOCIATES]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="1411" width="551" height="49" uuid="4cad0e19-e76c-4e40-a0b0-affbe50070a1"/>
+				<reportElement x="40" y="2201" width="486" height="46" uuid="4cad0e19-e76c-4e40-a0b0-affbe50070a1">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Are any of the persons listed above a politically exposed person, that is, a person who is or has been entrusted with any prominent public function in Singapore, a country or territory outside Singapore, or by an international organisation at present?]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="4" y="1580" width="551" height="49" uuid="9d9bbe30-6cff-411f-ab63-20c231ce28ee"/>
+				<reportElement x="40" y="2428" width="486" height="29" uuid="9d9bbe30-6cff-411f-ab63-20c231ce28ee">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Are any of the persons listed above an immediate family member or a close associate of a politically exposed or a politically exposed person who has stepped down?]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="3" y="1643" width="551" height="20" uuid="fed39592-ce2c-48c9-8d01-d29446361963"/>
+				<reportElement x="40" y="2521" width="486" height="18" uuid="fed39592-ce2c-48c9-8d01-d29446361963">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="true"/>
 				</textElement>
@@ -327,54 +384,943 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="1491" width="551" height="49" uuid="b8eb3186-5e03-4638-8ccd-6d2f2e6c013a"/>
+				<reportElement x="40" y="2308" width="486" height="59" uuid="b8eb3186-5e03-4638-8ccd-6d2f2e6c013a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Are any of the persons listed above a politically exposed person, that is, a person who is or has been entrusted with any prominent public function in Singapore, a country or territory outside Singapore, or by an international organisation who has stepped down from his prominent public function?]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="3" y="1657" width="551" height="49" uuid="88e69f38-347a-4da3-9178-24825da95960"/>
+				<reportElement x="40" y="2539" width="484" height="63" uuid="88e69f38-347a-4da3-9178-24825da95960">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[I declare that the information provided in this form is true and correct. I am aware that i may be subject to prosecution and criminal sanctions if I am found to have made any false statement which I know to be false or which l do not believe to be true, or if I have intentionally suppressed any material fact.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="1736" width="551" height="14" uuid="c91be02c-8c2d-46f2-8b37-d0a2ecde861d"/>
+				<reportElement x="40" y="2695" width="486" height="18" uuid="c91be02c-8c2d-46f2-8b37-d0a2ecde861d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Dated this ：(mm/dd/yyyy)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-1" y="1749" width="551" height="14" uuid="b00645b4-3c8f-4920-9794-40def08b6fc8"/>
+				<reportElement x="40" y="2723" width="486" height="18" uuid="b00645b4-3c8f-4920-9794-40def08b6fc8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Signature:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="1830" width="551" height="14" uuid="db8b4833-cd1a-4389-8477-a2337ed5d534"/>
+				<reportElement x="40" y="2759" width="486" height="18" uuid="db8b4833-cd1a-4389-8477-a2337ed5d534">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Signed by Name:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-1" y="1843" width="551" height="14" uuid="089e50e8-1c13-4124-89de-b090a10ceb67"/>
+				<reportElement x="40" y="2778" width="486" height="18" uuid="089e50e8-1c13-4124-89de-b090a10ceb67">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[NRIC No./Passport ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-1" y="1855" width="551" height="14" uuid="f2fd3995-719a-4985-aecb-0e9ad947fc90"/>
+				<reportElement x="40" y="2797" width="486" height="18" uuid="f2fd3995-719a-4985-aecb-0e9ad947fc90">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[No.: ]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="40" y="62" width="218" height="20" uuid="0e15dc1f-5e50-4ea4-b588-cdb4062a314f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[客户接受表]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="131" width="489" height="18" uuid="9359680b-829b-4b19-8c87-1526bcfbc4fe">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[第1部分-关于客户/董事/受益所有人的信息（由每个与（要注册的）公司有关的个人填写）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="181" width="489" height="18" uuid="28c6540d-e739-405d-8e74-603d84236d19">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[A部分-个人/客户信息]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="1674" width="159" height="18" uuid="ffc4ce08-712f-441e-9f0f-e9152eab924a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[全名（包括别名）：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="1723" width="159" height="18" uuid="6b54e111-301f-4ddc-b29c-102b9f45ed62">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[身份证/护照/出生证明编号：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="1773" width="159" height="18" uuid="e9c34328-53de-4008-bac1-a1bed46b6c61">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[出生日期（日/月/年）：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="1824" width="159" height="18" uuid="e2661187-bee6-41c5-8943-a60cf4ebe95e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[国籍：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="193" y="1874" width="159" height="18" uuid="f023eaa6-d74d-4d85-af63-af2a40b155e6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[居住地址：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="485" width="478" height="18" uuid="52e05e9c-773e-4364-8076-ad1a768f8b42">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{homeAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="111" y="510" width="159" height="18" uuid="3c62f84f-006c-430e-8986-ae0a1a385487">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[性别：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="536" width="478" height="18" uuid="7258a8f0-e8bd-4d0a-880d-6b8e71635566">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{gender}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="132" y="562" width="159" height="18" uuid="ac77055a-700f-459f-b0ce-0d60ad33950a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ 联系电话：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="588" width="478" height="18" uuid="67ade74d-2dda-442b-983d-d00021696a05">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tel}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="230" y="614" width="159" height="18" uuid="9d0dd872-2a36-4195-a6c1-021948debeac">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[过去5年的工作经验：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="640" width="478" height="18" uuid="65538ac1-c70c-4b1d-93dd-a29d7917dcf9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{workingExperience}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="322" y="666" width="159" height="18" uuid="8b824069-3857-4304-9780-fb2c227ea521">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[教育机构的最高资格：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="692" width="478" height="18" uuid="03a4832e-9f42-452f-baf8-6647c14fedd2">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{highestQualification}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="331" y="718" width="196" height="18" uuid="ba458ed3-b87f-4d8d-9fce-b40f79fffcc6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[你是否曾被刑事定罪？]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="743" width="477" height="18" uuid="10d683ac-3fc8-426d-b8a2-659a0675d9f9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{criminallyConvicted}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="802" width="489" height="18" uuid="035c5545-53de-483d-aeb9-a754215e17c7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[B部分-公司描述]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="831" width="188" height="18" uuid="c21dedc9-e92b-41e5-ad66-204c118a036f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司将开展何种业务活动：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="857" width="477" height="18" uuid="6729c965-3368-4026-9ce5-68dd54a79cb6">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{questionOfCompany1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="236" y="882" width="188" height="18" uuid="aaad5410-cde6-479f-a486-dbc9d8a80f1e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[创业资金来源：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="909" width="477" height="18" uuid="31f2c356-9d24-4773-a56c-5146af937757">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{questionOfCompany2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="302" y="935" width="224" height="18" uuid="02eb027f-e3fd-494f-8265-95b88f89b992">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司的销售额是如何产生的：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="961" width="476" height="18" uuid="5dc77231-f22a-4fe2-a761-4b403527606b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{questionOfCompany3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="986" width="216" height="18" uuid="bff90dc1-129f-4061-a3c0-521e5bec7db5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[未来12个月的预计营业额：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="1012" width="476" height="18" uuid="4e792408-2974-4674-8332-c2eec1d95710">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{questionOfCompany4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="1038" width="216" height="18" uuid="40ee7d0b-7efc-4cee-bdee-dadec6abf8e1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[一些供应商的名称（如有）]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="1064" width="476" height="18" uuid="fb69412f-75d0-4bee-88f5-ea73711f4741">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{questionOfCompany5}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="216" y="1089" width="216" height="18" uuid="9941268c-f8dc-4a39-a74a-02c0f39e471a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[客户名称（如有）]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="1115" width="476" height="18" uuid="07c4d83c-c57e-4db3-9cc2-b1af115f0cb5">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{questionOfCompany6}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="1159" width="441" height="18" uuid="6830c345-3581-4aa0-8d3c-069439351a8b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[参考括号内提示，董事的背景（如：本地人或外国人、过去的工作经验等）：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="1184" width="476" height="18" uuid="55497c7d-732a-4b9e-854d-531b3bfe733e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{questionOfCompany7}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="1240" width="441" height="18" uuid="168227c2-b881-47de-9b3e-8d8b9a1f94eb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[参考括号内提示，公司的银行账户主要用于什么？（如投资或运营账户）：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="1265" width="476" height="18" uuid="a552983e-ce34-4012-90b3-f1293371404f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{questionOfCompany8}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="1326" width="441" height="18" uuid="6c877435-4a97-4941-8fea-167b36ed5c6f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[参考括号内提示，银行账户流入资金来源（如营业收入、投资者或控股公司资金）：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="1351" width="476" height="18" uuid="e1ec5644-f745-4e90-ba7d-4a64bde571b7">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{questionOfCompany9}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="1435" width="476" height="18" uuid="888a70d7-3091-4b93-b408-8d9f9db735da">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{questionOfCompany10}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="1410" width="486" height="18" uuid="c5516d46-091c-4d52-8f62-afd70098e74c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[参考括号内提示，公司银行账户流出资金的来源和目的地（如运营费用、汇回控股公司等）：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1497" width="486" height="18" uuid="076e7017-c45f-4da8-89f4-8010f304902b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[C部分-受益所有人的身份证明]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1569" width="486" height="18" uuid="38a0a0fe-0dcb-4985-a048-4f3c7822ccf4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[*受益所有人是指一个人或一群个人，他们直接或间接地有实际权力投票或影响公司的交易决定。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="1598" width="213" height="18" uuid="31766696-671f-4990-ac66-559ccafb29c6"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[受益所有人与A部分是同一人吗？]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="1649" width="213" height="18" uuid="f03c4842-7270-4cdb-8905-90aafd42dfd3"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[（如不是，请提供以下详细信息）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1649" width="221" height="18" uuid="341e33fd-eb20-44cb-a915-6020ed4286fe"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(If No, please provide the details as below)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="1623" width="486" height="18" uuid="a97d3a59-f985-40c6-914f-9d3fd849339c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{beneficialOwner}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="1699" width="476" height="18" uuid="5fb44bba-48bd-4286-ad8a-3f728231a348">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fullNameOfBeneficialOwner}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="1748" width="476" height="18" uuid="6c8572a0-a5a2-487d-b869-248ff5145f2a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{idOfBeneficialOwner}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="1798" width="476" height="18" uuid="1a7b9eba-df31-4c2b-b68a-aae53c6ecbf8">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{birthDateOfBeneficialOwner}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="1848" width="476" height="18" uuid="44cd8533-d70f-43e9-b427-713841dbfeb1">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nationalityOfBeneficialOwner}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="1899" width="476" height="18" uuid="30d50964-98a6-4c01-87a2-b3b78a98facc">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{homeAddressOfBeneficialOwner}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="259" width="198" height="18" uuid="13af34f0-8ce5-45cb-adb0-c09432d9d217">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[2.FULL NAME (INCLUDING ALIAS) :    ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="259" width="159" height="18" uuid="95d954e9-128a-4172-aafc-3a22f5222443">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[全名（包括别名）：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="308" width="278" height="18" uuid="8055c6a1-9f56-4fea-b9d0-10ffc1a6f7e2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[3.NIRC/PASSPORT/BIRTH CERTIFICATE NO. : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="308" width="159" height="18" uuid="d2b6e340-1b8e-4536-b23c-1f0916d945c0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[身份证/护照/出生证明编号：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="358" width="189" height="18" uuid="5c9e08d7-a9cc-4d20-af0d-5c4d52ba4872">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[4.DATE OF BIRTH (dd/mm/yyyy) : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="358" width="159" height="18" uuid="81b6a0b9-14de-47f8-9862-a17aa44bf083">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[出生日期（日/月/年）：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="409" width="98" height="18" uuid="f92e14fa-b4af-4c53-8d11-74dc6c9937af">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[5.NATIONALITY :  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="409" width="159" height="18" uuid="29f6d31d-97d9-4236-9b88-45a179709ce9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[国籍：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="459" width="149" height="18" uuid="71763f04-54a3-43dd-bfee-06c3d3d004e3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[6.RESIDENTIAL ADDRESS :    ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="193" y="459" width="159" height="18" uuid="bd53b9f2-93f5-45c2-8515-6334df3b68de">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[居住地址：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="208" width="301" height="18" uuid="5b1988b4-768b-4f99-a3c1-7b15115a97db">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1.Source and description of your wealth to start this company:  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="351" y="208" width="174" height="18" uuid="44f312cd-9401-4b2d-93b8-feb0b087832d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[启动本公司的财富来源和说明：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="233" width="476" height="18" uuid="0fb92798-c007-40ce-b84e-ec49b1024b86">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+			</textField>
+			<staticText>
+				<reportElement x="50" y="234" width="186" height="18" uuid="883a49ed-0904-4064-832e-eb2e72e21dd1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Saving from income  收入储蓄]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="284" width="476" height="18" uuid="b9a71d20-4b27-4f49-aadd-bcc6700a8ead">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fullName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="333" width="476" height="18" uuid="0508e745-d8b8-4bd8-926a-9365f34afe62">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="383" width="476" height="18" uuid="b2358bb1-836a-402b-8f9f-e024a2b3cefb">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{birthDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="434" width="476" height="18" uuid="870c99c1-2a50-444a-8522-427b40f7d470">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nationality}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="1972" width="486" height="18" uuid="8024432b-540b-4d63-b04d-7337baed57ac">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[请提供您与受益所有人的安排性质（如结构或所有权）的信息：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2011" width="486" height="18" uuid="c859c9bf-2b47-46d7-86cc-e69e9028d3d5"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[此人是公司股东]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2101" width="486" height="28" uuid="54d8dc7a-1769-4a02-9f27-41e0afba952d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[*受益所有人是指一个人或一群个人，他们直接或间接地有实际权力投票或影响公司的交易决定。
+受益所有人在此确认，他/她已阅读并理解上述内容，并确认所做的所有陈述均真实无误。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2176" width="486" height="18" uuid="17f529ec-9c36-4cea-a1ff-77e9618b0325">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[D部分-政治人物、其直系亲属和亲密联系人的信息]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2248" width="486" height="28" uuid="29919172-a81a-4e13-8f14-79312fd7c803">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[以上所列人士是否为政治敏感人士，即在新加坡、新加坡以外的国家或地区或目前受国际组织委托担任任何重要公职的人？]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="2368" width="486" height="28" uuid="b954375f-5a25-413e-a7b9-d382b431590e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[以上所列人士是否为政治敏感人士，即在新加坡、新加坡以外的国家或地区，或被某国际组织委托担任重要公职但已卸任其重要公职的人？]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2461" width="486" height="18" uuid="c54adde6-87c7-4d95-b095-593477ed9719">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[以上所列人士是否为政治敏感人士或已下台的政治人物的直系亲属或亲密伙伴？]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2599" width="486" height="58" uuid="b85bd68a-e340-4b51-a7f0-7f33c9e5e7f1"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[客户声明
+本人声明此表格所提供的资料是真实及正确的。我知道，如果我被发现对任何我知道是虚假的或我认为不是真的的东西作出虚假声明，或者如果我故意隐瞒任何重要事实，我可能会受到起诉和刑事制裁。]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="2284" width="486" height="18" uuid="822d876a-8df2-49bd-a1cb-5a524fe409b8">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{question1OfSectionD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="2403" width="486" height="18" uuid="ba96b610-9f00-4cd4-a441-90801b3f6a27">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{question2OfSectionD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="2486" width="486" height="18" uuid="823e81ce-f6d0-4f81-9bd5-ddc9b2979f11">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{question3OfSectionD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="2760" width="158" height="18" uuid="99f4f2ba-b0f5-49bd-a6bb-7a46d738dfa8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{fullName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="2779" width="158" height="18" uuid="978382b1-e8b9-4462-a081-8c0fcac96b25">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>

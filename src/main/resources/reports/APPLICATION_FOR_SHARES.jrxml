@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="APPLICATION_FOR_SHARES" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7ae0b24f-59e0-4574-a554-5cd374c3eb3a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="companyName" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="calcNumberofPaid-inShares" class="java.lang.String"/>
+	<parameter name="calcPerShare" class="java.lang.String"/>
+	<parameter name="sharesAmount" class="java.lang.String"/>
+	<parameter name="shareholderName" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="802" splitType="Immediate">
+			<staticText>
+				<reportElement x="40" y="71" width="480" height="20" uuid="1653a18a-9ce1-4319-b318-daad9e53cb43"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APPLICATION FOR SHARES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="132" width="30" height="20" uuid="ce6b02be-9ee3-4efb-8482-ac278150b4c9">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[To: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="211" width="109" height="18" uuid="302bcb40-1c96-406b-b2f1-9ba995f942bd">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Dear Sirs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="229" width="360" height="18" uuid="af746a21-475e-4d30-a2e0-0e425e41d05a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I, the undersigned, hereby apply for and request you to allot to me ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="247" width="101" height="18" uuid="0cc42a80-c2e7-4093-83ef-2fb7f188df13">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ordinary shares at]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="251" y="247" width="118" height="18" uuid="2e200f1b-3dec-4f05-8d1f-ddde30bba8d5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[each in the capital of ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="265" width="199" height="18" uuid="50bdb844-5edd-4e1d-984d-2c2c0b0f6455"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(the “Company”), and I agree to pay]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="265" width="179" height="18" uuid="b3bf7bbe-1bff-48cf-a6b4-423204df1d31"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[for the above-mentioned shares]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="396" width="479" height="48" uuid="10f9c7a1-03ec-4006-be1f-e0e2d6be03d4"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I further undertake and agree to accept the number of shares that you may allot to me, subject to the conditions of the Constitution of the Company, and I authorize you to place my name on the Register of Members as holder in respect of the shares so allotted.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="501" width="479" height="18" uuid="4d3d8dcc-7dc0-4a75-a1c4-29641d0a6344">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I also agree that this application is irrevocable and cannot be withdrawn.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="558" width="479" height="18" uuid="92c8b905-5877-4068-80b1-a7cb5aef075c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Share capital will be payable by cash or via through shareholder loan.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="664" width="106" height="20" uuid="4f9be6ce-e48c-4d18-99c3-9332dd5987fb"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Shareholder  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="684" width="106" height="20" uuid="12f00edd-f981-467a-8d3c-9362cc28bdc3"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signature:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="716" width="106" height="20" uuid="244e6872-8072-4254-8c6d-c971f789cf61"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="91" width="480" height="20" uuid="222dc2f9-5386-476e-808b-4d6fd48b5d49">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[认股申请书]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="72" y="132" width="446" height="20" uuid="d06bdd0a-6871-4fee-8e55-40d4ac387531"/>
+				<textElement textAlignment="Left">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="153" width="448" height="36" uuid="726e6824-e84a-480c-a6f3-c6301592349b"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="229" width="119" height="18" uuid="4c169fa1-8ef0-404d-9745-39bc2bfff4a1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{calcNumberofPaid-inShares}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="142" y="247" width="108" height="18" uuid="c150b03f-83b1-4d6f-a5d9-99d38978911a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{calcPerShare}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="247" width="149" height="18" uuid="07845d62-6e1d-4678-abce-743ae2cb9fc4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+				<patternExpression><![CDATA[$P{companyName}]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="239" y="265" width="121" height="18" uuid="bf471892-0a89-4b70-9aaf-205a2a4d1b91">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sharesAmount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="283" width="89" height="18" uuid="1edd5c18-4354-4186-94ae-b158079d05c5"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[in full in cash.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="301" width="109" height="18" uuid="cd2fa18b-7c80-4a64-9a92-0a80808ea91c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[尊敬的先生们：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="319" width="360" height="18" uuid="46b9dbd6-f841-4bf2-b761-32a46a3fea9d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[我，以下签字人，在此申请并要求您以]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="238" y="337" width="41" height="18" uuid="16873c1c-33e7-4d84-bdb2-da70bc51afa4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[股每股]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="319" width="129" height="18" uuid="9d163de0-abc4-4691-8433-f32d972a61a2"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[（以下简称“公司”）的]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="119" y="337" width="119" height="18" uuid="c8ce6b08-d111-46c5-851c-f6da925f91bc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{calcNumberofPaid-inShares}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="337" width="108" height="18" uuid="f66b40db-1301-45a5-82a3-1adf2f311d60">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{calcPerShare}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="319" width="149" height="18" uuid="f0a7aeeb-d190-4a86-a678-faa66652ebf0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+				<patternExpression><![CDATA[$P{companyName}]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="356" width="121" height="18" uuid="c565da28-5964-48c8-b59a-deaa87b43b5b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sharesAmount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="387" y="337" width="141" height="18" uuid="f47bd600-763d-4c8a-9d7a-24469b6c6108"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[的普通股，本人同意以现]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="337" width="79" height="18" uuid="677e7ee2-4c44-4f68-bde9-55abcf52e210"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[股本向我配发]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="356" width="119" height="18" uuid="d12a99a0-4c8f-4428-a456-f22fc57ccdac"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[金全额支付上述股份]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="444" width="479" height="36" uuid="74fa1f0e-4e9b-4ffd-8231-151ba553f4ba"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[本人进一步承诺并同意接受贵公司根据本公司章程细则配发给我的股份数目，并授权贵公司将本人姓名作为所分配股份的持有人登记在股东名册上。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="519" width="479" height="18" uuid="c57d6d0e-8193-474a-a689-7e09e7d50739">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[本人亦同意本申请书不可撤销，不能撤回。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="576" width="479" height="18" uuid="3ac98285-3df3-445f-b46f-e081f2d0ae7e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[股本将以现金或股东贷款支付。]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="715" width="221" height="20" uuid="ec832663-6ab0-4d62-bae7-dc2abdc41519">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{shareholderName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

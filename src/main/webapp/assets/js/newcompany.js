@@ -621,10 +621,11 @@ $("input[id^='calc']").change(function () {
 	$("#registeredCapital2").val(payNo * pershare);
  }).change();
 
-function addContactP () {
+function addContactP() {
 	var addContactNo = document.getElementById("addContactNo").value;
+	var contact = "";
 	for (i = 1; i <= addContactNo; i++) {
-		var contact = `<div class="contactClone">
+		contact = contact + `<div class="contactClone">
 			<div class="section-title">董事、股东、联系人资料 `+ i + `<div style="text-align: right;" class="removeNode">删除 [X]</div></div>
 			<div class="form-group row">
 			<label class="col-sm-3 col-form-label">职位类型（可多选）</label>
@@ -728,7 +729,7 @@ function addContactP () {
 		    </div>	
         </div>`;
 
-		document.querySelector('#addContactPDiv0').empty();
+		$('.contactClone').remove();
 	    document.querySelector('#addContactPDiv0').insertAdjacentHTML('afterend',contact);
 	    $("#country" + i ).countrySelect({
 	    	preferredCountries: ['sg', 'cn', 'my']

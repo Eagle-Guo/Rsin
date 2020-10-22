@@ -1,4 +1,3 @@
-var COUNTRY_COUNT=0;
 function openAccountFunction(x,y) {
       // Get the checkbox
       var checkBox = document.getElementById(x);
@@ -14,7 +13,7 @@ function openAccountFunction(x,y) {
 }
 
 $(function() {
-    $( "#businessEvent" ).autocomplete({
+    $("#businessEvent1,#businessEvent2").autocomplete({
     	minLength: 0,
         max: 10,
         width: 150,
@@ -107,6 +106,7 @@ function saveToBackend() {
             }
          );
 }
+
 function refreshRightSummary() {
     var number = services.length;
     var selectedsummaryhtml = "<h6 class='mt-3'>服务类型详细清单</h6><ul class='list-unstyled list-unstyled-border'>";
@@ -130,6 +130,7 @@ function refreshRightSummary() {
     selectedsummaryhtml += ") </span>  总计金额（S$）  (<span class='text-muted media-right'>" + totalamount + "</span>)</h6>";
     document.getElementById("selected_summary").innerHTML = selectedsummaryhtml;
 }
+
 function addGudong () {
   document.querySelector('#gudongdiv').insertAdjacentHTML('afterend',
     `<li class="list-group-item">
@@ -181,8 +182,11 @@ function listSummary() {
     if (document.getElementById("registeredCapital2").value!="") {
         companyInfos.push({name:"实缴股份资本",description:document.getElementById("registeredCapital2").value});
     }
-    if (document.getElementById("businessEvent").value!="") {
-        companyInfos.push({name:"公司商业活动",description:document.getElementById("businessEvent").value});
+    if (document.getElementById("businessEvent1").value!="") {
+        companyInfos.push({name:"公司商业活动1",description:document.getElementById("businessEvent1").value});
+    }
+    if (document.getElementById("businessEvent2").value!="") {
+        companyInfos.push({name:"公司商业活动2",description:document.getElementById("businessEvent2").value});
     }
     if (document.getElementById("conpanyAddressAndPostalCode").value!="") {
         companyInfos.push({name:"公司地址及邮编",description:document.getElementById("conpanyAddressAndPostalCode").value});
@@ -206,11 +210,11 @@ function listSummary() {
     if (document.getElementById("fullName").value!="") {
         shareholderInfos.push({name:"全名",description:document.getElementById("fullName").value});
     }
-    if (document.getElementById("country0").value!="") {
-        shareholderInfos.push({name:"国籍",description:document.getElementById("country0").value});
-    }
     if (document.getElementById("gender").value!="") {
         shareholderInfos.push({name:"性别",description:document.getElementById("gender").value});
+    }
+    if (document.getElementById("country0").value!="") {
+        shareholderInfos.push({name:"国籍",description:document.getElementById("country0").value});
     }
     if (document.getElementById("ICType").value!="") {
         shareholderInfos.push({name:"身份证类型",description:document.getElementById("ICType").value});
@@ -247,230 +251,232 @@ function listSummary() {
     shareholdertext += "</ul>";
     document.getElementById("shareholder_summary").innerHTML = shareholdertext;
 }
-    function choosedsv(x) {
-        //document.getElementsByClassName("choosedsvr")[x].style.backgroundColor= '#f8fafb';     
-        var element = document.getElementsByClassName("choosedsvr")[x];
-        var btn = document.getElementsByClassName("badge-pill")[x];
-        
-        if (!element.classList.contains('choosesv')) {
-        	switch (x) {
-            case 0:
-                if (services.some(el => el.name === "新注册新加坡公司开户")){
-                    services = services.filter(item => item.name !== "新注册新加坡公司开户")
-                }
-                services.push({name:"新注册新加坡公司开户",price:300});
-                refreshRightSummary();
-                break;
-            case 1:
-                if (services.some(el => el.name === "挂名董事")){
-                    services = services.filter(item => item.name !== "挂名董事")
-                    //services = services.filter(item => item.name !== "押金")
-                }
-                services.push({name:"挂名董事",price:1800+1500});
-                //services.push({name:"押金",price:1500});
-                refreshRightSummary();
-                z=[];
-                break;
-            case 2:
-                  if (services.some(el => el.name === "GST消费税注册")){
-                      services = services.filter(item => item.name !== "GST消费税注册")
-                  }
-                  var requestClaim = document.getElementsByClassName("choosedsvr")[x+1];
-              	  if (!requestClaim.classList.contains('choosesv')){
-              		services.push({name:"GST消费税注册",price:400});
-                  } else {
-                	  services.push({name:"GST消费税注册",price:400+1200});
-                  }
-                  refreshRightSummary();
-                  break;
-            case 3:           	
-            	if (services.some(el => el.name === "GST消费税注册")){
-                    services = services.filter(item => item.name !== "GST消费税注册")
-                }
-                var gstClaim = document.getElementsByClassName("choosedsvr")[x-1];
-        	    if (!gstClaim.classList.contains('choosesv')) {
-            		services.push({name:"GST消费税注册",price:1200});
-                } else {
-              	  services.push({name:"GST消费税注册",price:400+1200});
-                }
-                refreshRightSummary();
-                break;
-            case 4:
-            	z.push(document.getElementById("countsgtel").value);
-                z.push(document.getElementById("countglotel").value);
-                if (services.some(el => el.name === "虚拟电话")){
-                    services = services.filter(item => item.name !== "虚拟电话")
-                }
-                
-                var nextClass = document.getElementsByClassName("choosedsvr")[x+1];
-                if (!nextClass.classList.contains('choosesv')) {
-              	  services.push({name:"虚拟电话",price:z[0]*200});
-                } else {
-                    services.push({name:"虚拟电话",price:z[0]*200+z[1]*500});
-                }
-                refreshRightSummary();
-                z=[];
-                break;
-            case 5:
-                z.push(document.getElementById("countsgtel").value);
-                z.push(document.getElementById("countglotel").value);
-                if (services.some(el => el.name === "虚拟电话")){
-                    services = services.filter(item => item.name !== "虚拟电话")
-                }
-                
-                var previousClass = document.getElementsByClassName("choosedsvr")[x-1];
-                if (!previousClass.classList.contains('choosesv')) {
-              	  services.push({name:"虚拟电话",price:z[1]*500});
-                } else {
-                    services.push({name:"虚拟电话",price:z[0]*200+z[1]*500});
-                }
-                refreshRightSummary();
-                z=[];
-                break;
-            case 6:
-                  z.push(document.getElementById("countmail").value);
-                  if (services.some(el => el.name === "收信转寄服务")){
-                      services = services.filter(item => item.name !== "收信转寄服务")
-                  }
-                  services.push({name:"收信转寄服务",price:z[0]*600});
-                  refreshRightSummary();
-                  z=[];
-                  break; 
-            case 7:
-                  z.push(document.getElementById("countaccounting").value);
-                  if (services.some(el => el.name === "会计记账")){
-                      services = services.filter(item => item.name !== "会计记账")
-                  }
-                  services.push({name:"会计记账",price:parseInt(z[0])});
-                  refreshRightSummary();
-                  z=[];
-                  break;   
-            case 8:
-                  if (services.some(el => el.name === "注册加急")){
-                      services = services.filter(item => item.name !== "注册加急")
-                  }
-                  var urgent = document.getElementsByClassName("choosedsvr")[x+1];
-                  if (!urgent.classList.contains('choosesv')) {
-                	  services.push({name:"注册加急",price:0});
-                  } else {
-                      services.push({name:"注册加急",price:300+0});
-                  }
-                  refreshRightSummary();
-                  z=[];
-                  break; 
-            case 9:
-                if (services.some(el => el.name === "注册加急")){
-                    services = services.filter(item => item.name !== "注册加急")
-                }
-          	  services.push({name:"注册加急",price:300});
-                refreshRightSummary();
-                z=[];
-                break; 
+
+function choosedsv(x) {
+    // document.getElementsByClassName("choosedsvr")[x].style.backgroundColor='#f8fafb';
+    var element = document.getElementsByClassName("choosedsvr")[x];
+    var btn = document.getElementsByClassName("badge-pill")[x];
+    
+    if (!element.classList.contains('choosesv')) {
+    	switch (x) {
+        case 0:
+            if (services.some(el => el.name === "新注册新加坡公司开户")){
+                services = services.filter(item => item.name !== "新注册新加坡公司开户")
             }
-        } else {
-        	switch (x) {
-            case 0:
-            	if (services.some(el => el.name === "新注册新加坡公司开户")){
-                    services = services.filter(item => item.name !== "新注册新加坡公司开户")
-                }
-                refreshRightSummary();
-                break;
-            case 1:
-            	if (services.some(el => el.name === "挂名董事")){
-                    services = services.filter(item => item.name !== "挂名董事")
-                }
-                refreshRightSummary();
-                break;
-            case 2:
-                if (services.some(el => el.name === "GST消费税注册")){
-                    services = services.filter(item => item.name !== "GST消费税注册")
-                }
-                var gstClaim = document.getElementsByClassName("choosedsvr")[x+1];
-            	if (gstClaim.classList.contains('choosesv')) {
-            		services.push({name:"GST消费税注册",price:1200});
-                }
-            	z=[];
-                refreshRightSummary();
-                break;
-            case 3:
-            	if (services.some(el => el.name === "GST消费税注册")){
-                    services = services.filter(item => item.name !== "GST消费税注册")
-                }
-                var oneTimeReg = document.getElementsByClassName("choosedsvr")[x-1];
-                if (oneTimeReg.classList.contains('choosesv')) {
-            	    services.push({name:"GST消费税注册",price:400});
-                }
-                refreshRightSummary();
-                break;
-            case 4:
-                z.push(document.getElementById("countglotel").value);
-                if (services.some(el => el.name === "虚拟电话")){
-                    services = services.filter(item => item.name !== "虚拟电话")
-                }
-                var nextClass = document.getElementsByClassName("choosedsvr")[x+1];
-                if (nextClass.classList.contains('choosesv')) {
-              	  services.push({name:"虚拟电话",price:z[0]*500});
-                }
-                z=[];
-                refreshRightSummary();
-                break;
-            case 5:
-            	z.push(document.getElementById("countsgtel").value);
-                if (services.some(el => el.name === "虚拟电话")){
-                    services = services.filter(item => item.name !== "虚拟电话")
-                }
-                var previousClass = document.getElementsByClassName("choosedsvr")[x-1];
-                if (previousClass.classList.contains('choosesv')) {
-              	  services.push({name:"虚拟电话",price:z[0]*200});
-                }
-                z=[];
-                refreshRightSummary();
-                break;
-            case 6:
-                if (services.some(el => el.name === "收信转寄服务")){
-                    services = services.filter(item => item.name !== "收信转寄服务")
-                }
-                refreshRightSummary();
-                break; 
-            case 7:
-                if (services.some(el => el.name === "会计记账")){
-                    services = services.filter(item => item.name !== "会计记账")
-                }
-                refreshRightSummary();
-                break;   
-            case 8:
-            	if (services.some(el => el.name === "注册加急")){
-                    services = services.filter(item => item.name !== "注册加急")
-                }
-            	var urgent = document.getElementsByClassName("choosedsvr")[x+1];
-            	if (urgent.classList.contains('choosesv')) {
-            		services.push({name:"注册加急",price:300});
-                }
-                refreshRightSummary();
-                break;  
-            case 9:
-                if (services.some(el => el.name === "注册加急")){
-                    services = services.filter(item => item.name !== "注册加急")
-                }
-                refreshRightSummary();
-                break;    
-            } 
-        }
-        element.classList.toggle("choosesv");    
-        btn.classList.toggle("choosedsvbtn");
-    }
-    var z= [];
-    function run(x) {
-            if (z.length == 2){
-                document.getElementById("priceDongshi").innerHTML = "S$"+(1800+1500)+"（含押金S$1500）";
-                if (services.some(el => el.name === "挂名董事")){
-                    services = services.filter(item => item.name !== "挂名董事")
-                }
-            services.push({name:"挂名董事",price:1800+1500});
+            services.push({name:"新注册新加坡公司开户",price:300});
             refreshRightSummary();
-            z= [];
-        }    
-    }       
+            break;
+        case 1:
+            if (services.some(el => el.name === "挂名董事")){
+                services = services.filter(item => item.name !== "挂名董事")
+                // services = services.filter(item => item.name !== "押金")
+            }
+            services.push({name:"挂名董事",price:1800+1500});
+            // services.push({name:"押金",price:1500});
+            refreshRightSummary();
+            z=[];
+            break;
+        case 2:
+              if (services.some(el => el.name === "GST消费税注册")){
+                  services = services.filter(item => item.name !== "GST消费税注册")
+              }
+              var requestClaim = document.getElementsByClassName("choosedsvr")[x+1];
+          	  if (!requestClaim.classList.contains('choosesv')){
+          		services.push({name:"GST消费税注册",price:400});
+              } else {
+            	  services.push({name:"GST消费税注册",price:400+1200});
+              }
+              refreshRightSummary();
+              break;
+        case 3:           	
+        	if (services.some(el => el.name === "GST消费税注册")){
+                services = services.filter(item => item.name !== "GST消费税注册")
+            }
+            var gstClaim = document.getElementsByClassName("choosedsvr")[x-1];
+    	    if (!gstClaim.classList.contains('choosesv')) {
+        		services.push({name:"GST消费税注册",price:1200});
+            } else {
+          	  services.push({name:"GST消费税注册",price:400+1200});
+            }
+            refreshRightSummary();
+            break;
+        case 4:
+        	z.push(document.getElementById("countsgtel").value);
+            z.push(document.getElementById("countglotel").value);
+            if (services.some(el => el.name === "虚拟电话")){
+                services = services.filter(item => item.name !== "虚拟电话")
+            }
+            
+            var nextClass = document.getElementsByClassName("choosedsvr")[x+1];
+            if (!nextClass.classList.contains('choosesv')) {
+          	  services.push({name:"虚拟电话",price:z[0]*200});
+            } else {
+                services.push({name:"虚拟电话",price:z[0]*200+z[1]*500});
+            }
+            refreshRightSummary();
+            z=[];
+            break;
+        case 5:
+            z.push(document.getElementById("countsgtel").value);
+            z.push(document.getElementById("countglotel").value);
+            if (services.some(el => el.name === "虚拟电话")){
+                services = services.filter(item => item.name !== "虚拟电话")
+            }
+            
+            var previousClass = document.getElementsByClassName("choosedsvr")[x-1];
+            if (!previousClass.classList.contains('choosesv')) {
+          	  services.push({name:"虚拟电话",price:z[1]*500});
+            } else {
+                services.push({name:"虚拟电话",price:z[0]*200+z[1]*500});
+            }
+            refreshRightSummary();
+            z=[];
+            break;
+        case 6:
+              z.push(document.getElementById("countmail").value);
+              if (services.some(el => el.name === "收信转寄服务")){
+                  services = services.filter(item => item.name !== "收信转寄服务")
+              }
+              services.push({name:"收信转寄服务",price:z[0]*600});
+              refreshRightSummary();
+              z=[];
+              break; 
+        case 7:
+              z.push(document.getElementById("countaccounting").value);
+              if (services.some(el => el.name === "会计记账")){
+                  services = services.filter(item => item.name !== "会计记账")
+              }
+              services.push({name:"会计记账",price:parseInt(z[0])});
+              refreshRightSummary();
+              z=[];
+              break;   
+        case 8:
+              if (services.some(el => el.name === "注册加急")){
+                  services = services.filter(item => item.name !== "注册加急")
+              }
+              var urgent = document.getElementsByClassName("choosedsvr")[x+1];
+              if (!urgent.classList.contains('choosesv')) {
+            	  services.push({name:"注册加急",price:0});
+              } else {
+                  services.push({name:"注册加急",price:300+0});
+              }
+              refreshRightSummary();
+              z=[];
+              break; 
+        case 9:
+            if (services.some(el => el.name === "注册加急")){
+                services = services.filter(item => item.name !== "注册加急")
+            }
+      	  services.push({name:"注册加急",price:300});
+            refreshRightSummary();
+            z=[];
+            break; 
+        }
+    } else {
+    	switch (x) {
+        case 0:
+        	if (services.some(el => el.name === "新注册新加坡公司开户")){
+                services = services.filter(item => item.name !== "新注册新加坡公司开户")
+            }
+            refreshRightSummary();
+            break;
+        case 1:
+        	if (services.some(el => el.name === "挂名董事")){
+                services = services.filter(item => item.name !== "挂名董事")
+            }
+            refreshRightSummary();
+            break;
+        case 2:
+            if (services.some(el => el.name === "GST消费税注册")){
+                services = services.filter(item => item.name !== "GST消费税注册")
+            }
+            var gstClaim = document.getElementsByClassName("choosedsvr")[x+1];
+        	if (gstClaim.classList.contains('choosesv')) {
+        		services.push({name:"GST消费税注册",price:1200});
+            }
+        	z=[];
+            refreshRightSummary();
+            break;
+        case 3:
+        	if (services.some(el => el.name === "GST消费税注册")){
+                services = services.filter(item => item.name !== "GST消费税注册")
+            }
+            var oneTimeReg = document.getElementsByClassName("choosedsvr")[x-1];
+            if (oneTimeReg.classList.contains('choosesv')) {
+        	    services.push({name:"GST消费税注册",price:400});
+            }
+            refreshRightSummary();
+            break;
+        case 4:
+            z.push(document.getElementById("countglotel").value);
+            if (services.some(el => el.name === "虚拟电话")){
+                services = services.filter(item => item.name !== "虚拟电话")
+            }
+            var nextClass = document.getElementsByClassName("choosedsvr")[x+1];
+            if (nextClass.classList.contains('choosesv')) {
+          	  services.push({name:"虚拟电话",price:z[0]*500});
+            }
+            z=[];
+            refreshRightSummary();
+            break;
+        case 5:
+        	z.push(document.getElementById("countsgtel").value);
+            if (services.some(el => el.name === "虚拟电话")){
+                services = services.filter(item => item.name !== "虚拟电话")
+            }
+            var previousClass = document.getElementsByClassName("choosedsvr")[x-1];
+            if (previousClass.classList.contains('choosesv')) {
+          	  services.push({name:"虚拟电话",price:z[0]*200});
+            }
+            z=[];
+            refreshRightSummary();
+            break;
+        case 6:
+            if (services.some(el => el.name === "收信转寄服务")){
+                services = services.filter(item => item.name !== "收信转寄服务")
+            }
+            refreshRightSummary();
+            break; 
+        case 7:
+            if (services.some(el => el.name === "会计记账")){
+                services = services.filter(item => item.name !== "会计记账")
+            }
+            refreshRightSummary();
+            break;   
+        case 8:
+        	if (services.some(el => el.name === "注册加急")){
+                services = services.filter(item => item.name !== "注册加急")
+            }
+        	var urgent = document.getElementsByClassName("choosedsvr")[x+1];
+        	if (urgent.classList.contains('choosesv')) {
+        		services.push({name:"注册加急",price:300});
+            }
+            refreshRightSummary();
+            break;  
+        case 9:
+            if (services.some(el => el.name === "注册加急")){
+                services = services.filter(item => item.name !== "注册加急")
+            }
+            refreshRightSummary();
+            break;    
+        } 
+    }
+    element.classList.toggle("choosesv");    
+    btn.classList.toggle("choosedsvbtn");
+}
+
+var z= [];
+function run(x) {
+        if (z.length == 2){
+            document.getElementById("priceDongshi").innerHTML = "S$"+(1800+1500)+"（含押金S$1500）";
+            if (services.some(el => el.name === "挂名董事")){
+                services = services.filter(item => item.name !== "挂名董事")
+            }
+        services.push({name:"挂名董事",price:1800+1500});
+        refreshRightSummary();
+        z= [];
+    }    
+}       
 
 function runGuDong(x) {
     z.push(document.getElementById("countGuDong").value);
@@ -570,21 +576,20 @@ function removeFile (input) {
     input.parentNode.parentNode.remove()
 }
 
-  function addFileadd (x) {
+function addFileadd (x) {
       document.querySelector('#addfiledivadd'+x).insertAdjacentHTML('afterend',
-        ` <div class="form-group row"  style="padding-left:15px;">
-          <label class="col-sm-3 col-form-label">住所证明（海外,3个月内）</label>
-          <div class="col-sm-8"><input type="file" class="form-control"  placeholder="联系电话"></div>
-          <div class="col-sm-1" style="margin-top:.5rem;padding-left:0;"><input type="button" value="-" onclick="removeFileadd(this)"></div>                  
-             </div>         
-        </li>`      
+    ` <div class="form-group row"  style="padding-left:15px;">
+      <label class="col-sm-3 col-form-label">住所证明（海外,3个月内）</label>
+      <div class="col-sm-8"><input type="file" class="form-control"  placeholder="联系电话"></div>
+      <div class="col-sm-1" style="margin-top:.5rem;padding-left:0;"><input type="button" value="-" onclick="removeFileadd(this)"></div>                  
+         </div>         
+    </li>`      
       )
-  }         
-  function removeFileadd (input) {
-      input.parentNode.parentNode.remove()
-  }
+}
 
-  function addFilepimg (x) {
+function removeFileadd (input) { input.parentNode.parentNode.remove() }
+
+function addFilepimg (x) {
       document.querySelector('#addfiledivpimg'+x).insertAdjacentHTML('afterend',
         ` <div class="form-group row"  style="padding-left:15px;">
           <label class="col-sm-3 col-form-label">持护照(有照片页)正面头部照</label>
@@ -593,33 +598,35 @@ function removeFile (input) {
              </div>         
         </li>`      
       )
-  }         
-  function removeFilepimg (input) {
-      input.parentNode.parentNode.remove()
-  }
+}
+
+function removeFilepimg (input) { input.parentNode.parentNode.remove() }
 
 
-  function addMoreQ(x) {
-	  var checkBox = document.getElementById("checkb_gudong"+x);
-	  var text = document.getElementById("addmoreqtext"+x);
-	  if (checkBox.checked == true){
-	    text.style.display = "block";
-	  } else {
-	     text.style.display = "none";
-	  }
+function addMoreQ(x) {
+	var checkBox = document.getElementById("checkb_gudong"+x);
+	var text = document.getElementById("addmoreqtext"+x);
+	if (checkBox.checked == true){
+		text.style.display = "block";
+	} else {
+		text.style.display = "none";
 	}
-  $("input[id^='calc']").change(function () {
-	  var issueNo = $("#calcNumberofSharesIssued0").val();
-	  var payNo = $("#calcNumberofPaid-inShares0").val();
-	  var pershare = $("#calcPerShare0").val();
-	  $("#registeredCapital1").val(issueNo * pershare);
-	  $("#registeredCapital2").val(payNo * pershare);
-  }).change();
+}
 
-  function addContactP () {
-	  COUNTRY_COUNT = COUNTRY_COUNT + 1;
-	  console.log("x:" + COUNTRY_COUNT);
-	  var contact = ` <br/><br/><div class="section-title">董事、股东、联系人资料</div>
+$("input[id^='calc']").change(function () {
+	var issueNo = $("#calcNumberofSharesIssued0").val();
+	var payNo = $("#calcNumberofPaid-inShares0").val();
+	var pershare = $("#calcPerShare0").val();
+	$("#registeredCapital1").val(issueNo * pershare);
+	$("#registeredCapital2").val(payNo * pershare);
+ }).change();
+
+function addContactP() {
+	var addContactNo = document.getElementById("addContactNo").value;
+	var contact = "";
+	for (i = 1; i <= addContactNo; i++) {
+		contact = contact + `<div class="contactClone">
+			<div class="section-title">董事、股东、联系人资料 `+ i + `<div style="text-align: right;" class="removeNode">删除 [X]</div></div>
 			<div class="form-group row">
 			<label class="col-sm-3 col-form-label">职位类型（可多选）</label>
 			<div class="col-sm-9">
@@ -629,119 +636,126 @@ function removeFile (input) {
 						<label style="height: auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
 					</div>
 					<div class="form-check form-check-inline">`
-                      + "<input class='form-check-input' type='checkbox' id='checkb_gudong"+ COUNTRY_COUNT + "' value='gudong' onclick='addMoreQ(" + COUNTRY_COUNT + ")'>"+
-                        `<label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
-                      </div>   
+						+ "<input class='form-check-input' type='checkbox' id='checkb_gudong"+ i + "' value='gudong' onclick='addMoreQ(" + i + ")'>"+
+							`<label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
+					</div>   
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="checkbox" id="checkb_contactpeople1"> 
 						<label style="height: auto;" class="form-check-label" for="inlineCheckbox3">联系人</label>
 					</div>
 				</div>
 
+				</div>
 			</div>
-		</div>
-		<div class="form-group row">
-			<label class="col-sm-3 col-form-label">全名(护照姓名)</label>
-			<div class="col-sm-9">
-				<input type="text" class="form-control" id="fullName" placeholder="限英文"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\\\*\\\·\\\/]/ig,'')">
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">全名(护照姓名)</label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" id="fullName" placeholder="限英文"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\\\*\\\·\\\/]/ig,'')">
+				</div>
+			</div>	
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">性别</label>
+				<div class="col-sm-9">
+					<select class="custom-select c-select-info  appinfo" id="gender">
+						<option value="男" selected>男</option>
+						<option value="女">女</option>
+					</select>
+				</div>
 			</div>
-		</div>	
-		<div class="form-group row">
-			<label class="col-sm-3 col-form-label">性别</label>
-			<div class="col-sm-9">
-				<select class="custom-select c-select-info  appinfo" id="gender">
-					<option value="男" selected>男</option>
-					<option value="女">女</option>
-				</select>
+			<div class="form-group row">
+	        <label class="col-sm-3 col-form-label">国籍</label>
+				<div class="form-item  col-sm-9">` + 
+				"<input id='country" + i + "' class='form-control' type='text'>" + 
+				"	<label for='country"+ i + "' style='display:none;'>Select a country here...</label> </div>  </div>" +
+			`<div class="form-group row">
+				<label class="col-sm-3 col-form-label">证件类型</label>
+				<div class="col-sm-9">
+					<select class="custom-select c-select-info  appinfo" id="ICType">
+						<option value="公民" selected>新加坡公民(NRIC)</option>
+						<option value="永久居民">新加坡PR(NRIC)</option>
+						<option value="其他">国际护照</option>
+					</select>
+				</div>
 			</div>
-		</div>
-		<div class="form-group row">
-        <label class="col-sm-3 col-form-label">国籍</label>
-			<div class="form-item  col-sm-9">` + 
-			"<input id='country" + COUNTRY_COUNT + "' class='form-control' type='text'>" + 
-			"	<label for='country"+ COUNTRY_COUNT + "' style='display:none;'>Select a country here...</label> </div>  </div>" +
-		`<div class="form-group row">
-			<label class="col-sm-3 col-form-label">证件类型</label>
-			<div class="col-sm-9">
-				<select class="custom-select c-select-info  appinfo" id="ICType">
-					<option value="公民" selected>新加坡公民(NRIC)</option>
-					<option value="永久居民">新加坡PR(NRIC)</option>
-					<option value="其他">国际护照</option>
-				</select>
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">证件号码</label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" id="ICNumber" placeholder="证件号码">
+				</div>
 			</div>
-		</div>
-		<div class="form-group row">
-			<label class="col-sm-3 col-form-label">证件号码</label>
-			<div class="col-sm-9">
-				<input type="text" class="form-control" id="ICNumber" placeholder="证件号码">
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">电子邮箱</label>
+				<div class="col-sm-9">
+					<input type="email" class="form-control" id="email" placeholder="电子邮箱"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\*\\\·\\\@\\\/]/ig,'')">
+				</div>
 			</div>
-		</div>
-		<div class="form-group row">
-			<label class="col-sm-3 col-form-label">电子邮箱</label>
-			<div class="col-sm-9">
-				<input type="email" class="form-control" id="email" placeholder="电子邮箱"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\*\\\·\\\@\\\/]/ig,'')">
+			
+			<div class="form-group row">
+	         	 <label for="phone` + i + `" class="col-sm-3 col-form-label">联系电话</label><br/>
+	         	 <div class="col-sm-9">
+	         	    <input style="padding-left:3rem;" id="phone` + i + `" type="text" class="form-control telinput" placeholder="联系电话"/>
+	         	 </div>
+	      </div>											                    										                                  
+			`+
+			"<div style='display:none;' id='addmoreqtext"+ i +"'> " +
+			`<div class="form-group row">
+				<label class="col-sm-3 col-form-label">发行股份数量</label>
+				<div class="col-sm-9">
+					<input type="tel" class="form-control"
+						id="calcNumberofSharesIssued` + i + `" placeholder="建议10000-50000股"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
+				</div>
+			</div>													
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">实缴股份数量</label>
+				<div class="col-sm-9">
+					<input type="tel" class="form-control"
+						id="calcNumberofPaid-inShares` + i + `" placeholder="建议与发行股份一致"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
+				</div>
+			</div>													
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">每股价值</label>
+				<div class="col-sm-9">
+					<input type="tel" class="form-control"
+						id="calcPerShare`+ i + `" placeholder="每股价值" value="1"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
+				</div>
+			</div>	
 			</div>
-		</div>
-		
-		<div class="form-group row">
-         	 <label for="phone` + COUNTRY_COUNT + `" class="col-sm-3 col-form-label">联系电话</label><br/>
-         	 <div class="col-sm-9">
-         	    <input style="padding-left:3rem;" id="phone` + COUNTRY_COUNT + `" type="text" class="form-control telinput" placeholder="联系电话"/>
-         	 </div>
-      </div>											                    										                                  
-		`+
-		"<div style='display:none;' id='addmoreqtext"+ COUNTRY_COUNT +"'> " +
-		`<div class="form-group row">
-			<label class="col-sm-3 col-form-label">发行股份数量</label>
-			<div class="col-sm-9">
-				<input type="tel" class="form-control"
-					id="calcNumberofSharesIssued` + COUNTRY_COUNT + `" placeholder="建议10000-50000股"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
-			</div>
-		</div>													
-		<div class="form-group row">
-			<label class="col-sm-3 col-form-label">实缴股份数量</label>
-			<div class="col-sm-9">
-				<input type="tel" class="form-control"
-					id="calcNumberofPaid-inShares` + COUNTRY_COUNT + `" placeholder="建议与发行股份一致"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
-			</div>
-		</div>													
-		<div class="form-group row">
-			<label class="col-sm-3 col-form-label">每股价值</label>
-			<div class="col-sm-9">
-				<input type="tel" class="form-control"
-					id="calcPerShare`+ COUNTRY_COUNT + `" placeholder="每股价值" value="1"   onkeyup="this.value=this.value.replace(/\\\D/g,'')" onafterpaste="this.value=this.value.replace(/\\\D/g,'')">
-			</div>
-		</div>	
-		</div>
-		<div class="form-group row">
-			<label class="col-sm-3 col-form-label">个人地址及邮编</label>
-			<div class="col-sm-9">
-				<textarea class="form-control textareaheight"
-					id="personalAddressAndPostalCode" placeholder="限英文，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\\\*\\\·\\\/]/ig,'')"></textarea>
-			</div>
-	    </div>						
-		<br /> <br />`;
-      document.querySelector('#addContactPDiv0').insertAdjacentHTML('afterend',contact);
-      $("#country" + COUNTRY_COUNT ).countrySelect({
-  		preferredCountries: ['sg', 'cn', 'my']
-  	  });
-      var input = document.querySelector("#phone" + COUNTRY_COUNT );
-  	  window.intlTelInput(input, {
-  	    // any initialisation options go here
-  	  });
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">个人地址及邮编</label>
+				<div class="col-sm-9">
+					<textarea class="form-control textareaheight"
+						id="personalAddressAndPostalCode" placeholder="限英文，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\\\*\\\·\\\/]/ig,'')"></textarea>
+				</div>
+		    </div>	
+        </div>`;
+
+		$('.contactClone').remove();
+	    document.querySelector('#addContactPDiv0').insertAdjacentHTML('afterend',contact);
+	    $("#country" + i ).countrySelect({
+	    	preferredCountries: ['sg', 'cn', 'my']
+	    });
+	    var input = document.querySelector("#phone" + i );
+	  	window.intlTelInput(input, {
+	  	    // any initialisation options go here
+	  	});
+	}
   	  
-  	  $("input[id^='calc']").change(function () {
-  		  var totalIssue = 0;
-  		  var totalpay = 0;
-  		  $("input[id^='calcPerShare']").each(function(i) {
+	$("input[id^='calc']").change(function () {
+		var totalIssue = 0;
+		var totalpay = 0;
+		$("input[id^='calcPerShare']").each(function(i) {
   			var issueNo = $("#calcNumberofSharesIssued"+i).val();
 	    	var payNo = $("#calcNumberofPaid-inShares"+i).val();
 	    	var pershare = $("#calcPerShare"+i).val();
 	    	totalIssue = totalIssue + issueNo * pershare;
 	    	totalpay = totalpay + payNo * pershare;
-  		  });
+		});
     	
-    	$("#registeredCapital1").val(totalIssue);
-    	$("#registeredCapital2").val(totalpay);
-      }).change();
-  } 
+		$("#registeredCapital1").val(totalIssue);
+		$("#registeredCapital2").val(totalpay);
+	}).change();
+}
+
+$('body').on('click','.removeNode', function() {
+    $(this).closest('.contactClone').remove();
+});

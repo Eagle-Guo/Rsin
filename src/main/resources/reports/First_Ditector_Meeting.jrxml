@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Form1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="934c42e2-6d04-4109-90e1-661b66ee480e">
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="registeredOffice" class="java.lang.String"/>
+	<parameter name="shareholder" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="2002" splitType="Immediate">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.layout"/>
+			<staticText>
+				<reportElement x="40" y="227" width="60" height="18" uuid="10318c18-5d01-4825-93b4-3c241c3c8019">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="227" width="419" height="18" uuid="6401b7e9-d203-4e68-9100-121ae3f6427c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALLOTMENT OF ADDITIONAL SHARES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="263" width="419" height="87" uuid="cc7f7c10-41f9-4259-9ec8-543f8f60c330">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Subject to authority being given under section 161 of the Companies Act (Cap.50), new additional shares, be and are hereby allotted for cash, and that the Common Seal of the Company be affixed the share certificate to be issued in accordance with the Constitution of the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="399" width="60" height="18" uuid="728f8f48-6db8-41fc-a958-07d4e686293d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="399" width="419" height="38" uuid="42370751-1645-4366-aa02-c556c961fbac">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICATE OF INCORPORATION AND CONSTITUTION OF COMPANY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="456" width="419" height="71" uuid="e0aa958d-4d53-4259-90a4-9a38924e6941">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[It be noted that the company was incorporated as per ACRA Bizfile and that the Registration Number assigned to it as per ACRA Bizfile. The Notice of Incorporation was tabled together with a copy of the Constitution of the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="574" width="60" height="18" uuid="2ddb2872-28dc-411c-bf46-5b51a587a75d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="574" width="419" height="18" uuid="7c44e503-5acd-432b-9db0-61ee9e716dd9">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRST DIRECTORS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="612" width="419" height="54" uuid="40e66663-6b56-4fd2-99d3-ddbe5a0de64c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[It was resolved that the following persons stated in ACRA Bizfile profile be confirmed as First Directors of the Company retrospective from the date of incorporation of the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="716" width="60" height="18" uuid="1893ccc5-203f-478c-8ed3-fb0a4e72602f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="716" width="419" height="18" uuid="06fb4454-34a3-4950-865d-52c231b68a29">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REGISTERED OFFICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="752" width="419" height="18" uuid="0c776344-b47b-43fc-9701-03c59398cabf">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[It was resolved that the situation of the Company’s Registered Office at ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="886" width="60" height="18" uuid="c9e688aa-61f7-40ac-829a-f67215f155b1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="886" width="419" height="18" uuid="fceb3312-b1eb-496a-b8f8-14dbed023afa">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FINANCIAL YEAR END]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="922" width="419" height="72" uuid="6b060ad7-74cb-43b8-ad58-2a715c3aa027">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[It was resolved that the first financial period of the Company be made up for the period from the date of incorporation to the last day of the 11th month since incorporation and that the subsequent financial year end will be the same  annually until otherwise decided.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1043" width="60" height="18" uuid="383bab9c-76d3-4c5c-a028-1ab1797a916a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1043" width="419" height="18" uuid="ee79fe03-6837-4b66-b45b-91e1b9349c82">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALLOTMENT AND ISSUE OF SHARES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1082" width="419" height="54" uuid="11e31565-b32f-44ba-8b73-dda36b1c760d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[It was resolved that the signatories to the Memorandum be registered as members in respect of the shares which are subscribed at an issue price of SGD $1 per share namely:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="176" width="479" height="20" uuid="fa73e27c-d160-4963-847e-b8514dd13b1f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AGENDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="125" width="479" height="20" uuid="4f918d69-10b4-4f2c-8a74-dc974c16274b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement markup="none">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINUTES OF THE FIRST BOARD OF DIRECTORS MEETING OF THE COMPANY ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="74" width="480" height="20" uuid="d156e01e-67fa-4e8c-a210-566f41975a98">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[(INCORPORATED IN THE REPUBLIC OF SINGAPORE)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1231" width="60" height="18" uuid="c780e417-938c-4da3-b89c-527dca71f386">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1231" width="419" height="18" uuid="193827ac-e493-4085-88ea-6faf3be19105">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DISPENSING WITH DIRECTOR MEETING]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1267" width="419" height="151" uuid="ced77a72-54f8-4f09-9c02-6fdcd5de4c42">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Resolved that pursuant to the provision of the Companies Act, Cap 50, the company hereby dispenses with the holding of first director meetings and all subsequent director meeting, and that this resolution shall remain in full force and effect until otherwise resolved by shareholders or overridden by the operation of any provision of the Companies Act, Cap 50. Therefore while this resolution remains in force, matters which would normally be put before the director when they meet to hold the Meeting, shall instead be circulated to the directors and resolved by written means.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1511" width="60" height="18" uuid="5131a785-032b-4d1b-a149-3da0cf70919a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOD 8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1511" width="419" height="18" uuid="b87db8b1-e1aa-4650-9873-baabd08d8567">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONCLUSION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1547" width="419" height="18" uuid="e597ce87-6070-4608-82c4-1d55fa1e5877">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[There being no other business, the meeting was ended.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1611" width="479" height="20" uuid="1d8c3d7d-c686-45cf-92cc-ea348953551e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SIGNED AS A CORRECT RECORD
+
+
+
+
+DIRECTOR 董事
+Dated this Signing Date日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1742" width="180" height="36" uuid="c0f08a87-3c8e-4ae3-911b-8f4c563f587a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DIRECTOR
+Dated this Signing Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="42" width="480" height="20" uuid="799bc73d-4741-44a0-82a8-0c66c11e5050">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="95" width="480" height="18" uuid="3cf6a5a6-fbe3-46e3-b9de-74dfcf7a85da">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[（在新加坡共和国注册成立）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="146" width="480" height="18" uuid="dd0937ad-5110-4114-b435-7f6f572b1714"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[公司第一届董事会会议记录]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="197" width="479" height="20" uuid="58324b33-ffe9-4a4d-8434-26bdce7bbb73">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[会议议程]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="246" width="419" height="18" uuid="5e2cd885-0618-472d-a45b-73be4a27afbe">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[分发额外股份]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="350" width="419" height="36" uuid="4422e725-f6f6-4717-a388-5025f7cb4809">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[根据《公司法》（第50章）第161节,新增发股份，特此以现金方式配发，并在根据公司章程签发的股份证书上加盖公司公章。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="437" width="419" height="18" uuid="c61412a4-3bab-4311-af53-9c4d497e28a5">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[公司注册证书和公司章程]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="527" width="419" height="36" uuid="32542e70-3b1d-450c-80c2-cf8b84cb1553">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[值得注意的是，该公司是根据ACRA Bizfile注册成立的，注册号是根据ACRA Bizfile分配的。公司注册通知书连同公司章程副本一并提交]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="593" width="419" height="18" uuid="651894cd-3b83-4379-81d4-63687ea65c29">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[第一任董事]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="667" width="419" height="36" uuid="f61af3e2-cad2-40d7-8c82-aa1d2720f105"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[经决议，自公司成立之日起，ACRA Bizfile profile中所述的以下人员被确认为公司的第一任董事。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="734" width="419" height="18" uuid="673f05aa-47eb-4c26-9b7b-14411ba16299">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[注册地址]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="795" width="419" height="18" uuid="3d9943cd-43ae-4579-953c-9917be62e176">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[retrospective from the date of incorporation to be confirmed.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="775" width="419" height="18" uuid="64fc43da-a186-4e4e-a8ba-6273c1d5e22d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{registeredOffice}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="813" width="419" height="18" uuid="36b76bca-31c9-4dd3-a24c-c61d27f208b2">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[经决议，公司注册办公地址位于]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="836" width="419" height="18" uuid="b11a7d64-ef96-46b4-a4ce-c190105f9d33">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{registeredOffice}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="856" width="419" height="18" uuid="d3629b55-8060-4987-b468-a7b63b59e9fd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[自公司成立之日起予以确认。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="904" width="419" height="18" uuid="f11f14ad-4a58-4f6c-a729-9011f5c1dd3d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[财务年结日 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="994" width="419" height="36" uuid="d103a6be-1f29-4ce2-b39f-75a61b7800ce">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[经决议，公司的第一个财务年度从公司成立之日起至公司成立后第11个月的最后一天，除非更改年结日，接下来的财务年结日将是每年相同。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1062" width="419" height="18" uuid="868938d5-6612-4921-b9be-a29738684838">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[股份配发]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1137" width="419" height="18" uuid="4c8a1ec4-17c9-4469-a03b-ddfc2e652ad2">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[经决议，以下人员为股东，股份以每股1新元的发行价格认购，即：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="1166" width="419" height="54" uuid="d11ed90e-d64c-4260-919a-9cb181bac7bd">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$P{shareholder}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="1249" width="419" height="18" uuid="ae756e24-fd01-4e9b-90ce-f9169e7f4f84">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ 免除董事会会议]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1418" width="419" height="81" uuid="1d48df5e-e8a3-470f-9936-e8dd0fd83947">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[决议：根据《公司法》第50章的规定，本公司特此免除召开第一次董事会议和所有后续董事会议，且本决议应保持完全效力，直至股东另行决议或因公司任何条款的实施而被推翻法案，第50章。因此，在本决议仍然有效的情况下，通常会在董事会开会召开会议时提交董事会的事项，应传阅董事会并以书面方式解决。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1529" width="419" height="18" uuid="98e7a423-d466-4d0a-a668-ad3a2e7d4590">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[结论]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1566" width="419" height="18" uuid="cce7f54e-c49e-4eff-bf75-efb79282d038">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[没有其它事务，会议结束了。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1632" width="479" height="18" uuid="aaebc463-ab1b-43a0-b952-e31df964c02f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[作为正确记录签字]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

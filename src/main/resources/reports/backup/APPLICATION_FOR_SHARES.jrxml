@@ -108,21 +108,21 @@
 				<text><![CDATA[ Share capital will be payable by cash or via through shareholder loan.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="641" width="106" height="20" uuid="4f9be6ce-e48c-4d18-99c3-9332dd5987fb"/>
+				<reportElement x="0" y="664" width="106" height="20" uuid="4f9be6ce-e48c-4d18-99c3-9332dd5987fb"/>
 				<textElement textAlignment="Left" markup="none">
 					<font fontName="SansSerif" size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Shareholder  ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="41" y="661" width="106" height="20" uuid="12f00edd-f981-467a-8d3c-9362cc28bdc3"/>
+				<reportElement x="1" y="684" width="106" height="20" uuid="12f00edd-f981-467a-8d3c-9362cc28bdc3"/>
 				<textElement textAlignment="Left" markup="none">
 					<font fontName="SansSerif" size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Signature:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="41" y="693" width="106" height="20" uuid="244e6872-8072-4254-8c6d-c971f789cf61"/>
+				<reportElement x="1" y="716" width="106" height="20" uuid="244e6872-8072-4254-8c6d-c971f789cf61"/>
 				<textElement textAlignment="Left" markup="none">
 					<font fontName="SansSerif" size="14" isBold="false"/>
 				</textElement>
@@ -338,7 +338,7 @@
 				<text><![CDATA[股本将以现金或股东贷款支付。]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="129" y="692" width="221" height="20" uuid="ec832663-6ab0-4d62-bae7-dc2abdc41519">
+				<reportElement x="89" y="715" width="221" height="20" uuid="ec832663-6ab0-4d62-bae7-dc2abdc41519">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>

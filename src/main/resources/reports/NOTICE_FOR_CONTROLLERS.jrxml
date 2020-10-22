@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="NOTICE_FOR_CONTROLLERS" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3c375111-87b7-4cec-96b8-eea0db31fd90">
+	<parameter name="dateOfNotice" class="java.lang.String"/>
+	<parameter name="nameOfController" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="replyForController" class="java.lang.String"/>
+	<parameter name="IDOfController" class="java.lang.String"/>
+	<parameter name="birthDateOfController" class="java.lang.String"/>
+	<parameter name="aliasesOfController" class="java.lang.String"/>
+	<parameter name="addressOfController" class="java.lang.String"/>
+	<parameter name="nationalityOfController" class="java.lang.String"/>
+	<parameter name="q1OfControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q2OfControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q3OfControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q4OfControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q5OfControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q6OfControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q7OfControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q8OfControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="replyForOtherController" class="java.lang.String"/>
+	<parameter name="q1OfOtherController" class="java.lang.String"/>
+	<parameter name="q2OfOtherController" class="java.lang.String"/>
+	<parameter name="q3OfOtherController" class="java.lang.String"/>
+	<parameter name="q4OfOtherController" class="java.lang.String"/>
+	<parameter name="q5OfOtherController" class="java.lang.String"/>
+	<parameter name="q6OfOtherController" class="java.lang.String"/>
+	<parameter name="q7OfOtherController" class="java.lang.String"/>
+	<parameter name="q1OfOtherControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q2OfOtherControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q3OfOtherControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q4OfOtherControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q5OfOtherControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q6OfOtherControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q7OfOtherControllerOfLegalEntity" class="java.lang.String"/>
+	<parameter name="q8OfOtherControllerOfLegalEntity" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -8,712 +41,1567 @@
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="2802" splitType="Immediate">
+		<band height="5802" splitType="Immediate">
 			<staticText>
-				<reportElement x="0" y="0" width="430" height="30" uuid="7aa3cfba-5809-4182-a02a-6aadaa3b57b3"/>
+				<reportElement x="40" y="41" width="474" height="28" uuid="7aa3cfba-5809-4182-a02a-6aadaa3b57b3">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ANNEX B – NOTICE FOR CONTROLLERS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="41" width="120" height="30" uuid="8ce6c250-2ee1-4b40-8a36-ee27523b2410"/>
+				<reportElement x="40" y="121" width="474" height="18" uuid="8ce6c250-2ee1-4b40-8a36-ee27523b2410">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[通知日期 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="151" width="39" height="20" uuid="5db9d62e-5a58-4f8c-8c5b-a988c4291126">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Left">
 					<font size="14" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Date of notice:]]></text>
+				<text><![CDATA[Dear]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="72" width="230" height="30" uuid="5db9d62e-5a58-4f8c-8c5b-a988c4291126"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Dear CONTROLLER NAME]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="110" width="550" height="25" uuid="7d50e5cb-307f-4dc0-928c-659c3c34ce2a"/>
+				<reportElement x="40" y="190" width="474" height="39" uuid="7d50e5cb-307f-4dc0-928c-659c3c34ce2a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[We know or have reasonable grounds to believe that you are a registrable controller of]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="126" width="550" height="25" uuid="69256023-7d8a-4b92-844e-b0bb2428bfa7"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[COMPANY NAME PTE. LTD..]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="166" width="550" height="61" uuid="5c0b98a9-8894-4eec-9d20-e697560e891d"/>
+				<reportElement x="40" y="258" width="474" height="71" uuid="5c0b98a9-8894-4eec-9d20-e697560e891d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[This notice is sent under section 386AG(2)(a) of the Companies Act (Cap. 50) and requires you to provide the following information within 30 days after the date of this notice. Failure to provide the information required by this notice may be an offence.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="240" width="20" height="31" uuid="d20cbbd8-4222-4a0b-821f-1450e24a3d30"/>
+				<reportElement x="40" y="377" width="223" height="18" uuid="caf7f4a1-326c-4986-a7a1-05d23e5797aa">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Left">
 					<font size="14" isBold="false"/>
 				</textElement>
-				<text><![CDATA[1.]]></text>
+				<text><![CDATA[1. You are a registrable controller* of]]></text>
 			</staticText>
-			<line>
-				<reportElement x="2" y="144" width="200" height="1" uuid="82893a0d-96ff-421e-8d27-322b08157c58">
+			<staticText>
+				<reportElement x="40" y="396" width="474" height="18" uuid="c19f5467-27e2-4e5e-8987-6544025f88b8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
-			</line>
-			<line>
-				<reportElement x="35" y="91" width="150" height="1" uuid="607a1d17-e3ff-4b2b-8b3c-69c67630dc18">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-			</line>
-			<staticText>
-				<reportElement x="22" y="241" width="228" height="31" uuid="caf7f4a1-326c-4986-a7a1-05d23e5797aa"/>
 				<textElement textAlignment="Left">
 					<font size="14" isBold="false"/>
 				</textElement>
-				<text><![CDATA[You are a registrable controller* of]]></text>
+				<text><![CDATA[If you disagree to the above sentence, please do not continue or sign off.]]></text>
 			</staticText>
-			<line>
-				<reportElement x="243" y="260" width="305" height="1" uuid="9d1fa29c-116d-4a62-a0bf-be43b6770c4b">
+			<staticText>
+				<reportElement x="40" y="443" width="77" height="18" uuid="d71b525c-2ec7-4016-8ae5-c1760b7ab67b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
-			</line>
-			<staticText>
-				<reportElement x="23" y="261" width="528" height="31" uuid="c19f5467-27e2-4e5e-8987-6544025f88b8"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[you disagree to the above sentence, please do not continue or sign off.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="23" y="281" width="77" height="31" uuid="d71b525c-2ec7-4016-8ae5-c1760b7ab67b"/>
 				<textElement textAlignment="Left">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Your reply:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="23" y="310" width="528" height="50" uuid="c22c10e9-c167-46f2-82a3-be19eda92aab"/>
+				<reportElement x="40" y="492" width="474" height="36" uuid="c22c10e9-c167-46f2-82a3-be19eda92aab">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[*  A registrable controller is defined as an individual or a legal entity that has "significant interest" in or "significant control" over the company.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="24" y="359" width="20" height="31" uuid="d3f124c5-ca8d-4a6e-9093-39057c7ba298"/>
+				<reportElement x="40" y="557" width="20" height="18" uuid="d3f124c5-ca8d-4a6e-9093-39057c7ba298">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Left">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[(a)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="360" width="504" height="40" uuid="86c1a62f-3d93-4f13-aab5-7cdc7505c762"/>
-				<textElement textAlignment="Left">
+				<reportElement x="70" y="558" width="443" height="36" uuid="86c1a62f-3d93-4f13-aab5-7cdc7505c762">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[If your reply is yes and you are an individual, please provide the following particulars:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="406" width="20" height="23" uuid="3a7decde-6e33-446b-9c05-79e53f0074dc"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(i)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="406" width="483" height="23" uuid="b3328a9a-1f01-43bd-9e02-63ccfb683d53"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[your full name:    ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="46" y="436" width="20" height="23" uuid="4f4dc3ea-5084-413c-9f41-9991941aa031"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(ii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="436" width="483" height="23" uuid="f1b21dd0-a776-4b85-b725-61388cde0d9a"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[your aliases, if any: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="46" y="492" width="20" height="23" uuid="fc9bda7b-cac1-46d7-a64c-2a442f4c20e3"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(iv)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="46" y="465" width="20" height="23" uuid="07b59259-0835-43c3-8f42-ffaa90914bba"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(iii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="465" width="483" height="23" uuid="b77545ae-62cb-47e0-b346-a2c4ee5b9b93"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[your residential address: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="492" width="483" height="23" uuid="b99fabc8-3db2-4f70-b173-bff9ed3e826b"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[your nationality:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="46" y="547" width="20" height="23" uuid="6e7e409b-9342-4e39-bf61-00cd738fdd0e"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(vi)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="46" y="517" width="20" height="23" uuid="81c0d6d7-ca91-4087-a4cb-8e2f392bcc4d"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(v)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="517" width="483" height="23" uuid="62615984-dc5e-4b3c-9f79-983d7438ab56"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[your identity card number or passport number: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="547" width="483" height="23" uuid="1eb98b96-feaf-41ad-bbb7-44e051592b7f"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the date on which you became an individual controller of ]]></text>
-			</staticText>
-			<line>
-				<reportElement x="68" y="585" width="305" height="1" uuid="2ce04c20-32d3-40fa-b1fa-3f3ef0e5b7c5">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="80" y="927" width="433" height="18" uuid="6091ee67-ce63-46b9-a287-c1605268adaf">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-			</line>
-			<staticText>
-				<reportElement x="67" y="566" width="483" height="21" uuid="6b8ecda8-0be0-414c-96cb-f7142a593c68"/>
 				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
+					<font size="11" isBold="false"/>
 				</textElement>
-				<text><![CDATA[OMPANY NAME PTE. LTD.: ]]></text>
+				<text><![CDATA[As per BizFile Company’s Date of Incorporation]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="373" y="566" width="178" height="23" uuid="40089a14-cb03-4bc8-828b-9038c5c23e06"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[As per BizFile Company’s]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="587" width="352" height="23" uuid="6091ee67-ce63-46b9-a287-c1605268adaf"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Date of Incorporation]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="46" y="903" width="34" height="40" uuid="2156416c-8aec-4096-a1d9-ca6d868e0d3e"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(vii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="71" y="902" width="479" height="54" uuid="9e2ac003-6dd3-42d8-99a5-ba6c84c49808"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the identification number or registration number on the corporate entity register of the jurisdiction where you are formed or incorporated, if applicable:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="46" y="971" width="34" height="40" uuid="8cc3aca2-71d1-4f7f-96ba-a38ef23728bc"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(viii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="75" y="971" width="473" height="54" uuid="ca01f76f-736d-40f0-a79e-3c2c2280d350"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the date on which you became a corporate controller of]]></text>
-			</staticText>
-			<line>
-				<reportElement x="75" y="1011" width="400" height="1" uuid="06d0ba3a-42ef-4630-9550-cfe2360b1bec">
+				<reportElement x="40" y="980" width="20" height="31" uuid="b2ae016f-f716-45ae-89c0-0daefe1d2bfe">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
-			</line>
-			<staticText>
-				<reportElement x="0" y="1041" width="20" height="31" uuid="19752f5b-928a-4ddf-9132-8ab9a987c34b"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[2.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="22" y="1042" width="529" height="48" uuid="4e56fc91-35dd-4e6d-b699-aab49d673da1"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Do you know or have reasonable grounds to believe that any other person is a registrable controller of ]]></text>
-			</staticText>
-			<line>
-				<reportElement x="170" y="1079" width="380" height="1" uuid="6735c139-4f07-4d80-a7b2-dc83f2e0d349">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-			</line>
-			<staticText>
-				<reportElement x="23" y="1080" width="473" height="30" uuid="a5ccd860-71fc-443e-9b46-e2e9365ff6b2"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[or is likely to have that knowledge?]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="23" y="1110" width="77" height="31" uuid="680cd712-3084-4092-b6b3-a54b8e9a2ea7"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Your reply:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="23" y="1138" width="407" height="31" uuid="ff5aa50b-c910-447a-a5c1-33f254d00836"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[If your reply is 'No' please sign off.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="24" y="636" width="20" height="31" uuid="b2ae016f-f716-45ae-89c0-0daefe1d2bfe"/>
 				<textElement textAlignment="Left">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[(b)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="637" width="504" height="40" uuid="d927ee48-619b-4645-94cf-3a89e3c6a0cf"/>
+				<reportElement x="70" y="981" width="443" height="40" uuid="d927ee48-619b-4645-94cf-3a89e3c6a0cf">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Left">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[If your reply is yes and you are a legal entity, please provide the following particulars:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="683" width="20" height="23" uuid="dcdd4a3d-09b3-4e6f-8267-d6c8cac3631e"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(i)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="683" width="483" height="23" uuid="c039df1c-41a8-434d-bc89-759f23615a65"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[your name:    ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="46" y="711" width="20" height="23" uuid="42786ccf-0eed-461b-b467-975cd58a68dd"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(ii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="711" width="483" height="23" uuid="66135ef4-2b06-4fdd-b9ea-c140ab02513f"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[your unique entity number issued by the Registrar, if any:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="46" y="741" width="20" height="23" uuid="2ef895e9-cce0-49a5-ae84-3dc342e64205"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(iii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="740" width="483" height="23" uuid="dd56bfe7-981f-44da-906b-c2d0aea8120e"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the address of your registered office: : ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="46" y="769" width="20" height="23" uuid="28aa2df0-a27c-4427-bcc4-8159528aae26"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(iv)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="770" width="483" height="23" uuid="89a628cc-b235-4029-86d0-92da17c68cf7"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[your legal form: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="46" y="802" width="20" height="40" uuid="cad08377-22c1-48db-ba55-ea8385ff2a90"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(v)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="802" width="483" height="53" uuid="d679d5f7-398c-4e6a-8422-7723595ed104"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the jurisdiction where, and statute under which, you are formed or incorporated:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="46" y="852" width="20" height="23" uuid="98ae0d7a-8348-4946-bea0-6ca7d255788d"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(vi)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="853" width="483" height="46" uuid="e9fbc49c-dfb5-4abf-8d2c-d7fac1735747"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the name of the corporate entity register of the jurisdiction in which you are formed or incorporated, if applicable: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="25" y="1167" width="20" height="31" uuid="91a97d36-3e66-43d8-a572-3b77561e630c"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(a)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1168" width="504" height="40" uuid="cfcf7c40-e970-4c6f-bb34-46c1e57a67f9"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[If your reply is yes and the person is an individual, please provide the following    particulars to the best of your knowledge:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1214" width="20" height="23" uuid="7fc21cba-708b-4212-9137-9e2c65507562"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(i)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1214" width="483" height="23" uuid="c7c365b5-5478-4c2b-b8c7-27b08588c627"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the person's full name: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1244" width="20" height="23" uuid="5187868c-d58b-4575-a573-5e25d3bed162"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(ii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1244" width="483" height="23" uuid="5f739613-2463-4e84-8cf9-3bc574229cc9"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the person's aliases, if any: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1273" width="20" height="23" uuid="b3333167-22fe-4231-8a64-441844450960"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(iii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1273" width="483" height="23" uuid="74199e67-1c64-4aaa-bf65-d812f04bf952"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the person's residential address: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1300" width="20" height="23" uuid="7ebe9dba-69d8-4d15-9eed-994b3f42bc33"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(iv)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1300" width="483" height="23" uuid="03cb837b-4c3a-47a6-9fb5-b8ae16842fe6"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the person's nationality: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1325" width="20" height="23" uuid="6d20cafb-6454-43e0-89f3-bbecbca148b7"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(v)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1325" width="483" height="23" uuid="ebbc39bf-cbd9-4cc3-83d6-3c1e1581f3df"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the person's identity card number or passport number:  ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1355" width="20" height="23" uuid="b65a6f2e-37c9-49d9-aadc-5ce14ed22e2b"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(vi)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1355" width="483" height="23" uuid="deeeeaad-eebe-4da7-8ee5-44e6888f9b7e"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the person's date of birth:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1383" width="20" height="23" uuid="4c016b7b-4157-46ea-8c98-02d4d7005659"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(vii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1383" width="483" height="23" uuid="fda4fdd0-71bf-49c5-8073-c6bcc0cd31e6"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the date on which the person became an individual controller of]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="68" y="1402" width="483" height="21" uuid="c42536ba-564e-4372-94d7-e95abce35af0"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[OMPANY NAME PTE. LTD.: ]]></text>
-			</staticText>
-			<line>
-				<reportElement x="67" y="1422" width="300" height="1" uuid="fa4a10f5-b5d2-41f1-bc8c-9d03f2a40983">
+				<reportElement x="40" y="2830" width="474" height="18" uuid="b88e758a-e9dd-4ed5-829f-b34e75e6b102">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-			</line>
-			<staticText>
-				<reportElement x="25" y="1447" width="20" height="31" uuid="29fc51b0-ad91-4c75-8e5f-293c2b165794"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(b)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1448" width="504" height="40" uuid="0334a029-d163-4d5f-82e9-dbc0638de865"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[If your reply is yes and the person is a legal entity, please provide the following particulars to the best of your knowledge:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1494" width="20" height="23" uuid="ea6d1a6a-1c40-4cde-b7e1-e327fc8753fd"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(i)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1494" width="483" height="23" uuid="72c3bc76-9d7a-4038-8393-b4739b1fb9f9"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the person's name:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1522" width="20" height="23" uuid="36c154b3-3192-4113-97c7-16b78d9e503e"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(ii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1522" width="483" height="23" uuid="c9255d63-f707-45f2-bdb5-d6730bd18cb5"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[your unique entity number issued by the Registrar, if any:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1552" width="20" height="23" uuid="932bc0ff-ebb7-482c-9a98-9cafed2a9005"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(iii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1551" width="483" height="30" uuid="4843ceff-5e51-4052-8240-7887b758e511"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the address of the person's registered office:  ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1580" width="20" height="23" uuid="b46ba151-d5f8-4b87-803e-f0c119cbfff4"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(iv)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1581" width="483" height="23" uuid="ef097a45-c066-4430-979b-7de377fcb762"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the person's legal form:  ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1613" width="20" height="40" uuid="8b8fae1f-2505-4d25-8820-ceab10742dae"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(v)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1613" width="483" height="53" uuid="5e6634ff-5018-4f8e-9bdf-890769f07d34"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the jurisdiction where, and statute under which, the person is formed or incorporated:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1663" width="20" height="23" uuid="0c87ee19-1199-4a3b-8159-e0c3a9d2992e"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(vi)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="1664" width="483" height="46" uuid="b0191b01-32ed-4815-a41f-f5074bf595af"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the name of the corporate entity register of the jurisdiction in which the person is formed or incorporated, if applicable:  ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1714" width="34" height="40" uuid="20b62c06-57c4-490c-a13a-68ce68054857"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(vii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="72" y="1713" width="479" height="54" uuid="66fb2aef-4ed7-44f5-8666-ccdb32c72c8b"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the identification number or registration number on the corporate entity register of the jurisdiction where the person is formed or incorporated, if applicable:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="1782" width="34" height="40" uuid="7e8dd448-7799-49e4-9653-868b2119ed93"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[(viii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="76" y="1782" width="473" height="28" uuid="5b21e029-87b3-4ff9-b951-a60e601cb27f"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[the date on which the person became a corporate controller of]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="74" y="1801" width="483" height="21" uuid="7e784593-bc9a-408a-91ab-e1af29add534"/>
-				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[OMPANY NAME PTE. LTD.: ]]></text>
-			</staticText>
-			<line>
-				<reportElement x="73" y="1821" width="300" height="1" uuid="21c1defc-3a93-401c-b218-79a576d48353">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-			</line>
-			<staticText>
-				<reportElement x="2" y="1864" width="550" height="28" uuid="b88e758a-e9dd-4ed5-829f-b34e75e6b102"/>
 				<textElement textAlignment="Justified">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[In this notice —]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="1896" width="550" height="44" uuid="58c6a8ba-fab6-47bb-b1cc-536414a7f6eb"/>
+				<reportElement x="40" y="2874" width="474" height="36" uuid="58c6a8ba-fab6-47bb-b1cc-536414a7f6eb">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA["controller", "corporate controller", "individual controller" and "legal entity" have the meanings given to them in section 386AB of the Companies Act;]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="1948" width="550" height="44" uuid="bf958d56-1cfb-4d79-8a71-59127b6ed52b"/>
+				<reportElement x="40" y="2935" width="474" height="36" uuid="bf958d56-1cfb-4d79-8a71-59127b6ed52b">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA["identity card" has the meaning given to it in section 2(1) of the National Registration Act (Cap. 201);]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="1998" width="550" height="32" uuid="66a6219c-d726-4713-909d-7ca4c04db381"/>
+				<reportElement x="40" y="2996" width="474" height="36" uuid="66a6219c-d726-4713-909d-7ca4c04db381">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA["registrable" has the meaning given to it in section 386AC of the Companies Act.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="2127" width="550" height="32" uuid="24c8b1c3-edbb-4625-bd2b-69dbce1eaf1b"/>
+				<reportElement x="40" y="3091" width="474" height="18" uuid="24c8b1c3-edbb-4625-bd2b-69dbce1eaf1b">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Yours sincerely,]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="2238" width="550" height="32" uuid="bbb136f8-1181-4629-9798-7eb75820ed2c"/>
+				<reportElement x="40" y="3202" width="474" height="18" uuid="bbb136f8-1181-4629-9798-7eb75820ed2c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[CONTROLLER]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="2256" width="550" height="32" uuid="8e7ef423-7962-4712-ad8e-d958ed4d7989"/>
+				<reportElement x="40" y="10" width="474" height="20" uuid="ec699c99-62bf-4dbc-af27-18b315a26684">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="64" width="474" height="28" uuid="447392fa-7350-490a-8c16-9cf7bea0b529">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[附录B——实际控制人通知]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="100" width="99" height="20" uuid="f80cd624-b627-42aa-ac8a-659c640334e0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date of notice:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="100" width="159" height="20" uuid="c8f04de8-c2bf-42e7-b0c8-dc33e3d0ffa8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dateOfNotice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="151" width="221" height="20" uuid="deb87fef-e720-47e5-a2b9-d1c2f4038f43">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nameOfController}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="210" width="394" height="18" uuid="115c215a-dd34-404c-acf4-a33997defd28">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="229" width="474" height="18" uuid="4499bb64-9419-4c89-89ee-ac282c302a6f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[我们知道或有合理理由相信您是此公司的可注册的实际控制人。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="330" width="474" height="36" uuid="27ee8c7d-b1c9-4e21-b8bc-5316b1129101">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[本通知根据《公司法》（第50章）第386节发出并要求贵方在本通知发出后30天内提供以下信息。未能提供本通知书所规定的信息，可能被制裁。]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="263" y="377" width="251" height="18" uuid="13c5d10b-426c-4693-988a-1b3110f0b880">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="415" width="474" height="18" uuid="0344871f-3885-492f-ac46-cec4bdaaff42">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[您是此公司的可注册的实际控制人*。如果您不同意上述判断，请不要继续或签字]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="117" y="443" width="163" height="18" uuid="916aa7b5-6611-4d1c-a86c-5308c959f436">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{replyForController}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="43" y="461" width="474" height="18" uuid="318dd8d1-4b1d-403c-b5d6-573488bc43ba">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[您的答复是：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="528" width="474" height="18" uuid="163a9406-908d-4fb8-91ee-ba73507552d5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[可注册的控制人是指对公司拥有“重大利益”或“重大控制权”的个人或法人实体。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="594" width="443" height="18" uuid="a1df087a-b350-4035-a7a9-15d7052740c9">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[如果您的答复是“是”，并且您是个人，请提供以下详细信息：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="623" width="89" height="18" uuid="62671ef8-6469-4df3-b610-cb6b0ffd8dc6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(i) your full name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="159" y="623" width="159" height="18" uuid="30edb8d4-6944-46ad-bd2b-5dc5263a1f52">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[您的全名：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="672" width="278" height="18" uuid="0eb2add6-75bb-4f4e-b861-3cc0735d5ee4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(ii) your aliases, if any: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="672" width="159" height="18" uuid="20b4cc25-a300-4a25-aef5-76ba0f7c9cf1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[您的别名（如有）：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="722" width="189" height="18" uuid="e3aeb4c0-3bd3-4fc2-86ea-019bbf57121e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(iii) your residential address: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="722" width="159" height="18" uuid="8c0e38d0-2902-482c-a669-72a7e995d8e8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[您的住址：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="648" width="433" height="18" uuid="9f2125c9-d349-4695-8216-09e70f2ba026">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nameOfController}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="697" width="433" height="18" uuid="6707d034-edb4-4d1c-9ef5-081650f1c3f5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{aliasesOfController}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="70" y="772" width="119" height="18" uuid="f837a532-d990-47f5-9e6e-e19afae8c0aa">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(iv) your nationality:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="772" width="159" height="18" uuid="55da7deb-0142-46ca-9167-f9e5878d303e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[你的国籍：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="821" width="278" height="18" uuid="9dd516e8-5d3f-4abc-b779-ec541c865774">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(v) your identity card number or passport number: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="821" width="193" height="18" uuid="9f540c4b-4ef5-4c15-b771-719bc3134f45">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[您的身份证号码或护照号码：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="871" width="409" height="18" uuid="c8e36f20-a072-4cbc-80b6-333d1ed461be">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(vi) the date on which you became an individual controller of ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="890" width="433" height="18" uuid="0debb64d-ce88-4b84-88bf-cb4a3cfd9821">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="846" width="433" height="18" uuid="9cb6e065-bef1-44e9-a1bd-1ac6e1ad0556">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{IDOfController}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="797" width="433" height="18" uuid="1ce1d216-4b93-4822-a393-5f172eb8d01f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nationalityOfController}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="747" width="433" height="18" uuid="55cf9e82-4661-475d-9f98-9063fb8e920e">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{addressOfController}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="909" width="433" height="18" uuid="0e7b342a-891e-4409-a48c-9c08ab76e7a5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[您成为此公司的个人实际控制人的日期：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="947" width="433" height="18" uuid="1afd9189-87ed-4ca6-9909-63f6c2920002">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[根据BizFile公司成立日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1022" width="443" height="18" uuid="f851aef8-7b39-4441-adbe-1cff3a0ae5af">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[如果您的答复是“是”，并且您是一个法人实体，请提供以下详细信息]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1052" width="89" height="18" uuid="ad795ee9-2fef-48bf-a96d-f598cc9bc15f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(i) your name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="1052" width="159" height="18" uuid="1ebb02dc-afaa-4a50-b164-c09356964a90">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[法人实体的全名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1101" width="278" height="18" uuid="256882a5-6282-4419-b4d9-198844594151">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(ii) your unique entity number issued by the Registrar, if any]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="1101" width="159" height="18" uuid="d0f89484-d1dc-4bc0-9449-e78b60cdee6c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[由注册处签发的公司注册号码]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1151" width="218" height="18" uuid="ff97dbf8-0ebc-41fd-b2b8-29ddf5f9575c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(iii) the address of your registered office: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="1151" width="159" height="18" uuid="ae32a29d-06e2-4d26-a77e-5b5c6e38c66a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[法人实体的注册办公室地址]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1201" width="119" height="18" uuid="682ff029-d4d1-4488-bcd6-0e8cabdc6ab2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(iv) your legal form:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="1201" width="159" height="18" uuid="9f1a2c8f-a0c9-4c19-bbdf-195ae133fafa">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司种类]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1247" width="443" height="18" uuid="2440177a-3b15-4275-8641-f55f75b4fa86">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(v) the jurisdiction where, and statute under which, you are formed or incorporated:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="1266" width="193" height="18" uuid="e58be642-f578-4b9b-9da8-39cd4143df7d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[贵公司成立的司法管辖区和法规：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1317" width="443" height="36" uuid="d294283a-945b-40d1-b7a1-8cc07b310615"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(vi) the name of the corporate entity register of the jurisdiction in which you are formed or incorporated, if applicable:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="1349" width="430" height="18" uuid="e0ab6b17-028e-44ec-a718-92f325a83459">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[贵公司成立所在司法管辖区的公司实体登记处的名称（如适用）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1400" width="443" height="36" uuid="eef418c7-d145-4b9e-9b28-04a789a1e107"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(vii) the identification number or registration number on the corporate entity register of the jurisdiction where you are formed or incorporated, if applicable:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="1432" width="430" height="18" uuid="e1ba7780-511e-412f-864c-a1737759218c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[贵公司成立所在司法管辖区的公司实体登记处上的识别号或注册号（如适用）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1481" width="301" height="19" uuid="53baec21-6c27-42fc-bc83-f80ac5b89219"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(viii) the date on which you became a corporate controller of]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="1501" width="430" height="18" uuid="2e4042c5-8cc2-456b-9e2d-033f11c30e51">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[成为公司实际控制者的日期]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="83" y="1078" width="430" height="18" uuid="c527190a-3f60-40a8-88e6-23e140f75158">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q1OfControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="1127" width="430" height="18" uuid="13c34218-4164-4fc8-86b0-19380b047699">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q2OfControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="1176" width="430" height="18" uuid="54caac67-e78c-4696-a145-2fef4254e1a3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q3OfControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="1222" width="430" height="18" uuid="6eda22b7-3858-43f2-abc2-cd84c39824ef">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q4OfControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="1289" width="430" height="18" uuid="af1de508-63aa-4285-8be0-13e3da932591">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q5OfControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="1374" width="430" height="18" uuid="92ea381a-6386-446b-8bac-7bb77aa6a6a5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q6OfControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="1458" width="430" height="18" uuid="bb5f49da-3555-422c-80ed-5c5a64babce0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q7OfControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="1527" width="430" height="18" uuid="58281f38-d093-4f1a-9057-d0601ce419cb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q8OfControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="1481" width="144" height="18" uuid="577f2b46-5a88-442a-890b-4eb9723464cf"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="1565" width="473" height="36" uuid="68719e95-4eb4-4f5b-b348-7df086541ca6">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Justified">
 					<font size="14" isBold="false"/>
 				</textElement>
-				<text><![CDATA[COMPANY NAME PTE. LTD.]]></text>
+				<text><![CDATA[2. Do you know or have reasonable grounds to believe that any other person is a registrable controller of ]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="40" y="1651" width="77" height="18" uuid="030037c3-ebfd-4e5a-b8a3-3b907cc3b94b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Your reply:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1742" width="20" height="18" uuid="a5b7ffae-9a1d-4f59-add2-50e69ce8613e">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(a)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1743" width="443" height="36" uuid="9063c0db-f38a-49ab-babb-24897b45e1e2">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(a)If your reply is yes and the person is an individual, please provide the following    particulars to the best of your knowledge:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="263" y="1584" width="251" height="18" uuid="f85d09ac-c682-4b42-8982-195cd3d5667c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="43" y="1669" width="474" height="18" uuid="c5a060b8-19fa-490d-9da9-22961c6fa41c">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[您的答复是：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1779" width="443" height="18" uuid="52a80e38-7033-43b2-a324-22b8ded51dd2">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[如果您的回答是肯定的，并且此人是个人，请尽您所知提供以下详细信息：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1808" width="128" height="18" uuid="fb742840-0258-42ae-a58d-38998b91325f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(i) the person's full name:  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="199" y="1808" width="159" height="18" uuid="0a94b851-3c73-4219-bbc4-a7be8f6ce72e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[此人的全名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1857" width="278" height="18" uuid="5ead4933-f1c9-40fe-b718-fbda11a882c3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(ii) the person's aliases, if any:  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1603" width="473" height="36" uuid="5d1a0759-48e0-4c6b-a6b5-41f5d834e174">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[你是否知道或有合理理由相信任何其他人是此公司的可注册的控制人，或很可能知道这一点？]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="117" y="1651" width="183" height="18" uuid="d5e9f35d-9a11-46ed-9a7b-172a55589bd4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{replyForOtherController}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="1696" width="259" height="18" uuid="4ab05169-eae7-483a-b104-1b0b1ee10591">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[If your reply is 'No' please sign off.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="1714" width="474" height="18" uuid="32dd5721-acbc-4cad-8716-9268e627f7e2">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[如果你的回答是“不”，请停止填写。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="224" y="1858" width="159" height="18" uuid="6f7a3115-6eaa-4c95-a6e5-96add47f4f2a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[此人的别名（如有）：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1908" width="189" height="18" uuid="7d680a02-9789-4b63-b859-928c77062d60">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(iii) the person's residential address: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="1908" width="159" height="18" uuid="1386d3e2-90c9-4129-a9d5-989c573a2563">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[此人的住址：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="1958" width="148" height="18" uuid="4c49ff5f-ed6e-4cef-8811-9598cdf1dd2b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(iv) the person's nationality: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="1958" width="159" height="18" uuid="58c6b54b-0eb3-4e1a-b503-0ddd7c6c58b0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[此人的国籍：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2007" width="311" height="18" uuid="4e4b4664-2525-455d-b5ab-11eb6ad210af">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(v) the person's identity card number or passport number:  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="2007" width="169" height="18" uuid="100894fd-67a3-420c-a1d1-a055d46c0330">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[此人的身份证号码或护照号码：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2115" width="389" height="18" uuid="cbcaa998-b103-4f81-9aac-e2eb11008243">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(vii) the date on which the person became an individual controller of]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="2153" width="433" height="18" uuid="50b9a563-e54e-44a3-86ee-bff097bd0216">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[此人成为此公司的个人实际控制人的日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2060" width="311" height="18" uuid="ea0152a7-f27c-4784-915e-74ef67e8060f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(vi) the person's date of birth: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="2060" width="169" height="18" uuid="984da1c7-6e3c-4829-991c-6c6f49baccc5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[此人的出生日期]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="2133" width="208" height="18" uuid="93fc9c01-847f-46b5-a9a3-7900507321bb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="1833" width="430" height="18" uuid="41d5da4b-cf37-46ce-9981-eb086a8ad4dc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q1OfOtherController}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="1882" width="430" height="18" uuid="43249deb-5c6c-4ab7-874f-376f5c8c51d2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q2OfOtherController}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="1933" width="430" height="18" uuid="1577ae7e-2855-49dc-88c1-a05f51932c1a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q3OfOtherController}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="1983" width="430" height="18" uuid="d80fe067-427f-4eea-9527-3b34f308975b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q4OfOtherController}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2033" width="430" height="18" uuid="1d1baf54-dab3-4003-a6f5-f11fc5682e1e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q5OfOtherController}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2085" width="430" height="18" uuid="c894bf43-7f06-4413-bd08-e1dba066df80">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q6OfOtherController}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2179" width="430" height="18" uuid="72de68b6-1167-4abb-ac5d-8cc7c4b40a2f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q7OfOtherController}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="2210" width="20" height="31" uuid="fbf40503-3b8f-477b-9053-e2982d6f9e70">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(b)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2211" width="443" height="40" uuid="38fb77f6-131c-4820-9bdd-882fe5972ef8">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[If your reply is yes and the person is a legal entity, please provide the following particulars to the best of your knowledge:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2252" width="443" height="18" uuid="02f5e855-0188-4428-a264-4cdd75757ae6">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[如果您的答复是“是”，并且此人是一个法人实体，请尽您所知提供以下详细信息：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2282" width="119" height="18" uuid="d624965f-935f-421e-8ac3-1cc0a9a5b5c5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(i) the person's name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="2282" width="159" height="18" uuid="4598c51c-e762-4831-ae5e-7b7159b6c744">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[法人实体的名称]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2331" width="343" height="18" uuid="1c2492a1-15c5-424d-ab4b-0e47fe83392b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(ii) the person's unique entity number issued by the Registrar, if any:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="2349" width="319" height="18" uuid="553bcde2-716c-40a6-b953-a79b396a4a67">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[法人实体的注册处签发的注册号码，如有]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2400" width="271" height="18" uuid="960c7166-3d24-47bd-8f6b-e5e7bed642ef">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(iii) the address of the person's registered office:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="2400" width="159" height="18" uuid="272cbed2-4ea6-43e9-87c7-6fc750028e59">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[法人实体的注册办公室地址]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2450" width="159" height="18" uuid="f73bc84a-47fa-41e4-b6dc-958e62220738">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(iv) the person's legal form: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="2450" width="159" height="18" uuid="27cc8116-96cb-4b1a-9dc9-b8c531d1a6e9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[法人实体的公司种类]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2496" width="443" height="18" uuid="6fc7edfe-9f7e-4422-88f5-867f80a5549b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(v) the jurisdiction where, and statute under which, the person is formed or incorporated:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="2515" width="193" height="18" uuid="c65dfad8-5224-410e-90a9-407977d306ea">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[法人实体成立的司法管辖区和法规]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2566" width="443" height="36" uuid="ef59e8a6-3132-469b-b3c1-e0e7c1612108"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(vi) the name of the corporate entity register of the jurisdiction in which the person is formed or incorporated, if applicable: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="2598" width="430" height="18" uuid="a7ea6f7b-e55e-47a6-9dd0-dfe9879a756e">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[法人实体成立所在司法管辖区的公司实体登记处的名称（如适用）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2649" width="443" height="36" uuid="577a03e0-8aee-457e-ad58-9de629a4f9f9"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(vii) the identification number or registration number on the corporate entity register of the jurisdiction where the person is formed or incorporated, if applicable:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="2681" width="430" height="18" uuid="cd9b8c01-5951-4e4b-b38d-94bd866b1f12">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[法人实体成立所在司法管辖区的公司实体登记处上的识别号或注册号（如适用）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2730" width="443" height="19" uuid="30628163-ae2f-4317-a6cb-bf6112ece3a7"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(viii) the date on which the person became a corporate controller of]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="2768" width="430" height="18" uuid="9c2737fa-b645-4277-bf66-861dac18ecd9">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[法人实体成为此公司的公司实际控制者的日期]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="2750" width="144" height="18" uuid="f09763d5-c761-4aae-96d6-fd48649b3aae">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2307" width="430" height="18" uuid="cde16fc8-9bb2-4983-b60a-ff8af9409c6f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q1OfOtherControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2374" width="430" height="18" uuid="e20baed9-71ee-4d69-8277-5e0634751c1b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q2OfOtherControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2425" width="430" height="18" uuid="a4e0d055-2bff-4eec-a71d-6e3980b0def2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q3OfOtherControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2475" width="430" height="18" uuid="84d253b8-ca75-40af-9da8-cfc824898b39">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q4OfOtherControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2540" width="430" height="18" uuid="20b06227-ce37-405c-9b49-7b9ebecde781">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q5OfOtherControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2623" width="430" height="18" uuid="ddeb95f6-8d1e-4754-8868-faca0e453d3c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q6OfOtherControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2706" width="430" height="18" uuid="acbf2848-2c28-417a-9a59-5d8464ad28e8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q7OfOtherControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2792" width="430" height="18" uuid="13ef88ce-73b2-4fa9-b886-010b56033253">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q8OfOtherControllerOfLegalEntity}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="2849" width="474" height="18" uuid="97ec99a2-eac9-4981-a6a6-25da42d1c9f8">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[在本通知中]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2910" width="474" height="18" uuid="2111847c-1fe8-4334-bbbd-7e9356ee1f81">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[“控制人”、“公司控制人”、“个人控制人”和“法人实体”具有《公司法》第386AB节所赋予的含义；]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="2971" width="474" height="18" uuid="f7437ef9-67dc-4139-bde3-bc1a41fb37d7">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[“身份证”具有《国家注册法》（第201章）第2（1）节中所赋予的含义；]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="3032" width="474" height="18" uuid="bd8b0a5c-4380-4612-ad20-755bb90130c3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[“可注册的”具有《公司法》第386AC节所赋予的含义。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="3109" width="474" height="18" uuid="d7b0113a-98e0-4de5-8761-661a33b59f9c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[谨上]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="3221" width="474" height="18" uuid="cb3a183c-f154-4c8a-b392-a467974da7a2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[控制人的名字]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="3240" width="318" height="18" uuid="e713edd0-4302-4f5e-9cb1-5790efed642d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>

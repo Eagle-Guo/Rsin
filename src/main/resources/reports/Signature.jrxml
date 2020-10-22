@@ -28,9 +28,15 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<parameter name="signImage" class="java.awt.Image">
-		<parameterDescription><![CDATA[]]></parameterDescription>
-	</parameter>
+	<subDataset name="Empty Dataset1" uuid="db39a40f-4cf3-440d-bc06-e89c6247aaf5"/>
+	<parameter name="documentReference" class="java.lang.String"/>
+	<parameter name="id" class="java.lang.String"/>
+	<parameter name="ip" class="java.lang.String"/>
+	<parameter name="qrCode" class="java.lang.String"/>
+	<parameter name="serialNumber" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -47,49 +53,57 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="70" width="250" height="31" uuid="7b0c7139-2c73-4817-9945-4773f9b6ecad"/>
-				<textElement>
+				<reportElement x="0" y="126" width="550" height="31" uuid="7b0c7139-2c73-4817-9945-4773f9b6ecad"/>
+				<textElement textAlignment="Center">
 					<font size="24"/>
 				</textElement>
 				<text><![CDATA[Signature Certificate]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="105" width="170" height="30" uuid="ddd01797-47fb-4c6b-b6bb-820d8dd0768e"/>
+				<reportElement x="30" y="171" width="160" height="18" uuid="ddd01797-47fb-4c6b-b6bb-820d8dd0768e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Document Reference: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="295" y="72" width="250" height="31" uuid="98c63280-e4ee-4974-8d17-5b46725313a4"/>
+				<reportElement x="370" y="50" width="170" height="31" uuid="98c63280-e4ee-4974-8d17-5b46725313a4"/>
 				<textElement textAlignment="Right">
 					<font size="24"/>
 				</textElement>
 				<text><![CDATA[Rsin Group]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="295" y="103" width="249" height="30" uuid="e262d4ea-660d-4630-b1e0-9232d0ec3819"/>
+				<reportElement x="370" y="81" width="169" height="18" uuid="e262d4ea-660d-4630-b1e0-9232d0ec3819">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Right">
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Online Document Signing]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="180" width="170" height="18" uuid="ff72fe06-6597-4228-a649-8ecf4691a85e"/>
+				<reportElement x="30" y="222" width="60" height="18" uuid="ff72fe06-6597-4228-a649-8ecf4691a85e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[ID:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="198" width="170" height="30" uuid="52152561-13ff-4e03-8601-b89248c2ea3b"/>
+				<reportElement x="30" y="241" width="120" height="18" uuid="52152561-13ff-4e03-8601-b89248c2ea3b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[IP Address:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="310" y="180" width="234" height="22" uuid="b33e72f5-f7d0-4acf-ae37-5e263bba91a9"/>
+				<reportElement x="30" y="292" width="239" height="100" uuid="b33e72f5-f7d0-4acf-ae37-5e263bba91a9"/>
 				<box>
 					<pen lineWidth="1.0"/>
 				</box>
@@ -99,29 +113,82 @@
 				<text><![CDATA[  Electronic Signature:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="310" width="170" height="30" uuid="c82bcdc8-843a-437a-86e3-e75f50de091a"/>
+				<reportElement x="30" y="420" width="170" height="20" uuid="c82bcdc8-843a-437a-86e3-e75f50de091a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Timestamp]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="320" y="310" width="170" height="30" uuid="2ecdaad4-6b98-445c-88cf-0dfb14231cad"/>
+				<reportElement x="200" y="420" width="170" height="20" uuid="2ecdaad4-6b98-445c-88cf-0dfb14231cad">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Audit]]></text>
 			</staticText>
-			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
-				<reportElement x="309" y="202" width="235" height="78" uuid="e6c86a7c-0f1e-45ed-bbf3-037e3d455a2f"/>
-				<imageExpression class="java.awt.Image"><![CDATA[$P{signImage}]]></imageExpression>
-			</image>
-			<textField pattern="MMM d, yyyy">
-				<reportElement x="30" y="342" width="100" height="30" uuid="c3fe2d4c-be01-4c50-a9fd-b9645d65cc9f"/>
+			<textField>
+				<reportElement x="190" y="171" width="330" height="18" uuid="77a0b317-3605-4100-92c5-ee7e68c1175f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
 				<textElement>
-					<font size="14"/>
+					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{documentReference}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="58" y="222" width="212" height="16" uuid="30ce48bc-d6b2-432f-a1b1-915e1f1d1c70">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="242" width="162" height="16" uuid="257e9199-3b93-4b4e-9b2e-ce9b10fc01c3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ip}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="291" y="312" width="229" height="18" uuid="817386c2-8772-4023-9a49-c05fb9d6c461">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{serialNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="291" y="354" width="229" height="18" uuid="e7875a48-5035-4fa6-bdcf-ad44a9075a36">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{qrCode}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

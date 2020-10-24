@@ -391,15 +391,15 @@
 																<div class="form-group">
 																	<div class="form-check form-check-inline">
 																		<input class="form-check-input" type="checkbox" id="checkb_dongshi0"> 
-																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
+																		<label style="height: auto;" class="form-check-label">董事</label>
 																	</div>
 																	<div class="form-check form-check-inline">
 																		<input class="form-check-input" type="checkbox" id="checkb_gudong0" onclick="addMoreQ(0)">
-																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox2">股东</label>
+																		<label style="height: auto;" class="form-check-label">股东</label>
 																	</div>
 																	<div class="form-check form-check-inline">
 																		<input class="form-check-input" type="checkbox" id="checkb_contactpeople0"> 
-																		<label style="height: auto;" class="form-check-label" for="inlineCheckbox3">联系人</label>
+																		<label style="height: auto;" class="form-check-label">联系人</label>
 																	</div>
 																</div>
 	
@@ -408,13 +408,13 @@
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">全名(护照姓名)</label>
 															<div class="col-sm-9">
-																<input type="text" class="form-control" id="fullName" placeholder="限英文"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')">
+																<input type="text" class="form-control" id="fullName0" placeholder="限英文"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')">
 															</div>
 														</div>	
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">性别</label>
 															<div class="col-sm-9">
-																<select class="custom-select c-select-info  appinfo" id="gender">
+																<select class="custom-select c-select-info  appinfo" id="gender0">
 																	<option value="男" selected>男</option>
 																	<option value="女">女</option>
 																</select>
@@ -431,7 +431,7 @@
 														<div class="form-group row">
 					 										<label class="col-sm-3 col-form-label">证件类型</label>
 															<div class="col-sm-9">
-																<select class="custom-select c-select-info  appinfo" id="ICType">
+																<select class="custom-select c-select-info  appinfo" id="ICType0">
 																	<option value="公民" selected>新加坡公民(NRIC)</option>
 																	<option value="永久居民">新加坡PR(NRIC)</option>
 																	<option value="其他">国际护照</option>
@@ -441,19 +441,19 @@
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">证件号码</label>
 															<div class="col-sm-9">
-																<input type="text" class="form-control" id="ICNumber" placeholder="证件号码">
+																<input type="text" class="form-control" id="ICNumber0" placeholder="证件号码">
 															</div>
 														</div>
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">电子邮箱</label>
 															<div class="col-sm-9">
-																<input type="email" class="form-control" id="email" placeholder="电子邮箱"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\@\/]/ig,'')">
+																<input type="email" class="form-control" id="email0" placeholder="电子邮箱"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\@\/]/ig,'')">
 															</div>
 														</div>
 														<div class="form-group row">
-										                   	 <label for="phone" class="col-sm-3 col-form-label">联系电话</label><br/>
+										                   	 <label for="phone0" class="col-sm-3 col-form-label">联系电话</label><br/>
 										                   	 <div class="col-sm-9">
-										                   	    <input style="padding-left:3rem;" id="phone" type="text" class="form-control telinput" placeholder="联系电话"/>
+										                   	    <input style="padding-left:3rem;" id="phone0" type="text" class="form-control telinput" placeholder="联系电话"/>
 										                   	 </div>
 										                </div>
 														<div style="display: none;" id="addmoreqtext0">
@@ -480,7 +480,7 @@
 															<label class="col-sm-3 col-form-label">个人地址及邮编</label>
 															<div class="col-sm-9">
 																<textarea class="form-control textareaheight"
-																	id="personalAddressAndPostalCode" placeholder="限英文，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
+																	id="personalAddressAndPostalCode0" placeholder="限英文，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
 															</div>
 													    </div>						
 														<br /> <br />
@@ -670,7 +670,7 @@
         <script src="../../../assets/js/intlTel/countrySelect.js"></script>
         <script src="../../../assets/js/intlTel/intlTelInput.js"></script>
         <script>
-        var input = document.querySelector("#phone");
+        var input = document.querySelector("#phone0");
 	  	  window.intlTelInput(input, {
 	  	    // any initialisation options go here
 	  	});

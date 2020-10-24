@@ -1,3 +1,4 @@
+var addContactNo = 0;
 function openAccountFunction(x,y) {
       // Get the checkbox
       var checkBox = document.getElementById(x);
@@ -71,7 +72,7 @@ var companyInfos = [];
 var shareholderInfos = [];
 $(document).ready(function(){
 	$('#step2next').attr('disabled',true);
-    $('#email').keyup(function(){
+    $('#email0').keyup(function(){
         if($(this).val().length !=0)
             $('#step2next').attr('disabled', false);            
         else
@@ -192,45 +193,53 @@ function listSummary() {
         companyInfos.push({name:"公司地址及邮编",description:document.getElementById("conpanyAddressAndPostalCode").value});
     }
 
-    var position = "";
-    if (document.getElementById("checkb_dongshi0").checked) {
-    	position = position + "董事, " ;
-    }
-    if (document.getElementById("checkb_gudong0").checked) {
-    	position = position + "股东, ";
-    }
-    if (document.getElementById("checkb_contactpeople0").checked) {
-    	position = position + "联系人, ";
-    }
-    if (position != "") {
-        var pos = position.substring(0, position.length-2);
-    	shareholderInfos.push({name:"职位填报类型", description:pos});
+    for (i=0; i<=addContactNo; i++) {
+    	var position = "";
+        if (document.getElementById("checkb_dongshi"+i).checked) {
+        	position = position + "董事, " ;
+        }
+        if (document.getElementById("checkb_gudong"+i).checked) {
+        	position = position + "股东, ";
+        }
+        if (document.getElementById("checkb_contactpeople"+i).checked) {
+        	position = position + "联系人, ";
+        }
+        if (position != "") {
+            var pos = position.substring(0, position.length-2);
+        	shareholderInfos.push({name:"职位填报类型", description:pos});
+        }
+        if (document.getElementById("fullName"+i).value!="") {
+            shareholderInfos.push({name:"全名"+(i+1),description:document.getElementById("fullName"+i).value});
+        }
+        if (document.getElementById("gender"+i).value!="") {
+            shareholderInfos.push({name:"性别"+(i+1),description:document.getElementById("gender"+i).value});
+        }
+        if (document.getElementById("country"+i).value!="") {
+            shareholderInfos.push({name:"国籍"+(i+1),description:document.getElementById("country"+i).value});
+        }
+        if (document.getElementById("ICType"+i).value!="") {
+            shareholderInfos.push({name:"身份证类型"+(i+1),description:document.getElementById("ICType"+i).value});
+        }
+        if (document.getElementById("ICNumber"+i).value!="") {
+            shareholderInfos.push({name:"证件号码"+(i+1),description:document.getElementById("ICNumber"+i).value});
+        }
+        if (document.getElementById("email"+i).value!="") {
+            shareholderInfos.push({name:"电子邮箱"+(i+1),description:document.getElementById("email"+i).value});
+        }
+        if (document.getElementById("phone"+i).value!="") {
+            shareholderInfos.push({name:"联系电话"+(i+1),description:document.getElementById("phone"+i).value});
+        }
+        if (document.getElementById("personalAddressAndPostalCode"+i).value!="") {
+            shareholderInfos.push({name:"个人地址及邮编"+(i+1),description:document.getElementById("personalAddressAndPostalCode"+i).value});
+        }
+        if (document.getElementById("calcNumberofSharesIssued"+i).value!="") {
+            shareholderInfos.push({name:"发行股份数量"+(i+1),description:document.getElementById("calcNumberofSharesIssued"+i).value});
+        }
+        if (document.getElementById("calcNumberofPaid-inShares"+i).value!="") {
+            shareholderInfos.push({name:"实缴股份数量"+(i+1),description:document.getElementById("calcNumberofPaid-inShares"+i).value});
+        }
     }
     
-    if (document.getElementById("fullName").value!="") {
-        shareholderInfos.push({name:"全名",description:document.getElementById("fullName").value});
-    }
-    if (document.getElementById("gender").value!="") {
-        shareholderInfos.push({name:"性别",description:document.getElementById("gender").value});
-    }
-    if (document.getElementById("country0").value!="") {
-        shareholderInfos.push({name:"国籍",description:document.getElementById("country0").value});
-    }
-    if (document.getElementById("ICType").value!="") {
-        shareholderInfos.push({name:"身份证类型",description:document.getElementById("ICType").value});
-    }
-    if (document.getElementById("ICNumber").value!="") {
-        shareholderInfos.push({name:"证件号码",description:document.getElementById("ICNumber").value});
-    }
-    if (document.getElementById("email").value!="") {
-        shareholderInfos.push({name:"电子邮箱",description:document.getElementById("email").value});
-    }
-    if (document.getElementById("phone").value!="") {
-        shareholderInfos.push({name:"联系电话",description:document.getElementById("phone").value});
-    }
-    if (document.getElementById("personalAddressAndPostalCode").value!="") {
-        shareholderInfos.push({name:"个人地址及邮编",description:document.getElementById("personalAddressAndPostalCode").value});
-    }
     console.log("companyInfos" + companyInfos);
     console.log("shareholderInfos" + shareholderInfos);
     companytext = "<ul class='list-group'>";
@@ -613,16 +622,9 @@ function addMoreQ(x) {
 	}
 }
 
-$("input[id^='calc']").change(function () {
-	var issueNo = $("#calcNumberofSharesIssued0").val();
-	var payNo = $("#calcNumberofPaid-inShares0").val();
-	var pershare = $("#calcPerShare0").val();
-	$("#registeredCapital1").val(issueNo * pershare);
-	$("#registeredCapital2").val(payNo * pershare);
- }).change();
-
 function addContactP() {
-	var addContactNo = document.getElementById("addContactNo").value;
+	addContactNo = document.getElementById("addContactNo").value;
+	console.log ("addContactP: " + addContactNo);
 	var contact = "";
 	for (i = 1; i <= addContactNo; i++) {
 		contact = contact + `<div class="contactClone">
@@ -632,16 +634,16 @@ function addContactP() {
 			<div class="col-sm-9">
 				<div class="form-group">
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="checkb_dongshi1"> 
-						<label style="height: auto;" class="form-check-label" for="inlineCheckbox1">董事</label>
+						<input class="form-check-input" type="checkbox" id="checkb_dongshi`+ i +`"> 
+						<label style="height: auto;" class="form-check-label">董事</label>
 					</div>
 					<div class="form-check form-check-inline">`
 						+ "<input class='form-check-input' type='checkbox' id='checkb_gudong"+ i + "' value='gudong' onclick='addMoreQ(" + i + ")'>"+
-							`<label style="height:auto;"  class="form-check-label" for="inlineCheckbox2">股东</label>
+							`<label style="height:auto;"  class="form-check-label">股东</label>
 					</div>   
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="checkb_contactpeople1"> 
-						<label style="height: auto;" class="form-check-label" for="inlineCheckbox3">联系人</label>
+						<input class="form-check-input" type="checkbox" id="checkb_contactpeople`+ i +`"> 
+						<label style="height: auto;" class="form-check-label">联系人</label>
 					</div>
 				</div>
 
@@ -650,13 +652,13 @@ function addContactP() {
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">全名(护照姓名)</label>
 				<div class="col-sm-9">
-					<input type="text" class="form-control" id="fullName" placeholder="限英文"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\\\*\\\·\\\/]/ig,'')">
+					<input type="text" class="form-control" id="fullName`+ i +`" placeholder="限英文"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\\\*\\\·\\\/]/ig,'')">
 				</div>
 			</div>	
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">性别</label>
 				<div class="col-sm-9">
-					<select class="custom-select c-select-info  appinfo" id="gender">
+					<select class="custom-select c-select-info  appinfo" id="gender`+ i +`">
 						<option value="男" selected>男</option>
 						<option value="女">女</option>
 					</select>
@@ -670,7 +672,7 @@ function addContactP() {
 			`<div class="form-group row">
 				<label class="col-sm-3 col-form-label">证件类型</label>
 				<div class="col-sm-9">
-					<select class="custom-select c-select-info  appinfo" id="ICType">
+					<select class="custom-select c-select-info  appinfo" id="ICType`+ i +`">
 						<option value="公民" selected>新加坡公民(NRIC)</option>
 						<option value="永久居民">新加坡PR(NRIC)</option>
 						<option value="其他">国际护照</option>
@@ -680,13 +682,13 @@ function addContactP() {
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">证件号码</label>
 				<div class="col-sm-9">
-					<input type="text" class="form-control" id="ICNumber" placeholder="证件号码">
+					<input type="text" class="form-control" id="ICNumber`+ i +`" placeholder="证件号码">
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">电子邮箱</label>
 				<div class="col-sm-9">
-					<input type="email" class="form-control" id="email" placeholder="电子邮箱"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\*\\\·\\\@\\\/]/ig,'')">
+					<input type="email" class="form-control" id="email`+ i +`" placeholder="电子邮箱"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\*\\\·\\\@\\\/]/ig,'')">
 				</div>
 			</div>
 			
@@ -724,14 +726,16 @@ function addContactP() {
 				<label class="col-sm-3 col-form-label">个人地址及邮编</label>
 				<div class="col-sm-9">
 					<textarea class="form-control textareaheight"
-						id="personalAddressAndPostalCode" placeholder="限英文，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\\\*\\\·\\\/]/ig,'')"></textarea>
+						id="personalAddressAndPostalCode`+ i +`" placeholder="限英文，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\\\w\\\.\\\s\\\#\\\,\\\-\\\'\\\\\\\&\\\*\\\·\\\/]/ig,'')"></textarea>
 				</div>
 		    </div>	
         </div>`;
-
-		$('.contactClone').remove();
-	    document.querySelector('#addContactPDiv0').insertAdjacentHTML('afterend',contact);
-	    $("#country" + i ).countrySelect({
+	}
+	$('.contactClone').remove();
+	document.querySelector('#addContactPDiv0').insertAdjacentHTML('afterend',contact);
+  	
+	for (i = 1; i <= addContactNo; i++) {
+		$("#country" + i ).countrySelect({
 	    	preferredCountries: ['sg', 'cn', 'my']
 	    });
 	    var input = document.querySelector("#phone" + i );
@@ -739,7 +743,7 @@ function addContactP() {
 	  	    // any initialisation options go here
 	  	});
 	}
-  	  
+  	
 	$("input[id^='calc']").change(function () {
 		var totalIssue = 0;
 		var totalpay = 0;
@@ -755,6 +759,14 @@ function addContactP() {
 		$("#registeredCapital2").val(totalpay);
 	}).change();
 }
+
+$("input[id^='calc']").change(function () {
+	var issueNo = $("#calcNumberofSharesIssued0").val();
+	var payNo = $("#calcNumberofPaid-inShares0").val();
+	var pershare = $("#calcPerShare0").val();
+	$("#registeredCapital1").val(issueNo * pershare);
+	$("#registeredCapital2").val(payNo * pershare);
+ }).change();
 
 $('body').on('click','.removeNode', function() {
     $(this).closest('.contactClone').remove();

@@ -165,6 +165,7 @@ public class ViewController {
 		return model;
 	}	
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/onlineSignature")
 	public ModelAndView onlineSignature(HttpServletRequest request) {
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
@@ -172,7 +173,15 @@ public class ViewController {
 		
 		Map<String, Object> pageData = onlineSignatureService.getAllPageData(userEmail);
 		model.addObject("companyName", pageData.get("companyName"));
-		model.addObject("address", pageData.get("address")); 
+		model.addObject("address", pageData.get("address"));
+		
+		Map<String, Integer> shareholderAndStockMap = (Map<String, Integer>) pageData.get("shareholderAndStock");
+		StringBuffer shareholders = new StringBuffer();
+		
+		shareholderAndStockMap.forEach((k, v) -> shareholders.append("<span> ").append(k).append("</span>").append("<span> ").append(v).append("</span> <br/>"));
+		shareholders.append("<span>Total:</span> <span> ").append(pageData.get("totalStockAmount")).append("</span>");
+		
+		model.addObject("shareholderAndStock", shareholders); 
 		return model;
 	}	
 

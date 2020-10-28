@@ -20,7 +20,6 @@ import sg.com.rsin.enums.UserStatus;
 @Entity
 @Table(name = "users")
 public class UserRegistration {
-
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id") 

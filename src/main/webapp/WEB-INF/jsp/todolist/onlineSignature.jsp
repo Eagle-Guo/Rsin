@@ -2722,12 +2722,8 @@
 										It was resolved that the signatories to the Memorandum be registered as members in respect of the shares which are subscribed at an issue price of SGD $1 per share namely:									
 									</span><br/>
 									<span class="text_cn"> 经决议，以下人员为股东，股份以每股1新元的发行价格认购，即：<br/> </span>
-									<span> SHAREHOLDER 1,</span>
-									<span>2500</span>           <br/> 								
-									<span>SHAREHOLDER 2,</span>
-									<span>2500</span>		    <br/> 											
-									<span>Total:</span>
-									<span>5000</span>	        <br/> 								
+									
+									${shareholderAndStock }
 								</p> 
                		 		</div>	               		 						 
 						 </div>						 						        

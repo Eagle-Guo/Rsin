@@ -66,7 +66,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		Map<String, Integer> shareholderAndStock = (Map<String, Integer>) userData.get("shareholderAndStock");
 		StringBuffer shareholder = new StringBuffer();
 		shareholderAndStock.forEach((k, v) -> shareholder.append(k).append("\t\t").append(v).append("\n"));
-		shareholder.append("Total: ").append(Integer.parseInt(userData.get("totalStockAmount").toString()));
+		shareholder.append("Total: \t\t").append(Integer.parseInt(userData.get("totalStockAmount").toString()));
 
 		try {
 			String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
@@ -84,7 +84,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			reportParamMapOne.put("createdBy", "Rsin Group");
 			reportParamMapOne.put("companyName", userData.get("companyName") + " PTE.LTD.");
 			reportParamMapOne.put("registeredOffice", userData.get("address"));
-			reportParamMapOne.put("shareholder", shareholder.toString() );
+			reportParamMapOne.put("shareholder", shareholder.toString());
 
 			JasperPrint jasperPrintOne = JasperFillManager.fillReport(jasperReportOne, reportParamMapOne, new JREmptyDataSource());
 			
@@ -121,7 +121,15 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			
 			Map<String, Object> reportParamMapOne = new HashMap<>();
 			reportParamMapOne.put("createdBy", "Rsin Group");
-			reportParamMapOne.put("companyname", companyName + " PTE.LTD.");
+			reportParamMapOne.put("companyName", companyName + " PTE.LTD.");
+			reportParamMapOne.put("registeredOffice", userData.get("address"));
+			
+			Map<String, Integer> shareholderAndStock = (Map<String, Integer>) userData.get("shareholderAndStock");
+			StringBuffer shareholder = new StringBuffer();
+			shareholderAndStock.forEach((k, v) -> shareholder.append(k).append("\t\t").append(v).append("\n"));
+			shareholder.append("Total: \t\t").append(Integer.parseInt(userData.get("totalStockAmount").toString()));
+
+			reportParamMapOne.put("shareholder", shareholder.toString());
 			JasperPrint jasperPrintOne = JasperFillManager.fillReport(jasperReportOne, reportParamMapOne, new JREmptyDataSource());
 			jasperPrintList.add(jasperPrintOne);
 
@@ -136,6 +144,12 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	        BufferedImage bImageFromConvert = ImageIO.read(in);
 	        
 		    reportParamMapTwo.put("signImage", bImageFromConvert);
+		    reportParamMapTwo.put("id", "3425146652474290");
+		    reportParamMapTwo.put("ip", "192.168.1.45");
+		    reportParamMapTwo.put("serialNumber", "bos7zo7038h7mnum");
+		    reportParamMapTwo.put("qrCode", "QR String");
+		    reportParamMapTwo.put("documentReference", "3425146652474290");
+
 			JasperPrint jasperPrintTwo = JasperFillManager.fillReport(signatureReport, reportParamMapTwo, new JREmptyDataSource());
 			jasperPrintList.add(jasperPrintTwo);
 

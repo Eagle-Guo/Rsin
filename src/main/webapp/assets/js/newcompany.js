@@ -87,7 +87,6 @@ $(document).ready(function(){
              "shareholderInfos" : JSON.stringify(shareholderInfos)},
            function(data, status) {
         	   alert("Data: " + data + "\nStatus: " + status);
-         	<!--     $('#stage').html(data); -->
            }
         );
 				
@@ -98,12 +97,11 @@ function saveToBackend() {
 	alert("save To Backend");
 	$.post(
             "/api/newCompany",
-            { "services" : JSON.stringify(services),
-              "companyInfos": JSON.stringify(companyInfos),
-              "shareholderInfos" : JSON.stringify(shareholderInfos)},
+            { 	"services" : JSON.stringify(services),
+            	"companyInfos": JSON.stringify(companyInfos),
+            	"shareholderInfos" : JSON.stringify(shareholderInfos)},
             function(data, status) {
          	   alert("Data: " + data + "\nStatus: " + status);
-          	<!--     $('#stage').html(data); -->
             }
          );
 }
@@ -193,6 +191,7 @@ function listSummary() {
         companyInfos.push({name:"公司地址及邮编",description:document.getElementById("conpanyAddressAndPostalCode").value});
     }
 
+    shareholderInfos.push({name:"CONTACTCOUNT", description:(parseInt(addContactNo)+1)});
     for (i=0; i<=addContactNo; i++) {
     	var position = "";
         if (document.getElementById("checkb_dongshi"+i).checked) {
@@ -206,7 +205,7 @@ function listSummary() {
         }
         if (position != "") {
             var pos = position.substring(0, position.length-2);
-        	shareholderInfos.push({name:"职位填报类型", description:pos});
+        	shareholderInfos.push({name:"职位填报类型"+(i+1), description:pos});
         }
         if (document.getElementById("fullName"+i).value!="") {
             shareholderInfos.push({name:"全名"+(i+1),description:document.getElementById("fullName"+i).value});
@@ -218,7 +217,7 @@ function listSummary() {
             shareholderInfos.push({name:"国籍"+(i+1),description:document.getElementById("country"+i).value});
         }
         if (document.getElementById("ICType"+i).value!="") {
-            shareholderInfos.push({name:"身份证类型"+(i+1),description:document.getElementById("ICType"+i).value});
+            shareholderInfos.push({name:"证件类型"+(i+1),description:document.getElementById("ICType"+i).value});
         }
         if (document.getElementById("ICNumber"+i).value!="") {
             shareholderInfos.push({name:"证件号码"+(i+1),description:document.getElementById("ICNumber"+i).value});
@@ -231,6 +230,9 @@ function listSummary() {
         }
         if (document.getElementById("personalAddressAndPostalCode"+i).value!="") {
             shareholderInfos.push({name:"个人地址及邮编"+(i+1),description:document.getElementById("personalAddressAndPostalCode"+i).value});
+        }
+        if (document.getElementById("calcPerShare"+i).value!="") {
+            shareholderInfos.push({name:"每股价值"+(i+1),description:document.getElementById("calcPerShare"+i).value});
         }
         if (document.getElementById("calcNumberofSharesIssued"+i).value!="") {
             shareholderInfos.push({name:"发行股份数量"+(i+1),description:document.getElementById("calcNumberofSharesIssued"+i).value});

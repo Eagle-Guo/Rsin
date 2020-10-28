@@ -6,31 +6,43 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "company_service")
 public class CompanyService {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private int price;
-    
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private int companyType;
+    private int openAccount;
+    private int nominalDirector;
+    private int gstTax;
+    private int virtualPhone;
+    private int forwardMail;
+    private int accounting;
+    private int urgentRegistration;
+
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "company_id", nullable = false)
-	private NewCompany newCompany;
-    
+	private Company company;
+
     public CompanyService() {}
 
-    public CompanyService(Long id, String name, int price, NewCompany newCompany) {
+	public CompanyService(Long id, int companyType, int openAccount, int nominalDirector, int gstTax, int virtualPhone,
+			int forwardMail, int accounting, int urgentRegistration, Company company) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.newCompany = newCompany;
+		this.companyType = companyType;
+		this.openAccount = openAccount;
+		this.nominalDirector = nominalDirector;
+		this.gstTax = gstTax;
+		this.virtualPhone = virtualPhone;
+		this.forwardMail = forwardMail;
+		this.accounting = accounting;
+		this.urgentRegistration = urgentRegistration;
+		this.company = company;
 	}
 
 	public Long getId() {
@@ -39,41 +51,58 @@ public class CompanyService {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public int getPrice() {
-        return price;
-    }
-    public void setPrice(int price) {
-        this.price = price;
-    }
-	public NewCompany getNewCompany() {
-		return newCompany;
+	public int getCompanyType() {
+		return companyType;
 	}
-	public void setNewCompany(NewCompany newCompany) {
-		this.newCompany = newCompany;
+	public void setCompanyType(int companyType) {
+		this.companyType = companyType;
 	}
-    
-    
-//    private int companyType;
-//    private int accountNo;
-//    
-//    private int directNo;
-//    private int directorYear;
-//    
-//    private int shareholderNo;
-//    private int shareholderYear;
-//    
-//    private int shareOfficeNo;
-//    private int shareOfficeYear;
-//    
-//    private String trademarkNo;
-//    private int trademarkAdditional;
-//    
-//    private int gstOneTimeRegister;
-
+	public int getOpenAccount() {
+		return openAccount;
+	}
+	public void setOpenAccount(int openAccount) {
+		this.openAccount = openAccount;
+	}
+	public int getNominalDirector() {
+		return nominalDirector;
+	}
+	public void setNominalDirector(int nominalDirector) {
+		this.nominalDirector = nominalDirector;
+	}
+	public int getGstTax() {
+		return gstTax;
+	}
+	public void setGstTax(int gstTax) {
+		this.gstTax = gstTax;
+	}
+	public int getVirtualPhone() {
+		return virtualPhone;
+	}
+	public void setVirtualPhone(int virtualPhone) {
+		this.virtualPhone = virtualPhone;
+	}
+	public int getForwardMail() {
+		return forwardMail;
+	}
+	public void setForwardMail(int forwardMail) {
+		this.forwardMail = forwardMail;
+	}
+	public int getAccounting() {
+		return accounting;
+	}
+	public void setAccounting(int accounting) {
+		this.accounting = accounting;
+	}
+	public int getUrgentRegistration() {
+		return urgentRegistration;
+	}
+	public void setUrgentRegistration(int urgentRegistration) {
+		this.urgentRegistration = urgentRegistration;
+	}
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+	public Company getCompany() {
+		return company;
+	}
 }

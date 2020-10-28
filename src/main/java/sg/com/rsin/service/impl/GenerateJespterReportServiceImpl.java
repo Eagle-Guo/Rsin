@@ -38,6 +38,7 @@ import sg.com.rsin.dao.CompanyShareholderInfoRepository;
 import sg.com.rsin.dao.EmployeeDao;
 import sg.com.rsin.service.GenerateJespterReportService;
 import sg.com.rsin.service.OnlineSignatureService;
+import sg.com.rsin.util.CommonUtils;
 
 @Service
 public class GenerateJespterReportServiceImpl implements GenerateJespterReportService {
@@ -57,35 +58,34 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	@Autowired
 	ResourceLoader resourceLoader;
 
-	public byte[] generateNewCompanyPDF(String userId, String fileName, String id) {
+	@SuppressWarnings("unchecked")
+	public byte[] generateJasperPDF(String userId, String id) {
 			
-		Map<String, String> userData = onlineSignatureService.getAllPageData(userId);
-		String companyId = userData.get("companyId");
-		String companyName = userData.get("companyName");
+		Map<String, Object> userData = onlineSignatureService.getAllPageData(userId);
+		String companyId = userData.get("companyId").toString();
+		Map<String, Integer> shareholderAndStock = (Map<String, Integer>) userData.get("shareholderAndStock");
+		StringBuffer shareholder = new StringBuffer();
+		shareholderAndStock.forEach((k, v) -> shareholder.append(k).append("\t\t").append(v).append("\n"));
+		shareholder.append("Total: ").append(Integer.parseInt(userData.get("totalStockAmount").toString()));
+
 		try {
 			String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
 			File directory = new File(fileDirectory);
 		    if (! directory.exists()){
 		        directory.mkdirs();
 		    }
-		    String templateName = null;
-		    switch (id) {
-		        case "1": templateName = "First_Director_Meeting_Resolution.jrxml"; break;
-		        case "2": templateName = "Secretary_Agreement.jrxml"; break;//Signature.jrxml
-		        case "3": templateName = "Notice_for_Controllers.jrxml"; break;
-		        case "4": templateName = "Application_of_Shares.jrxml"; break;
-		        case "5": templateName = "Client_Acceptance_Form.jrxml"; break;
-		        case "6": templateName = "Form_45_201.jrxml"; break;
-		        case "7": templateName = "Share_Certificate.jrxml"; break;
-		        case "8": templateName = "Nominee_Dir_Authrn_Final.jrxml"; break;
-		        default : templateName = "First_Director_Meeting_Resolution.jrxml";
-	        }
+		    String templateName = CommonUtils.getJaspterTemplateName(id);
+		    String fileName = CommonUtils.getFileName(id);
+		    
 			InputStream employeeReportStream = resourceLoader.getResource("classpath:reports/" + templateName).getInputStream();
 			JasperReport jasperReportOne = JasperCompileManager.compileReport(employeeReportStream);
 			
 			Map<String, Object> reportParamMapOne = new HashMap<>();
 			reportParamMapOne.put("createdBy", "Rsin Group");
-			reportParamMapOne.put("companyname", companyName + " PTE.LTD.");
+			reportParamMapOne.put("companyName", userData.get("companyName") + " PTE.LTD.");
+			reportParamMapOne.put("registeredOffice", userData.get("address"));
+			reportParamMapOne.put("shareholder", shareholder.toString() );
+
 			JasperPrint jasperPrintOne = JasperFillManager.fillReport(jasperReportOne, reportParamMapOne, new JREmptyDataSource());
 			
 			JasperExportManager.exportReportToPdfFile(jasperPrintOne, fileDirectory + fileName);
@@ -103,27 +103,16 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	public Map<String, String> generateNewCompanyPDFWithSignature(String userId, byte[] bytes) {
 
 		List<JasperPrint> jasperPrintList = new ArrayList<JasperPrint>();
-		Map<String, String> userData = onlineSignatureService.getAllPageData(userId);
-		String companyId = userData.get("companyId");
-		String companyName = userData.get("companyName");
+		Map<String, Object> userData = onlineSignatureService.getAllPageData(userId);
+		String companyId = userData.get("companyId").toString();
+		String companyName = userData.get("companyName").toString();
 		try {
 			String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
 			File directory = new File(fileDirectory);
 		    if (! directory.exists()){
 		        directory.mkdirs();
 		    }
-		    String templateName = null;
-		    switch ("1") {
-		        case "1": templateName = "First_Director_Meeting_Resolution.jrxml"; break;
-		        case "2": templateName = "Secretary_Agreement.jrxml"; break;//Signature.jrxml
-		        case "3": templateName = "Notice_for_Controllers.jrxml"; break;
-		        case "4": templateName = "Application_of_Shares.jrxml"; break;
-		        case "5": templateName = "Client_Acceptance_Form.jrxml"; break;
-		        case "6": templateName = "Form_45_201.jrxml"; break;
-		        case "7": templateName = "Share_Certificate.jrxml"; break;
-		        case "8": templateName = "Nominee_Dir_Authrn_Final.jrxml"; break;
-		        default : templateName = "First_Director_Meeting_Resolution.jrxml";
-	        }
+		    String templateName = CommonUtils.getJaspterTemplateName("1");
 		    
 		    String fileName = templateName.substring(0, templateName.indexOf(".jrxml"));
 		    // Report one
@@ -181,13 +170,13 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		return null;
 	}
 	
-	public byte[] exportReport(String reportFormat, String userId, String fileName, String id) {
-		return generateNewCompanyPDF(userId, fileName, id);
+	public byte[] exportReport(String reportFormat, String userId, String id) {
+		return generateJasperPDF(userId, id);
 	}
 	
 	public Map<String, String> uploadSignature(String userId, MultipartFile uploadfile) {
-		Map<String, String> userData = onlineSignatureService.getAllPageData(userId);
-		String companyId = userData.get("companyId");
+		Map<String, Object> userData = onlineSignatureService.getAllPageData(userId);
+		String companyId = userData.get("companyId").toString();
 		String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
 		try {
 			List<MultipartFile> files = Arrays.asList(uploadfile);
@@ -212,8 +201,8 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	}
 	
 	public InputStream downloadWithSignatureFile(String fileName, String userId) {
-		Map<String, String> userData = onlineSignatureService.getAllPageData(userId);
-		String companyId = userData.get("companyId");
+		Map<String, Object> userData = onlineSignatureService.getAllPageData(userId);
+		String companyId = userData.get("companyId").toString();
 		try {
 			String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
 	    	File initialFile = new File(fileDirectory, fileName);

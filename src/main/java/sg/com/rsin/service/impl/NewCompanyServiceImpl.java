@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import javax.mail.MessagingException;
 
@@ -30,19 +29,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import sg.com.rsin.dao.CompanyInfoRepository;
 import sg.com.rsin.dao.CompanyOTHAccessRepository;
 import sg.com.rsin.dao.CompanyServiceRepository;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
-import sg.com.rsin.dao.NewCompanyRepository;
+import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.RoleRepository;
 import sg.com.rsin.dao.UserRegistrationRepository;
-import sg.com.rsin.entity.CompanyInfo;
 import sg.com.rsin.entity.CompanyOTHAccess;
 import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.Mail;
-import sg.com.rsin.entity.NewCompany;
+import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Role;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.NewCompanyInfoEnum;
@@ -50,6 +47,8 @@ import sg.com.rsin.restController.NewCompanyController;
 import sg.com.rsin.service.EmailService;
 import sg.com.rsin.service.NewCompanyService;
 import sg.com.rsin.util.CommonUtils;
+import sg.com.rsin.vo.CompanyInfoVO;
+import sg.com.rsin.vo.CompanyServiceVO;
 
 @Service
 @PropertySource("classpath:global.properties")
@@ -62,9 +61,7 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 	EmailService emailService;
 	
 	@Autowired
-	NewCompanyRepository newCompanyRepository;
-	@Autowired
-	CompanyInfoRepository companyInfoRepository;
+	CompanyRepository companyRepository;
 	@Autowired
 	CompanyServiceRepository companyServiceRepository;
 	@Autowired
@@ -91,11 +88,11 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 	// json handling tool
 	private ObjectMapper mapper = new ObjectMapper();
 	
-	public void addNewCompany (String receivedData) {
+	public void addCompany(String receivedData) {
 		String result = "";
-		List<CompanyService> companyServices = new ArrayList<CompanyService>();
-		List<CompanyInfo> companyInfos = new ArrayList<CompanyInfo>();
-		List<CompanyShareholderInfo> companyShareholderInfos = new ArrayList<CompanyShareholderInfo>();
+		List<CompanyServiceVO> companyServiceVOs = new ArrayList<CompanyServiceVO>();
+		List<CompanyInfoVO> companyInfoVOs = new ArrayList<CompanyInfoVO>();
+		List<CompanyInfoVO> companyShareholderInfoVOs = new ArrayList<CompanyInfoVO>();
     	try {
     		result = URLDecoder.decode(receivedData, StandardCharsets.UTF_8.toString());
     		logger.info("Recevied new company:[" + result + "]");
@@ -103,11 +100,11 @@ public class NewCompanyServiceImpl implements NewCompanyService {
     		for (String dataInfo: allcompanysinfo) {
     			String[] data = dataInfo.split("=");
     			if (NewCompanyInfoEnum.SERVICES.getDescription().equals(data[0])) {
-    				companyServices = mapper.readValue(data[1], mapper.getTypeFactory().constructCollectionType(List.class, CompanyService.class));
+    				companyServiceVOs = mapper.readValue(data[1], mapper.getTypeFactory().constructCollectionType(List.class, CompanyServiceVO.class));
     			} else if (NewCompanyInfoEnum.COMPANYINFOS.getDescription().equals(data[0])) {
-    				companyInfos = mapper.readValue(data[1], mapper.getTypeFactory().constructCollectionType(List.class, CompanyInfo.class));
+    				companyInfoVOs = mapper.readValue(data[1], mapper.getTypeFactory().constructCollectionType(List.class, CompanyInfoVO.class));
     			} else if (NewCompanyInfoEnum.SHAREHOLDERINFOS.getDescription().equals(data[0])) {
-    				companyShareholderInfos = mapper.readValue(data[1], mapper.getTypeFactory().constructCollectionType(List.class, CompanyShareholderInfo.class));
+    				companyShareholderInfoVOs = mapper.readValue(data[1], mapper.getTypeFactory().constructCollectionType(List.class, CompanyInfoVO.class));
     			}
     		}
     	} catch (UnsupportedEncodingException e) {
@@ -122,53 +119,43 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 			logger.error("Get error to parse new company data to json ");
 			e.printStackTrace();
 		} ;
-		
+
 		//Save to DB
-		NewCompany newCompany = new NewCompany();
-		newCompany.setStatus("new");
-		newCompany.setCreatedDate(new Date());
-		newCompanyRepository.save(newCompany);
-    	
-		for (CompanyService companyService : companyServices) {
-			companyService.setNewCompany(newCompany);
-			companyServiceRepository.save(companyService);
-		}
-		for (CompanyInfo companyInfo : companyInfos) {
-			companyInfo.setNewCompany(newCompany);
-			companyInfoRepository.save(companyInfo);
-		}
-		for (CompanyShareholderInfo companyShareholderInfo : companyShareholderInfos) {
-			companyShareholderInfo.setNewCompany(newCompany);
+		Company company = CommonUtils.phaseNewCompany(companyInfoVOs);
+		company.setStatus("new");
+		company.setCreatedDate(new Date());
+		companyRepository.save(company);
+
+		CompanyService companyService = CommonUtils.phaseNewCompanyService(companyServiceVOs);
+		companyService.setCompany(company);
+		companyServiceRepository.save(companyService);
+		
+		List<CompanyShareholderInfo> companyShareholderInfos = CommonUtils.phaseNewCompanyShareholderInfo(companyShareholderInfoVOs);
+		for (CompanyShareholderInfo companyShareholderInfo: companyShareholderInfos) {
+			companyShareholderInfo.setCompany(company);
 			companyShareholderInfoRepository.save(companyShareholderInfo);
 		}
 		
-		List<CompanyShareholderInfo> allShareholderName = companyShareholderInfos.stream()
-				.filter(shareholder -> shareholder.getName().equals("全名")).collect(Collectors.toList());
-		for (CompanyShareholderInfo shareholderName: allShareholderName) {
+		for (CompanyShareholderInfo shareholder: companyShareholderInfos) {
 			try {
-				sendEmailToShareHolder(newCompany, shareholderName);
+				sendEmailToShareHolder(company, shareholder);
 			} catch (MessagingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		
-		List<CompanyShareholderInfo> allShareholderEmail = companyShareholderInfos.stream()
-				.filter(shareholder -> shareholder.getName().equals("电子邮箱")).collect(Collectors.toList());
-		//List<String> allShareholderEmailOnly = companyShareholderInfos.stream()
-		//		.filter(shareholder -> shareholder.getName().equals("电子邮箱")).map(email -> email.getDescription()).collect(Collectors.toList());
-		for (CompanyShareholderInfo shareholderEmail: allShareholderEmail) {
+		for (CompanyShareholderInfo shareholderEmail: companyShareholderInfos) {
 			// check if need to create the new account to user
-			List<UserRegistration> emails =  userRegistrationRepository.findByEmail(shareholderEmail.getDescription());
+			List<UserRegistration> emails =  userRegistrationRepository.findByEmail(shareholderEmail.getEmail());
 			// create the default account to new email user
 			if (ObjectUtils.isEmpty(emails)) {
 				Set<Role> role = roleRepository.findByName("ROLE_USER");
 				UserRegistration userRegistration = new UserRegistration();
-				userRegistration.setUsername(shareholderEmail.getDescription());
-				userRegistration.setEmail(shareholderEmail.getDescription());
+				userRegistration.setFirstName(shareholderEmail.getName());
+				userRegistration.setUsername(shareholderEmail.getEmail());
+				userRegistration.setEmail(shareholderEmail.getEmail());
 				userRegistration.setPassword(bCryptPasswordEncoder.encode(defaultPassword));
 				
 				userRegistration.setRoles(role);
@@ -176,17 +163,17 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 			}
 		}
 	}
-	private void sendEmailToShareHolder(NewCompany newCompany, CompanyShareholderInfo companyShareholderInfo) throws MessagingException, IOException {
+	private void sendEmailToShareHolder(Company company, CompanyShareholderInfo companyShareholderInfo) throws MessagingException, IOException {
 		//Send email to ShareHolder and Director
 		//1. Get the access link
-		String password = CommonUtils.getHashValue("" + newCompany.getId() + newCompany.getStatus() + 
-				newCompany.getCreatedDate() + companyShareholderInfo.getDescription());
-		String URL = mainDomain + newCompanyConfirmUrl + "id=" + newCompany.getId() + "&token=" + password;
+		//String password = CommonUtils.getHashValue("" + company.getId() + company.getStatus() + company.getCreatedDate() + companyShareholderInfo.getDescription());
+		String password = CommonUtils.getHashValue("" + company.getId() + company.getStatus() + company.getCreatedDate() + companyShareholderInfo.getName());
+		String URL = mainDomain + newCompanyConfirmUrl + "id=" + company.getId() + "&token=" + password;
 		
 		LocalDateTime linkExpireDateTime = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().plusDays(authLinkExpireDay);
 
         CompanyOTHAccess companyOTHAccess = new CompanyOTHAccess();
-		companyOTHAccess.setNewCompany(newCompany);
+		companyOTHAccess.setNewCompany(company);
 		companyOTHAccess.setOrgPassword(password);
 		companyOTHAccess.setPWStartDate(new Date());
 		companyOTHAccess.setPWEndDate(Date.from(linkExpireDateTime.atZone(ZoneId.systemDefault()).toInstant()));
@@ -199,7 +186,7 @@ public class NewCompanyServiceImpl implements NewCompanyService {
         mail.setSubject("创建新公司 确认邮件");
         
         Map<String, String> model = new HashMap<String, String>();
-        model.put("name", companyShareholderInfo.getDescription());
+        model.put("name", companyShareholderInfo.getName());
         model.put("completedLink", URL);
         model.put("signature", "睿信集团");
         mail.setModel(model);

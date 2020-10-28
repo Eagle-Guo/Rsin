@@ -19,7 +19,7 @@ public class NewCompanyController {
     public void newCompany(@RequestBody String receivedData) {
 		logger.info("new Company info" + receivedData);
 		
-		newCompanyService.addNewCompany(receivedData);
+		newCompanyService.addCompany(receivedData);
 		
     }
 	

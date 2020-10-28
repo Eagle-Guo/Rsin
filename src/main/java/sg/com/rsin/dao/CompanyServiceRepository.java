@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
+import sg.com.rsin.entity.CompanyOTHAccess;
 import sg.com.rsin.entity.CompanyService;
 
 public interface CompanyServiceRepository extends CrudRepository<CompanyService, Long> {
 	CompanyService findById(long id);
-	List<CompanyService> findByName(String name);
+	List<CompanyService> findByCompany(String companyId);
 	
 }

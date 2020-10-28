@@ -124,8 +124,8 @@ public class EmailServiceImpl implements EmailService {
             mimeMessageHelper.setTo(mail.getTo());
             mail.setContent(geContentFromTemplate(mail.getModel()));
             mimeMessageHelper.setText(mail.getContent(), true);
-            System.out.println("Email content..."+ mail.getContent());
             mailSender.send(mimeMessageHelper.getMimeMessage());
+
             System.out.println("Email sent successful!!!!!");
         } catch (MessagingException e) {
         	System.out.println(e.getLocalizedMessage());

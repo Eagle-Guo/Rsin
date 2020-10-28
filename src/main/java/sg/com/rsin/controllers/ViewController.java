@@ -170,7 +170,7 @@ public class ViewController {
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		ModelAndView model = new ModelAndView("todolist/onlineSignature");
 		
-		Map<String, String> pageData = onlineSignatureService.getAllPageData(userEmail);
+		Map<String, Object> pageData = onlineSignatureService.getAllPageData(userEmail);
 		model.addObject("companyName", pageData.get("companyName"));
 		model.addObject("address", pageData.get("address")); 
 		return model;

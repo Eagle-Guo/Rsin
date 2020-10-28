@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 import sg.com.rsin.service.GenerateJespterReportService;
+import sg.com.rsin.util.CommonUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,23 +40,13 @@ public class FileDownloadController {
     		HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
 		
-        String filename = null;
-        switch (id) {
-	        case "1": filename = "First_Director_Meeting_Resolution.pdf"; break;
-	        case "2": filename = "Secretary_Agreement.pdf"; break;
-	        case "3": filename = "Notice_for_Controllers.pdf"; break;
-	        case "4": filename = "Application_of_Shares.pdf"; break;
-	        case "5": filename = "Client_Acceptance_Form.pdf"; break;
-	        case "6": filename = "Form_45_201.pdf"; break;
-	        case "7": filename = "Share_Certificate.pdf"; break;
-	        case "8": filename = "Nominee_Dir_Authrn_Final.pdf"; break;
-	        default: filename = "others.pdf";
-        }
+        String filename = CommonUtils.getFileName(id);
+
         response.setContentType("application/pdf");
         response.setHeader("fileName", filename);
         response.setHeader("content-disposition", "attachment;");
         
-        byte[] source = generateJespterReportService.exportReport("pdf", userId, filename, id);
+        byte[] source = generateJespterReportService.exportReport("pdf", userId, id);
         return outputStream -> {
             outputStream.write(source);
         };

@@ -22,7 +22,7 @@ public class CompanyOTHAccess {
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "company_id", nullable = false)
-	private NewCompany newCompany;
+	private Company company;
 	
 	@Column(name="org_pass_t")
 	private String OrgPassword;
@@ -46,12 +46,12 @@ public class CompanyOTHAccess {
 		this.id = id;
 	}
 
-	public NewCompany getNewCompany() {
-		return newCompany;
+	public Company getCompany() {
+		return company;
 	}
 
-	public void setNewCompany(NewCompany newCompany) {
-		this.newCompany = newCompany;
+	public void setNewCompany(Company company) {
+		this.company = company;
 	}
 
 	public String getOrgPassword() {

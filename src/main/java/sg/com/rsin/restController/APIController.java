@@ -9,9 +9,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +17,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,7 +58,7 @@ public class APIController {
     	logger.debug("Single file upload!");
 
         if (uploadfile.isEmpty()) {
-            return new ResponseEntity("Please Select a file!", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
         }
         try {
             saveUploadedFiles(Arrays.asList(uploadfile));
@@ -70,7 +66,7 @@ public class APIController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         logger.debug("file name " + uploadfile.getOriginalFilename());
-        return new ResponseEntity("Successfully uploaded - " +
+        return new ResponseEntity<String>("Successfully uploaded - " +
                 uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
 
     }

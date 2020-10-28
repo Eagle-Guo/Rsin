@@ -45,37 +45,87 @@ CREATE TABLE `authorities` (
   CONSTRAINT `authorities_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE `company` (
+/*CREATE TABLE `company` (
   `id` int(11) NOT NULL auto_increment,
   `status` varchar(10) NOT NULL,
   `total_shareholder` int not null default 0,
   `shareholder_comfirm` int not null default 0,
   `created_date` DATETIME,
   PRIMARY KEY (`id`)  
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;*/
+CREATE TABLE `company` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL,
+  `backup_name` varchar(255),
+  `type` varchar(100),
+  `total_stock_capital` float,
+  `actual_stock_capital` float,
+  `activity_one` varchar (255),
+  `activity_two` varchar (255),
+  `address` varchar(255),
+  `status` varchar(10) NOT NULL,
+  `total_shareholder` int not null default 0,
+  `shareholder_comfirm` int not null default 0,  
+  `created_date` DATETIME,
+  PRIMARY KEY (`id`)  
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE `company_service` (
+/*CREATE TABLE `company_service` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(10) NOT NULL,
   `price` int not null default 0,
   `company_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `company_service_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;*/
+
+CREATE TABLE `company_service` (
+  `id` int(11) NOT NULL auto_increment,
+  `company_type` int default 0,
+  `open_account` int default 0,
+  `nominal_director` int default 0,
+  `gst_tax` int default 0,
+  `virtual_phone` int default 0,
+  `forward_mail` int default 0,
+  `accounting` int default 0,
+  `urgent_registration` int default 0,
+  `company_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `company_service_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE `company_info` (
+/*CREATE TABLE `company_info` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(30) NOT NULL,
   `description` varchar(100) NOT NULL,
   `company_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `company_info_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;*/
 
-CREATE TABLE `company_shareholder_info` (
+/*CREATE TABLE `company_shareholder_info` (
    `id` int(11) NOT NULL auto_increment,
   `name` varchar(30) NOT NULL,
   `description` varchar(100) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `company_shareholder_info_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;*/
+
+CREATE TABLE `company_shareholder_info` (
+  `id` int(11) NOT NULL auto_increment,
+  `position_type` varchar(30) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `nationality` varchar(100) NOT NULL,
+  `ic_type` varchar(10) NOT NULL,
+  `ic_number` varchar(50),
+  `email` varchar(100),
+  `contact_number` varchar(20),
+  `issue_stock_amount` int,
+  `actual_stock_amount` int,
+  `value_per_stock` int,
+  `address` varchar(100) NOT NULL,
   `company_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `company_shareholder_info_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)

@@ -8,5 +8,5 @@ import sg.com.rsin.entity.CompanyOTHAccess;
 
 public interface CompanyOTHAccessRepository extends CrudRepository<CompanyOTHAccess, Long> {
 	CompanyOTHAccess findById(long id);
-	List<CompanyOTHAccess> findByNewCompany(String newCompanyId);
+	List<CompanyOTHAccess> findByCompany(String companyId);
 }

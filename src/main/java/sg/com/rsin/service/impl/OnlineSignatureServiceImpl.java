@@ -3,13 +3,14 @@ package sg.com.rsin.service.impl;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import sg.com.rsin.dao.CompanyInfoRepository;
+import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
-import sg.com.rsin.entity.CompanyInfo;
+import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.service.OnlineSignatureService;
 
@@ -17,38 +18,31 @@ import sg.com.rsin.service.OnlineSignatureService;
 public class OnlineSignatureServiceImpl implements OnlineSignatureService {
 
 	@Autowired
-	CompanyInfoRepository companyInfoRepository;
-	
+	CompanyRepository companyRepository;
+
 	@Autowired
 	CompanyShareholderInfoRepository companyShareholderInfoRepository;
-	
-	public Map<String, String> getAllPageData (String userEmail) {
+
+	public Map<String, Object> getAllPageData (String userEmail) {
 		if (userEmail == null || "".equals(userEmail)) {
-			return new HashMap<String, String>();
+			return new HashMap<String, Object>();
 		}
-		Map<String, String> pageData = new HashMap<String, String>();
+		Map<String, Object> pageData = new HashMap<String, Object>();
 		
-		List<CompanyShareholderInfo> companyShareholderInfos = companyShareholderInfoRepository.findByDescription(userEmail);
-		
+		List<CompanyShareholderInfo> companyShareholderInfos = companyShareholderInfoRepository.findByEmail(userEmail);
+		int total = 0;
+		Map<String, Integer> shareholderAndStock = new HashMap<String, Integer>();
 		for(CompanyShareholderInfo companyShareholderInfo : companyShareholderInfos) {
-			List<CompanyInfo> companyInfos = companyInfoRepository.findByCompanyId(companyShareholderInfo.getNewCompany().getId());
-			for (CompanyInfo companyInfo : companyInfos) {
-				if ("公司名称".equals(companyInfo.getName())) {
-					pageData.put("companyName", companyInfo.getDescription());
-					break;
-				}
-			}
-			List<CompanyShareholderInfo> CompanyShareholderInfos = companyShareholderInfoRepository.findByCompanyId(companyShareholderInfo.getNewCompany().getId());
-			for (CompanyShareholderInfo shareholderInfo : CompanyShareholderInfos) {
-				if ("个人地址及邮编".equals(shareholderInfo.getName())) {
-					pageData.put("address", shareholderInfo.getDescription());
-					break;
-				}
-			}
-			
-			pageData.put("companyId", companyShareholderInfo.getNewCompany().getId().toString());
-			
+			Optional<Company> company = companyRepository.findById(companyShareholderInfo.getCompany().getId());
+			pageData.put("companyName", company.get().getName());
+			pageData.put("address", company.get().getAddress());
+			pageData.put("companyId", company.get().getId().toString());
+
+			shareholderAndStock.put(companyShareholderInfo.getName(), companyShareholderInfo.getIssueStockAmount());
+			total = total + companyShareholderInfo.getIssueStockAmount();
 		}
+		pageData.put("shareholderAndStock", shareholderAndStock);
+		pageData.put("totalStockAmount", total);
 		return pageData;
 	}
 	

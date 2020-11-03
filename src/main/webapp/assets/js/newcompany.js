@@ -771,5 +771,6 @@ $("input[id^='calc']").change(function () {
  }).change();
 
 $('body').on('click','.removeNode', function() {
+	addContactNo = Number(addContactNo) - 1;
     $(this).closest('.contactClone').remove();
 });

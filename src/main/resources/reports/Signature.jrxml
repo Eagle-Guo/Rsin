@@ -30,17 +30,14 @@
 		</box>
 	</style>
 	<subDataset name="Empty Dataset1" uuid="db39a40f-4cf3-440d-bc06-e89c6247aaf5"/>
-	<parameter name="signImage" class="java.io.InputStream">
-		<parameterDescription><![CDATA[]]></parameterDescription>
-	</parameter>
 	<parameter name="id" class="java.lang.String"/>
 	<parameter name="ip" class="java.lang.String"/>
 	<parameter name="qrCode" class="java.lang.String"/>
 	<parameter name="serialNumber" class="java.lang.String"/>
 	<parameter name="documentReference" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[]]>
-	</queryString>
+	<parameter name="signImage" class="java.awt.Image">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -196,7 +193,7 @@
 			</textField>
 			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
 				<reportElement x="32" y="314" width="235" height="78" uuid="4e1ddfab-f167-4259-acd6-62c3d04e3ce7"/>
-				<imageExpression><![CDATA[$P{signImage}]]></imageExpression>
+				<imageExpression class="java.awt.Image"><![CDATA[$P{signImage}]]></imageExpression>
 			</image>
 			<textField pattern="MMM d, yyyy">
 				<reportElement x="35" y="440" width="145" height="30" uuid="c3fe2d4c-be01-4c50-a9fd-b9645d65cc9f"/>

@@ -3398,6 +3398,145 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     text-decoration:underline; 
 }
 
+
+
+    /*======== tab part =======*/
+.sectionPadding.sevice {
+    padding-bottom: 3.2rem;
+}
+    .sevice .card {
+        padding: 1rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        padding-bottom: 0;
+    }
+        .sevice #ESignature .card .media-body:hover {
+        color: black;
+        text-decoration: underline;
+    }
+    
+ .sevice #Signature .viewFile {
+        color: #6777ef;
+    }
+   .sevice #Signature .downloadFile {
+        color: #6777ef;
+    }     
+    
+ .sevice #Signature .viewFile:hover {
+        color: black;
+        text-decoration: underline;
+    }
+   .sevice #Signature .downloadFile:hover {
+        color: black;
+        text-decoration: underline;
+    }  
+    
+@media only screen and (max-width: 768px) {
+    .sevice .card {
+        padding: 1rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+    }
+}
+        .sevice .card .TitleBg {
+            background: url("../images/index/eduTitleBg.png") center center no-repeat;
+            margin-bottom: 3%;
+            padding: 1rem 20rem;
+        }
+@media only screen and (max-width: 768px) {
+
+        .sevice .card .TitleBg {
+            padding: 1rem;
+            background-size: 90%;
+        }
+}
+
+        .sevice .card .card-title {
+            font-size: 18px;
+            font-family: Arial;
+            font-weight: 600;
+        }
+
+            .sevice .card .card-title.main {
+                font-size: 26px;
+                font-family: Arial;
+                text-align: center;
+                font-weight: 600;
+            }
+
+
+        .sevice .card .card-text {
+            color: #909090;
+        }
+
+        .sevice .card .card-link {
+            color: #3c61c8;
+        }
+
+    /*======== tab part =======*/
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        width: 100%;
+        border: 1px solid #383838;
+        border-radius: 100px;
+    }
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 8px auto;
+            transition: 0.3s;
+            font-size: 18px;
+            font-weight: 500;
+            width: 50%;
+        }
+         /* Change background color of buttons on hover */
+            .tab button:hover {
+                background-color: #383838;
+                color: white;
+            }
+
+            /* Create an active/current "tab button" class */
+            .tab button.active {
+                background-color: #383838;
+                color: white;
+            }
+
+    /* Style the tab content */
+    .tabcontent {
+        padding: 2rem 1rem;
+    }
+
+    /* Clear floats after the tab */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    
+    /* text in the  tab */
+
+
+.sevice .card .card-header {
+    min-height: 10px;
+    padding: 5px 5px;
+}
+.sevice .card-body.fixcardhieht {
+    padding: 10px 0 !important;
+}
+.sevice .viewFilePart {
+    padding-right: 0;
+}
+
+
+
+
+
+
  /* 6.6 pages new css- uploadPage.jsp*/
  .marginright1 {
    margin-right:1rem;

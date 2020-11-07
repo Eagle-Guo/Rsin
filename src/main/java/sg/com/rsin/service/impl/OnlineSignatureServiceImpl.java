@@ -1,5 +1,6 @@
 package sg.com.rsin.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,13 @@ public class OnlineSignatureServiceImpl implements OnlineSignatureService {
 		}
 		Map<String, Object> pageData = new HashMap<String, Object>();
 		
-		List<CompanyShareholderInfo> companyShareholderInfos = companyShareholderInfoRepository.findByEmail(userEmail);
+		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareholderInfoRepository.findByEmail(userEmail);
+		List<CompanyShareholderInfo> companyShareholderInfos = new ArrayList<CompanyShareholderInfo>();
+		
+		userCompanyShareholderInfos.parallelStream().forEach(info -> {
+			companyShareholderInfos.addAll(companyShareholderInfoRepository.findByCompanyId(info.getCompany().getId()));
+		});
+		 
 		int total = 0;
 		Map<String, Integer> shareholderAndStock = new HashMap<String, Integer>();
 		for(CompanyShareholderInfo companyShareholderInfo : companyShareholderInfos) {

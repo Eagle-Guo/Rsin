@@ -28,7 +28,8 @@ public class CompanyShareholderInfo {
 	private int valuePerStock;
 	private String address;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	//@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne
     @JoinColumn(name = "company_id", nullable = false)
 	private Company company;
 

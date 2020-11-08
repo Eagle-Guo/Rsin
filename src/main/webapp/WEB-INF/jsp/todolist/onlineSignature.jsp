@@ -2835,7 +2835,7 @@
 											    <div class="signature-pad--footer">
 											      <div class="signature-pad--actions">
 											      <div class="buttons sign_btn">                    
-								                      <button class="btn btn-icon icon-left btn-primary" id="submit_sign" disabled data-action="save-png"><i class="fas fa-check"></i> 提交</button>
+								                      <button class="btn btn-icon icon-left btn-primary" id="submit_sign" data-action="save-png"><i class="fas fa-check"></i> 提交</button>
 								                      <button class="btn btn-icon icon-left btn-primary" data-action="clear"><i class="fas fa-times"></i>清空</button>
 								                      <button class="btn btn-icon icon-left btn-primary" data-action="change-color"><i class="fas fa-times"></i>改变颜色</button>
 								                      <button class="btn btn-icon icon-left btn-primary" data-action="undo"><i class="fas fa-times"></i>撤销还原</button>

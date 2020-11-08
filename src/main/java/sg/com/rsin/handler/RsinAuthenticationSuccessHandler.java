@@ -58,7 +58,9 @@ public class RsinAuthenticationSuccessHandler implements AuthenticationSuccessHa
 		}
 		UserRegistration userRegistration = userRegistrationRepository.findByUsername(loginName);
 		request.getSession().setAttribute("loginUsername", userRegistration != null ? userRegistration.getUsername() : "");
-		request.getSession().setAttribute("loginUser", userRegistration != null ? (userRegistration.getFirstName() + " " +  userRegistration.getLastName()): "Anonymous");
+		request.getSession().setAttribute("loginUser", userRegistration != null ? 
+				(userRegistration.getFirstName() + (userRegistration.getLastName() !=null ? " " +  userRegistration.getLastName() : "")): 
+				"Anonymous");
 		if (hasUserRole) {
 			redirectStrategy.sendRedirect(request, response, "/userWelcome");
 		} else if (hasAdminRole) {

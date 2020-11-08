@@ -1,7 +1,10 @@
 package sg.com.rsin.service.impl;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,8 +16,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.imageio.ImageIO;
 
@@ -23,6 +28,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
@@ -143,12 +155,18 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			InputStream in = new ByteArrayInputStream(bytes);
 	        BufferedImage bImageFromConvert = ImageIO.read(in);
 	        
+	        String qrCodeText = "https://www.rsin.com.sg";
+			/*
+			 * byte[] qrCode = null; try { qrCode = createQRImage(qrCodeText); } catch
+			 * (WriterException e) { e.printStackTrace(); }
+			 */
+			
+	        reportParamMapTwo.put("documentReference", "3425146652474290");
 		    reportParamMapTwo.put("signImage", bImageFromConvert);
-		    reportParamMapTwo.put("id", "3425146652474290");
+		    reportParamMapTwo.put("id", UUID.randomUUID().toString());
 		    reportParamMapTwo.put("ip", "192.168.1.45");
 		    reportParamMapTwo.put("serialNumber", "bos7zo7038h7mnum");
-		    reportParamMapTwo.put("qrCode", "QR String");
-		    reportParamMapTwo.put("documentReference", "3425146652474290");
+		    reportParamMapTwo.put("qrCode", qrCodeText);
 
 			JasperPrint jasperPrintTwo = JasperFillManager.fillReport(signatureReport, reportParamMapTwo, new JREmptyDataSource());
 			jasperPrintList.add(jasperPrintTwo);
@@ -183,6 +201,43 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		}
 		return null;
 	}
+	
+	/*
+	private byte[] createQRImage(String qrCodeText) throws WriterException, IOException {
+		// Create the ByteMatrix for the QR-Code that encodes the given String
+		int size = 125;
+
+		Hashtable<EncodeHintType, ErrorCorrectionLevel> hintMap = new Hashtable<>();
+		hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+		QRCodeWriter qrCodeWriter = new QRCodeWriter();
+		BitMatrix byteMatrix = qrCodeWriter.encode(qrCodeText, BarcodeFormat.QR_CODE, size, size, hintMap);
+		// Make the BufferedImage that are to hold the QRCode
+		int matrixWidth = byteMatrix.getWidth();
+		BufferedImage image = new BufferedImage(matrixWidth, matrixWidth, BufferedImage.TYPE_INT_RGB);
+		image.createGraphics();
+
+		Graphics2D graphics = (Graphics2D) image.getGraphics();
+		graphics.setColor(Color.WHITE);
+		graphics.fillRect(0, 0, matrixWidth, matrixWidth);
+		// Paint and save the image using the ByteMatrix
+		graphics.setColor(Color.BLACK);
+
+		for (int i = 0; i < matrixWidth; i++) {
+			for (int j = 0; j < matrixWidth; j++) {
+				if (byteMatrix.get(i, j)) {
+					graphics.fillRect(i, j, 1, 1);
+				}
+			}
+		}
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ImageIO.write(image, "png", baos);
+		baos.flush();
+		byte[] imageInByte = baos.toByteArray();
+		baos.close();
+		
+		return imageInByte;
+	}
+	*/
 	
 	public byte[] exportReport(String reportFormat, String userId, String id) {
 		return generateJasperPDF(userId, id);

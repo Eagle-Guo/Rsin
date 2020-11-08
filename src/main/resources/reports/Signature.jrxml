@@ -32,7 +32,7 @@
 	<subDataset name="Empty Dataset1" uuid="db39a40f-4cf3-440d-bc06-e89c6247aaf5"/>
 	<parameter name="id" class="java.lang.String"/>
 	<parameter name="ip" class="java.lang.String"/>
-	<parameter name="serialNumber" class="java.lang.String"/>
+	<parameter name="checksum" class="java.lang.String"/>
 	<parameter name="documentReference" class="java.lang.String"/>
 	<parameter name="signImage" class="java.awt.Image">
 		<parameterDescription><![CDATA[]]></parameterDescription>
@@ -40,6 +40,7 @@
 	<parameter name="qrCode" class="java.lang.String">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 	</parameter>
+	<parameter name="audit" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -88,7 +89,7 @@
 				<text><![CDATA[Online Document Signing]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="222" width="60" height="18" uuid="ff72fe06-6597-4228-a649-8ecf4691a85e">
+				<reportElement x="30" y="211" width="60" height="18" uuid="ff72fe06-6597-4228-a649-8ecf4691a85e">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -97,7 +98,7 @@
 				<text><![CDATA[ID:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="241" width="120" height="18" uuid="52152561-13ff-4e03-8601-b89248c2ea3b">
+				<reportElement x="30" y="230" width="120" height="18" uuid="52152561-13ff-4e03-8601-b89248c2ea3b">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -125,7 +126,7 @@
 				<text><![CDATA[Timestamp]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="460" width="170" height="20" uuid="2ecdaad4-6b98-445c-88cf-0dfb14231cad">
+				<reportElement x="30" y="460" width="170" height="20" uuid="2ecdaad4-6b98-445c-88cf-0dfb14231cad">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -146,7 +147,7 @@
 				<textFieldExpression><![CDATA[$P{documentReference}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="58" y="222" width="212" height="16" uuid="30ce48bc-d6b2-432f-a1b1-915e1f1d1c70">
+				<reportElement x="58" y="211" width="212" height="16" uuid="30ce48bc-d6b2-432f-a1b1-915e1f1d1c70">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<box>
@@ -158,7 +159,7 @@
 				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="108" y="242" width="162" height="16" uuid="257e9199-3b93-4b4e-9b2e-ce9b10fc01c3">
+				<reportElement x="108" y="231" width="162" height="16" uuid="257e9199-3b93-4b4e-9b2e-ce9b10fc01c3">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<box>
@@ -170,7 +171,7 @@
 				<textFieldExpression><![CDATA[$P{ip}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="291" y="312" width="229" height="18" uuid="817386c2-8772-4023-9a49-c05fb9d6c461">
+				<reportElement x="147" y="259" width="261" height="18" uuid="817386c2-8772-4023-9a49-c05fb9d6c461">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<box>
@@ -179,19 +180,7 @@
 				<textElement>
 					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{serialNumber}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="291" y="340" width="229" height="47" uuid="e7875a48-5035-4fa6-bdcf-ad44a9075a36">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<box>
-					<bottomPen lineWidth="1.0"/>
-				</box>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{qrCode}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{checksum}]]></textFieldExpression>
 			</textField>
 			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
 				<reportElement x="32" y="314" width="235" height="78" uuid="4e1ddfab-f167-4259-acd6-62c3d04e3ce7"/>
@@ -205,16 +194,35 @@
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
-				<reportElement x="380" y="400" width="110" height="83" uuid="a68b6a73-0e06-4787-8a17-74844143d7c1"/>
-				<imageExpression>
-					<![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
+				<reportElement x="20" y="660" width="110" height="83" uuid="a68b6a73-0e06-4787-8a17-74844143d7c1"/>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
 					new com.google.zxing.qrcode.QRCodeWriter().encode(
 						$P{qrCode},
 						com.google.zxing.BarcodeFormat.QR_CODE, 300, 300
 					)
-					)]]>
-				</imageExpression>
+					)]]></imageExpression>
 			</image>
+			<staticText>
+				<reportElement x="31" y="259" width="90" height="18" uuid="d6a641c6-f386-4c62-b4ed-3eaeca14df44">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Checksum:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="490" width="261" height="18" uuid="6be34f8f-0b5f-4eaf-8c8a-d99ab3c726b7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{audit}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>

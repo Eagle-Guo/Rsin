@@ -35,33 +35,33 @@ public class CommonUtils {
         return sb.toString();
 	}
 	
-	public static String getFileName(String id) {
+	public static String getFileName(int id) {
 		String filename;
 		switch (id) {
-	        case "1": filename = "First_Director_Meeting_Resolution.pdf"; break;
-	        case "2": filename = "Secretary_Agreement.pdf"; break;
-	        case "3": filename = "Notice_for_Controllers.pdf"; break;
-	        case "4": filename = "Application_of_Shares.pdf"; break;
-	        case "5": filename = "Client_Acceptance_Form.pdf"; break;
-	        case "6": filename = "Form_45_201.pdf"; break;
-	        case "7": filename = "Share_Certificate.pdf"; break;
-	        case "8": filename = "Nominee_Dir_Authrn_Final.pdf"; break;
+	        case 1: filename = "First_Director_Meeting_Resolution.pdf"; break;
+	        case 2: filename = "Secretary_Agreement.pdf"; break;
+	        case 3: filename = "Notice_for_Controllers.pdf"; break;
+	        case 4: filename = "Application_of_Shares.pdf"; break;
+	        case 5: filename = "Client_Acceptance_Form.pdf"; break;
+	        case 6: filename = "Form_45_201.pdf"; break;
+	        case 7: filename = "Share_Certificate.pdf"; break;
+	        case 8: filename = "Nominee_Dir_Authrn_Final.pdf"; break;
 	        default:  filename = "First_Director_Meeting_Resolution.pdf";
 	    }
 		return filename;
 	}
 	
-	public static String getJaspterTemplateName(String id) {
+	public static String getJaspterTemplateName(int id) {
 		String templateName;
 		switch (id) {
-		 	case "1": templateName = "First_Director_Meeting_Resolution.jrxml"; break;
-		    case "2": templateName = "Secretary_Agreement.jrxml"; break;//Signature.jrxml
-		    case "3": templateName = "Notice_for_Controllers.jrxml"; break;
-		    case "4": templateName = "Application_of_Shares.jrxml"; break;
-		    case "5": templateName = "Client_Acceptance_Form.jrxml"; break;
-		    case "6": templateName = "Form_45_201.jrxml"; break;
-		    case "7": templateName = "Share_Certificate.jrxml"; break;
-		    case "8": templateName = "Nominee_Dir_Authrn_Final.jrxml"; break;
+		 	case 1: templateName = "First_Director_Meeting_Resolution.jrxml"; break;
+		    case 2: templateName = "Secretary_Agreement.jrxml"; break;//Signature.jrxml
+		    case 3: templateName = "Notice_for_Controllers.jrxml"; break;
+		    case 4: templateName = "Application_of_Shares.jrxml"; break;
+		    case 5: templateName = "Client_Acceptance_Form.jrxml"; break;
+		    case 6: templateName = "Form_45_201.jrxml"; break;
+		    case 7: templateName = "Share_Certificate.jrxml"; break;
+		    case 8: templateName = "Nominee_Dir_Authrn_Final.jrxml"; break;
 		    default : templateName = "First_Director_Meeting_Resolution.jrxml";
 	    }
 		return templateName;

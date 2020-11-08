@@ -97,7 +97,7 @@
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
-				<text><![CDATA[(The above-mentioned parties shall alternatively be referred to individually as “Party”, and collectively as “Parties”.)]]></text>
+				<text><![CDATA[(The above-mentioned parties shall alternatively be referred to individually as “Party”, and collectively as "Parties".)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="40" y="447" width="474" height="18" uuid="3e63f018-74cf-4b34-b282-54332c8bf8ac">
@@ -1173,7 +1173,7 @@ Nominee Director of the Company]]></text>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
-				<text><![CDATA[13、]]></text>
+				<text><![CDATA[13.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="70" y="3412" width="444" height="72" uuid="3a5d88a1-86c4-4fa1-a525-48dc360a08bd">
@@ -1183,7 +1183,7 @@ Nominee Director of the Company]]></text>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
-				<text><![CDATA[13.Any reference to a statutory provision shall include such provision and any regulations made in pursuance thereof as from time to time modified or reenacted whether before or after the date of this Agreement.
+				<text><![CDATA[13.Any reference to a statutory provision shall include such provision and any regulations made in pursuance thereof as from time to time modified or reenacted whether before or after the date of this Agreement.
 引用法条将包括该法条和任何依据该条制订的规则，无论是协议订立前或后不时修改或者重新制定。]]></text>
 			</staticText>
 			<staticText>
@@ -1204,8 +1204,7 @@ Nominee Director of the Company]]></text>
 				<textElement textAlignment="Justified">
 					<font size="11" isBold="false"/>
 				</textElement>
-				<text><![CDATA[“Dollars" and the sign "$" shall mean the lawful currency of Singapore.
-新元或者符号“$”代表新加坡的法定货币。]]></text>
+				<text><![CDATA["Dollars" and the sign "$" shall mean the lawful currency of Singapore. 新元或者符号"$"代表新加坡的法定货币。]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="40" y="3538" width="30" height="18" uuid="f12e4d19-9f8b-44bb-bdba-bfb6448c62f3">

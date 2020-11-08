@@ -85,7 +85,7 @@ function uploadSignature(mimetype) {
         	var result = "";
         	$.each(allFilename, function(name, value){
         	    console.log(name + "--> " + value);   
-        	    result = result  + "<div> <a href = '/api/downloadFiles/" + value +"' class='fa fa-file-pdf-o' style='font-size:80px;color:red' download></a> <br />" + name + "</div>";
+        	    result = result + "<div > <a href = '/api/downloadFiles/" + value +"' class='fa fa-file-pdf-o' style='font-size:80px;color:red' download></a> <br />" + name  + "</div>";
         	});
         	$('#withSingatureDoc').html(result);
         },
@@ -94,29 +94,6 @@ function uploadSignature(mimetype) {
         }
     });
 }
-
-//function uploadSignature(dataURL) {
-//	console.log(dataURL);
-//    var blob = dataURLtoBlob(dataURL);
-//    console.log(blob);
-//    $.ajax({
-//        url: '/api/insertSignture',
-//        type : "POST",
-//        enctype: 'application/octet-stream',
-//        data: new FormData().append("file",blob),
-//        contentType: false,  // tell jQuery not to set contentType
-//        processData: false, //prevent jQuery from automatically transforming the data into a query string
-//        cache: false,
-//        timeout: 600000,
-//        success: function(response){
-//        	console.log("Upload Successful", response);
-//            addThumbnail(formdata, uploadType);
-//        },
-//        error: function(e) {
-//        	console.error("ERROR : ", e);
-//        }	
-//    });
-//}
 
 // One could simply use Canvas#toBlob method instead, but it's just to show
 // that it can be done using result of SignaturePad#toDataURL.

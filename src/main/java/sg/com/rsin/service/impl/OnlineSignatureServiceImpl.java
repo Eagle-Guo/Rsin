@@ -40,10 +40,13 @@ public class OnlineSignatureServiceImpl implements OnlineSignatureService {
 		int total = 0;
 		Map<String, Integer> shareholderAndStock = new HashMap<String, Integer>();
 		for(CompanyShareholderInfo companyShareholderInfo : companyShareholderInfos) {
-			Optional<Company> company = companyRepository.findById(companyShareholderInfo.getCompany().getId());
-			pageData.put("companyName", company.get().getName());
-			pageData.put("address", company.get().getAddress());
-			pageData.put("companyId", company.get().getId().toString());
+			
+			if (total == 0) {
+				Optional<Company> company = companyRepository.findById(companyShareholderInfo.getCompany().getId());
+				pageData.put("companyName", company.get().getName());
+				pageData.put("address", company.get().getAddress());
+				pageData.put("companyId", company.get().getId().toString());
+			}
 
 			shareholderAndStock.put(companyShareholderInfo.getName(), companyShareholderInfo.getIssueStockAmount());
 			total = total + companyShareholderInfo.getIssueStockAmount();

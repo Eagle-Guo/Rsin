@@ -1,4 +1,15 @@
-  $('#downloadDoc1').click(function () {
+var checkBoxes = $('input.compulsory_read'), submitButton = $('#submit_sign');
+
+checkBoxes.change(function () {
+    submitButton.attr("disabled", checkBoxes.is(":not(:checked)"));
+    if(checkBoxes.is(":not(:checked)")) {
+        submitButton.addClass('disabled');
+    } else {
+        submitButton.removeClass('disabled');
+    }       
+});
+
+$('#downloadDoc1').click(function () {
      var req = new XMLHttpRequest();
      req.open("GET", "/api/downloadSignature/1", true);
      req.responseType = "blob";

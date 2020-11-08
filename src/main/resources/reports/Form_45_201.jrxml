@@ -1,126 +1,290 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FORM45" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c842d2a7-79be-498d-8bb7-2dac9c417079">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Secretary_Agreement" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0c7e9618-8a6f-4aa2-9634-aca5d618d5f4">
+	<parameter name="signingDate" class="java.lang.String"/>
 	<parameter name="companyName" class="java.lang.String"/>
-	<parameter name="regNo" class="java.lang.String"/>
-	<parameter name="date" class="java.lang.String"/>
-	<parameter name="nameAndIDofStaff" class="java.lang.String"/>
-	<parameter name="name" class="java.lang.String"/>
-	<parameter name="address" class="java.lang.String"/>
-	<parameter name="id" class="java.lang.String"/>
-	<parameter name="nationality" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
 	<detail>
-		<band height="3125" splitType="Stretch">
-			<line>
-				<reportElement x="80" y="11" width="350" height="1" uuid="18a3db0a-d27a-41ab-b8d2-12d231c63403">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-			</line>
+		<band height="4800" splitType="Immediate">
 			<staticText>
-				<reportElement x="80" y="12" width="350" height="18" uuid="85fcf475-be3f-4987-8d9b-484f8a2b9ccf">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="0" y="21" width="39" height="18" uuid="5b362311-5725-431c-a6c7-79e32ef18715">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Center">
-					<font size="12"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[The COMPANIES ACT]]></text>
+				<text><![CDATA[Date: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="80" y="30" width="350" height="18" uuid="dda5ee6e-eaa2-4610-99d0-803fa139bc4e">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="0" y="57" width="280" height="18" uuid="bcb701cd-8da4-4870-a649-6c5605a823dc">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Center">
-					<font size="12"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[(Chapter 50)]]></text>
+				<text><![CDATA[To:  Rsin Group Pte. Ltd. Re:  Services]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="80" y="49" width="350" height="18" uuid="94182447-c95f-45d0-8239-40244a4c257a">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="0" y="94" width="280" height="18" uuid="e8187384-993b-45e1-b44d-77b915082cf8">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Center">
-					<font size="12"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Sections 173(2·) (a)]]></text>
+				<text><![CDATA[Agreement (this “Agreement”)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="80" y="67" width="280" height="36" uuid="c1415e7c-233a-4679-9ed5-6a2ead5734d6">
+				<reportElement x="0" y="150" width="170" height="18" uuid="ea977d32-77c1-406d-9bf8-6f12e5d64226">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Center">
-					<font size="12"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[CONSENT TO ACT AS DIRECTOR AND STATEMENT OF]]></text>
+				<text><![CDATA[Proposed Name of Company:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="80" y="99" width="270" height="36" uuid="026f7381-860d-4e5b-bc42-2e6870078e00">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="0" y="218" width="25" height="18" uuid="96bbd855-948b-4a25-a302-5f395609fbef">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Center">
-					<font size="12"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[NON DISQUALIFICATION TO ACT AS DIRECTOR]]></text>
+				<text><![CDATA[1.]]></text>
 			</staticText>
-			<line>
-				<reportElement x="80" y="131" width="350" height="1" uuid="b19b1015-8aa3-41cc-afcd-f241a1f9c526">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-			</line>
 			<staticText>
-				<reportElement x="464" y="33" width="100" height="18" uuid="96099200-2a09-4704-8b45-71405e954af5">
+				<reportElement x="270" y="218" width="284" height="18" uuid="1e7b48ea-8f14-434a-9d69-5bd30e148f7f"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[appoint Rsin Group Pte. Ltd. & related companies to]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2664" width="20" height="17" uuid="7a11bc77-6a56-4542-a9ac-86c74fcc92d0">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Center">
-					<font size="14"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Form ]]></text>
+				<text><![CDATA[19.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="464" y="49" width="100" height="18" uuid="f0b11944-901a-4b28-a773-882111666d3b">
+				<reportElement x="25" y="2664" width="530" height="36" uuid="485a6819-8c14-4f7e-8178-6485b37f5e59">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rsin Group Pte. Ltd. & related companies RESERVES THE RIGHT TO ACCEPT OR REJECT ANY APPLICATIONS SUBMITTED.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2727" width="530" height="83" uuid="60d70a1c-7eae-4a6a-a076-486083e74ffc">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Center">
-					<font size="14"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[45]]></text>
+				<text><![CDATA[On termination of any services (including but not limited to corporate secretarial services) provided by Rsin Group Pte. Ltd. & related companies pursuant to this Agreement, Rsin Group Pte. Ltd. & related companies shall not be obliged to furnish hard-copies of the documents prepared by Rsin Group Pte. Ltd. & related companies which have been made available to us via our web. Any time cost involved in preparation of the handover of any services are chargeable separately.]]></text>
 			</staticText>
-			<line>
-				<reportElement x="464" y="67" width="100" height="1" uuid="c79abe28-47d9-4d15-8c6f-f559310ae59c">
+			<staticText>
+				<reportElement x="0" y="2727" width="20" height="18" uuid="eb53e3b1-fe9d-4d01-9f08-569c63555444">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
-			</line>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[20.]]></text>
+			</staticText>
 			<staticText>
-				<reportElement x="80" y="160" width="190" height="18" uuid="43efcd30-bbf7-47bf-8c15-526db3bbde6a">
+				<reportElement x="0" y="2863" width="20" height="18" uuid="9f9d7c58-79c3-4026-8b18-d4723963ec45">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[21.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2863" width="530" height="106" uuid="b1c2116a-32dc-4f93-8265-71d56bfb25ff">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[For any share transaction, we agree that new share certificates with new numbers will be issued to all the affected shareholders (new and existing). All previous shares certificates for the affected will be cancelled. (Example: Shareholder A (70%) - holds share cert number 5 and Shareholder B (30%) - holds share cert number 6 entered into a share transfer agreement for B to transfer to A 20% of his shares. After the transfer, both share certs 5 and 6 will be canceled. Results: Shareholder A (90%) will be issued with new share cert number 7, Shareholder B (10%) will be issued with new share cert number 8).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3041" width="20" height="18" uuid="d128a2a1-cb1f-4e3f-badc-301941ce3e38">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Name of Company公司名字:]]></text>
+				<text><![CDATA[22.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="80" y="177" width="190" height="18" uuid="05d25c6c-ade9-4e80-9d77-46f0b695b2c3">
+				<reportElement x="25" y="3041" width="530" height="68" uuid="aa08f4ec-6c22-45e5-ab33-7af47fda15f6">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Left">
-					<font size="12"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Reg. No注册号码:]]></text>
+				<text><![CDATA[We agree that the share certificates numbering will commence from number “31” (thirty one), regardless the previous number sequence. (applicable for all new, existing, carry over companies and companies which change its company secretarial service provider to Rsin Group Pte. Ltd. & related companies EXCEPT companies incorporated through our website system)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3151" width="555" height="199" uuid="3e4b6d30-d7b1-47ce-af99-e06848a182e7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[For the purposes of this Agreement, “party” or “parties” shall refer to Rsin Group Pte. Ltd. & related companies on the one hand and us on the other hand.在本协议中，“一方”或“双方”应指Rsin集团私人有限公司和相关公司，另一方是指我们。
+
+This Agreement and the documents referred to herein are in substitution for all previous agreements between all or any of the parties, and contain the whole agreement between the parties relating to the subject matter of this Agreement.本协议和本协议提及的文件取代双方或任何一方之前达成的所有协议，并包含双方之间关于本协议标的物的的完整协议。
+
+In the event of any conflict, contradiction or inconsistency between the provisions in this Agreement and any other document and/or agreement entered into between us and Rsin Group Pte. Ltd. & related companies, this Agreement shall prevail.如果本协议的规定与我方与瑞星集团私人有限公司及相关公司签订的任何其他文件和/或协议之间存在任何冲突、矛盾或不一致，则以本协议为准。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3740" width="228" height="30" uuid="e3021484-3a17-4f54-8852-5fde2038c9e8">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3832" width="180" height="50" uuid="2ef9b518-0480-471c-a7d2-8932a6b370f7">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by  1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="3832" width="187" height="50" uuid="bfa1d5b3-3155-4feb-9876-bd5108fbc751"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="3740" width="235" height="30" uuid="c9aa78c8-f573-45c6-afde-b723b4950770"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[For and on behalf of Rsin Group Pte. Ltd.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3869" width="228" height="30" uuid="93080d92-80c3-4cae-8825-6ab052b1a6e6">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3959" width="180" height="26" uuid="4190c7d9-6a0b-4251-a532-62d7179ee471">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by  2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3465" width="554" height="140" uuid="e7c2b86e-fb00-4d4a-83a2-b2f413667c9a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[
+No alteration or amendment in respect of this Agreement will be effective unless in writing and executed by each of the parties.对本协议的任何更改或修订，除非以书面形式并由各方签署，否则无效
+
+A person who is not a party to this Agreement has no right under the Contracts (Rights of Third Parties) Act to enforce any term of this Agreement.根据《合同法》（第三方权利），非本协议一方的人士无权执行本协议的任何条款。
+]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="240" y="160" width="189" height="18" uuid="f67d4e50-7a4f-457b-8bd0-dc2cd2c81091">
+				<reportElement x="39" y="21" width="241" height="18" uuid="6a744d50-87d8-4d1d-816c-0da1b0a350a3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signingDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="39" width="279" height="18" uuid="a4d9bc1a-9505-4dce-92f3-a95089910fac"/>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[日期：签署日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="76" width="279" height="18" uuid="7f35b663-3158-40cd-9f8f-ef62a39cf5d3">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[致：  Rsin Group Pte. Ltd.关于：  服务]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="112" width="279" height="18" uuid="069946bb-8ab4-4b90-b30f-3b4b986c712d"/>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[协议（本“协议”）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="169" width="555" height="18" uuid="8ef26c2d-262f-4fd0-b24b-25ea75048924">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I/We, the undersigned hereby agree as follows to:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="170" y="150" width="280" height="18" uuid="b47b5e55-9ec7-4711-ac40-150a2a09d297">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<box>
@@ -131,859 +295,836 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="459" y="150" width="101" height="18" uuid="32a320ed-9453-4f52-af90-11a6a0dc0db9">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ (the “Company”) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="187" width="555" height="18" uuid="8fb7b933-e08f-44df-aac8-185cde826b1d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[拟定公司名称，（以下简称“公司”），我/我们，签字人在此同意以下：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="288" width="530" height="29" uuid="61c22d2d-8841-49b7-a4ba-20da78c28e1c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司指定Rsin Group Pte. Ltd.及相关公司为我们提供以下一项或多项服务：在新加坡成立公司、公司秘书服务、就业证申请、财务报表编制和归档、税务计算和备案。]]></text>
+			</staticText>
 			<textField>
-				<reportElement x="185" y="178" width="249" height="18" uuid="a5a7232e-c4b5-4205-bea2-c4a7bfb0dbda">
+				<reportElement x="25" y="218" width="235" height="18" uuid="47ca10d5-355b-4c0b-8397-eb5f2e44c323">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<box>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{regNo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="40" y="221" width="474" height="36" uuid="484e9756-811b-43d1-b119-6105e0249f69">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<reportElement x="25" y="237" width="530" height="53" uuid="9cc5f95c-d7ca-4ad5-a4f7-249d98123aaf">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="12"/>
+					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[I, the under mentioned person, hereby consent to act as a director of the abovementioned company with effect from]]></text>
+				<text><![CDATA[provide us with one or more of the following services: incorporation of a company in Singapore, corporate secretarial services, employment pass application, financial statement compilation and filing, tax computation and filing.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="282" width="474" height="16" uuid="f6348f29-be52-444a-a5c5-2510828ee08a">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<reportElement x="0" y="330" width="25" height="18" uuid="edf07474-edaf-467d-a237-a486be37a2bd">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[(a) I am not disqualified from acting as a director, in that:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="40" y="257" width="474" height="16" uuid="9e88df8c-fc79-4129-b98a-4626032bc191">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[我，下述人士，特此同意担任上述公司的董事，自（以上日期）起生效，并声明：]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="390" y="239" width="99" height="18" uuid="f237d843-e841-4d9a-885b-5f9ca7ac4c76"/>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[and declare that:]]></text>
+				<text><![CDATA[2.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="271" y="238" width="118" height="18" uuid="332b2d43-f0b9-4fdf-b457-d13ec3e86023">
+				<reportElement x="25" y="330" width="235" height="18" uuid="c419df92-2be7-4fa4-b7d7-db9340310ea0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<box>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="58" y="299" width="456" height="16" uuid="c10fde84-7948-426e-8e92-e2ca86e46df5">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="270" y="330" width="284" height="18" uuid="d3535ac6-6816-4dfd-b5b3-ef36770a087c"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[consent to act as a director of the Company of name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="349" width="530" height="91" uuid="b61d6dfe-aaa2-47dd-bd40-4888201cbe03">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11"/>
+					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[我够资格担任董事：]]></text>
+				<text><![CDATA[as proposed. We agree and acknowledge that the proposed name is subject to approval by the relevant authorities in Singapore (including but not limited to the Accounting and Corporate Regulatory Authority (“ACRA”)) and there is no guarantee that the proposed name will be approved by the relevant authorities. In the event that the proposed name is not approved, we agree to work with Rsin Group Pte. Ltd. & related companies & related companies to resolve this issue with the relevant authorities.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="58" y="327" width="31" height="16" uuid="07ee8c6a-582d-4afa-b905-24526c0d437c">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="25" y="446" width="530" height="44" uuid="f2a7dfa7-4cf5-4d0b-bc80-fb8a8d5d4d67">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="12"/>
+					<font size="10" isBold="false"/>
 				</textElement>
-				<text><![CDATA[(i)]]></text>
+				<text><![CDATA[公司同意担任拟定名字的公司董事。我们同意并了解，拟定名称须经新加坡相关当局（包括但不限于会计与企业监管局（“ACRA”）的批准），且不能保证提议的名称将获得相关当局的批准。如果提议的名称未获批准，我们同意与Rsin Group Pte. Ltd.和相关公司合作，与相关当局解决该问题]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="90" y="327" width="423" height="16" uuid="d3d55b36-2ded-48cf-ac37-c90fcb8802eb">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<reportElement x="0" y="502" width="25" height="18" uuid="adac99f5-00d1-49e2-bf25-db37c5275960">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[I am not below 18 years of age and that I am otherwise of full legal capacity.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="344" width="423" height="16" uuid="fb107470-1f32-42e0-8f6e-b6799206bb3f">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[我超过18岁，我具有完全的法律行为能力。]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="60" y="372" width="31" height="16" uuid="af5c2005-3373-44e2-9fc1-971ee4929207">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(ii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="372" width="423" height="48" uuid="75ea8318-8930-4209-bbb5-c8c6a59a509e">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Within a period of 3 years preceding the data of this statement I have  not  had any disqualification order made  by the  High Court of Singapore against me under section 149A(1) of the Companies Act (“the Act”).]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="421" width="423" height="28" uuid="c180abac-3e46-4887-b523-fa7887beb720">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[在本声明日期之前的3年内，我没有收到新加坡高等法院根据《公司法》（“公司法”）第149A（1）条对我发出的任何取消资格令。]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="60" y="462" width="31" height="16" uuid="b6ecb070-dbba-4a87-a779-d1a39c439988">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(iii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="462" width="423" height="48" uuid="cd9dac34-1705-4e5f-b7a7-11d90f654b77">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Within a period of 5 years preceding the date of this statement I have not had any disqualification order made by the High Court of Singapore against me under section 149(1) or 154(2) of the Act.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="511" width="423" height="28" uuid="1703cc94-aba6-4ec1-b259-bf880dceec20">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[在本声明日期前5年内，我没有收到新加坡高等法院根据法案第149（1）或154（2）条对我发出的取消资格令。]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="60" y="551" width="31" height="16" uuid="6a74a174-9ffe-4b49-9e6f-9cf464d3e307">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(iv)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="551" width="423" height="33" uuid="d982c187-0e3d-4287-8fe9-88f47e609ced">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[That within a period of 5 years preceding 12th November 1993 I have not been convicted whether within or without Singapore, of any offence –]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="584" width="423" height="16" uuid="5c336ef9-0db6-4f5a-bef9-b5b1cbb86893">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[在1993年11月12日之前的5年内，本人没有被定罪，不论在新加坡境内或境外]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="611" width="31" height="16" uuid="569ea035-5236-4468-875c-a69305529556">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(A)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="611" width="392" height="33" uuid="52017cb2-f275-4779-986d-8ef0df735d7e">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[In connection with the promotion, formation or management of a corporation:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="644" width="391" height="16" uuid="2f434bb8-ba64-4bea-ab26-4656eb58a189">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[关于公司的推广、组建或管理：]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="671" width="31" height="16" uuid="862c6042-0046-4462-bb20-205594df05f1">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(B)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="671" width="392" height="33" uuid="14ac0e1e-a684-4674-9cfa-da3a675a3a0f">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Involving fraud or dishonesty punishable on conviction with imprisonment for 3 months or more; or]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="704" width="391" height="16" uuid="882e7976-0a5b-4407-9fdd-527aabbb98d1">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[涉及欺诈或不诚实行为，一经定罪可判处3个月以上监禁；或]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="731" width="31" height="16" uuid="3e43d31c-70c2-4412-bc57-d300e133b677">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(C)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="731" width="392" height="48" uuid="83f63540-9da3-4e0c-a701-79a6332cff62">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Under section 157 (failure to act honestly and diligently as a director or making improper use of company information for gain) or under section 339 (failure to keep proper company accounts books) of the Act.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="780" width="391" height="31" uuid="adba3f04-7a78-4f57-9a82-f84c11b7f775">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[根据《公司法》第157条（未能诚实勤勉地担任董事或不当地利用公司信息谋取利益）或《公司法》第339条（未能妥善保管公司账簿）。]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="40" y="822" width="474" height="48" uuid="026e1809-f280-49d5-8535-786a1de12d71">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(b) I am aware of and undertake to abide by my duties, responsibilities and liabilities specified in the Act as well as under the common law where applicable, including the following key administrative and substantive duties, that is, to:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="40" y="871" width="473" height="28" uuid="87d0b534-79e4-46ed-87aa-dc77a17d4b3d">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[本人了解并承诺遵守《公司法》以及普通法（如适用）规定的职责、责任和义务，包括以下主要行政和实质性职责，即：]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="58" y="911" width="31" height="16" uuid="d5b2fa94-02b0-4c1f-8434-0788411788bb">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(i)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="911" width="423" height="16" uuid="6afb440c-9bf1-4211-be17-79d86a2aa567">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[discharge my responsibilities in the company.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="928" width="423" height="16" uuid="34842cf8-a7e3-480b-8eb4-116f2256aaac">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[履行我在公司的责任]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="60" y="955" width="31" height="16" uuid="38215c83-8c8e-4471-85d6-3792f482984c">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(ii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="92" y="955" width="423" height="34" uuid="7d5d74f8-6d7d-46ed-b478-7c30c195b784">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[ensure that I have a reasonable degree of skill and knowledge to handle the affairs of the company.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="92" y="989" width="423" height="16" uuid="18a3b7a7-8f08-4b34-b6ab-5eb4afd3815a">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[确保本人具备处理公司事务的合理技能和知识。]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="60" y="1016" width="31" height="16" uuid="3b77eede-e517-4aa8-969d-83fb1dd0e11e">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(iii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="92" y="1016" width="423" height="48" uuid="eb78e68c-6768-4120-bd25-bfc1dc06bd40">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[act honestly and be reasonably diligent in discharging my duties and act in the interest of the company without putting myself in a position of conflict of interest.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="92" y="1064" width="423" height="31" uuid="5b2f2342-fb7c-45f9-9c2d-09ae97124be2">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[诚实行事，合理勤勉地履行我的职责，为公司的利益行事，不使自己处于利益冲突的境地。]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="60" y="1107" width="31" height="16" uuid="bbf10eb3-ec95-4357-b06c-e0bb33f69919">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(iv)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="92" y="1107" width="423" height="33" uuid="655e3995-760c-4f48-b7c0-a9ac657de310">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[employ the powers and assets that I am entrusted with for the proper purposes of the company and not for any collateral purpose.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="92" y="1141" width="423" height="16" uuid="180d399e-35bb-43da-a73e-17e95e287c76">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[为公司的正当目的而非为任何附属目的而运用授予我的权力和资产。]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="60" y="1169" width="31" height="16" uuid="a77dd7c5-b726-4b2c-9a78-63c7b03e2f7d">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(v)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="92" y="1169" width="423" height="65" uuid="b1f68c53-78e1-4f0b-b8d5-e81e0456d7ac">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[ensure that the company and I comply with all the requirements and obligations under the Act including those in respect of meetings, requisitions, resolutions, accounts, reports, statements, records and other documents on the company, filing and notices and any other prerequisites, and]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="92" y="1234" width="423" height="31" uuid="6c21ab9a-5549-4ac5-b70c-82dcd91fda4d">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[确保公司和本人遵守《公司法》项下的所有要求和义务，包括有关公司的会议、申请、决议、账目、报告、报表、记录和其他文件、归档和通知以及任何其他先决条件，以及]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="60" y="1277" width="31" height="16" uuid="c0e2a36d-0705-477b-a2a8-2fb906f720d8">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(vi)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="92" y="1277" width="423" height="33" uuid="cbae9106-9baf-4687-ac9a-28943fee877e">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[account to the shareholders for my conduct of the affairs of the company and make such discussions that are incumbent upon me under the Act]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="92" y="1311" width="423" height="16" uuid="0f301b8b-541c-499f-8d98-7d89dbb64904">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[向股东说明我处理公司事务的情况，并根据该法进行有责任的讨论]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="40" y="1338" width="474" height="16" uuid="3f08aea8-813e-40c6-b553-9986cb7b0c89">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(c) That-]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="58" y="1364" width="31" height="16" uuid="ff619023-c4cd-456b-a2ae-1295f36b88d1">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(i)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="1364" width="423" height="46" uuid="23d06889-7934-4360-ba0a-8e6179049f3b">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[That within a period of 5 years preceding the date of this statement I have not been convicted, in Singapore or elsewhere, of any offence involving fraud or dishonesty punishable on conviction with imprisonment for 3 months or more.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="1412" width="423" height="28" uuid="646678c1-26f6-44a2-8b77-e93ba6112f8a">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[在本声明日期前5年内，本人未在新加坡或其他地方被判犯有任何监禁3个月或以上涉及欺诈或不诚实的罪行。]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="60" y="1452" width="31" height="16" uuid="daed9380-1fc8-46ef-9dbb-27d9cee7befc">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(ii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="1452" width="423" height="16" uuid="8c078334-6d8d-4790-9b07-aa07eba99f16">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[That]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="1469" width="31" height="16" uuid="9900ee88-b1dc-4d3b-b182-3809deaba3e9">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(A)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="1469" width="392" height="78" uuid="80528f14-c72a-463f-92e0-25abad4bed53">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[I have not been convicted of 3 or more offences under the Act in relation to the requirements on the filling of returns, accounts or other documents with the Registrar of Companies and have not had 3 or more orders of the High Court of Singapore made against me under section 13 or 399 of the Act in relation to such requirements.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="1547" width="391" height="43" uuid="a1ca0e22-bd51-4cf3-840c-c85e817d1d94">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[我没有被判定犯下3项或3项以上根据公司法与在会计与监督局提交申报表、账目或其他文件的要求有关的罪行，也没有收到新加坡高等法院根据《公司法》第13条或第399条就这些要求对我作出的3条或更多的命令。]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="1602" width="31" height="16" uuid="3b7cbd3c-1fcc-4955-92b8-3e84f6c7b734">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(B)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="1602" width="392" height="16" uuid="8f216b53-6039-49b6-a257-a32b77008ea1">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[The last of any such convictions; and]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="1619" width="391" height="16" uuid="4e2758c9-0a4c-44d6-a1f1-de02b49cdd10">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[最后一次定罪；以及]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="1646" width="31" height="16" uuid="2996c2b5-bed4-46d9-b3f7-3f4e2557a2d4">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(C)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="1646" width="392" height="16" uuid="d8db3708-faaf-455c-b778-ad2b377e6edf">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[I am not an undischarged bankrupt under section 148(1) of the Act.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="1663" width="391" height="16" uuid="61b3f756-a1e2-40de-86e8-632836047a65">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[我不是《公司法》第148（1）条规定的未解除破产的破产人。]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="60" y="1692" width="31" height="16" uuid="cf0c5818-200d-46fc-9b42-701caf2abb31">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[(iii)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="1692" width="423" height="34" uuid="be9645de-b283-4cc5-af0f-aa22e8c97896">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[By virtue of the foregoing I am not disqualified from acting as a director of the above named company.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="1726" width="423" height="16" uuid="f66adc80-1271-464c-bc07-998556d94b74">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[根据上述规定，我没有丧失担任上述公司董事的资格。]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="1753" width="31" height="16" uuid="20249047-2e71-49bd-93e9-1d1e7c56cc28">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[*(I) ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="1753" width="392" height="16" uuid="9f9a830d-6114-42d0-b43a-f14d4bb16d0a">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[I have read and understood the above statements; or]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="1770" width="391" height="16" uuid="041a51eb-d19a-4056-8ee0-43f201672e9f">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[本人已阅读并理解上述声明；或]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="1797" width="31" height="16" uuid="a8cf79e0-4d32-4b9b-abf5-7929545104e9">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[*(II) ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="1797" width="392" height="34" uuid="1fe684e0-aad8-441f-8551-fb0a1c4921df">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[the above statements were interpreted to me in English/Mandarin/dialect by]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="1831" width="391" height="16" uuid="18d97aac-d643-4b42-b543-6c6889a42659">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Justified">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[以上陈述由以下人员用英语/普通话/方言向我解释 ]]></text>
+				<text><![CDATA[3.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="140" y="1813" width="373" height="16" uuid="13cb382f-77bb-4e8b-9e10-2cf2cefc3742">
+				<reportElement x="25" y="502" width="235" height="18" uuid="a3534af0-7185-4412-9416-cd8daec80b4c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<box>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{nameAndIDofStaff}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="40" y="1862" width="474" height="48" uuid="6bef69ab-19fa-4fc2-bd91-e89e8fdbf1c2">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<reportElement x="270" y="502" width="284" height="18" uuid="4231d7b7-8df1-4d6b-99d8-6f6f0ff0f5b2"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[declare that we are not disqualified from acting as a ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="521" width="530" height="38" uuid="1dcc3948-cc10-4bc0-8901-eb94305dbcc8">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="12"/>
+					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[before I executed this form and I confirm that the statements are true. I am also aware that I can be prosecuted in Court if I wilfully give any information on this form which is false.]]></text>
+				<text><![CDATA[director of a company incorporated pursuant to the Companies Act (Cap. 50 of Singapore) and have given our consent to act as a director for the Company.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="1910" width="474" height="29" uuid="b4ef4d19-8e92-4a7d-855d-46c058e2dae7">
+				<reportElement x="25" y="557" width="530" height="18" uuid="a4e08d47-deb7-44f8-8483-308edbdccfa6"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司声明，我们具有担任根据《公司法》（第50章）注册成立的公司的董事的资格，并同意担任公司董事。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="587" width="25" height="18" uuid="7b977940-ddbc-4cb3-9869-66ba461db4bd">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="587" width="235" height="18" uuid="9bb4f758-bb0e-4522-a794-d990a0937d6b">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="587" width="284" height="18" uuid="d3360e92-98cb-480d-8e9d-32389c7de772"/>
 				<textElement textAlignment="Justified">
-					<font size="11"/>
+					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[在我签署此表格之前，我确认这些陈述是真实的。本人亦明白，如本人故意在本表格上提供虚假资料，本人会被法庭检控。]]></text>
+				<text><![CDATA[declare that the information provided and declaration]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="1964" width="474" height="16" uuid="bbb48c1a-0dcc-4116-87a0-a2fefe1710f2">
+				<reportElement x="25" y="606" width="530" height="153" uuid="446a8f17-e493-47ef-ad53-99cd5edc9cd6">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="12"/>
+					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Confirmed and Signed by Interpreter and witness: ]]></text>
+				<text><![CDATA[made on any of our forms and documents and attachments thereto are completed in a manner that is true, accurate and complete. Further acknowledge (i) that Rsin Group Pte. Ltd. & related companies will not maintain any hard-copy records of any data and/or documents sent to them by us and (ii) that any and all information provided to Rsin Group Pte. Ltd. & related companies & related companies will be made via www.ourwebaddress.com or such other web address as Rsin Group Pte. Ltd. & related companies & related companies may from time to time determine and agree to hold Rsin Group Pte. Ltd. & related companies & related companies harmless for any claims which may arise directly or indirectly as a result of such internet based submission and/or hosting of data and/or documents by Rsin Group Pte. Ltd. & related companies & related companies.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="1981" width="474" height="16" uuid="b1fa8f69-909d-4837-bb9f-c35480cf5f7e"/>
+				<reportElement x="25" y="760" width="530" height="69" uuid="360499b1-a891-4cbc-8f99-0e993ab84b68"/>
 				<textElement textAlignment="Justified">
-					<font size="11"/>
+					<font size="10" isBold="false"/>
 				</textElement>
-				<text><![CDATA[翻译和见证人确认并签字：]]></text>
+				<text><![CDATA[公司声明，我们在任何表格、文件及其附件上提供的信息和声明均以真实、准确和完整的方式完成。进一步了解（i）Rsin Group Pte.Ltd.和相关公司将不会保留我们发送给他们的任何数据和/或文件的任何硬拷贝记录，以及（ii）向Rsin Group Pte.Ltd.和相关公司及相关公司提供的任何和所有信息将通过www.我们的网址.com网站或我们的其他网址，如Rsin Group Pte.Ltd.对于因Rsin Group Pte.Ltd.和相关公司基于互联网提交和/或托管数据和/或文件而直接或间接产生的任何索赔，有限公司和相关公司及相关公司可不时决定并同意使Rsin Group Pte. Ltd.及其关联公司免受损害&相关公司。]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="2021" width="60" height="20" uuid="5e785762-746e-410c-9e46-01486683b42d"/>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
+				<reportElement x="0" y="838" width="25" height="18" uuid="d78fa018-fad4-4d22-a178-7f98192b7057">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Name:]]></text>
+				<text><![CDATA[5.]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="40" y="2052" width="60" height="20" uuid="3265f571-0dc3-4a5b-811b-f498c1937922"/>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Address:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="2083" width="128" height="20" uuid="19fd50d4-ae2d-4909-b9fb-3f1cd0a83ec8"/>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[NRIC E/Passport No.:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="2111" width="98" height="20" uuid="55982c1e-07a4-4f71-9fb4-fcf2c192a1e8"/>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Nationality:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="219" y="2185" width="128" height="20" uuid="1faf94c7-b293-4263-92d9-cf2039abc26f"/>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Signature:]]></text>
-			</staticText>
-			<line>
-				<reportElement x="279" y="2203" width="140" height="1" uuid="fd016bab-6878-4963-861b-33c58e35ff41"/>
-			</line>
 			<textField>
-				<reportElement x="91" y="2021" width="175" height="20" uuid="78e5f189-4164-42ca-a65c-c59760bb8330"/>
+				<reportElement x="25" y="838" width="235" height="18" uuid="d08a4793-6c9d-4fb4-8b08-67b08a9ae46c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<box>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="270" y="838" width="284" height="18" uuid="498b09b8-8fa3-490a-80c0-10ff37fc3093"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[authorize Rsin Group Pte. Ltd. & related companies]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="857" width="530" height="53" uuid="4ff03d0d-1ec1-485b-b591-bd6321bb9857">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[& related companies to name such individual as a secretary of the Company in relation to the provision of company secretary services to us by Rsin Group Pte. Ltd. & related companies & related companies.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="906" width="530" height="33" uuid="e5da9335-8002-4c8c-8527-ae07c11acc9d"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司授权Rsin Group PTE.LTD.及关联公司及关联公司提名一个个人担任公司秘书，用于Rsin Group PTE.LTD.及关联公司及关联公司向本公司提供公司秘书服务。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="948" width="25" height="18" uuid="86acb72f-8124-4db2-8ee6-263bf205ade4">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[6.]]></text>
+			</staticText>
 			<textField>
-				<reportElement x="98" y="2052" width="175" height="20" uuid="8e37628d-9d28-4010-99e5-698aa5ee74bb"/>
+				<reportElement x="25" y="948" width="235" height="18" uuid="da3b1406-7e67-47fd-ab10-eb364e0b94e3">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<box>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="270" y="948" width="284" height="18" uuid="e0d2c2da-848b-414e-9743-7df4544f360b"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[authorize Rsin Group Pte. Ltd. & related companies]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="967" width="530" height="63" uuid="4c074ac9-7139-403b-9b6b-febd6f5ab3ee">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[and its designated agents/staffs to initiate the filing electronically (Bizfile) with ACRA (or such other agency as may be gazette by the Registrar of Companies pursuant to the Companies Act (Cap. 50 of Singapore)) for the incorporation, corporate secretarial services and such other services contemplated herein and to communicate with ACRA for rectifying any omissions if necessary.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1033" width="530" height="44" uuid="af2c8209-7f9a-499c-8c9b-7662924a6ae4"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司授权Rsin Group PTE.LTD.及相关公司和它指定的代理人/员工向ACRA以电子方式（Bizfile）提交文件（或公司注册处根据《公司法》（新加坡第50章）公布的其他机构）。提供注册、公司秘书服务和本协议规定的其他服务，并与ACRA沟通以修改任何遗漏（如有需要）。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1088" width="25" height="18" uuid="3d2aac37-ea7c-4aab-8874-875126ec836b">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[7.]]></text>
+			</staticText>
 			<textField>
-				<reportElement x="166" y="2083" width="175" height="20" uuid="dac63a38-5665-41a1-94cd-a697020205b9"/>
+				<reportElement x="25" y="1088" width="235" height="18" uuid="4700cc4e-1338-4221-ac37-d12b27223031">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<box>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="270" y="1088" width="284" height="18" uuid="dbf726d4-eda8-4aae-817d-67e3e247de38"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[confirm and agree that all details as stated in the]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1107" width="530" height="33" uuid="ee27024b-fd95-406a-a160-f5100d46fec4">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ACRA business profile shall be deemed true and correct unless we inform you of any error within seven days from the date of incorporation.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1141" width="530" height="29" uuid="2d6faa7f-bba2-4a39-96c9-220229cb6a81"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司确认并同意，除非我们在公司成立之日起七天内通知您有任何错误，否则bizfile所述的所有细节均视为真实和正确的。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1187" width="25" height="18" uuid="5ed251dc-ca65-428a-82b8-9d4cd5ed8ccc">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[8.]]></text>
+			</staticText>
 			<textField>
-				<reportElement x="111" y="2112" width="175" height="20" uuid="573e1626-b192-4f0e-a81c-a6fe72499d28"/>
+				<reportElement x="25" y="1187" width="235" height="18" uuid="d5b9b7e8-67f2-44c8-8191-5ccf43afa277">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<box>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{nationality}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="270" y="1187" width="284" height="18" uuid="7d4533d8-f845-4b21-a630-280f5bd9282c"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[agree and acknowledge that Rsin Group Pte. Ltd. & ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1206" width="530" height="83" uuid="5166bda1-42b2-46bc-85e3-c4ff79b15665">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[related companies’s liability and responsibility relating to the Company and/or any services provided to us shall only commence on and after the date of appointment. Rsin Group Pte. Ltd. & related companies shall not be liable and/or responsible for any services (including but not related to corporate secretarial services) and liabilities and/or documents arising therefrom which were rendered by third parties to us.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1287" width="530" height="43" uuid="2b1a6bc5-5501-44d8-9063-bbc5025603a8"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司同意并了解，Rsin Group Pte. Ltd.和相关公司与我们公司和/或向我们提供的任何服务的责任应仅在任命之日和之后开始。Rsin Group Pte.Ltd.及相关公司不对第三方向我方提供的任何服务（包括但不与公司秘书服务相关）以及由此产生的责任和/或文件负责。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1345" width="25" height="18" uuid="76cf2feb-d553-462d-8f41-94942b7c5c97">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[9.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="1345" width="235" height="18" uuid="87f9f152-6f46-4772-9953-3431143d377f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="1345" width="284" height="18" uuid="aa36c0ab-103b-4a81-99fa-1cebb3687641"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[understand and agree to be bound by the terms of]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1364" width="530" height="83" uuid="7ee82f77-6637-4122-8f40-8dc0ab01d7e7">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rsin Group Pte. Ltd. & related companies’s e-commerce services which includes digital signatures (“e-signature”) and, unless required, shall be no physical, paper documents. We aware that any physical documents required through Rsin Group Pte. Ltd. & related companies to be satisfied by directly and personally printing, at our own expense and that samples of thereof perused as stipulated in Annexure A.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1445" width="530" height="43" uuid="333d2c73-1371-4f1b-bc1d-bf8ccd66c001"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司理解并同意受Rsin Group Pte. Ltd.和相关公司的电子商务服务条款的约束，包括数字签名（“电子签名”），除非要求，都不用亲临，也不是纸质文件。我们了解，通过Rsin Group Pte. Ltd.和相关公司要求的任何实物文件，均需由我方自费直接亲自打印，见附录A的规定细读样本。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1506" width="25" height="18" uuid="233a198d-44d1-4f49-be1d-f5558d16105f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[10.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="1506" width="235" height="18" uuid="73657de7-cc02-464b-9ebd-dd5b8e6cc6c0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="25" y="1576" width="530" height="36" uuid="9892bae7-2c46-4a3e-8144-ec4d66e73a68">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司完全理解并了解，Rsin Group PTE.LTD.及相关公司为我公司提交的任何申请（包括但不限于公司名称变更和就业证申请）（无论是新申请还是续签）不保证成功。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1525" width="530" height="54" uuid="0af5689e-3062-488b-82e9-fd3c0489da22">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[guarantee of success of any application (including but not limited to change of company name and employment pass application) (be it fresh applications or renewals) submitted by Rsin Group Pte. Ltd. & related companies for us.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="1506" width="284" height="18" uuid="456cc1d3-56c9-4740-9c2a-ee8d7373409e"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[fully understand and acknowledge that there is no]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1622" width="25" height="18" uuid="d79c635a-2e11-4ca4-ac44-c38d721d2333">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[11.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="1622" width="235" height="18" uuid="5d7c5c69-d029-4d8a-b7f2-44f462a82374">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="1622" width="284" height="18" uuid="61e25592-c6ce-4cd1-a2af-dcc8ca3c582f"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[fully understand and acknowledge that the]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1641" width="530" height="36" uuid="b0eddeb6-8d1b-4443-8272-5a5eb8f6a61c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[shareholders’ immediate liability and obligation to pay up the said amount as stated as paid-up capital in the ACRA business profile of the Company.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1677" width="530" height="18" uuid="ec5f5e6a-bc30-4199-b1f7-fa449bf7fde3"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司完全理解并了解，股东有立即责任和义务按照公司ACRAbizfile的实收资本支付上述金额。
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1709" width="25" height="18" uuid="69832fb6-196f-4cee-bd67-d86bb7c7c507">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[12.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="1709" width="235" height="18" uuid="5fde9023-6559-4db9-a6d3-5aaee693ebc5">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="1709" width="284" height="18" uuid="b70be544-e193-4e7c-b361-dc4b31a9d4b1"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[fully indemnifies and hold Rsin Group Pte. Ltd. & ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1728" width="530" height="111" uuid="a8324c76-aaa1-4351-a643-542776f30ec8">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[related companies and/or its officers, employees, contractors, sub-contractors, agents from any loss, expenses, costs or damages in respect of inaccurate or incomplete information filed through the services howsoever arising. For compliance purposes with the relevant law or statute in Singapore, in the event of any provision of nominee(s) nominated to act for us (the instructing party or/and the beneficial owners), as the case may be, we shall execute such letters of indemnity, nominee services agreement and/or such other documents and/or agreements as may from time to time be required by Rsin Group Pte. Ltd. & related companies.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1839" width="530" height="51" uuid="16ed805b-9f36-4e4e-a5aa-67f495b9da17"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司对Rsin集团私人有限公司及相关公司和/或其高级职员、雇员、承包商、分包商、代理人，无论由何种方式产生与不准确不完整提供信息引起的的任何损失、费用、成本或损害，提供全额赔偿。为了遵守新加坡的相关法律或法规，如果被提名人代表我们（指示方或/和受益所有人）的情况下，无论何种情况，我方将根据Rsin集团私人有限公司及相关公司随时要求签署赔偿书、提名人服务协议和/或其他文件和/或协议。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1911" width="25" height="18" uuid="970bf654-39b0-4a4e-a4f7-356ab2d07486">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[13.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="1911" width="235" height="18" uuid="01c2b2c5-63db-4288-8671-37c0a9e20cbf">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="1911" width="284" height="18" uuid="696c352f-1997-4592-87f6-6e5e490c427b"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[fully indemnifies and hold Rsin Group Pte. Ltd. &]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1930" width="530" height="39" uuid="aafc8103-c08b-4eab-a42a-cbfbd3b8efa4">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[related companies and/or its officers, employees, contractors, sub-contractors, agents harmless from and against all loss, expenses, damages, costs, claims or liabilities from any party.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1967" width="530" height="33" uuid="0fbce189-fe0a-48fa-8f1d-f68d35460cb4"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[对Rsin Group PTE.LTD.及相关公司和/或其高级职员、员工、承包商、分包商、代理人的来自任何一方的所有损失、费用、损害、成本、索赔的责任承担完全赔偿责任。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2012" width="25" height="18" uuid="d4d3818e-8471-4d45-9362-b99346bf5d90">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[14.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="2012" width="235" height="18" uuid="5c52902b-3057-4899-8842-44ddab1e6547">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="2012" width="284" height="18" uuid="b908e42c-db8b-432f-b474-5c3be027bcd3"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[agree and acknowledge that any claim arising]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2031" width="530" height="129" uuid="cb12f276-b14f-48fa-b827-5ef08515e056">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[directly from any service provided by Rsin Group Pte. Ltd. & related companies pursuant to this Agreement, Rsin Group Pte. Ltd. & related companies shall only be liable for claims not exceeding the amount equivalent to a total of two times the fee relating to that service which we have paid to Rsin Group Pte. Ltd. & related companies in the 12- months period immediately preceding such claim. In the event that a claim relates to two or more services, Rsin Group Pte. Ltd. & related companies shall only be liable for a total of two times the amount relating to a single service which we have paid to Rsin Group Pte. Ltd. & related companies in the 12-months period immediately preceding such claim.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2158" width="530" height="51" uuid="2c46665b-2cc0-45f6-93c9-31895804ea90"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司同意并了解，直接由Rsin集团私人有限公司和相关公司根据本协议提供的任何服务引起的任何索赔，Rsin Group Pte.Ltd.及相关公司仅对索赔金额不超过我方在索赔前12个月内向Rsin Group Pte.Ltd.及相关公司支付的那个服务费总额的两倍的索赔负责。如果索赔涉及两个或两个以上的服务，Rsin集团私人有限公司和相关公司只需承担我们在索赔前12个月内支付给Rsin集团私人有限公司和相关公司的一个服务的总额的两倍。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2231" width="25" height="18" uuid="13cc70e4-db24-4fe4-a519-b63d2fbe1242">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[15.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="2231" width="235" height="18" uuid="14f5a6a7-5553-413d-b99a-6fbc58cc1d8d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="2231" width="284" height="18" uuid="4e1e02fb-2b98-4e2f-ab40-8200d28e2fd5"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[agree that in relation to renewal fees, retainer fees]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2316" width="530" height="33" uuid="e59c52f5-2375-4105-9df8-268d05b31087"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司同意，关于下一年的续约费、聘用费和公司秘书费，将始终在当年到期时提前支付。我方理解，除非发票上另有说明，否则为公司注册和秘书服务支付的金额不包括会计、财务报告和税务服务。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2250" width="530" height="71" uuid="e2b03ab7-fc77-4c0d-9ba6-9e1b9f02fac9">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[and corporate secretarial fee for the next year, will always due and payable in advance upon the expiry of the current year. We understand that the amount paid for incorporation and secretarial services shall NOT include the accounting, financial report, and tax services unless otherwise stated in the invoice.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2361" width="25" height="18" uuid="770226f1-d2cd-42bf-b645-9b46fa33fbbc">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[16.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="2361" width="235" height="18" uuid="7cad57b4-aa33-4ab2-9d36-1a676f4da239">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="2361" width="284" height="18" uuid="1abb97d2-5301-435c-8d19-4c80ed0120a1"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[agree that Rsin Group Pte. Ltd. & related companies]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2380" width="530" height="39" uuid="ae3f7133-b2f0-48a8-a43a-a99e95d32b5f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[shall not be obligated to provide any secretarial services, task, advice, etc. (including annual general meetings, annual reports, etc.) before the relevant fees are paid up.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2418" width="530" height="33" uuid="ef6446fa-3063-494f-91db-72b43169d54d"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司同意，Rsin集团私人有限公司及相关公司在相关费用没有被付清之前没有义务提供任何秘书服务、任务、建议等（包括年度股东大会、年度报告等）。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2464" width="25" height="18" uuid="7816b303-1523-41f9-ad43-e6bd7e99ce73">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[17.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="2464" width="235" height="18" uuid="7b881195-1a27-4760-8bda-4e39df162f8e">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="2464" width="284" height="18" uuid="63a41c4e-56f3-4e50-8c4d-553d60fb7be4"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[agree and acknowledge that Rsin Group Pte. Ltd. & ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2483" width="530" height="46" uuid="23f0fa0c-f26c-4bb6-abc4-5b92cc4811f9">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[related companies may, from time to time, without notice, update or revise the terms of Service. Rsin Group Pte. Ltd. & related companies may notify by email or by posting the updated or revised terms of service on its website.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2532" width="530" height="33" uuid="a69b39e2-3fa2-4dd1-bf9f-47f3e1c68e59"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[公司同意并承认，Rsin集团私人有限公司及相关公司可随时更新或修订服务条款，恕不另行通知。Rsin集团私人有限公司及相关公司可通过电子邮件或在其网站上发布更新或修订的服务条款通知]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2574" width="25" height="18" uuid="3bc99095-98a4-4bfa-8e26-6ab6f1f4b544">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[18.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2574" width="530" height="46" uuid="04b7ca98-9218-469d-ad15-cf74bdf6e0d6">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SIGNING OF BANK DOCUMENT AND OTHER RESOLUTION – confirm and agree that the secretary will never sign on behalf of other director(s) on any documents, including but not limited to bank documents, resolutions for tenancy agreement, etc.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2621" width="530" height="33" uuid="462e55fb-878c-4e77-8a51-068c3cc9aecc"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[签署银行文件和其他决议——确认并同意秘书绝不代表其他董事签署任何文件，包括但不限于银行文件、租赁协议决议等。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2697" width="530" height="18" uuid="b0e1363d-b4c3-40a3-8fd1-be4bfc7cc384">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rsin Group Pte. Ltd.及相关公司保留接受或拒绝任何递交的申请的权利。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2806" width="530" height="43" uuid="5064c009-80e3-426b-afde-b5c772718795">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[在Rsin集团私人有限公司和相关公司根据本协议提供的任何服务（包括但不限于公司秘书服务）终止时，Rsin集团私人有限公司和相关公司无义务提供通过我们的网站我公司准备的文件的硬拷贝。准备移交任何服务所涉及的任何时间成本均应单独收取]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="2972" width="530" height="58" uuid="53e0edb5-1c55-4eba-8ab7-6ae2eb73349d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[对于任何股份交易，我们同意向所有受影响的股东（新的和现有的）发行带有新编号的新的股份证书。受影响人士之前的所有股份证书将被注销。（例如：股东A（70%）—持有5号股权证书，B号股东（30%）—持有6号股权证书—签订了一份股份转让协议，要求B将其20%的股份转让给A。转让后，第5张和第6张股票将被注销。结果：股东A（90%）将获得7号新股证书，股东B（10%）将获得8号新股证书。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="3106" width="530" height="33" uuid="98175eec-82ce-49a1-a4fd-7bbdd388cc93">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[我们同意，股票编号将从“31”（三十一）开始，而不考虑之前的编号顺序。（适用于所有新的、现有的、结转的公司以及将其公司秘书服务提供商变更为Rsin集团私人有限公司的公司和相关公司，但通过我们的网站系统注册的公司除外）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3361" width="554" height="69" uuid="7d0eb19c-cdf3-4430-b4c4-d0cad5de6171">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Each of the provisions of this Agreement is several and distinct from the others and if at any time one or more of the provisions is or becomes invalid, unlawful or unenforceable, the validity, legality and enforceability of the remaining provisions contained herein shall not in any way be affected or impaired and this Agreement shall be construed as if such invalid unlawful or unenforceable provision had never]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3421" width="554" height="87" uuid="6c977ebf-cbc7-41de-ba0b-df6345b62645">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[been contained herein.本协议的每一条规定都是单独的，并且与其他条款不同，如果在任何时候一条或多条规定无效、不合法或不可执行，本协议其余条款的有效性、合法性和可执行性不得以任何方式受到影响或损害，本协议应予以解释就好像这些无效的、非法的或不可执行的条款从未包含在本文中。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3588" width="554" height="140" uuid="a7cc4bb3-d8b4-4997-a330-cf58b45ae8dc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[This Agreement shall be governed by and construed with in accordance with the laws of Singapore. The parties shall submit to the exclusive jurisdiction of the courts of Singapore.本协议受新加坡法律管辖并按新加坡法律解释。双方应服从新加坡法院的专属管辖权。
+]]></text>
+			</staticText>
 		</band>
 	</detail>
 </jasperReport>

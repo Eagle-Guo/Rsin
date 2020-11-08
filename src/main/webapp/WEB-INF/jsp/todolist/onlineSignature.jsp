@@ -44,7 +44,7 @@
 										<div class="">First Director Meeting Resolution</div>   
 					                    <div class="checkbox">
 										    <label>
-										      <input type="checkbox">  已阅读
+										      <input type="checkbox" class="compulsory_read">  已阅读
 										    </label>
 										 </div>				                                            
 				                      </div>
@@ -55,7 +55,7 @@
 				                        <div class="">Secretary Agreement </div> 
 					                    <div class="checkbox">
 										    <label>
-										      <input type="checkbox">  已阅读
+										      <input type="checkbox" class="compulsory_read">  已阅读
 										    </label>
 										 </div>						                                              
 				                      </div>
@@ -66,7 +66,7 @@
 				                        <div class="">ANNEX B - Notice for Controllers</div>    
 					                    <div class="checkbox">
 										    <label>
-										      <input type="checkbox">  已阅读
+										      <input type="checkbox" class="compulsory_read">  已阅读
 										    </label>
 										 </div>						                                           
 				                      </div>
@@ -77,7 +77,7 @@
 				                        <div class="">Application of Shares</div>  
 					                    <div class="checkbox">
 										    <label>
-										      <input type="checkbox">  已阅读
+										      <input type="checkbox" class="compulsory_read">  已阅读
 										    </label>
 										 </div>						                                             
 				                      </div>
@@ -88,7 +88,7 @@
 				                        <div class="">Client Acceptance Form</div>     
 					                    <div class="checkbox">
 										    <label>
-										      <input type="checkbox">  已阅读
+										      <input type="checkbox" class="compulsory_read">  已阅读
 										    </label>
 										 </div>						                                          
 				                      </div>
@@ -99,7 +99,7 @@
 				                        <div class="">Form 45 / 201</div>    
 					                    <div class="checkbox">
 										    <label>
-										      <input type="checkbox">  已阅读
+										      <input type="checkbox" class="compulsory_read">  已阅读
 										    </label>
 										 </div>						                                           
 				                      </div>
@@ -110,7 +110,7 @@
 				                        <div class="">Share Certificate</div>   
 					                    <div class="checkbox">
 										    <label>
-										      <input type="checkbox">  已阅读
+										      <input type="checkbox" class="compulsory_read">  已阅读
 										    </label>
 										 </div>						                                            
 				                      </div>
@@ -121,13 +121,12 @@
 				                        <div class="">Nominee's+Dir's+Authrn_Final</div> 
 					                    <div class="checkbox">
 										    <label>
-										      <input type="checkbox">  已阅读
+										      <input type="checkbox" class="compulsory_read">  已阅读
 										    </label>
 										 </div>						                                              
 				                      </div>
 				                    </li>                    
 				                  </ul> 
-				                  <!--<div class="text-center pt-1 pb-1"><a id="download_all" href="#" class="btn btn-primary btn-sm btn-round">全部下载</a></div>    -->                                               
 				              </div>
 
 				            </div>				           				            
@@ -1689,9 +1688,9 @@
 				                    	 <p class="text_signfile"> Dear CONTROLLER NAME</p> 
 										 <p class="text_signfile text_cn">亲爱的实际控制人名字</p> 	
 										<br/>						 
-										 <p class="text_signfile"><span>We know or have reasonable grounds to believe that you are a registrable controller of COMPANY NAME PTE. LTD..
+										 <p class="text_signfile"><span>We know or have reasonable grounds to believe that you are a registrable controller of ${companyName} PTE. LTD..
 										 </span></p> 
-										 <p class="text_signfile text_cn"><span>我们知道或有合理理由相信您是XX PTE.LTD.的可注册的实际控制人。</span></p> 
+										 <p class="text_signfile text_cn"><span>我们知道或有合理理由相信您是${companyName} PTE.LTD.的可注册的实际控制人。</span></p> 
 										 <p class="text_signfile"><span>This notice is sent under section 386AG(2)(a) of the Companies Act (Cap. 50) and requires you to provide the following information within 30 days after the date of this notice. Failure to provide the information required by this notice may be an offence.</span></p> 
 										 <p class="text_signfile text_cn"><span>本通知根据《公司法》（第50章）第386节发出并要求贵方在本通知发出后30天内提供以下信息。未能提供本通知书所规定的信息，可能被制裁。</span></p> 						
 					                     <br/>
@@ -1701,9 +1700,9 @@
 				               		 		</div>		
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
-												<span>You are a registrable controller* of COMPANY NAME PTE. LTD.. If you disagree to the above sentence, please do not continue or sign off.
+												<span>You are a registrable controller* of ${companyName} PTE. LTD.. If you disagree to the above sentence, please do not continue or sign off.
 												</span><br/>
-												<span class="text_cn">您是XX私人有限公司的可注册的实际控制人*。。如果您不同意上述判断，请不要继续或签字
+												<span class="text_cn">您是${companyName}私人有限公司的可注册的实际控制人*。。如果您不同意上述判断，请不要继续或签字
 												</span></p> 
 				               		 		</div>	               		 						 
 										 </div>	
@@ -1820,10 +1819,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													(vi)the date on which you became an individual controller of COMPANY NAME PTE. LTD.:  
+													(vi)the date on which you became an individual controller of ${companyName} PTE. LTD.:  
 													</span><br/>								
 												<span class="text_cn">
-													您成为XX PTE.LTD.的个人实际控制人的日期：
+													您成为${companyName} PTE.LTD.的个人实际控制人的日期：
 													</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -1963,7 +1962,7 @@
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>   
-				                    	 <p class="text_signfile"> XXX  PTE. LTD.</p> 
+				                    	 <p class="text_signfile"> ${companyName}  PTE. LTD.</p> 
 										 <p class="text_signfile text_cn">公司名字</p> 
 				
 										 <div class="row text_no_di2">
@@ -1972,9 +1971,9 @@
 				               		 		</div>		
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
-												<span>Do you know or have reasonable grounds to believe that any other person is a registrable controller of COMPANY NAME PTE. LTD. or is likely to have that knowledge?
+												<span>Do you know or have reasonable grounds to believe that any other person is a registrable controller of ${companyName} PTE. LTD. or is likely to have that knowledge?
 												</span><br/>
-												<span class="text_cn">你是否知道或有合理理由相信任何其他人是XX私人有限公司的可注册的控制人，或很可能知道这一点？
+												<span class="text_cn">你是否知道或有合理理由相信任何其他人是${companyName}私人有限公司的可注册的控制人，或很可能知道这一点？
 												</span></p> 
 				               		 		</div>	               		 						 
 										 </div>	
@@ -2106,10 +2105,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													(vii)the date on which the person became an individual controller of: <span>COMPANY NAME PTE.LTD.:</span>
+													(vii)the date on which the person became an individual controller of: <span>${companyName} PTE.LTD.:</span>
 													</span><br/>								
 												<span class="text_cn">
-													此人成为XX PTE.LTD.的个人实际控制人的日期：
+													此人成为${companyName} PTE.LTD.的个人实际控制人的日期：
 													</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2239,9 +2238,9 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													(viii)the date on which the person became a corporate controller of:</span><span>COMPANY NAME PTE. LTD.</span><br/>								
+													(viii)the date on which the person became a corporate controller of:</span><span>${companyName} PTE. LTD.</span><br/>								
 												<span class="text_cn">
-													法人实体成为XX私人公司的公司实际控制者的日期
+													法人实体成为${companyName}私人公司的公司实际控制者的日期
 													</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2262,8 +2261,8 @@
 										<p class="text_signfile">CONTROLLER</p> 
 										<p class="text_signfile text_cn">控制人的名字</p> 
 										<br/>
-										<p class="text_signfile">COMPANY NAME PTE. LTD.</p> 
-										<p class="text_signfile text_cn">XX私人有限公司</p> 											 
+										<p class="text_signfile">${companyName} PTE. LTD.</p> 
+										<p class="text_signfile text_cn">${companyName}私人有限公司</p> 											 
 				               		 </div>
 				                </div>
 				              </div>  
@@ -2281,8 +2280,8 @@
 				                    	 <p class="text_signfile text_cn">致：  Rsin Group Pte. Ltd.关于：  服务</p>    
 				                    	 <p class="text_signfile"> Agreement (this “Agreement”) </p> 
 										 <p class="text_signfile text_cn">协议（本“协议”）</p> 						
-										 <p class="text_signfile"><span>Proposed Name of Company: COMPANY NAME PTE. LTD. (the “Company”) I/We, <br/>the undersigned hereby agree as follows to:</span></p> 
-										 <p class="text_signfile text_cn">拟定公司名称：XX私人有限公司（以下简称“公司”），我/我们，签字人在此同意以下：</p> 
+										 <p class="text_signfile"><span>Proposed Name of Company: ${companyName}  PTE. LTD. (the “Company”) I/We, <br/>the undersigned hereby agree as follows to:</span></p> 
+										 <p class="text_signfile text_cn">拟定公司名称：${companyName} 私人有限公司（以下简称“公司”），我/我们，签字人在此同意以下：</p> 
 										 <br/>
 										 <div class="row text_no_di2">
 											<div class="col-md-2 col-sm-2"> 
@@ -2290,8 +2289,8 @@
 				               		 		</div>		
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
-												<span>COMPANY NAME PTE. LTD. appoint Rsin Group Pte. Ltd. & related companies to provide us with one or more of the following services: incorporation of a company in Singapore, corporate secretarial services, employment pass application, financial statement compilation and filing, tax computation and filing.</span><br/>
-												<span class="text_cn">XX私人有限公司指定Rsin Group Pte. Ltd.及相关公司为我们提供以下一项或多项服务：在新加坡成立公司、公司秘书服务、就业证申请、财务报表编制和归档、税务计算和备案。</span></p> 
+												<span>${companyName}  PTE. LTD. appoint Rsin Group Pte. Ltd. & related companies to provide us with one or more of the following services: incorporation of a company in Singapore, corporate secretarial services, employment pass application, financial statement compilation and filing, tax computation and filing.</span><br/>
+												<span class="text_cn">${companyName} 私人有限公司指定Rsin Group Pte. Ltd.及相关公司为我们提供以下一项或多项服务：在新加坡成立公司、公司秘书服务、就业证申请、财务报表编制和归档、税务计算和备案。</span></p> 
 				               		 		</div>	               		 						 
 										 </div>
 										 <div class="row text_no_di2">
@@ -2301,9 +2300,9 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. consent to act as a director of the Company of name as proposed. We agree and acknowledge that the proposed name is subject to approval by the relevant authorities in Singapore (including but not limited to the Accounting and Corporate Regulatory Authority (“ACRA”)) and there is no guarantee that the proposed name will be approved by the relevant authorities. In the event that the proposed name is not approved, we agree to work with Rsin Group Pte. Ltd. & related companies & related companies to resolve this issue with the relevant authorities.</span><br/>								
+													${companyName}  PTE. LTD. consent to act as a director of the Company of name as proposed. We agree and acknowledge that the proposed name is subject to approval by the relevant authorities in Singapore (including but not limited to the Accounting and Corporate Regulatory Authority (“ACRA”)) and there is no guarantee that the proposed name will be approved by the relevant authorities. In the event that the proposed name is not approved, we agree to work with Rsin Group Pte. Ltd. & related companies & related companies to resolve this issue with the relevant authorities.</span><br/>								
 												<span class="text_cn">
-													XX私人有限公司同意担任拟定名字的公司董事。我们同意并了解，拟定名称须经新加坡相关当局（包括但不限于会计与企业监管局（“ACRA”）的批准），且不能保证提议的名称将获得相关当局的批准。如果提议的名称未获批准，我们同意与Rsin Group Pte. Ltd.和相关公司合作，与相关当局解决该问题。
+													${companyName} 私人有限公司同意担任拟定名字的公司董事。我们同意并了解，拟定名称须经新加坡相关当局（包括但不限于会计与企业监管局（“ACRA”）的批准），且不能保证提议的名称将获得相关当局的批准。如果提议的名称未获批准，我们同意与Rsin Group Pte. Ltd.和相关公司合作，与相关当局解决该问题。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2315,10 +2314,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. declare that we are not disqualified from acting as a director of a company incorporated pursuant to the Companies Act (Cap. 50 of Singapore) and have given our consent to act as a director for the Company.
+													${companyName}  PTE. LTD. declare that we are not disqualified from acting as a director of a company incorporated pursuant to the Companies Act (Cap. 50 of Singapore) and have given our consent to act as a director for the Company.
 												</span><br/>
 												<span class="text_cn">
-													XX PTE.LTD.声明，我们具有担任根据《公司法》（第50章）注册成立的公司的董事的资格，并同意担任公司董事。
+													${companyName}  PTE.LTD.声明，我们具有担任根据《公司法》（第50章）注册成立的公司的董事的资格，并同意担任公司董事。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2330,10 +2329,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. declare that the information provided and declaration made on any of our forms and documents and attachments thereto are completed in a manner that is true, accurate and complete. Further acknowledge (i) that Rsin Group Pte. Ltd. & related companies will not maintain any hard-copy records of any data and/or documents sent to them by us and (ii) that any and all information provided to Rsin Group Pte. Ltd. & related companies & related companies will be made via www.ourwebaddress.com or such other web address as Rsin Group Pte. Ltd. & related companies & related companies may from time to time determine and agree to hold Rsin Group Pte. Ltd. & related companies & related companies harmless for any claims which may arise directly or indirectly as a result of such internet based submission and/or hosting of data and/or documents by Rsin Group Pte. Ltd. & related companies & related companies.
+													${companyName}  PTE. LTD. declare that the information provided and declaration made on any of our forms and documents and attachments thereto are completed in a manner that is true, accurate and complete. Further acknowledge (i) that Rsin Group Pte. Ltd. & related companies will not maintain any hard-copy records of any data and/or documents sent to them by us and (ii) that any and all information provided to Rsin Group Pte. Ltd. & related companies & related companies will be made via www.ourwebaddress.com or such other web address as Rsin Group Pte. Ltd. & related companies & related companies may from time to time determine and agree to hold Rsin Group Pte. Ltd. & related companies & related companies harmless for any claims which may arise directly or indirectly as a result of such internet based submission and/or hosting of data and/or documents by Rsin Group Pte. Ltd. & related companies & related companies.
 												</span><br/>
 												<span class="text_cn">
-													XX私人有限公司声明，我们在任何表格、文件及其附件上提供的信息和声明均以真实、准确和完整的方式完成。进一步了解（i）Rsin Group Pte.Ltd.和相关公司将不会保留我们发送给他们的任何数据和/或文件的任何硬拷贝记录，以及（ii）向Rsin Group Pte.Ltd.和相关公司及相关公司提供的任何和所有信息将通过www.我们的网址.com网站或我们的其他网址，如Rsin Group Pte.Ltd.对于因Rsin Group Pte.Ltd.和相关公司基于互联网提交和/或托管数据和/或文件而直接或间接产生的任何索赔，有限公司和相关公司及相关公司可不时决定并同意使Rsin Group Pte. Ltd.及其关联公司免受损害&相关公司。
+													${companyName} 私人有限公司声明，我们在任何表格、文件及其附件上提供的信息和声明均以真实、准确和完整的方式完成。进一步了解（i）Rsin Group Pte.Ltd.和相关公司将不会保留我们发送给他们的任何数据和/或文件的任何硬拷贝记录，以及（ii）向Rsin Group Pte.Ltd.和相关公司及相关公司提供的任何和所有信息将通过www.我们的网址.com网站或我们的其他网址，如Rsin Group Pte.Ltd.对于因Rsin Group Pte.Ltd.和相关公司基于互联网提交和/或托管数据和/或文件而直接或间接产生的任何索赔，有限公司和相关公司及相关公司可不时决定并同意使Rsin Group Pte. Ltd.及其关联公司免受损害&相关公司。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2345,10 +2344,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. authorize Rsin Group Pte. Ltd. & related companies & related companies to name such individual as a secretary of the Company in relation to the provision of company secretary services to us by Rsin Group Pte. Ltd. & related companies & related companies.
+													${companyName}  PTE. LTD. authorize Rsin Group Pte. Ltd. & related companies & related companies to name such individual as a secretary of the Company in relation to the provision of company secretary services to us by Rsin Group Pte. Ltd. & related companies & related companies.
 												</span><br/>
 												<span class="text_cn">
-													XX私人有限公司授权Rsin Group PTE.LTD.及关联公司及关联公司提名一个个人担任公司秘书，用于Rsin Group PTE.LTD.及关联公司及关联公司向本公司提供公司秘书服务。
+													${companyName} 私人有限公司授权Rsin Group PTE.LTD.及关联公司及关联公司提名一个个人担任公司秘书，用于Rsin Group PTE.LTD.及关联公司及关联公司向本公司提供公司秘书服务。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2360,10 +2359,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. authorize Rsin Group Pte. Ltd. & related companies and its designated agents/staffs to initiate the filing electronically (Bizfile) with ACRA (or such other agency as may be gazette by the Registrar of Companies pursuant to the Companies Act (Cap. 50 of Singapore)) for the incorporation, corporate secretarial services and such other services contemplated herein and to communicate with ACRA for rectifying any omissions if necessary.
+													${companyName}  PTE. LTD. authorize Rsin Group Pte. Ltd. & related companies and its designated agents/staffs to initiate the filing electronically (Bizfile) with ACRA (or such other agency as may be gazette by the Registrar of Companies pursuant to the Companies Act (Cap. 50 of Singapore)) for the incorporation, corporate secretarial services and such other services contemplated herein and to communicate with ACRA for rectifying any omissions if necessary.
 												</span><br/>
 												<span class="text_cn">
-													XX私人有限公司授权Rsin Group PTE.LTD.及相关公司和它指定的代理人/员工向ACRA以电子方式（Bizfile）提交文件（或公司注册处根据《公司法》（新加坡第50章）公布的其他机构）。提供注册、公司秘书服务和本协议规定的其他服务，并与ACRA沟通以修改任何遗漏（如有需要）。
+													${companyName} 私人有限公司授权Rsin Group PTE.LTD.及相关公司和它指定的代理人/员工向ACRA以电子方式（Bizfile）提交文件（或公司注册处根据《公司法》（新加坡第50章）公布的其他机构）。提供注册、公司秘书服务和本协议规定的其他服务，并与ACRA沟通以修改任何遗漏（如有需要）。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2375,10 +2374,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. confirm and agree that all details as stated in the ACRA business profile shall be deemed true and correct unless we inform you of any error within seven days from the date of incorporation.
+													${companyName}  PTE. LTD. confirm and agree that all details as stated in the ACRA business profile shall be deemed true and correct unless we inform you of any error within seven days from the date of incorporation.
 												</span><br/>
 												<span class="text_cn">
-													XX私人有限公司确认并同意，除非我们在公司成立之日起七天内通知您有任何错误，否则bizfile所述的所有细节均视为真实和正确的。
+													${companyName} 私人有限公司确认并同意，除非我们在公司成立之日起七天内通知您有任何错误，否则bizfile所述的所有细节均视为真实和正确的。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2390,10 +2389,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. agree and acknowledge that Rsin Group Pte. Ltd. & related companies’s liability and responsibility relating to the Company and/or any services provided to us shall only commence on and after the date of appointment. Rsin Group Pte. Ltd. & related companies shall not be liable and/or responsible for any services (including but not related to corporate secretarial services) and liabilities and/or documents arising therefrom which were rendered by third parties to us.
+													${companyName}  PTE. LTD. agree and acknowledge that Rsin Group Pte. Ltd. & related companies’s liability and responsibility relating to the Company and/or any services provided to us shall only commence on and after the date of appointment. Rsin Group Pte. Ltd. & related companies shall not be liable and/or responsible for any services (including but not related to corporate secretarial services) and liabilities and/or documents arising therefrom which were rendered by third parties to us.
 												</span><br/>
 												<span class="text_cn">
-													XX私人有限公司同意并了解，Rsin Group Pte. Ltd.和相关公司与我们公司和/或向我们提供的任何服务的责任应仅在任命之日和之后开始。Rsin Group Pte.Ltd.及相关公司不对第三方向我方提供的任何服务（包括但不与公司秘书服务相关）以及由此产生的责任和/或文件负责。
+													${companyName} 私人有限公司同意并了解，Rsin Group Pte. Ltd.和相关公司与我们公司和/或向我们提供的任何服务的责任应仅在任命之日和之后开始。Rsin Group Pte.Ltd.及相关公司不对第三方向我方提供的任何服务（包括但不与公司秘书服务相关）以及由此产生的责任和/或文件负责。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2405,10 +2404,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. understand and agree to be bound by the terms of Rsin Group Pte. Ltd. & related companies’s e-commerce services which includes digital signatures (“e-signature”) and, unless required, shall be no physical, paper documents. We aware that any physical documents required through Rsin Group Pte. Ltd. & related companies to be satisfied by directly and personally printing, at our own expense and that samples of thereof perused as stipulated in Annexure A.
+													${companyName}  PTE. LTD. understand and agree to be bound by the terms of Rsin Group Pte. Ltd. & related companies’s e-commerce services which includes digital signatures (“e-signature”) and, unless required, shall be no physical, paper documents. We aware that any physical documents required through Rsin Group Pte. Ltd. & related companies to be satisfied by directly and personally printing, at our own expense and that samples of thereof perused as stipulated in Annexure A.
 												</span><br/>
 												<span class="text_cn">
-													XX私人有限公司理解并同意受Rsin Group Pte. Ltd.和相关公司的电子商务服务条款的约束，包括数字签名（“电子签名”），除非要求，都不用亲临，也不是纸质文件。我们了解，通过Rsin Group Pte. Ltd.和相关公司要求的任何实物文件，均需由我方自费直接亲自打印，见附录A的规定细读样本。
+													${companyName} 私人有限公司理解并同意受Rsin Group Pte. Ltd.和相关公司的电子商务服务条款的约束，包括数字签名（“电子签名”），除非要求，都不用亲临，也不是纸质文件。我们了解，通过Rsin Group Pte. Ltd.和相关公司要求的任何实物文件，均需由我方自费直接亲自打印，见附录A的规定细读样本。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2420,10 +2419,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. fully understand and acknowledge that there is no guarantee of success of any application (including but not limited to change of company name and employment pass application) (be it fresh applications or renewals) submitted by Rsin Group Pte. Ltd. & related companies for us.
+													${companyName}  PTE. LTD. fully understand and acknowledge that there is no guarantee of success of any application (including but not limited to change of company name and employment pass application) (be it fresh applications or renewals) submitted by Rsin Group Pte. Ltd. & related companies for us.
 												</span><br/>
 												<span class="text_cn">
-													XX私人有限公司完全理解并了解，Rsin Group PTE.LTD.及相关公司为我公司提交的任何申请（包括但不限于公司名称变更和就业证申请）（无论是新申请还是续签）不保证成功。
+													${companyName} 私人有限公司完全理解并了解，Rsin Group PTE.LTD.及相关公司为我公司提交的任何申请（包括但不限于公司名称变更和就业证申请）（无论是新申请还是续签）不保证成功。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2435,10 +2434,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. fully understand and acknowledge that the shareholders’ immediate liability and obligation to pay up the said amount as stated as paid-up capital in the ACRA business profile of the Company.
+													${companyName}  PTE. LTD. fully understand and acknowledge that the shareholders’ immediate liability and obligation to pay up the said amount as stated as paid-up capital in the ACRA business profile of the Company.
 												</span><br/>
 												<span class="text_cn">
-													XX私人有限公司完全理解并了解，股东有立即责任和义务按照公司ACRAbizfile的实收资本支付上述金额。
+													${companyName} 私人有限公司完全理解并了解，股东有立即责任和义务按照公司ACRAbizfile的实收资本支付上述金额。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2450,10 +2449,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. fully indemnifies and hold Rsin Group Pte. Ltd. & related companies and/or its officers, employees, contractors, sub-contractors, agents from any loss, expenses, costs or damages in respect of inaccurate or incomplete information filed through the services howsoever arising. For compliance purposes with the relevant law or statute in Singapore, in the event of any provision of nominee(s) nominated to act for us (the instructing party or/and the beneficial owners), as the case may be, we shall execute such letters of indemnity, nominee services agreement and/or such other documents and/or agreements as may from time to time be required by Rsin Group Pte. Ltd. & related companies.
+													${companyName} PTE. LTD. fully indemnifies and hold Rsin Group Pte. Ltd. & related companies and/or its officers, employees, contractors, sub-contractors, agents from any loss, expenses, costs or damages in respect of inaccurate or incomplete information filed through the services howsoever arising. For compliance purposes with the relevant law or statute in Singapore, in the event of any provision of nominee(s) nominated to act for us (the instructing party or/and the beneficial owners), as the case may be, we shall execute such letters of indemnity, nominee services agreement and/or such other documents and/or agreements as may from time to time be required by Rsin Group Pte. Ltd. & related companies.
 												</span><br/>
 												<span class="text_cn">
-													XX私人有限公司对Rsin集团私人有限公司及相关公司和/或其高级职员、雇员、承包商、分包商、代理人，无论由何种方式产生与不准确不完整提供信息引起的的任何损失、费用、成本或损害，提供全额赔偿。为了遵守新加坡的相关法律或法规，如果被提名人代表我们（指示方或/和受益所有人）的情况下，无论何种情况，我方将根据Rsin集团私人有限公司及相关公司随时要求签署赔偿书、提名人服务协议和/或其他文件和/或协议。
+													${companyName} 私人有限公司对Rsin集团私人有限公司及相关公司和/或其高级职员、雇员、承包商、分包商、代理人，无论由何种方式产生与不准确不完整提供信息引起的的任何损失、费用、成本或损害，提供全额赔偿。为了遵守新加坡的相关法律或法规，如果被提名人代表我们（指示方或/和受益所有人）的情况下，无论何种情况，我方将根据Rsin集团私人有限公司及相关公司随时要求签署赔偿书、提名人服务协议和/或其他文件和/或协议。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2465,10 +2464,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. fully indemnifies and hold Rsin Group Pte. Ltd. & related companies and/or its officers, employees, contractors, sub-contractors, agents harmless from and against all loss, expenses, damages, costs, claims or liabilities from any party.
+													${companyName}  PTE. LTD. fully indemnifies and hold Rsin Group Pte. Ltd. & related companies and/or its officers, employees, contractors, sub-contractors, agents harmless from and against all loss, expenses, damages, costs, claims or liabilities from any party.
 												</span><br/>
 												<span class="text_cn">
-													XX PTE.LTD.对Rsin Group PTE.LTD.及相关公司和/或其高级职员、员工、承包商、分包商、代理人的来自任何一方的所有损失、费用、损害、成本、索赔的责任承担完全赔偿责任。
+													${companyName} 私人有限公司对Rsin Group PTE.LTD.及相关公司和/或其高级职员、员工、承包商、分包商、代理人的来自任何一方的所有损失、费用、损害、成本、索赔的责任承担完全赔偿责任。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2480,10 +2479,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. agree and acknowledge that any claim arising directly from any service provided by Rsin Group Pte. Ltd. & related companies pursuant to this Agreement, Rsin Group Pte. Ltd. & related companies shall only be liable for claims not exceeding the amount equivalent to a total of two times the fee relating to that service which we have paid to Rsin Group Pte. Ltd. & related companies in the 12- months period immediately preceding such claim. In the event that a claim relates to two or more services, Rsin Group Pte. Ltd. & related companies shall only be liable for a total of two times the amount relating to a single service which we have paid to Rsin Group Pte. Ltd. & related companies in the 12-months period immediately preceding such claim.
+													${companyName} PTE. LTD. agree and acknowledge that any claim arising directly from any service provided by Rsin Group Pte. Ltd. & related companies pursuant to this Agreement, Rsin Group Pte. Ltd. & related companies shall only be liable for claims not exceeding the amount equivalent to a total of two times the fee relating to that service which we have paid to Rsin Group Pte. Ltd. & related companies in the 12- months period immediately preceding such claim. In the event that a claim relates to two or more services, Rsin Group Pte. Ltd. & related companies shall only be liable for a total of two times the amount relating to a single service which we have paid to Rsin Group Pte. Ltd. & related companies in the 12-months period immediately preceding such claim.
 												</span><br/>
 												<span class="text_cn">
-													XX 私人有限公司同意并了解，直接由Rsin集团私人有限公司和相关公司根据本协议提供的任何服务引起的任何索赔，Rsin Group Pte.Ltd.及相关公司仅对索赔金额不超过我方在索赔前12个月内向Rsin Group Pte.Ltd.及相关公司支付的那个服务费总额的两倍的索赔负责。如果索赔涉及两个或两个以上的服务，Rsin集团私人有限公司和相关公司只需承担我们在索赔前12个月内支付给Rsin集团私人有限公司和相关公司的一个服务的总额的两倍。
+													${companyName} 私人有限公司同意并了解，直接由Rsin集团私人有限公司和相关公司根据本协议提供的任何服务引起的任何索赔，Rsin Group Pte.Ltd.及相关公司仅对索赔金额不超过我方在索赔前12个月内向Rsin Group Pte.Ltd.及相关公司支付的那个服务费总额的两倍的索赔负责。如果索赔涉及两个或两个以上的服务，Rsin集团私人有限公司和相关公司只需承担我们在索赔前12个月内支付给Rsin集团私人有限公司和相关公司的一个服务的总额的两倍。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2495,10 +2494,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. agree that in relation to renewal fees, retainer fees and corporate secretarial fee for the next year, will always due and payable in advance upon the expiry of the current year. We understand that the amount paid for incorporation and secretarial services shall NOT include the accounting, financial report, and tax services unless otherwise stated in the invoice.
+													${companyName} PTE. LTD. agree that in relation to renewal fees, retainer fees and corporate secretarial fee for the next year, will always due and payable in advance upon the expiry of the current year. We understand that the amount paid for incorporation and secretarial services shall NOT include the accounting, financial report, and tax services unless otherwise stated in the invoice.
 												</span><br/>
 												<span class="text_cn">
-													XX 私人有限公司同意，关于下一年的续约费、聘用费和公司秘书费，将始终在当年到期时提前支付。我方理解，除非发票上另有说明，否则为公司注册和秘书服务支付的金额不包括会计、财务报告和税务服务。
+													${companyName} 私人有限公司同意，关于下一年的续约费、聘用费和公司秘书费，将始终在当年到期时提前支付。我方理解，除非发票上另有说明，否则为公司注册和秘书服务支付的金额不包括会计、财务报告和税务服务。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2510,10 +2509,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. agree that Rsin Group Pte. Ltd. & related companies shall not be obligated to provide any secretarial services, task, advice, etc. (including annual general meetings, annual reports, etc.) before the relevant fees are paid up.
+													${companyName} PTE. LTD. agree that Rsin Group Pte. Ltd. & related companies shall not be obligated to provide any secretarial services, task, advice, etc. (including annual general meetings, annual reports, etc.) before the relevant fees are paid up.
 												</span><br/>
 												<span class="text_cn">
-													XX 私人有限公司同意，Rsin集团私人有限公司及相关公司在相关费用没有被付清之前没有义务提供任何秘书服务、任务、建议等（包括年度股东大会、年度报告等）。
+													${companyName} 私人有限公司同意，Rsin集团私人有限公司及相关公司在相关费用没有被付清之前没有义务提供任何秘书服务、任务、建议等（包括年度股东大会、年度报告等）。
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2525,10 +2524,10 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>
-													COMPANY NAME PTE. LTD. agree and acknowledge that Rsin Group Pte. Ltd. & related companies may, from time to time, without notice, update or revise the terms of Service. Rsin Group Pte. Ltd. & related companies may notify by email or by posting the updated or revised terms of service on its website.
+													${companyName} PTE. LTD. agree and acknowledge that Rsin Group Pte. Ltd. & related companies may, from time to time, without notice, update or revise the terms of Service. Rsin Group Pte. Ltd. & related companies may notify by email or by posting the updated or revised terms of service on its website.
 												</span><br/>
 												<span class="text_cn">
-													XX 私人有限公司同意并承认，Rsin集团私人有限公司及相关公司可随时更新或修订服务条款，恕不另行通知。Rsin集团私人有限公司及相关公司可通过电子邮件或在其网站上发布更新或修订的服务条款通知
+													${companyName} 私人有限公司同意并承认，Rsin集团私人有限公司及相关公司可随时更新或修订服务条款，恕不另行通知。Rsin集团私人有限公司及相关公司可通过电子邮件或在其网站上发布更新或修订的服务条款通知
 												</span>
 												</p> 
 				               		 		</div>	               		 						 
@@ -2830,12 +2829,12 @@
 											</form>
 											<div id="signature-pad" class="signature-pad">
 											    <div class="signature-pad--body">
-											      <canvas></canvas>
+											      <canvas width="370" height="250"></canvas>
 											    </div>
 											    <div class="signature-pad--footer">
 											      <div class="signature-pad--actions">
 											      <div class="buttons sign_btn">                    
-								                      <button class="btn btn-icon icon-left btn-primary" id="submit_sign" data-action="save-png"><i class="fas fa-check"></i> 提交</button>
+								                      <button class="btn btn-icon icon-left btn-primary" disabled id="submit_sign" data-action="save-png"><i class="fas fa-check"></i> 提交</button>
 								                      <button class="btn btn-icon icon-left btn-primary" data-action="clear"><i class="fas fa-times"></i>清空</button>
 								                      <button class="btn btn-icon icon-left btn-primary" data-action="change-color"><i class="fas fa-times"></i>改变颜色</button>
 								                      <button class="btn btn-icon icon-left btn-primary" data-action="undo"><i class="fas fa-times"></i>撤销还原</button>
@@ -2861,16 +2860,15 @@
 										</div>	  
 							  </div>					                    					
 				              <div class="col-lg-8 col-md-12 col-12 col-sm-12"> 				                     
-					                    <div class="card-header"> <h4>生成电子签名文件区域</h4> </div>
-						                    <div class="signature-pad--footer">
-											      <div class="signature-pad--actions">
-												      <div class="buttons sign_btn" id="withSingatureDoc"></div>	
-											      </div>
-											</div>
+			                  	<div class="card-header"> <h4>生成电子签名文件区域</h4> </div>
+				                	<div class="signature-pad--footer">
+								      <div class="signature-pad--actions">
+									      <div class="buttons sign_btn" id="withSingatureDoc"></div>	
+								      </div>
+									</div>
 								</div> 
 							</div> 
 				            </div>				            
-				            				            				            				           				            
 				          </div>          
 				
 				    </div>
@@ -3050,18 +3048,6 @@
 											 </div>											 	                        	                                            
 				                      </div>
 				                    </li>					                    
-				                    
-				                    
-				                    				                 
-				                 
-				                 
-				                 
-				                 
-				                 
-				                 
-				                 
-				                 
-                
 				                  </ul> 
 				                  <!--<div class="text-center pt-1 pb-1"><a id="download_all" href="#" class="btn btn-primary btn-sm btn-round">全部下载</a></div>    -->                                               
 				              </div>
@@ -3099,7 +3085,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-  <script src="../../../assets/js/html2canvas.js"></script>
+  <!-- <script src="../../../assets/js/html2canvas.js"></script> -->
   
   <script src="../../../assets/js/page/index-0.js"></script>
   <script src="../../../assets/js/onlineSignature.js"></script>

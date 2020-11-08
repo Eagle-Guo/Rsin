@@ -36,7 +36,7 @@ public class FileDownloadController {
 	 */
 	
 	@RequestMapping(value = "/downloadSignature/{id}", method = RequestMethod.GET)
-    public StreamingResponseBody downloadSignatureFile(@PathVariable String id, 
+    public StreamingResponseBody downloadSignatureFile(@PathVariable int id, 
     		HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
 		

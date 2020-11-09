@@ -48,12 +48,25 @@
 									<div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
 										<div class="multisteps-form__progress">
 											<button class="multisteps-form__progress-btn js-active" type="button" title="选择服务">选择服务</button>
-											<button class="multisteps-form__progress-btn" type="button" title="填报资料">填报资料</button>
-											<button class="multisteps-form__progress-btn" type="button" title="在线确认">在线确认</button>
+											<button class="multisteps-form__progress-btn" type="button" title="填报资料">填报资料<br/>在线确认</button>
 											<button class="multisteps-form__progress-btn" type="button" title="在线付款">在线支付</button>
+											<button class="multisteps-form__progress-btn" type="button" title="在线付款">电子签名<br/>上传资料</button>
+											<button class="multisteps-form__progress-btn" type="button" title="在线付款">注册成功<br/>下载注册成功文件</button>										
 										</div>
 									</div>
-									<div class="col-lg-12 col-md-12 col-12 col-sm-12  alert alert-primary alert-dismissible show fade" style="margin: 15px;">
+									<div class="col-lg-12 col-md-12 col-12 col-sm-12 " >
+										<button type="button" class="btn btn-default tooltip-arrow tooltip-inner" 
+											data-toggle="tooltip" 
+											data-placement="right" title="											
+											在申请前请先准备以下相关资料，以备登记相关信息所需:<br/> 
+											    1、此申请步骤约需20分钟；<br/> 
+												2、请先准备以下资料，以备登记相关信息所需:新加坡公民或PR，需准备IC；中国公民，需准备护照、中国身份证；其它国家公民，需准备护照、住所证明。<br/> 
+												3、请确保所填内容是英文形式。<br/> 
+												">申请前的重要提示
+										</button>
+									</div>
+
+									<!--<div class="col-lg-12 col-md-12 col-12 col-sm-12  alert alert-primary alert-dismissible show fade" style="margin: 15px;">
 										<div class="alert-body">
 											<button class="close" data-dismiss="alert"> <span>&times;</span> </button>
 											<p> <b>申请前提示</b> </p>
@@ -64,7 +77,7 @@
 												3>其它国家公民，需准备护照、住所证明。</p>
 											<p>3. 请确保所填内容是英文形式。</p>
 										</div>
-									</div>
+									</div>-->
 
 									<!-- Left side -->
 									<div class="col-lg-8 col-md-12 col-12 col-sm-12 leftside">

@@ -2819,7 +2819,7 @@
 				            
 				            <div class="col-lg-12 col-md-12 col-12 col-sm-12 card">
 				             <div class="row">
-				              <div class="col-lg-4 col-md-12 col-12 col-sm-12"> 
+				              <div class="col-lg-5 col-md-12 col-12 col-sm-12"> 
 				              		<div class="card-header"> <h4>电子签名区域</h4> 
 				              		</div>
 									<div class="form-group row">										
@@ -2834,12 +2834,12 @@
 											    <div class="signature-pad--footer">
 											      <div class="signature-pad--actions">
 											      <div class="buttons sign_btn">                    
-								                      <button class="btn btn-icon icon-left btn-primary" disabled id="submit_sign" data-action="save-png"><i class="fas fa-check"></i> 提交</button>
+								                      <button  type="button" class="btn btn-default icon-left btn-primary  disabled" class="tooltip-show" data-toggle="tooltip" title="请阅读所有待签名文件并完成打勾确认。"  disabled="disabled"  id="submit_sign" data-action="save-png"><i class="fas fa-check"></i> 提交</button>
 								                      <button class="btn btn-icon icon-left btn-primary" data-action="clear"><i class="fas fa-times"></i>清空</button>
 								                      <button class="btn btn-icon icon-left btn-primary" data-action="change-color"><i class="fas fa-times"></i>改变颜色</button>
 								                      <button class="btn btn-icon icon-left btn-primary" data-action="undo"><i class="fas fa-times"></i>撤销还原</button>
 								                  </div>	
-					                    
+
 											        <!-- <div>
 											          <button type="button" class="button clear" data-action="clear">Clear</button>
 											          <button type="button" class="button" data-action="change-color">Change color</button>
@@ -2859,11 +2859,11 @@
 											</textarea>	 -->
 										</div>	  
 							  </div>					                    					
-				              <div class="col-lg-8 col-md-12 col-12 col-sm-12"> 				                     
+				              <div class="col-lg-7 col-md-12 col-12 col-sm-12"> 				                     
 			                  	<div class="card-header"> <h4>生成电子签名文件区域</h4> </div>
 				                	<div class="signature-pad--footer">
 								      <div class="signature-pad--actions">
-									      <div class="buttons sign_btn" id="withSingatureDoc"></div>	
+									      <div class="row buttons sign_btn" id="withSingatureDoc"></div>	
 								      </div>
 									</div>
 								</div> 

@@ -12,7 +12,7 @@
             <a href="/notice/notice">睿信</a>
         </div>
         <ul class="sidebar-menu">
-            <li class="menu-header">管理员后台管理</li>
+            <li class="menu-header">管理员后台</li>
             <li><a href="/notice/notice" class="nav-link"><i class="fas fa-fire"></i><span>最新通知设置</span></a></li>
             <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-square beep"></i><span>待办事项</span></a>

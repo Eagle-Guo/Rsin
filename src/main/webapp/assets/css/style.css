@@ -3087,6 +3087,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
   }	
   
 
+
  /* 6.2 pages new css- notice.jsp*/
  
 #notice {
@@ -3397,6 +3398,15 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 .underline {
     text-decoration:underline; 
 }
+
+.signature-pad .btn-primary.disabled, .btn-primary:disabled {
+    color: #fff;
+    background-color: gray;
+    border-color: gray;
+    cursor: not-allowed;
+}
+
+
 
 
 

@@ -85,7 +85,7 @@ function uploadSignature(mimetype) {
         	var result = "";
         	$.each(allFilename, function(name, value){
         	    console.log(name + "--> " + value);   
-        	    result = result + "<div > <a href = '/api/downloadFiles/" + value +"' class='fa fa-file-pdf-o' style='font-size:80px;color:red' download></a> <br />" + name  + "</div>";
+        	    result = result + "<div class='col-md-6 col-xs-6 col-sm-6'> <a href = '/api/downloadFiles/" + value +"' class='fa fa-file-pdf-o' style='font-size:80px;color:red' download></a> <br />" + name  + "</div>";
         	});
         	$('#withSingatureDoc').html(result);
         },

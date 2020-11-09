@@ -163,3 +163,4 @@ function openSignboard(evt, eventName) {
         evt.currentTarget.className += " active";
     }
 	
+    $(function () { $('.tooltip-show').tooltip('show');});

@@ -125,7 +125,7 @@ CREATE TABLE `company_shareholder_info` (
   `issue_stock_amount` int,
   `actual_stock_amount` int,
   `value_per_stock` int,
-  `address` varchar(100) NOT NULL,
+  `address` varchar(100),
   `company_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `company_shareholder_info_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
@@ -154,4 +154,33 @@ CREATE TABLE `industry` (
   `category` varchar(5) NOT NULL,
   `flag` int(1) NOT NULL default 0,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE `document_type` (
+  `document_type_code` varchar(11) NOT NULL,
+  `document_type_desc` varchar(255) NOT NULL,
+  `created_date` DATETIME,
+  PRIMARY KEY (`document_type_code`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('1','First Director Meeting Resolution', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('2','Secretary Agreement', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('3','ANNEX B - Notice for Controllers', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('4','Application of Shares', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('5','Client Acceptance Form', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('6','Form 45 / 201', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('7','Share Certificate', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('8','Nominee+Dir+Authrn_Final', sysdate());
+
+CREATE TABLE `document` (
+  `id` int(11) NOT NULL auto_increment,
+  `document_type_code` varchar(11) NOT NULL,
+  `document_path` varchar(255) NOT NULL,
+  `document_name` varchar(255),
+  `company_id` int(11) NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `created_date` DATETIME,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `document_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`),
+  CONSTRAINT `document_type_fk` FOREIGN KEY (`document_type_code`) REFERENCES `document_type` (`document_type_code`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;

@@ -10,6 +10,8 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,7 @@ import org.springframework.web.multipart.MultipartFile;
 import sg.com.rsin.entity.Industry;
 import sg.com.rsin.service.EmailService;
 import sg.com.rsin.service.IndustryService;
+import sg.com.rsin.service.UploadFileService;
 
 @RestController
 @RequestMapping(value = "/api")
@@ -44,6 +47,8 @@ public class APIController {
 	EmailService emailService;
 	@Autowired
 	IndustryService industryService;
+	@Autowired
+	UploadFileService uploadFileService;
 	
     @GetMapping("/employees")
     public String  all() {
@@ -64,7 +69,7 @@ public class APIController {
             return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
         }
         try {
-            saveUploadedFiles(Arrays.asList(uploadfile));
+        	saveUploadedFiles(Arrays.asList(uploadfile));
         } catch (IOException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -72,16 +77,30 @@ public class APIController {
         return new ResponseEntity<String>("Successfully uploaded - " +
                 uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
     }
+    private void saveUploadedFiles(List<MultipartFile> files) throws IOException {
+		for (MultipartFile file : files) {
+			if (file.isEmpty()) {
+				continue;
+			}
+
+			byte[] bytes = file.getBytes();
+			Path path = Paths.get(uploadFilePathRoot + file.getOriginalFilename());
+			Files.write(path, bytes);
+		}
+	}
     
     @PostMapping("/uploadfile/offline/singature/{id}")
-    public ResponseEntity<?> uploadFile(@PathVariable String id, @RequestParam("file") MultipartFile uploadfile){
+    public ResponseEntity<?> uploadFile(@PathVariable String id, @RequestParam("file") MultipartFile uploadfile,
+    		HttpServletRequest request){
     	logger.debug("Single file upload!");
-
+    	
+    	String userId = (String) request.getSession().getAttribute("loginUsername");
+		
         if (uploadfile.isEmpty()) {
             return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
         }
         try {
-            saveUploadedFiles(Arrays.asList(uploadfile));
+        	uploadFileService.uploadOfflineFile(Arrays.asList(uploadfile), id, userId);
         } catch (IOException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -89,20 +108,6 @@ public class APIController {
         return new ResponseEntity<String>("Successfully uploaded - " +
                 uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
 
-    }
-
-    //save file
-    private void saveUploadedFiles(List<MultipartFile> files) throws IOException {
-
-        for (MultipartFile file : files) {
-            if (file.isEmpty()) {
-                continue;
-            }
-
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get(uploadFilePathRoot + file.getOriginalFilename());
-            Files.write(path, bytes);
-        }
     }
     
     @PostMapping("/sendemail") 

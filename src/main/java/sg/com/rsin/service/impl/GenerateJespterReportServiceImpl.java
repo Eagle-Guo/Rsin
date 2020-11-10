@@ -12,9 +12,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.imageio.ImageIO;
@@ -35,9 +37,16 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
+import sg.com.rsin.dao.DocumentRepository;
+import sg.com.rsin.dao.DocumentTypeRepository;
 import sg.com.rsin.dao.EmployeeDao;
+import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyShareholderInfo;
+import sg.com.rsin.entity.Document;
+import sg.com.rsin.entity.DocumentType;
+import sg.com.rsin.enums.DocumentTypeCode;
 import sg.com.rsin.service.GenerateJespterReportService;
 import sg.com.rsin.service.OnlineSignatureService;
 import sg.com.rsin.util.CommonUtils;
@@ -51,6 +60,13 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	@Autowired
 	CompanyShareholderInfoRepository companyShareHolderInfoRepository;
 	
+	@Autowired
+	DocumentRepository documentRepository;
+	@Autowired
+	DocumentTypeRepository documentTypeRepository;
+	@Autowired
+	CompanyRepository companyRepository;
+
 	@Autowired 
 	OnlineSignatureService onlineSignatureService;
 	
@@ -176,6 +192,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 				exporter.exportReport();
 				JasperExportManager.exportReportToPdf(jasperPrintOne);
 				
+				insertToDB(companyId, i, userId, "WithSign_" + fileName + ".pdf");
 				signatureAndPath.put(fileName, "WithSign_" + fileName + ".pdf");
 		    }
 			return signatureAndPath;
@@ -190,6 +207,51 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		return null;
 	}
 	
+	private void insertToDB (String companyId, int documentTypeId, String userid, String filename) {
+		Optional<Company> company = companyRepository.findById(Long.parseLong(companyId));
+		Document document = new Document();
+		document.setCompany(company.get());
+		document.setCreatedBy(userid);
+		document.setCreatedDate(new Date());
+		document.setDocumentName(filename);
+		document.setDocumentPath(uploadFilePathRoot.concat(companyId).concat(File.separator));
+		
+		DocumentTypeCode documentTypeCode = null; 
+		switch (documentTypeId) {
+		case 1 :
+			documentTypeCode = DocumentTypeCode.TYPE1;
+			break;
+		case 2 :
+			documentTypeCode = DocumentTypeCode.TYPE2;
+			break;
+		case 3 :
+			documentTypeCode = DocumentTypeCode.TYPE3;
+			break;
+		case 4 :
+			documentTypeCode = DocumentTypeCode.TYPE4;
+			break;
+		case 5 :
+			documentTypeCode = DocumentTypeCode.TYPE5;
+			break;
+		case 6 :
+			documentTypeCode = DocumentTypeCode.TYPE6;
+			break;
+		case 7 :
+			documentTypeCode = DocumentTypeCode.TYPE7;
+			break;
+		case 8 :
+			documentTypeCode = DocumentTypeCode.TYPE8;
+			break;
+		}
+		DocumentType documentType = documentTypeRepository.findByDocumentTypeCode(documentTypeCode.name());
+		document.setDocumentType(documentType);
+		
+		Document existedDocument = documentRepository.findByDocumentTypeAndCompany(documentType, company.get());
+		if (existedDocument != null) {
+			documentRepository.delete(existedDocument);
+		}
+		documentRepository.save(document);
+	}
 	public byte[] exportReport(String reportFormat, String userId, int id) {
 		return generateJasperPDF(userId, id);
 	}

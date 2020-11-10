@@ -37,6 +37,7 @@ import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
 import sg.com.rsin.dao.EmployeeDao;
+import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.service.GenerateJespterReportService;
 import sg.com.rsin.service.OnlineSignatureService;
 import sg.com.rsin.util.CommonUtils;
@@ -192,6 +193,11 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		Map<String, Object> userData = onlineSignatureService.getAllPageData(userId);
 		String companyId = userData.get("companyId").toString();
 		String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
+		File directory = new File(fileDirectory);
+	    if (!directory.exists()){
+	        directory.mkdirs();
+	    }
+
 		try {
 			List<MultipartFile> files = Arrays.asList(uploadfile);
 			for (MultipartFile file : files) {
@@ -215,8 +221,8 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	}
 	
 	public InputStream downloadWithSignatureFile(String fileName, String userId) {
-		Map<String, Object> userData = onlineSignatureService.getAllPageData(userId);
-		String companyId = userData.get("companyId").toString();
+		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareHolderInfoRepository.findByEmail(userId);
+		String companyId = userCompanyShareholderInfos.get(0).getCompany().getId().toString();
 		try {
 			String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
 	    	File initialFile = new File(fileDirectory, fileName);

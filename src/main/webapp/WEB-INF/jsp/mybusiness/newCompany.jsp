@@ -91,12 +91,12 @@
 													<div class="section-title">新注册公司类型</div>
 													<fieldset id="company_type">
 														<div class="custom-control custom-radio">
-															<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="private" /> 
+															<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="private" checked="checked"/> 
 															<label class="custom-control-label" for="customRadio1"> 私人豁免有限公司Exempt Private Limited Company (PTE LTD)</label>
 														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="public" />
-															<label class="custom-control-label" for="customRadio2">公众有限责任公司Public Limited Company(Ltd.)</label>
+														<div class="custom-control custom-radio ">
+															<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="public"  disabled />
+															<label class="custom-control-label" for="customRadio2">公众有限责任公司(Ltd.)(如需选择此类型，请联系我们的服务顾问。)</label>
 														</div>
 													</fieldset>
 
@@ -138,8 +138,8 @@
 															</label>
 															<div class="card-body" id="openAccountDeatil2" style="display: none">
 																<ul class="list-group">
-																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(1)">1人1年
-																		<span id="priceDongshi" class="badge badge-primary badge-pill dontshileft">S$3300(含押金S$1500)</span>
+																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(1)">1年
+																		<span id="priceDongshi" class="badge badge-primary badge-pill dontshileft">S$3500(含押金S$1500)</span>
 																	</li>																
 																</ul>
 															</div>
@@ -193,12 +193,6 @@
 																					<option value="2">2</option>
 																					<option value="3">3</option>
 																					<option value="4">4</option>
-																					<option value="5">5</option>
-																					<option value="6">6</option>
-																					<option value="7">7</option>
-																					<option value="8">8</option>
-																					<option value="9">9</option>
-																					<option value="10">10</option>
 																				</select>
 																				<div class="input-group-append">
 																					<button class="btn" disabled="disabled">季度</button>
@@ -216,12 +210,6 @@
 																					<option value="2">2</option>
 																					<option value="3">3</option>
 																					<option value="4">4</option>
-																					<option value="5">5</option>
-																					<option value="6">6</option>
-																					<option value="7">7</option>
-																					<option value="8">8</option>
-																					<option value="9">9</option>
-																					<option value="10">10</option>
 																				</select>
 																				<div class="input-group-append">
 																					<button class="btn" disabled="disabled">季度</button>
@@ -381,142 +369,143 @@
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">公司商业活动1</label>
 														<div class="col-sm-9" style="width:300px;">
-															<input type="text" class="form-control" id="businessEvent1" placeholder="限英文，请输入关键词进行搜索" ></input>
+															<input type="text" class="form-control" id="businessEvent1" placeholder="请输入英文关键词进行搜索" ></input>
 														</div>
 													</div>
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">公司商业活动2</label>
 														<div class="col-sm-9" style="width:300px;">
-															<input type="text" class="form-control" id="businessEvent2" placeholder="限英文，请输入关键词进行搜索" ></input>
+															<input type="text" class="form-control" id="businessEvent2" placeholder="请输入英文关键词进行搜索" ></input>
 														</div>
 													</div>													
 													<div class="form-group row">
 														<label class="col-sm-3 col-form-label">公司地址及邮编</label>
 														<div class="col-sm-9">
 															<textarea class="form-control textareaheight"
-																id="conpanyAddressAndPostalCode" placeholder="限英文，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
+																id="conpanyAddressAndPostalCode" placeholder="默认为我司提供的商业地址，如需修改，请参照以下格式填写：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
 														</div>
 													</div>
 														<div class="section-title">董事、股东、联系人资料</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">职位类型（可多选）</label>
-															<div class="col-sm-9">
-																<div class="form-group">
-																	<div class="form-check form-check-inline">
-																		<input class="form-check-input" type="checkbox" id="checkb_dongshi0"> 
-																		<label style="height: auto;" class="form-check-label">董事</label>
+														<div class="infoPart scroll">														
+															<div class="form-group row">
+																<label class="col-sm-3 col-form-label">职位类型（可多选）</label>
+																<div class="col-sm-9">
+																	<div class="form-group">
+																		<div class="form-check form-check-inline">
+																			<input class="form-check-input" type="checkbox" id="checkb_dongshi0"> 
+																			<label style="height: auto;" class="form-check-label">董事</label>
+																		</div>
+																		<div class="form-check form-check-inline">
+																			<input class="form-check-input" type="checkbox" id="checkb_gudong0" onclick="addMoreQ(0)">
+																			<label style="height: auto;" class="form-check-label">股东</label>
+																		</div>
+																		<div class="form-check form-check-inline">
+																			<input class="form-check-input" type="checkbox" id="checkb_contactpeople0"> 
+																			<label style="height: auto;" class="form-check-label">联系人</label>
+																		</div>
 																	</div>
-																	<div class="form-check form-check-inline">
-																		<input class="form-check-input" type="checkbox" id="checkb_gudong0" onclick="addMoreQ(0)">
-																		<label style="height: auto;" class="form-check-label">股东</label>
-																	</div>
-																	<div class="form-check form-check-inline">
-																		<input class="form-check-input" type="checkbox" id="checkb_contactpeople0"> 
-																		<label style="height: auto;" class="form-check-label">联系人</label>
+		
+																</div>
+															</div>
+															<div class="form-group row">
+																<label class="col-sm-3 col-form-label">全名(护照姓名)</label>
+																<div class="col-sm-9">
+																	<input type="text" class="form-control" id="fullName0" placeholder="限英文"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')">
+																</div>
+															</div>	
+															<div class="form-group row">
+																<label class="col-sm-3 col-form-label">性别</label>
+																<div class="col-sm-9">
+																	<select class="custom-select c-select-info  appinfo" id="gender0">
+																		<option value="男" selected>男</option>
+																		<option value="女">女</option>
+																	</select>
+																</div>
+															</div>
+										                    <div class="form-group row">
+										                      <label class="col-sm-3 col-form-label">国籍</label>
+																<div class="form-item  col-sm-9">
+																	<input id="country0" class="form-control" type="text"/>
+																	<label for="country0" style="display:none;">Select a country here...</label>
+																</div>
+										                    </div>
+	
+															<div class="form-group row">
+						 										<label class="col-sm-3 col-form-label">证件类型</label>
+																<div class="col-sm-9">
+																	<select class="custom-select c-select-info  appinfo" id="ICType0">
+																		<option value="公民" selected>新加坡公民(NRIC)</option>
+																		<option value="永久居民">新加坡PR(NRIC)</option>
+																		<option value="其他">国际护照</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group row">
+																<label class="col-sm-3 col-form-label">证件号码</label>
+																<div class="col-sm-9">
+																	<input type="text" class="form-control" id="ICNumber0" placeholder="证件号码">
+																</div>
+															</div>
+															<div class="form-group row">
+																<label class="col-sm-3 col-form-label">电子邮箱</label>
+																<div class="col-sm-9">
+																	<input type="email" class="form-control" id="email0" placeholder="电子邮箱"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\@\/]/ig,'')">
+																</div>
+															</div>
+															<div class="form-group row">
+											                   	 <label for="phone0" class="col-sm-3 col-form-label">联系电话</label><br/>
+											                   	 <div class="col-sm-9">
+											                   	    <input style="padding-left:3rem;" id="phone0" type="text" class="form-control telinput" placeholder="联系电话"/>
+											                   	 </div>
+											                </div>
+															<div style="display: none;" id="addmoreqtext0">
+																<div class="form-group row">
+																	<label class="col-sm-3 col-form-label">发行股份数量</label>
+																	<div class="col-sm-9">
+																		<input type="tel" class="form-control" id="calcNumberofSharesIssued0" placeholder="建议10000-50000股"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
 																	</div>
 																</div>
-	
+																<div class="form-group row">
+																	<label class="col-sm-3 col-form-label">实缴股份数量</label>
+																	<div class="col-sm-9">
+																		<input type="tel" class="form-control" id="calcNumberofPaid-inShares0" placeholder="建议与发行股份一致"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-sm-3 col-form-label">每股价值S$</label>
+																	<div class="col-sm-9">
+																		<input type="tel" class="form-control" id="calcPerShare0" placeholder="每股价值" value="1"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+																	</div>
+																</div>
 															</div>
-														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">全名(护照姓名)</label>
-															<div class="col-sm-9">
-																<input type="text" class="form-control" id="fullName0" placeholder="限英文"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')">
-															</div>
+															<div class="form-group row">
+																<label class="col-sm-3 col-form-label">个人地址及邮编</label>
+																<div class="col-sm-9">
+																	<textarea class="form-control textareaheight"
+																		id="personalAddressAndPostalCode0" placeholder="限英文，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
+																</div>
+														    </div>						
+															<br /> <br />
+															
+															<div class="row">
+																<div class="col-sm-9">
+																	<select class="custom-select c-select-info  appinfo" id="addContactNo">
+																		<option value="1" selected>1</option>
+																		<option value="2">2</option>
+																		<option value="3">3</option>
+																		<option value="4">4</option>
+																		<option value="5">5</option>
+																		<option value="6">6</option>
+																		<option value="7">7</option>
+																		<option value="8">8</option>
+																		<option value="9">9</option>
+																		<option value="10">10</option>
+																	</select>
+																</div>
+																<a class="btn btn-icon icon-left btn-warning" onclick="addContactP()">	<i class="far fa-user"></i>增加填报人员 </a>
+															</div>		
+															<div class="form-group row" id="addContactPDiv0"></div>
 														</div>	
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">性别</label>
-															<div class="col-sm-9">
-																<select class="custom-select c-select-info  appinfo" id="gender0">
-																	<option value="男" selected>男</option>
-																	<option value="女">女</option>
-																</select>
-															</div>
-														</div>
-									                    <div class="form-group row">
-									                      <label class="col-sm-3 col-form-label">国籍</label>
-															<div class="form-item  col-sm-9">
-																<input id="country0" class="form-control" type="text"/>
-																<label for="country0" style="display:none;">Select a country here...</label>
-															</div>
-									                    </div>
-
-														<div class="form-group row">
-					 										<label class="col-sm-3 col-form-label">证件类型</label>
-															<div class="col-sm-9">
-																<select class="custom-select c-select-info  appinfo" id="ICType0">
-																	<option value="公民" selected>新加坡公民(NRIC)</option>
-																	<option value="永久居民">新加坡PR(NRIC)</option>
-																	<option value="其他">国际护照</option>
-																</select>
-															</div>
-														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">证件号码</label>
-															<div class="col-sm-9">
-																<input type="text" class="form-control" id="ICNumber0" placeholder="证件号码">
-															</div>
-														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">电子邮箱</label>
-															<div class="col-sm-9">
-																<input type="email" class="form-control" id="email0" placeholder="电子邮箱"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\@\/]/ig,'')">
-															</div>
-														</div>
-														<div class="form-group row">
-										                   	 <label for="phone0" class="col-sm-3 col-form-label">联系电话</label><br/>
-										                   	 <div class="col-sm-9">
-										                   	    <input style="padding-left:3rem;" id="phone0" type="text" class="form-control telinput" placeholder="联系电话"/>
-										                   	 </div>
-										                </div>
-														<div style="display: none;" id="addmoreqtext0">
-															<div class="form-group row">
-																<label class="col-sm-3 col-form-label">发行股份数量</label>
-																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="calcNumberofSharesIssued0" placeholder="建议10000-50000股"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
-																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-3 col-form-label">实缴股份数量</label>
-																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="calcNumberofPaid-inShares0" placeholder="建议与发行股份一致"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
-																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-3 col-form-label">每股价值S$</label>
-																<div class="col-sm-9">
-																	<input type="tel" class="form-control" id="calcPerShare0" placeholder="每股价值" value="1"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
-																</div>
-															</div>
-														</div>
-														<div class="form-group row">
-															<label class="col-sm-3 col-form-label">个人地址及邮编</label>
-															<div class="col-sm-9">
-																<textarea class="form-control textareaheight"
-																	id="personalAddressAndPostalCode0" placeholder="限英文，填写示范：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
-															</div>
-													    </div>						
-														<br /> <br />
-														<div class="row">
-															<div class="col-sm-9">
-																<select class="custom-select c-select-info  appinfo" id="addContactNo">
-																	<option value="1" selected>1</option>
-																	<option value="2">2</option>
-																	<option value="3">3</option>
-																	<option value="4">4</option>
-																	<option value="5">5</option>
-																	<option value="6">6</option>
-																	<option value="7">7</option>
-																	<option value="8">8</option>
-																	<option value="9">9</option>
-																	<option value="10">10</option>
-																</select>
-															</div>
-															<a class="btn btn-icon icon-left btn-warning" onclick="addContactP()">	<i class="far fa-user"></i>增加填报人员 </a>
-														</div>
-	
-														<div class="form-group row" id="addContactPDiv0"></div>
-	
 														<div class="button-row d-flex mt-4">
 															<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
 															<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="listSummary()" id="step2next">下一步</button>

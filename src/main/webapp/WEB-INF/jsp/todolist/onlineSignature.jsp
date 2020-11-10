@@ -20,12 +20,11 @@
       <!-- Main Content -->
       <div class="main-content">  
         <section class="section" id="onlineSignature">
-          <div class="section-header">
-            <h1>在线签名</h1>
-          </div>  
-  
-    <div class="container sectionPadding sevice">
-        <div class="card">            
+	        <div class="section-header">
+	           <h1>在线签名</h1>
+	        </div>  
+		    <div class="container sectionPadding sevice">
+		        <div class="card">            
             <div class="card-body">
                 <div class="row">
                     <div class="tab">
@@ -2827,7 +2826,7 @@
 											<form id="UploadForm" name="UploadForm" action="/api/uploadSignture">
 											  <input type="hidden" name="anotherinputfield" value="some value" />
 											</form>
-											<div id="signature-pad" class="signature-pad">
+											<div id="signature-pad" class="signature-pad col-lg-12 col-md-12 col-12 col-sm-12">
 											    <div class="signature-pad--body">
 											      <canvas width="370" height="250"></canvas>
 											    </div>
@@ -3060,14 +3059,10 @@
             </div>
         </div>
     </div>  	  
-  
-  
-  
-  
-           
-
+      		</div>
         </section>
       </div>
+      
       <footer class="main-footer">
         <div class="footer-left">
                       版权所有 &copy; 2020 <div class="bullet"></div> 设计是由 <a href="#">睿信集团</a>

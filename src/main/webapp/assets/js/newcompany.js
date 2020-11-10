@@ -67,10 +67,14 @@ $(function() {
         })
   });
 
+
 var services = [];
 var companyInfos = [];
 var shareholderInfos = [];
 $(document).ready(function(){
+	services.push({name:"私人豁免有限公司",price:850});
+	refreshRightSummary();
+	
 	$('#step2next').attr('disabled',true);
     $('#email0').keyup(function(){
         if($(this).val().length !=0)
@@ -282,7 +286,7 @@ function choosedsv(x) {
                 services = services.filter(item => item.name !== "挂名董事")
                 // services = services.filter(item => item.name !== "押金")
             }
-            services.push({name:"挂名董事",price:1800+1500});
+            services.push({name:"挂名董事",price:2000+1500});
             // services.push({name:"押金",price:1500});
             refreshRightSummary();
             z=[];
@@ -483,7 +487,7 @@ function run(x) {
             if (services.some(el => el.name === "挂名董事")){
                 services = services.filter(item => item.name !== "挂名董事")
             }
-        services.push({name:"挂名董事",price:1800+1500});
+        services.push({name:"挂名董事",price:2000+1500});
         refreshRightSummary();
         z= [];
     }    
@@ -538,7 +542,7 @@ function runsgtel(x) {
         if (services.some(el => el.name === "新加坡固定座机无人应答")){
             services = services.filter(item => item.name !== "新加坡固定座机无人应答")
         }
-        services.push({name:"新加坡固定座机无人应答",price:z[0]*200});
+        /*services.push({name:"新加坡固定座机无人应答",price:z[0]*200});*/
         refreshRightSummary();
         z= [];
     }    
@@ -551,7 +555,7 @@ function runsgtel(x) {
           if (services.some(el => el.name === "新加坡固定座机全球呼叫转移")){
             services = services.filter(item => item.name !== "新加坡固定座机全球呼叫转移")
         }
-        services.push({name:"新加坡固定座机全球呼叫转移",price:z[0]*500});
+       /* services.push({name:"新加坡固定座机全球呼叫转移",price:z[0]*500});*/
         refreshRightSummary();
           z= [];
     }    

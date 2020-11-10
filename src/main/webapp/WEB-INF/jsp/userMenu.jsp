@@ -17,7 +17,7 @@
 		<security:authorize access="hasAnyRole('ROLE_USER')">	 
 			<ul class="sidebar-menu">
 				<li class="menu-header">后台管理</li>
-				<li class="active">
+				<li class="">
 					<a href="/notice/notice" class="nav-link">
 						<i class="fas fa-fire"></i>
 						<span>最新通告</span>
@@ -42,7 +42,7 @@
 				<li class="">
 					<a href="/onekey/oneKeyService" class="nav-link">
 						<i class="fas fa-columns"></i>
-						<span>所有服务平台</span>
+						<span>所有服务</span>
 					</a>
 				</li>							
 				<!--<li class="nav-item dropdown">

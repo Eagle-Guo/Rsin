@@ -21,7 +21,7 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>后台管理</h1>
+            <h1>所有服务</h1>
           </div>
           
      <!--<div class="row">

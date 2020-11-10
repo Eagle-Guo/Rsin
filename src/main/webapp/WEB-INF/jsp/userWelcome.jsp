@@ -18,17 +18,17 @@
 <body>
 <jsp:include page="userMenu.jsp" />
       <!-- Main Content -->
-      <div class="main-content">
+      <div class="main-content userWelcome">
         <section class="section">
           <div class="section-header">
-            <h1>所有服务平台</h1>
+            <h1>用户管理后台</h1>
           </div>
           <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
-                <div class="card-icon bg-primary">
-                  <i class="far fa-user"></i>
-                </div>
+                 <div class="card-icon bg-primary buttonload">
+                  <i class="fa fas fa-cog fa-spin"></i>
+                </div>                               
                 <div class="card-wrap">
                   <div class="card-header">
                     <h4>待办事项</h4>

@@ -774,7 +774,4 @@ $('body').on('click','.removeNode', function() {
 	addContactNo = Number(addContactNo) - 1;
     $(this).closest('.contactClone').remove();
 });
-$(function () {
-	$('.tooltip-toggle').tooltip('toggle');
-	});
-$(function () { $("[data-toggle='tooltip']").tooltip(); });
+$(function () { $('#collapseOne').collapse('hide')});

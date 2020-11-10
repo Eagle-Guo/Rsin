@@ -3407,7 +3407,48 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 
+.panel-default {
+    border-color: #ddd;
+}
+.panel {
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.panel-group .panel-heading {
+    border-bottom: 0;
+}
+.panel-heading {
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.panel-default>.panel-heading {
+    color: #333;
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+    color: inherit;
+}
 
+.panel-default>.panel-heading+.panel-collapse>.panel-body {
+    padding: .8rem;
+}
+
+
+.multisteps-form__form .list-group.list-group-flush.scroll  {
+        height: 20rem;
+    overflow: auto;
+}
+
+.newCompany.multisteps-form__form {
+    position: unset !importan;
+    overflow: unset !importan;
+}
 
 
     /*======== tab part =======*/

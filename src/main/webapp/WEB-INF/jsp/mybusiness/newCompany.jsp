@@ -24,6 +24,7 @@
 		<link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
 		<link rel="stylesheet" href="../../../assets/css/intlTel/countrySelect.css">
 		<link rel="stylesheet" href="../../../assets/css/intlTel/intlTelInput.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
 		
 		<link rel="stylesheet" type="text/css" href="../../../assets/css/fileupload.css" >
 	</head>
@@ -54,34 +55,33 @@
 											<button class="multisteps-form__progress-btn" type="button" title="在线付款">注册成功<br/>下载注册成功文件</button>										
 										</div>
 									</div>
-									<div class="col-lg-12 col-md-12 col-12 col-sm-12 " >
-										<button type="button" class="btn btn-default tooltip-arrow tooltip-inner" 
-											data-toggle="tooltip" 
-											data-placement="right" title="											
-											在申请前请先准备以下相关资料，以备登记相关信息所需:<br/> 
-											    1、此申请步骤约需20分钟；<br/> 
-												2、请先准备以下资料，以备登记相关信息所需:新加坡公民或PR，需准备IC；中国公民，需准备护照、中国身份证；其它国家公民，需准备护照、住所证明。<br/> 
-												3、请确保所填内容是英文形式。<br/> 
-												">申请前的重要提示
-										</button>
-									</div>
-
-									<!--<div class="col-lg-12 col-md-12 col-12 col-sm-12  alert alert-primary alert-dismissible show fade" style="margin: 15px;">
-										<div class="alert-body">
-											<button class="close" data-dismiss="alert"> <span>&times;</span> </button>
-											<p> <b>申请前提示</b> </p>
-											<p>1. 此申请步骤约需20分钟；</p>
-											<p>2. 在申请前请先准备以下相关资料，以备登记相关信息所需: 
-											    1>新加坡公民或PR，需准备IC;
-												2>中国公民，需准备护照、中国身份证；
-												3>其它国家公民，需准备护照、住所证明。</p>
-											<p>3. 请确保所填内容是英文形式。</p>
+									<div class="col-lg-12 col-md-12 col-12 col-sm-12">
+										<div class="panel-group" id="accordion">
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													<h4 class="panel-title">
+														<a data-toggle="collapse" data-parent="#accordion" 
+														   href="#collapseOne">
+														<i class="fa fa-bell-o" style="font-size:20px"></i>重要提示 
+														</a>
+													</h4>
+												</div>
+												<div id="collapseOne" class="panel-collapse collapse in">
+													<div class="panel-body">
+													此申请步骤约需20分钟；申请前请准备好以下资料，以方便更快填报信息。<br/>
+														1、新加坡公民或PR，需准备IC；<br/>
+														2、中国公民，需准备护照、中国身份证；<br/>
+														3、其它国家公民，需准备护照、住所证明。<br/>
+														备注：请确保所填内容是英文形式。
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>-->
-
+									</div>										
+									<br/><br/>
 									<!-- Left side -->
 									<div class="col-lg-8 col-md-12 col-12 col-sm-12 leftside">
-										<form class="multisteps-form__form" action="/view/registerNewCompany" method="post" enctype="multipart/form-data" id="newcompanyForm">
+										<form class="newCompany multisteps-form__form" action="/view/registerNewCompany" method="post" enctype="multipart/form-data" id="newcompanyForm">
 
 											<!--single form panel-->
 											<div class="multisteps-form__panel shadow p-4 rounded bg-white ad js-active" data-animation="scaleIn" id="companytype">
@@ -101,7 +101,7 @@
 													</fieldset>
 
 													<div class="section-title">可选服务</div>
-													<ul class="list-group list-group-flush">
+													<ul class="list-group list-group-flush scroll">
 														
 														<li class="list-group-item">
 															<label>

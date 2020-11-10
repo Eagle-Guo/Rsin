@@ -29,7 +29,7 @@
 	</head>
 
 	<body>
-		<jsp:include page="../adminMenu.jsp" />
+		<jsp:include page="../userMenu.jsp" />
 		<!-- Main Content -->
 		<div class="main-content" id="newcompany">
 			<section class="section">

@@ -2955,6 +2955,18 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
   @keyframes fadeinbackdrop {
     to {
       opacity: .6; } } }
+      
+      
+      
+ /* common css */     
+      
+  .list-group-flush .list-group-item {
+    cursor: pointer;
+}    
+      
+      
+      
+      
 
 /* 4.5 Animation */
 .pulsate {
@@ -3407,8 +3419,60 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 
+.panel-default {
+    border-color: #ddd;
+}
+.panel {
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.panel-group .panel-heading {
+    border-bottom: 0;
+    padding-bottom: .5rem;
+}
+.panel-heading {
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.panel-default>.panel-heading {
+    color: #333;
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+    color: inherit;
+}
 
+.panel-default>.panel-heading+.panel-collapse>.panel-body {
+    padding: .8rem;
+}
 
+.infoPart.scroll  {
+    height: 40rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: .2rem;
+}
+
+.multisteps-form__form .list-group.list-group-flush.scroll  {
+        height: 20rem;
+    overflow: auto;
+    
+}
+
+.newCompany.multisteps-form__form {
+    position: unset !importan;
+    overflow: unset !importan;
+}
+
+.multisteps-form__progress {
+        margin-top: .5rem;
+}
 
     /*======== tab part =======*/
 .sectionPadding.sevice {
@@ -3555,4 +3619,17 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
  /* 6.7 pages new css- register.jsp*/
   .reg_input_hei {
    margin-right:1rem;
+}
+
+ /* 6.6 userWelcome.jsp page*/
+.userWelcome .buttonload {
+  background-color: #4CAF50; /* Green background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  font-size: 16px; /* Set a font-size */
+}
+
+/* Add a right margin to each icon */
+.userWelcome .fa {
+
 }

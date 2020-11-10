@@ -118,7 +118,7 @@
 
 .multisteps-form__form {
   position: relative;
-  overflow: auto;
+  /*overflow: auto;*/
 }
 
 .multisteps-form__panel {

@@ -2888,15 +2888,13 @@
 										         </div>     
 				          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
 												    <div class="btn-group btn-group-sm">
-													    <button type="button" class="btn btn-default viewFile">查看</button>
-													    <button type="button" class="btn btn-default downloadFile">下载</button>
+													    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(1)">查看</button>
+													    <button type="button" class="btn btn-default downloadFile" id="downloadDoc1">下载</button>
 													</div>	
 												 </div>		
 				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-													<form action="/action_page.php">
-													  <input type="file" id="myFile" name="filename">
-													  <input type="submit">
-													</form>				          						 											 
+													  <input type="file" id="myFile1" placeholder="First Director Meeting Resolution"/>
+													  <input type="button" onclick="SubForm(1);" value="上传" >
 												 </div>		
 											 </div>											 	                        	                                            
 				                      </div>
@@ -2909,15 +2907,13 @@
 										         </div>     
 				          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
 												    <div class="btn-group btn-group-sm">
-													    <button type="button" class="btn btn-default viewFile">查看</button>
-													    <button type="button" class="btn btn-default downloadFile">下载</button>
+													    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(2)">查看</button>
+													    <button type="button" class="btn btn-default downloadFile" id="downloadDoc2">下载</button>
 													</div>	
 												 </div>		
 				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-													<form action="/action_page.php">
-													  <input type="file" id="myFile" name="filename">
-													  <input type="submit">
-													</form>				          						 											 
+													  <input type="file" id="myFile2" placeholder="Secretary Agreement"/>
+													  <input type="button" onclick="SubForm(2);" value="上传" >
 												 </div>		
 											 </div>											 	                        	                                            
 				                      </div>
@@ -2930,15 +2926,13 @@
 										         </div>     
 				          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
 												    <div class="btn-group btn-group-sm">
-													    <button type="button" class="btn btn-default viewFile">查看</button>
-													    <button type="button" class="btn btn-default downloadFile">下载</button>
+													    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(3)">查看</button>
+													    <button type="button" class="btn btn-default downloadFile" id="downloadDoc3">下载</button>
 													</div>	
 												 </div>		
 				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-													<form action="/action_page.php">
-													  <input type="file" id="myFile" name="filename">
-													  <input type="submit">
-													</form>				          						 											 
+													  <input type="file" id="myFile3" placeholder="Notice for Controllers"/>
+													  <input type="button" onclick="SubForm(3);" value="上传" >
 												 </div>		
 											 </div>											 	                        	                                            
 				                      </div>
@@ -2951,16 +2945,14 @@
 										         </div>     
 				          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
 												    <div class="btn-group btn-group-sm">
-													    <button type="button" class="btn btn-default viewFile">查看</button>
-													    <button type="button" class="btn btn-default downloadFile">下载</button>
+													    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(4)">查看</button>
+													    <button type="button" class="btn btn-default downloadFile" id="downloadDoc4">下载</button>
 													</div>	
 												 </div>		
 				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-													<form action="/action_page.php">
-													  <input type="file" id="myFile" name="filename">
-													  <input type="submit">
-													</form>				          						 											 
-												 </div>		
+													  <input type="file" id="myFile4" placeholder="Application of Shares"/>
+													  <input type="button" onclick="SubForm(4);" value="上传" >
+												 </div>	
 											 </div>											 	                        	                                            
 				                      </div>
 				                    </li>				                    
@@ -2972,16 +2964,14 @@
 										         </div>     
 				          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
 												    <div class="btn-group btn-group-sm">
-													    <button type="button" class="btn btn-default viewFile">查看</button>
-													    <button type="button" class="btn btn-default downloadFile">下载</button>
+													    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(5)">查看</button>
+													    <button type="button" class="btn btn-default downloadFile" id="downloadDoc5">下载</button>
 													</div>	
 												 </div>		
 				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-													<form action="/action_page.php">
-													  <input type="file" id="myFile" name="filename">
-													  <input type="submit">
-													</form>				          						 											 
-												 </div>		
+													  <input type="file" id="myFile5" placeholder="Client Acceptance Form"/>
+													  <input type="button" onclick="SubForm(5);" value="上传" >
+												 </div>	
 											 </div>											 	                        	                                            
 				                      </div>
 				                    </li>				                    
@@ -2993,15 +2983,13 @@
 										         </div>     
 				          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
 												    <div class="btn-group btn-group-sm">
-													    <button type="button" class="btn btn-default viewFile">查看</button>
-													    <button type="button" class="btn btn-default downloadFile">下载</button>
+													    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(6)">查看</button>
+													    <button type="button" class="btn btn-default downloadFile" id="downloadDoc6">下载</button>
 													</div>	
 												 </div>		
 				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-													<form action="/action_page.php">
-													  <input type="file" id="myFile" name="filename">
-													  <input type="submit">
-													</form>				          						 											 
+													  <input type="file" id="myFile6" placeholder="Form 45 / 201"/>
+													  <input type="button" onclick="SubForm(6);" value="上传" >
 												 </div>		
 											 </div>											 	                        	                                            
 				                      </div>
@@ -3014,16 +3002,14 @@
 										         </div>     
 				          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
 												    <div class="btn-group btn-group-sm">
-													    <button type="button" class="btn btn-default viewFile">查看</button>
-													    <button type="button" class="btn btn-default downloadFile">下载</button>
+													    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(7)">查看</button>
+													    <button type="button" class="btn btn-default downloadFile" id="downloadDoc7">下载</button>
 													</div>	
 												 </div>		
-				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-													<form action="/action_page.php">
-													  <input type="file" id="myFile" name="filename">
-													  <input type="submit">
-													</form>				          						 											 
-												 </div>		
+				          						<div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+													  <input type="file" id="myFile7" placeholder="Share Certificate"/>
+													  <input type="button" onclick="SubForm(7);" value="上传" >
+												 </div>	
 											 </div>											 	                        	                                            
 				                      </div>
 				                    </li>				                    
@@ -3035,16 +3021,14 @@
 										         </div>     
 				          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
 												    <div class="btn-group btn-group-sm">
-													    <button type="button" class="btn btn-default viewFile">查看</button>
-													    <button type="button" class="btn btn-default downloadFile">下载</button>
+													    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(8)">查看</button>
+													    <button type="button" class="btn btn-default downloadFile" id="downloadDoc8">下载</button>
 													</div>	
 												 </div>		
-				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-													<form action="/action_page.php">
-													  <input type="file" id="myFile" name="filename">
-													  <input type="submit">
-													</form>				          						 											 
-												 </div>		
+				          						<div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+													  <input type="file" id="myFile8" placeholder="Nominee's Dir's Authrn Final"/>
+													  <input type="button" onclick="SubForm(8);" value="上传" >
+												 </div>	
 											 </div>											 	                        	                                            
 				                      </div>
 				                    </li>					                    

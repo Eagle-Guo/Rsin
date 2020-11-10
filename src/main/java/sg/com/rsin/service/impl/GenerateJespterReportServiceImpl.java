@@ -78,6 +78,10 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		    }
 		    String templateName = CommonUtils.getJaspterTemplateName(id);
 		    String fileName = CommonUtils.getFileName(id);
+		    File file = new File(fileDirectory + fileName);
+		    if (file.exists()) {
+		    	return Files.readAllBytes(file.toPath());
+		    }
 		    
 			InputStream employeeReportStream = resourceLoader.getResource("classpath:reports/" + templateName).getInputStream();
 			JasperReport jasperReportOne = JasperCompileManager.compileReport(employeeReportStream);
@@ -102,6 +106,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		return null;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Map<String, String> generateNewCompanyPDFWithSignature(String userId, byte[] bytes) {
 
 		Map<String, Object> userData = onlineSignatureService.getAllPageData(userId);

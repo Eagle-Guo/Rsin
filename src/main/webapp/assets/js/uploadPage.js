@@ -42,36 +42,28 @@ function viewPri(x) {
     }
 
     /*上传图片
-  imageUpload 详细参考链接：https://www.cnblogs.com/qiumingcheng/p/6854933.html
+     imageUpload 详细参考链接：https://www.cnblogs.com/qiumingcheng/p/6854933.html
    1.processData设置为false。因为data值是FormData对象，不需要对数据做处理。
    2.<form>标签添加enctype="multipart/form-data"属性。
    3.cache设置为false，上传文件不需要缓存。
    4.contentType设置为false，不设置contentType值，因为是由<form>表单构造的FormData对象，且已经声明了属性enctype="multipart/form-data"，所以这里设置为false。
    */
-    function checkSubmit() {
-        var formdata=new FormData();
-		console.log($('#filename').get(0).files[0]);
-        formdata.append('fileName',$('#filename').get(0).files[0]);
-		console.log(formdata);
+    function checkSubmit(file_id, id) {
+    	var formData = new FormData();
+        formData.append("file",$(file_id)[0].files[0]);
+        formData.append("id", id);
         $.ajax({
-            async: false,
-            type: 'POST',
-            url: "/imageUpload",
-            dataType: 'json',
-            data: formdata,
-            contentType:false,//ajax上传图片需要添加
-            processData:false,//ajax上传图片需要添加
-            success: function (data) {
-                if(data.hasOwnProperty("relativePath")){
-                    $("#showImage").html("<img src='"+data.relativePath+"'/>");
-                }
-                else {
-                    $("#showImage").html("上传失败");
-                }
-                alert(data.result_msg);
+            url:'/api/uploadfile/personal/file/'+id, /*接口域名地址*/
+            type:'post',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response){
+            	console.log("Upload Successful", response);
+            	alert('成功');
             },
-            error: function (e) {
-                alert("error");
+            error: function(e) {
+            	console.error("ERROR : ", e)
             }
-        })
+        });
     }

@@ -7,4 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface UploadFileService {
 	public void uploadOfflineFile(List<MultipartFile> files, String id, String userid) throws IOException;
+	public void uploadPersonalFile(List<MultipartFile> files, String id, String userid) throws IOException;
+	
 }

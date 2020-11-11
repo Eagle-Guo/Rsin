@@ -90,7 +90,7 @@ public class APIController {
 	}
     
     @PostMapping("/uploadfile/offline/singature/{id}")
-    public ResponseEntity<?> uploadFile(@PathVariable String id, @RequestParam("file") MultipartFile uploadfile,
+    public ResponseEntity<?> uploadOfflineSingature(@PathVariable String id, @RequestParam("file") MultipartFile uploadfile,
     		HttpServletRequest request){
     	logger.debug("Single file upload!");
     	
@@ -109,7 +109,28 @@ public class APIController {
                 uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
 
     }
-    
+
+    @PostMapping("uploadfile/personal/file/{id}")
+    public ResponseEntity<?> uploadPersonalFile(@PathVariable String id, @RequestParam("file") MultipartFile uploadfile,
+    		HttpServletRequest request){
+    	logger.debug("Single file upload!");
+    	
+    	String userId = (String) request.getSession().getAttribute("loginUsername");
+		
+        if (uploadfile.isEmpty()) {
+            return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
+        }
+        try {
+        	uploadFileService.uploadPersonalFile(Arrays.asList(uploadfile), id, userId);
+        } catch (IOException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        logger.debug("file name " + uploadfile.getOriginalFilename());
+        return new ResponseEntity<String>("Successfully uploaded - " +
+                uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
+
+    }
+
     @PostMapping("/sendemail") 
     public void sendEmail(@RequestBody String data) {
     	String result = "";

@@ -190,4 +190,4 @@ function openTab(evt, PartName) {
     evt.currentTarget.className += " active";
 }
 
-$(function () { $('.tooltip-show').tooltip('show');});
+$(function(){ $('[data-toggle="tooltip"]').tooltip();});

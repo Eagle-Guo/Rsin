@@ -456,7 +456,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font fontName="华文宋体" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[客户接受表]]></text>
 			</staticText>
@@ -466,7 +466,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[第1部分-关于客户/董事/受益所有人的信息（由每个与（要注册的）公司有关的个人填写）]]></text>
 			</staticText>
@@ -476,7 +476,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[A部分-个人/客户信息]]></text>
 			</staticText>
@@ -486,7 +486,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[全名（包括别名）：]]></text>
 			</staticText>
@@ -496,7 +496,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[身份证/护照/出生证明编号：]]></text>
 			</staticText>
@@ -506,7 +506,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[出生日期（日/月/年）：]]></text>
 			</staticText>
@@ -516,7 +516,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[国籍：]]></text>
 			</staticText>
@@ -526,7 +526,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[居住地址：]]></text>
 			</staticText>
@@ -548,7 +548,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[性别：]]></text>
 			</staticText>
@@ -571,7 +571,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[ 联系电话：]]></text>
 			</staticText>
@@ -594,7 +594,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[过去5年的工作经验：]]></text>
 			</staticText>
@@ -617,7 +617,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[教育机构的最高资格：]]></text>
 			</staticText>
@@ -640,7 +640,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[你是否曾被刑事定罪？]]></text>
 			</staticText>
@@ -662,7 +662,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[B部分-公司描述]]></text>
 			</staticText>
@@ -672,7 +672,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[公司将开展何种业务活动：]]></text>
 			</staticText>
@@ -695,7 +695,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[创业资金来源：]]></text>
 			</staticText>
@@ -718,7 +718,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[公司的销售额是如何产生的：]]></text>
 			</staticText>
@@ -741,7 +741,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[未来12个月的预计营业额：]]></text>
 			</staticText>
@@ -764,7 +764,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[一些供应商的名称（如有）]]></text>
 			</staticText>
@@ -787,7 +787,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[客户名称（如有）]]></text>
 			</staticText>
@@ -810,7 +810,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[参考括号内提示，董事的背景（如：本地人或外国人、过去的工作经验等）：]]></text>
 			</staticText>
@@ -833,7 +833,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[参考括号内提示，公司的银行账户主要用于什么？（如投资或运营账户）：]]></text>
 			</staticText>
@@ -855,7 +855,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[参考括号内提示，银行账户流入资金来源（如营业收入、投资者或控股公司资金）：]]></text>
 			</staticText>
@@ -890,7 +890,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[参考括号内提示，公司银行账户流出资金的来源和目的地（如运营费用、汇回控股公司等）：]]></text>
 			</staticText>
@@ -900,7 +900,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[C部分-受益所有人的身份证明]]></text>
 			</staticText>
@@ -909,21 +909,21 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[*受益所有人是指一个人或一群个人，他们直接或间接地有实际权力投票或影响公司的交易决定。]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="311" y="1598" width="213" height="18" uuid="31766696-671f-4990-ac66-559ccafb29c6"/>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[受益所有人与A部分是同一人吗？]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="252" y="1649" width="213" height="18" uuid="f03c4842-7270-4cdb-8905-90aafd42dfd3"/>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[（如不是，请提供以下详细信息）]]></text>
 			</staticText>
@@ -1024,7 +1024,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[全名（包括别名）：]]></text>
 			</staticText>
@@ -1044,7 +1044,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[身份证/护照/出生证明编号：]]></text>
 			</staticText>
@@ -1063,7 +1063,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[出生日期（日/月/年）：]]></text>
 			</staticText>
@@ -1082,7 +1082,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[国籍：]]></text>
 			</staticText>
@@ -1101,7 +1101,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[居住地址：]]></text>
 			</staticText>
@@ -1120,7 +1120,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[启动本公司的财富来源和说明：]]></text>
 			</staticText>
@@ -1142,7 +1142,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Saving from income  收入储蓄]]></text>
 			</staticText>
@@ -1203,14 +1203,14 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[请提供您与受益所有人的安排性质（如结构或所有权）的信息：]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="40" y="2011" width="486" height="18" uuid="c859c9bf-2b47-46d7-86cc-e69e9028d3d5"/>
 				<textElement>
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[此人是公司股东]]></text>
 			</staticText>
@@ -1219,7 +1219,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[*受益所有人是指一个人或一群个人，他们直接或间接地有实际权力投票或影响公司的交易决定。
 受益所有人在此确认，他/她已阅读并理解上述内容，并确认所做的所有陈述均真实无误。]]></text>
@@ -1229,7 +1229,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[D部分-政治人物、其直系亲属和亲密联系人的信息]]></text>
 			</staticText>
@@ -1239,7 +1239,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[以上所列人士是否为政治敏感人士，即在新加坡、新加坡以外的国家或地区或目前受国际组织委托担任任何重要公职的人？]]></text>
 			</staticText>
@@ -1249,7 +1249,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[以上所列人士是否为政治敏感人士，即在新加坡、新加坡以外的国家或地区，或被某国际组织委托担任重要公职但已卸任其重要公职的人？]]></text>
 			</staticText>
@@ -1258,14 +1258,14 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[以上所列人士是否为政治敏感人士或已下台的政治人物的直系亲属或亲密伙伴？]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="40" y="2599" width="486" height="58" uuid="b85bd68a-e340-4b51-a7f0-7f33c9e5e7f1"/>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[客户声明
 本人声明此表格所提供的资料是真实及正确的。我知道，如果我被发现对任何我知道是虚假的或我认为不是真的的东西作出虚假声明，或者如果我故意隐瞒任何重要事实，我可能会受到起诉和刑事制裁。]]></text>

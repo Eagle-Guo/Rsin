@@ -406,7 +406,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[本协议订立日期]]></text>
 			</staticText>
@@ -427,7 +427,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[委任挂名董事协议]]></text>
 			</staticText>
@@ -456,7 +456,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[[.]私人有限公司（公司注册号：[                        ]），一家于新加坡成立的有限责任公司，注册地址为[北桥路111号，柏龄大厦 29-06A，新加坡 179098]（简称“公司”）。]]></text>
 			</staticText>
@@ -465,7 +465,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="11" isBold="true"/>
+					<font fontName="华文宋体" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[鉴于]]></text>
 			</staticText>
@@ -474,7 +474,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[依据本协议约定的条款和条件，公司要求提供挂名董事服务（简称“挂名董事”）。]]></text>
 			</staticText>
@@ -483,7 +483,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="11" isBold="true"/>
+					<font fontName="华文宋体" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[双方同意如下：]]></text>
 			</staticText>
@@ -493,7 +493,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="11" isBold="true"/>
+					<font fontName="华文宋体" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[委任和责任]]></text>
 			</staticText>
@@ -512,7 +512,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[The Nominee shall provide the Company with the services of the Nominee Director. Upon the notification of the particulars of the Nominee Director, the Company shall take such steps as are necessary for the Nominee Director to be appointed as a nominee director of the Company.
 我们将提供公司挂名董事服务。公司被通知挂名董事的个人信息后，应为该挂名董事采取必要的步骤使其委任为公司之董事。]]></text>
@@ -532,7 +532,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[The duties of the Nominee Director shall be limited to the signing of statutory forms and board resolutions in order to comply with the requirements of the Companies Act, Cap. 50 and its regulations and the Company’s Constitution. 
 挂名董事之责任仅限于签署法定表格和董事会决议，以符合新加坡公司法和其规则及公司章程的要求。]]></text>
@@ -552,7 +552,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[For the avoidance of doubt, the Nominee Director shall not be required to participate, in any manner whatsoever, in the management or decision-making of the Company and shall not be required to sign or execute any agreement, assurance, guarantee or other documents which would incur or in any way impose any personal liability on the Nominee Director, whether as a principal or guarantor, notwithstanding that the same is purportedly for the benefit of the Company or any other third party.  The Nominee Director shall also not be required to comply with any instructions which may be unlawful under the laws of Singapore as well as all other laws which may be applicable.
 挂名董事将不会以任何形式参与公司管理层或公司决策，将不会被要求签署或执行任何协议、保证、担保或其他可能产生的文件，或任何会引起该挂名董事个人责任的文件，尽管这些文件据称是为了公司或任何第三方的利益。挂名董事将也不需遵守任何违反新加坡公司法或其他成文法规定的指示。]]></text>
@@ -572,7 +572,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Statement on matters regarding assistance bank account opening:
 关于协助银行开户事项声明：]]></text>
@@ -590,7 +590,7 @@ Nominee Director of the Company]]></text>
 			<staticText>
 				<reportElement x="100" y="937" width="414" height="143" uuid="a65bc64a-ba2b-4a8c-a5ad-79056cbc0c4d"/>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[In the event of requirement, the Nominee Director will provide assistance pertaining to matters of local bank account opening by providing valid personal identification documents to the bank. The Nominee Director retains the legal right to claim full indemnity, compensation and accountability from the Company should the Company submit the Nominee Director’s personal identification for any other uses beside bank account opening. 
 在有需要的情况下，新加坡挂名董事将对于公司在新加坡本地银行开户的服务进行协助，并且提供有效的个人身份证件给予银行进行开户的。一旦发现新加坡挂名董事的身份证件在未告知的情况下用作其他用途，我们和/或者挂名董事将保留法律追究以及要求赔偿的权利。]]></text>
@@ -610,7 +610,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Assistance for opening bank account will only be provided by the Nominee Director in the event that the bank in question is a local (Singapore) bank. The Nominee Director reserves the rights to reject the Company’s request (if any) for bank account opening at an overseas bank, except that this does not apply to requests for opening an account at a bank in China. 
 新加坡挂名董事协助开户的义务尽止于新加坡本地银行，若公司要求新加坡挂名董事协助外国银行的开户，挂名董事有权提出拒绝。对于要求在中国大陆进行开户的公司，则不在此例。]]></text>
@@ -630,7 +630,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[The Nominee Director shall execute the Authorisation substantially in the form and manner as in the Appendix A to this Agreement for authorising the collection, use and disclosure by the Rsin Group Pte Ltd of relevant particulars of the Nominee Director in accordance with the Personal Data Protection Act of the Singapore statutes, for the purposes of submissions to the various government or regulatory bodies, such as, CPF Board, ACRA, IRAS, Ministry of Manpower, Agri-Food and Veterinary Authority of Singapore (AVA) and to the banks, as and when so required; and also for authorising the setting up and use of the CorpPass when required, for and on behalf of the Company.
 挂名董事应依照本协议附录A的格式签署授权书，以授权睿信集团，根据《新加坡个人数据保护法》收集、使用和披露挂名董事的相关个人信息，依据要求提交给政府部门和监管机构，如公积金局、新加坡商业及会计局、税务局、人力部、新加坡农粮兽医管理局(AVA)以及银行，并代表公司授权设置和使用CorpPass登录相关系统。]]></text>
@@ -651,7 +651,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="11" isBold="true"/>
+					<font fontName="华文宋体" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[终止]]></text>
 			</staticText>
@@ -670,7 +670,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Either Party may terminate this Agreement at any time by providing the other Party with prior one (1) month’s notice in writing.
 协议双方有权在提供对方提前1个月的书面通知的前提下，在任何时候终止本协议。]]></text>
@@ -690,7 +690,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[In the event of ceasing (for whatever reason) to provide the services of the Nominee Director, the board of directors of the Company shall accept the resignation of the Nominee Director and where required under the Companies Act, Cap. 50 and its regulations or the Company’s Constitution, shall take immediate steps to appoint another person in place of the Nominee Director as a director of the Company on or before the date of termination and/or cessation of the appointment of the Nominee Director.  
 若停止提供挂名董事服务（无论何种原因），公司董事会应接受挂名董事之请辞并在终（停）止日前或当天依据新加坡公司法及其规定或公司章程，采取立即的措施委任另一个人为公司董事，来代替该挂名董事。]]></text>
@@ -711,7 +711,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[3.The Company shall provide with satisfactory documentary evidence that such changes have been effected and notified to the ACRA.
 公司提供符合要求的书面文件，证明该替换已经生效并已经通知新加坡商业注册局。]]></text>
@@ -732,7 +732,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="11" isBold="true"/>
+					<font fontName="华文宋体" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[保证和协约]]></text>
 			</staticText>
@@ -741,7 +741,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[The Company hereby undertakes and warrants that all acts required to be done by the Nominee Director shall be lawful under the laws of Singapore as well as all other laws which may be applicable and that all statements and documents, which the Nominee Director is requested to sign, shall be true, accurate and not misleading and for lawful purposes.
 公司据此承诺和保证要求挂名董事开展的活动符合新加坡法律和其他适用的法律，所有要求挂名董事签署的声明和文件都是真实、正确且未有任何误导并且出于合法的目的。]]></text>
@@ -772,7 +772,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[The Company hereby undertakes and warrants that the Company will keep proper accounts and will file all income tax returns and all papers and documents which are required by law to be filed with any authority and that all taxes required to be paid by the Company will be duly paid.
 公司据此承诺和保证公司将会遵守会计准则，申报公司所得税，向有关机关申报法律要求申报的所有文件，公司所需要支付的税收都将会按时支付。]]></text>
@@ -792,7 +792,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[The Company shall indemnify, hold harmless and/or defend the Nominee Director from and against all liabilities, actions, proceedings, penalties, damages, costs, charges, expenses, fines, claims, demands and/or suits that may be made or imposed against or on the Nominee Director by reason of any act, deed, matter or thing done or omitted to be done by the Nominee Director and/or the Company for whatsoever reason, and pay all of the Nominee Director’s solicitor’s fees on a full indemnity basis in the the Nominee Director take any steps or commences any legal action to enforce his or her rights under this Agreement and/or in law. The Nominee Director shall not be liable in any way whatsoever for any non-fulfillment of the Company’s compliance obligations for any reason whatsoever and howsoever arising.
 公司应赔偿并保护挂名董事免受因其或公司的任何行动、行为、事项或遗漏而可能对被挂名董事提出或施加的所有责任、诉讼、法律程序、罚款、损害赔偿、花费、费用、支出、索赔、要求和/或诉讼。如挂名董事采取任何步骤或法律行动以行使本合同项下或依法享有的权利，公司应全额赔偿支付挂名董事的所有律师费。如公司无论出于任何理由或任何原因未能履行其合规义务，挂名董事均不以任何方式承担因此而导致的任何责任。]]></text>
@@ -802,7 +802,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[The Company shall be liable for and pay the Nominee Director all disbursements, costs and expenses (including but not limited to expenses, penalties and/or legal fees), which may be incurred by the Nominee Director in connection with and/or arising from this Agreement and/or in discharging his or her duties and responsibilities as the Nominee Director.
 公司应承担并支付挂名董事可能因本协议产生和/或与本协议相关，和/或因其履行挂名董事职责而承担的所有支出、成本和费用（包括但不限于支出、罚款和/或法律费用）。]]></text>
@@ -833,7 +833,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="11" isBold="true"/>
+					<font fontName="华文宋体" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[综合]]></text>
 			</staticText>
@@ -853,7 +853,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[If any of the provisions of this Agreement becomes invalid, illegal or unenforceable in any respect under any law, the validity, legality and enforceability of the remaining provisions shall not in any way be affected or impaired.
 若本协议中的任何条款无效，非法或不能执行，并不影响或损害本协议其他条款的有效性、合法性和执行性。]]></text>
@@ -874,7 +874,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[This Agreement embodies the entire understanding of the Parties and there are no promises, terms and conditions or disclosures or obligations, oral or written, express or implied other than those contained herein, save and except those mutually agreed to in writing between the Parties after the due execution of this Agreement and each Party acknowledges that it has not relied on any oral or written representations made to it by the other or its employees or agents.
 除双方签署本协议后书面共同同意，且每一方确认其没有依赖任何对方、对方雇员或代理口头或书面的声明外，本协议包含双方的全部理解，除本协议外，双方之间无任何承诺、条款和条件，或披露或义务，无论是口头还是书面，明示或暗示的。]]></text>
@@ -895,7 +895,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Time wherever mentioned in this Agreement shall be of the essence of this Agreement. 
 本协议提到的时间视为协议之要素。]]></text>
@@ -916,7 +916,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Subject as otherwise provided herein, all notices, demands or other communications required or permitted to be given or made hereunder shall be in writing and delivered personally or sent by prepaid registered post or certificate of posting or by facsimile message addressed to the intended recipient thereof at its address or its facsimile number set out herein (or to such other address or facsimile number as any Party may from time to time notify the other Party and the Nominee Director for the purpose of this clause) or by other means which Parties may agree in writing thereafter. Any notice, demand or communication shall be deemed to have been duly served:
 除另有规定外，所有的通知、请求或者其他要求或允许提供的通信应采用书面形式，由本人亲自递送，或以预付款挂号信或邮寄证明的形式寄送，或以传真至收信人地址或传真号码的形式（或依据不定时通知对方的任何其他地址或传真号码），或双方书面同意的其他方式。任何通知、请求或通信被视为已经投递：]]></text>
@@ -936,7 +936,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[if delivered personally, on the day of delivery;
 若亲自递送，递送日当日；]]></text>
@@ -956,7 +956,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[if sent by facsimile, on the day of the conclusion of transmission; 
 若传真发送，收到传送回执的当日；]]></text>
@@ -974,7 +974,7 @@ Nominee Director of the Company]]></text>
 			<staticText>
 				<reportElement x="100" y="2810" width="414" height="84" uuid="97c73f28-5176-4166-8f9d-9fcd5ddd7dae"/>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[if sent by letter to a local address, two (2) business days after posting and in proving the same it shall be sufficient to show that the envelope containing the notice, demand or communication was duly addressed, stamped and posted. Such posting shall be preceded by a facsimile of the cover page; and
 若邮寄到本地地址，邮寄后2个营业日，为证明此，应出示包含通知、请求或通信的信封已经恰当地写明住址，敲盖邮戳并寄送。信封封面样式应在寄送前传真给对方；]]></text>
@@ -992,7 +992,7 @@ Nominee Director of the Company]]></text>
 			<staticText>
 				<reportElement x="100" y="2901" width="414" height="84" uuid="b8256082-4177-4f3f-98ee-f13ec1786dbf"/>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[if sent by letter to an overseas address, seven (7) business days after posting and in proving the same it shall be sufficient to show that the envelope containing the notice, demand or communication was duly addressed, stamped and posted. Such posting shall be preceded by a facsimile of the cover page.
 若邮寄到海外地址，邮寄后7个营业日，为证明此，应出示包含通知、请求或通信的信封已经恰当地写明住址，敲盖邮戳并寄送。信封封面样式应在寄送前传真给对方。]]></text>
@@ -1013,7 +1013,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[This Agreement shall be binding on each of the Parties and their respective assignees, executors and administrators.
 本协议对双方，他们的承继者，制定遗嘱执行人和管理人具有约束力。]]></text>
@@ -1034,7 +1034,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[A person who is not a party to this Agreement has no rights under the Contracts (Rights of Third Parties) Act (Cap. 53B) to enforce any term of this Agreement.
 非协议之当事人无权依据合同法（第三方权利）来执行本协议的任何条款。]]></text>
@@ -1055,7 +1055,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Termination of this Agreement for whatever reason shall not release either Party from any obligations which, either expressly or by implication, are intended to survive the termination of this Agreement, nor will it affect the rights and liabilities of the Parties, as at the date of termination.
 无论因何种原因终止本协议将不会豁免协议任何一方的义务，无论该义务是明示还是暗示，也无论该义务是协议终止后有意残留的，也不会影响到至终止日止挂名董事的权利和协议双方产生的权利和债务。]]></text>
@@ -1076,7 +1076,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Words denoting the singular number only shall include the plural number and vice versa.
 单数形式将包括复数形式，反之亦然。]]></text>
@@ -1097,7 +1097,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Words denoting the masculine gender only shall include the feminine and neuter genders.
 男性人称将包括女性人称和中性人称。]]></text>
@@ -1118,7 +1118,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[References to persons shall be deemed to include bodies incorporated or unincorporated.
 人称将视为包括成立或未成立的组织。]]></text>
@@ -1139,7 +1139,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[The Recitals to this Agreement shall be and form an integral part of this Agreement.
 协议的前言部分为协议之组成部分。]]></text>
@@ -1160,7 +1160,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Headings in this Agreement are for convenient reference only and shall not be used to construe or interpret this Agreement.
 协议之标题只为方便参考之使用，并不是用来分析或演绎协议之用。]]></text>
@@ -1181,7 +1181,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[13.Any reference to a statutory provision shall include such provision and any regulations made in pursuance thereof as from time to time modified or reenacted whether before or after the date of this Agreement.
 引用法条将包括该法条和任何依据该条制订的规则，无论是协议订立前或后不时修改或者重新制定。]]></text>
@@ -1202,7 +1202,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA["Dollars" and the sign "$" shall mean the lawful currency of Singapore. 新元或者符号"$"代表新加坡的法定货币。]]></text>
 			</staticText>
@@ -1222,7 +1222,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[This Agreement shall be governed by and construed in accordance with the laws of the Republic of Singapore and Parties agree to submit to the non-exclusive jurisdiction of the courts of the Republic of Singapore.
 本协议受新加坡法律管辖，新加坡法院对本协议具有非排外管辖权。]]></text>
@@ -1233,7 +1233,7 @@ Nominee Director of the Company]]></text>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Justified">
-					<font size="11" isBold="false"/>
+					<font fontName="华文宋体" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[IN WITNESS whereof the Parties have duly executed this Agreement as of the date and year written above.
 协议双方在上述的年份和日期合法有效地签署本协议。]]></text>

@@ -122,7 +122,7 @@ $(function() {
 // Sending AJAX request and upload file
 function uploadData(formdata, uploadType){
     $.ajax({
-        url: '/api/uploadfile',
+        url: '/api/uploadfiles',
         type : "POST",
         enctype: 'multipart/form-data',
         data: formdata,

@@ -20,7 +20,7 @@
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="14"/>
+					<font fontName="华文宋体" size="14"/>
 				</textElement>
 				<text><![CDATA[Certificate Number 证书编号]]></text>
 			</staticText>
@@ -39,7 +39,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font size="14"/>
+					<font fontName="华文宋体" size="14"/>
 				</textElement>
 				<text><![CDATA[Number of Shares 股份数]]></text>
 			</staticText>
@@ -57,7 +57,7 @@
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="15" isBold="true"/>
+					<font fontName="华文宋体" size="15" isBold="true"/>
 				</textElement>
 				<text><![CDATA[This is to certify that（兹证明）]]></text>
 			</staticText>
@@ -87,7 +87,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
+					<font fontName="华文宋体" size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[shares of One Dollar each fully paid in（普通股每股一块全额缴清）]]></text>
 			</staticText>
@@ -97,7 +97,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
+					<font fontName="华文宋体" size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[to the Constitution of the Company（根据公司章程）]]></text>
 			</staticText>
@@ -115,7 +115,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="14" isBold="false"/>
+					<font fontName="华文宋体" size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[（是持有以上股的登记股东）]]></text>
 			</staticText>
@@ -187,7 +187,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font size="10" isBold="false"/>
+					<font fontName="华文宋体" size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[根据公司法第50章在新加坡成立]]></text>
 			</staticText>
@@ -261,7 +261,7 @@
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font size="12" isBold="false"/>
+					<font fontName="华文宋体" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[（在ACRA注册之日加盖公司公章）]]></text>
 			</staticText>

@@ -35,8 +35,8 @@ public class FileDownloadController {
 	 * it same like spring mvc download file.
 	 */
 	
-	@RequestMapping(value = "/downloadSignature/{id}", method = RequestMethod.GET)
-    public StreamingResponseBody downloadSignatureFile(@PathVariable int id, 
+	@RequestMapping(value = "/downloadfile/{id}", method = RequestMethod.GET)
+    public StreamingResponseBody downloadFile(@PathVariable int id, 
     		HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
 		

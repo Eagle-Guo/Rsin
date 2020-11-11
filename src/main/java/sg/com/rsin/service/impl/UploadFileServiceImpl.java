@@ -31,6 +31,9 @@ public class UploadFileServiceImpl implements UploadFileService {
 	//Save the uploaded file to this folder
 	@Value("${upload.path}")
 	private String uploadFilePathRoot;
+	
+	private String OFFLINE_FOLDER = "offline/";
+	private String PERSONAL_FOLDER = "personal/";
 
 	@Autowired 
 	OnlineSignatureService onlineSignatureService;
@@ -47,6 +50,12 @@ public class UploadFileServiceImpl implements UploadFileService {
 		Map<String, Object> userData = onlineSignatureService.getAllPageData(userid);
 		String companyId = userData.get("companyId").toString();
 		
+		File offlineFileFolder = new File (uploadFilePathRoot.concat(companyId).concat(File.separator).concat(OFFLINE_FOLDER));
+		
+		if (!offlineFileFolder.exists()) {
+			offlineFileFolder.mkdir();
+		}
+		
 		Optional<Company> company = companyRepository.findById(Long.parseLong(companyId));
 
 		for (MultipartFile file : files) {
@@ -55,7 +64,8 @@ public class UploadFileServiceImpl implements UploadFileService {
 			}
 
 			byte[] bytes = file.getBytes();
-			Path path = Paths.get(uploadFilePathRoot.concat(companyId).concat(File.separator).concat(file.getOriginalFilename()));
+			Path path = Paths.get(uploadFilePathRoot.concat(companyId).concat(File.separator)
+					.concat(OFFLINE_FOLDER).concat(file.getOriginalFilename()));
 			Files.write(path, bytes);
 			
 			Document document = new Document();
@@ -90,6 +100,66 @@ public class UploadFileServiceImpl implements UploadFileService {
 				break;
 			case "8" :
 				documentTypeCode = DocumentTypeCode.TYPE8;
+				break;
+			}
+			DocumentType documentType = documentTypeRepository.findByDocumentTypeCode(documentTypeCode.name());
+			document.setDocumentType(documentType);
+			
+			Document existedDocument = documentRepository.findByDocumentTypeAndCompany(documentType, company.get());
+			if (existedDocument != null) {
+				documentRepository.delete(existedDocument);
+			}
+			documentRepository.save(document);
+		}
+	}
+	
+	public void uploadPersonalFile(List<MultipartFile> files, String id, String userid) throws IOException {
+		Map<String, Object> userData = onlineSignatureService.getAllPageData(userid);
+		String companyId = userData.get("companyId").toString();
+		
+		Optional<Company> company = companyRepository.findById(Long.parseLong(companyId));
+		
+		File personalFileFolder = new File (uploadFilePathRoot.concat(companyId).concat(File.separator).concat(PERSONAL_FOLDER));
+		
+		if (!personalFileFolder.exists()) {
+			personalFileFolder.mkdir();
+		}
+		for (MultipartFile file : files) {
+			if (file.isEmpty()) {
+				continue;
+			}
+
+			byte[] bytes = file.getBytes();
+			Path path = Paths.get(uploadFilePathRoot.concat(companyId).concat(File.separator)
+					.concat(PERSONAL_FOLDER).concat(file.getOriginalFilename()));
+			Files.write(path, bytes);
+			
+			Document document = new Document();
+			document.setCompany(company.get());
+			document.setCreatedBy(userid);
+			document.setCreatedDate(new Date());
+			document.setDocumentName(file.getOriginalFilename());
+			document.setDocumentPath(uploadFilePathRoot.concat(companyId).concat(File.separator));
+			
+			DocumentTypeCode documentTypeCode = null; 
+			switch (id) {
+			case "11" :
+				documentTypeCode = DocumentTypeCode.TYPE11;
+				break;
+			case "12" :
+				documentTypeCode = DocumentTypeCode.TYPE12;
+				break;
+			case "13" :
+				documentTypeCode = DocumentTypeCode.TYPE13;
+				break;
+			case "14" :
+				documentTypeCode = DocumentTypeCode.TYPE14;
+				break;
+			case "15" :
+				documentTypeCode = DocumentTypeCode.TYPE15;
+				break;
+			case "16" :
+				documentTypeCode = DocumentTypeCode.TYPE16;
 				break;
 			}
 			DocumentType documentType = documentTypeRepository.findByDocumentTypeCode(documentTypeCode.name());

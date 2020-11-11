@@ -3065,7 +3065,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
   <!-- <script src="../../../assets/js/html2canvas.js"></script> -->
-  
+  <script src="../../../assets/js/stisla.js"></script>
+  <!-- Template JS File -->
+  <script src="../../../assets/js/scripts.js"></script>
+  <script src="../../../assets/js/custom.js"></script>
+
   <script src="../../../assets/js/page/index-0.js"></script>
   <script src="../../../assets/js/onlineSignature.js"></script>
   <script src="../../../assets/js/signaturePad/signature_pad.umd.js"></script>

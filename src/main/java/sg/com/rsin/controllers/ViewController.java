@@ -147,18 +147,42 @@ public class ViewController {
 		return model;
 	}	
 	
+	@RequestMapping("/mybusiness/myRecord")
+	public ModelAndView myRecord() {
+		ModelAndView model = new ModelAndView("mybusiness/myRecord");
+		return model;
+	}	
+	
+		
+	@RequestMapping("/mybusiness/admin_record")
+	public ModelAndView admin_record() {
+		ModelAndView model = new ModelAndView("mybusiness/admin_record");
+		return model;
+	}	
+	
+	
 	@RequestMapping("/onekey/oneKeyService")
 	public ModelAndView oneKeyService() {
 		ModelAndView model = new ModelAndView("onekey/oneKeyService");
 		return model;
 	}
-
+	
 	@RequestMapping("/notice/notice")
 	public ModelAndView notice() {
 		ModelAndView model = new ModelAndView("notice/notice");
 		return model;
 	}
-
+	@RequestMapping("/notice/admin_notice")
+	public ModelAndView admin_notice() {
+		ModelAndView model = new ModelAndView("notice/admin_notice");
+		return model;
+	}
+	@RequestMapping("/notice/admin_notice_create")
+	public ModelAndView admin_notice_create() {
+		ModelAndView model = new ModelAndView("notice/admin_notice_create");
+		return model;
+	}			
+	
 	@RequestMapping("/annualReviewList")
 	public ModelAndView annualReviewList() {
 		ModelAndView model = new ModelAndView("todolist/annualReviewList");
@@ -171,6 +195,12 @@ public class ViewController {
 		return model;
 	}	
 
+	@RequestMapping("/todolist/admin_toDoList")
+	public ModelAndView admin_toDoList() {
+		ModelAndView model = new ModelAndView("todolist/admin_toDoList");
+		return model;
+	}		
+	
 	@RequestMapping("/notFinishStep")
 	public ModelAndView notFinishStep() {
 		ModelAndView model = new ModelAndView("todolist/notFinishStep");

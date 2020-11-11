@@ -3645,3 +3645,8 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 .todolist .card .card-header h4 {
     color: black;
 }
+
+/* 6.8 admin_notice page */
+.admin_notice .nav-pills .nav-item .nav-link {
+    padding: 0 1rem !important;
+}

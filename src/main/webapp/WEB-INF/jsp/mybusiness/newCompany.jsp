@@ -487,7 +487,13 @@
 														    </div>						
 															<br /> <br />
 															
-															<div class="row">
+															<div class="form-group row" id="addContactPDiv0"></div>											
+															<div class="row addInfoBtn">
+																<a class="btn btn-icon icon-left btn-warning" onclick="addContactP()">
+																	<i class="far fa-user"></i>增加填报人员
+																</a>
+															</div>																																											
+															<!--<div class="row">
 																<div class="col-sm-9">
 																	<select class="custom-select c-select-info  appinfo" id="addContactNo">
 																		<option value="1" selected>1</option>
@@ -504,7 +510,7 @@
 																</div>
 																<a class="btn btn-icon icon-left btn-warning" onclick="addContactP()">	<i class="far fa-user"></i>增加填报人员 </a>
 															</div>		
-															<div class="form-group row" id="addContactPDiv0"></div>
+															<div class="form-group row" id="addContactPDiv0"></div>-->
 														</div>	
 														<div class="button-row d-flex mt-4">
 															<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
@@ -516,7 +522,7 @@
 											
 
 											<!--single form panel-->
-											<div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+											<div class="multisteps-form__panel shadow p-5 rounded bg-white" data-animation="scaleIn">
 												<h3 class="multisteps-form__title">在线确认</h3>
 												<div class="card-body">
 													<div class="section-title">公司资料</div>
@@ -537,7 +543,7 @@
 											</div>
 	
 											<!--single form panel-->
-											<div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+											<div class="multisteps-form__panel shadow p-6 rounded bg-white" data-animation="scaleIn">
 												<h3 class="multisteps-form__title">在线支付</h3>
 												<div class="multisteps-form__content">
 													<div class="card-body" id="summary">													

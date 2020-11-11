@@ -164,6 +164,18 @@ public class ViewController {
 		ModelAndView model = new ModelAndView("todolist/annualReviewList");
 		return model;
 	}	
+
+	@RequestMapping("/toDoList")
+	public ModelAndView toDoList() {
+		ModelAndView model = new ModelAndView("todolist/toDoList");
+		return model;
+	}	
+
+	@RequestMapping("/notFinishStep")
+	public ModelAndView notFinishStep() {
+		ModelAndView model = new ModelAndView("todolist/notFinishStep");
+		return model;
+	}	
 	
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/onlineSignature")

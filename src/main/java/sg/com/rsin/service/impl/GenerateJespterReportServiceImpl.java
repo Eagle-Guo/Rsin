@@ -142,6 +142,9 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		    	String templateName = CommonUtils.getJaspterTemplateName(i);
 			    
 			    String fileName = templateName.substring(0, templateName.indexOf(".jrxml"));
+			    InputStream in = new ByteArrayInputStream(bytes);
+		        BufferedImage bImageFromConvert = ImageIO.read(in);
+		        
 			    // Report one
 				InputStream employeeReportStream = resourceLoader.getResource("classpath:reports/" + templateName).getInputStream();
 				JasperReport jasperReportOne = JasperCompileManager.compileReport(employeeReportStream);
@@ -149,6 +152,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 				Map<String, Object> reportParamMapOne = new HashMap<>();
 				reportParamMapOne.put("createdBy", "Rsin Group");
 				reportParamMapOne.put("companyName", companyName + " PTE.LTD.");
+				reportParamMapOne.put("signImage", bImageFromConvert);
 				reportParamMapOne.put("registeredOffice", userData.get("address"));
 				
 				Map<String, Integer> shareholderAndStock = (Map<String, Integer>) userData.get("shareholderAndStock");
@@ -167,8 +171,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 				Map<String, Object> reportParamMapTwo = new HashMap<String, Object>();
 				reportParamMapTwo.put("createdBy", "Rsin Group");
 				
-				InputStream in = new ByteArrayInputStream(bytes);
-		        BufferedImage bImageFromConvert = ImageIO.read(in);
+				
 		        
 		        String qrCodeText = "https://www.rsin.com.sg";
 		        reportParamMapTwo.put("documentReference", "3425146652474290");

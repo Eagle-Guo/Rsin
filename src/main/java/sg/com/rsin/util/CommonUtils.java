@@ -40,7 +40,7 @@ public class CommonUtils {
 		switch (id) {
 	        case 1: filename = "First_Director_Meeting_Resolution.pdf"; break;
 	        case 2: filename = "Secretary_Agreement.pdf"; break;
-	        case 3: filename = "Notice_for_Controllers.pdf"; break;
+	        case 3: filename = "Notice_For_Controllers.pdf"; break;
 	        case 4: filename = "Application_of_Shares.pdf"; break;
 	        case 5: filename = "Client_Acceptance_Form.pdf"; break;
 	        case 6: filename = "Form_45_201.pdf"; break;
@@ -56,7 +56,7 @@ public class CommonUtils {
 		switch (id) {
 		 	case 1: templateName = "First_Director_Meeting_Resolution.jrxml"; break;
 		    case 2: templateName = "Secretary_Agreement.jrxml"; break;//Signature.jrxml
-		    case 3: templateName = "Notice_for_Controllers.jrxml"; break;
+		    case 3: templateName = "Notice_For_Controllers.jrxml"; break;
 		    case 4: templateName = "Application_of_Shares.jrxml"; break;
 		    case 5: templateName = "Client_Acceptance_Form.jrxml"; break;
 		    case 6: templateName = "Form_45_201.jrxml"; break;

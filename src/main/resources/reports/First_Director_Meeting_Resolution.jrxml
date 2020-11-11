@@ -4,6 +4,9 @@
 	<parameter name="companyName" class="java.lang.String"/>
 	<parameter name="registeredOffice" class="java.lang.String"/>
 	<parameter name="shareholder" class="java.lang.String"/>
+	<parameter name="signImage" class="java.awt.Image">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -542,6 +545,10 @@ Dated this Signing Date]]></text>
 				</textElement>
 				<text><![CDATA[作为正确记录签字]]></text>
 			</staticText>
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="40" y="1660" width="235" height="78" uuid="46731b82-1f30-45cb-a43f-d4bec5bc52ff"/>
+				<imageExpression><![CDATA[$P{signImage}]]></imageExpression>
+			</image>
 		</band>
 	</detail>
 </jasperReport>

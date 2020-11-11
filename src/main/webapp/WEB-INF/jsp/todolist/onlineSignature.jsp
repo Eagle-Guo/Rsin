@@ -2828,12 +2828,14 @@
 											</form>
 											<div id="signature-pad" class="signature-pad col-lg-12 col-md-12 col-12 col-sm-12">
 											    <div class="signature-pad--body">
-											      <canvas width="370" height="250"></canvas>
+											      <canvas width="460" height="300"></canvas>
 											    </div>
 											    <div class="signature-pad--footer">
 											      <div class="signature-pad--actions">
 											      <div class="buttons sign_btn">                    
-								                      <button  type="button" class="btn btn-default icon-left btn-primary  disabled" class="tooltip-show" data-toggle="tooltip" title="请阅读所有待签名文件并完成打勾确认。"  disabled="disabled"  id="submit_sign" data-action="save-png"><i class="fas fa-check"></i> 提交</button>
+								                      <button type="button" class="btn btn-default icon-left btn-primary" disabled="disabled" id="submit_sign" data-action="save-png">
+								                      	<div data-toggle="tooltip" title="请阅读所有待签名文件并完成打勾确认" ><i class="fas fa-check"></i> 提交 </div>
+								                      </button>
 								                      <button class="btn btn-icon icon-left btn-primary" data-action="clear"><i class="fas fa-times"></i>清空</button>
 								                      <button class="btn btn-icon icon-left btn-primary" data-action="change-color"><i class="fas fa-times"></i>改变颜色</button>
 								                      <button class="btn btn-icon icon-left btn-primary" data-action="undo"><i class="fas fa-times"></i>撤销还原</button>

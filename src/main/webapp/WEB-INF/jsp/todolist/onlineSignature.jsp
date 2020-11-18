@@ -781,7 +781,7 @@
 										 </div>	
 										 <br/><br/><br/>
 				                    	 <p class="text_signfile text_centre">ANNEX B – NOTICE FOR CONTROLLERS</p>    
-				                    	 <p class="text_signfile text_cn">XX私人有限公司</p> 						 
+				                    	 <p class="text_signfile text_cn">${companyName} 私人有限公司</p> 						 
 				                    	 <p class="text_signfile text_centre">(Incorporated in the Republic of Singapore under The Companies Act, Cap. 50)</p>    
 				                    	 <p class="text_signfile text_cn">根据公司法第50章在新加坡成立</p> 	
 										<br/>						 
@@ -789,7 +789,7 @@
 											 <span>This is to certify that</span> <span class="text_cn">兹证明</span><span class="underline">SHAREHOLDER’S NAME & NRIC股东的名字与身份证号码(自动替换)</span> 
 											 <span>of </span> <span class="underline">SHAREHOLDER’S PERSONAL ADDRESS股东个人居住地址(自动替换)</span> 
 											 <span>is the registered owner of </span> <span class="text_cn">是持有以下股份数量的登记股东</span><span class="underline">TWO THOUSAND AND FIVE HUNDRED (自动替换)</span> 
-											 <span>Ordinary shares of One Dollar each fully paid in</span> <span class="text_cn">普通股每股一块全额缴清</span><span class="underline">XX PTE. LTD.(自动替换)</span> 
+											 <span>Ordinary shares of One Dollar each fully paid in</span> <span class="text_cn">普通股每股一块全额缴清</span><span class="underline">${companyName} PTE. LTD.(自动替换)</span> 
 											 <span>subject to the Constitution of the Company</span> <span class="text_cn">根据公司章程</span>
 											 <span>Given under the Common Seal of the Company on</span> <span class="text_cn">根据公司章程</span>
 											 <span class="underline">the date of registration with ACRA</span> 	<span class="text_cn">在ACRA注册之日加盖公司公章</span>					 						 
@@ -823,8 +823,8 @@
 				                    	 <p class="text_signfile text_centre">CONSENT TO ACT AS DIRECTOR AND STATEMENT OF</p>  						 
 				                    	 <p class="text_signfile text_centre">NON DISQUALIFICATION TO ACT AS DIRECTOR</p>  						 
 										 <br/>
-										 <p class="text_signfile"><span>Name of Company:</span><span> COMPANY NAME PTE. LTD. （自动替换）</span></p>    
-										 <p class="text_signfile text_cn"><span>公司名字:</span><span> XX私人有限公司（自动替换）</span></p> 
+										 <p class="text_signfile"><span>Name of Company:</span><span> ${companyName}  PTE. LTD. （自动替换）</span></p>    
+										 <p class="text_signfile text_cn"><span>公司名字:</span><span> ${companyName} 私人有限公司（自动替换）</span></p> 
 										 <p class="text_signfile"><span>Reg. No:</span><span> </span></p>    
 										 <p class="text_signfile text_cn"><span>注册号码：</span><span> </span></p> 							 
 										 <br/>					 
@@ -1638,8 +1638,8 @@
 				               		 		</div>		
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
-													<span>COMPANY NAME PTE. LTD.</span>
-													<span class="text_cn">XX私人有限公司</span>
+													<span>${companyName} PTE. LTD.</span>
+													<span class="text_cn">${companyName} 私人有限公司</span>
 													<br/>
 													<span>REGISTERED ADDRESS</span>
 													<span class="text_cn">注册地址</span>
@@ -1652,8 +1652,8 @@
 										 <br/>	<br/>								 
 										<p class="text_signfile">Dear Sirs,</p> 
 										<p class="text_signfile text_cn">尊敬的先生们：</p> 
-										<p class="text_signfile"><span>I, the undersigned, hereby apply for and request you to allot to me 2500 ordinary shares at SGD1.00 each in the capital of COMPANY NAME PTE. LTD. (the “Company”), and I agree to pay SGD2500.00 for the above-mentioned shares in full in cash.</span></p> 
-										<p class="text_signfile text_cn"><span>我，以下签字人，在此申请并要求您以XX私人有限公司（以下简称“公司”）的股本向我配发2500股每股1.00新加坡元的普通股，本人同意以现金全额支付上述股份2500.00新元。</span></p> 
+										<p class="text_signfile"><span>I, the undersigned, hereby apply for and request you to allot to me 2500 ordinary shares at SGD1.00 each in the capital of ${companyName}  PTE. LTD. (the “Company”), and I agree to pay SGD2500.00 for the above-mentioned shares in full in cash.</span></p> 
+										<p class="text_signfile text_cn"><span>我，以下签字人，在此申请并要求您以${companyName} 私人有限公司（以下简称“公司”）的股本向我配发2500股每股1.00新加坡元的普通股，本人同意以现金全额支付上述股份2500.00新元。</span></p> 
 										<p class="text_signfile"><span>I further undertake and agree to accept the number of shares that you may allot to me, subject to the conditions of the Constitution of the Company, and I authorize you to place my name on the Register of Members as holder in respect of the shares so allotted.</span></p> 
 										<p class="text_signfile text_cn"><span>本人进一步承诺并同意接受贵公司根据本公司章程细则配发给我的股份数目，并授权贵公司将本人姓名作为所分配股份的持有人登记在股东名册上。</span></p> 
 										<p class="text_signfile"><span>I also agree that this application is irrevocable and cannot be withdrawn.</span></p> 

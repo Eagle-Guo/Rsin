@@ -169,6 +169,7 @@ public class CommonUtils {
 					companyShareholderInfo.setAddress(companyInfoVO.getDescription());
 				}
 			}
+			companyShareholderInfo.setSeq(i);
 			companyShareholderInfos.add(companyShareholderInfo);
 		}
 		return companyShareholderInfos;

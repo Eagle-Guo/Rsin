@@ -126,6 +126,11 @@ CREATE TABLE `company_shareholder_info` (
   `actual_stock_amount` int,
   `value_per_stock` int,
   `address` varchar(100),
+  `seq` int,
+  `signature_name` varchar(200),
+  `signature_path` varchar(200),
+  `ip` varchar(100),
+  `checksum` varchar(100),
   `company_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `company_shareholder_info_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
@@ -163,20 +168,28 @@ CREATE TABLE `document_type` (
   PRIMARY KEY (`document_type_code`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('1','First Director Meeting Resolution', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('2','Secretary Agreement', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('3','ANNEX B - Notice for Controllers', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('4','Application of Shares', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('5','Client Acceptance Form', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('6','Form 45 / 201', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('7','Share Certificate', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('8','Nominee+Dir+Authrn_Final', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE1','First Director Meeting Resolution', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE2','Secretary Agreement', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE3','ANNEX B - Notice for Controllers', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE4','Application of Shares', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE5','Client Acceptance Form', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE6','Form 45 / 201', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE7','Share Certificate', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE8','Nominee+Dir+Authrn_Final', sysdate());
 
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE11','IC Front', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE12','IC Back', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE13','Passport', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE14','Chinese IC', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE15','Resident Proof', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE16','Selfie With Passport', sysdate());
+	
 CREATE TABLE `document` (
   `id` int(11) NOT NULL auto_increment,
   `document_type_code` varchar(11) NOT NULL,
   `document_path` varchar(255) NOT NULL,
   `document_name` varchar(255),
+  `reference_no` varchar(100),
   `company_id` int(11) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   `created_date` DATETIME,

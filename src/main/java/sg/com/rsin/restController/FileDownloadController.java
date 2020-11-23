@@ -52,11 +52,12 @@ public class FileDownloadController {
         };
     }
 	
-	@PostMapping("/uploadSignture")
-    public ResponseEntity<?> uploadSignatureFile(@RequestParam("signature") MultipartFile uploadfile, HttpServletRequest request) throws IOException {
+	@PostMapping("/onlineSubmitSignture")
+    public ResponseEntity<?> userOnlineSubmitSignatureFile(@RequestParam("signature") MultipartFile uploadfile, HttpServletRequest request) throws IOException {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
+		String ip = request.getRemoteAddr();
 		
-		Map<String, String> signFileAndName = generateJespterReportService.uploadSignature(userId, uploadfile);
+		Map<String, String> signFileAndName = generateJespterReportService.onlineSubmitSignatureFile(userId, ip, uploadfile);
 		
 		return new ResponseEntity(signFileAndName, HttpStatus.OK);
     }

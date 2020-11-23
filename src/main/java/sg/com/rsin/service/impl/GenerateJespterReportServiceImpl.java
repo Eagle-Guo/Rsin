@@ -21,6 +21,8 @@ import java.util.UUID;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.lang3.ObjectUtils;
+import org.jfree.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ResourceLoader;
@@ -73,6 +75,11 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	@Value("${upload.path}")
 	private String uploadFilePathRoot;
 	
+	@Value("${signature.path}")
+	private String signatureFilePathRoot;
+	
+	private String SIGNATURE_SUFFIX = "_Sigature.png";
+	
 	@Autowired
 	ResourceLoader resourceLoader;
 
@@ -87,14 +94,14 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		shareholder.append("Total: \t\t").append(Integer.parseInt(userData.get("totalStockAmount").toString()));
 
 		try {
-			String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
-			File directory = new File(fileDirectory);
+			String signatureFileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
+			File directory = new File(signatureFileDirectory);
 		    if (! directory.exists()){
 		        directory.mkdirs();
 		    }
 		    String templateName = CommonUtils.getJaspterTemplateName(id);
 		    String fileName = CommonUtils.getFileName(id);
-		    File file = new File(fileDirectory + fileName);
+		    File file = new File(signatureFileDirectory + fileName);
 		    if (file.exists()) {
 		    	return Files.readAllBytes(file.toPath());
 		    }
@@ -110,7 +117,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 
 			JasperPrint jasperPrintOne = JasperFillManager.fillReport(jasperReportOne, reportParamMapOne, new JREmptyDataSource());
 			
-			JasperExportManager.exportReportToPdfFile(jasperPrintOne, fileDirectory + fileName);
+			JasperExportManager.exportReportToPdfFile(jasperPrintOne, signatureFileDirectory + fileName);
 			return JasperExportManager.exportReportToPdf(jasperPrintOne);
 		} catch (JRException jre) {
 			jre.printStackTrace();
@@ -123,18 +130,58 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Map<String, String> generateNewCompanyPDFWithSignature(String userId, byte[] bytes) {
+	public Map<String, String> generateNewCompanyPDFWithSignature(String userId, String ip, byte[] bytes) {
 
 		Map<String, Object> userData = onlineSignatureService.getAllPageData(userId);
 		String companyId = userData.get("companyId").toString();
 		String companyName = userData.get("companyName").toString();
+
+		List<CompanyShareholderInfo> userCompanyShareholderInfos = (List<CompanyShareholderInfo>) userData.get("sameCompanyShareholderInfos");
 		try {
-			String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
-			File directory = new File(fileDirectory);
+			String signatureFileDirectory = signatureFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
+			File directory = new File(signatureFileDirectory);
 		    if (! directory.exists()){
 		        directory.mkdirs();
 		    }
 		    Map<String, String> signatureAndPath = new HashMap<String, String>();
+		    
+		    // prepare the signature part
+			InputStream signatureReportStream = resourceLoader.getResource("classpath:reports/Signature.jrxml").getInputStream();
+			JasperReport signatureReport = JasperCompileManager.compileReport(signatureReportStream);
+			
+			InputStream in = new ByteArrayInputStream(bytes);
+	        BufferedImage bImageFromConvert = ImageIO.read(in);
+
+			Map<String, Object> reportParamMapTwo = new HashMap<String, Object>();
+	        String documentReference = UUID.randomUUID().toString();
+	        String qrCodeText = "https://www.rsin.com.sg";
+	        reportParamMapTwo.put("documentReference", documentReference);
+	        reportParamMapTwo.put("record", "2020-11-09 :  创建新公司");
+		    reportParamMapTwo.put("qrCode", qrCodeText);
+
+	        for (CompanyShareholderInfo companyShareholderInfo :userCompanyShareholderInfos) {
+	        	reportParamMapTwo.put("id"+companyShareholderInfo.getSeq(), String.valueOf(companyShareholderInfo.getSeq()));
+	        	reportParamMapTwo.put("positionEmail"+companyShareholderInfo.getSeq(), companyShareholderInfo.getEmail());
+				if (companyShareholderInfo.getEmail().equalsIgnoreCase(userId)) {
+					reportParamMapTwo.put("signImage"+companyShareholderInfo.getSeq(), bImageFromConvert);
+					reportParamMapTwo.put("ip"+companyShareholderInfo.getSeq(), ip);
+				    reportParamMapTwo.put("checksum"+companyShareholderInfo.getSeq(), "bos7zo7038h7mnum");
+				} else if (ObjectUtils.isNotEmpty(companyShareholderInfo.getSignatureName())){
+					try {
+						File file = new File((companyShareholderInfo.getSignaturePath()+companyShareholderInfo.getSignatureName()));
+						InputStream inputStream = new FileInputStream(file);
+						BufferedImage sigature = ImageIO.read(inputStream);
+						reportParamMapTwo.put("signImage"+companyShareholderInfo.getSeq(), sigature);
+						reportParamMapTwo.put("ip"+companyShareholderInfo.getSeq(), companyShareholderInfo.getIp());
+					    reportParamMapTwo.put("checksum"+companyShareholderInfo.getSeq(), companyShareholderInfo.getChecksum());
+					} catch (Exception ex) {
+						Log.error("loading signature error");
+					}
+				}
+			}
+			JasperPrint jasperPrintTwo = JasperFillManager.fillReport(signatureReport, reportParamMapTwo, new JREmptyDataSource());
+			
+			String md5Checksum = org.apache.commons.codec.digest.DigestUtils.md5Hex(in);
 		    
 		    // Generate all 8 documents
 		    for (int i=1; i<=8; i++) {
@@ -142,9 +189,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		    	String templateName = CommonUtils.getJaspterTemplateName(i);
 			    
 			    String fileName = templateName.substring(0, templateName.indexOf(".jrxml"));
-			    InputStream in = new ByteArrayInputStream(bytes);
-		        BufferedImage bImageFromConvert = ImageIO.read(in);
-		        
+			    String singatureFileName = userId + "_" + fileName + ".pdf"; 
 			    // Report one
 				InputStream employeeReportStream = resourceLoader.getResource("classpath:reports/" + templateName).getInputStream();
 				JasperReport jasperReportOne = JasperCompileManager.compileReport(employeeReportStream);
@@ -164,39 +209,20 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 				JasperPrint jasperPrintOne = JasperFillManager.fillReport(jasperReportOne, reportParamMapOne, new JREmptyDataSource());
 				jasperPrintList.add(jasperPrintOne);
 
-				// Signature report
-				InputStream signatureReportStream = resourceLoader.getResource("classpath:reports/Signature.jrxml").getInputStream();
-				JasperReport signatureReport = JasperCompileManager.compileReport(signatureReportStream);
-				
-				Map<String, Object> reportParamMapTwo = new HashMap<String, Object>();
-				reportParamMapTwo.put("createdBy", "Rsin Group");
-				
-				
-		        
-		        String qrCodeText = "https://www.rsin.com.sg";
-		        reportParamMapTwo.put("documentReference", "3425146652474290");
-			    reportParamMapTwo.put("signImage", bImageFromConvert);
-			    reportParamMapTwo.put("id", UUID.randomUUID().toString());
-			    reportParamMapTwo.put("ip", "192.168.1.45");
-			    reportParamMapTwo.put("checksum", "bos7zo7038h7mnum");
-			    reportParamMapTwo.put("audit", "2020-11-09 :  创建新公司");
-			    reportParamMapTwo.put("qrCode", qrCodeText);
-
-				JasperPrint jasperPrintTwo = JasperFillManager.fillReport(signatureReport, reportParamMapTwo, new JREmptyDataSource());
 				jasperPrintList.add(jasperPrintTwo);
 
 				//merge report
 				JRPdfExporter exporter = new JRPdfExporter();
 				exporter.setExporterInput(SimpleExporterInput.getInstance(jasperPrintList)); //Set as export input my list with JasperPrint s
-				exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(fileDirectory + "WithSign_" + fileName + ".pdf")); //or any other out streaam
+				exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(signatureFileDirectory + singatureFileName)); //or any other out streaam
 				//SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 				//configuration.setCreatingBatchModeBookmarks(true); //add this so your bookmarks work, you may set other parameters
 				//exporter.setConfiguration(configuration);
 				exporter.exportReport();
 				JasperExportManager.exportReportToPdf(jasperPrintOne);
 				
-				insertToDB(companyId, i, userId, "WithSign_" + fileName + ".pdf");
-				signatureAndPath.put(fileName, "WithSign_" + fileName + ".pdf");
+				insertToDB(companyId, i, ip, md5Checksum, userId, singatureFileName, documentReference);
+				signatureAndPath.put(fileName, singatureFileName);
 		    }
 			return signatureAndPath;
 			
@@ -210,14 +236,15 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		return null;
 	}
 	
-	private void insertToDB (String companyId, int documentTypeId, String userid, String filename) {
+	private void insertToDB (String companyId, int documentTypeId, String ip, String md5Checksum, String userid, String filename, String referenceNo) {
 		Optional<Company> company = companyRepository.findById(Long.parseLong(companyId));
 		Document document = new Document();
 		document.setCompany(company.get());
 		document.setCreatedBy(userid);
 		document.setCreatedDate(new Date());
 		document.setDocumentName(filename);
-		document.setDocumentPath(uploadFilePathRoot.concat(companyId).concat(File.separator));
+		document.setReferenceNo(referenceNo);
+		document.setDocumentPath(signatureFilePathRoot.concat(companyId).concat(File.separator));
 		
 		DocumentTypeCode documentTypeCode = null; 
 		switch (documentTypeId) {
@@ -254,15 +281,25 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			documentRepository.delete(existedDocument);
 		}
 		documentRepository.save(document);
+		
+		//update company_shareholder_info table for fields signature name and path.
+		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareHolderInfoRepository.findByEmail(userid);
+		userCompanyShareholderInfos.parallelStream().forEach(info -> {
+			info.setIp(ip);
+			info.setChecksum(md5Checksum);
+			info.setSignatureName(userid + SIGNATURE_SUFFIX);
+			info.setSignaturePath(signatureFilePathRoot.concat(companyId).concat(File.separator));
+			companyShareHolderInfoRepository.save(info);
+		});
 	}
 	public byte[] exportReport(String reportFormat, String userId, int id) {
 		return generateJasperPDF(userId, id);
 	}
 	
-	public Map<String, String> uploadSignature(String userId, MultipartFile uploadfile) {
+	public Map<String, String> onlineSubmitSignatureFile(String userId, String ip, MultipartFile uploadfile) {
 		Map<String, Object> userData = onlineSignatureService.getAllPageData(userId);
 		String companyId = userData.get("companyId").toString();
-		String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
+		String fileDirectory = signatureFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
 		File directory = new File(fileDirectory);
 	    if (!directory.exists()){
 	        directory.mkdirs();
@@ -276,9 +313,10 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	            }
 
 	            byte[] bytes = file.getBytes();
-	            Path path = Paths.get(fileDirectory, userId + "_Sigature.png");
+	            Path path = Paths.get(fileDirectory, userId + SIGNATURE_SUFFIX);
 	            Files.write(path, bytes);
-	            Map<String, String> signFileAndPath= generateNewCompanyPDFWithSignature(userId, bytes);
+	            
+	            Map<String, String> signFileAndPath= generateNewCompanyPDFWithSignature(userId, ip, bytes);
 	            return signFileAndPath;
 	        }
 		} catch (FileNotFoundException e) {
@@ -294,7 +332,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareHolderInfoRepository.findByEmail(userId);
 		String companyId = userCompanyShareholderInfos.get(0).getCompany().getId().toString();
 		try {
-			String fileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
+			String fileDirectory = signatureFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
 	    	File initialFile = new File(fileDirectory, fileName);
 	        InputStream is = new FileInputStream(initialFile);
 	        return is;

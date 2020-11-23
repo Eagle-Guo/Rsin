@@ -2823,7 +2823,7 @@
 				              		</div>
 									<div class="form-group row">										
 											<!-- signature pad -->
-											<form id="UploadForm" name="UploadForm" action="/api/uploadSignture">
+											<form id="UploadForm" name="UploadForm" action="/api/onlineSubmitSignture">
 											  <input type="hidden" name="anotherinputfield" value="some value" />
 											</form>
 											<div id="signature-pad" class="signature-pad col-lg-12 col-md-12 col-12 col-sm-12">

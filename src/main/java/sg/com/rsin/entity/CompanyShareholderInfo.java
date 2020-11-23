@@ -1,7 +1,6 @@
 package sg.com.rsin.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,6 +26,11 @@ public class CompanyShareholderInfo {
 	private int actualStockAmount;
 	private int valuePerStock;
 	private String address;
+	private int seq;
+	private String signatureName;
+	private String signaturePath;
+	private String ip;
+	private String checksum;
 
 	//@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@ManyToOne
@@ -37,7 +41,8 @@ public class CompanyShareholderInfo {
 
 	public CompanyShareholderInfo(Long id, String positionType, String name, String gender, String nationality,
 			String icType, String icNumber, String email, String contactNumber, int issueStockAmount,
-			int actualStockAmount, int valuePerStock, String address, Company company) {
+			int actualStockAmount, int valuePerStock, String address, int seq, String signatureName, 
+			String ip, String checksum, String signaturePath,  Company company) {
 		super();
 		this.id = id;
 		this.positionType = positionType;
@@ -52,6 +57,11 @@ public class CompanyShareholderInfo {
 		this.actualStockAmount = actualStockAmount;
 		this.valuePerStock = valuePerStock;
 		this.address = address;
+		this.seq = seq;
+		this.signatureName = signatureName;
+		this.signaturePath = signaturePath;
+		this.ip = ip;
+		this.checksum = checksum;
 		this.company = company;
 	}
 
@@ -132,6 +142,36 @@ public class CompanyShareholderInfo {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+	public String getSignatureName() {
+		return signatureName;
+	}
+	public void setSignatureName(String signatureName) {
+		this.signatureName = signatureName;
+	}
+	public String getSignaturePath() {
+		return signaturePath;
+	}
+	public void setSignaturePath(String signaturePath) {
+		this.signaturePath = signaturePath;
+	}
+	public String getIp() {
+		return ip;
+	}
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+	public String getChecksum() {
+		return checksum;
+	}
+	public void setChecksum(String checksum) {
+		this.checksum = checksum;
 	}
 	public Company getCompany() {
 		return company;

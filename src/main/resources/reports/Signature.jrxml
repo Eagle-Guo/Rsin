@@ -30,18 +30,7 @@
 		</box>
 	</style>
 	<subDataset name="Empty Dataset1" uuid="db39a40f-4cf3-440d-bc06-e89c6247aaf5"/>
-	<parameter name="id" class="java.lang.String"/>
-	<parameter name="ip" class="java.lang.String"/>
-	<parameter name="checksum" class="java.lang.String"/>
 	<parameter name="documentReference" class="java.lang.String"/>
-	<parameter name="signImage" class="java.awt.Image">
-		<parameterDescription><![CDATA[]]></parameterDescription>
-	</parameter>
-	<parameter name="qrCode" class="java.lang.String">
-		<parameterDescription><![CDATA[]]></parameterDescription>
-	</parameter>
-	<parameter name="record" class="java.lang.String"/>
-	<parameter name="positionEmail" class="java.lang.String"/>
 	<parameter name="id1" class="java.lang.String"/>
 	<parameter name="id2" class="java.lang.String"/>
 	<parameter name="id3" class="java.lang.String"/>
@@ -54,21 +43,36 @@
 	<parameter name="checksum2" class="java.lang.String"/>
 	<parameter name="checksum3" class="java.lang.String"/>
 	<parameter name="checksum4" class="java.lang.String"/>
-	<parameter name="signImage1" class="java.lang.String"/>
-	<parameter name="signImage2" class="java.lang.String"/>
-	<parameter name="signImage3" class="java.lang.String"/>
-	<parameter name="signImage4" class="java.lang.String"/>
+	
+	<parameter name="signImage1" class="java.awt.Image">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="signImage2" class="java.awt.Image">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="signImage3" class="java.awt.Image">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="signImage4" class="java.awt.Image">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+
 	<parameter name="positionEmail1" class="java.lang.String"/>
 	<parameter name="positionEmail2" class="java.lang.String"/>
 	<parameter name="positionEmail3" class="java.lang.String"/>
 	<parameter name="positionEmail4" class="java.lang.String"/>
+	<parameter name="record" class="java.lang.String"/>
+	<parameter name="qrCode" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="1802" splitType="Stretch">
+		<band height="802" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
-				<reportElement x="0" y="40" width="551" height="1140" uuid="bff46c0c-9570-445f-87e6-e3c9271372ee"/>
+				<reportElement x="0" y="40" width="551" height="762" uuid="bff46c0c-9570-445f-87e6-e3c9271372ee"/>
 				<box>
 					<pen lineWidth="2.5" lineStyle="Solid" lineColor="#D6D0D0"/>
 				</box>
@@ -159,7 +163,7 @@
 				<textElement>
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{id1}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="71" y="170" width="126" height="16" uuid="257e9199-3b93-4b4e-9b2e-ce9b10fc01c3">
@@ -171,7 +175,7 @@
 				<textElement>
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{ip}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{ip1}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="380" y="163" width="158" height="78" uuid="817386c2-8772-4023-9a49-c05fb9d6c461">
@@ -183,7 +187,7 @@
 				<textElement>
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{checksum}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{checksum1}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="380" y="133" width="159" height="29" uuid="d6a641c6-f386-4c62-b4ed-3eaeca14df44">
@@ -194,22 +198,20 @@
 				</textElement>
 				<text><![CDATA[Multi-Factor Digital Fingerprint Checksum:]]></text>
 			</staticText>
-			<textField>
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
 				<reportElement x="208" y="153" width="158" height="89" uuid="5cb6a444-83d6-4098-9ee3-2bb67717910a"/>
-				<textElement>
-					<font size="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{signImage}]]></textFieldExpression>
-			</textField>
+				<imageExpression><![CDATA[$P{signImage1}]]></imageExpression>
+			</image>
 			<textField>
 				<reportElement x="11" y="133" width="185" height="16" uuid="adfe4777-1e3a-4fda-beaf-74b37ad3284d">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$P{positionEmail}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{positionEmail1}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="12" y="269" width="48" height="18" uuid="d10d05b8-b0a3-4233-9923-533afd42c105">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>
@@ -217,8 +219,9 @@
 				<text><![CDATA[Party ID:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="12" y="288" width="61" height="18" uuid="0a33670f-aed1-46e5-bd70-83dde76e72df">
+				<reportElement x="12" y="288" width="53" height="18" uuid="0a33670f-aed1-46e5-bd70-83dde76e72df">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>
@@ -226,7 +229,9 @@
 				<text><![CDATA[IP Address:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="208" y="252" width="159" height="16" uuid="228f3552-a504-4f36-b103-1f643eb0d0b0"/>
+				<reportElement x="208" y="252" width="159" height="16" uuid="228f3552-a504-4f36-b103-1f643eb0d0b0">
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
+				</reportElement>
 				<box>
 					<pen lineWidth="1.0"/>
 				</box>
@@ -238,6 +243,7 @@
 			<staticText>
 				<reportElement x="381" y="252" width="159" height="29" uuid="4d2ab0a9-f2bc-405e-af84-239b11f3ee38">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>
@@ -245,8 +251,9 @@
 				<text><![CDATA[Multi-Factor Digital Fingerprint Checksum:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="12" y="389" width="60" height="18" uuid="28e374c2-62f3-45d7-8784-2ab5fd563fb8">
+				<reportElement x="10" y="388" width="48" height="18" uuid="c8665eca-0401-4f79-a3dd-08af761596c3">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>
@@ -254,8 +261,9 @@
 				<text><![CDATA[Party ID:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="12" y="408" width="120" height="18" uuid="038eac1c-9b6c-456a-899f-487be033555a">
+				<reportElement x="7" y="410" width="58" height="18" uuid="1386f0a4-2c75-4bbb-8405-98ebcf997bff">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>
@@ -263,7 +271,9 @@
 				<text><![CDATA[IP Address:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="208" y="372" width="159" height="16" uuid="392f108b-0121-4e56-80eb-86a0176420c5"/>
+				<reportElement x="208" y="370" width="159" height="16" uuid="37e3f663-c194-41eb-ab71-690a99000aab">
+					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
+				</reportElement>
 				<box>
 					<pen lineWidth="1.0"/>
 				</box>
@@ -273,8 +283,9 @@
 				<text><![CDATA[  Electronic Signature:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="381" y="372" width="159" height="29" uuid="606e0bc3-d928-4ba4-874f-f82ea76e41e4">
+				<reportElement x="381" y="370" width="159" height="29" uuid="43b99129-7346-4207-ac24-efa3eb2bee92">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>
@@ -282,8 +293,9 @@
 				<text><![CDATA[Multi-Factor Digital Fingerprint Checksum:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="13" y="509" width="60" height="18" uuid="c8665eca-0401-4f79-a3dd-08af761596c3">
+				<reportElement x="7" y="510" width="46" height="18" uuid="3dd6cbde-1e14-4752-b679-854954921083">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>
@@ -291,8 +303,9 @@
 				<text><![CDATA[Party ID:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="13" y="528" width="120" height="18" uuid="1386f0a4-2c75-4bbb-8405-98ebcf997bff">
+				<reportElement x="8" y="540" width="61" height="18" uuid="cd4e5b39-5842-4e33-8324-619ced9c053e">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>
@@ -300,7 +313,9 @@
 				<text><![CDATA[IP Address:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="209" y="492" width="159" height="16" uuid="37e3f663-c194-41eb-ab71-690a99000aab"/>
+				<reportElement x="209" y="486" width="159" height="16" uuid="6209a6f2-6808-4ce4-aa12-75421c2e4390">
+					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
+				</reportElement>
 				<box>
 					<pen lineWidth="1.0"/>
 				</box>
@@ -310,45 +325,9 @@
 				<text><![CDATA[  Electronic Signature:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="382" y="492" width="159" height="29" uuid="43b99129-7346-4207-ac24-efa3eb2bee92">
+				<reportElement x="380" y="486" width="159" height="29" uuid="65d31a38-fef4-43cf-befd-fccf658d3d48">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement>
-					<font size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Multi-Factor Digital Fingerprint Checksum:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="12" y="631" width="60" height="18" uuid="3dd6cbde-1e14-4752-b679-854954921083">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement>
-					<font size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Party ID:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="12" y="650" width="61" height="18" uuid="cd4e5b39-5842-4e33-8324-619ced9c053e">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement>
-					<font size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[IP Address:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="208" y="614" width="159" height="16" uuid="6209a6f2-6808-4ce4-aa12-75421c2e4390"/>
-				<box>
-					<pen lineWidth="1.0"/>
-				</box>
-				<textElement textAlignment="Left">
-					<font size="10" isBold="false"/>
-				</textElement>
-				<text><![CDATA[  Electronic Signature:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="381" y="614" width="159" height="29" uuid="65d31a38-fef4-43cf-befd-fccf658d3d48">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>
@@ -359,16 +338,20 @@
 				<reportElement x="11" y="251" width="188" height="16" uuid="8d9ced23-f46e-4a47-9d7f-66d62c735e45">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{positionEmail2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="60" y="269" width="139" height="16" uuid="a1c79896-a2f8-43f6-ac7e-3c2a3b07e501"/>
+				<reportElement x="60" y="269" width="139" height="16" uuid="a1c79896-a2f8-43f6-ac7e-3c2a3b07e501">
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
+				</reportElement>
 				<textFieldExpression><![CDATA[$P{id2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="72" y="288" width="125" height="16" uuid="21a80bbd-0629-4025-acf4-2944f54cfc87">
+				<reportElement x="72" y="288" width="125" height="22" uuid="21a80bbd-0629-4025-acf4-2944f54cfc87">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{ip2}]]></textFieldExpression>
 			</textField>
@@ -376,122 +359,102 @@
 				<reportElement x="380" y="282" width="159" height="78" uuid="9cd1879d-5e7f-4270-b8a7-991a84191c7f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{checksum2}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
 				<reportElement x="208" y="272" width="158" height="89" uuid="bfc920be-5ca0-414f-a7fc-1b817772a3da">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
 				</reportElement>
-				<textFieldExpression><![CDATA[$P{signImage2}]]></textFieldExpression>
-			</textField>
+				<imageExpression><![CDATA[$P{signImage2}]]></imageExpression>
+			</image>
 			<textField>
-				<reportElement x="11" y="614" width="188" height="16" uuid="67e1ae24-0358-44b8-a494-e2393a6d7eed">
+				<reportElement x="9" y="489" width="188" height="16" uuid="67e1ae24-0358-44b8-a494-e2393a6d7eed">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{positionEmail4}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="208" y="632" width="158" height="89" uuid="b661e3a6-e66b-48e8-bbe0-47df63789cd5">
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="208" y="510" width="158" height="89" uuid="b661e3a6-e66b-48e8-bbe0-47df63789cd5">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
-				<textFieldExpression><![CDATA[$P{signImage4}]]></textFieldExpression>
-			</textField>
+				<imageExpression><![CDATA[$P{signImage4}]]></imageExpression>
+			</image>
 			<textField>
-				<reportElement x="380" y="644" width="159" height="78" uuid="4750dd72-b0a6-42fb-b7f9-62c3a701e397">
+				<reportElement x="381" y="520" width="159" height="78" uuid="4750dd72-b0a6-42fb-b7f9-62c3a701e397">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{checksum4}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="73" y="651" width="126" height="16" uuid="ebdf59f8-5fc2-4422-ba3f-88c509e110b0">
+				<reportElement x="71" y="541" width="126" height="16" uuid="ebdf59f8-5fc2-4422-ba3f-88c509e110b0">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{ip4}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="60" y="632" width="139" height="16" uuid="ec837954-0a06-4a93-89ec-5baeb95ed603">
+				<reportElement x="58" y="510" width="139" height="16" uuid="ec837954-0a06-4a93-89ec-5baeb95ed603">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{id4}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="11" y="493" width="188" height="14" uuid="ff78a091-c754-4c54-abd4-af1530ed39e2">
+				<reportElement x="11" y="371" width="188" height="14" uuid="ff78a091-c754-4c54-abd4-af1530ed39e2">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{positionEmail3}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="208" y="512" width="158" height="89" uuid="5b05419c-bbc9-44e0-9b54-a87edd1103c9">
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="208" y="391" width="158" height="89" uuid="5b05419c-bbc9-44e0-9b54-a87edd1103c9">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
 				</reportElement>
-				<textFieldExpression><![CDATA[$P{signImage3}]]></textFieldExpression>
-			</textField>
+				<imageExpression><![CDATA[$P{signImage3}]]></imageExpression>
+			</image>
 			<textField>
-				<reportElement x="380" y="522" width="159" height="78" uuid="31ac6f69-9b24-4408-b9f8-9f999ba8acef">
+				<reportElement x="380" y="400" width="159" height="78" uuid="31ac6f69-9b24-4408-b9f8-9f999ba8acef">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{checksum3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="73" y="529" width="126" height="16" uuid="90daf8cc-b078-40ad-84c0-2d8798644a98">
+				<reportElement x="71" y="410" width="126" height="16" uuid="90daf8cc-b078-40ad-84c0-2d8798644a98">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{ip3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="60" y="508" width="139" height="16" uuid="c9d6d0f2-c43e-4f3b-8de0-6dc26185c280">
+				<reportElement x="58" y="389" width="139" height="16" uuid="c9d6d0f2-c43e-4f3b-8de0-6dc26185c280">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{id3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="11" y="372" width="188" height="14" uuid="d074c1aa-90be-4941-829b-f53f2fcfe9c3">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$P{positionEmail2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="208" y="392" width="158" height="89" uuid="bdb566e7-e838-4cde-b6b5-7894ac90a7e9">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$P{signImage2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="72" y="409" width="120" height="16" uuid="49e3726a-a436-4b85-91da-4a3b0a621701">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$P{ip2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="60" y="390" width="132" height="16" uuid="7adea10c-3bec-4ea1-ab69-03a580be40ea">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$P{id2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="380" y="402" width="159" height="78" uuid="b1b72ce5-aad5-4fd3-9059-d94d9d3d97a3">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$P{checksum2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="12" y="740" width="526" height="250" uuid="ec733a2d-316a-4d35-a2df-0f5eb620d3f1"/>
+				<reportElement x="12" y="610" width="526" height="90" uuid="ec733a2d-316a-4d35-a2df-0f5eb620d3f1"/>
 				<textFieldExpression><![CDATA[$P{record}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="20" y="1080" width="100" height="80" uuid="3886ae56-d709-4107-8daa-9a8df5111ba3"/>
+				<reportElement x="20" y="710" width="100" height="80" uuid="3886ae56-d709-4107-8daa-9a8df5111ba3"/>
 				<textFieldExpression><![CDATA[$P{qrCode}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="139" y="1091" width="361" height="39" uuid="47d584af-9cf5-4846-b34e-ae7f73bd88c3">
+				<reportElement x="150" y="710" width="361" height="39" uuid="47d584af-9cf5-4846-b34e-ae7f73bd88c3">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>

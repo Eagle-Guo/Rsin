@@ -25,6 +25,8 @@ public class Document {
 	private String createdBy;
     @Column(name="created_date")
 	private Date createdDate;
+    @Column(name="reference_no")
+	private String referenceNo;
     
     @ManyToOne
     @JoinColumn(name = "company_id", nullable = false)
@@ -37,13 +39,14 @@ public class Document {
     public Document() {}
 
 	public Document(Long id, String documentPath, String documentName, String createdBy, Date createdDate,
-			Company company, DocumentType documentType) {
+			String referenceNo, Company company, DocumentType documentType) {
 		super();
 		this.id = id;
 		this.documentPath = documentPath;
 		this.documentName = documentName;
 		this.createdBy = createdBy;
 		this.createdDate = createdDate;
+		this.referenceNo = referenceNo;
 		this.company = company;
 		this.documentType = documentType;
 	}
@@ -86,6 +89,14 @@ public class Document {
 
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
+	}
+
+	public String getReferenceNo() {
+		return referenceNo;
+	}
+
+	public void setReferenceNo(String referenceNo) {
+		this.referenceNo = referenceNo;
 	}
 
 	public Company getCompany() {

@@ -53,6 +53,7 @@ public class OnlineSignatureServiceImpl implements OnlineSignatureService {
 		}
 		pageData.put("shareholderAndStock", shareholderAndStock);
 		pageData.put("totalStockAmount", total);
+		pageData.put("sameCompanyShareholderInfos", companyShareholderInfos);
 		return pageData;
 	}
 	

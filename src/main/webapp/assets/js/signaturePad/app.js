@@ -73,7 +73,7 @@ function uploadSignature(mimetype) {
     fd.append('signature',blobdata);
     /** will result in normal file upload with post name "signature" on target url **/
     $.ajax({
-        url: "/api/uploadSignture",
+        url: "/api/onlineSubmitSignture",
         type: 'POST',
         data: fd,
         processData: false,

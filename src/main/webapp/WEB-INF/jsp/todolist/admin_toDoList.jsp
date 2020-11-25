@@ -108,7 +108,44 @@
                           <td><div class="badge badge-primary">未完成</div></td>
                           <td><a href="#" class="btn btn-secondary">查看文件</a></td>
                         </tr>                        
-
+                        <tr>
+                          <td>
+                            <div class="custom-checkbox custom-control">
+                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
+                              <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
+                            </div>
+                          </td>
+                          <td>公司A
+                          </td>
+                          <td>
+                          	  电子签名
+                          </td>
+                          <td>
+                                                                                                     挂名董事
+                          </td>
+                          <td>First Director Meeting Resolution</td>
+                          <td><div class="badge badge-primary">未完成</div></td>
+                          <td><a href="#" class="btn btn-danger">查看和签署文件</a></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="custom-checkbox custom-control">
+                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
+                              <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
+                            </div>
+                          </td>
+                          <td>公司A
+                          </td>
+                          <td>
+                          	  电子签名
+                          </td>
+                          <td>
+                                                                                                     公司秘书
+                          </td>
+                          <td>First Director Meeting Resolution</td>
+                          <td><div class="badge badge-primary">未完成</div></td>
+                          <td><a href="#" class="btn btn-danger">查看和签署文件</a></td>
+                        </tr>                        
                       </table>
                     </div>
                     <div class="float-right">

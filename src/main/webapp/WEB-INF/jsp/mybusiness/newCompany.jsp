@@ -49,36 +49,68 @@
 									<div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
 										<div class="multisteps-form__progress">
 											<button class="multisteps-form__progress-btn js-active" type="button" title="选择服务">选择服务</button>
-											<button class="multisteps-form__progress-btn" type="button" title="填报资料">填报资料<br/>在线确认</button>
-											<button class="multisteps-form__progress-btn" type="button" title="在线付款">在线支付</button>
-											<button class="multisteps-form__progress-btn" type="button" title="在线付款">电子签名<br/>上传资料</button>
-											<button class="multisteps-form__progress-btn" type="button" title="在线付款">注册成功<br/>下载注册成功文件</button>										
+											<button class="multisteps-form__progress-btn" type="button" title="信息填报">信息填报</button>
+											<button class="multisteps-form__progress-btn" type="button" title="在线支付">在线支付</button>
+											<button class="multisteps-form__progress-btn" type="button" title="电子签名" onclick="viewcontent_sing()" >电子签名</button>
+											<button class="multisteps-form__progress-btn" type="button" title="上传资料" onclick="viewcontent_uploadInfo()" >上传资料</button>
+											<button class="multisteps-form__progress-btn disable-button" type="button" title="注册受理中">注册受理中</button>
+											<button class="multisteps-form__progress-btn disable-button" type="button" title="注册完成、查看文件">注册完成</button>																					
 										</div>
-									</div>
-									<div class="col-lg-12 col-md-12 col-12 col-sm-12">
-										<div class="panel-group" id="accordion">
-											<div class="panel panel-default">
-												<div class="panel-heading">
-													<h4 class="panel-title">
-														<a data-toggle="collapse" data-parent="#accordion" 
-														   href="#collapseOne">
-														<i class="fa fa-bell-o" style="font-size:20px"></i>重要提示 
-														</a>
-													</h4>
-												</div>
-												<div id="collapseOne" class="panel-collapse collapse in">
-													<div class="panel-body">
-													此申请步骤约需20分钟；申请前请准备好以下资料，以方便更快填报信息。<br/>
-														1、新加坡公民或PR，需准备IC；<br/>
-														2、中国公民，需准备护照、中国身份证；<br/>
-														3、其它国家公民，需准备护照、住所证明。<br/>
-														备注：请确保所填内容是英文形式。
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>										
-									<br/><br/>
+									</div> 
+
+						            <div class="col-12 col-md-12 col-lg-12" id="readyContent">
+						                <div class="card">
+						                	<div class="card-body">
+						                    	<div id="accordion">
+						                      		<div class="accordion">
+								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="true">
+								                         	<h4>准备提示</h4>
+								                        </div>
+								                        <div class="accordion-body collapse show" id="panel-body-1" data-parent="#accordion">
+								                        	<p class="mb-0">此申请步骤约需20分钟；申请前请准备好以下资料，以方便更快填报信息。<br/>
+																						1、新加坡公民或PR，需准备IC；<br/>
+																						2、中国公民，需准备护照、中国身份证；<br/>
+																						3、其它国家公民，需准备护照、住所证明。<br/>
+																						备注：请确保所填内容是英文形式。
+															</p>
+								                        </div>
+						                      		</div>
+						                    	</div>
+						                 	 </div>
+						                </div>
+						            </div>
+
+
+									<!-- signature part -->									
+						            <div class="col-12 col-md-12 col-lg-12" id="signatureContent" style="display:none;">
+						                <div class="card">
+						                	<div class="card-body">
+									          <div class="section-body">
+									            <h2 class="section-title">“在线签名”步骤</h2>
+									            <p class="section-lead">
+									                                                    请点击<a href="/onlineSignature">“此处”</a>完成“在线签名”步骤。
+									            </p> </div>
+						                 	 </div>
+						                </div>
+						            </div>	
+
+									<!-- signature part -->									
+						            <div class="col-12 col-md-12 col-lg-12" id="uploadInfo" style="display:none;">
+						                <div class="card">
+						                	<div class="card-body">
+									          <div class="section-body">
+									            <h2 class="section-title">“上传资料”步骤</h2>
+									            <p class="section-lead">
+									             1、新加坡公民或PR，需准备IC；<br/>
+												 2、中国公民，需准备护照、中国身份证；<br/>
+												 3、其它国家公民，需准备护照、住所证明。<br/>
+									            </p> </div>
+						                 	 </div>
+						                </div>
+						            </div>	
+
+
+
 									<!-- Left side -->
 									<div class="col-lg-8 col-md-12 col-12 col-sm-12 leftside">
 										<form class="newCompany multisteps-form__form" action="/view/registerNewCompany" method="post" enctype="multipart/form-data" id="newcompanyForm">
@@ -87,7 +119,6 @@
 											<div class="multisteps-form__panel shadow p-4 rounded bg-white ad js-active" data-animation="scaleIn" id="companytype">
 												<h3 class="multisteps-form__title">选择服务</h3>
 												<div class="multisteps-form__content">
-													<!-- <div class="control-label">请从以下选择你需要的服务</div> -->
 													<div class="section-title">新注册公司类型</div>
 													<fieldset id="company_type">
 														<div class="custom-control custom-radio">
@@ -99,10 +130,8 @@
 															<label class="custom-control-label" for="customRadio2">公众有限责任公司(Ltd.)(如需选择此类型，请联系我们的服务顾问。)</label>
 														</div>
 													</fieldset>
-
 													<div class="section-title">可选服务</div>
 													<ul class="list-group list-group-flush scroll">
-														
 														<li class="list-group-item">
 															<label>
 																<div class="row">
@@ -123,7 +152,6 @@
 																</ul>
 															</div>
 														</li>
-
 														<li class="list-group-item">
 															<label>
 																<div class="row">
@@ -139,7 +167,7 @@
 															<div class="card-body" id="openAccountDeatil2" style="display: none">
 																<ul class="list-group">
 																	<li class="list-group-item d-flex justify-content-between align-items-center choosedsvr" onclick="choosedsv(1)">1年
-																		<span id="priceDongshi" class="badge badge-primary badge-pill dontshileft">S$3500(含押金S$1500)</span>
+																		<span id="priceDongshi" class="badge badge-primary badge-pill dontshileft">S$2000</span>
 																	</li>																
 																</ul>
 															</div>
@@ -169,7 +197,6 @@
 																</ul>
 															</div>
 														</li>
-	
 														<li class="list-group-item">
 															<label>
 																<div class="row">
@@ -222,7 +249,6 @@
 																</ul>
 															</div>
 														</li>
-	
 														<li class="list-group-item">
 															<label>
 																<div class="row">
@@ -257,7 +283,6 @@
 																</ul>
 															</div>
 														</li>
-	
 														<li class="list-group-item">
 															<label>
 																<div class="row">
@@ -291,7 +316,6 @@
 																</ul>
 															</div>
 														</li>
-	
 														<li class="list-group-item">
 															<label>
 																<div class="row">
@@ -328,7 +352,6 @@
 												<h3 class="multisteps-form__title">填报资料</h3>
 												<div class="multisteps-form__content c_top">
 													<div class="card-body">
-														<!-- <div class="alert alert-info"><b>联系方式</b></div> -->
 														<div class="section-title">公司资料</div>
 														<div class="form-group row">
 															<label class="col-sm-3 col-form-label">公司名称</label>
@@ -366,27 +389,42 @@
 																<input type="text" class="form-control" disabled="disabled" id="registeredCapital2" placeholder="自动计算">
 															</div>
 														</div>
-													<div class="form-group row">
-														<label class="col-sm-3 col-form-label">公司商业活动1</label>
-														<div class="col-sm-9" style="width:300px;">
-															<input type="text" class="form-control" id="businessEvent1" placeholder="请输入英文关键词进行搜索" ></input>
+														<div class="form-group row">
+															<label class="col-sm-3 col-form-label">公司商业活动1</label>
+															<div class="col-sm-9" style="width:300px;">
+																<input type="text" class="form-control" id="businessEvent1" placeholder="请输入英文关键词进行搜索" ></input>
+															</div>
 														</div>
-													</div>
-													<div class="form-group row">
-														<label class="col-sm-3 col-form-label">公司商业活动2</label>
-														<div class="col-sm-9" style="width:300px;">
-															<input type="text" class="form-control" id="businessEvent2" placeholder="请输入英文关键词进行搜索" ></input>
-														</div>
-													</div>													
-													<div class="form-group row">
+														<div class="form-group row">
+															<label class="col-sm-3 col-form-label">公司商业活动2</label>
+															<div class="col-sm-9" style="width:300px;">
+																<input type="text" class="form-control" id="businessEvent2" placeholder="请输入英文关键词进行搜索" ></input>
+															</div>
+														</div>													
+														<div class="form-group row">
 														<label class="col-sm-3 col-form-label">公司地址及邮编</label>
 														<div class="col-sm-9">
 															<textarea class="form-control textareaheight"
 																id="conpanyAddressAndPostalCode" placeholder="默认为我司提供的商业地址，如需修改，请参照以下格式填写：111 North Bridge Rd, Peninsula Plaza #29-06A, Singapore 179098"  onkeyup="value=value.replace(/[^\w\.\s\#\,\-\'\\\&\*\·\/]/ig,'')"></textarea>
 														</div>
 													</div>
+													    <div  id="nomineeDirector" style="display:none;">
+															<div class="section-title">挂名董事资料</div>				
+															<div class="form-group row">
+																<label class="col-sm-3 col-form-label">挂名董事姓名</label>
+																<div class="col-sm-9">
+																	<input type="text" disabled="disabled" class="form-control"  value="挂名董事（由Rsin提供）" >
+																</div>
+															</div>
+														</div>																										
 														<div class="section-title">董事、股东、联系人资料</div>
-														<div class="infoPart scroll">														
+														<div class="infoPart scroll">		
+															<!--  <div class="form-group row"  id="nomineeDirector" style="display:none;">
+																<label class="col-sm-3 col-form-label">姓名</label>
+																<div class="col-sm-9">
+																	<input type="text" disabled="disabled" class="form-control"  value="持名董事（由公司提供）" >
+																</div>
+															</div>	-->																																																																				
 															<div class="form-group row">
 																<label class="col-sm-3 col-form-label">职位类型（可多选）</label>
 																<div class="col-sm-9">
@@ -514,36 +552,18 @@
 														</div>	
 														<div class="button-row d-flex mt-4">
 															<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
+															<div class="form-check form-check-inline infoConfirm">
+																			<input class="form-check-input" type="checkbox" id="checkb_dongshi0"> 
+																			<label style="height: auto;" class="form-check-label">请确定所填信息准确无误后点击“下一步”。</label>
+															</div>
 															<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="listSummary()" id="step2next">下一步</button>
 														</div>
 													</div>
 												</div>
 											</div>
 											
-
 											<!--single form panel-->
-											<div class="multisteps-form__panel shadow p-5 rounded bg-white" data-animation="scaleIn">
-												<h3 class="multisteps-form__title">在线确认</h3>
-												<div class="card-body">
-													<div class="section-title">公司资料</div>
-													<div class="form-group row">
-														<div id="companyinfo_summary"></div>
-													</div>
-													<div class="section-title">董事、股东、联系人资料</div>
-													<div class="form-group row">
-														<div id="shareholder_summary"></div>
-													</div>
-												</div>
-												
-												<div class="button-row d-flex mt-4">
-													<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-													<!-- <button class="btn btn-primary js-btn-prev" type="button" title="SendEmail" id="send_email">发送确认邮件</button> -->
-													<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="saveToBackend()">下一步</button>
-												</div>
-											</div>
-	
-											<!--single form panel-->
-											<div class="multisteps-form__panel shadow p-6 rounded bg-white" data-animation="scaleIn">
+											<div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
 												<h3 class="multisteps-form__title">在线支付</h3>
 												<div class="multisteps-form__content">
 													<div class="card-body" id="summary">													
@@ -643,6 +663,12 @@
 										<!-- Right side -->
 										<div class="summary-item" id="selected_summary"></div>
 									</div>
+									
+								
+									
+									
+									
+									
 								</div>
 							</div>
 						</div>

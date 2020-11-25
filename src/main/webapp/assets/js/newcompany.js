@@ -286,10 +286,11 @@ function choosedsv(x) {
                 services = services.filter(item => item.name !== "挂名董事")
                 // services = services.filter(item => item.name !== "押金")
             }
-            services.push({name:"挂名董事",price:2000+1500});
+            services.push({name:"挂名董事",price:2000+0});
             // services.push({name:"押金",price:1500});
             refreshRightSummary();
             z=[];
+            displayNomineeDirector();
             break;
         case 2:
               if (services.some(el => el.name === "GST消费税注册")){
@@ -400,6 +401,7 @@ function choosedsv(x) {
                 services = services.filter(item => item.name !== "挂名董事")
             }
             refreshRightSummary();
+            removeNomineeDirector();
             break;
         case 2:
             if (services.some(el => el.name === "GST消费税注册")){
@@ -483,11 +485,11 @@ function choosedsv(x) {
 var z= [];
 function run(x) {
         if (z.length == 2){
-            document.getElementById("priceDongshi").innerHTML = "S$"+(1800+1500)+"（含押金S$1500）";
+            document.getElementById("priceDongshi").innerHTML = "S$"+(2000+0)+"";
             if (services.some(el => el.name === "挂名董事")){
                 services = services.filter(item => item.name !== "挂名董事")
             }
-        services.push({name:"挂名董事",price:2000+1500});
+        services.push({name:"挂名董事",price:2000+0});
         refreshRightSummary();
         z= [];
     }    
@@ -776,3 +778,41 @@ $('body').on('click','.removeNode', function() {
     $(this).closest('.contactClone').remove();
 });
 $(function () { $('#collapseOne').collapse('hide')});
+
+
+
+
+
+var coll = document.getElementsByClassName("collapsible1");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+  });
+}
+
+
+function viewcontent_sing() {
+	/*document.getElementsByClassName("me_education nav-item dropdown")[0].classList.add("open");*/
+	document.getElementById("readyContent").style.display = "none";
+	document.getElementById("selected_summary").style.display = "none";	
+    document.getElementById("signatureContent").style.display = "block";
+    document.getElementById("uploadInfo").style.display = "none";
+}
+
+function viewcontent_uploadInfo() {
+	document.getElementById("signatureContent").style.display = "none";
+    document.getElementById("uploadInfo").style.display = "block";
+}
+
+function displayNomineeDirector() {
+	var text = document.getElementById("nomineeDirector");
+		text.style.display = "block";
+}
+
+function removeNomineeDirector() {
+	var text = document.getElementById("nomineeDirector");
+		text.style.display = "none";
+}

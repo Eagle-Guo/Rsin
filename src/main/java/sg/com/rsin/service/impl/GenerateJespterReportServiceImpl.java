@@ -151,6 +151,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			
 			InputStream in = new ByteArrayInputStream(bytes);
 	        BufferedImage bImageFromConvert = ImageIO.read(in);
+	        String md5Checksum = org.apache.commons.codec.digest.DigestUtils.md5Hex(in);
 
 			Map<String, Object> reportParamMapTwo = new HashMap<String, Object>();
 	        String documentReference = UUID.randomUUID().toString();
@@ -165,7 +166,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 				if (companyShareholderInfo.getEmail().equalsIgnoreCase(userId)) {
 					reportParamMapTwo.put("signImage"+companyShareholderInfo.getSeq(), bImageFromConvert);
 					reportParamMapTwo.put("ip"+companyShareholderInfo.getSeq(), ip);
-				    reportParamMapTwo.put("checksum"+companyShareholderInfo.getSeq(), "bos7zo7038h7mnum");
+				    reportParamMapTwo.put("checksum"+companyShareholderInfo.getSeq(), md5Checksum);
 				} else if (ObjectUtils.isNotEmpty(companyShareholderInfo.getSignatureName())){
 					try {
 						File file = new File((companyShareholderInfo.getSignaturePath()+companyShareholderInfo.getSignatureName()));
@@ -180,9 +181,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 				}
 			}
 			JasperPrint jasperPrintTwo = JasperFillManager.fillReport(signatureReport, reportParamMapTwo, new JREmptyDataSource());
-			
-			String md5Checksum = org.apache.commons.codec.digest.DigestUtils.md5Hex(in);
-		    
+
 		    // Generate all 8 documents
 		    for (int i=1; i<=8; i++) {
 		    	List<JasperPrint> jasperPrintList = new ArrayList<JasperPrint>();

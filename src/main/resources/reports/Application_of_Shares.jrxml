@@ -138,7 +138,7 @@
 				</textElement>
 				<text><![CDATA[认股申请书]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="72" y="132" width="446" height="20" uuid="d06bdd0a-6871-4fee-8e55-40d4ac387531"/>
 				<textElement textAlignment="Left">
 					<font size="13"/>
@@ -152,7 +152,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{companyAddress}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="400" y="229" width="119" height="18" uuid="4c169fa1-8ef0-404d-9745-39bc2bfff4a1">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -164,7 +164,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{calcNumberofPaid-inShares}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="142" y="247" width="108" height="18" uuid="c150b03f-83b1-4d6f-a5d9-99d38978911a">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -176,7 +176,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{calcPerShare}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="369" y="247" width="149" height="18" uuid="07845d62-6e1d-4678-abce-743ae2cb9fc4">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -189,7 +189,7 @@
 				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 				<patternExpression><![CDATA[$P{companyName}]]></patternExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="239" y="265" width="121" height="18" uuid="bf471892-0a89-4b70-9aaf-205a2a4d1b91">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -242,7 +242,7 @@
 				</textElement>
 				<text><![CDATA[（以下简称“公司”）的]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="119" y="337" width="119" height="18" uuid="c8ce6b08-d111-46c5-851c-f6da925f91bc">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -254,7 +254,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{calcNumberofPaid-inShares}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="279" y="337" width="108" height="18" uuid="f66b40db-1301-45a5-82a3-1adf2f311d60">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -266,7 +266,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{calcPerShare}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="251" y="319" width="149" height="18" uuid="f0a7aeeb-d190-4a86-a678-faa66652ebf0">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -279,7 +279,7 @@
 				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 				<patternExpression><![CDATA[$P{companyName}]]></patternExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="153" y="356" width="121" height="18" uuid="c565da28-5964-48c8-b59a-deaa87b43b5b">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -337,7 +337,7 @@
 				</textElement>
 				<text><![CDATA[股本将以现金或股东贷款支付。]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="129" y="692" width="221" height="20" uuid="ec832663-6ab0-4d62-bae7-dc2abdc41519">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>

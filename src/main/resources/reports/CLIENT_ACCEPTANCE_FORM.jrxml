@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CLIENT_ACCEPTANCE_FORM" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3453c36b-3501-48b3-a432-863478d97ce1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<subDataset name="Dataset1" uuid="3ef0230a-0405-4c09-959c-92e47c9a12e6">
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 		<queryString>
@@ -530,7 +531,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[居住地址：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="485" width="478" height="18" uuid="52e05e9c-773e-4364-8076-ad1a768f8b42">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -552,7 +553,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[性别：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="536" width="478" height="18" uuid="7258a8f0-e8bd-4d0a-880d-6b8e71635566">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -575,7 +576,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[ 联系电话：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="588" width="478" height="18" uuid="67ade74d-2dda-442b-983d-d00021696a05">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -598,7 +599,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[过去5年的工作经验：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="640" width="478" height="18" uuid="65538ac1-c70c-4b1d-93dd-a29d7917dcf9">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -621,7 +622,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[教育机构的最高资格：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="692" width="478" height="18" uuid="03a4832e-9f42-452f-baf8-6647c14fedd2">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -644,7 +645,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[你是否曾被刑事定罪？]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="743" width="477" height="18" uuid="10d683ac-3fc8-426d-b8a2-659a0675d9f9">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -676,7 +677,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[公司将开展何种业务活动：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="857" width="477" height="18" uuid="6729c965-3368-4026-9ce5-68dd54a79cb6">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -699,7 +700,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[创业资金来源：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="909" width="477" height="18" uuid="31f2c356-9d24-4773-a56c-5146af937757">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -722,7 +723,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[公司的销售额是如何产生的：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="961" width="476" height="18" uuid="5dc77231-f22a-4fe2-a761-4b403527606b">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -745,7 +746,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[未来12个月的预计营业额：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="1012" width="476" height="18" uuid="4e792408-2974-4674-8332-c2eec1d95710">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -768,7 +769,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[一些供应商的名称（如有）]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="1064" width="476" height="18" uuid="fb69412f-75d0-4bee-88f5-ea73711f4741">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -791,7 +792,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[客户名称（如有）]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="1115" width="476" height="18" uuid="07c4d83c-c57e-4db3-9cc2-b1af115f0cb5">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -814,7 +815,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[参考括号内提示，董事的背景（如：本地人或外国人、过去的工作经验等）：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="1184" width="476" height="18" uuid="55497c7d-732a-4b9e-854d-531b3bfe733e">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -837,7 +838,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[参考括号内提示，公司的银行账户主要用于什么？（如投资或运营账户）：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="1265" width="476" height="18" uuid="a552983e-ce34-4012-90b3-f1293371404f">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -859,7 +860,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[参考括号内提示，银行账户流入资金来源（如营业收入、投资者或控股公司资金）：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="1351" width="476" height="18" uuid="e1ec5644-f745-4e90-ba7d-4a64bde571b7">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -872,7 +873,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<textFieldExpression><![CDATA[$P{questionOfCompany9}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="1435" width="476" height="18" uuid="888a70d7-3091-4b93-b408-8d9f9db735da">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -934,7 +935,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[(If No, please provide the details as below)]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="40" y="1623" width="486" height="18" uuid="a97d3a59-f985-40c6-914f-9d3fd849339c">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -944,7 +945,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</box>
 				<textFieldExpression><![CDATA[$P{beneficialOwner}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="1699" width="476" height="18" uuid="5fb44bba-48bd-4286-ad8a-3f728231a348">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -957,7 +958,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fullNameOfBeneficialOwner}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="1748" width="476" height="18" uuid="6c8572a0-a5a2-487d-b869-248ff5145f2a">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -970,7 +971,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<textFieldExpression><![CDATA[$P{idOfBeneficialOwner}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="1798" width="476" height="18" uuid="1a7b9eba-df31-4c2b-b68a-aae53c6ecbf8">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -983,7 +984,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<textFieldExpression><![CDATA[$P{birthDateOfBeneficialOwner}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="1848" width="476" height="18" uuid="44cd8533-d70f-43e9-b427-713841dbfeb1">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -996,7 +997,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nationalityOfBeneficialOwner}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="1899" width="476" height="18" uuid="30d50964-98a6-4c01-87a2-b3b78a98facc">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -1124,7 +1125,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[启动本公司的财富来源和说明：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="233" width="476" height="18" uuid="0fb92798-c007-40ce-b84e-ec49b1024b86">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -1146,7 +1147,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<text><![CDATA[Saving from income  收入储蓄]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="284" width="476" height="18" uuid="b9a71d20-4b27-4f49-aadd-bcc6700a8ead">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -1159,7 +1160,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fullName}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="333" width="476" height="18" uuid="0508e745-d8b8-4bd8-926a-9365f34afe62">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -1172,7 +1173,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="383" width="476" height="18" uuid="b2358bb1-836a-402b-8f9f-e024a2b3cefb">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -1185,7 +1186,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<textFieldExpression><![CDATA[$P{birthDate}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="50" y="434" width="476" height="18" uuid="870c99c1-2a50-444a-8522-427b40f7d470">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -1270,7 +1271,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				<text><![CDATA[客户声明
 本人声明此表格所提供的资料是真实及正确的。我知道，如果我被发现对任何我知道是虚假的或我认为不是真的的东西作出虚假声明，或者如果我故意隐瞒任何重要事实，我可能会受到起诉和刑事制裁。]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="40" y="2284" width="486" height="18" uuid="822d876a-8df2-49bd-a1cb-5a524fe409b8">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -1283,7 +1284,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<textFieldExpression><![CDATA[$P{question1OfSectionD}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="40" y="2403" width="486" height="18" uuid="ba96b610-9f00-4cd4-a441-90801b3f6a27">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -1296,7 +1297,7 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<textFieldExpression><![CDATA[$P{question2OfSectionD}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="40" y="2486" width="486" height="18" uuid="823e81ce-f6d0-4f81-9bd5-ddc9b2979f11">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -1309,13 +1310,13 @@ The Beneficial Owner confirms herewith that he / she has read and understood the
 				</textElement>
 				<textFieldExpression><![CDATA[$P{question3OfSectionD}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="150" y="2760" width="158" height="18" uuid="99f4f2ba-b0f5-49bd-a6bb-7a46d738dfa8">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{fullName}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="150" y="2779" width="158" height="18" uuid="978382b1-e8b9-4462-a081-8c0fcac96b25">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>

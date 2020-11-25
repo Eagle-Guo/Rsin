@@ -191,7 +191,7 @@
 				</textElement>
 				<text><![CDATA[根据公司法第50章在新加坡成立]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="280" y="137" width="489" height="20" uuid="8ba0c131-f0c0-411b-be12-2598c0c25718"/>
 				<box>
 					<bottomPen lineWidth="1.0"/>
@@ -201,7 +201,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nameAndICofShareholder}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="74" y="169" width="694" height="20" uuid="5d7bcbe7-152f-4b1e-bb1f-ae7697d8adea">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -213,7 +213,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{personalAddressOfShareholder}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="209" y="200" width="301" height="20" uuid="be524486-46f0-4a72-839d-b487b08fbedd">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -234,7 +234,7 @@
 				</textElement>
 				<text><![CDATA[Ordinary ]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="459" y="231" width="251" height="20" uuid="60b80283-a288-4e2d-b1b1-4dea63ecdedc">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -246,7 +246,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="361" y="292" width="218" height="20" uuid="b755676a-e293-45ec-b24f-0607ce9e1411"/>
 				<box>
 					<bottomPen lineWidth="1.0"/>

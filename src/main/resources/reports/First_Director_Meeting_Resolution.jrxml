@@ -420,7 +420,7 @@ Dated this Signing Date]]></text>
 				</textElement>
 				<text><![CDATA[retrospective from the date of incorporation to be confirmed.]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="100" y="775" width="419" height="18" uuid="64fc43da-a186-4e4e-a8ba-6273c1d5e22d">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -439,7 +439,7 @@ Dated this Signing Date]]></text>
 				</textElement>
 				<text><![CDATA[经决议，公司注册办公地址位于]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="100" y="836" width="419" height="18" uuid="b11a7d64-ef96-46b4-a4ce-c190105f9d33">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -493,7 +493,7 @@ Dated this Signing Date]]></text>
 				</textElement>
 				<text><![CDATA[经决议，以下人员为股东，股份以每股1新元的发行价格认购，即：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="100" y="1166" width="419" height="54" uuid="d11ed90e-d64c-4260-919a-9cb181bac7bd">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>

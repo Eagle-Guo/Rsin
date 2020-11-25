@@ -410,7 +410,7 @@ Nominee Director of the Company]]></text>
 				</textElement>
 				<text><![CDATA[本协议订立日期]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="227" y="11" width="173" height="18" uuid="ec7dcaf7-140d-4d72-b8ed-d03017cc9160">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -431,7 +431,7 @@ Nominee Director of the Company]]></text>
 				</textElement>
 				<text><![CDATA[委任挂名董事协议]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="40" y="138" width="200" height="18" uuid="8fa5629f-4b33-4197-85cf-78ce87841360">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -441,7 +441,7 @@ Nominee Director of the Company]]></text>
 				</box>
 				<textFieldExpression><![CDATA[$P{theNominee}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="40" y="176" width="200" height="18" uuid="2f30085b-2652-4e44-bdf0-d261e501076f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>

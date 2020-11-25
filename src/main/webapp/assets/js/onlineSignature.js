@@ -12,6 +12,7 @@ checkBoxes.change(function () {
 function SubForm(id){
 	var formData = new FormData();
 	var file_id = "#myFile" + id;
+	$("#uploaddoc"+id).attr("disabled", "disabled");  
     formData.append("file",$(file_id)[0].files[0]);
     formData.append("id", id);
     $.ajax({
@@ -22,7 +23,7 @@ function SubForm(id){
         processData: false,
         success: function(response){
         	console.log("Upload Successful", response);
-        	alert('成功');
+        	
         },
         error: function(e) {
         	console.error("ERROR : ", e)
@@ -155,6 +156,16 @@ function SubForm(id){
 	     req.send();
   }
 
+  function preview (docId) {
+	  pdffile=document.getElementById("myFile"+ docId).files[0];
+	  if (!pdffile) {
+		  alert("请先选择文件");
+		  return false;
+	  }
+	  pdffile_url=URL.createObjectURL(pdffile);
+	  window.open(pdffile_url, '_blank');
+  }
+  
 function viewPri(x) {
     document.getElementsByClassName("leftTab active")[0].classList.remove("active");
     document.getElementsByClassName("priDesc view")[0].classList.remove("view");

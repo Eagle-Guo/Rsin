@@ -43,7 +43,6 @@
 	<parameter name="checksum2" class="java.lang.String"/>
 	<parameter name="checksum3" class="java.lang.String"/>
 	<parameter name="checksum4" class="java.lang.String"/>
-	
 	<parameter name="signImage1" class="java.awt.Image">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 	</parameter>
@@ -56,7 +55,6 @@
 	<parameter name="signImage4" class="java.awt.Image">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 	</parameter>
-
 	<parameter name="positionEmail1" class="java.lang.String"/>
 	<parameter name="positionEmail2" class="java.lang.String"/>
 	<parameter name="positionEmail3" class="java.lang.String"/>
@@ -141,7 +139,7 @@
 				</textElement>
 				<text><![CDATA[  Electronic Signature:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="139" y="80" width="230" height="18" uuid="77a0b317-3605-4100-92c5-ee7e68c1175f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -153,7 +151,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{documentReference}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="60" y="150" width="139" height="16" uuid="30ce48bc-d6b2-432f-a1b1-915e1f1d1c70">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -165,7 +163,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{id1}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="71" y="170" width="126" height="16" uuid="257e9199-3b93-4b4e-9b2e-ce9b10fc01c3">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -177,7 +175,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ip1}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="380" y="163" width="158" height="78" uuid="817386c2-8772-4023-9a49-c05fb9d6c461">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -202,7 +200,7 @@
 				<reportElement x="208" y="153" width="158" height="89" uuid="5cb6a444-83d6-4098-9ee3-2bb67717910a"/>
 				<imageExpression><![CDATA[$P{signImage1}]]></imageExpression>
 			</image>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="11" y="133" width="185" height="16" uuid="adfe4777-1e3a-4fda-beaf-74b37ad3284d">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -211,7 +209,7 @@
 			<staticText>
 				<reportElement x="12" y="269" width="48" height="18" uuid="d10d05b8-b0a3-4233-9923-533afd42c105">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>
@@ -221,7 +219,7 @@
 			<staticText>
 				<reportElement x="12" y="288" width="53" height="18" uuid="0a33670f-aed1-46e5-bd70-83dde76e72df">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>
@@ -230,7 +228,7 @@
 			</staticText>
 			<staticText>
 				<reportElement x="208" y="252" width="159" height="16" uuid="228f3552-a504-4f36-b103-1f643eb0d0b0">
-					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null)]]></printWhenExpression>
 				</reportElement>
 				<box>
 					<pen lineWidth="1.0"/>
@@ -243,7 +241,7 @@
 			<staticText>
 				<reportElement x="381" y="252" width="159" height="29" uuid="4d2ab0a9-f2bc-405e-af84-239b11f3ee38">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>
@@ -334,32 +332,32 @@
 				</textElement>
 				<text><![CDATA[Multi-Factor Digital Fingerprint Checksum:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="11" y="251" width="188" height="16" uuid="8d9ced23-f46e-4a47-9d7f-66d62c735e45">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{positionEmail2}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="60" y="269" width="139" height="16" uuid="a1c79896-a2f8-43f6-ac7e-3c2a3b07e501">
-					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{id2}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="72" y="288" width="125" height="22" uuid="21a80bbd-0629-4025-acf4-2944f54cfc87">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{ip2}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="380" y="282" width="159" height="78" uuid="9cd1879d-5e7f-4270-b8a7-991a84191c7f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{checksum2}]]></textFieldExpression>
 			</textField>
@@ -367,11 +365,11 @@
 				<reportElement x="208" y="272" width="158" height="89" uuid="bfc920be-5ca0-414f-a7fc-1b817772a3da">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null) ]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null)]]></printWhenExpression>
 				</reportElement>
 				<imageExpression><![CDATA[$P{signImage2}]]></imageExpression>
 			</image>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="9" y="489" width="188" height="16" uuid="67e1ae24-0358-44b8-a494-e2393a6d7eed">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -387,28 +385,28 @@
 				</reportElement>
 				<imageExpression><![CDATA[$P{signImage4}]]></imageExpression>
 			</image>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="381" y="520" width="159" height="78" uuid="4750dd72-b0a6-42fb-b7f9-62c3a701e397">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{checksum4}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="71" y="541" width="126" height="16" uuid="ebdf59f8-5fc2-4422-ba3f-88c509e110b0">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{ip4}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="58" y="510" width="139" height="16" uuid="ec837954-0a06-4a93-89ec-5baeb95ed603">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{id4}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="11" y="371" width="188" height="14" uuid="ff78a091-c754-4c54-abd4-af1530ed39e2">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -424,32 +422,32 @@
 				</reportElement>
 				<imageExpression><![CDATA[$P{signImage3}]]></imageExpression>
 			</image>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="380" y="400" width="159" height="78" uuid="31ac6f69-9b24-4408-b9f8-9f999ba8acef">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{checksum3}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="71" y="410" width="126" height="16" uuid="90daf8cc-b078-40ad-84c0-2d8798644a98">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{ip3}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="58" y="389" width="139" height="16" uuid="c9d6d0f2-c43e-4f3b-8de0-6dc26185c280">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{id3}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="12" y="610" width="526" height="90" uuid="ec733a2d-316a-4d35-a2df-0f5eb620d3f1"/>
 				<textFieldExpression><![CDATA[$P{record}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="20" y="710" width="100" height="80" uuid="3886ae56-d709-4107-8daa-9a8df5111ba3"/>
 				<textFieldExpression><![CDATA[$P{qrCode}]]></textFieldExpression>
 			</textField>

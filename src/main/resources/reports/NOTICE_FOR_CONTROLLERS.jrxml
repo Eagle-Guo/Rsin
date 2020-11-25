@@ -283,7 +283,7 @@
 				</textElement>
 				<text><![CDATA[Date of notice:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="141" y="100" width="159" height="20" uuid="c8f04de8-c2bf-42e7-b0c8-dc33e3d0ffa8">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -295,7 +295,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{dateOfNotice}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="79" y="151" width="221" height="20" uuid="deb87fef-e720-47e5-a2b9-d1c2f4038f43">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -307,7 +307,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nameOfController}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="120" y="210" width="394" height="18" uuid="115c215a-dd34-404c-acf4-a33997defd28">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -338,7 +338,7 @@
 				</textElement>
 				<text><![CDATA[本通知根据《公司法》（第50章）第386节发出并要求贵方在本通知发出后30天内提供以下信息。未能提供本通知书所规定的信息，可能被制裁。]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="263" y="377" width="251" height="18" uuid="13c5d10b-426c-4693-988a-1b3110f0b880">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -359,7 +359,7 @@
 				</textElement>
 				<text><![CDATA[您是此公司的可注册的实际控制人*。如果您不同意上述判断，请不要继续或签字]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="117" y="443" width="163" height="18" uuid="916aa7b5-6611-4d1c-a86c-5308c959f436">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -456,7 +456,7 @@
 				</textElement>
 				<text><![CDATA[您的住址：]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="648" width="433" height="18" uuid="9f2125c9-d349-4695-8216-09e70f2ba026">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -469,7 +469,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nameOfController}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="697" width="433" height="18" uuid="6707d034-edb4-4d1c-9ef5-081650f1c3f5">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -527,7 +527,7 @@
 				</textElement>
 				<text><![CDATA[(vi) the date on which you became an individual controller of ]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="890" width="433" height="18" uuid="0debb64d-ce88-4b84-88bf-cb4a3cfd9821">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -540,7 +540,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="846" width="433" height="18" uuid="9cb6e065-bef1-44e9-a1bd-1ac6e1ad0556">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -553,7 +553,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{IDOfController}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="797" width="433" height="18" uuid="1ce1d216-4b93-4822-a393-5f172eb8d01f">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -566,7 +566,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nationalityOfController}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="747" width="433" height="18" uuid="55cf9e82-4661-475d-9f98-9063fb8e920e">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -755,7 +755,7 @@
 				</textElement>
 				<text><![CDATA[成为公司实际控制者的日期]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="83" y="1078" width="430" height="18" uuid="c527190a-3f60-40a8-88e6-23e140f75158">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -768,7 +768,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q1OfControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="83" y="1127" width="430" height="18" uuid="13c34218-4164-4fc8-86b0-19380b047699">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -781,7 +781,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q2OfControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="83" y="1176" width="430" height="18" uuid="54caac67-e78c-4696-a145-2fef4254e1a3">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -794,7 +794,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q3OfControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="83" y="1222" width="430" height="18" uuid="6eda22b7-3858-43f2-abc2-cd84c39824ef">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -807,7 +807,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q4OfControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="83" y="1289" width="430" height="18" uuid="af1de508-63aa-4285-8be0-13e3da932591">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -820,7 +820,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q5OfControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="83" y="1374" width="430" height="18" uuid="92ea381a-6386-446b-8bac-7bb77aa6a6a5">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -833,7 +833,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q6OfControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="83" y="1458" width="430" height="18" uuid="bb5f49da-3555-422c-80ed-5c5a64babce0">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -846,7 +846,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q7OfControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="83" y="1527" width="430" height="18" uuid="58281f38-d093-4f1a-9057-d0601ce419cb">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -859,7 +859,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q8OfControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="369" y="1481" width="144" height="18" uuid="577f2b46-5a88-442a-890b-4eb9723464cf"/>
 				<box>
 					<bottomPen lineWidth="1.0"/>
@@ -909,7 +909,7 @@
 				</textElement>
 				<text><![CDATA[(a)If your reply is yes and the person is an individual, please provide the following    particulars to the best of your knowledge:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="263" y="1584" width="251" height="18" uuid="f85d09ac-c682-4b42-8982-195cd3d5667c">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -977,7 +977,7 @@
 				</textElement>
 				<text><![CDATA[你是否知道或有合理理由相信任何其他人是此公司的可注册的控制人，或很可能知道这一点？]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="117" y="1651" width="183" height="18" uuid="d5e9f35d-9a11-46ed-9a7b-172a55589bd4">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -1115,7 +1115,7 @@
 				</textElement>
 				<text><![CDATA[此人的出生日期]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2133" width="208" height="18" uuid="93fc9c01-847f-46b5-a9a3-7900507321bb">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1128,7 +1128,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="1833" width="430" height="18" uuid="41d5da4b-cf37-46ce-9981-eb086a8ad4dc">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1142,7 +1142,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q1OfOtherController}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="1882" width="430" height="18" uuid="43249deb-5c6c-4ab7-874f-376f5c8c51d2">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1156,7 +1156,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q2OfOtherController}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="1933" width="430" height="18" uuid="1577ae7e-2855-49dc-88c1-a05f51932c1a">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1170,7 +1170,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q3OfOtherController}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="1983" width="430" height="18" uuid="d80fe067-427f-4eea-9527-3b34f308975b">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1184,7 +1184,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q4OfOtherController}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2033" width="430" height="18" uuid="1d1baf54-dab3-4003-a6f5-f11fc5682e1e">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1198,7 +1198,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q5OfOtherController}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2085" width="430" height="18" uuid="c894bf43-7f06-4413-bd08-e1dba066df80">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1212,7 +1212,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q6OfOtherController}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2179" width="430" height="18" uuid="72de68b6-1167-4abb-ac5d-8cc7c4b40a2f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1402,7 +1402,7 @@
 				</textElement>
 				<text><![CDATA[法人实体成为此公司的公司实际控制者的日期]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2750" width="144" height="18" uuid="f09763d5-c761-4aae-96d6-fd48649b3aae">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
@@ -1414,7 +1414,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2307" width="430" height="18" uuid="cde16fc8-9bb2-4983-b60a-ff8af9409c6f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1428,7 +1428,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q1OfOtherControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2374" width="430" height="18" uuid="e20baed9-71ee-4d69-8277-5e0634751c1b">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1442,7 +1442,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q2OfOtherControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2425" width="430" height="18" uuid="a4e0d055-2bff-4eec-a71d-6e3980b0def2">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1456,7 +1456,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q3OfOtherControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2475" width="430" height="18" uuid="84d253b8-ca75-40af-9da8-cfc824898b39">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1470,7 +1470,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q4OfOtherControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2540" width="430" height="18" uuid="20b06227-ce37-405c-9b49-7b9ebecde781">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1484,7 +1484,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q5OfOtherControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2623" width="430" height="18" uuid="ddeb95f6-8d1e-4754-8868-faca0e453d3c">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1498,7 +1498,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q6OfOtherControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2706" width="430" height="18" uuid="acbf2848-2c28-417a-9a59-5d8464ad28e8">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1512,7 +1512,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{q7OfOtherControllerOfLegalEntity}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="80" y="2792" width="430" height="18" uuid="13ef88ce-73b2-4fa9-b886-010b56033253">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1589,7 +1589,7 @@
 				</textElement>
 				<text><![CDATA[控制人的名字]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="40" y="3240" width="318" height="18" uuid="e713edd0-4302-4f5e-9cb1-5790efed642d">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>

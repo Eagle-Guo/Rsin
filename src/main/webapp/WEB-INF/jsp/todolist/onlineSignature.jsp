@@ -2832,26 +2832,14 @@
 											    </div>
 											    <div class="signature-pad--footer">
 											      <div class="signature-pad--actions">
-											      <div class="buttons sign_btn">                    
-								                      <button type="button" class="btn btn-default icon-left btn-primary" disabled="disabled" id="submit_sign" data-action="save-png">
-								                      	<div data-toggle="tooltip" title="请阅读所有待签名文件并完成打勾确认" ><i class="fas fa-check"></i> 提交 </div>
-								                      </button>
-								                      <button class="btn btn-icon icon-left btn-primary" data-action="clear"><i class="fas fa-times"></i>清空</button>
-								                      <button class="btn btn-icon icon-left btn-primary" data-action="change-color"><i class="fas fa-times"></i>改变颜色</button>
-								                      <button class="btn btn-icon icon-left btn-primary" data-action="undo"><i class="fas fa-times"></i>撤销还原</button>
-								                  </div>	
-
-											        <!-- <div>
-											          <button type="button" class="button clear" data-action="clear">Clear</button>
-											          <button type="button" class="button" data-action="change-color">Change color</button>
-											          <button type="button" class="button" data-action="undo">Undo</button>
-											
-											        </div>
-											        <div>
-											          <button type="button" class="button save" data-action="save-png">Save as PNG</button>
-											          <button type="button" class="button save" data-action="save-jpg">Save as JPG</button>
-											          <button type="button" class="button save" data-action="save-svg">Save as SVG</button>
-											        </div> -->
+												      <div class="buttons sign_btn">                    
+									                      <button type="button" class="btn btn-default icon-left btn-primary" disabled="disabled" id="submit_sign" data-action="save-png">
+									                      	<div data-toggle="tooltip" title="请阅读所有待签名文件并完成打勾确认" ><i class="fas fa-check"></i> 提交 </div>
+									                      </button>
+									                      <button class="btn btn-icon icon-left btn-primary" data-action="clear"><i class="fas fa-times"></i>清空</button>
+									                      <button class="btn btn-icon icon-left btn-primary" data-action="change-color"><i class="fas fa-times"></i>改变颜色</button>
+									                      <button class="btn btn-icon icon-left btn-primary" data-action="undo"><i class="fas fa-times"></i>撤销还原</button>
+									                  </div>	
 											      </div>
 											    </div>
 											</div>
@@ -2873,7 +2861,7 @@
 				          </div>          
 				
 				    </div>
-                    <div id="Signature" class="tabcontent" style="display:none;     width: 100%;">
+                    <div id="Signature" class="tabcontent" style="display:none; width: 100%;">
 				          <div class="row"> 				          
 				            <div class="col-lg-12 col-md-12 col-12 col-sm-12 card">
 				              <div class="card-header"> 
@@ -2895,7 +2883,8 @@
 												 </div>		
 				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
 													  <input type="file" id="myFile1" placeholder="First Director Meeting Resolution"/>
-													  <input type="button" onclick="SubForm(1);" value="上传" >
+													  <input type="button" class="btn btn-default viewFile" onclick="preview(1);" value="预览" >
+													  <input type="button" id="uploaddoc1" onclick="SubForm(1);" value="上传" >
 												 </div>		
 											 </div>											 	                        	                                            
 				                      </div>
@@ -2914,7 +2903,8 @@
 												 </div>		
 				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
 													  <input type="file" id="myFile2" placeholder="Secretary Agreement"/>
-													  <input type="button" onclick="SubForm(2);" value="上传" >
+													  <input type="button" class="btn btn-default viewFile" onclick="preview(2);" value="预览" >
+													  <input type="button" id="uploaddoc2" onclick="SubForm(2);" value="上传" >
 												 </div>		
 											 </div>											 	                        	                                            
 				                      </div>
@@ -2933,7 +2923,8 @@
 												 </div>		
 				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
 													  <input type="file" id="myFile3" placeholder="Notice for Controllers"/>
-													  <input type="button" onclick="SubForm(3);" value="上传" >
+													  <input type="button" class="btn btn-default viewFile" onclick="preview(3);" value="预览" >
+													  <input type="button" id="uploaddoc3"  onclick="SubForm(3);" value="上传" >
 												 </div>		
 											 </div>											 	                        	                                            
 				                      </div>
@@ -2952,7 +2943,8 @@
 												 </div>		
 				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
 													  <input type="file" id="myFile4" placeholder="Application of Shares"/>
-													  <input type="button" onclick="SubForm(4);" value="上传" >
+													  <input type="button" class="btn btn-default viewFile" onclick="preview(4);" value="预览" >
+													  <input type="button" id="uploaddoc4" onclick="SubForm(4);" value="上传" >
 												 </div>	
 											 </div>											 	                        	                                            
 				                      </div>
@@ -2971,7 +2963,8 @@
 												 </div>		
 				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
 													  <input type="file" id="myFile5" placeholder="Client Acceptance Form"/>
-													  <input type="button" onclick="SubForm(5);" value="上传" >
+													  <input type="button" class="btn btn-default viewFile" onclick="preview(5);" value="预览" >
+													  <input type="button" id="uploaddoc5"  onclick="SubForm(5);" value="上传" >
 												 </div>	
 											 </div>											 	                        	                                            
 				                      </div>
@@ -2990,7 +2983,8 @@
 												 </div>		
 				          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
 													  <input type="file" id="myFile6" placeholder="Form 45 / 201"/>
-													  <input type="button" onclick="SubForm(6);" value="上传" >
+													  <input type="button" class="btn btn-default viewFile" onclick="preview(6);" value="预览" >
+													  <input type="button" id="uploaddoc6"  onclick="SubForm(6);" value="上传" >
 												 </div>		
 											 </div>											 	                        	                                            
 				                      </div>
@@ -3009,7 +3003,8 @@
 												 </div>		
 				          						<div class="col-lg-6 col-md-12 col-12 col-sm-12">		
 													  <input type="file" id="myFile7" placeholder="Share Certificate"/>
-													  <input type="button" onclick="SubForm(7);" value="上传" >
+													  <input type="button" class="btn btn-default viewFile" onclick="preview(7);" value="预览" >
+													  <input type="button" id="uploaddoc7" onclick="SubForm(7);" value="上传" >
 												 </div>	
 											 </div>											 	                        	                                            
 				                      </div>
@@ -3028,13 +3023,14 @@
 												 </div>		
 				          						<div class="col-lg-6 col-md-12 col-12 col-sm-12">		
 													  <input type="file" id="myFile8" placeholder="Nominee's Dir's Authrn Final"/>
-													  <input type="button" onclick="SubForm(8);" value="上传" >
+													  <input type="button" class="btn btn-default viewFile" onclick="preview(8);" value="预览" >
+													  <input type="button" id="uploaddoc8"  onclick="SubForm(8);" value="上传" >
 												 </div>	
 											 </div>											 	                        	                                            
 				                      </div>
 				                    </li>					                    
 				                  </ul> 
-				                  <!--<div class="text-center pt-1 pb-1"><a id="download_all" href="#" class="btn btn-primary btn-sm btn-round">全部下载</a></div>    -->                                               
+				                  <!--<div class="text-center pt-1 pb-1"><a id="download_all" href="#" class="btn btn-primary btn-sm btn-round">全部下载</a></div>    -->  
 				              </div>
 
 				            </div>	                    
@@ -3066,6 +3062,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.228/pdf.min.js"></script>
   <!-- <script src="../../../assets/js/html2canvas.js"></script> -->
   <script src="../../../assets/js/stisla.js"></script>
   <!-- Template JS File -->

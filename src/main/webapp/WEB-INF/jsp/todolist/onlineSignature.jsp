@@ -65,7 +65,7 @@
 				                        <div class="">ANNEX B - Notice for Controllers</div>    
 					                    <div class="checkbox">
 										    <label>
-										      <input type="checkbox" class="compulsory_read">  已阅读
+										      <input type="checkbox" class="compulsory_read">  已阅读并回复文中问题
 										    </label>
 										 </div>						                                           
 				                      </div>
@@ -87,7 +87,7 @@
 				                        <div class="">Client Acceptance Form</div>     
 					                    <div class="checkbox">
 										    <label>
-										      <input type="checkbox" class="compulsory_read">  已阅读
+										      <input type="checkbox" class="compulsory_read">  已阅读并回复文中问题
 										    </label>
 										 </div>						                                          
 				                      </div>
@@ -142,8 +142,10 @@
 									     <div style="float:left">
 											 <p class="text_signfile"><span>THIS AGREEMENT is dated the</span><span> 日期 （自动替换）</span></p>    
 											 <p class="text_signfile text_cn">本协议订立于</p>   
+										
 										 </div>
-										 <br/><br/>
+										 <div class="clear"></div>
+										 <br/>
 				                    	 <p class="text_signfile text_centre">AGREEMENT FOR APPOINTMENT OF NOMINEE DIRECTOR</p>    
 				                    	 <p class="text_signfile text_centre text_cn">委任挂名董事协议</p> 	
 										<br/>
@@ -153,7 +155,7 @@
 				                    	 <p class="text_signfile">Company Name</p> 	
 										 <br/>
 										<p class="text_signfile"><span>(Company Registration No. [              ]), a company incorporated in the Republic of Singapore and having its registered address at [111 North Bridge Road #29-06A Peninsula Plaza Singapore 179098] (“Company”);</span></p>    
-										<p class="text_signfile text_cn">[.]私人有限公司（公司注册号：[                        ]），一家于新加坡成立的有限责任公司，注册地址为[北桥路111号，柏龄大厦 29-06A，新加坡 179098]（简称“公司”）。</p> 
+										<p class="text_signfile text_cn"><span class="text_cn">[.]私人有限公司（公司注册号：[                        ]），一家于新加坡成立的有限责任公司，注册地址为[北桥路111号，柏龄大厦 29-06A，新加坡 179098]（简称“公司”）。</span></p> 
 										<br/>
 										<p class="text_signfile"><span>WHEREAS</span></p>    
 										<p class="text_signfile text_cn">鉴于</p> 
@@ -740,7 +742,7 @@
 										<p class="text_signfile text_cn"><span>协议双方在上述的年份和日期合法有效地签署本协议。</span></p>
 										<br/> 
 										<div class="row text_no_di2">
-											<div class="col-md-6 col-sm-6"> 						
+											<div class="col-md-5 col-sm-5"> 						
 												<p class="text_signfile">Signed by [name of nominee]</p> 
 												<br/>
 												<br/>	
@@ -748,7 +750,7 @@
 												<p class="text_signfile"><span>Name:</span></p> 
 												<p class="text_signfile"><span>NRIC No.:</span></p> 
 											</div>		
-											<div class="col-md-6 col-sm-6"> 
+											<div class="col-md-7 col-sm-7"> 
 												<p class="text_signfile">Signed for and on behalf[name of Company]</p> 
 												<br/>
 												<br/>
@@ -1247,7 +1249,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>Source and description of your wealth to start this company:</span><br/>
-												<span class="text_cn">启动本公司的财富来源和说明：</span></p>								
+												<span class="text_cn">启动本公司的财富来源和说明：</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>								
 										 <div class="row text_no_di2">
@@ -1257,7 +1260,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>Saving from income:</span><br/>
-												<span class="text_cn">收入储蓄：</span></p>								
+												<span class="text_cn">收入储蓄：</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <div class="row text_no_di2">
@@ -1267,7 +1271,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>FULL NAME (INCLUDING ALIAS)：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">全名（包括别名）：</span></p>								
+												<span class="text_cn">全名（包括别名）：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <div class="row text_no_di2">
@@ -1277,7 +1282,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>NIRC/PASSPORT/BIRTH CERTIFICATE NO.：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">身份证/护照/出生证明编号：</span></p>								
+												<span class="text_cn">身份证/护照/出生证明编号：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <div class="row text_no_di2">
@@ -1287,7 +1293,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>DATE OF BIRTH (dd/mm/yyyy)：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">出生日期（日/月/年）：</span></p>								
+												<span class="text_cn">出生日期（日/月/年）：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <div class="row text_no_di2">
@@ -1297,7 +1304,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>NATIONALITY：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">国籍：</span></p>								
+												<span class="text_cn">国籍：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>
 										 <div class="row text_no_di2">
@@ -1307,7 +1315,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>RESIDENTIAL ADDRESS：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">居住地址：</span></p>								
+												<span class="text_cn">居住地址：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>
 										 <div class="row text_no_di2">
@@ -1317,7 +1326,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>GENDER：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">性别：</span></p>								
+												<span class="text_cn">性别：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>
 										 <div class="row text_no_di2">
@@ -1327,7 +1337,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>CONTACT NO.：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">联系电话：</span></p>								
+												<span class="text_cn">联系电话：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>
 										 <div class="row text_no_di2">
@@ -1337,17 +1348,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>Past 5 years of working experience：</span><span> </span><br/>
-												<span class="text_cn">过去5年的工作经验：</span></p>								
-				               		 		</div>	               		 						 
-										 </div>
-										 <div class="row text_no_di2">
-											<div class="col-md-2 col-sm-2"> 
-												<p class="text_signfile">•</p> 
-				               		 		</div>		
-											<div class="col-md-10 col-sm-10"> 
-												<p class="text_signfile">
-												<span>Past 5 years of working experience：</span><span></span><br/>
-												<span class="text_cn">过去5年的工作经验：</span></p>								
+												<span class="text_cn">过去5年的工作经验：</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>
 										 <div class="row text_no_di2">
@@ -1357,7 +1359,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>Highest Qualification from which education institution：</span><span></span><br/>
-												<span class="text_cn">教育机构的最高资格：</span></p>								
+												<span class="text_cn">教育机构的最高资格：</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>		
 										 <div class="row text_no_di2">
@@ -1386,7 +1389,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>What type of business activities the Company is to perform:</span><br/>
-												<span class="text_cn">公司将开展何种业务活动：</span></p>								
+												<span class="text_cn">公司将开展何种业务活动：</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>
 										<br/>						 
@@ -1397,7 +1401,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>Source of fund to start the Company:</span><br/>
-												<span class="text_cn">创业资金来源：</span></p>								
+												<span class="text_cn">创业资金来源：</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <br/>
@@ -1408,7 +1413,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>How is the sales of the Company being generated:</span><span> </span><br/>
-												<span class="text_cn">公司的销售额是如何产生的：</span></p>								
+												<span class="text_cn">公司的销售额是如何产生的：</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <br/>
@@ -1419,7 +1425,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>What the estimated turnover for the next 12 months：</span><span></span><br/>
-												<span class="text_cn">未来12个月的预计营业额：</span></p>								
+												<span class="text_cn">未来12个月的预计营业额：</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <br/>
@@ -1430,7 +1437,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>Names of some of your supplier (If any)：</span><span></span><br/>
-												<span class="text_cn">if any 表示可不填,一些供应商的名称（如有）</span></p>								
+												<span class="text_cn">if any 表示可不填,一些供应商的名称（如有）</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <br/>						 
@@ -1441,7 +1449,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>Names of your customer (if any)：</span><span></span><br/>
-												<span class="text_cn">if any 表示可不填,客户名称（如有）</span></p>								
+												<span class="text_cn">if any 表示可不填,客户名称（如有）</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <br/>	
@@ -1452,7 +1461,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>Background of the directors (e.g. Local or Foreigner, Past working experience etc )：</span><span></span><br/>
-												<span class="text_cn">参考括号内提示,董事的背景（如：本地人或外国人、过去的工作经验等）</span></p>								
+												<span class="text_cn">参考括号内提示,董事的背景（如：本地人或外国人、过去的工作经验等）</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <br/>							 
@@ -1463,7 +1473,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>What will the company's bank account be used mostly for? (eg. investments or operational account)：</span><span></span><br/>
-												<span class="text_cn">参考括号内提示,公司的银行账户主要用于什么？（如投资或运营账户）</span></p>								
+												<span class="text_cn">参考括号内提示,公司的银行账户主要用于什么？（如投资或运营账户）</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <br/>							 
@@ -1474,7 +1485,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>Source of incoming funds into the bank account (Eg. operational revenue, funds from investors or holding company)：</span><span></span><br/>
-												<span class="text_cn">参考括号内提示,银行账户流入资金来源（如营业收入、投资者或控股公司资金）</span></p>								
+												<span class="text_cn">参考括号内提示,银行账户流入资金来源（如营业收入、投资者或控股公司资金）</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <br/>	
@@ -1485,7 +1497,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>Source and intended destination of outgoing funds from the company's bank account (Eg operational expenses, remit back to holding company or etc)：</span><span></span><br/>
-												<span class="text_cn">公司银行账户流出资金的来源和目的地（如运营费用、汇回控股公司等）</span></p>								
+												<span class="text_cn">公司银行账户流出资金的来源和目的地（如运营费用、汇回控股公司等）</span>
+												<input type="text" class="form-control" ></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <br/>	
@@ -1503,7 +1516,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>FULL NAME (INCLUDING ALIAS)：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">全名（包括别名）：</span></p>								
+												<span class="text_cn">全名（包括别名）：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <div class="row text_no_di2">
@@ -1513,7 +1527,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>NIRC/PASSPORT/BIRTH CERTIFICATE NO.：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">身份证/护照/出生证明编号：</span></p>								
+												<span class="text_cn">身份证/护照/出生证明编号：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <div class="row text_no_di2">
@@ -1523,7 +1538,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>DATE OF BIRTH (dd/mm/yyyy)：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">出生日期（日/月/年）：</span></p>								
+												<span class="text_cn">出生日期（日/月/年）：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>	
 										 <div class="row text_no_di2">
@@ -1533,7 +1549,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>NATIONALITY：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">国籍：</span></p>								
+												<span class="text_cn">国籍：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>
 										 <div class="row text_no_di2">
@@ -1543,7 +1560,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>RESIDENTIAL ADDRESS：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">居住地址：</span></p>								
+												<span class="text_cn">居住地址：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>
 										 <div class="row text_no_di2">
@@ -1553,7 +1571,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>GENDER：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">性别：</span></p>								
+												<span class="text_cn">性别：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>
 										 <div class="row text_no_di2">
@@ -1563,7 +1582,8 @@
 											<div class="col-md-10 col-sm-10"> 
 												<p class="text_signfile">
 												<span>CONTACT NO.：</span><span>客人注册时提供过信息，此处自动生成 </span><br/>
-												<span class="text_cn">联系电话：</span></p>								
+												<span class="text_cn">联系电话：</span>
+												<input type="text" class="form-control"  disabled="disabled"></p>								
 				               		 		</div>	               		 						 
 										 </div>											 
 										<p class="text_signfile"><span>PLEASE PROVIDE THE INFORMATION OF NATURE OF ARRANGEMENT (SUCH AS STRUCTURE OR OWNERSHIP) YOU HAVE WITH THE BENEFICIAL OWNER:</span></p>  
@@ -1851,10 +1871,11 @@
 												<p class="text_signfile">
 												<span>
 													(i)your name: 
-													</span><br/>								
+													</span>						
 												<span class="text_cn">
 													法人实体的全名
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>	
@@ -1870,6 +1891,7 @@
 												<span class="text_cn">
 													由注册处签发的公司注册号码
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>	
@@ -1885,6 +1907,7 @@
 												<span class="text_cn">
 													法人实体的注册办公室地址：
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>
@@ -1900,6 +1923,7 @@
 												<span class="text_cn">
 													公司种类
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>
@@ -1915,6 +1939,7 @@
 												<span class="text_cn">
 													贵公司成立的司法管辖区和法规：
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>
@@ -1930,6 +1955,7 @@
 												<span class="text_cn">
 													贵公司成立所在司法管辖区的公司实体登记处的名称（如适用）
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>
@@ -1944,6 +1970,7 @@
 												<span class="text_cn">
 													贵公司成立所在司法管辖区的公司实体登记处上的识别号或注册号（如适用）
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>  
@@ -1958,6 +1985,7 @@
 												<span class="text_cn">
 													成为公司实际控制者的日期
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>   
@@ -2019,6 +2047,7 @@
 												<span class="text_cn">
 													此人的全名：
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>	
@@ -2034,6 +2063,7 @@
 												<span class="text_cn">
 													此人的别名，如有
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>	
@@ -2049,6 +2079,7 @@
 												<span class="text_cn">
 													此人的住址：
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>
@@ -2064,6 +2095,7 @@
 												<span class="text_cn">
 													此人的国籍：
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>
@@ -2079,6 +2111,7 @@
 												<span class="text_cn">
 													此人的身份证号码或护照号码：
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>
@@ -2094,6 +2127,7 @@
 												<span class="text_cn">
 													此人的出生日期
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>
@@ -2109,6 +2143,7 @@
 												<span class="text_cn">
 													此人成为${companyName} PTE.LTD.的个人实际控制人的日期：
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>						 
@@ -2139,6 +2174,7 @@
 												<span class="text_cn">
 													法人实体的名称
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>	
@@ -2154,6 +2190,7 @@
 												<span class="text_cn">
 													法人实体的注册处签发的注册号码，如有：
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>	
@@ -2169,6 +2206,7 @@
 												<span class="text_cn">
 													法人实体的注册办公室地址
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>
@@ -2184,6 +2222,7 @@
 												<span class="text_cn">
 													法人实体的公司种类
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>
@@ -2199,6 +2238,7 @@
 												<span class="text_cn">
 													法人实体成立的司法管辖区和法规：
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>
@@ -2213,6 +2253,7 @@
 												<span class="text_cn">
 													法人实体成立所在司法管辖区的公司实体登记处的名称（如适用）
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>
@@ -2227,6 +2268,7 @@
 													<span class="text_cn">
 														法人实体成立所在司法管辖区的公司实体登记处上的识别号或注册号（如适用）
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>  
@@ -2241,6 +2283,7 @@
 												<span class="text_cn">
 													法人实体成为${companyName}私人公司的公司实际控制者的日期
 													</span>
+													<input type="text" class="form-control" >	
 												</p> 
 				               		 		</div>	               		 						 
 										 </div>   

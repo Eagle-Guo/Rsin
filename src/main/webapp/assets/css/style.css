@@ -3339,6 +3339,10 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
  /* 6.5 pages new css- onlineSignature.jsp*/
 
+.clear {
+    clear:both;
+}
+
 #onlineSignature .dis_inline {
     display:inline;
 }

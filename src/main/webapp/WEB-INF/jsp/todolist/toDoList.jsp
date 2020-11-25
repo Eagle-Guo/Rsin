@@ -31,9 +31,11 @@
 		                    <h4 class="card-title">ABC TRADE PTE. LTD.</h4>
 		                  </div>
 		                  <div class="card-body">
-		                    <a href="/onlineSignature" class="card-link">电子签名</a>	<br/>	                    
-		                    <a href="/uploadPage" class="card-link">上传资料</a><br/>	
-		                    <a href="/notFinishStep" class="card-link">待完成服务步骤</a><br/>	
+		                    <a href="/notFinishStep" class="card-link">待完成服务步骤</a><br/>		                    
+		                    <a href="/onlineSignature" class="card-link">人员A: 电子签名</a>	<br/>	                    
+		                    <a href="/uploadPage" class="card-link">人员A: 上传资料</a><br/>	
+		                    <a href="/onlineSignature" class="card-link">人员B: 电子签名</a>	<br/>	                    
+		                    <a href="/uploadPage" class="card-link">人员C: 上传资料</a><br/>		
 		                  </div>
 		                </div>    
                 	 </div>  
@@ -43,9 +45,11 @@
 		                    <h4 class="card-title">DEF TRADE PTE. LTD.</h4>
 		                  </div>
 		                  <div class="card-body">
-		                    <a href="/onlineSignature" class="card-link">电子签名</a>	<br/>		                    
-		                    <a href="/uploadPage" class="card-link">上传资料</a><br/>	
-		                    <a href="/notFinishStep" class="card-link">待完成服务步骤</a>	<br/>		                    
+		                    <a href="/notFinishStep" class="card-link">待完成服务步骤</a><br/>		                    
+		                    <a href="/onlineSignature" class="card-link">人员A: 电子签名</a>	<br/>	                    
+		                    <a href="/uploadPage" class="card-link">人员A: 上传资料</a><br/>	
+		                    <a href="/onlineSignature" class="card-link">人员B: 电子签名</a>	<br/>	                    
+		                    <a href="/uploadPage" class="card-link">人员C: 上传资料</a><br/>			                    
 		                  </div>
 		                </div>    
                 	 </div>                 	 
@@ -55,9 +59,11 @@
 		                    <h4 class="card-title">GHI TRADE PTE. LTD.</h4>
 		                  </div>
 		                  <div class="card-body">
-		                    <a href="/onlineSignature" class="card-link">电子签名</a>	<br/>		                    
-		                    <a href="/uploadPage" class="card-link">上传资料</a><br/>	
-		                    <a href="/notFinishStep" class="card-link">待完成服务步骤</a><br/>			                    
+		                    <a href="/notFinishStep" class="card-link">待完成服务步骤</a><br/>		                    
+		                    <a href="/onlineSignature" class="card-link">人员A: 电子签名</a>	<br/>	                    
+		                    <a href="/uploadPage" class="card-link">人员A: 上传资料</a><br/>	
+		                    <a href="/onlineSignature" class="card-link">人员B: 电子签名</a>	<br/>	                    
+		                    <a href="/uploadPage" class="card-link">人员C: 上传资料</a><br/>				                    
 		                  </div>
 		                </div>    
                 	 </div>                	 

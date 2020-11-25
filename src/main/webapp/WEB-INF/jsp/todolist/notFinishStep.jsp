@@ -81,7 +81,7 @@
                       <div class="mb-2">
                         <span class="text-job text-primary">待完成。。。</span>
                       </div>
-                      <p>付款步骤</p>
+                      <p>在线支付</p>
                     </div>
                   </div>
                   <div class="activity">
@@ -92,20 +92,20 @@
                       <div class="mb-2">
                         <span class="text-job  text-primary">待完成。。。</span>
                       </div>
-                      <p>电子签名和上传资料步骤</p>
+                      <p>电子签名</p>
                     </div>
                   </div>
                   <div class="activity">
                     <div class="activity-icon bg-primary text-white shadow-primary">
-                      <i class="fas  fa-sign-out-alt"></i>
+                      <i class="fas fa-sign-out-alt"></i>
                     </div>
                     <div class="activity-detail">
                       <div class="mb-2">
                         <span class="text-job  text-primary">待完成。。。</span>
                       </div>
-                      <p>下载注册成功资料</p>
+                      <p>上传资料</p>
                     </div>
-                  </div>
+                  </div>                  
                 </div>
               </div>
             </div>

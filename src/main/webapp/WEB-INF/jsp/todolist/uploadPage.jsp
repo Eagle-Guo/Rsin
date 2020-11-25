@@ -24,7 +24,7 @@
             <h1>在线上传资料</h1>
           </div>    
           <div class="row">
-            <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+            <div class="col-lg-4 col-md-12 col-12 col-sm-12">
               <div class="card">
                 <div class="card-header">
                   <h4>待上传资料清单</h4>
@@ -34,58 +34,58 @@
                   
                     <li class="media leftTab active"  id="b-1" onclick="viewPri(1)" onmouseover="viewPri(1)" >
                       <div class="media-body">
-                        <div class="float-right list_btn marginright1">下载</div>
+
                         <div class="">IC(正面)</div>
                         <input type="file" name="fileName" id="fileICFront" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#fileICFront', '#onLoadImageICFront')">
-    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileICFront', '11')" value="上传"/>
+    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileICFront', '11')" value="确认上传"/>
                       </div>
                     </li>
                     <li class="media leftTab active"  id="b-2" onclick="viewPri(2)" onmouseover="viewPri(2)" >
                       <div class="media-body">
-                        <div class="float-right list_btn  marginright1">下载</div>
+                   
                         <div class="">IC(背面) </div>           
                         <input type="file" name="fileName" id="fileICBack" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#fileICBack', '#onLoadImageICBack')">
-    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileICBack', '12')" value="上传"/>            
+    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileICBack', '12')" value="确认上传"/>            
                       </div>
                     </li>
                     <li class="media leftTab active"  id="b-3" onclick="viewPri(3)" onmouseover="viewPri(3)" >
                       <div class="media-body">
-                        <div class="float-right list_btn  marginright1">下载</div>
+                     
                         <div class="">护照（有照片页）</div>
 						<input type="file" name="fileName" id="filePassport" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#filePassport', '#onLoadImagePassport')">
-    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePassport', '13')" value="上传"/>
+    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePassport', '13')" value="确认上传"/>
                       </div>
                     </li>   
                     <li class="media leftTab active"  id="b-4" onclick="viewPri(4)" onmouseover="viewPri(4)" >
                       <div class="media-body">
-                        <div class="float-right list_btn  marginright1">下载</div>
+              
                         <div class="">中国身份证</div>
                         <input type="file" name="fileName" id="filePRCIC" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#filePRCIC', '#onLoadImagePRCIC')">
-    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePRCIC', '14')" value="上传"/>                    
+    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePRCIC', '14')" value="确认上传"/>                    
                       </div>
                     </li>
                      <li class="media leftTab active"  id="b-5" onclick="viewPri(5)" onmouseover="viewPri(5)" >
                       <div class="media-body">
-                        <div class="float-right list_btn  marginright1">下载</div>
+              
                         <div class="">住所证明 </div>
                         <input type="file" name="fileName" id="fileAddress" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#fileAddress', '#onLoadImageAddress')">
-    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileAddress', '15')" value="上传"/>
+    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileAddress', '15')" value="确认上传"/>
                       </div>
                     </li>
                     <li class="media leftTab active"  id="b-6" onclick="viewPri(6)" onmouseover="viewPri(6)" >
                       <div class="media-body">
-                        <div class="float-right list_btn  marginright1">下载</div>
+                   
                         <div class="">持护照（打开有照片页）上半身照</div>
                         <input type="file" name="fileName" id="filePersonalPhoto" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#filePersonalPhoto', '#onLoadImagePersonalPhoto')">
-    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePersonalPhoto', '16')" value="上传"/>
+    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePersonalPhoto', '16')" value="确认上传"/>
                       </div>
                     </li>                      
                   </ul>                                                     
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-md-12 col-12 col-sm-12">                        
-              <div class="card priDesc view"  id="b1" >
+            <div class="col-lg-8 col-md-12 col-12 col-sm-12">                        
+              <div class="card priDesc view img"  id="b1" >
                 <div class="card-header">
                   <h4>文件查看区</h4>
                 </div>
@@ -94,7 +94,7 @@
                      <div id="onLoadImageICFront"></div>
                 </div>
               </div>              
-              <div class="card priDesc"  id="b2" >
+              <div class="card priDesc  img"  id="b2" >
                 <div class="card-header">
                   <h4>文件查看区</h4>
                 </div>
@@ -103,7 +103,7 @@
                      <div id="onLoadImageICBack"></div>
                 </div>
               </div>   
-               <div class="card priDesc"  id="b3" >
+               <div class="card priDesc  img"  id="b3" >
                 <div class="card-header">
                   <h4>文件查看区</h4>
                 </div>
@@ -112,7 +112,7 @@
                      <div id="onLoadImagePassport"></div>
                 </div>
               </div>              
-              <div class="card priDesc"  id="b4" >
+              <div class="card priDesc  img"  id="b4" >
                 <div class="card-header">
                   <h4>文件查看区</h4>
                 </div>
@@ -121,7 +121,7 @@
                      <div id="onLoadImagePRCIC"></div>
                 </div>
               </div>               
-              <div class="card priDesc"  id="b5" >
+              <div class="card priDesc  img"  id="b5" >
                 <div class="card-header">
                   <h4>文件查看区</h4>
                 </div>
@@ -130,7 +130,7 @@
                      <div id="onLoadImageAddress"></div>
                 </div>
               </div>               
-              <div class="card priDesc"  id="b6" >
+              <div class="card priDesc  img"  id="b6" >
                 <div class="card-header">
                   <h4>文件查看区</h4>
                 </div>

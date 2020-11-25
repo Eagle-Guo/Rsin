@@ -37,7 +37,7 @@ function viewPri(x) {
         reader.readAsDataURL(file);
         reader.onload=function(e){
             //显示文件
-            $(reviewPart).html('<img src="' + this.result +'" alt="" />');
+            $(reviewPart).html('<img src="' + this.result +'" alt="" style="width:100%;" />');
         }
     }
 

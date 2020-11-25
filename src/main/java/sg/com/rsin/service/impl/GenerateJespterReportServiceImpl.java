@@ -194,10 +194,20 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 				JasperReport jasperReportOne = JasperCompileManager.compileReport(employeeReportStream);
 				
 				Map<String, Object> reportParamMapOne = new HashMap<>();
+
 				reportParamMapOne.put("createdBy", "Rsin Group");
 				reportParamMapOne.put("companyName", companyName + " PTE.LTD.");
 				reportParamMapOne.put("signImage", bImageFromConvert);
 				reportParamMapOne.put("registeredOffice", userData.get("address"));
+				
+				reportParamMapOne.put("nameAndICofShareholder", userData.get("shareholderName"));
+				reportParamMapOne.put("personalAddressOfShareholder", userData.get("shareholderAddress"));
+				
+				reportParamMapOne.put("companyAddress", userData.get("address"));
+				
+				reportParamMapOne.put("signingDate", new Date().toString());
+				reportParamMapOne.put("dateOfNotice", new Date().toString());
+				reportParamMapOne.put("signDate", new Date().toString());
 				
 				Map<String, Integer> shareholderAndStock = (Map<String, Integer>) userData.get("shareholderAndStock");
 				StringBuffer shareholder = new StringBuffer();

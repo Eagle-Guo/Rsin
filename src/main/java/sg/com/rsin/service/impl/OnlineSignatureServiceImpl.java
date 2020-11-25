@@ -51,6 +51,8 @@ public class OnlineSignatureServiceImpl implements OnlineSignatureService {
 			shareholderAndStock.put(companyShareholderInfo.getName(), companyShareholderInfo.getIssueStockAmount());
 			total = total + companyShareholderInfo.getIssueStockAmount();
 		}
+		pageData.put("shareholderName", userCompanyShareholderInfos.get(0).getName());
+		pageData.put("shareholderAddress", userCompanyShareholderInfos.get(0).getAddress());
 		pageData.put("shareholderAndStock", shareholderAndStock);
 		pageData.put("totalStockAmount", total);
 		pageData.put("sameCompanyShareholderInfos", companyShareholderInfos);

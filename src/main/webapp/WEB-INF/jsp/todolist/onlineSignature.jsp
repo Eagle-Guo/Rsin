@@ -2871,7 +2871,7 @@
 											</form>
 											<div id="signature-pad" class="signature-pad col-lg-12 col-md-12 col-12 col-sm-12">
 											    <div class="signature-pad--body">
-											      <canvas width="460" height="300"></canvas>
+											      <canvas width="460" height="300" style="border:2px solid #000000;"></canvas>
 											    </div>
 											    <div class="signature-pad--footer">
 											      <div class="signature-pad--actions">

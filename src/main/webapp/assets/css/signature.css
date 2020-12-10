@@ -16,3 +16,7 @@
   height:250px;
   background-color: white;
 }
+
+.signature-pad-border {
+  border-style: solid;
+}

@@ -51,8 +51,8 @@
 											<button class="multisteps-form__progress-btn js-active" type="button" title="选择服务">选择服务</button>
 											<button class="multisteps-form__progress-btn" type="button" title="信息填报">信息填报</button>
 											<button class="multisteps-form__progress-btn" type="button" title="在线支付">在线支付</button>
-											<button class="multisteps-form__progress-btn" type="button" title="电子签名" onclick="viewcontent_sing()" >电子签名</button>
-											<button class="multisteps-form__progress-btn" type="button" title="上传资料" onclick="viewcontent_uploadInfo()" >上传资料</button>
+											<button class="multisteps-form__progress-btn" type="button" title="电子签名" onclick="top.location='/onlineSignature'">电子签名</button>
+											<button class="multisteps-form__progress-btn" type="button" title="上传资料"  onclick="top.location='/uploadPage'">上传资料</button>
 											<button class="multisteps-form__progress-btn disable-button" type="button" title="注册受理中">注册受理中</button>
 											<button class="multisteps-form__progress-btn disable-button" type="button" title="注册完成、查看文件">注册完成</button>																					
 										</div>

@@ -3349,6 +3349,9 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 #onlineSignature .list_btn {
         color: #6777ef;
 }
+.menuBotom {
+   margin-top: -5%;
+}
 .media-content{
         height: 25rem;
    	 	overflow-y: auto;
@@ -3652,10 +3655,21 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 
+.card .card-body .section-title.noteText {
+    margin: 30px 0 10px 0;
+    font-size: 16px;
+    margin-top:0;
+}
 
-
-
-
+#onlineSignature .table td, .table:not(.table-bordered) th {
+    border-top: none;
+    width: 2%;
+}
+#onlineSignature .accordion {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: -4%;
+}
  /* 6.6 pages new css- uploadPage.jsp*/
  .marginright1 {
    margin-right:1rem;

@@ -13,6 +13,8 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../../assets/css/multiplepage.css">
+  <link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
 </head>
 
 <body>
@@ -22,7 +24,100 @@
         <section class="section" id="onlineSignature">
           <div class="section-header">
             <h1>在线上传资料</h1>
-          </div>    
+          </div> 
+ 				<!--PEN CONTENT -->
+				<div class="content" style="overflow: auto;">
+					<!--content inner-->
+					<div class="content__inner">
+						<div class="container overflow-hidden">
+							<!--multisteps-form-->
+							<div class="multisteps-form">
+								<!--progress bar-->
+								<div class="row">
+									<div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+										<div class="multisteps-form__progress">
+											<button class="multisteps-form__progress-btn   js-active " type="button" title="选择服务">选择服务</button>
+											<button class="multisteps-form__progress-btn    js-active " type="button" title="信息填报">信息填报</button>
+											<button class="multisteps-form__progress-btn    js-active " type="button" title="在线支付">在线支付</button>
+											<button class="multisteps-form__progress-btn  js-active" type="button" title="电子签名" onclick="top.location='onlineSignature'">电子签名</button>
+											<button class="multisteps-form__progress-btn  js-active" type="button" title="上传资料" onclick="top.location='uploadPage'">上传资料</button>
+											<button class="multisteps-form__progress-btn disable-button" type="button" title="注册受理中">注册受理中</button>
+											<button class="multisteps-form__progress-btn disable-button" type="button" title="注册完成、查看文件">注册完成</button>																					
+										</div>
+									</div> 
+							  </div>
+						 </div> 
+					   </div>									
+					</div> 
+				</div>	 
+						            <div class="col-12 col-md-12 col-lg-12 menuBotom" id="readyContent">
+						                <div class="card">
+						                	<div class="card-body">
+						                    	<div id="accordion">
+						                      		<div class="accordion">
+								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="true">
+								                         	<h4>待上传资料清单</h4>
+								                        </div>
+								                        <div class="accordion-body collapse show" id="panel-body-1" data-parent="#accordion">
+										                <div class="card">
+										                  <div class="card-body">
+														    <div class="section-title noteText">公司名称</div>
+										                    <table class="table table-sm">
+										                      <thead>
+										                        <tr>
+										                          <th scope="col">#</th>
+										                          <th scope="col">类型</th>
+										                          <th scope="col">姓名</th>
+										                          <th scope="col">身份</th>
+										                          <th scope="col">待上传文件</th>
+										                          <th scope="col">马上上传</th>						  
+										                        </tr>
+										                      </thead>
+										                      <tbody>
+										                        <tr>
+										                          <th scope="row">1</th>
+										                          <td>董事</td>
+										                          <td>AAAA</td>
+										                          <td>新加坡公民</td>
+										                          <td>IC正面、IC背面</td>
+																  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上上传</a></td>
+										                        </tr>
+										                        <tr>
+										                          <th scope="row">2</th>
+										                          <td>董事</td>
+										                          <td>BBB</td>
+										                          <td>新加坡PR</td>
+										                          <td>IC正面、IC背面</td>
+																  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上上传</a></td>
+										                        </tr>
+										                        <tr>
+										                          <th scope="row">3</th>
+										                          <td>股东</td>
+										                          <td>CCC</td>
+										                          <td>中国公民</td>
+										                          <td>护照（有照片页）、中国身份证、持护照（打开有照片页）上半身照</td>
+																  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上上传</a></td>
+										                        </tr>
+										                        <tr>
+										                          <th scope="row">4</th>
+										                          <td>股东</td>
+										                          <td>DDD</td>
+										                          <td>外国公民（非新加坡PR\非中国公民）</td>
+										                          <td>护照（有照片页）、持护照（打开有照片页）上半身照、住所证明</td>
+																  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上上传</a></td>
+										                        </tr>										                        
+										                      </tbody>
+										                    </table>
+										                  </div>
+										                </div>
+								                        </div>
+						                      		</div>
+						                    	</div>
+						                 	 </div>
+						                </div>
+						            </div>					
+				
+				           
           <div class="row">
             <div class="col-lg-4 col-md-12 col-12 col-sm-12">
               <div class="card">

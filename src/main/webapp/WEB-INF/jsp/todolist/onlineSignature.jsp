@@ -13,6 +13,11 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../../../assets/css/style.css">
   <link rel="stylesheet" href="../../../assets/css/components.css">
+  <link rel="stylesheet" href="../../../assets/css/multiplepage.css">
+  <link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
+
+  
+  
 </head>
 
 <body>
@@ -23,6 +28,86 @@
 	        <div class="section-header">
 	           <h1>在线签名</h1>
 	        </div>  
+				<!--PEN CONTENT -->
+				<div class="content" style="overflow: auto;">
+					<!--content inner-->
+					<div class="content__inner">
+						<div class="container overflow-hidden">
+							<!--multisteps-form-->
+							<div class="multisteps-form">
+								<!--progress bar-->
+								<div class="row">
+									<div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+										<div class="multisteps-form__progress">
+											<button class="multisteps-form__progress-btn   js-active " type="button" title="选择服务">选择服务</button>
+											<button class="multisteps-form__progress-btn    js-active " type="button" title="信息填报">信息填报</button>
+											<button class="multisteps-form__progress-btn    js-active " type="button" title="在线支付">在线支付</button>
+											<button class="multisteps-form__progress-btn  js-active" type="button" title="电子签名" >电子签名</button>
+											<button class="multisteps-form__progress-btn" type="button" title="上传资料"  onclick="top.location='uploadPage'">上传资料</button>
+											<button class="multisteps-form__progress-btn disable-button" type="button" title="注册受理中">注册受理中</button>
+											<button class="multisteps-form__progress-btn disable-button" type="button" title="注册完成、查看文件">注册完成</button>																					
+										</div>
+									</div> 
+							  </div>
+						 </div> 
+					   </div>									
+					</div> 
+				</div>									
+						            <div class="col-12 col-md-12 col-lg-12 menuBotom" id="readyContent">
+						                <div class="card">
+						                	<div class="card-body">
+						                    	<div id="accordion">
+						                      		<div class="accordion">
+								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="true">
+								                         	<h4>待签名清单</h4>
+								                        </div>
+								                        <div class="accordion-body collapse show" id="panel-body-1" data-parent="#accordion">
+										                <div class="card">
+										                  <div class="card-body">
+														    <div class="section-title noteText">公司名称</div>
+										                    <table class="table table-sm">
+										                      <thead>
+										                        <tr>
+										                          <th scope="col">#</th>
+										                          <th scope="col">类型</th>
+										                          <th scope="col">姓名</th>
+										                          <th scope="col">待签名文件</th>
+										                          <th scope="col">处理</th>						  
+										                        </tr>
+										                      </thead>
+										                      <tbody>
+										                        <tr>
+										                          <th scope="row">1</th>
+										                          <td>董事</td>
+										                          <td>AAAA</td>
+										                          <td>First Director Meeting Resolution; Client Acceptance Form; Form 45 / 201</td>
+																  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上签名</a></td>
+										                        </tr>
+										                        <tr>
+										                          <th scope="row">2</th>
+										                          <td>董事</td>
+										                          <td>BBB</td>
+										                          <td>First Director Meeting Resolution; Client Acceptance Form; Form 45 / 201</td>
+																  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上签名</a></td>
+										                        </tr>
+										                        <tr>
+										                          <th scope="row">3</th>
+										                          <td>股东</td>
+										                          <td>CCC</td>
+										                          <td>Secretary Agreement; Application of Shares; Client Acceptance Form; Form 45 / 201;ANNEX B - Notice for Controllers;Share Certificate;Nominee's+Dir's+Authrn_Final</td>
+																  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上签名</a></td>
+										                        </tr>
+										                      </tbody>
+										                    </table>
+										                  </div>
+										                </div>
+								                        </div>
+						                      		</div>
+						                    	</div>
+						                 	 </div>
+						                </div>
+						            </div>									
+									        
 		    <div class="container sectionPadding sevice">
 		        <div class="card">            
             <div class="card-body">

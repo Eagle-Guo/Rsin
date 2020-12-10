@@ -176,7 +176,7 @@
 				<textFieldExpression><![CDATA[$P{ip1}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="380" y="163" width="158" height="78" uuid="817386c2-8772-4023-9a49-c05fb9d6c461">
+				<reportElement x="380" y="163" width="158" height="37" uuid="817386c2-8772-4023-9a49-c05fb9d6c461">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<box>
@@ -354,7 +354,7 @@
 				<textFieldExpression><![CDATA[$P{ip2}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="380" y="282" width="159" height="78" uuid="9cd1879d-5e7f-4270-b8a7-991a84191c7f">
+				<reportElement x="380" y="282" width="159" height="38" uuid="9cd1879d-5e7f-4270-b8a7-991a84191c7f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null)]]></printWhenExpression>
@@ -386,7 +386,7 @@
 				<imageExpression><![CDATA[$P{signImage4}]]></imageExpression>
 			</image>
 			<textField isBlankWhenNull="true">
-				<reportElement x="381" y="520" width="159" height="78" uuid="4750dd72-b0a6-42fb-b7f9-62c3a701e397">
+				<reportElement x="381" y="520" width="159" height="37" uuid="4750dd72-b0a6-42fb-b7f9-62c3a701e397">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
@@ -423,7 +423,7 @@
 				<imageExpression><![CDATA[$P{signImage3}]]></imageExpression>
 			</image>
 			<textField isBlankWhenNull="true">
-				<reportElement x="380" y="400" width="159" height="78" uuid="31ac6f69-9b24-4408-b9f8-9f999ba8acef">
+				<reportElement x="380" y="400" width="159" height="40" uuid="31ac6f69-9b24-4408-b9f8-9f999ba8acef">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
 				</reportElement>
@@ -445,12 +445,20 @@
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="12" y="610" width="526" height="90" uuid="ec733a2d-316a-4d35-a2df-0f5eb620d3f1"/>
+				<textElement>
+					<font fontName="华文宋体"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{record}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
 				<reportElement x="20" y="710" width="100" height="80" uuid="3886ae56-d709-4107-8daa-9a8df5111ba3"/>
-				<textFieldExpression><![CDATA[$P{qrCode}]]></textFieldExpression>
-			</textField>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
+				new com.google.zxing.qrcode.QRCodeWriter().encode(
+					$P{qrCode},
+					com.google.zxing.BarcodeFormat.QR_CODE, 300, 300
+				)
+				)]]></imageExpression>
+			</image>
 			<staticText>
 				<reportElement x="150" y="710" width="361" height="39" uuid="47d584af-9cf5-4846-b34e-ae7f73bd88c3">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -460,6 +468,30 @@
 				</textElement>
 				<text><![CDATA[This signature page provides a record of the online activity executing this contrat.]]></text>
 			</staticText>
+			<componentElement>
+				<reportElement x="380" y="210" width="158" height="30" uuid="9c35e277-81e0-4744-9479-9b6a50c0b052"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="PDF417" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$P{checksum1}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<componentElement>
+				<reportElement x="381" y="322" width="158" height="30" uuid="51d5d632-ddcb-4e7f-b5d8-ffdb0dc2df32"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="PDF417" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$P{checksum2}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<componentElement>
+				<reportElement x="381" y="444" width="158" height="30" uuid="2870e552-add1-4603-9f45-fef6c17c6230"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="PDF417" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$P{checksum3}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<componentElement>
+				<reportElement x="382" y="560" width="158" height="30" uuid="ece152a7-662d-4ec4-ad2e-d8b65368519d"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="PDF417" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$P{checksum4}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
 		</band>
 	</detail>
 </jasperReport>

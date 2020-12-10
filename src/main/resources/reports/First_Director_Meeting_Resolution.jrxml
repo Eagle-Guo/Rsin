@@ -4,9 +4,26 @@
 	<parameter name="companyName" class="java.lang.String"/>
 	<parameter name="registeredOffice" class="java.lang.String"/>
 	<parameter name="shareholder" class="java.lang.String"/>
-	<parameter name="signImage" class="java.awt.Image">
+	<parameter name="signImage1" class="java.awt.Image">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 	</parameter>
+	<parameter name="name1" class="java.lang.String"/>
+	<parameter name="nric1" class="java.lang.String"/>
+	<parameter name="signImage2" class="java.awt.Image">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="name2" class="java.lang.String"/>
+	<parameter name="nric2" class="java.lang.String"/>
+	<parameter name="signImage3" class="java.awt.Image">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="name3" class="java.lang.String"/>
+	<parameter name="nric3" class="java.lang.String"/>
+	<parameter name="signImage4" class="java.awt.Image">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="name4" class="java.lang.String"/>
+	<parameter name="nric4" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -297,7 +314,7 @@ DIRECTOR 董事
 Dated this Signing Date日期]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="1742" width="180" height="36" uuid="c0f08a87-3c8e-4ae3-911b-8f4c563f587a">
+				<reportElement x="37" y="1744" width="100" height="18" uuid="c0f08a87-3c8e-4ae3-911b-8f4c563f587a">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -308,10 +325,9 @@ Dated this Signing Date日期]]></text>
 					<rightPen lineWidth="0.0"/>
 				</box>
 				<textElement textAlignment="Justified">
-					<font size="14" isBold="false"/>
+					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[DIRECTOR
-Dated this Signing Date]]></text>
+				<text><![CDATA[Signed by Name:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="40" y="42" width="480" height="20" uuid="799bc73d-4741-44a0-82a8-0c66c11e5050">
@@ -546,8 +562,188 @@ Dated this Signing Date]]></text>
 				<text><![CDATA[作为正确记录签字]]></text>
 			</staticText>
 			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
-				<reportElement x="40" y="1660" width="235" height="78" uuid="46731b82-1f30-45cb-a43f-d4bec5bc52ff"/>
-				<imageExpression><![CDATA[$P{signImage}]]></imageExpression>
+				<reportElement x="50" y="1660" width="150" height="78" uuid="46731b82-1f30-45cb-a43f-d4bec5bc52ff"/>
+				<imageExpression><![CDATA[$P{signImage1}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="35" y="1781" width="110" height="19" uuid="f8528f71-35e0-498b-83e5-a5805a6611d3">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NRIC No./Passport No.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="142" y="1747" width="114" height="25" uuid="f457d78d-4f68-4825-af19-4e72c2235455"/>
+				<textFieldExpression><![CDATA[$P{name1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="1780" width="100" height="30" uuid="e4baa15a-e95d-41f2-b89f-ed01b5344dc6"/>
+				<textFieldExpression><![CDATA[$P{nric1}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="320" y="1658" width="150" height="78" uuid="ddc50b2e-c241-46f0-84b8-5762d596216b">
+					<printWhenExpression><![CDATA[new Boolean($P{name2}!=null)]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{signImage2}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="310" y="1781" width="110" height="19" uuid="f6b5e495-1faf-41fb-87fb-42b64076a3a3">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{name2}!=null)]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NRIC No./Passport No.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="418" y="1747" width="100" height="25" uuid="3357cf0a-a487-43ac-a029-86b4729f50c1">
+					<printWhenExpression><![CDATA[new Boolean($P{name2}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{name2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="1778" width="100" height="30" uuid="2cbc2b8a-794c-4d2c-9a1c-aabefd89bd8a">
+					<printWhenExpression><![CDATA[new Boolean($P{name2}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{nric2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="1746" width="100" height="18" uuid="cf2daa0e-8b92-4bec-a822-d1aaef772d57">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{name2}!=null)]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="1894" width="100" height="18" uuid="b5fd4d01-5326-473d-b242-233faed4a6ab">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{name3}!=null)]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="1931" width="110" height="19" uuid="2399ecf9-a131-4ea5-9e47-ffe9f096c558">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{name3}!=null)]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NRIC No./Passport No.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="133" y="1896" width="114" height="25" uuid="9dd620eb-302e-4ef9-88af-d537b01374fc">
+					<printWhenExpression><![CDATA[new Boolean($P{name3}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{name3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="1930" width="100" height="30" uuid="7b3eb309-0589-45a0-8506-6d679c13d473">
+					<printWhenExpression><![CDATA[new Boolean($P{name3}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{nric3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="1931" width="110" height="19" isPrintInFirstWholeBand="true" uuid="82674a52-7d3f-4802-8044-396e18e3b083">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{name4}!=null)]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NRIC No./Passport No.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="415" y="1897" width="100" height="25" isPrintInFirstWholeBand="true" uuid="2938752d-b9be-48db-bebc-1ed0953d7f8c">
+					<printWhenExpression><![CDATA[new Boolean($P{name4}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{name4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="1928" width="100" height="30" isPrintInFirstWholeBand="true" uuid="f851f566-7b97-4a48-ae97-565bd286839a">
+					<printWhenExpression><![CDATA[new Boolean($P{name4}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{nric4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="1896" width="100" height="18" isPrintInFirstWholeBand="true" uuid="f1f5b785-a4cf-47c7-be27-19a70f6e8190">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{name4}!=null)]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signed by Name:]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="40" y="1810" width="150" height="78" uuid="a969648d-c835-4488-a37f-1e341c49a6d0">
+					<printWhenExpression><![CDATA[new Boolean($P{name3}!=null)]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{signImage3}]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="310" y="1808" width="150" height="78" isPrintInFirstWholeBand="true" uuid="3a833a15-88c0-466b-9ce0-8f075ee273f2">
+					<printWhenExpression><![CDATA[new Boolean($P{name4}!=null)]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{signImage4}]]></imageExpression>
 			</image>
 		</band>
 	</detail>

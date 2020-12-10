@@ -444,23 +444,14 @@
 				<textFieldExpression><![CDATA[$P{id3}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="12" y="610" width="526" height="90" uuid="ec733a2d-316a-4d35-a2df-0f5eb620d3f1"/>
+				<reportElement x="12" y="630" width="378" height="70" uuid="ec733a2d-316a-4d35-a2df-0f5eb620d3f1"/>
 				<textElement>
 					<font fontName="华文宋体"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{record}]]></textFieldExpression>
 			</textField>
-			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
-				<reportElement x="20" y="710" width="100" height="80" uuid="3886ae56-d709-4107-8daa-9a8df5111ba3"/>
-				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
-				new com.google.zxing.qrcode.QRCodeWriter().encode(
-					$P{qrCode},
-					com.google.zxing.BarcodeFormat.QR_CODE, 300, 300
-				)
-				)]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement x="150" y="710" width="361" height="39" uuid="47d584af-9cf5-4846-b34e-ae7f73bd88c3">
+				<reportElement x="150" y="709" width="361" height="39" uuid="47d584af-9cf5-4846-b34e-ae7f73bd88c3">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -469,28 +460,53 @@
 				<text><![CDATA[This signature page provides a record of the online activity executing this contrat.]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="380" y="210" width="158" height="30" uuid="9c35e277-81e0-4744-9479-9b6a50c0b052"/>
-				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="PDF417" drawText="false" checksumRequired="false">
-					<jr:codeExpression><![CDATA[$P{checksum1}]]></jr:codeExpression>
-				</jr:barbecue>
+				<reportElement x="380" y="210" width="158" height="30" uuid="8897893a-4a9b-4f2a-9854-9e106fef10f0"/>
+				<c:barbecue xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="EAN13" drawText="true" checksumRequired="false">
+					<c:codeExpression><![CDATA["123456789012"]]></c:codeExpression>
+				</c:barbecue>
 			</componentElement>
 			<componentElement>
-				<reportElement x="381" y="322" width="158" height="30" uuid="51d5d632-ddcb-4e7f-b5d8-ffdb0dc2df32"/>
-				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="PDF417" drawText="false" checksumRequired="false">
-					<jr:codeExpression><![CDATA[$P{checksum2}]]></jr:codeExpression>
-				</jr:barbecue>
+				<reportElement isPrintRepeatedValues="false" x="380" y="330" width="164" height="30" uuid="3006c46d-dac3-4ffd-8e92-ee00358f6fcc">
+					<printWhenExpression><![CDATA[new Boolean($P{id2}!=null)]]></printWhenExpression>
+				</reportElement>
+				<c:barbecue xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="EAN13" drawText="true" checksumRequired="false">
+					<c:codeExpression><![CDATA["987456789456"]]></c:codeExpression>
+				</c:barbecue>
+			</componentElement>
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="11" y="709" width="120" height="70" uuid="04ca125e-746c-4329-bd3c-533ec8c58971"/>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
+					new com.google.zxing.qrcode.QRCodeWriter().encode(
+						$P{qrCode},
+						com.google.zxing.BarcodeFormat.QR_CODE, 300, 300
+					)
+					)]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="9" y="610" width="211" height="18" uuid="6567d511-3569-4da2-87bd-de6b87fce8bb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Timestamp              Audit]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement isPrintRepeatedValues="false" x="380" y="444" width="164" height="30" uuid="9c768b04-52c7-439d-9713-ad0ec8d56acb">
+					<printWhenExpression><![CDATA[new Boolean($P{id3}!=null)]]></printWhenExpression>
+				</reportElement>
+				<c:barbecue xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="EAN13" drawText="true" checksumRequired="false">
+					<c:codeExpression><![CDATA["987456789456"]]></c:codeExpression>
+				</c:barbecue>
 			</componentElement>
 			<componentElement>
-				<reportElement x="381" y="444" width="158" height="30" uuid="2870e552-add1-4603-9f45-fef6c17c6230"/>
-				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="PDF417" drawText="false" checksumRequired="false">
-					<jr:codeExpression><![CDATA[$P{checksum3}]]></jr:codeExpression>
-				</jr:barbecue>
-			</componentElement>
-			<componentElement>
-				<reportElement x="382" y="560" width="158" height="30" uuid="ece152a7-662d-4ec4-ad2e-d8b65368519d"/>
-				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="PDF417" drawText="false" checksumRequired="false">
-					<jr:codeExpression><![CDATA[$P{checksum4}]]></jr:codeExpression>
-				</jr:barbecue>
+				<reportElement isPrintRepeatedValues="false" x="380" y="560" width="164" height="30" uuid="a4b94185-8658-4992-9f67-a857f3ea5ce8">
+					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
+				</reportElement>
+				<c:barbecue xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="EAN13" drawText="true" checksumRequired="false">
+					<c:codeExpression><![CDATA["987456789456"]]></c:codeExpression>
+				</c:barbecue>
 			</componentElement>
 		</band>
 	</detail>

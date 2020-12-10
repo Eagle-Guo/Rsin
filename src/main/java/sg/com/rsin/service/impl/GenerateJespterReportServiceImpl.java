@@ -143,7 +143,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 
 		SignatureLog signatureLog = new SignatureLog();
 		signatureLog.setActionType("Submit");
-		signatureLog.setActionDesc(userId + "submit his signature!");
+		signatureLog.setActionDesc(userData.get("shareholderName").toString() + " 提交签名!");
 		signatureLog.setCreatedBy(userId);
 		signatureLog.setCreatedDate(new Date());
 		signatureLog.setCompany(companyRepository.findById(Long.parseLong(companyId)).get());

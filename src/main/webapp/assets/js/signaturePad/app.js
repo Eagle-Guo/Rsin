@@ -138,7 +138,13 @@ savePNGButton.addEventListener("click", function (event) {
   if (signaturePad.isEmpty()) {
 	  return ("请先输入您的签名!");
   } else {
-    var dataURL = signaturePad.toDataURL('image/png');
-    uploadSignature('image/png');
+	  var retVal = confirm("我已经阅读并了解以上所有文件内容，并且同意签署以上所有文件，并确认提交签名样本。");
+	  if( retVal == true ) {
+		  var dataURL = signaturePad.toDataURL('image/png');
+		  uploadSignature('image/png');
+		  return true;
+       } else {
+          return false;
+       }
   }
 });

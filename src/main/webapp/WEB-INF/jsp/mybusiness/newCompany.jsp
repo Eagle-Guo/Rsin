@@ -552,10 +552,11 @@
 														</div>	
 														<div class="button-row d-flex mt-4">
 															<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-															<div class="form-check form-check-inline infoConfirm">
+															<button class="btn btn-primary saveBtn" type="button" title="save">保存所填信息</button>
+															<!--<div class="form-check form-check-inline infoConfirm">
 																			<input class="form-check-input" type="checkbox" id="checkb_dongshi0"> 
 																			<label style="height: auto;" class="form-check-label">请确定所填信息准确无误后点击“下一步”。</label>
-															</div>
+															</div>  -->
 															<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="listSummary()" id="step2next">下一步</button>
 														</div>
 													</div>

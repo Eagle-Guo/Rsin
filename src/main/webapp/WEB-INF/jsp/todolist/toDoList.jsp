@@ -19,7 +19,7 @@
 <jsp:include page="../userMenu.jsp" />
       <!-- Main Content -->
       <div class="main-content">  
-        <section class="section" id="onlineSignature">
+        <section class="section" id="todolist">
 	        <div class="section-header">
 	           <h1>待办事项</h1>
 	        </div>  
@@ -31,11 +31,12 @@
 		                    <h4 class="card-title">ABC TRADE PTE. LTD.</h4>
 		                  </div>
 		                  <div class="card-body">
-		                    <a href="/notFinishStep" class="card-link">待完成服务步骤</a><br/>		                    
-		                    <a href="/onlineSignature" class="card-link">人员A: 电子签名</a>	<br/>	                    
-		                    <a href="/uploadPage" class="card-link">人员A: 上传资料</a><br/>	
-		                    <a href="/onlineSignature" class="card-link">人员B: 电子签名</a>	<br/>	                    
-		                    <a href="/uploadPage" class="card-link">人员C: 上传资料</a><br/>		
+		                    <h4 class="card-title subTitle_todolist">待完成服务流程</h4><br/>
+		                    <a href="/notFinishStep" class="card-link">新公司注册待完成服务步骤</a><br/>
+		                    <a href="#" class="card-link">年审待完成服务步骤</a><br/>	<br/>	
+		                    <h4 class="card-title subTitle_todolist">待完成步骤</h4><br/>
+		                    <a href="/onlineSignature" class="card-link">电子签名</a>	<br/>	                    
+		                    <a href="/uploadPage" class="card-link">待上传资料清单</a><br/>		
 		                  </div>
 		                </div>    
                 	 </div>  
@@ -45,11 +46,12 @@
 		                    <h4 class="card-title">DEF TRADE PTE. LTD.</h4>
 		                  </div>
 		                  <div class="card-body">
-		                    <a href="/notFinishStep" class="card-link">待完成服务步骤</a><br/>		                    
-		                    <a href="/onlineSignature" class="card-link">人员A: 电子签名</a>	<br/>	                    
-		                    <a href="/uploadPage" class="card-link">人员A: 上传资料</a><br/>	
-		                    <a href="/onlineSignature" class="card-link">人员B: 电子签名</a>	<br/>	                    
-		                    <a href="/uploadPage" class="card-link">人员C: 上传资料</a><br/>			                    
+		                    <h4 class="card-title subTitle_todolist">待完成服务流程</h4><br/>
+		                    <a href="/notFinishStep" class="card-link">新公司注册待完成服务步骤</a><br/>
+		                    <a href="#" class="card-link">年审待完成服务步骤</a><br/>	<br/>	
+		                    <h4 class="card-title subTitle_todolist">待完成步骤</h4><br/>
+		                    <a href="/onlineSignature" class="card-link">电子签名</a>	<br/>	                    
+		                    <a href="/uploadPage" class="card-link">待上传资料清单</a><br/>		
 		                  </div>
 		                </div>    
                 	 </div>                 	 
@@ -59,15 +61,30 @@
 		                    <h4 class="card-title">GHI TRADE PTE. LTD.</h4>
 		                  </div>
 		                  <div class="card-body">
-		                    <a href="/notFinishStep" class="card-link">待完成服务步骤</a><br/>		                    
-		                    <a href="/onlineSignature" class="card-link">人员A: 电子签名</a>	<br/>	                    
-		                    <a href="/uploadPage" class="card-link">人员A: 上传资料</a><br/>	
-		                    <a href="/onlineSignature" class="card-link">人员B: 电子签名</a>	<br/>	                    
-		                    <a href="/uploadPage" class="card-link">人员C: 上传资料</a><br/>				                    
+		                    <h4 class="card-title subTitle_todolist">待完成服务流程</h4><br/>
+		                    <a href="/notFinishStep" class="card-link">新公司注册待完成服务步骤</a><br/>
+		                    <a href="#" class="card-link">年审待完成服务步骤</a><br/>	<br/>	
+		                    <h4 class="card-title subTitle_todolist">待完成步骤</h4><br/>
+		                    <a href="/onlineSignature" class="card-link">电子签名</a>	<br/>	                    
+		                    <a href="/uploadPage" class="card-link">待上传资料清单</a><br/>		
 		                  </div>
 		                </div>    
                 	 </div>                	 
-                	 
+ 		    		<div class="col-12 col-md-4 col-lg-4">
+		                <div class="card">
+		                  <div class="card-header">
+		                    <h4 class="card-title">JKH TRADE PTE. LTD.</h4>
+		                  </div>
+		                  <div class="card-body">
+		                    <h4 class="card-title subTitle_todolist">待完成服务流程</h4><br/>
+		                    <a href="/notFinishStep" class="card-link">新公司注册待完成服务步骤</a><br/>
+		                    <a href="#" class="card-link">年审待完成服务步骤</a><br/>	<br/>	
+		                    <h4 class="card-title subTitle_todolist">待完成步骤</h4><br/>
+		                    <a href="/onlineSignature" class="card-link">电子签名</a>	<br/>	                    
+		                    <a href="/uploadPage" class="card-link">待上传资料清单</a><br/>		
+		                  </div>
+		                </div>    
+                	 </div>                  	 
                 	  	
                 </div> 	 	
       		</div>

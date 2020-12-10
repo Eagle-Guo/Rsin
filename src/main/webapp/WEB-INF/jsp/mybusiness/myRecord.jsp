@@ -11,7 +11,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>银行开户  &mdash;  睿信集团</title>
+  <title>睿信集团  &mdash;  睿信集团</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
@@ -34,7 +34,7 @@
             <h1>我的业务</h1>
           </div>
 			<!--PEN CONTENT -->
-		<div class="row myRecord">
+		<!--<div class="row myRecord">
               <div class=" col-12 col-md-6 col-lg-6">
                 <div class="card">
                   <div class="card-header">
@@ -79,11 +79,11 @@
                           </div>
                           <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
                              <div class="card">
-								<!-- Trigger/Open The Modal -->
+								
 								<button class="btn btn-primary" id="myBtn">打开时间表</button>
-								<!-- The Modal -->
+								
 								<div id="myModal" class="modal">
-								  <!-- Modal content -->
+								  
 								  <div class="modal-content">
 								    <span class="close">&times;</span>
 								    <p>时间表显示在此处</p>
@@ -98,12 +98,12 @@
                   </div>
                 </div>			
           </div>			
-          </div>			
+          </div>	-->		
 			
 			
 			
 			
-            <!-- <div class="row">
+           <div class="row">
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
@@ -123,46 +123,42 @@
                     <div class="table-responsive">
                       <table class="table table-striped">
                         <tr>
-                          <th>
-                          </th>
                           <th>公司名称</th>
-                          <th>文件下载</th>
-                     
+                          <th>文件下载</th>                     
                           <th>新服务</th>
-                          <th>业务时间表</th>
-              
+                          <th>业务时间表</th>              
                         </tr>
                         <tr>
-                          <td class="p-0 text-center">
-                            <div class="custom-checkbox custom-control">
-                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                              <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                            </div>
-                          </td>
-                          <td>公司A</td>
+                          <td>公司AAA</td>
+                          <td><div class="badge badge-success" ><a href="/mybusiness/downLoadFile" target="_blank">文件下载</a></div></td>
+                          <td><div class="badge badge-warning"><a href="/onekey/oneKeyService" target="_blank">新服务</a></div></td>
+                          <td><div class="badge badge-danger">时间表</div></td>
+                        </tr>
+                        
+                        <tr>
+                          <td>公司BBB</td>
                           <td><div class="badge badge-success">文件下载</div></td>
-                          <td><a href="#" class="btn btn-secondary">新服务</a></td>
-                          <td><a href="#" class="btn btn-secondary">时间表</a></td>
+                          <td><div class="badge badge-warning"><a href="/onekey/oneKeyService" target="_blank">新服务</a></div></td>
+                          <td><div class="badge badge-danger">时间表</div></td>
                         </tr>
                         <tr>
-                          <td class="p-0 text-center">
-                            <div class="custom-checkbox custom-control">
-                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                              <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                            </div>
-                          </td>
-                          <td>公司B</td>
+                          <td>公司CCC</td>
                           <td><div class="badge badge-success">文件下载</div></td>
-                          <td><a href="#" class="btn btn-secondary">新服务</a></td>
-                          <td><a href="#" class="btn btn-secondary">时间表</a></td>
+                          <td><div class="badge badge-warning"><a href="/onekey/oneKeyService" target="_blank">新服务</a></div></td>
+                          <td><div class="badge badge-danger">时间表</div></td>
                         </tr>
-
+                        <tr>
+                          <td>公司DDD</td>
+                          <td><div class="badge badge-success">文件下载</div></td>
+                          <td><div class="badge badge-warning"><a href="/onekey/oneKeyService" target="_blank">新服务</a></div></td>
+                          <td><div class="badge badge-danger">时间表</div></td>
+                        </tr>
                       </table>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>   -->   
+            </div>   
         </section>
       </div>
       <footer class="main-footer">

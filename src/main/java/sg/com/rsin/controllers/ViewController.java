@@ -153,6 +153,11 @@ public class ViewController {
 		return model;
 	}	
 	
+	@RequestMapping("/mybusiness/downLoadFile")
+	public ModelAndView downLoadFile() {
+		ModelAndView model = new ModelAndView("mybusiness/downLoadFile");
+		return model;
+	}		
 		
 	@RequestMapping("/mybusiness/admin_record")
 	public ModelAndView admin_record() {

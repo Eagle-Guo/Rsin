@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import javax.imageio.ImageIO;
 
@@ -44,10 +45,12 @@ import sg.com.rsin.dao.CompanyShareholderInfoRepository;
 import sg.com.rsin.dao.DocumentRepository;
 import sg.com.rsin.dao.DocumentTypeRepository;
 import sg.com.rsin.dao.EmployeeDao;
+import sg.com.rsin.dao.SignatureLogRepository;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentType;
+import sg.com.rsin.entity.SignatureLog;
 import sg.com.rsin.enums.DocumentTypeCode;
 import sg.com.rsin.service.GenerateJespterReportService;
 import sg.com.rsin.service.OnlineSignatureService;
@@ -68,6 +71,8 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	DocumentTypeRepository documentTypeRepository;
 	@Autowired
 	CompanyRepository companyRepository;
+	@Autowired
+	SignatureLogRepository signatureLogRepository;
 
 	@Autowired 
 	OnlineSignatureService onlineSignatureService;
@@ -136,6 +141,14 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		String companyId = userData.get("companyId").toString();
 		String companyName = userData.get("companyName").toString();
 
+		SignatureLog signatureLog = new SignatureLog();
+		signatureLog.setActionType("Submit");
+		signatureLog.setActionDesc(userId + "submit his signature!");
+		signatureLog.setCreatedBy(userId);
+		signatureLog.setCreatedDate(new Date());
+		signatureLog.setCompany(companyRepository.findById(Long.parseLong(companyId)).get());
+		signatureLogRepository.save(signatureLog);
+
 		List<CompanyShareholderInfo> userCompanyShareholderInfos = (List<CompanyShareholderInfo>) userData.get("sameCompanyShareholderInfos");
 		try {
 			String signatureFileDirectory = signatureFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
@@ -157,12 +170,21 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	        String documentReference = UUID.randomUUID().toString();
 	        String qrCodeText = "https://www.rsin.com.sg";
 	        reportParamMapTwo.put("documentReference", documentReference);
-	        reportParamMapTwo.put("record", "2020-11-09 :  创建新公司");
 		    reportParamMapTwo.put("qrCode", qrCodeText);
+		    
+		    StringBuilder sb = new StringBuilder();
+		    List <SignatureLog> signatureLogs = signatureLogRepository.findByCompanyId(Long.parseLong(companyId));
+		    signatureLogs.forEach(signLog -> {
+		    	sb.append(signLog.getCreatedDate()).append(": ").append(signLog.getActionDesc()).append("\n");
+		    });
+		    
+		    reportParamMapTwo.put("record", sb.toString());
 
 	        for (CompanyShareholderInfo companyShareholderInfo :userCompanyShareholderInfos) {
 	        	reportParamMapTwo.put("id"+companyShareholderInfo.getSeq(), String.valueOf(companyShareholderInfo.getSeq()));
 	        	reportParamMapTwo.put("positionEmail"+companyShareholderInfo.getSeq(), companyShareholderInfo.getEmail());
+	        	reportParamMapTwo.put("name"+companyShareholderInfo.getSeq(), companyShareholderInfo.getName());
+	        	reportParamMapTwo.put("nric"+companyShareholderInfo.getSeq(), companyShareholderInfo.getIcNumber());
 				if (companyShareholderInfo.getEmail().equalsIgnoreCase(userId)) {
 					reportParamMapTwo.put("signImage"+companyShareholderInfo.getSeq(), bImageFromConvert);
 					reportParamMapTwo.put("ip"+companyShareholderInfo.getSeq(), ip);
@@ -197,24 +219,31 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 
 				reportParamMapOne.put("createdBy", "Rsin Group");
 				reportParamMapOne.put("companyName", companyName + " PTE.LTD.");
-				reportParamMapOne.put("signImage", bImageFromConvert);
 				reportParamMapOne.put("registeredOffice", userData.get("address"));
 				
-				reportParamMapOne.put("nameAndICofShareholder", userData.get("shareholderName"));
-				reportParamMapOne.put("personalAddressOfShareholder", userData.get("shareholderAddress"));
-				
-				reportParamMapOne.put("companyAddress", userData.get("address"));
-				
-				reportParamMapOne.put("signingDate", new Date().toString());
-				reportParamMapOne.put("dateOfNotice", new Date().toString());
-				reportParamMapOne.put("signDate", new Date().toString());
+				switch (i) {
+					case 1: 
+					    for (Map.Entry<String, Object> entry : reportParamMapTwo.entrySet()) {
+				            if (entry.getKey().startsWith("name") || entry.getKey().startsWith("nric") || entry.getKey().startsWith("signImage")) {
+				            	reportParamMapOne.put(entry.getKey(), entry.getValue());
+				            }
+				        }
+						break;
+					default :
+						reportParamMapOne.put("signingDate", new Date().toString());
+						reportParamMapOne.put("dateOfNotice", new Date().toString());
+						reportParamMapOne.put("signDate", new Date().toString());
+						reportParamMapOne.put("nameAndICofShareholder", userData.get("shareholderName"));
+						reportParamMapOne.put("personalAddressOfShareholder", userData.get("shareholderAddress"));
+						reportParamMapOne.put("companyAddress", userData.get("address"));
+				}
 				
 				Map<String, Integer> shareholderAndStock = (Map<String, Integer>) userData.get("shareholderAndStock");
 				StringBuffer shareholder = new StringBuffer();
 				shareholderAndStock.forEach((k, v) -> shareholder.append(k).append("\t\t").append(v).append("\n"));
 				shareholder.append("Total: \t\t").append(Integer.parseInt(userData.get("totalStockAmount").toString()));
-
 				reportParamMapOne.put("shareholder", shareholder.toString());
+				
 				JasperPrint jasperPrintOne = JasperFillManager.fillReport(jasperReportOne, reportParamMapOne, new JREmptyDataSource());
 				jasperPrintList.add(jasperPrintOne);
 

@@ -197,3 +197,14 @@ CREATE TABLE `document` (
   CONSTRAINT `document_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`),
   CONSTRAINT `document_type_fk` FOREIGN KEY (`document_type_code`) REFERENCES `document_type` (`document_type_code`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE `signature_log` (
+  `id` int(11) NOT NULL auto_increment,
+  `action_type` varchar(11) NOT NULL,
+  `action_desc` varchar(255) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `created_date` DATETIME,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `signature_log_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;

@@ -214,7 +214,7 @@
             var _this = this;
             if (options === void 0) { options = {}; }
             var image = new Image();
-            var ratio = options.ratio || window.devicePixelRatio || 1;
+            var ratio = 1; //options.ratio || window.devicePixelRatio || 1;
             var width = options.width || this.canvas.width / ratio;
             var height = options.height || this.canvas.height / ratio;
             this._reset();
@@ -459,7 +459,7 @@
         SignaturePad.prototype._toSVG = function () {
             var _this = this;
             var pointGroups = this._data;
-            var ratio = Math.max(window.devicePixelRatio || 1, 1);
+            var ratio = 1; //Math.max(window.devicePixelRatio || 1, 1);
             var minX = 0;
             var minY = 0;
             var maxX = this.canvas.width / ratio;

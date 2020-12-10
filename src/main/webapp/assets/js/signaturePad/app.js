@@ -1,6 +1,6 @@
 var wrapper = document.getElementById("signature-pad");
 var clearButton = wrapper.querySelector("[data-action=clear]");
-var changeColorButton = wrapper.querySelector("[data-action=change-color]");
+//var changeColorButton = wrapper.querySelector("[data-action=change-color]");
 var undoButton = wrapper.querySelector("[data-action=undo]");
 var savePNGButton = wrapper.querySelector("[data-action=save-png]");
 var canvas = wrapper.querySelector("canvas");
@@ -17,7 +17,7 @@ function resizeCanvas() {
   // When zoomed out to less than 100%, for some very strange reason,
   // some browsers report devicePixelRatio as less than 1
   // and only part of the canvas is cleared then.
-  var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+  var ratio =  1; //Math.max(window.devicePixelRatio || 1, 1);
 
   // This part causes the canvas to be cleared
   canvas.width = canvas.offsetWidth * ratio;
@@ -85,7 +85,7 @@ function uploadSignature(mimetype) {
         	var result = "";
         	$.each(allFilename, function(name, value){
         	    console.log(name + "--> " + value);   
-        	    result = result + "<div class='col-md-6 col-xs-6 col-sm-6'> <a href = '/api/downloadFiles/" + value +"' class='fa fa-file-pdf-o' style='font-size:80px;color:red' download></a> <br />" + name  + "</div>";
+        	    result = result + "<div class='col-md-6 col-xs-6 col-sm-6'> <a href = '/api/downloadFiles/" + value +"' class='fa fa-file-pdf-o' style='font-size:60px;color:red' download></a> <br />" + name  + "</div>";
         	});
         	$('#withSingatureDoc').html(result);
         },
@@ -125,14 +125,14 @@ undoButton.addEventListener("click", function (event) {
   }
 });
 
-changeColorButton.addEventListener("click", function (event) {
+/*changeColorButton.addEventListener("click", function (event) {
   var r = Math.round(Math.random() * 255);
   var g = Math.round(Math.random() * 255);
   var b = Math.round(Math.random() * 255);
   var color = "rgb(" + r + "," + g + "," + b +")";
 
   signaturePad.penColor = color;
-});
+});*/
 
 savePNGButton.addEventListener("click", function (event) {
   if (signaturePad.isEmpty()) {

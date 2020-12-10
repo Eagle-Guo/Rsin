@@ -2861,7 +2861,7 @@
 				            
 				            <div class="col-lg-12 col-md-12 col-12 col-sm-12 card">
 				             <div class="row">
-				              <div class="col-lg-5 col-md-12 col-12 col-sm-12"> 
+				              <div class="col-lg-7 col-md-12 col-12 col-sm-12"> 
 				              		<div class="card-header"> <h4>电子签名区域</h4> 
 				              		</div>
 									<div class="form-group row">										
@@ -2890,7 +2890,7 @@
 											</textarea>	 -->
 										</div>	  
 							  </div>					                    					
-				              <div class="col-lg-7 col-md-12 col-12 col-sm-12"> 				                     
+				              <div class="col-lg-5 col-md-12 col-12 col-sm-12"> 				                     
 			                  	<div class="card-header"> <h4>生成电子签名文件区域</h4> </div>
 				                	<div class="signature-pad--footer">
 								      <div class="signature-pad--actions">

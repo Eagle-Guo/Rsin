@@ -176,7 +176,7 @@
 				<textFieldExpression><![CDATA[$P{ip1}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="380" y="163" width="158" height="37" uuid="817386c2-8772-4023-9a49-c05fb9d6c461">
+				<reportElement x="380" y="164" width="158" height="37" uuid="817386c2-8772-4023-9a49-c05fb9d6c461">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<box>
@@ -460,7 +460,7 @@
 				<text><![CDATA[This signature page provides a record of the online activity executing this contrat.]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="380" y="210" width="158" height="30" uuid="8897893a-4a9b-4f2a-9854-9e106fef10f0"/>
+				<reportElement x="379" y="209" width="158" height="30" uuid="8897893a-4a9b-4f2a-9854-9e106fef10f0"/>
 				<c:barbecue xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="EAN13" drawText="true" checksumRequired="false">
 					<c:codeExpression><![CDATA["123456789012"]]></c:codeExpression>
 				</c:barbecue>
@@ -485,7 +485,6 @@
 			<staticText>
 				<reportElement x="9" y="610" width="211" height="18" uuid="6567d511-3569-4da2-87bd-de6b87fce8bb">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<printWhenExpression><![CDATA[new Boolean($P{id4}!=null)]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font size="10" isBold="false"/>

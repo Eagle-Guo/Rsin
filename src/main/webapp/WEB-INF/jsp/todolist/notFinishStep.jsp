@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -26,14 +27,13 @@
       <div class="">
         <section class="section">
           <div class="section-header">
-            <h1>公司注册步骤</h1>
+            <h1>公司- ${company.name} 注册步骤</h1>
             <div class="section-header-breadcrumb">
               <div class="breadcrumb-item active"><a href="#">继续</a></div>
               <div class="breadcrumb-item">删除</div>
             </div>
           </div>
           <div class="section-body">
-            <!--<h2 class="section-title">September 2018</h2>  -->
             <div class="row">
               <div class="col-12  col-md-6 col-lg-6">
                 <div class="activities">
@@ -43,19 +43,9 @@
                     </div>
                     <div class="activity-detail">
                       <div class="mb-2">
-                        <span class="text-job">05/11/2020</span>
+                        <span class="text-job">${company.name} 05/11/2020</span>
                         <span class="bullet"></span>
                         <a class="text-job" href="#">查看</a>
-                        <!--  <div class="float-right dropdown">
-                          <a href="#" data-toggle="dropdown"><i class="fas fa-ellipsis-h"></i></a>
-                          <div class="dropdown-menu">
-                            <div class="dropdown-title">Options</div>
-                            <a href="#" class="dropdown-item has-icon"><i class="fas fa-eye"></i> View</a>
-                            <a href="#" class="dropdown-item has-icon"><i class="fas fa-list"></i> Detail</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item has-icon text-danger" data-confirm="Wait, wait, wait...|This action can't be undone. Want to take risks?" data-confirm-text-yes="Yes, IDC"><i class="fas fa-trash-alt"></i> Archive</a>
-                          </div>
-                        </div>-->
                       </div>
                       <p>已选择了公司注册服务类型</p>
                     </div>

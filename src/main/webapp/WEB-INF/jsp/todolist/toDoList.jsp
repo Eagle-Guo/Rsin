@@ -35,7 +35,7 @@
 		                  </div>
 		                  <div class="card-body">
 		                    <h4 class="card-title subTitle_todolist">待完成服务流程</h4><br/>
-		                    <a href="/notFinishStep" class="card-link">新公司注册待完成服务步骤</a><br/>
+		                    <a href="/notFinishStep?compid=${company.id}" class="card-link">新公司注册待完成服务步骤</a><br/>
 		                    <a href="#" class="card-link">年审待完成服务步骤</a><br/>	<br/>	
 		                    <h4 class="card-title subTitle_todolist">待完成步骤</h4><br/>
 		                    <a href="/onlineSignature" class="card-link">电子签名</a>	<br/>	                    

@@ -122,7 +122,7 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 
 		//Save to DB
 		Company company = CommonUtils.phaseNewCompany(companyInfoVOs);
-		company.setStatus("new");
+		company.setStatus("2"); //Complete the first 2 steps: 选择服务 and 信息填报
 		company.setCreatedDate(new Date());
 		companyRepository.save(company);
 

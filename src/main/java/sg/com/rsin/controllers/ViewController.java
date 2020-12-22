@@ -1,7 +1,10 @@
 package sg.com.rsin.controllers;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import sg.com.rsin.entity.CommonResponse;
+import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Employee;
 import sg.com.rsin.entity.ErrorObject;
 import sg.com.rsin.entity.UserRegistration;
@@ -214,11 +218,19 @@ public class ViewController {
 	public ModelAndView admin_toDoList() {
 		ModelAndView model = new ModelAndView("todolist/admin_toDoList");
 		return model;
-	}		
-	
+	}
+
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/notFinishStep")
-	public ModelAndView notFinishStep() {
+	public ModelAndView notFinishStep(HttpServletRequest request) {
+		String userEmail = (String) request.getSession().getAttribute("loginUsername");
+		String companyId = (String) request.getParameter("compid");
 		ModelAndView model = new ModelAndView("todolist/notFinishStep");
+		
+		Map<String, Object> pageData = onlineSignatureService.getAllPageData(userEmail);
+		Set<Company> companies = (Set<Company>) pageData.get("companies");
+		Company company = companies.stream().filter(com -> com.getId().toString().equals(companyId)).findFirst().get();
+		model.addObject("company", company);
 		return model;
 	}	
 	

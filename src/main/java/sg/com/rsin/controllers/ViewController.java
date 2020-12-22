@@ -148,8 +148,13 @@ public class ViewController {
 	}	
 	
 	@RequestMapping("/mybusiness/myRecord")
-	public ModelAndView myRecord() {
+	public ModelAndView myRecord(HttpServletRequest request) {
+		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		ModelAndView model = new ModelAndView("mybusiness/myRecord");
+		
+		Map<String, Object> pageData = onlineSignatureService.getAllPageData(userEmail);
+		model.addObject("companies", pageData.get("companies"));
+		
 		return model;
 	}	
 	
@@ -195,8 +200,13 @@ public class ViewController {
 	}	
 
 	@RequestMapping("/toDoList")
-	public ModelAndView toDoList() {
+	public ModelAndView toDoList(HttpServletRequest request) {
+		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		ModelAndView model = new ModelAndView("todolist/toDoList");
+		
+		Map<String, Object> pageData = onlineSignatureService.getAllPageData(userEmail);
+		model.addObject("companies", pageData.get("companies"));
+
 		return model;
 	}	
 

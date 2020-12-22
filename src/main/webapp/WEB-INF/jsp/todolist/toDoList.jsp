@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -24,11 +25,13 @@
 	           <h1>待办事项</h1>
 	        </div>  
 		    <div class="container todolist">
-		    	<div class="row">		    
+		    	<div class="row">
+
+		    		<c:forEach items="${companies}" var="company">
 		    		<div class="col-12 col-md-4 col-lg-4">
 		                <div class="card">
 		                  <div class="card-header">
-		                    <h4 class="card-title">ABC TRADE PTE. LTD.</h4>
+		                    <h4 class="card-title">${company.name}</h4>
 		                  </div>
 		                  <div class="card-body">
 		                    <h4 class="card-title subTitle_todolist">待完成服务流程</h4><br/>
@@ -39,53 +42,9 @@
 		                    <a href="/uploadPage" class="card-link">待上传资料清单</a><br/>		
 		                  </div>
 		                </div>    
-                	 </div>  
-		    		<div class="col-12 col-md-4 col-lg-4">
-		                <div class="card">
-		                  <div class="card-header">
-		                    <h4 class="card-title">DEF TRADE PTE. LTD.</h4>
-		                  </div>
-		                  <div class="card-body">
-		                    <h4 class="card-title subTitle_todolist">待完成服务流程</h4><br/>
-		                    <a href="/notFinishStep" class="card-link">新公司注册待完成服务步骤</a><br/>
-		                    <a href="#" class="card-link">年审待完成服务步骤</a><br/>	<br/>	
-		                    <h4 class="card-title subTitle_todolist">待完成步骤</h4><br/>
-		                    <a href="/onlineSignature" class="card-link">电子签名</a>	<br/>	                    
-		                    <a href="/uploadPage" class="card-link">待上传资料清单</a><br/>		
-		                  </div>
-		                </div>    
-                	 </div>                 	 
- 		    		<div class="col-12 col-md-4 col-lg-4">
-		                <div class="card">
-		                  <div class="card-header">
-		                    <h4 class="card-title">GHI TRADE PTE. LTD.</h4>
-		                  </div>
-		                  <div class="card-body">
-		                    <h4 class="card-title subTitle_todolist">待完成服务流程</h4><br/>
-		                    <a href="/notFinishStep" class="card-link">新公司注册待完成服务步骤</a><br/>
-		                    <a href="#" class="card-link">年审待完成服务步骤</a><br/>	<br/>	
-		                    <h4 class="card-title subTitle_todolist">待完成步骤</h4><br/>
-		                    <a href="/onlineSignature" class="card-link">电子签名</a>	<br/>	                    
-		                    <a href="/uploadPage" class="card-link">待上传资料清单</a><br/>		
-		                  </div>
-		                </div>    
-                	 </div>                	 
- 		    		<div class="col-12 col-md-4 col-lg-4">
-		                <div class="card">
-		                  <div class="card-header">
-		                    <h4 class="card-title">JKH TRADE PTE. LTD.</h4>
-		                  </div>
-		                  <div class="card-body">
-		                    <h4 class="card-title subTitle_todolist">待完成服务流程</h4><br/>
-		                    <a href="/notFinishStep" class="card-link">新公司注册待完成服务步骤</a><br/>
-		                    <a href="#" class="card-link">年审待完成服务步骤</a><br/>	<br/>	
-		                    <h4 class="card-title subTitle_todolist">待完成步骤</h4><br/>
-		                    <a href="/onlineSignature" class="card-link">电子签名</a>	<br/>	                    
-		                    <a href="/uploadPage" class="card-link">待上传资料清单</a><br/>		
-		                  </div>
-		                </div>    
-                	 </div>                  	 
-                	  	
+                	 </div> 
+					</c:forEach>
+
                 </div> 	 	
       		</div>
         </section>

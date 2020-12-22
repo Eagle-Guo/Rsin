@@ -2,9 +2,11 @@ package sg.com.rsin.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,19 +35,23 @@ public class OnlineSignatureServiceImpl implements OnlineSignatureService {
 		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareholderInfoRepository.findByEmail(userEmail);
 		List<CompanyShareholderInfo> companyShareholderInfos = new ArrayList<CompanyShareholderInfo>();
 		
+		Set<Company> companies = new HashSet<Company>();
+
 		userCompanyShareholderInfos.parallelStream().forEach(info -> {
 			companyShareholderInfos.addAll(companyShareholderInfoRepository.findByCompanyId(info.getCompany().getId()));
 		});
+		
 		 
 		int total = 0;
 		Map<String, Integer> shareholderAndStock = new HashMap<String, Integer>();
 		for(CompanyShareholderInfo companyShareholderInfo : companyShareholderInfos) {
-			
+			Optional<Company> company = companyRepository.findById(companyShareholderInfo.getCompany().getId());
+			companies.add(company.get());
 			if (total == 0) {
-				Optional<Company> company = companyRepository.findById(companyShareholderInfo.getCompany().getId());
 				pageData.put("companyName", company.get().getName());
 				pageData.put("address", company.get().getAddress());
 				pageData.put("companyId", company.get().getId().toString());
+				
 			}
 
 			shareholderAndStock.put(companyShareholderInfo.getName(), companyShareholderInfo.getIssueStockAmount());
@@ -56,6 +62,7 @@ public class OnlineSignatureServiceImpl implements OnlineSignatureService {
 		pageData.put("shareholderAndStock", shareholderAndStock);
 		pageData.put("totalStockAmount", total);
 		pageData.put("sameCompanyShareholderInfos", companyShareholderInfos);
+		pageData.put("companies", companies);
 		return pageData;
 	}
 	

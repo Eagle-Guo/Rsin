@@ -33,75 +33,6 @@
           <div class="section-header">
             <h1>我的业务</h1>
           </div>
-			<!--PEN CONTENT -->
-		<!--<div class="row myRecord">
-              <div class=" col-12 col-md-6 col-lg-6">
-                <div class="card">
-                  <div class="card-header">
-                    <h4>公司名称A</h4>
-                  </div>
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-4">
-                        <div class="list-group" id="list-tab" role="tablist">
-                          <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab">文件下载</a>
-                          <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab">新服务</a>
-                          <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab">时间表</a>
-                        </div>
-                      </div>
-                      <div class="col-8">
-                        <div class="tab-content" id="nav-tabContent">
-                          <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-								 <div class="card">
-				                  <div class="card-body removePadding">
-				                    <ul class="list-group list-group-flush">
-				                      <li class="list-group-item">基本信息（选择服务+填报资料）</li>
-				                      <li class="list-group-item">文件1</li>
-				                      <li class="list-group-item">文件2</li>
-				                      <li class="list-group-item">文件3</li>
-				                      <li class="list-group-item">文件4</li>
-				                    </ul>
-				                  </div>
-				                </div>
-                          </div>
-                          <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-								 <div class="card">
-				                  <div class="card-body removePadding">
-				                    <ul class="list-group list-group-flush">
-				                      <li class="list-group-item">服务项1</li>
-				                      <li class="list-group-item">服务项2</li>
-				                      <li class="list-group-item">服务项3</li>
-				                      <li class="list-group-item">服务项4</li>
-				                      <li class="list-group-item">服务项5</li>
-				                    </ul>
-				                  </div>
-				                </div>
-                          </div>
-                          <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                             <div class="card">
-								
-								<button class="btn btn-primary" id="myBtn">打开时间表</button>
-								
-								<div id="myModal" class="modal">
-								  
-								  <div class="modal-content">
-								    <span class="close">&times;</span>
-								    <p>时间表显示在此处</p>
-								  </div>
-								</div>  
-                			</div>                                            
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>			
-          </div>			
-          </div>	-->		
-			
-			
-			
 			
            <div class="row">
               <div class="col-12">
@@ -128,31 +59,15 @@
                           <th>新服务</th>
                           <th>业务时间表</th>              
                         </tr>
-                        <tr>
-                          <td>公司AAA</td>
-                          <td><div class="badge badge-success" ><a href="/mybusiness/downLoadFile" target="_blank">文件下载</a></div></td>
-                          <td><div class="badge badge-warning"><a href="/onekey/oneKeyService" target="_blank">新服务</a></div></td>
-                          <td><div class="badge badge-danger">时间表</div></td>
-                        </tr>
                         
-                        <tr>
-                          <td>公司BBB</td>
-                          <td><div class="badge badge-success">文件下载</div></td>
-                          <td><div class="badge badge-warning"><a href="/onekey/oneKeyService" target="_blank">新服务</a></div></td>
-                          <td><div class="badge badge-danger">时间表</div></td>
-                        </tr>
-                        <tr>
-                          <td>公司CCC</td>
-                          <td><div class="badge badge-success">文件下载</div></td>
-                          <td><div class="badge badge-warning"><a href="/onekey/oneKeyService" target="_blank">新服务</a></div></td>
-                          <td><div class="badge badge-danger">时间表</div></td>
-                        </tr>
-                        <tr>
-                          <td>公司DDD</td>
-                          <td><div class="badge badge-success">文件下载</div></td>
-                          <td><div class="badge badge-warning"><a href="/onekey/oneKeyService" target="_blank">新服务</a></div></td>
-                          <td><div class="badge badge-danger">时间表</div></td>
-                        </tr>
+                        <c:forEach items="${companies}" var="company">
+	                        <tr>
+	                          <td>${company.name}</td>
+	                          <td><div class="badge badge-success" ><a href="/mybusiness/downLoadFile" target="_blank">文件下载</a></div></td>
+	                          <td><div class="badge badge-warning"><a href="/onekey/oneKeyService" target="_blank">新服务</a></div></td>
+	                          <td><div class="badge badge-danger">时间表</div></td>
+	                        </tr>
+                        </c:forEach>
                       </table>
                     </div>
                   </div>

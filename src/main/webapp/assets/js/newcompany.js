@@ -99,6 +99,7 @@ $(document).ready(function(){
 
 function saveToBackend() {
 	alert("save To Backend");
+	listSummary();
 	$.post(
             "/api/newCompany",
             { 	"services" : JSON.stringify(services),
@@ -248,7 +249,7 @@ function listSummary() {
     
     console.log("companyInfos" + companyInfos);
     console.log("shareholderInfos" + shareholderInfos);
-    companytext = "<ul class='list-group'>";
+    /* companytext = "<ul class='list-group'>";
     for (i = 0; i < companyInfos.length; i++) {
         companytext += "<li class='list-group-item d-flex justify-content-between align-items-center'>" + companyInfos[i].name + 
                     "<span style='text-align: right;' class='badge badge-primary badge-pill'>" + companyInfos[i].description  + "</span>" +
@@ -264,7 +265,7 @@ function listSummary() {
                "</li>";
     }
     shareholdertext += "</ul>";
-    document.getElementById("shareholder_summary").innerHTML = shareholdertext;
+    document.getElementById("shareholder_summary").innerHTML = shareholdertext; */
 }
 
 function choosedsv(x) {

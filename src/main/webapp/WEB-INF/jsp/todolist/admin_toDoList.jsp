@@ -84,10 +84,10 @@
                           <td>
                           20/12/2020
                           </td>
-                          <td>公司B
+                          <td>公司A
                           </td>
                           <td>
-                          	  <div class="badge badge-danger">公司年审</div>
+                          	  <div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表</a></div>
                           	  <!-- <a href="#" class="btn btn-secondary">新公司注册</a>
                           	  <a href="#" class="btn btn-secondary">查看文件</a> -->
                           </td>

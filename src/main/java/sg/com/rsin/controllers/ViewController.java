@@ -169,11 +169,17 @@ public class ViewController {
 		ModelAndView model = new ModelAndView("mybusiness/downLoadFile");
 		return model;
 	}	
-	@RequestMapping("/adminDownLoadFile.jsp")
+	@RequestMapping("/adminDownLoadFile")
 	public ModelAndView adminDownLoadFile() {
-		ModelAndView model = new ModelAndView("adminDownLoadFile.jsp");
+		ModelAndView model = new ModelAndView("todolist/adminDownLoadFile");
 		return model;
-	}		
+	}
+	@RequestMapping("/adminTimeLine")
+	public ModelAndView adminTimeLine() {
+		ModelAndView model = new ModelAndView("todolist/adminTimeLine");
+		return model;
+	}	
+
 	
 	@RequestMapping("/mybusiness/admin_record")
 	public ModelAndView admin_record() {

@@ -46,7 +46,7 @@
                         <option>新加坡共享办公室</option>                        
                       </select>
                     </div>
-                    <div class="float-right">
+                    <!--<div class="float-right">
                       <form>
                         <div class="input-group">
                           <input type="text" class="form-control" placeholder="Search">
@@ -55,62 +55,29 @@
                           </div>
                         </div>
                       </form>
-                    </div>
+                    </div>  -->
 
                     <div class="clearfix mb-3"></div>
 
                     <div class="table-responsive">
                       <table class="table table-striped">
                         <tr>
-                          <th class="text-center pt-2">
-                          </th>
                           <th>UEN</th>
-                          <th>公司名称</th>
-                          <th>公司类型</th>
-                          <th>挂名董事</th>
-                          <th>董事1</th>
-                          <th>股东1</th>
-                          <th>秘书</th>     
-                          <th>联系人电话</th>                          
-                          <th>邮箱</th>                          
-                          <th>注册资本 </th>                          
-                          <th>实缴资本</th>                          
-                          <th>注册时间</th>
-                          <th>预计年审时间</th>                          
-                          <th>实际年审时间</th>                          
-                          <th>财务年度时间</th>  
-                          <th>公司变更时间</th>  
-                          <th>消费税报税</th>                          
-                          <th>所得税报税</th>                          
-                          <th>服务记录</th>                                                                                                     
-                          <th>服务进度</th>                          
-                          <th>渠道方地址</th>                          
+                          <th>公司名称</th>                         
+                          <th>注册日期</th> 
+                          <th>时间表</th>                                                                                                    
+                          <th>文件下载</th>                          
+                          <th>导出基本信息</th>                          
                           <th>备注</th>  																			                          
                         </tr>
                         <tr>
-                          <th class="text-center pt-2">
-                          </th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>     
-                          <th></th>                          
-                          <th></th>                          
-                          <th> </th>                          
-                          <th></th>                          
-                          <th></th>
-                          <th></th>                          
-                          <th></th>                          
-                          <th></th>  
-                          <th></th>                          
-                          <th></th>                          
-                          <th></th>                                                                                                     
-                          <th></th>                          
-                          <th></th>                          
-                          <th></th>  																			                          
+                          <th>data</th>
+                          <th>data</th>
+                          <th>data</th>
+                          <th> <div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表</a></div></th>                          
+                          <th><div class="badge badge-danger"><a href="/adminDownLoadFile" target="_blank">文件下载</a></div></th>
+                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">导出基本信息</a></div></th>                           
+                          <th></th> 																			                          
                         </tr>                        
 
                       </table>

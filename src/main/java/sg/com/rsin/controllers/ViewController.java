@@ -261,7 +261,11 @@ public class ViewController {
 		ModelAndView model = new ModelAndView("todolist/uploadPage");
 		return model;
 	}		
-	
+	@RequestMapping("/schedule")
+	public ModelAndView schedule() {
+		ModelAndView model = new ModelAndView("todolist/schedule");
+		return model;
+	}		
 	@RequestMapping("/mybusiness/openAccount")
 	public ModelAndView openAccount() {
 		ModelAndView model = new ModelAndView("mybusiness/openAccount");

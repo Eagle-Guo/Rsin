@@ -175,8 +175,19 @@ public class ViewController {
 	public ModelAndView downLoadFile() {
 		ModelAndView model = new ModelAndView("mybusiness/downLoadFile");
 		return model;
-	}		
-		
+	}	
+	@RequestMapping("/adminDownLoadFile")
+	public ModelAndView adminDownLoadFile() {
+		ModelAndView model = new ModelAndView("todolist/adminDownLoadFile");
+		return model;
+	}
+	@RequestMapping("/adminTimeLine")
+	public ModelAndView adminTimeLine() {
+		ModelAndView model = new ModelAndView("todolist/adminTimeLine");
+		return model;
+	}	
+
+	
 	@RequestMapping("/mybusiness/admin_record")
 	public ModelAndView admin_record() {
 		ModelAndView model = new ModelAndView("mybusiness/admin_record");

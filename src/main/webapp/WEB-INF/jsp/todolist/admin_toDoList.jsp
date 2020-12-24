@@ -32,8 +32,8 @@
                   <div class="card-header">
                     <h4>待办事项清单</h4>
                   </div>
-                  <div class="card-body">
-                    <div class="float-left">
+                  <div class="card-body admin_toDoList">
+                    <!--<div class="float-left">
                       <select class="form-control selectric" style="display:inline;">
                         <option>公司A</option>
                         <option>公司B</option>
@@ -44,7 +44,7 @@
                         <option>资料上传</option>
                         <option>待完成步骤</option>
                       </select>
-                    </div>
+                    </div>  -->
                     <div class="float-right">
                       <form>
                         <div class="input-group">
@@ -61,91 +61,39 @@
                     <div class="table-responsive">
                       <table class="table table-striped">
                         <tr>
-                          <th class="text-center pt-2">
-                          </th>
+                          <th>创建日期</th>
                           <th>公司名称</th>
                           <th>待办事项</th>
-                          <th>签订人</th>
-                          <th>签订文件</th>
-                          <th>状态</th>
-                          <th>查看</th>
+                          <th>其它</th>
                         </tr>
                         <tr>
                           <td>
-                            <div class="custom-checkbox custom-control">
-                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
-                              <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                            </div>
+                          20/12/2020
                           </td>
                           <td>公司A
                           </td>
                           <td>
-                          	  电子签名
+                          	  <div class="badge badge-danger"><a href="/adminDownLoadFile" target="_blank">新公司注册</a></div>
+                          	  <!-- <a href="#" class="btn btn-secondary">新公司注册</a>
+                          	  <a href="#" class="btn btn-secondary">查看文件</a> -->
                           </td>
-                          <td>
-                                                                                                    董事1
+                          <td>                                                        
                           </td>
-                          <td>First Ditector Meeting</td>
-                          <td><div class="badge badge-primary">完成</div></td>
-                          <td><a href="#" class="btn btn-secondary">查看文件</a></td>
-                        </tr>
+                        </tr>  
                         <tr>
                           <td>
-                            <div class="custom-checkbox custom-control">
-                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
-                              <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                            </div>
+                          20/12/2020
                           </td>
                           <td>公司A
                           </td>
                           <td>
-                          	  电子签名
+                          	  <div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表</a></div>
+                          	  <!-- <a href="#" class="btn btn-secondary">新公司注册</a>
+                          	  <a href="#" class="btn btn-secondary">查看文件</a> -->
                           </td>
-                          <td>
-                                                                                                    董事2
+                          <td>                                                        
                           </td>
-                          <td>First Ditector Meeting</td>
-                          <td><div class="badge badge-primary">未完成</div></td>
-                          <td><a href="#" class="btn btn-secondary">查看文件</a></td>
-                        </tr>                        
-                        <tr>
-                          <td>
-                            <div class="custom-checkbox custom-control">
-                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
-                              <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                            </div>
-                          </td>
-                          <td>公司A
-                          </td>
-                          <td>
-                          	  电子签名
-                          </td>
-                          <td>
-                                                                                                     挂名董事
-                          </td>
-                          <td>First Director Meeting Resolution</td>
-                          <td><div class="badge badge-primary">未完成</div></td>
-                          <td><a href="#" class="btn btn-danger">查看和签署文件</a></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="custom-checkbox custom-control">
-                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
-                              <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                            </div>
-                          </td>
-                          <td>公司A
-                          </td>
-                          <td>
-                          	  电子签名
-                          </td>
-                          <td>
-                                                                                                     公司秘书
-                          </td>
-                          <td>First Director Meeting Resolution</td>
-                          <td><div class="badge badge-primary">未完成</div></td>
-                          <td><a href="#" class="btn btn-danger">查看和签署文件</a></td>
-                        </tr>                        
+                        </tr>                                                                      
                       </table>
                     </div>
                     <div class="float-right">

@@ -209,20 +209,29 @@ CREATE TABLE `signature_log` (
   CONSTRAINT `signature_log_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE `company_status` (
-  `status_code` int(11) NOT NULL,
-  `action_desc` varchar(255) NOT NULL,
+CREATE TABLE `status_code` (
+  `id` int(11) NOT NULL,
+  `status_desc` varchar(255) NOT NULL,
   `display_step` int(11) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  `created_date` DATETIME,
-  PRIMARY KEY (`status_code`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
-INSERT INTO company_status (status_code, action_desc, display_step, created_by, created_date) value (1,'选择服务', 1, 'admin', sysdate());
-INSERT INTO company_status (status_code, action_desc, display_step, created_by, created_date) value (2,'信息填报', 2, 'admin', sysdate());
-INSERT INTO company_status (status_code, action_desc, display_step, created_by, created_date) value (3,'在线支付', 3, 'admin', sysdate());
-INSERT INTO company_status (status_code, action_desc, display_step, created_by, created_date) value (4,'电子签名', 4, 'admin', sysdate());
-INSERT INTO company_status (status_code, action_desc, display_step, created_by, created_date) value (5,'上传资料', 5, 'admin', sysdate());
-INSERT INTO company_status (status_code, action_desc, display_step, created_by, created_date) value (6,'注册受理中', 0, 'admin', sysdate());
-INSERT INTO company_status (status_code, action_desc, display_step, created_by, created_date) value (7,'注册完成', 0, 'admin', sysdate());
+INSERT INTO status_code (id, status_desc, display_step) value (1,'选择服务', 1);
+INSERT INTO status_code (id, status_desc, display_step) value (2,'信息填报', 2);
+INSERT INTO status_code (id, status_desc, display_step) value (3,'在线支付', 3);
+INSERT INTO status_code (id, status_desc, display_step) value (4,'电子签名', 4);
+INSERT INTO status_code (id, status_desc, display_step) value (5,'上传资料', 5);
+INSERT INTO status_code (id, status_desc, display_step) value (6,'注册受理中', 0);
+INSERT INTO status_code (id, status_desc, display_step) value (7,'注册完成', 0);
 
+CREATE TABLE `company_status_time` (
+  `id` int(11) NOT NULL auto_increment,
+  `services` DATETIME,
+  `information` DATETIME,
+  `payment` DATETIME,
+  `signature` DATETIME,
+  `uploadfile` DATETIME,
+  `company_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `company_status_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;

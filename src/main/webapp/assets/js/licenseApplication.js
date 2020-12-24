@@ -44,19 +44,6 @@
          });
       });
 
-    function saveToBackend() {
-    	alert("save To Backend");
-    	$.post(
-                "/api/newCompany",
-                { "services" : JSON.stringify(services),
-                  "companyInfos": JSON.stringify(companyInfos),
-                  "shareholderInfos" : JSON.stringify(shareholderInfos)},
-                function(data, status) {
-             	   alert("Data: " + data + "\nStatus: " + status);
-              	<!--     $('#stage').html(data); -->
-                }
-             );
-    }
     function refreshRightSummary() {
         var number = services.length;
         var selectedsummaryhtml = "<h6 class='mt-3'>服务类型详细清单</h6><ul class='list-unstyled list-unstyled-border'>";

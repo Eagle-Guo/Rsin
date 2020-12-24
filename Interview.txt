@@ -1,0 +1,314 @@
+Java：
+1. List， Map 和 Set 有什么区别？ (ArrayList and LinkedList) HashMap   (LinkedHashSet, TreeSet, and HashSet)
+	The list is an ordered collection which allows duplicate. It also has an implementation which provides constant time index based access, but that is not guaranteed by List interface. 
+	The Set interface provides an unordered collection of unique objects, i.e. Set doesn't allow duplicates, 
+	while Map provides a data structure based on key-value pair and hashing.
+2.  那些集合类允许重复值：List 
+	那些集合类是有序的：List and Set 
+	那些集合类可以保存null？List, Map只允许一个null 的key但允许null的value
+3. 怎样print一个数组？Arrays.toString()
+	You can print an array by using the Arrays.toString() and Arrays.deepToString() method. 
+	Since array doesn't implement toString() by itself, just passing an array to System.out.println() will not print its contents but Arrays.toString() will print each element.
+4. Comparable 和 Comparator 的用法： Comparable对实现它的每个类的对象进行整体排序。这个接口需要类本身去实现， 如果类不能修改或为基础类，只能使用Comparator
+	public interface Comparable<T> {
+		public int compareTo(T o);
+	}
+
+	public interface Comparator<T> {
+		int compare(T o1, T o2);
+	}
+4. Java 8有什么新的功能:  https://mkyong.com/tutorials/java-8-tutorials/
+	Lambda Expressions − a new language feature allowing treating actions as objects
+	Method References − enable defining Lambda Expressions by referring to methods directly using their names
+	Optional − special wrapper class used for expressing optionality
+	Functional Interface – an interface with maximum one abstract method, implementation can be provided using a Lambda Expression
+	Default methods − give us the ability to add full implementations in interfaces besides abstract methods
+	Nashorn, JavaScript Engine − Java-based engine for executing and evaluating JavaScript code
+	Stream API − a special iterator class that allows processing collections of objects in a functional manner
+	Date API − an improved, immutable JodaTime-inspired Date API
+5. 方法引用 (Method References)：
+		(o) -> o.toString();	变成 Object::toString();  其他的： String::new;   String::valueOf;   str::toString;
+6. 什么是Optional ？怎么使用？
+	Optional.ofNullable(nullName).orElse("john");
+7. 价格一般我们用什么数字类型？
+	BigDecimal if memory is not a concern and Performance is not critical, otherwise double with predefined precision.
+8. ++ 操作符是线程安全的吗？
+	No it's not a thread safe operator because its involve multiple instructions like reading a value, incriminating it and storing it back into memory 
+	which can be overlapped between multiple threads.
+9. 堆(Stack)和栈(heap) 有什么不同？
+	Stack and heap are different memory areas in the JVM and they are used for different purposes. 
+	The stack is used to hold method frames and local variables while objects are always allocated memory from the heap. 
+	The stack is usually much smaller than heap memory and also didn't shared between multiple threads, but heap is shared among all threads in JVM.
+10. hashCode() 有什么作用？如果说两个对象相等怎么判断？
+	hashCode() method returns an int hash value corresponding to an object. It's used in hash based collection classes e.g Hashtable, HashMap, LinkedHashMap and so on. 
+	It's very tightly related to equals() method. According to Java specification, two objects which are equal to each other using equals() method must have same hash code.
+11. Stream filter and map 的作用
+	比如我想把一个列表的之都转为小写
+		List<String> alpha = Arrays.asList("a", "b", "c", "d");
+		List<String> collect = alpha.stream().map(String::toLowerCase).collect(Collectors.toList());
+	对象的list 转为一个字符串的list	
+		public class Staff {private String name; private int age; private BigDecimal salary;}
+		List<String> collect = staff.stream().map(x -> x.getName()).collect(Collectors.toList());
+13. 函数式接口(Functional Interface) 用途是什么？ 一个只能有一个抽象方法的接口。主要在Lambda表达式和方法引用上。
+	允许定义默认方法 和 允许定义静态方法
+
+
+Spring
+1. IOC 容器的功能
+	(i) Find Beans		(ii) Identify their dependencies and wire the dependencies	(iii) Manage Lifecycle of the Bean (creation, processing, and destruction)
+2. 注解标识在接口还是实现类   @Qualifier
+3. 这些标识有什么不同 @Component, @Repository and @Service and @Controller	
+4. Spring 有什么设计模式？ Singleton pattern， 	Factory Method pattern，	Proxy Pattern,  Template pattern
+4. Spring的作用域 scope=singleton and prototype  加上Web 就有 request、session和 global session
+	singleton作用域 
+　　	当一个bean的作用域设置为singleton, 那么Spring IOC容器中只会存在一个共享的bean实例，并且所有对bean的请求，只要id与该bean定义相匹配，则只会返回bean的同一实例。换言之，当把一个bean定义设置为singleton作用域时，Spring IOC容器只会创建该bean定义的唯一实例。这个单一实例会被存储到单例缓存（singleton cache）中，并且所有针对该bean的后续请求和引用都将返回被缓存的对象实例，这里要注意的是singleton作用域和GOF设计模式中的单例是完全不同的，单例设计模式表示一个ClassLoader中只有一个class存在，而这里的singleton则表示一个容器对应一个bean，也就是说当一个bean被标识为singleton时候，spring的IOC容器中只会存在一个该bean。
+	prototype 
+　　	prototype作用域部署的bean，每一次请求（将其注入到另一个bean中，或者以程序的方式调用容器的getBean()方法）都会产生一个新的bean实例，相当与一个new的操作，对于prototype作用域的bean，有一点非常重要，那就是Spring不能对一个prototype bean的整个生命周期负责，容器在初始化、配置、装饰或者是装配完一个prototype实例后，将它交给客户端，随后就对该prototype实例不闻不问了。不管何种作用域，容器都会调用所有对象的初始化生命周期回调方法，而对prototype而言，任何配置好的析构生命周期回调方法都将不会被调用。清除prototype作用域的对象并释放任何prototype bean所持有的昂贵资源，都是客户端代码的职责。（让Spring容器释放被singleton作用域bean占用资源的一种可行方式是，通过使用bean的后置处理器，该处理器持有要被清除的bean的引用。） 
+	怎样在Spring boot 和xml中 写
+	@Bean
+	@Scope("singleton")
+	public Person personSingleton() {
+		return new Person();
+	}
+	@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON) or @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+	XML: <bean id="personSingleton" class="org.baeldung.scopes.Person" scope="singleton"/>    
+5.  Singleton 的beans 是线程安全的吗？ 不是
+6. @Autowired 注解? properties, Setter Injection 和 Constructor Injection
+		@Autowired (properties or field)
+		private FooFormatter fooFormatter;
+		
+			@Autowired (Setter)
+			public void setFooFormatter(FooFormatter fooFormatter) {
+				this.fooFormatter = fooFormatter;
+			}
+			
+				@Autowired (Constructor)
+				public FooService(FooFormatter fooFormatter) {
+					this.fooFormatter = fooFormatter;
+				}
+7. 如果Autowired错误说没有找到相应的bean，怎么解决？ 也就是要设置为可选的： @Autowired (required=false)
+8. dependency injection and factory design pattern
+	Though both patterns help to take out object creation part from application logic, use of dependency injection results in cleaner code than factory pattern
+	By using dependency injection, your classes are nothing but POJO which only knows about dependency but doesn't care how they are acquired. 
+	In the case of factory pattern, the class also needs to know about factory to acquire dependency. hence, DI results in more testable classes than factory pattern.
+9. Autowire 的类型
+	4种： byName， byType， constructor 和 autodetect
+
+Spring MVC
+https://dzone.com/articles/top-20-spring-mvc-interview-questions-and-answers
+
+1. 什么是spring MVC
+	A Spring MVC is a single shared controller instance and it is used to handle request type controllers, interceptors which run in the IoC container. 
+	It also allows multiple Dispatcher Servlets which can share application context interface but not class based interface.
+2. DispatcherServlet 有什么作用？
+	The DispatcherServlet is an implementation of the Front Controller design pattern that handles all incoming web request to a Spring MVC application.
+	In Spring MVC, DispatcherServlet is used for finding the correct Controller to process a request, which it does with the help of handler mapping, 
+	e.g. the @RequestMapping annotation.
+3. DispatcherServlet 是通过application context初始化的吗?
+	No, the DispatcherServlet is instantiated by Servlet containers like Tomcat or Jetty. You must define the DispatcherServlet into the web.xml file as shown below.
+4. 什么是ContextLoaderListener ？
+	也叫做应用的root. The ContextLoaderListener is a listener that helps to bootstrap Spring MVC. 
+	As the name suggests, it loads and creates the ApplicationContext, so you don't have to write explicit code to do create it.
+5. @RequestParam 是做什么的？
+	The @RequestParam is a Spring MVC annotation that is used to extract a request parameter or query parameters from the URL in the Controller's handler method as shown below:
+6. @RequestParam 和 @GetMapping 的区别
+	public String getFooByIdUsingQueryParam(@RequestParam String id)  http://localhost:8080/foos?id=abc
+	@GetMapping("/api/employeeswithmapvariable/{id}/{name}")
+7. @RequestMapping 的 Controller方法 能够返回那些合法的类型？
+	String
+	void
+	View
+	ModelAndView (Class)
+	Model (Interface)
+	Map
+	HttpEntity<?> or ResponseEntity<?>
+	HttpHeaders
+8. 	parameter 或者 attribute 的区别和使用方法
+
+Spring Security
+1. 什么是Spring Security的过滤链?
+	In Spring Security you have a lot of filters for web application and these filters are Spring Beans. 
+	Each Spring security filter bean that requires in your application you have to declare in your application context file 
+	and as we know that filters would be applied to the application only when they would be declared in web.xml or spring boot annotation. 
+2. 有哪些主要的过滤器
+	SecurityContextIntegrationFilter – Establishes SecurityContext and maintains between HTTP requests
+	LogoutFilter – Clears SecurityContextHolder when logout requested
+	UsernamePasswordAuthenticationFilter – Puts Authentication into the SecurityContext on login request
+	ExceptionTranslationFilter – Converts SpringSecurity exceptions into HTTP response or redirect
+	FilterSecurityInterceptor – Authorizes web requests based on on config attributes and authorities
+3. 为什么需要intercept-url? or "http.authorizeRequests().antMatchers("/register").permitAll()"
+	an intercept-url element is used to define the set of URL patterns that the application is interested in and to configure how they should be handled.
+	<intercept-url pattern='/secure/a/**' access='ROLE_A'/>
+4. 什么是授权，什么是验证？ 哪个会先处理？ Authentication (认证) 和 Authorization (授权)
+	Authentication – Establishing that a principal’s credentials are valid
+	Authorization – Deciding if a principal is allowed to perform an action
+	Authentication comes first before Authorization because authorization process needs a princial object with authority votes to decide user allow to perform an action for the secured resource.
+5. 什么是security principal?
+	SecurityContextHolder stores the principal currently interacting with the application. 
+	The principal is the currently logged in user that you retrieve it through the security context.
+5. [Authentication] 是一个接口，它定义存储用户的Principal（用户信息），Credentials（密码），Authority（权限）等信息。
+   [UserDetails] 是一个接口，定义了认证所需的必要信息，包括用户名，密码，权限，有效性等
+6. 怎样配置一个在内存级别的Spring Security
+	 @Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication()
+		  .withUser("user").password("password").roles("USER")
+		  .and()
+		  .withUser("admin").password("password").roles("USER", "ADMIN");
+7. 怎样配置一个AuthenticationHandler 的类 AuthenticationSuccessHandler
+
+
+
+Spring JPA
+https://www.javatpoint.com/jpa-interview-questions
+1. Repository 和 CrudRepository 和 JpaRepository 有什么区别？
+	CrudRepository																				JpaRepository
+	1. CrudRepository extends Repository interface.											1. JpaRepository extends PagingAndSortingRepository and QueryByExampleExecutor interface.
+	2. CrudRepository provides methods to perform CRUD operations.							2. JpaRepository provides additional methods like flush(), saveAndFlush(), deleteInBatch() etc.
+	3. The saveAll(Iterable entities)  method of CrudRepository returns Iterable.			3. The saveAll(Iterable entities)  method of JpaRepository returns List.
+	4. If we have to perform mainly CRUD operation, define our repository using CrudRepository.	4. If we have to perform CRUD as well as Batch operation define our repository extending JpaRepository.
+
+	Repository – Top-level interface defined in Spring Data Hierarchy. This is a marker interface i.e doesn’t contain any method. See more details about the Repository interface here.
+	CrudRepository – The CrudRepository interface extends Repository interface, provides methods to perform CRUD operation. See more details about the CrudRepository interface here.
+	PagingAndSortingRepository – The PagingAndSortingRepository interface extends CrudRepository interface and provides additional methods to retrieve entities using the pagination and sorting.
+	QueryByExampleExecutor – The QueryByExampleExecutor interface used to execute Query by Example.
+	JpaRepository – The JpaRepository interface extends PagingAndSortingRepository and QueryByExampleExecutor interface, provides some additional batch methods. See more details here.
+	SimpleJpaRepository – The SimpleJpaRepository is the implementation class of the CrudRepository interface.
+	QueryDslJpaRepository – This is a class.
+2. Crudrepository 有什么常用方法？
+	save(S entity) – Used to save a single entity at a time. See an example of the save() method here.
+	saveAll(Iterable<S> – we can save multiple entities at a time. See a complete example of the CrudRepository saveAll() method from scratch here.
+	findById(ID id) – Use to get entity basis of id. See an example of the findById() method here.
+	existsById(ID id) – Used to check whether an entity is already exited in DB for given Id. See an example of the existsById() method here.
+	findAll() – Find all entity of particular type. See an example of the findAll() here.
+	findAllById(Iterable<ID> ids)  – Return all entity of given ids. See an example here.
+	count() – Returns the number of entities. See an example of the count() method here.
+	deleteById(ID id) – Delete the entity on basis of id. See a complete example deleteById() method here.
+	delete(T entity) – delete the entity which one we are passing. See a complete example here.
+	delete(Iterable<? extends T> entities) – delete multiple entities which we are passing.  See a complete example here.
+	deleteAll() – delete all entities. See a complete example here.
+3. JpaRepository 的getone 和findone有什么不同？
+4. 怎样启用的Hibernat的cache功能？  https://www.baeldung.com/hibernate-second-level-cache
+	hibernate.cache.use_second_level_cache=true
+	hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory
+	
+	@Cacheable
+	@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+4. JPA 和 Hibernate 有什么不一样？
+	JPA is the interface while Hibernate is the implementation.
+	There are multiple popular implementations of JPA. Hibernate, MyBatis and TopLink
+5.  @Column and @Basic 有什么不一样？
+	@Basic signifies that an attribute is to be persisted and a standard mapping is to be used. It has parameters which allow you to specify whether the attribute is to be lazily loaded and whether it's nullable. 
+	@Column allows you to specify the name of the column in the database to which the attribute is to be persisted.
+6.	怎样启动JPA的功能
+	use @EnableJpaRepositories annotation
+7.  @Query的作用， 什么时候用它？
+	@Query("select s from Student s where s.name = ?1")
+	List<Student> getStudents(String name);
+8. id产生器(identifier generation)的类型， 也就是GenerationType的区别？
+	TABLE：使用一个特定的数据库表格来保存主键。 
+	SEQUENCE：根据底层数据库的序列来生成主键，条件是数据库支持序列。 
+	IDENTITY：主键由数据库自动生成（主要是自动增长型） 
+	AUTO：主键由程序控制
+9. 怎样设置多对一和一对多 ， 一对一？
+	@OneToOne(mappedBy = "company")
+    private CompanyService serviceList;
+	
+	@OneToMany(cascade = {CascadeType.ALL})
+    private List<CompanyShareholderInfo> shareholderInfoList;
+
+	@ManyToOne   or @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "company_id", nullable = false)
+	private Company company;
+10. deleteAll() Vs deleteAllInBatch() 有什么区别？
+	deleteAll  Using the above method we can delete all entities which we pass as request data
+	Using deleteAllInBatch() method we can delete all entities from database. No need to pass entities as parameters
+11. 怎样写命名的变量
+	@Query("select s from Student s where s.name = :name")
+	List<Student> findByName(@Param("name") String name);
+
+
+	
+Spring Boot
+1. Spring boot 有什么好处？
+	Starters – a set of dependency descriptors to include relevant dependencies at a go
+	Auto-configuration – a way to automatically configure an application based on the dependencies present on the classpath
+	Actuator – to get production-ready features such as monitoring
+	Security
+	Logging
+2. 怎样用maven搭建一个Spring Boot Application
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.0.RELEASE</version>
+	</parent>
+3. 一般我们怎么使用spring boot？比如要用开发一个web？
+	常见的starter
+	At the time of this writing, there are more than 50 starters at our disposal. The most commonly used are:
+	spring-boot-starter: core starter, including auto-configuration support, logging, and YAML
+	spring-boot-starter-aop: starter for aspect-oriented programming with Spring AOP and AspectJ
+	spring-boot-starter-data-jpa: starter for using Spring Data JPA with Hibernate
+	spring-boot-starter-security: starter for using Spring Security
+	spring-boot-starter-test: starter for testing Spring Boot applications
+	spring-boot-starter-web: starter for building web, including RESTful, applications using Spring MVC
+4. 怎样禁用我们不需要的自动配置
+	If we want to disable a specific auto-configuration, we can indicate it using the exclude attribute of the @EnableAutoConfiguration annotation. For instance, this code snippet neutralizes DataSourceAutoConfiguration:
+	@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
+	public class MyConfiguration { }
+5. 怎样运行一个jar file或war file？
+6. @SpringBootApplication 做了什么？
+	@SpringBootConfiguration: same as @Configuration in a Spring Application.
+	@EnableAutoConfiguration: auto-configures the classes available in the classpath.
+	@ComponentScan: all the classes available under a package will be scanned when this annotation is applied.
+7. Spring boot的内嵌服务器是什么意思？tomcat jetty
+	To deploy any web application a server like Tomcat is required. In Spring Boot a server (like Tomcat) is available as part of the application in a jar. The concept of Embedded Server makes the deployment of application very easy and independent.
+. 怎样修改默认的端口？
+	using a properties file – we can define this in an application.properties (or application.yml) file using the property server.port
+	programmatically – in our main @SpringBootApplication class, we can set the server.port on the SpringApplication instance
+	using the command line – when running the application as a jar file, we can set the server.port as a java command argument:
+		java -jar -Dserver.port=8081 myspringproject.jar
+
+数据库 Mysql
+1. 如果数据库需要保存中文，要怎么设置？
+	DEFAULT CHARACTER SET = utf8
+2. 怎样加入一个新的column， 可以指定位置吗？
+	ALTER TABLE cars ADD COLUMN engine VARCHAR(80) AFTER colour;
+3. CHAR and VARCHAR有什么不一样？ 一般用什么？
+4. 怎样保存图片?
+	Images can be stored in the MySQL database by converting them to BLOBS. But it is not preferred due to the large overhead it creates. Plus, 
+	it puts unnecessary load on the RAM while loading the entire database. It is hence preferred to store the paths in the database and store the images on disk. 
+
+Maven 
+1. 怎样跳过测试
+2.本地的仓库在哪里？在哪里可以修改？ C:\Users\ccegh\.m2\repository
+	通过修改本地 .m2目录下的settings.xml文件
+3. 生命周期
+	1,validate - validate the project is correct and all necessary information is available
+	2,compile - compile the source code of the project
+	3,test - test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+	4,package - take the compiled code and package it in its distributable format, such as a JAR.
+	5,integration-test - process and deploy the package if necessary into an environment where integration tests can be run
+	6,verify - run any checks to verify the package is valid and meets quality criteria
+	7,install - install the package into the local repository, for use as a dependency in other projects locally
+	8,deploy - done in an integration or release environment, copies the final package to the remote repository for sharing with other developers and projects.
+4. 怎样加入parent pom
+	<parent>
+        <groupId>com.howtodoinjava.demo</groupId>
+        <artifactId>MavenExamples</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+	
+jQuery
+1. toggle()用法
+2. 选择器的方式？
+		Name: It is used to select all elements which match with the given element Name.
+		#ID: It is used to select a single element which matches with the given ID
+		.Class: It is used to select all elements which match with the given Class.
+		Universal (*): It is used to select all elements available in a DOM.
+		Multiple Elements E, F, G: It is used to selects the combined results of all the specified selectors E, F or G.
+		Attribute Selector: It is used to select elements based on its attribute value.
+3. val() 的用法
+	To get the current value of the first element in the set of matched elements.
+	To set the value of every matched element.
+	
+4. 选择所有的链接 link

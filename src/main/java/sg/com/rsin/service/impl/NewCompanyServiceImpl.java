@@ -32,12 +32,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import sg.com.rsin.dao.CompanyOTHAccessRepository;
 import sg.com.rsin.dao.CompanyServiceRepository;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
+import sg.com.rsin.dao.CompanyStatusTimeRepository;
 import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.RoleRepository;
 import sg.com.rsin.dao.UserRegistrationRepository;
 import sg.com.rsin.entity.CompanyOTHAccess;
 import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
+import sg.com.rsin.entity.CompanyStatusTime;
 import sg.com.rsin.entity.Mail;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Role;
@@ -74,6 +76,8 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	@Autowired
 	private RoleRepository roleRepository;
+	@Autowired
+	private CompanyStatusTimeRepository companyStatusTimeRepository;
 	
 	
 	@Value("${rsin.application.domain}")
@@ -88,7 +92,7 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 	// json handling tool
 	private ObjectMapper mapper = new ObjectMapper();
 	
-	public void addCompany(String receivedData) {
+	public String addCompany(String receivedData) {
 		String result = "";
 		List<CompanyServiceVO> companyServiceVOs = new ArrayList<CompanyServiceVO>();
 		List<CompanyInfoVO> companyInfoVOs = new ArrayList<CompanyInfoVO>();
@@ -118,39 +122,45 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 		} catch (Exception e) {
 			logger.error("Get error to parse new company data to json ");
 			e.printStackTrace();
-		} ;
-
-		//Save to DB
+		}
+    	
+		//Check the company name is exited to avoid double submit. If not existed then save to DB
 		Company company = CommonUtils.phaseNewCompany(companyInfoVOs);
+		
+		Company existedCompany = companyRepository.findByName(company.getName());
+		if (existedCompany != null) {
+			logger.info("Company " + existedCompany.getName() + " is existed!");
+			return "Company have exited!";
+		}
 		company.setStatus("2"); //Complete the first 2 steps: 选择服务 and 信息填报
 		company.setCreatedDate(new Date());
 		companyRepository.save(company);
 
+		//Save to company_service
 		CompanyService companyService = CommonUtils.phaseNewCompanyService(companyServiceVOs);
 		companyService.setCompany(company);
 		companyServiceRepository.save(companyService);
 		
+		//Save to company_shareholderinfo
 		List<CompanyShareholderInfo> companyShareholderInfos = CommonUtils.phaseNewCompanyShareholderInfo(companyShareholderInfoVOs);
 		for (CompanyShareholderInfo companyShareholderInfo: companyShareholderInfos) {
 			companyShareholderInfo.setCompany(company);
 			companyShareholderInfoRepository.save(companyShareholderInfo);
 		}
 		
-		for (CompanyShareholderInfo shareholder: companyShareholderInfos) {
-			try {
-				sendEmailToShareHolder(company, shareholder);
-			} catch (MessagingException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
+		//Save the new company status time
+		CompanyStatusTime companyStatusTime = new CompanyStatusTime();
+		companyStatusTime.setCompany(company);
+		companyStatusTime.setServices(new Date());
+		companyStatusTime.setInformation(new Date());
+		companyStatusTimeRepository.save(companyStatusTime);
+
+		//Save to to user table for user to login
 		for (CompanyShareholderInfo shareholderEmail: companyShareholderInfos) {
 			// check if need to create the new account to user
-			List<UserRegistration> emails =  userRegistrationRepository.findByEmail(shareholderEmail.getEmail());
+			List<UserRegistration> userRecord =  userRegistrationRepository.findByEmail(shareholderEmail.getEmail());
 			// create the default account to new email user
-			if (ObjectUtils.isEmpty(emails)) {
+			if (ObjectUtils.isEmpty(userRecord)) {
 				Set<Role> role = roleRepository.findByName("ROLE_USER");
 				UserRegistration userRegistration = new UserRegistration();
 				userRegistration.setFirstName(shareholderEmail.getName());
@@ -162,6 +172,18 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 				userRegistrationRepository.save(userRegistration);
 			}
 		}
+		// Send the email to shareholder
+		for (CompanyShareholderInfo shareholder: companyShareholderInfos) {
+			try {
+				sendEmailToShareHolder(company, shareholder);
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return null;
 	}
 	private void sendEmailToShareHolder(Company company, CompanyShareholderInfo companyShareholderInfo) throws MessagingException, IOException {
 		//Send email to ShareHolder and Director

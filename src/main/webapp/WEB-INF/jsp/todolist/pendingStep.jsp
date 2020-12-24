@@ -43,7 +43,7 @@
                     </div>
                     <div class="activity-detail">
                       <div class="mb-2">
-                        <span class="text-job">${company.name} 05/11/2020</span>
+                        <span class="text-job">${statusTime.services != null? statusTime.services: "待完成。。。"}</span>
                         <span class="bullet"></span>
                         <a class="text-job" href="#">查看</a>
                       </div>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="activity-detail">
                       <div class="mb-2">
-                        <span class="text-job">05/11/2020</span>
+                        <span class="text-job">${statusTime.information != null? statusTime.information: "待完成。。。"}</span>
                         <span class="bullet"></span>
                         <a class="text-job" href="#">查看</a>
                       </div>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="activity-detail">
                       <div class="mb-2">
-                        <span class="text-job text-primary">待完成。。。</span>
+                        <span class="text-job text-primary">${statusTime.payment != null? statusTime.payment: "待完成。。。"}</span>
                       </div>
                       <p>在线支付</p>
                     </div>
@@ -80,7 +80,7 @@
                     </div>
                     <div class="activity-detail">
                       <div class="mb-2">
-                        <span class="text-job  text-primary">待完成。。。</span>
+                        <span class="text-job  text-primary">${statusTime.signature != null? statusTime.signature: "待完成。。。"}</span>
                       </div>
                       <p>电子签名</p>
                     </div>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="activity-detail">
                       <div class="mb-2">
-                        <span class="text-job  text-primary">待完成。。。</span>
+                        <span class="text-job  text-primary">${statusTime.uploadfile != null? statusTime.uploadfile: "待完成。。。"}</span>
                       </div>
                       <p>上传资料</p>
                     </div>

@@ -36,7 +36,7 @@
 		  <!--PEN CONTENT -->	
            <div class="row">
               <div class="col-12">
-                <div class="card">
+                <div class="card ">
                   <div class="card-header">
                     <h4>公司AAA</h4>
                     <div class="card-header-form">
@@ -51,18 +51,17 @@
                     </div>
                   </div>		  
 							<div class="row">
-						            <div class="col-12 col-md-12 col-lg-12 menuBotom" id="readyContent">
-						                <div class="card">
+						            <div class="col-12 col-md-12 col-lg-12" id="readyContent">
+						                <div class="card downLoadFile">
 						                	<div class="card-body">
 						                    	<div id="accordion">
 						                      		<div class="accordion">
-								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="true">
-								                         	<h4>公司基本信息</h4>
+								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="false">
+								                         	<h4>公司基本信息和注册文件</h4>
 								                        </div>
-								                        <div class="accordion-body collapse show" id="panel-body-1" data-parent="#accordion">
+								                        <div class="accordion-body collapse" id="panel-body-1" data-parent="#accordion">
 										                <div class="card">
 										                  <div class="card-body">
-														    <!--<div class="section-title noteText">公司名称</div>  -->
 										                    <table class="table table-sm">
 										                      <thead>
 										                        <tr>
@@ -73,76 +72,188 @@
 										                      <tbody>
 										                        <tr>
 										                          <th scope="row">ID</th>
-										                          <td>001</td>
+										                          <td>0000000001</td>
 										                        </tr>
 										                        <tr>
-										                          <th scope="row">Account</th>
-										                          <td>Markus Ang</td>
+										                          <th scope="row">UEN(注册号)</th>
+										                          <td>201500518N</td>
 										                        </tr>
 										                        <tr>
-										                          <th scope="row">Partner</th>
-										                          <td>(not set)</td>
+										                          <th scope="row">公司名称</th>
+										                          <td>KNOCKNOCK TECHNOLOGIES ASIA PTE. LTD</td>
 										                        </tr>
 										                        <tr>
-										                          <th scope="row">Reg Name</th>
-										                          <td>SINC INTERNATIONAL PTE. LTD.</td>
+										                          <th scope="row">公司类型</th>
+										                          <td>私人有限公司 (PTE. LTD.)</td>
 										                        </tr>
 										                        <tr>
-										                          <th scope="row">Register Date</th>
-										                          <td>01.03.2019</td>
+										                          <th scope="row">商业 活动1</th>
+										                          <td>AGRICULTURE AND RELATED SERVICE ACTIVITIES: 农业及相关服务</td>
+										                        </tr>										                        
+										                        <tr>
+										                          <th scope="row">商业 活动2</th>
+										                          <td>AGRICULTURE AND RELATED SERVICE ACTIVITIES: 农业及相关服务</td>
+										                        </tr>										                        
+										                        <tr>
+										                          <th scope="row">挂名董事</th>
+										                          <td>挂名董事1,挂名董事2</td>
 										                        </tr>																
 										                        <tr>
-										                          <th scope="row">Reg No</th>
-										                          <td>201906615H</td>
+										                          <th scope="row">董事</th>
+										                          <td>董事1,董事2</td>
 										                        </tr>																	
 										                        <tr>
-										                          <th scope="row">Reg Address</th>
-										                          <td>6 EU TONG SEN STREET #06-21 SINGAPORE 059817</td>
+										                          <th scope="row">股东</th>
+										                          <td>股东1,股东2</td>
 										                        </tr>																	
 										                        <tr>
-										                          <th scope="row">Proposed Name</th>
-										                          <td>SINC INTERNATIONAL</td>
+										                          <th scope="row">秘书</th>
+										                          <td>秘书1</td>
 										                        </tr>																
 										                        <tr>
-										                          <th scope="row">Business Activity 1</th>
-										                          <td>Employment agencies (excluding maid agencies)</td>
+										                          <th scope="row">注册资本</th>
+										                          <td>743968</td>
 										                        </tr>																	
 										                        <tr>
-										                          <th scope="row">Business Activity 2</th>
-										                          <td>(not set)</td>
+										                          <th scope="row">实缴资本</th>
+										                          <td>743968</td>
 										                        </tr>		
 										                        <tr>
-										                          <th scope="row">Nominee director</th>
-										                          <td>no</td>
-										                        </tr>																
-										                        <tr>
-										                          <th scope="row">Paid Up Capital</th>
-										                          <td>5000</td>
-										                        </tr>																	
-										                        <tr>
-										                          <th scope="row">Country</th>
-										                          <td>Singapore</td>
-										                        </tr>		
-										                        <tr>
-										                          <th scope="row">Postal Code</th>
-										                          <td>59817</td>
-										                        </tr>																
-										                        <tr>
-										                          <th scope="row">Secretary</th>
-										                          <td>secretary_eric@php-cpa.com.sg</td>
-										                        </tr>																	
-										                        <tr>
-										                          <th scope="row">Chairman director</th>
-										                          <td>marcus@rsin.com</td>
-										                        </tr>	
-										                        <tr>
-										                          <th scope="row">Created</th>
-										                          <td>12.02.2019 14:27:17</td>
-										                        </tr>											                        									                        
+										                          <th scope="row">注册时间</th>
+										                          <td>12/12/2020</td>
+										                        </tr>																						                        									                        
 										                      </tbody>
 										                    </table>
 										                  </div>
 										                </div>
+										                <div class="card">
+										                  <div class="card-body">
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Constitution of Company（公司章程）</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            					                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>	
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5" data-toggle="collapse"  data-target="#AttachedReport" style="cursor: pointer">	
+														           	    <b>Attached AML/CFT Report</b><span style="color: #6777ef;">(最新版)</span>                 
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            						                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>								
+															</div>								
+															<div id="AttachedReport" class="collapse in">							
+																<div class="row">
+																		<div class="col-12 col-md-1 col-lg-1"></div>		
+															            <div class="col-12 col-md-6 col-lg-6">	
+															           	 <span>修改记录：</span> 28.02.2019 07:44:11		                  
+																		</div>
+														            <div class="col-12 col-md-4 col-lg-4">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>										                  
+																	</div>		
+																	<div class="col-12 col-md-1 col-lg-1"></div>					
+																</div>
+															</div>		
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Certificate of Incorporation（公司注册证书）</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            				                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>	
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>First Director Meeting Resolution</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            		签名人员：签名人1、签名人2、签名人3				                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>		
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Risk Assessment（风险评估）</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            		签名人员：签名人1、签名人2、签名人3				                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>	
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Risk Assessment Checklist（风险评估清单）</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            					                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>	
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Secretary Agreement（秘书协议）</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            		签名人员：签名人1、签名人2、签名人3				                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>	
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Company info（公司信息）</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            					                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>	
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Register of Charges（收费登记册）</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            					                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>	
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Register of Secretary（秘书名册）</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            				                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>															
+																						                  
+										                  </div>
+										                </div>								                       
+								                       
 								                        </div>
 						                      		</div>
 						                    	</div>
@@ -151,113 +262,252 @@
 						            </div>			  		
                                 </div> 
 							<div class="row">
-						            <div class="col-12 col-md-12 col-lg-12 menuBotom" id="">
-						                <div class="card">
+						            <div class="col-12 col-md-12 col-lg-12" id="">
+						                <div class="card downLoadFile">
 						                	<div class="card-body">
 						                    	<div id="">
 						                      		<div class="accordion">
-								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-2" aria-expanded="true">
-								                         	<h4>公司注册文件</h4>
+								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-2" aria-expanded="false">
+								                         	<h4>董事：<span>AAA</span></h4>
 								                        </div>
-								                        <div class="accordion-body collapse show" id="panel-body-2" data-parent="#accordion">
+								                        <div class="accordion-body collapse" id="panel-body-2" data-parent="#accordion">
 										                <div class="card">
 										                  <div class="card-body">
-															<div class="row">
-														            <div class="col-12 col-md-6 col-lg-6">	
-														           	   Constitution of Company			                  
-																	</div>
-														            <div class="col-12 col-md-6 col-lg-6">	
-														            	<a href="#" >下载</a>							                  
-																	</div>									
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-6 col-lg-6" data-toggle="collapse"  data-target="#AttachedReport	">	
-														           	   Attached AML/CFT Report<span style="font-size:1.5rem;">￬</span>                 
-																	</div>
-														            <div class="col-12 col-md-6 col-lg-6">	
-														            	<a href="#" >下载</a>
-														            	<a href="#" >浏览</a>								                  
-																	</div>								
-															</div>								
-															<div id="AttachedReport" class="collapse in">							
-																<div class="row">
-															            <div class="col-12 col-md-6 col-lg-6">	
-															           	   28.02.2019 07:44:11		                  
-																		</div>
-														            <div class="col-12 col-md-6 col-lg-6">	
-														            	<a href="#" >下载</a>
-														            	<a href="#" >浏览</a>									                  
+										                  	<div class="row">
+														            <div class="col-12 col-md-12 col-lg-12" data-toggle="collapse"  data-target="#staffDetail" style="cursor: pointer">	
+														           	    <b>AAA个人基本信息</b><span style="color: #6777ef;">(点击查看详情)</span>                 
 																	</div>							
+															</div>	
+															<div id="staffDetail" class="collapse in">							
+																<div class="row">
+																		<div class="col-12 col-md-1 col-lg-1"></div>		
+															            <div class="col-12 col-md-10 col-lg-10">	
+														                    <table class="table table-sm">
+														                      <thead>
+														                        <tr>
+														                          <th scope="col">项目</th>
+														                          <th scope="col">内容</th>
+														                          <th scope="col">项目</th>
+														                          <th scope="col">内容</th>											                          						  
+														                        </tr>
+														                      </thead>
+														                      <tbody>
+														                        <tr>
+														                          <th scope="row">全名(护照姓名)</th>
+														                          <td>AAA</td>
+														                          <th scope="row">性别</th>
+														                          <td>女</td>										                          
+														                        </tr>
+														                        <tr>
+														                          <th scope="row">国籍</th>
+														                          <td>中国</td>
+														                          <th scope="row">证件类型</th>
+														                          <td>护照</td>										                          
+														                        </tr>
+														                        <tr>
+														                          <th scope="row">证件号码</th>
+														                          <td>W2222222222</td>
+														                          <th scope="row">电子邮箱</th>
+														                          <td>test@gmail.com</td>										                          
+														                        </tr>
+														                        <tr>
+														                          <th scope="row">联系电话</th>
+														                          <td>65+83627182</td>
+														                          <th scope="row">发行股份数量</th>
+														                          <td>5000</td>										                          
+														                        </tr>
+														                        <tr>
+														                          <th scope="row">实缴股份数量</th>
+														                          <td>5000</td>
+														                          <th scope="row">每股价值S$</th>
+														                          <td>1</td>										                          
+														                        </tr>										                        
+														                        <tr>
+														                          <th scope="row">个人地址及邮编</th>
+														                          <td>test</td>
+														                        </tr>										                        																						                        									                        
+														                      </tbody>
+														                    </table>	                  
+																		</div>	
+																	<div class="col-12 col-md-1 col-lg-1"></div>					
 																</div>
-															</div>		
+															</div>																
 															<div class="row">
-														            <div class="col-12 col-md-6 col-lg-6">	
-														           	   Certificate of Incorporation			                  
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>ANNEX B - Notice for Controllers</b>			                  
 																	</div>
-														            <div class="col-12 col-md-6 col-lg-6">	
-														            	<a href="#" >下载</a>	
-																		<a href="#" >浏览</a>	
-																	</div>									
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	签名人员：AAA	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
 															</div>	
 															<div class="row">
-														            <div class="col-12 col-md-6 col-lg-6">	
-														           	   First Director Meeting Resolution（Signers: ANG ZHENG LONG, MARCUS）	                  
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Application of Shares</b>			                  
 																	</div>
-														            <div class="col-12 col-md-6 col-lg-6">	
-														            	<a href="#" >下载</a>	
-																		<a href="#" >浏览</a>	
-																	</div>									
-															</div>		
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	签名人员：AAA	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>								
 															<div class="row">
-														            <div class="col-12 col-md-6 col-lg-6">	
-														           	   Risk Assessment（Signers: ANG ZHENG LONG, MARCUS, Eio Wee How）	                  
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Client Acceptance Form</b>			                  
 																	</div>
-														            <div class="col-12 col-md-6 col-lg-6">	
-														            	<a href="#" >下载</a>	
-																		<a href="#" >浏览</a>	
-																	</div>									
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	签名人员：AAA	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
 															</div>	
 															<div class="row">
-														            <div class="col-12 col-md-6 col-lg-6">	
-														           	   Company info 	                  
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Form 45 / 201</b>			                  
 																	</div>
-														            <div class="col-12 col-md-6 col-lg-6">	
-														            	<a href="#" >下载</a>	
-																	</div>									
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	签名人员：AAA	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Share Certificate</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	签名人员：AAA	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>								
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Register of member </b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
 															</div>	
 															<div class="row">
-														            <div class="col-12 col-md-6 col-lg-6">	
-														           	   Constitution of Company 	                  
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Register of director </b>			                  
 																	</div>
-														            <div class="col-12 col-md-6 col-lg-6">	
-														            	<a href="#" >下载</a>		
-																	</div>									
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-6 col-lg-6">	
-														           	   Register of Charges	                  
-																	</div>
-														            <div class="col-12 col-md-6 col-lg-6">	
-														            	<a href="#" >下载</a>	
-																	</div>									
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-6 col-lg-6">	
-														           	   Register of Secretary	                  
-																	</div>
-														            <div class="col-12 col-md-6 col-lg-6">	
-														            	<a href="#" >下载</a>		
-																	</div>									
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-6 col-lg-6">	
-														           	  Risk Assessment Checklist	                  
-																	</div>
-														            <div class="col-12 col-md-6 col-lg-6">	
-														            	<a href="#" >下载</a>	
-																	</div>									
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
 															</div>															
-																						                  
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Register of Auditor</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>								
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Register of Controllers </b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            		                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>	
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>Register of Beneficial Owner</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>IC正面</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	人员：AAA	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>								
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>IC背面</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	人员：AAA	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>	
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b> 护照（有照片页）</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	人员：AAA	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>																														
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>中国身份证</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	人员：AAA	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>	
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>持护照（打开有照片页）上半身照</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	人员：AAA	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>	
+															<div class="row">
+														            <div class="col-12 col-md-5 col-lg-5">	
+														           	   <b>住所证明</b>			                  
+																	</div>
+														            <div class="col-12 col-md-5 col-lg-5">	
+														            	人员：AAA	                  
+																	</div>		
+														            <div class="col-12 col-md-2 col-lg-2">	
+														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																	</div>																									
+															</div>																				                  
 										                  </div>
 										                </div>
 								                        </div>

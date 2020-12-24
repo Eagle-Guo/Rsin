@@ -168,8 +168,13 @@ public class ViewController {
 	public ModelAndView downLoadFile() {
 		ModelAndView model = new ModelAndView("mybusiness/downLoadFile");
 		return model;
+	}	
+	@RequestMapping("/adminDownLoadFile.jsp")
+	public ModelAndView adminDownLoadFile() {
+		ModelAndView model = new ModelAndView("adminDownLoadFile.jsp");
+		return model;
 	}		
-		
+	
 	@RequestMapping("/mybusiness/admin_record")
 	public ModelAndView admin_record() {
 		ModelAndView model = new ModelAndView("mybusiness/admin_record");

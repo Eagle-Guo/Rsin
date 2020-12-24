@@ -57,10 +57,17 @@
 			    </div>
 			  </div>
 			</div>
-			<div>
-				<span class="greenBall"></span><span>完成事项</span>
-				<span></span><span>末来事项</span>
-				<span></span><span>待处理</span>
+			<br/><br/>
+			<div class="row">
+				<div class="col-12 col-md-1 col-lg-1">	
+					<div class="doneBall"></div><span>完成事项</span>                  
+				</div>
+				<div class="col-12 col-md-1 col-lg-1">	
+					<div class="needToDoBall"></div><span>末来事项</span>
+				</div>		
+				<div class="col-12 col-md-1 col-lg-1">	
+					<div class="notFinishBall"></div><span>待处理</span>		                  
+				</div>																									
 			</div>
         </section>
       </div>

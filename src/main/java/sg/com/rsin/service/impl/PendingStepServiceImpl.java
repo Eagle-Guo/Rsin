@@ -27,11 +27,8 @@ public class PendingStepServiceImpl implements PendingStepService {
 		return companies.stream().filter(com -> com.getId().toString().equals(companyId)).findFirst().get();
 	}
 	
-	@SuppressWarnings("unchecked")
 	public CompanyStatusTime getCompanyStatusTime (String userEmail, String companyId) {
-		Map<String, Object> pageData = onlineSignatureService.getAllPageData(userEmail);
-		Set<Company> companies = (Set<Company>) pageData.get("companies");
-		Company company = companies.stream().filter(com -> com.getId().toString().equals(companyId)).findFirst().get();
+		Company company = getCompany(userEmail, companyId);
 		return companyStatusTimeRepository.findByCompanyId(company.getId());
 		
 	}

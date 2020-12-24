@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -53,7 +54,7 @@
 						                    	<div id="accordion">
 						                      		<div class="accordion">
 								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="true">
-								                         	<h4>AAA-待上传资料清单</h4>
+								                         	<h4>${companyName}-待上传资料清单</h4>
 								                        </div>
 								                        <div class="accordion-body collapse show uploadFile" id="panel-body-1" data-parent="#accordion">
 				           
@@ -65,55 +66,66 @@
                 </div>
                 <div class="card-body fixcardhieht">
                   <ul class="list-unstyled list-unstyled-border">
-                  
-                    <li class="media leftTab active"  id="b-1" onclick="viewPri(1)" onmouseover="viewPri(1)" >
-                      <div class="media-body">
+                  	<c:if test="${isSCOrPR}">
+	                    <li class="media leftTab active"  id="b-1" onclick="viewPri(1)" onmouseover="viewPri(1)" >
+	                      <div class="media-body">
+	                        <div class="">IC(正面)</div>
+	                        <input type="file" name="fileName" id="fileICFront" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#fileICFront', '#onLoadImageICFront')">
+	    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileICFront', '11')" value="确认上传"/>
+	                      </div>
+	                    </li>
+                    </c:if>
 
-                        <div class="">IC(正面)</div>
-                        <input type="file" name="fileName" id="fileICFront" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#fileICFront', '#onLoadImageICFront')">
-    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileICFront', '11')" value="确认上传"/>
-                      </div>
-                    </li>
-                    <li class="media leftTab active"  id="b-2" onclick="viewPri(2)" onmouseover="viewPri(2)" >
-                      <div class="media-body">
-                   
-                        <div class="">IC(背面) </div>           
-                        <input type="file" name="fileName" id="fileICBack" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#fileICBack', '#onLoadImageICBack')">
-    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileICBack', '12')" value="确认上传"/>            
-                      </div>
-                    </li>
-                    <li class="media leftTab active"  id="b-3" onclick="viewPri(3)" onmouseover="viewPri(3)" >
-                      <div class="media-body">
-                     
-                        <div class="">护照（有照片页）</div>
-						<input type="file" name="fileName" id="filePassport" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#filePassport', '#onLoadImagePassport')">
-    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePassport', '13')" value="确认上传"/>
-                      </div>
-                    </li>   
-                    <li class="media leftTab active"  id="b-4" onclick="viewPri(4)" onmouseover="viewPri(4)" >
-                      <div class="media-body">
-              
-                        <div class="">中国身份证</div>
-                        <input type="file" name="fileName" id="filePRCIC" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#filePRCIC', '#onLoadImagePRCIC')">
-    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePRCIC', '14')" value="确认上传"/>                    
-                      </div>
-                    </li>
-                     <li class="media leftTab active"  id="b-5" onclick="viewPri(5)" onmouseover="viewPri(5)" >
-                      <div class="media-body">
-              
-                        <div class="">住所证明 </div>
-                        <input type="file" name="fileName" id="fileAddress" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#fileAddress', '#onLoadImageAddress')">
-    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileAddress', '15')" value="确认上传"/>
-                      </div>
-                    </li>
-                    <li class="media leftTab active"  id="b-6" onclick="viewPri(6)" onmouseover="viewPri(6)" >
-                      <div class="media-body">
-                   
-                        <div class="">持护照（打开有照片页）上半身照</div>
-                        <input type="file" name="fileName" id="filePersonalPhoto" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#filePersonalPhoto', '#onLoadImagePersonalPhoto')">
-    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePersonalPhoto', '16')" value="确认上传"/>
-                      </div>
-                    </li>                      
+                    <c:if test="${isSCOrPR}">
+	                    <li class="media leftTab active"  id="b-2" onclick="viewPri(2)" onmouseover="viewPri(2)" >
+	                      <div class="media-body">
+	                        <div class="">IC(背面) </div>           
+	                        <input type="file" name="fileName" id="fileICBack" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#fileICBack', '#onLoadImageICBack')">
+	    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileICBack', '12')" value="确认上传"/>            
+	                      </div>
+	                    </li>
+					</c:if>
+
+					<c:if test="${isChinese || isforeigner}">
+	                    <li class="media leftTab active"  id="b-3" onclick="viewPri(3)" onmouseover="viewPri(3)" >
+	                      <div class="media-body">
+	                        <div class="">护照（有照片页）</div>
+							<input type="file" name="fileName" id="filePassport" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#filePassport', '#onLoadImagePassport')">
+	    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePassport', '13')" value="确认上传"/>
+	                      </div>
+	                    </li>
+					</c:if>
+
+					<c:if test="${isChinese}">
+	                    <li class="media leftTab active"  id="b-4" onclick="viewPri(4)" onmouseover="viewPri(4)" >
+	                      <div class="media-body">
+	                        <div class="">中国身份证</div>
+	                        <input type="file" name="fileName" id="filePRCIC" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#filePRCIC', '#onLoadImagePRCIC')">
+	    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePRCIC', '14')" value="确认上传"/>                    
+	                      </div>
+	                    </li>
+					</c:if>
+
+					<c:if test="${isforeigner}">
+	                    <li class="media leftTab active"  id="b-5" onclick="viewPri(5)" onmouseover="viewPri(5)" >
+	                      <div class="media-body">
+	                        <div class="">住所证明 </div>
+	                        <input type="file" name="fileName" id="fileAddress" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#fileAddress', '#onLoadImageAddress')">
+	    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#fileAddress', '15')" value="确认上传"/>
+	                      </div>
+	                    </li>
+					</c:if>
+
+					<c:if test="${isChinese || isforeigner}">
+	                    <li class="media leftTab active"  id="b-6" onclick="viewPri(6)" onmouseover="viewPri(6)" >
+	                      <div class="media-body">
+	                        <div class="">持护照（打开有照片页）上半身照</div>
+	                        <input type="file" name="fileName" id="filePersonalPhoto" accept="image/png, image/jpeg, image/jpg" onchange="checkReviewImage('#filePersonalPhoto', '#onLoadImagePersonalPhoto')">
+	    					<input type="button" id="submitBtn" class="float-right list_btn"  onclick="checkSubmit('#filePersonalPhoto', '16')" value="确认上传"/>
+	                      </div>
+	                    </li>
+                    </c:if>
+                    
                   </ul>                                                     
                 </div>
               </div>
@@ -176,66 +188,6 @@
             </div>
           </div>          
 										               
-										               
-										               <!-- <div class="card">
-										                  <div class="card-body">
-														    <div class="section-title noteText">公司名称</div>
-										                    <table class="table table-sm">
-										                      <thead>
-										                        <tr>
-										                          <th scope="col">#</th>
-										                          <th scope="col">类型</th>
-										                          <th scope="col">姓名</th>
-										                          <th scope="col">身份</th>
-										                          <th scope="col">待上传文件</th>
-										                          <th scope="col">马上上传</th>						  
-										                        </tr>
-										                      </thead>
-										                      <tbody>
-										                        <tr>
-										                          <th scope="row">1</th>
-										                          <td>董事</td>
-										                          <td>AAAA</td>
-										                          <td>新加坡公民</td>
-										                          <td>IC正面、IC背面</td>
-																  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上上传</a></td>
-										                        </tr>
-										                        <tr>
-										                          <th scope="row">2</th>
-										                          <td>董事</td>
-										                          <td>BBB</td>
-										                          <td>新加坡PR</td>
-										                          <td>IC正面、IC背面</td>
-																  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上上传</a></td>
-										                        </tr>
-										                        <tr>
-										                          <th scope="row">3</th>
-										                          <td>股东</td>
-										                          <td>CCC</td>
-										                          <td>中国公民</td>
-										                          <td>护照（有照片页）、中国身份证、持护照（打开有照片页）上半身照</td>
-																  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上上传</a></td>
-										                        </tr>
-										                        <tr>
-										                          <th scope="row">4</th>
-										                          <td>股东</td>
-										                          <td>DDD</td>
-										                          <td>外国公民（非新加坡PR\非中国公民）</td>
-										                          <td>护照（有照片页）、持护照（打开有照片页）上半身照、住所证明</td>
-																  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上上传</a></td>
-										                        </tr>										                        
-										                      </tbody>
-										                    </table>
-										                  </div>
-										                </div>-->
-								                        </div>
-						                      		</div>
-						                    	</div>
-						                 	 </div>
-						                </div>
-						            </div>					
-				
-
         </section>
       </div>
       <footer class="main-footer">

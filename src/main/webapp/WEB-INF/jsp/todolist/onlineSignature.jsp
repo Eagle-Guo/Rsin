@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -61,148 +62,133 @@
 		                        <button class="tablinks" onmouseover="openTab(event, 'Signature')">线下签名</button>                                                
 		                    </div>
 						    <div id="ESignature" class="tabcontent" style="display:block;padding: 0px; width: 100%;">
-								            <div class="col-12 col-md-12 col-lg-12 menuBotom" id="readyContent">
-								                <div class="card removeBorder">
-								                	<div class="card-body"  style="display:block;padding: 0px;">
-								                    	<div id="accordion">
-								                      		<div class="accordion">
-										                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="true">
-										                         	<h4>AAA-待签名清单</h4>
-										                        </div>
-										                        <div class="accordion-body collapse show" id="panel-body-1" data-parent="#accordion">
-												               <!-- <div class="card">
-												                  <div class="card-body">
-																    <div class="section-title noteText">公司名称</div>
-												                    <table class="table table-sm">
-												                      <thead>
-												                        <tr>
-												                          <th scope="col">#</th>
-												                          <th scope="col">类型</th>
-												                          <th scope="col">姓名</th>
-												                          <th scope="col">待签名文件</th>
-												                          <th scope="col">处理</th>						  
-												                        </tr>
-												                      </thead>
-												                      <tbody>
-												                        <tr>
-												                          <th scope="row">1</th>
-												                          <td>董事</td>
-												                          <td>AAAA</td>
-												                          <td>First Director Meeting Resolution; Client Acceptance Form; Form 45 / 201</td>
-																		  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上签名</a></td>
-												                        </tr>
-												                        <tr>
-												                          <th scope="row">2</th>
-												                          <td>董事</td>
-												                          <td>BBB</td>
-												                          <td>First Director Meeting Resolution; Client Acceptance Form; Form 45 / 201</td>
-																		  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上签名</a></td>
-												                        </tr>
-												                        <tr>
-												                          <th scope="row">3</th>
-												                          <td>股东</td>
-												                          <td>CCC</td>
-												                          <td>Secretary Agreement; Application of Shares; Client Acceptance Form; Form 45 / 201;ANNEX B - Notice for Controllers;Share Certificate;Nominee's+Dir's+Authrn_Final</td>
-																		  <td><a href="#" class="btn btn-icon icon-left btn-primary">马上签名</a></td>
-												                        </tr>
-												                      </tbody>
-												                    </table>
-												                  </div>
-												                </div>-->
-												                
+				            <div class="col-12 col-md-12 col-lg-12 menuBotom" id="readyContent">
+				                <div class="card removeBorder">
+				                	<div class="card-body"  style="display:block;padding: 0px;">
+				                    	<div id="accordion">
+				                      		<div class="accordion">
+						                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="true">
+						                         	<h4>${companyName}-待签名清单</h4>
+						                        </div>
+						                        <div class="accordion-body collapse show" id="panel-body-1" data-parent="#accordion">
 						          <div class="row"> 				          
 						            <div class="col-lg-4 col-md-12 col-12 col-sm-12 card">
 						              <div class=""> <div class="card-header"> <h4>待签名文件清单</h4> </div> </div>
 						              <div class="card-body fixcardhieht">
 						                  <ul class="list-unstyled list-unstyled-border">
-						                    <li class="media leftTab active"  id="b-1" onclick="viewPri(1)" onmouseover="viewPri(1)" >
-						                      <div class="media-body">
-						                        <!--<div class="float-right list_btn" id="downloadDoc1">下载</div>  -->
-												<div class="">First Director Meeting Resolution</div>   
-							                    <div class="checkbox">
-												    <label>
-												      <input type="checkbox" class="compulsory_read">  已阅读
-												    </label>
-												 </div>				                                            
-						                      </div>
-						                    </li>
-						                    <li class="media leftTab active"  id="b-2" onclick="viewPri(2)" onmouseover="viewPri(2)" >
-						                      <div class="media-body">
-						                        <!--<div class="float-right list_btn" id="downloadDoc2">下载</div>-->
-						                        <div class="">Secretary Agreement </div> 
-							                    <div class="checkbox">
-												    <label>
-												      <input type="checkbox" class="compulsory_read">  已阅读
-												    </label>
-												 </div>						                                              
-						                      </div>
-						                    </li>
-						                    <li class="media leftTab active"  id="b-3" onclick="viewPri(3)" onmouseover="viewPri(3)" >
-						                      <div class="media-body">
-						                        <!--<div class="float-right list_btn" id="downloadDoc3">下载</div>-->
-						                        <div class="">ANNEX B - Notice for Controllers</div>    
-							                    <div class="checkbox">
-												    <label>
-												      <input type="checkbox" class="compulsory_read">  已阅读并回复文中问题
-												    </label>
-												 </div>						                                           
-						                      </div>
-						                    </li>   
-						                    <li class="media leftTab active"  id="b-4" onclick="viewPri(4)" onmouseover="viewPri(4)" >
-						                      <div class="media-body">
-						                        <!--<div class="float-right list_btn" id="downloadDoc4">下载</div>-->
-						                        <div class="">Application of Shares</div>  
-							                    <div class="checkbox">
-												    <label>
-												      <input type="checkbox" class="compulsory_read">  已阅读
-												    </label>
-												 </div>						                                             
-						                      </div>
-						                    </li>
-						                    <li class="media leftTab active"  id="b-5" onclick="viewPri(5)" onmouseover="viewPri(5)" >
-						                      <div class="media-body">
-						                        <!--<div class="float-right list_btn" id="downloadDoc5">下载</div>-->
-						                        <div class="">Client Acceptance Form</div>     
-							                    <div class="checkbox">
-												    <label>
-												      <input type="checkbox" class="compulsory_read">  已阅读并回复文中问题
-												    </label>
-												 </div>						                                          
-						                      </div>
-						                    </li>
-						                    <li class="media leftTab active"  id="b-6" onclick="viewPri(6)" onmouseover="viewPri(6)" >
-						                      <div class="media-body">
-						                        <!--<div class="float-right list_btn" id="downloadDoc6">下载</div>-->
-						                        <div class="">Form 45 / 201</div>    
-							                    <div class="checkbox">
-												    <label>
-												      <input type="checkbox" class="compulsory_read">  已阅读
-												    </label>
-												 </div>						                                           
-						                      </div>
-						                    </li>   
-						                    <li class="media leftTab active"  id="b-7" onclick="viewPri(7)" onmouseover="viewPri(7)" >
-						                      <div class="media-body">
-						                        <!--<div class="float-right list_btn" id="downloadDoc7">下载</div>-->
-						                        <div class="">Share Certificate</div>   
-							                    <div class="checkbox">
-												    <label>
-												      <input type="checkbox" class="compulsory_read">  已阅读
-												    </label>
-												 </div>						                                            
-						                      </div>
-						                    </li>
-						                    <li class="media leftTab active"  id="b-8" onclick="viewPri(8)" onmouseover="viewPri(8)" >
-						                      <div class="media-body">
-						                        <!--<div class="float-right list_btn" id="downloadDoc8">下载</div>  -->
-						                        <div class="">Nominee's+Dir's+Authrn_Final</div> 
-							                    <div class="checkbox">
-												    <label>
-												      <input type="checkbox" class="compulsory_read">  已阅读
-												    </label>
-												 </div>						                                              
-						                      </div>
-						                    </li>                    
+
+						                  	<c:if test="${isDirector || isNamedDirector}">
+							                    <li class="media leftTab active"  id="b-1" onclick="viewPri(1)" onmouseover="viewPri(1)" >
+							                      <div class="media-body">
+							                        <!--<div class="float-right list_btn" id="downloadDoc1">下载</div>  -->
+													<div class="">First Director Meeting Resolution</div>   
+								                    <div class="checkbox">
+													    <label>
+													      <input type="checkbox" class="compulsory_read">  已阅读
+													    </label>
+													 </div>				                                            
+							                      </div>
+							                    </li>
+						                    </c:if>
+
+											<c:if test="${isShareholder}">
+							                    <li class="media leftTab active"  id="b-2" onclick="viewPri(2)" onmouseover="viewPri(2)" >
+							                      <div class="media-body">
+							                        <!--<div class="float-right list_btn" id="downloadDoc2">下载</div>-->
+							                        <div class="">Secretary Agreement </div> 
+								                    <div class="checkbox">
+													    <label>
+													      <input type="checkbox" class="compulsory_read">  已阅读
+													    </label>
+													 </div>						                                              
+							                      </div>
+							                    </li>
+						                    </c:if>
+						                    
+						                    <c:if test="${isShareholder}">
+							                    <li class="media leftTab active"  id="b-3" onclick="viewPri(3)" onmouseover="viewPri(3)" >
+							                      <div class="media-body">
+							                        <!--<div class="float-right list_btn" id="downloadDoc3">下载</div>-->
+							                        <div class="">ANNEX B - Notice for Controllers</div>    
+								                    <div class="checkbox">
+													    <label>
+													      <input type="checkbox" class="compulsory_read">  已阅读并回复文中问题
+													    </label>
+													 </div>						                                           
+							                      </div>
+							                    </li>   
+						                    </c:if>
+						                    
+						                    <c:if test="${isShareholder}">
+							                    <li class="media leftTab active"  id="b-4" onclick="viewPri(4)" onmouseover="viewPri(4)" >
+							                      <div class="media-body">
+							                        <!--<div class="float-right list_btn" id="downloadDoc4">下载</div>-->
+							                        <div class="">Application of Shares</div>  
+								                    <div class="checkbox">
+													    <label>
+													      <input type="checkbox" class="compulsory_read">  已阅读
+													    </label>
+													 </div>						                                             
+							                      </div>
+							                    </li>
+						                    </c:if>
+						                    
+						                    <c:if test="${isDirector || isShareholder}">
+							                    <li class="media leftTab active"  id="b-5" onclick="viewPri(5)" onmouseover="viewPri(5)" >
+							                      <div class="media-body">
+							                        <!--<div class="float-right list_btn" id="downloadDoc5">下载</div>-->
+							                        <div class="">Client Acceptance Form</div>     
+								                    <div class="checkbox">
+													    <label>
+													      <input type="checkbox" class="compulsory_read">  已阅读并回复文中问题
+													    </label>
+													 </div>						                                          
+							                      </div>
+							                    </li>
+						                    </c:if>
+						                    
+						                    <c:if test="${isDirector || isNamedDirector}">
+							                    <li class="media leftTab active"  id="b-6" onclick="viewPri(6)" onmouseover="viewPri(6)" >
+							                      <div class="media-body">
+							                        <!--<div class="float-right list_btn" id="downloadDoc6">下载</div>-->
+							                        <div class="">Form 45 / 201</div>    
+								                    <div class="checkbox">
+													    <label>
+													      <input type="checkbox" class="compulsory_read">  已阅读
+													    </label>
+													 </div>						                                           
+							                      </div>
+							                    </li>   
+						                    </c:if>
+						                    
+						                    <c:if test="${isShareholder}">
+							                    <li class="media leftTab active"  id="b-7" onclick="viewPri(7)" onmouseover="viewPri(7)" >
+							                      <div class="media-body">
+							                        <!--<div class="float-right list_btn" id="downloadDoc7">下载</div>-->
+							                        <div class="">Share Certificate</div>   
+								                    <div class="checkbox">
+													    <label>
+													      <input type="checkbox" class="compulsory_read">  已阅读
+													    </label>
+													 </div>						                                            
+							                      </div>
+							                    </li>
+						                    </c:if>
+						                    
+						                    <c:if test="${isDirector && isNamedDirector || isNamedDirector}">
+							                    <li class="media leftTab active"  id="b-8" onclick="viewPri(8)" onmouseover="viewPri(8)" >
+							                      <div class="media-body">
+							                        <!--<div class="float-right list_btn" id="downloadDoc8">下载</div>  -->
+							                        <div class="">Nominee's+Dir's+Authrn_Final</div> 
+								                    <div class="checkbox">
+													    <label>
+													      <input type="checkbox" class="compulsory_read">  已阅读
+													    </label>
+													 </div>						                                              
+							                      </div>
+							                    </li>                    
+						                  	</c:if>
+
 						                  </ul> 
 						              </div>
 		
@@ -2999,166 +2985,191 @@
 						              </div> 
 						              <div class="card-body fixcardhieht">
 						                  <ul class="list-unstyled list-unstyled-border">
-						                    <li class="media leftTab active"  >
-						                      <div class="media-body">
-		 											<div class="row"> 				          
-						          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-												              <div class="">First Director Meeting Resolution</div> 
-												         </div>     
-						          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-														    <div class="btn-group btn-group-sm">
-															    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(1)">查看</button>
-															    <button type="button" class="btn btn-default downloadFile" id="downloadDoc1">下载</button>
-															</div>	
-														 </div>		
-						          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-															  <input type="file" id="myFile1" placeholder="First Director Meeting Resolution"/>
-															  <input type="button" class="btn btn-default viewFile" onclick="preview(1);" value="预览" >
-															  <input type="button" id="uploaddoc1" onclick="SubForm(1);" value="上传" >
-														 </div>		
-													 </div>											 	                        	                                            
-						                      </div>
-						                    </li>
-						                    <li class="media leftTab"  >
-						                      <div class="media-body">
-		 											<div class="row"> 				          
-						          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-												              <div class="">Secretary Agreement</div> 
-												         </div>     
-						          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-														    <div class="btn-group btn-group-sm">
-															    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(2)">查看</button>
-															    <button type="button" class="btn btn-default downloadFile" id="downloadDoc2">下载</button>
-															</div>	
-														 </div>		
-						          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-															  <input type="file" id="myFile2" placeholder="Secretary Agreement"/>
-															  <input type="button" class="btn btn-default viewFile" onclick="preview(2);" value="预览" >
-															  <input type="button" id="uploaddoc2" onclick="SubForm(2);" value="上传" >
-														 </div>		
-													 </div>											 	                        	                                            
-						                      </div>
-						                    </li>				                    
-						                    <li class="media leftTab"  >
-						                      <div class="media-body">
-		 											<div class="row"> 				          
-						          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-												              <div class="">ANNEX B - Notice for Controllers</div> 
-												         </div>     
-						          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-														    <div class="btn-group btn-group-sm">
-															    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(3)">查看</button>
-															    <button type="button" class="btn btn-default downloadFile" id="downloadDoc3">下载</button>
-															</div>	
-														 </div>		
-						          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-															  <input type="file" id="myFile3" placeholder="Notice for Controllers"/>
-															  <input type="button" class="btn btn-default viewFile" onclick="preview(3);" value="预览" >
-															  <input type="button" id="uploaddoc3"  onclick="SubForm(3);" value="上传" >
-														 </div>		
-													 </div>											 	                        	                                            
-						                      </div>
-						                    </li>
-						                    <li class="media leftTab"  >
-						                      <div class="media-body">
-		 											<div class="row"> 				          
-						          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-												              <div class="">Application of Shares</div> 
-												         </div>     
-						          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-														    <div class="btn-group btn-group-sm">
-															    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(4)">查看</button>
-															    <button type="button" class="btn btn-default downloadFile" id="downloadDoc4">下载</button>
-															</div>	
-														 </div>		
-						          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-															  <input type="file" id="myFile4" placeholder="Application of Shares"/>
-															  <input type="button" class="btn btn-default viewFile" onclick="preview(4);" value="预览" >
-															  <input type="button" id="uploaddoc4" onclick="SubForm(4);" value="上传" >
-														 </div>	
-													 </div>											 	                        	                                            
-						                      </div>
-						                    </li>				                    
-						                    <li class="media leftTab"  >
-						                      <div class="media-body">
-		 											<div class="row"> 				          
-						          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-												              <div class="">Client Acceptance Form</div> 
-												         </div>     
-						          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-														    <div class="btn-group btn-group-sm">
-															    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(5)">查看</button>
-															    <button type="button" class="btn btn-default downloadFile" id="downloadDoc5">下载</button>
-															</div>	
-														 </div>		
-						          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-															  <input type="file" id="myFile5" placeholder="Client Acceptance Form"/>
-															  <input type="button" class="btn btn-default viewFile" onclick="preview(5);" value="预览" >
-															  <input type="button" id="uploaddoc5"  onclick="SubForm(5);" value="上传" >
-														 </div>	
-													 </div>											 	                        	                                            
-						                      </div>
-						                    </li>				                    
-						                    <li class="media leftTab"  >
-						                      <div class="media-body">
-		 											<div class="row"> 				          
-						          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-												              <div class="">Form 45 / 201</div> 
-												         </div>     
-						          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-														    <div class="btn-group btn-group-sm">
-															    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(6)">查看</button>
-															    <button type="button" class="btn btn-default downloadFile" id="downloadDoc6">下载</button>
-															</div>	
-														 </div>		
-						          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-															  <input type="file" id="myFile6" placeholder="Form 45 / 201"/>
-															  <input type="button" class="btn btn-default viewFile" onclick="preview(6);" value="预览" >
-															  <input type="button" id="uploaddoc6"  onclick="SubForm(6);" value="上传" >
-														 </div>		
-													 </div>											 	                        	                                            
-						                      </div>
-						                    </li>				                    
-						                    <li class="media leftTab"  >
-						                      <div class="media-body">
-		 											<div class="row"> 				          
-						          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-												              <div class="">Share Certificate</div> 
-												         </div>     
-						          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-														    <div class="btn-group btn-group-sm">
-															    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(7)">查看</button>
-															    <button type="button" class="btn btn-default downloadFile" id="downloadDoc7">下载</button>
-															</div>	
-														 </div>		
-						          						<div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-															  <input type="file" id="myFile7" placeholder="Share Certificate"/>
-															  <input type="button" class="btn btn-default viewFile" onclick="preview(7);" value="预览" >
-															  <input type="button" id="uploaddoc7" onclick="SubForm(7);" value="上传" >
-														 </div>	
-													 </div>											 	                        	                                            
-						                      </div>
-						                    </li>				                    
-						                    <li class="media leftTab"  >
-						                      <div class="media-body">
-		 											<div class="row"> 				          
-						          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-												              <div class="">Nominee's+Dir's+Authrn_Final</div> 
-												         </div>     
-						          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-														    <div class="btn-group btn-group-sm">
-															    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(8)">查看</button>
-															    <button type="button" class="btn btn-default downloadFile" id="downloadDoc8">下载</button>
-															</div>	
-														 </div>		
-						          						<div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-															  <input type="file" id="myFile8" placeholder="Nominee's Dir's Authrn Final"/>
-															  <input type="button" class="btn btn-default viewFile" onclick="preview(8);" value="预览" >
-															  <input type="button" id="uploaddoc8"  onclick="SubForm(8);" value="上传" >
-														 </div>	
-													 </div>											 	                        	                                            
-						                      </div>
-						                    </li>					                    
+						                  
+						                  	<c:if test="${isDirector || isNamedDirector}">
+							                    <li class="media leftTab active"  >
+							                      <div class="media-body">
+			 											<div class="row"> 				          
+							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+													              <div class="">First Director Meeting Resolution</div> 
+													         </div>     
+							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+															    <div class="btn-group btn-group-sm">
+																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(1)">查看</button>
+																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc1">下载</button>
+																</div>	
+															 </div>		
+							          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																  <input type="file" id="myFile1" placeholder="First Director Meeting Resolution"/>
+																  <input type="button" class="btn btn-default viewFile" onclick="preview(1);" value="预览" >
+																  <input type="button" id="uploaddoc1" onclick="SubForm(1);" value="上传" >
+															 </div>		
+														 </div>											 	                        	                                            
+							                      </div>
+							                    </li>
+						                    </c:if>
+						                    
+						                    <c:if test="${isShareholder}">
+							                    <li class="media leftTab"  >
+							                      <div class="media-body">
+			 											<div class="row"> 				          
+							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+													              <div class="">Secretary Agreement</div> 
+													         </div>     
+							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+															    <div class="btn-group btn-group-sm">
+																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(2)">查看</button>
+																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc2">下载</button>
+																</div>	
+															 </div>		
+							          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																  <input type="file" id="myFile2" placeholder="Secretary Agreement"/>
+																  <input type="button" class="btn btn-default viewFile" onclick="preview(2);" value="预览" >
+																  <input type="button" id="uploaddoc2" onclick="SubForm(2);" value="上传" >
+															 </div>		
+														 </div>											 	                        	                                            
+							                      </div>
+							                    </li>				                    
+						                    </c:if>
+
+						                    <c:if test="${isShareholder}">
+							                    <li class="media leftTab"  >
+							                      <div class="media-body">
+			 											<div class="row"> 				          
+							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+													              <div class="">ANNEX B - Notice for Controllers</div> 
+													         </div>     
+							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+															    <div class="btn-group btn-group-sm">
+																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(3)">查看</button>
+																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc3">下载</button>
+																</div>	
+															 </div>		
+							          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																  <input type="file" id="myFile3" placeholder="Notice for Controllers"/>
+																  <input type="button" class="btn btn-default viewFile" onclick="preview(3);" value="预览" >
+																  <input type="button" id="uploaddoc3"  onclick="SubForm(3);" value="上传" >
+															 </div>		
+														 </div>											 	                        	                                            
+							                      </div>
+							                    </li>
+						                    </c:if>
+
+ 											<c:if test="${isShareholder}">
+							                    <li class="media leftTab"  >
+							                      <div class="media-body">
+			 											<div class="row"> 				          
+							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+													              <div class="">Application of Shares</div> 
+													         </div>     
+							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+															    <div class="btn-group btn-group-sm">
+																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(4)">查看</button>
+																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc4">下载</button>
+																</div>	
+															 </div>		
+							          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																  <input type="file" id="myFile4" placeholder="Application of Shares"/>
+																  <input type="button" class="btn btn-default viewFile" onclick="preview(4);" value="预览" >
+																  <input type="button" id="uploaddoc4" onclick="SubForm(4);" value="上传" >
+															 </div>	
+														 </div>											 	                        	                                            
+							                      </div>
+							                    </li>				                    
+						                    </c:if>
+
+ 											<c:if test="${isDirector || isShareholder}">
+							                    <li class="media leftTab"  >
+							                      <div class="media-body">
+			 											<div class="row"> 				          
+							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+													              <div class="">Client Acceptance Form</div> 
+													         </div>     
+							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+															    <div class="btn-group btn-group-sm">
+																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(5)">查看</button>
+																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc5">下载</button>
+																</div>	
+															 </div>		
+							          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																  <input type="file" id="myFile5" placeholder="Client Acceptance Form"/>
+																  <input type="button" class="btn btn-default viewFile" onclick="preview(5);" value="预览" >
+																  <input type="button" id="uploaddoc5"  onclick="SubForm(5);" value="上传" >
+															 </div>	
+														 </div>											 	                        	                                            
+							                      </div>
+							                    </li>				                    
+						                    </c:if>
+
+											<c:if test="${isDirector || isNamedDirector}">
+							                    <li class="media leftTab"  >
+							                      <div class="media-body">
+			 											<div class="row"> 				          
+							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+													              <div class="">Form 45 / 201</div> 
+													         </div>     
+							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+															    <div class="btn-group btn-group-sm">
+																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(6)">查看</button>
+																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc6">下载</button>
+																</div>	
+															 </div>		
+							          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																  <input type="file" id="myFile6" placeholder="Form 45 / 201"/>
+																  <input type="button" class="btn btn-default viewFile" onclick="preview(6);" value="预览" >
+																  <input type="button" id="uploaddoc6"  onclick="SubForm(6);" value="上传" >
+															 </div>		
+														 </div>											 	                        	                                            
+							                      </div>
+							                    </li>				                    
+						                    </c:if>
+
+											<c:if test="${isShareholder}">
+							                    <li class="media leftTab"  >
+							                      <div class="media-body">
+			 											<div class="row"> 				          
+							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+													              <div class="">Share Certificate</div> 
+													         </div>     
+							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+															    <div class="btn-group btn-group-sm">
+																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(7)">查看</button>
+																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc7">下载</button>
+																</div>	
+															 </div>		
+							          						<div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																  <input type="file" id="myFile7" placeholder="Share Certificate"/>
+																  <input type="button" class="btn btn-default viewFile" onclick="preview(7);" value="预览" >
+																  <input type="button" id="uploaddoc7" onclick="SubForm(7);" value="上传" >
+															 </div>	
+														 </div>											 	                        	                                            
+							                      </div>
+							                    </li>				                    
+						                    </c:if>
+
+											<c:if test="${isShareholder && isNamedDirector || isNamedDirector}">
+							                    <li class="media leftTab"  >
+							                      <div class="media-body">
+			 											<div class="row"> 				          
+							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+													              <div class="">Nominee's+Dir's+Authrn_Final</div> 
+													         </div>     
+							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+															    <div class="btn-group btn-group-sm">
+																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(8)">查看</button>
+																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc8">下载</button>
+																</div>	
+															 </div>		
+							          						<div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																  <input type="file" id="myFile8" placeholder="Nominee's Dir's Authrn Final"/>
+																  <input type="button" class="btn btn-default viewFile" onclick="preview(8);" value="预览" >
+																  <input type="button" id="uploaddoc8"  onclick="SubForm(8);" value="上传" >
+															 </div>	
+														 </div>											 	                        	                                            
+							                      </div>
+							                    </li>					                    
+						                    </c:if>
+
 						                  </ul> 
 						                  <!--<div class="text-center pt-1 pb-1"><a id="download_all" href="#" class="btn btn-primary btn-sm btn-round">全部下载</a></div>    -->  
 						              </div>

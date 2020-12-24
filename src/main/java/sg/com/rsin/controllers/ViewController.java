@@ -2,6 +2,7 @@ package sg.com.rsin.controllers;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import sg.com.rsin.dao.CompanyStatusTimeRepository;
 import sg.com.rsin.entity.CommonResponse;
 import sg.com.rsin.entity.Company;
+import sg.com.rsin.entity.CompanyService;
+import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.CompanyStatusTime;
 import sg.com.rsin.entity.Employee;
 import sg.com.rsin.entity.ErrorObject;
@@ -40,6 +44,9 @@ public class ViewController {
 	
 	@Autowired
 	PendingStepService pendingStepService;
+	
+	@Autowired
+	CompanyStatusTimeRepository companyStatusTimeRepository;
 
 	@RequestMapping("/")
 	public ModelAndView allPage() {
@@ -229,9 +236,12 @@ public class ViewController {
 		String companyId = (String) request.getParameter("compid");
 		ModelAndView model = new ModelAndView("todolist/pendingStep");
 		
-		Company company = pendingStepService.getCompany(userEmail, companyId);
+		Map<String, Object> pageData = onlineSignatureService.getAllPageData(userEmail);
+		Set<Company> companies = (Set<Company>) pageData.get("companies");
+		Company company = companies.stream().filter(com -> com.getId().toString().equals(companyId)).findFirst().get();;
 		model.addObject("company", company);
-		CompanyStatusTime companyStatusTime = pendingStepService.getCompanyStatusTime(userEmail, companyId);
+		
+		CompanyStatusTime companyStatusTime = companyStatusTimeRepository.findByCompanyId(company.getId());;
 		model.addObject("statusTime", companyStatusTime);
 		return model;
 	}	
@@ -240,25 +250,54 @@ public class ViewController {
 	@RequestMapping("/onlineSignature")
 	public ModelAndView onlineSignature(HttpServletRequest request) {
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
+		String companyId = (String) request.getParameter("compid");
+
 		ModelAndView model = new ModelAndView("todolist/onlineSignature");
 		
-		Map<String, Object> pageData = onlineSignatureService.getAllPageData(userEmail);
+		Map<String, Object> pageData = onlineSignatureService.getCompanyPageData(userEmail, companyId);
 		model.addObject("companyName", pageData.get("companyName"));
 		model.addObject("address", pageData.get("address"));
 		
 		Map<String, Integer> shareholderAndStockMap = (Map<String, Integer>) pageData.get("shareholderAndStock");
 		StringBuffer shareholders = new StringBuffer();
-		
 		shareholderAndStockMap.forEach((k, v) -> shareholders.append("<span> ").append(k).append("</span>").append("<span> ").append(v).append("</span> <br/>"));
 		shareholders.append("<span>Total:</span> <span> ").append(pageData.get("totalStockAmount")).append("</span>");
-		
-		model.addObject("shareholderAndStock", shareholders); 
+		model.addObject("shareholderAndStock", shareholders);
+
+		CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) pageData.get("selfCompanyShareholderInfo");
+		if (selfCompanyShareholderInfo.getPositionType().contains("董事")) {
+			model.addObject("isDirector", true);
+		}
+		if (selfCompanyShareholderInfo.getPositionType().contains("股东")) {
+			model.addObject("isShareholder", true);
+		}
+		CompanyService companyService = (CompanyService)pageData.get("companyService");
+		if (companyService.getNominalDirector() > 0) {
+			model.addObject("isNamedDirector", true);
+		}
 		return model;
 	}	
 
 	@RequestMapping("/uploadPage")
-	public ModelAndView uploadPage() {
+	public ModelAndView uploadPage(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("todolist/uploadPage");
+		
+		String userEmail = (String) request.getSession().getAttribute("loginUsername");
+		String companyId = (String) request.getParameter("compid");
+
+		Map<String, Object> pageData = onlineSignatureService.getCompanyPageData(userEmail, companyId);
+		model.addObject("companyName", pageData.get("companyName"));
+		model.addObject("address", pageData.get("address"));
+		
+		CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) pageData.get("selfCompanyShareholderInfo");
+		if (selfCompanyShareholderInfo.getIcType().contains("公民") || selfCompanyShareholderInfo.getPositionType().contains("永久居民")) {
+			model.addObject("isSCOrPR", true);
+		} else if (selfCompanyShareholderInfo.getNationality().startsWith("China")) {
+			model.addObject("isChinese", true);
+		} else {
+			model.addObject("isforeigner", true);
+		}
+
 		return model;
 	}		
 	@RequestMapping("/schedule")

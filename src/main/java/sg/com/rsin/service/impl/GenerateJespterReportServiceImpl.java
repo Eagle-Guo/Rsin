@@ -42,12 +42,14 @@ import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
+import sg.com.rsin.dao.CompanyStatusTimeRepository;
 import sg.com.rsin.dao.DocumentRepository;
 import sg.com.rsin.dao.DocumentTypeRepository;
 import sg.com.rsin.dao.EmployeeDao;
 import sg.com.rsin.dao.SignatureLogRepository;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyShareholderInfo;
+import sg.com.rsin.entity.CompanyStatusTime;
 import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentType;
 import sg.com.rsin.entity.SignatureLog;
@@ -73,6 +75,8 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	CompanyRepository companyRepository;
 	@Autowired
 	SignatureLogRepository signatureLogRepository;
+	@Autowired
+	CompanyStatusTimeRepository companyStatusTimeRepository;
 
 	@Autowired 
 	OnlineSignatureService onlineSignatureService;
@@ -329,6 +333,10 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			info.setSignaturePath(signatureFilePathRoot.concat(companyId).concat(File.separator));
 			companyShareHolderInfoRepository.save(info);
 		});
+		// update the signature timing
+		CompanyStatusTime companyStatusTime = companyStatusTimeRepository.findByCompanyId(Long.parseLong(companyId));
+		companyStatusTime.setSignature(new Date());
+		companyStatusTimeRepository.save(companyStatusTime);
 	}
 	public byte[] exportReport(String reportFormat, String userId, int id) {
 		return generateJasperPDF(userId, id);

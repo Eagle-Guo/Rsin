@@ -37,8 +37,8 @@
 											<button class="multisteps-form__progress-btn   js-active " type="button" title="选择服务">选择服务</button>
 											<button class="multisteps-form__progress-btn    js-active " type="button" title="信息填报">信息填报</button>
 											<button class="multisteps-form__progress-btn    js-active " type="button" title="在线支付">在线支付</button>
-											<button class="multisteps-form__progress-btn  js-active" type="button" title="电子签名" onclick="top.location='onlineSignature'">电子签名</button>
-											<button class="multisteps-form__progress-btn  js-active" type="button" title="上传资料" onclick="top.location='uploadPage'">上传资料</button>
+											<button class="multisteps-form__progress-btn  js-active" type="button" title="电子签名" onclick="top.location='onlineSignature?compid=${compid}'">电子签名</button>
+											<button class="multisteps-form__progress-btn  js-active" type="button" title="上传资料" onclick="top.location='uploadPage?compid=${compid}'">上传资料</button>
 											<button class="multisteps-form__progress-btn disable-button" type="button" title="注册受理中">注册受理中</button>
 											<button class="multisteps-form__progress-btn disable-button" type="button" title="注册完成、查看文件">注册完成</button>																					
 										</div>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="card-body fixcardhieht">
                   <ul class="list-unstyled list-unstyled-border">
-                  	<c:if test="${isSCOrPR}">
+                  	<c:if test="${isSCOrPR || displayAll}">
 	                    <li class="media leftTab active"  id="b-1" onclick="viewPri(1)" onmouseover="viewPri(1)" >
 	                      <div class="media-body">
 	                        <div class="">IC(正面)</div>
@@ -76,7 +76,7 @@
 	                    </li>
                     </c:if>
 
-                    <c:if test="${isSCOrPR}">
+                    <c:if test="${isSCOrPR || displayAll}">
 	                    <li class="media leftTab active"  id="b-2" onclick="viewPri(2)" onmouseover="viewPri(2)" >
 	                      <div class="media-body">
 	                        <div class="">IC(背面) </div>           
@@ -86,7 +86,7 @@
 	                    </li>
 					</c:if>
 
-					<c:if test="${isChinese || isforeigner}">
+					<c:if test="${isChinese || isforeigner || displayAll}">
 	                    <li class="media leftTab active"  id="b-3" onclick="viewPri(3)" onmouseover="viewPri(3)" >
 	                      <div class="media-body">
 	                        <div class="">护照（有照片页）</div>
@@ -96,7 +96,7 @@
 	                    </li>
 					</c:if>
 
-					<c:if test="${isChinese}">
+					<c:if test="${isChinese || displayAll}">
 	                    <li class="media leftTab active"  id="b-4" onclick="viewPri(4)" onmouseover="viewPri(4)" >
 	                      <div class="media-body">
 	                        <div class="">中国身份证</div>
@@ -106,7 +106,7 @@
 	                    </li>
 					</c:if>
 
-					<c:if test="${isforeigner}">
+					<c:if test="${isforeigner || displayAll}">
 	                    <li class="media leftTab active"  id="b-5" onclick="viewPri(5)" onmouseover="viewPri(5)" >
 	                      <div class="media-body">
 	                        <div class="">住所证明 </div>
@@ -116,7 +116,7 @@
 	                    </li>
 					</c:if>
 
-					<c:if test="${isChinese || isforeigner}">
+					<c:if test="${isChinese || isforeigner || displayAll}">
 	                    <li class="media leftTab active"  id="b-6" onclick="viewPri(6)" onmouseover="viewPri(6)" >
 	                      <div class="media-body">
 	                        <div class="">持护照（打开有照片页）上半身照</div>

@@ -80,7 +80,6 @@
 						                </div>
 						            </div>
 
-
 									<!-- signature part -->									
 						            <div class="col-12 col-md-12 col-lg-12" id="signatureContent" style="display:none;">
 						                <div class="card">

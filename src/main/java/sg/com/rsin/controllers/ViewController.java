@@ -264,16 +264,22 @@ public class ViewController {
 		String companyId = (String) request.getParameter("compid");
 
 		ModelAndView model = new ModelAndView("todolist/onlineSignature");
-		
+
 		Map<String, Object> pageData = onlineSignatureService.getCompanyPageData(userEmail, companyId);
 		model.addObject("companyName", pageData.get("companyName"));
 		model.addObject("address", pageData.get("address"));
 		
+		model.addObject("compid", companyId);
 		Map<String, Integer> shareholderAndStockMap = (Map<String, Integer>) pageData.get("shareholderAndStock");
 		StringBuffer shareholders = new StringBuffer();
 		shareholderAndStockMap.forEach((k, v) -> shareholders.append("<span> ").append(k).append("</span>").append("<span> ").append(v).append("</span> <br/>"));
 		shareholders.append("<span>Total:</span> <span> ").append(pageData.get("totalStockAmount")).append("</span>");
 		model.addObject("shareholderAndStock", shareholders);
+
+		if (companyId == null) {
+			model.addObject("displayAll", true);
+			return model;
+		}
 
 		CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) pageData.get("selfCompanyShareholderInfo");
 		if (selfCompanyShareholderInfo.getPositionType().contains("董事")) {
@@ -286,6 +292,7 @@ public class ViewController {
 		if (companyService.getNominalDirector() > 0) {
 			model.addObject("isNamedDirector", true);
 		}
+		
 		return model;
 	}	
 
@@ -295,10 +302,16 @@ public class ViewController {
 		
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		String companyId = (String) request.getParameter("compid");
-
+		
 		Map<String, Object> pageData = onlineSignatureService.getCompanyPageData(userEmail, companyId);
 		model.addObject("companyName", pageData.get("companyName"));
 		model.addObject("address", pageData.get("address"));
+		model.addObject("compid", companyId);
+		
+		if (companyId == null) {
+			model.addObject("displayAll", true);
+			return model;
+		}
 		
 		CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) pageData.get("selfCompanyShareholderInfo");
 		if (selfCompanyShareholderInfo.getIcType().contains("公民") || selfCompanyShareholderInfo.getPositionType().contains("永久居民")) {

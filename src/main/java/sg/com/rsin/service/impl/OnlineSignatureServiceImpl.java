@@ -77,13 +77,16 @@ public class OnlineSignatureServiceImpl implements OnlineSignatureService {
 		Map<String, Object> pageData = new HashMap<String, Object>();
 
 		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareholderInfoRepository.findByEmail(userEmail);
+		CompanyService companyService = null;
+		CompanyShareholderInfo selfCompanyShareholderInfo = null;
+		if (companyId != null) {
+			selfCompanyShareholderInfo = 
+					userCompanyShareholderInfos.stream()
+					.filter(self -> self.getCompany().getId().longValue() == Long.parseLong(companyId))
+					.findFirst().get();
+			companyService = companyServiceRepository.findByCompanyId(selfCompanyShareholderInfo.getCompany().getId());
+		}
 		
-		CompanyShareholderInfo selfCompanyShareholderInfo = 
-				userCompanyShareholderInfos.stream()
-				.filter(self -> self.getCompany().getId().longValue() == Long.parseLong(companyId))
-				.findFirst().get();
-		
-		CompanyService companyService = companyServiceRepository.findByCompanyId(selfCompanyShareholderInfo.getCompany().getId());
 		List<CompanyShareholderInfo> companyShareholderInfos = new ArrayList<CompanyShareholderInfo>();
 		
 		Set<Company> companies = new HashSet<Company>();

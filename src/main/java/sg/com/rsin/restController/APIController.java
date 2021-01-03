@@ -95,12 +95,13 @@ public class APIController {
     	logger.debug("Single file upload!");
     	
     	String userId = (String) request.getSession().getAttribute("loginUsername");
+    	String companyId = (String) request.getSession().getAttribute("companyId");
 		
         if (uploadfile.isEmpty()) {
             return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
         }
         try {
-        	uploadFileService.uploadOfflineFile(Arrays.asList(uploadfile), id, userId);
+        	uploadFileService.uploadOfflineFile(Arrays.asList(uploadfile), id, userId, companyId);
         } catch (IOException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -116,12 +117,13 @@ public class APIController {
     	logger.debug("Single file upload!");
     	
     	String userId = (String) request.getSession().getAttribute("loginUsername");
+    	String companyId = (String) request.getSession().getAttribute("companyId");
 		
         if (uploadfile.isEmpty()) {
             return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
         }
         try {
-        	uploadFileService.uploadPersonalFile(Arrays.asList(uploadfile), id, userId);
+        	uploadFileService.uploadPersonalFile(Arrays.asList(uploadfile), id, userId, companyId);
         } catch (IOException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

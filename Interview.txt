@@ -9,7 +9,13 @@ Java：
 3. 怎样print一个数组？Arrays.toString()
 	You can print an array by using the Arrays.toString() and Arrays.deepToString() method. 
 	Since array doesn't implement toString() by itself, just passing an array to System.out.println() will not print its contents but Arrays.toString() will print each element.
-4. Comparable 和 Comparator 的用法： Comparable对实现它的每个类的对象进行整体排序。这个接口需要类本身去实现， 如果类不能修改或为基础类，只能使用Comparator
+4. 什么是重载和重构？ main方法可以重载吗？可以的，但是JRE始终会找这个方法 public static void main(String args[])
+	When we have more than one method with the same name in a single class but the arguments are different, then it is called method overloading.
+	The overriding concept comes in picture with inheritance when we have two methods with the same signature, one in the parent class and another in child class. We can use @Override annotation in the child class overridden method to make sure if the parent class method is changed, so as child class.
+5. 什么是装箱和拆箱操作？装箱就是自动将基本数据类型转换为包装器类型；拆箱就是自动将包装器类型转换为基本数据类型。
+	 //自动装箱： Integer total = 99;
+	 //自动拆箱： int totalprim = total;
+6. Comparable 和 Comparator 的用法： Comparable对实现它的每个类的对象进行整体排序。这个接口需要类本身去实现， 如果类不能修改或为基础类，只能使用Comparator
 	public interface Comparable<T> {
 		public int compareTo(T o);
 	}
@@ -17,7 +23,7 @@ Java：
 	public interface Comparator<T> {
 		int compare(T o1, T o2);
 	}
-4. Java 8有什么新的功能:  https://mkyong.com/tutorials/java-8-tutorials/
+7. Java 8有什么新的功能:  https://mkyong.com/tutorials/java-8-tutorials/
 	Lambda Expressions − a new language feature allowing treating actions as objects
 	Method References − enable defining Lambda Expressions by referring to methods directly using their names
 	Optional − special wrapper class used for expressing optionality
@@ -26,37 +32,57 @@ Java：
 	Nashorn, JavaScript Engine − Java-based engine for executing and evaluating JavaScript code
 	Stream API − a special iterator class that allows processing collections of objects in a functional manner
 	Date API − an improved, immutable JodaTime-inspired Date API
-5. 方法引用 (Method References)：
+8. 方法引用 (Method References)：
 		(o) -> o.toString();	变成 Object::toString();  其他的： String::new;   String::valueOf;   str::toString;
-6. 什么是Optional ？怎么使用？
+9. 什么是Optional ？怎么使用？
 	Optional.ofNullable(nullName).orElse("john");
-7. 价格一般我们用什么数字类型？
+10. 价格一般我们用什么数字类型？
 	BigDecimal if memory is not a concern and Performance is not critical, otherwise double with predefined precision.
-8. ++ 操作符是线程安全的吗？
+11. ++ 操作符是线程安全的吗？
 	No it's not a thread safe operator because its involve multiple instructions like reading a value, incriminating it and storing it back into memory 
 	which can be overlapped between multiple threads.
-9. 堆(Stack)和栈(heap) 有什么不同？
+12. 堆(Stack)和栈(heap) 有什么不同？
 	Stack and heap are different memory areas in the JVM and they are used for different purposes. 
 	The stack is used to hold method frames and local variables while objects are always allocated memory from the heap. 
 	The stack is usually much smaller than heap memory and also didn't shared between multiple threads, but heap is shared among all threads in JVM.
-10. hashCode() 有什么作用？如果说两个对象相等怎么判断？
+13. hashCode() 有什么作用？如果说两个对象相等怎么判断？
 	hashCode() method returns an int hash value corresponding to an object. It's used in hash based collection classes e.g Hashtable, HashMap, LinkedHashMap and so on. 
 	It's very tightly related to equals() method. According to Java specification, two objects which are equal to each other using equals() method must have same hash code.
-11. Stream filter and map 的作用
+14. Stream filter and map 的作用
 	比如我想把一个列表的之都转为小写
 		List<String> alpha = Arrays.asList("a", "b", "c", "d");
 		List<String> collect = alpha.stream().map(String::toLowerCase).collect(Collectors.toList());
 	对象的list 转为一个字符串的list	
 		public class Staff {private String name; private int age; private BigDecimal salary;}
 		List<String> collect = staff.stream().map(x -> x.getName()).collect(Collectors.toList());
-13. 函数式接口(Functional Interface) 用途是什么？ 一个只能有一个抽象方法的接口。主要在Lambda表达式和方法引用上。
+15. 函数式接口(Functional Interface) 用途是什么？ 一个只能有一个抽象方法的接口。主要在Lambda表达式和方法引用上。
 	允许定义默认方法 和 允许定义静态方法
-
+16. 类和对象有什么不同
+	A class acts as a blue-print that defines the properties, states, and behaviors that are common to a number of objects. 
+	An object is an instance of the class. For example, you have a class called Vehicle and Car is the object of that class. You can create any number of objects for the class named Vehicle, such as Van, Truck, and Auto.
+17. enum 枚举可以用 == 比较相等吗？
+	可以的
+18. 什么是 Application Context
+	On the surface, an application context is the same as a bean factory. Both load bean definitions, wire beans together, and dispense beans upon request. But it also provides:
+	A means for resolving text messages, including support for internationalization.
+	A generic way to load file resources
+	Events to beans that are registered as listeners
+19. 双冒号 (::) 方法引用
+	In Java 8, the double colon (::) operator is called method references.
+		list.forEach(System.out::println);
 
 Spring
+1. 什么是Spring IoC (Inversion of Control)？
+	Spring IoC 创建对象，wire them together, configure them, and manage their complete lifecycle from creation till destruction. 
+	Spring container uses 依赖注入(DI) to manage the components that make up an application.
+	在Spring中有两种IoC容器：
+	Bean Factory container − This is the simplest container providing basic support for DI
+	Spring ApplicationContext Container − This container adds more enterprise-specific functionality such as the ability to resolve textual messages from a properties file and the ability to publish application events to interested event listeners.
+	The org.springframework.beans.factory.BeanFactory and the org.springframework.context.ApplicationContext interfaces acts as the IoC container. 
+	The ApplicationContext interface is built on top of the BeanFactory interface. It adds some extra functionality than BeanFactory such as simple integration with Spring's AOP, message resource handling (for I18N), event propagation, application layer specific context (e.g. WebApplicationContext) for web application. So it is better to use ApplicationContext than BeanFactory.
 1. IOC 容器的功能
 	(i) Find Beans		(ii) Identify their dependencies and wire the dependencies	(iii) Manage Lifecycle of the Bean (creation, processing, and destruction)
-2. 注解标识在接口还是实现类   @Qualifier
+2. 注解标识在接口还是实现类  一般实现类  如果重复则用@Qualifier
 3. 这些标识有什么不同 @Component, @Repository and @Service and @Controller	
 4. Spring 有什么设计模式？ Singleton pattern， 	Factory Method pattern，	Proxy Pattern,  Template pattern
 4. Spring的作用域 scope=singleton and prototype  加上Web 就有 request、session和 global session
@@ -72,7 +98,8 @@ Spring
 	}
 	@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON) or @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	XML: <bean id="personSingleton" class="org.baeldung.scopes.Person" scope="singleton"/>    
-5.  Singleton 的beans 是线程安全的吗？ 不是
+5.  Singleton 的beans 是线程安全的吗？ 不是 
+	如果要转为线程安全， 可以改为request， prototype 或者 session 
 6. @Autowired 注解? properties, Setter Injection 和 Constructor Injection
 		@Autowired (properties or field)
 		private FooFormatter fooFormatter;
@@ -111,9 +138,9 @@ https://dzone.com/articles/top-20-spring-mvc-interview-questions-and-answers
 	As the name suggests, it loads and creates the ApplicationContext, so you don't have to write explicit code to do create it.
 5. @RequestParam 是做什么的？
 	The @RequestParam is a Spring MVC annotation that is used to extract a request parameter or query parameters from the URL in the Controller's handler method as shown below:
-6. @RequestParam 和 @GetMapping 的区别
+6. @RequestParam 和 @pathvariable 的区别
 	public String getFooByIdUsingQueryParam(@RequestParam String id)  http://localhost:8080/foos?id=abc
-	@GetMapping("/api/employeeswithmapvariable/{id}/{name}")
+	@GetMapping("/foos/{id}")@ResponseBody   public String getFooById(@PathVariable String id)
 7. @RequestMapping 的 Controller方法 能够返回那些合法的类型？
 	String
 	void
@@ -124,6 +151,11 @@ https://dzone.com/articles/top-20-spring-mvc-interview-questions-and-answers
 	HttpEntity<?> or ResponseEntity<?>
 	HttpHeaders
 8. 	parameter 或者 attribute 的区别和使用方法
+9.  @ResponseBody annotation in Spring MVC是什么角色?
+	The @ResponseBody annotation is used to serialize the returned object automatically in JSON and bind it with the Http response body. Here, it not required to invoke the model.
+10. RestController 和 Controller 的不同
+	@RestController = @Controller + @ResponseBody
+	
 
 Spring Security
 1. 什么是Spring Security的过滤链?
@@ -158,6 +190,12 @@ Spring Security
 7. 怎样配置一个AuthenticationHandler 的类 AuthenticationSuccessHandler
 
 
+Restful API
+1. Rest 的增删改查对应什么？ 
+	HTTP GET	- to retrieve resource representation/information only
+	HTTP POST	- to create new subordinate resources, 
+	HTTP PUT 	- to update existing resource
+	HTTP DELETE	- to delete resources
 
 Spring JPA
 https://www.javatpoint.com/jpa-interview-questions
@@ -228,7 +266,6 @@ https://www.javatpoint.com/jpa-interview-questions
 	List<Student> findByName(@Param("name") String name);
 
 
-	
 Spring Boot
 1. Spring boot 有什么好处？
 	Starters – a set of dependency descriptors to include relevant dependencies at a go
@@ -255,7 +292,7 @@ Spring Boot
 	If we want to disable a specific auto-configuration, we can indicate it using the exclude attribute of the @EnableAutoConfiguration annotation. For instance, this code snippet neutralizes DataSourceAutoConfiguration:
 	@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
 	public class MyConfiguration { }
-5. 怎样运行一个jar file或war file？
+5. 怎样运行一个jar file或war file？ java -jar   and deployed war
 6. @SpringBootApplication 做了什么？
 	@SpringBootConfiguration: same as @Configuration in a Spring Application.
 	@EnableAutoConfiguration: auto-configures the classes available in the classpath.
@@ -279,7 +316,7 @@ Spring Boot
 	it puts unnecessary load on the RAM while loading the entire database. It is hence preferred to store the paths in the database and store the images on disk. 
 
 Maven 
-1. 怎样跳过测试
+1. 怎样跳过测试？  mvn package -Dmaven.test.skip=true
 2.本地的仓库在哪里？在哪里可以修改？ C:\Users\ccegh\.m2\repository
 	通过修改本地 .m2目录下的settings.xml文件
 3. 生命周期
@@ -299,7 +336,18 @@ Maven
     </parent>
 	
 jQuery
-1. toggle()用法
+1. Jquery的基本语法是什么？就是怎么写？
+	$(selector).action()
+	例如： $(this).hide() - hides the current element.
+		    $("p").hide() - hides all <p> elements.
+	一般我们会写在一个什么事件或方法里面？The Document Ready Event
+	$(document).ready(function(){
+	  // jQuery methods go here...
+	});
+	或者可以简写为：
+	$(function(){
+		// jQuery methods go here...
+	});
 2. 选择器的方式？
 		Name: It is used to select all elements which match with the given element Name.
 		#ID: It is used to select a single element which matches with the given ID
@@ -307,8 +355,51 @@ jQuery
 		Universal (*): It is used to select all elements available in a DOM.
 		Multiple Elements E, F, G: It is used to selects the combined results of all the specified selectors E, F or G.
 		Attribute Selector: It is used to select elements based on its attribute value.
-3. val() 的用法
-	To get the current value of the first element in the set of matched elements.
-	To set the value of every matched element.
-	
-4. 选择所有的链接 link
+		$("*")	Selects all elements
+		$(this)	Selects the current HTML element
+		$("ul li:first")	Selects the first <li> element of the first <ul>
+		$("ul li:first-child")	Selects the first <li> element of every <ul>
+3. Jquery 的事件： 比如移动鼠标，双击，单击，提交
+	The on() Method的作用？ attaches one or more event handlers for the selected elements.
+		例如: 
+		$("p").on({
+		  mouseenter: function(){
+			$(this).css("background-color", "lightgray");
+		  },
+		  mouseleave: function(){
+			$(this).css("background-color", "lightblue");
+		  },
+		  click: function(){
+			$(this).css("background-color", "yellow");
+		  }
+		});
+3. text(), html(), and val()的不同？
+	text() - Sets or returns the text content of selected elements
+	html() - Sets or returns the content of selected elements (including HTML markup)
+	val() - Sets or returns the value of form fields
+4. 什么是回调函数Callback？A callback function is executed after the current effect is finished.
+	syntax: $(selector).hide(speed,callback);
+	例如： $("button").click(function(){
+			  $("p").hide("slow", function(){
+				alert("The paragraph is now hidden");
+			  });
+			});
+5. append 和 prepend
+	append() - Inserts content at the end of the selected elements
+	prepend() - Inserts content at the beginning of the selected elements
+6. Ajax load 和 get的不同？
+	The load() method loads data from a server and puts the returned data into the selected element.
+		语法：   $(selector).load(URL,data,callback);
+			 callback function can have different parameters:
+				responseTxt - contains the resulting content if the call succeeds
+				statusTxt - contains the status of the call
+				xhr - contains the XMLHttpRequest object
+	GET - Requests data from a specified resource   语法：$.get(URL,callback);
+	POST - Submits data to be processed to a specified resource  语法：$.post(URL,data,callback);
+7. empty, detach() and remove() methods 有什么不一样?
+	remove(): removes the element as well as its child elements. Data from DOM can be restored; however, event handlers can’t be restored.
+	empty(): does not remove the element; however, remove its content, and the associated child elements
+	detach(): removes the element and all the associated child elements, but 保留the data and event handlers of the removed element to be reused later.
+8.  toggle() 方法是怎么使用？
+	If there is a click event, toggle() attaches functions to toggle. So, on first click first action occurs, on second, second action and so on.
+9. 选择所有的链接 link

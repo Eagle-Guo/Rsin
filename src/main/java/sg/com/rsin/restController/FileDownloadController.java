@@ -39,6 +39,7 @@ public class FileDownloadController {
     public StreamingResponseBody downloadFile(@PathVariable int id, 
     		HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
+		String companyId = (String) request.getSession().getAttribute("companyId");
 		
         String filename = CommonUtils.getFileName(id);
 
@@ -46,7 +47,7 @@ public class FileDownloadController {
         response.setHeader("fileName", filename);
         response.setHeader("content-disposition", "attachment;");
         
-        byte[] source = generateJespterReportService.exportReport("pdf", userId, id);
+        byte[] source = generateJespterReportService.exportReport("pdf", userId, id, companyId);
         return outputStream -> {
             outputStream.write(source);
         };
@@ -55,9 +56,10 @@ public class FileDownloadController {
 	@PostMapping("/onlineSubmitSignture")
     public ResponseEntity<?> userOnlineSubmitSignatureFile(@RequestParam("signature") MultipartFile uploadfile, HttpServletRequest request) throws IOException {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
+		String companyId = (String) request.getSession().getAttribute("companyId");
 		String ip = request.getRemoteAddr();
 		
-		Map<String, String> signFileAndName = generateJespterReportService.onlineSubmitSignatureFile(userId, ip, uploadfile);
+		Map<String, String> signFileAndName = generateJespterReportService.onlineSubmitSignatureFile(userId, ip, uploadfile, companyId);
 		
 		return new ResponseEntity(signFileAndName, HttpStatus.OK);
     }

@@ -92,7 +92,7 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 	// json handling tool
 	private ObjectMapper mapper = new ObjectMapper();
 	
-	public String addCompany(String receivedData) {
+	public long addCompany(String receivedData) {
 		String result = "";
 		List<CompanyServiceVO> companyServiceVOs = new ArrayList<CompanyServiceVO>();
 		List<CompanyInfoVO> companyInfoVOs = new ArrayList<CompanyInfoVO>();
@@ -130,11 +130,13 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 		Company existedCompany = companyRepository.findByName(company.getName());
 		if (existedCompany != null) {
 			logger.info("Company " + existedCompany.getName() + " is existed!");
-			return "Company have exited!";
+			return -1;
 		}
 		company.setStatus("2"); //Complete the first 2 steps: 选择服务 and 信息填报
 		company.setCreatedDate(new Date());
 		companyRepository.save(company);
+		
+		
 
 		//Save to company_service
 		CompanyService companyService = CommonUtils.phaseNewCompanyService(companyServiceVOs);
@@ -183,7 +185,7 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 			}
 		}
 		
-		return null;
+		return company.getId();
 	}
 	private void sendEmailToShareHolder(Company company, CompanyShareholderInfo companyShareholderInfo) throws MessagingException, IOException {
 		//Send email to ShareHolder and Director

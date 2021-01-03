@@ -1,5 +1,5 @@
 package sg.com.rsin.service;
 
 public interface NewCompanyService {
-	public String addCompany (String receivedData);
+	public long addCompany (String receivedData);
 }

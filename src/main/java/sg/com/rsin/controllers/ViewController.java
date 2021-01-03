@@ -25,8 +25,8 @@ import sg.com.rsin.entity.Employee;
 import sg.com.rsin.entity.ErrorObject;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.ResponseCode;
+import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmployeeService;
-import sg.com.rsin.service.OnlineSignatureService;
 import sg.com.rsin.service.PendingStepService;
 import sg.com.rsin.service.UserRegistrationService;
 
@@ -40,8 +40,8 @@ public class ViewController {
 	UserRegistrationService userRegistrationService;
 	
 	@Autowired
-	OnlineSignatureService onlineSignatureService;
-	
+	CommonDataService commonDataService;
+
 	@Autowired
 	PendingStepService pendingStepService;
 	
@@ -165,7 +165,7 @@ public class ViewController {
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		ModelAndView model = new ModelAndView("mybusiness/myRecord");
 		
-		Map<String, Object> pageData = onlineSignatureService.getAllPageData(userEmail);
+		Map<String, Object> pageData = commonDataService.getAllCompanyUserData(userEmail);
 		model.addObject("companies", pageData.get("companies"));
 		
 		return model;
@@ -228,7 +228,7 @@ public class ViewController {
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		ModelAndView model = new ModelAndView("todolist/toDoList");
 		
-		Map<String, Object> pageData = onlineSignatureService.getAllPageData(userEmail);
+		Map<String, Object> pageData = commonDataService.getAllCompanyUserData(userEmail);
 		model.addObject("companies", pageData.get("companies"));
 
 		return model;
@@ -240,19 +240,17 @@ public class ViewController {
 		return model;
 	}
 
-	@SuppressWarnings("unchecked")
 	@RequestMapping("/pendingStep")
 	public ModelAndView pendingStep(HttpServletRequest request) {
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		String companyId = (String) request.getParameter("compid");
+		request.getSession().setAttribute("companyId", companyId);
 		ModelAndView model = new ModelAndView("todolist/pendingStep");
 		
-		Map<String, Object> pageData = onlineSignatureService.getAllPageData(userEmail);
-		Set<Company> companies = (Set<Company>) pageData.get("companies");
-		Company company = companies.stream().filter(com -> com.getId().toString().equals(companyId)).findFirst().get();;
-		model.addObject("company", company);
+		Map<String, Object> pageData = commonDataService.getSingleCompanyUserData(userEmail, companyId);
+		model.addObject("company", pageData.get("selfCompany"));
 		
-		CompanyStatusTime companyStatusTime = companyStatusTimeRepository.findByCompanyId(company.getId());;
+		CompanyStatusTime companyStatusTime = companyStatusTimeRepository.findByCompanyId(Long.parseLong(companyId));
 		model.addObject("statusTime", companyStatusTime);
 		return model;
 	}	
@@ -262,11 +260,13 @@ public class ViewController {
 	public ModelAndView onlineSignature(HttpServletRequest request) {
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		String companyId = (String) request.getParameter("compid");
+		request.getSession().setAttribute("companyId", companyId);
 
 		ModelAndView model = new ModelAndView("todolist/onlineSignature");
 
-		Map<String, Object> pageData = onlineSignatureService.getCompanyPageData(userEmail, companyId);
+		Map<String, Object> pageData = commonDataService.getSingleCompanyUserData(userEmail, companyId);
 		model.addObject("companyName", pageData.get("companyName"));
+		model.addObject("userName", pageData.get("shareholderName"));
 		model.addObject("address", pageData.get("address"));
 		
 		model.addObject("compid", companyId);
@@ -302,8 +302,9 @@ public class ViewController {
 		
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		String companyId = (String) request.getParameter("compid");
+		request.getSession().setAttribute("companyId", companyId);
 		
-		Map<String, Object> pageData = onlineSignatureService.getCompanyPageData(userEmail, companyId);
+		Map<String, Object> pageData = commonDataService.getSingleCompanyUserData(userEmail, companyId);
 		model.addObject("companyName", pageData.get("companyName"));
 		model.addObject("address", pageData.get("address"));
 		model.addObject("compid", companyId);

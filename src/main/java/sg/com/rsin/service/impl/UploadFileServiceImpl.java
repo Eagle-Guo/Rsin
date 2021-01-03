@@ -7,7 +7,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,6 @@ import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentType;
 import sg.com.rsin.enums.DocumentTypeCode;
-import sg.com.rsin.service.OnlineSignatureService;
 import sg.com.rsin.service.UploadFileService;
 
 @Service
@@ -35,9 +33,6 @@ public class UploadFileServiceImpl implements UploadFileService {
 	private String OFFLINE_FOLDER = "offline/";
 	private String PERSONAL_FOLDER = "personal/";
 
-	@Autowired 
-	OnlineSignatureService onlineSignatureService;
-	
 	@Autowired
 	DocumentRepository documentRepository;
 	@Autowired
@@ -46,10 +41,7 @@ public class UploadFileServiceImpl implements UploadFileService {
 	@Autowired
 	CompanyRepository companyRepository;
 
-	public void uploadOfflineFile(List<MultipartFile> files, String id, String userid) throws IOException {
-		Map<String, Object> userData = onlineSignatureService.getAllPageData(userid);
-		String companyId = userData.get("companyId").toString();
-		
+	public void uploadOfflineFile(List<MultipartFile> files, String id, String userid, String companyId) throws IOException {
 		File offlineFileFolder = new File (uploadFilePathRoot.concat(companyId).concat(File.separator).concat(OFFLINE_FOLDER));
 		
 		if (!offlineFileFolder.exists()) {
@@ -113,10 +105,7 @@ public class UploadFileServiceImpl implements UploadFileService {
 		}
 	}
 	
-	public void uploadPersonalFile(List<MultipartFile> files, String id, String userid) throws IOException {
-		Map<String, Object> userData = onlineSignatureService.getAllPageData(userid);
-		String companyId = userData.get("companyId").toString();
-		
+	public void uploadPersonalFile(List<MultipartFile> files, String id, String userid, String companyId) throws IOException {
 		Optional<Company> company = companyRepository.findById(Long.parseLong(companyId));
 		
 		File personalFileFolder = new File (uploadFilePathRoot.concat(companyId).concat(File.separator).concat(PERSONAL_FOLDER));

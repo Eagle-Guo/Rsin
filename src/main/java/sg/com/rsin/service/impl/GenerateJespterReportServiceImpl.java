@@ -18,8 +18,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
-
 import javax.imageio.ImageIO;
 
 import org.apache.commons.lang3.ObjectUtils;
@@ -54,8 +52,8 @@ import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentType;
 import sg.com.rsin.entity.SignatureLog;
 import sg.com.rsin.enums.DocumentTypeCode;
+import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.GenerateJespterReportService;
-import sg.com.rsin.service.OnlineSignatureService;
 import sg.com.rsin.util.CommonUtils;
 
 @Service
@@ -78,8 +76,8 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	@Autowired
 	CompanyStatusTimeRepository companyStatusTimeRepository;
 
-	@Autowired 
-	OnlineSignatureService onlineSignatureService;
+	@Autowired
+	CommonDataService commonDataService;
 	
 	@Value("${upload.path}")
 	private String uploadFilePathRoot;
@@ -93,10 +91,8 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	ResourceLoader resourceLoader;
 
 	@SuppressWarnings("unchecked")
-	public byte[] generateJasperPDF(String userId, int id) {
-			
-		Map<String, Object> userData = onlineSignatureService.getAllPageData(userId);
-		String companyId = userData.get("companyId").toString();
+	public byte[] generateJasperPDF(String userId, int id, String companyId) {
+		Map<String, Object> userData = commonDataService.getSingleCompanyUserData(userId, companyId);
 		Map<String, Integer> shareholderAndStock = (Map<String, Integer>) userData.get("shareholderAndStock");
 		StringBuffer shareholder = new StringBuffer();
 		shareholderAndStock.forEach((k, v) -> shareholder.append(k).append("\t\t").append(v).append("\n"));
@@ -139,11 +135,11 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Map<String, String> generateNewCompanyPDFWithSignature(String userId, String ip, byte[] bytes) {
+	public Map<String, String> generateNewCompanyPDFWithSignature(String userId, String ip, byte[] bytes, String companyId) {
 
-		Map<String, Object> userData = onlineSignatureService.getAllPageData(userId);
-		String companyId = userData.get("companyId").toString();
+		Map<String, Object> userData = commonDataService.getSingleCompanyUserData(userId, companyId);
 		String companyName = userData.get("companyName").toString();
+		CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) userData.get("selfCompanyShareholderInfo");
 
 		SignatureLog signatureLog = new SignatureLog();
 		signatureLog.setActionType("Submit");
@@ -155,7 +151,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 
 		List<CompanyShareholderInfo> userCompanyShareholderInfos = (List<CompanyShareholderInfo>) userData.get("sameCompanyShareholderInfos");
 		try {
-			String signatureFileDirectory = signatureFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
+			String signatureFileDirectory = signatureFilePathRoot.concat(companyId).concat(File.separator);
 			File directory = new File(signatureFileDirectory);
 		    if (! directory.exists()){
 		        directory.mkdirs();
@@ -210,6 +206,15 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 
 		    // Generate all 8 documents
 		    for (int i=1; i<=8; i++) {
+		    	if (selfCompanyShareholderInfo.getPositionType().equals("董事")) {
+		    		if (i==2||i==3||i==4||i==7||i==8) {
+		    			continue;
+		    		}
+		    	} else if (selfCompanyShareholderInfo.getPositionType().equals("股东")) {
+		    		if (i==1||i==6) {
+		    			continue;
+		    		}
+		    	}
 		    	List<JasperPrint> jasperPrintList = new ArrayList<JasperPrint>();
 		    	String templateName = CommonUtils.getJaspterTemplateName(i);
 			    
@@ -338,14 +343,12 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		companyStatusTime.setSignature(new Date());
 		companyStatusTimeRepository.save(companyStatusTime);
 	}
-	public byte[] exportReport(String reportFormat, String userId, int id) {
-		return generateJasperPDF(userId, id);
+	public byte[] exportReport(String reportFormat, String userId, int id, String companyId) {
+		return generateJasperPDF(userId, id, companyId);
 	}
 	
-	public Map<String, String> onlineSubmitSignatureFile(String userId, String ip, MultipartFile uploadfile) {
-		Map<String, Object> userData = onlineSignatureService.getAllPageData(userId);
-		String companyId = userData.get("companyId").toString();
-		String fileDirectory = signatureFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
+	public Map<String, String> onlineSubmitSignatureFile(String userId, String ip, MultipartFile uploadfile, String companyId) {
+		String fileDirectory = signatureFilePathRoot.concat(companyId).concat(File.separator);
 		File directory = new File(fileDirectory);
 	    if (!directory.exists()){
 	        directory.mkdirs();
@@ -362,7 +365,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	            Path path = Paths.get(fileDirectory, userId + SIGNATURE_SUFFIX);
 	            Files.write(path, bytes);
 	            
-	            Map<String, String> signFileAndPath= generateNewCompanyPDFWithSignature(userId, ip, bytes);
+	            Map<String, String> signFileAndPath= generateNewCompanyPDFWithSignature(userId, ip, bytes, companyId);
 	            return signFileAndPath;
 	        }
 		} catch (FileNotFoundException e) {

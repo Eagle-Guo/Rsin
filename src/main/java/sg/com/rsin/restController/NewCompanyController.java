@@ -1,5 +1,7 @@
 package sg.com.rsin.restController;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +19,16 @@ public class NewCompanyController {
 	
 	@Autowired
 	NewCompanyService newCompanyService;
+
 	@PostMapping("/api/newCompany")
-    public ResponseEntity<String> newCompany(@RequestBody String receivedData) {
+    public ResponseEntity<String> newCompany(@RequestBody String receivedData, HttpServletRequest request) {
 		logger.info("new Company info" + receivedData);
 		
-		if (newCompanyService.addCompany(receivedData) != null) {
+		long companyId = newCompanyService.addCompany(receivedData);
+		if (companyId < 1) {
 			return new ResponseEntity<>("Company existed", HttpStatus.CONFLICT);
 		}
+		request.setAttribute("companyId", companyId);
 		return new ResponseEntity<>(HttpStatus.OK);
     }
 	

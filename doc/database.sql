@@ -103,15 +103,6 @@ CREATE TABLE `company_service` (
   CONSTRAINT `company_info_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;*/
 
-/*CREATE TABLE `company_shareholder_info` (
-   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(30) NOT NULL,
-  `description` varchar(100) NOT NULL,
-  `company_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `company_shareholder_info_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;*/
-
 CREATE TABLE `company_shareholder_info` (
   `id` int(11) NOT NULL auto_increment,
   `position_type` varchar(30) NOT NULL,

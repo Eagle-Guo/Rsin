@@ -2,7 +2,6 @@ package sg.com.rsin.controllers;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import sg.com.rsin.dao.CompanyStatusTimeRepository;
 import sg.com.rsin.entity.CommonResponse;
-import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.CompanyStatusTime;
@@ -29,6 +27,7 @@ import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmployeeService;
 import sg.com.rsin.service.PendingStepService;
 import sg.com.rsin.service.UserRegistrationService;
+import sg.com.rsin.vo.OnlineSignatureVO;
 
 @Controller
 public class ViewController {
@@ -266,32 +265,47 @@ public class ViewController {
 
 		Map<String, Object> pageData = commonDataService.getSingleCompanyUserData(userEmail, companyId);
 		model.addObject("companyName", pageData.get("companyName"));
-		model.addObject("userName", pageData.get("shareholderName"));
-		model.addObject("address", pageData.get("address"));
+		
+		//model.addObject("userName", pageData.get("shareholderName"));
+		//model.addObject("address", pageData.get("address"));
 		
 		model.addObject("compid", companyId);
-		Map<String, Integer> shareholderAndStockMap = (Map<String, Integer>) pageData.get("shareholderAndStock");
-		StringBuffer shareholders = new StringBuffer();
-		shareholderAndStockMap.forEach((k, v) -> shareholders.append("<span> ").append(k).append("</span>").append("<span> ").append(v).append("</span> <br/>"));
-		shareholders.append("<span>Total:</span> <span> ").append(pageData.get("totalStockAmount")).append("</span>");
-		model.addObject("shareholderAndStock", shareholders);
-
 		if (companyId == null) {
 			model.addObject("displayAll", true);
 			return model;
 		}
 
-		CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) pageData.get("selfCompanyShareholderInfo");
-		if (selfCompanyShareholderInfo.getPositionType().contains("董事")) {
-			model.addObject("isDirector", true);
-		}
-		if (selfCompanyShareholderInfo.getPositionType().contains("股东")) {
-			model.addObject("isShareholder", true);
-		}
-		CompanyService companyService = (CompanyService)pageData.get("companyService");
-		if (companyService.getNominalDirector() > 0) {
-			model.addObject("isNamedDirector", true);
-		}
+		Map<String, Integer> shareholderAndStockMap = (Map<String, Integer>) pageData.get("shareholderAndStock");
+		StringBuffer shareholders = new StringBuffer();
+		shareholderAndStockMap.forEach((k, v) -> shareholders.append("<span> ").append(k).append("</span>").append("<span> ").append(v).append("</span> <br/>"));
+		shareholders.append("<span>Total:</span> <span> ").append(pageData.get("totalStockAmount")).append("</span>");
+
+		List<CompanyShareholderInfo> sameCompanyShareholderInfos = (List<CompanyShareholderInfo>) pageData.get("sameCompanyShareholderInfos");
+		List<OnlineSignatureVO> selfCompanyOnlineSignatureVo = sameCompanyShareholderInfos.parallelStream().map(companyShareholderInfo -> {
+			OnlineSignatureVO onlineSignatureVO = new OnlineSignatureVO();
+			onlineSignatureVO.setUserName(companyShareholderInfo.getName());
+			onlineSignatureVO.setAddress(companyShareholderInfo.getAddress());
+			
+			onlineSignatureVO.setShareholderAndStock(shareholders.toString());
+
+			CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) pageData.get("selfCompanyShareholderInfo");
+			if (selfCompanyShareholderInfo.getPositionType().contains("董事")) {
+				onlineSignatureVO.setDirector(true);
+			}
+			if (selfCompanyShareholderInfo.getPositionType().contains("股东")) {
+				onlineSignatureVO.setShareholder(true);
+			}
+			CompanyService companyService = (CompanyService)pageData.get("companyService");
+			if (companyService.getNominalDirector() > 0) {
+				onlineSignatureVO.setNamedDirector(true);
+			}
+			if (selfCompanyShareholderInfo.getSignatureName() != null) {
+				onlineSignatureVO.setAllSignatureFinished(true);
+			} 
+			return onlineSignatureVO;
+		}).collect(Collectors.toList());
+		
+		model.addObject("selfCompanyOnlineSignatureVo", selfCompanyOnlineSignatureVo);
 		
 		return model;
 	}	

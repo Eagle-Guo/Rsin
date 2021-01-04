@@ -174,7 +174,7 @@ INSERT INTO document_type (document_type_code, document_type_desc, created_date)
 INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE14','Chinese IC', sysdate());
 INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE15','Resident Proof', sysdate());
 INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE16','Selfie With Passport', sysdate());
-	
+    
 CREATE TABLE `document` (
   `id` int(11) NOT NULL auto_increment,
   `document_type_code` varchar(11) NOT NULL,
@@ -200,29 +200,42 @@ CREATE TABLE `signature_log` (
   CONSTRAINT `signature_log_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE `status_code` (
+CREATE TABLE `step_code` (
   `id` int(11) NOT NULL,
-  `status_desc` varchar(255) NOT NULL,
+  `step_desc` varchar(255) NOT NULL,
   `display_step` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
-INSERT INTO status_code (id, status_desc, display_step) value (1,'选择服务', 1);
-INSERT INTO status_code (id, status_desc, display_step) value (2,'信息填报', 2);
-INSERT INTO status_code (id, status_desc, display_step) value (3,'在线支付', 3);
-INSERT INTO status_code (id, status_desc, display_step) value (4,'电子签名', 4);
-INSERT INTO status_code (id, status_desc, display_step) value (5,'上传资料', 5);
-INSERT INTO status_code (id, status_desc, display_step) value (6,'注册受理中', 0);
-INSERT INTO status_code (id, status_desc, display_step) value (7,'注册完成', 0);
+INSERT INTO step_code (id, step_desc, display_step) value (1,'选择服务', 1);
+INSERT INTO step_code (id, step_desc, display_step) value (2,'信息填报', 2);
+INSERT INTO step_code (id, step_desc, display_step) value (3,'在线支付', 3);
+INSERT INTO step_code (id, step_desc, display_step) value (4,'电子签名', 4);
+INSERT INTO step_code (id, step_desc, display_step) value (5,'上传资料', 5);
+INSERT INTO step_code (id, step_desc, display_step) value (6,'注册受理中', 0);
+INSERT INTO step_code (id, step_desc, display_step) value (7,'注册完成', 0);
 
 CREATE TABLE `company_status_time` (
-  `id` int(11) NOT NULL auto_increment,
-  `services` DATETIME,
-  `information` DATETIME,
-  `payment` DATETIME,
-  `signature` DATETIME,
-  `uploadfile` DATETIME,
+    `id` int(11) NOT NULL auto_increment,
+    `services` DATETIME,
+    `information` DATETIME,
+    `payment` DATETIME,
+    `payment_status` int(11),
+    `signature` DATETIME,
+    `signature_status` int(11),
+    `uploadfile` DATETIME,
+    `uploadfile_status` int(11),
   `company_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `company_status_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE `status_code` (
+  `id` int(11) NOT NULL,
+  `status_desc` varchar(255) NOT NULL,
+  `defunct_flag` char(1) default 'N',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+
+INSERT INTO status_code (id, status_desc) value (1,'待处理');
+INSERT INTO status_code (id, status_desc) value (2,'已完成');

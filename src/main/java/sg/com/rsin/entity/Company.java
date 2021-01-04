@@ -35,8 +35,8 @@ public class Company {
 	private String activityTwo;
 	@Column(name="address")
 	private String address;
-    @Column(name="status")
-	private String status;
+    @Column(name="step")
+	private String step;
     @Column(name="total_shareholder")
 	private int totalShareholder;
     @Column(name="shareholder_comfirm")
@@ -53,7 +53,7 @@ public class Company {
     public Company() {}
     
 	public Company(Long id, String name, String backupName, String type, float totalStockCapital,
-			float actualStockCapital, String activityOne, String activityTwo, String address, String status,
+			float actualStockCapital, String activityOne, String activityTwo, String address, String step,
 			int totalShareholder, int shareholderComfirm, Date createdDate, CompanyService serviceList,
 			List<CompanyShareholderInfo> shareholderInfoList) {
 		super();
@@ -66,7 +66,7 @@ public class Company {
 		this.activityOne = activityOne;
 		this.activityTwo = activityTwo;
 		this.address = address;
-		this.status = status;
+		this.step = step;
 		this.totalShareholder = totalShareholder;
 		this.shareholderComfirm = shareholderComfirm;
 		this.createdDate = createdDate;
@@ -129,11 +129,11 @@ public class Company {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getStatus() {
-		return status;
+	public String getStep() {
+		return step;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStep(String step) {
+		this.step = step;
 	}
 	public int getTotalShareholder() {
 		return totalShareholder;

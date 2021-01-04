@@ -55,7 +55,7 @@ public class CommonDataServiceImpl implements CommonDataService {
 		for(CompanyShareholderInfo companyShareholderInfo : allCompanyShareholderInfos) {
 			allCompanies.add(companyShareholderInfo.getCompany());
 		}
-		pageData.put("allCompanyShareholderInfos",  allCompanyShareholderInfos);
+		//pageData.put("allCompanyShareholderInfos",  allCompanyShareholderInfos);
 		pageData.put("companies", allCompanies);
 		return pageData;
 	}
@@ -121,7 +121,7 @@ public class CommonDataServiceImpl implements CommonDataService {
 		pageData.put("shareholderAddress", selfCompanyShareholderInfo.getAddress());
 		pageData.put("shareholderAndStock", shareholderAndStock);
 		pageData.put("totalStockAmount", total);
-		pageData.put("allCompanyShareholderInfos",  allCompanyShareholderInfos);
+		//pageData.put("allCompanyShareholderInfos",  allCompanyShareholderInfos);
 		pageData.put("selfCompanyShareholderInfo", selfCompanyShareholderInfo);
 		pageData.put("sameCompanyShareholderInfos", sameCompanyShareholderInfos);
 		pageData.put("selfCompany", selfCompany);

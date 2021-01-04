@@ -16,8 +16,6 @@
   <link rel="stylesheet" href="../../../assets/css/components.css">
   <link rel="stylesheet" href="../../../assets/css/multiplepage.css">
   <link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
-
-  
   
 </head>
 
@@ -65,10 +63,10 @@
 				            <div class="col-12 col-md-12 col-lg-12 menuBotom" id="readyContent">
 				                <div class="card removeBorder">
 				                	<div class="card-body"  style="display:block;padding: 0px;">
-				                    	<div id="accordion">
+				                    	<c:forEach items="${selfCompanyOnlineSignatureVo}" var="selfCompanyOnlineSignatureVo">
 				                      		<div class="accordion">
 						                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="true">
-						                         	<h4>${userName}-待签名清单</h4>
+						                         	<h4>${selfCompanyOnlineSignatureVo.userName} - 签名清单 (待处理 / 已完成) </h4>
 						                        </div>
 						                        <div class="accordion-body collapse show" id="panel-body-1" data-parent="#accordion">
 										          <div class="row"> 				          
@@ -77,7 +75,7 @@
 										              <div class="card-body fixcardhieht">
 										                  <ul class="list-unstyled list-unstyled-border">
 				
-										                  	<c:if test="${isDirector || isNamedDirector || displayAll}">
+										                  	<c:if test="${selfCompanyOnlineSignatureVo.isDirector || selfCompanyOnlineSignatureVo.isNamedDirector || displayAll}">
 											                    <li class="media leftTab active"  id="b-1" onclick="viewPri(1)" onmouseover="viewPri(1)" >
 											                      <div class="media-body">
 											                        <!--<div class="float-right list_btn" id="downloadDoc1">下载</div>  -->
@@ -91,7 +89,7 @@
 											                    </li>
 										                    </c:if>
 				
-															<c:if test="${isShareholder || displayAll}">
+															<c:if test="${selfCompanyOnlineSignatureVo.isShareholder || displayAll}">
 											                    <li class="media leftTab active"  id="b-2" onclick="viewPri(2)" onmouseover="viewPri(2)" >
 											                      <div class="media-body">
 											                        <!--<div class="float-right list_btn" id="downloadDoc2">下载</div>-->
@@ -105,7 +103,7 @@
 											                    </li>
 										                    </c:if>
 										                    
-										                    <c:if test="${isShareholder || displayAll}">
+										                    <c:if test="${selfCompanyOnlineSignatureVo.isShareholder || displayAll}">
 											                    <li class="media leftTab active"  id="b-3" onclick="viewPri(3)" onmouseover="viewPri(3)" >
 											                      <div class="media-body">
 											                        <!--<div class="float-right list_btn" id="downloadDoc3">下载</div>-->
@@ -119,7 +117,7 @@
 											                    </li>   
 										                    </c:if>
 										                    
-										                    <c:if test="${isShareholder || displayAll}">
+										                    <c:if test="${selfCompanyOnlineSignatureVo.isShareholder || displayAll}">
 											                    <li class="media leftTab active"  id="b-4" onclick="viewPri(4)" onmouseover="viewPri(4)" >
 											                      <div class="media-body">
 											                        <!--<div class="float-right list_btn" id="downloadDoc4">下载</div>-->
@@ -133,7 +131,7 @@
 											                    </li>
 										                    </c:if>
 										                    
-										                    <c:if test="${isDirector || isShareholder || displayAll}">
+										                    <c:if test="${selfCompanyOnlineSignatureVo.isDirector || selfCompanyOnlineSignatureVo.isShareholder || displayAll}">
 											                    <li class="media leftTab active"  id="b-5" onclick="viewPri(5)" onmouseover="viewPri(5)" >
 											                      <div class="media-body">
 											                        <!--<div class="float-right list_btn" id="downloadDoc5">下载</div>-->
@@ -147,7 +145,7 @@
 											                    </li>
 										                    </c:if>
 										                    
-										                    <c:if test="${isDirector || isNamedDirector || displayAll}">
+										                    <c:if test="${selfCompanyOnlineSignatureVo.isDirector || selfCompanyOnlineSignatureVo.isNamedDirector || displayAll}">
 											                    <li class="media leftTab active"  id="b-6" onclick="viewPri(6)" onmouseover="viewPri(6)" >
 											                      <div class="media-body">
 											                        <!--<div class="float-right list_btn" id="downloadDoc6">下载</div>-->
@@ -161,7 +159,7 @@
 											                    </li>   
 										                    </c:if>
 										                    
-										                    <c:if test="${isShareholder || displayAll}">
+										                    <c:if test="${selfCompanyOnlineSignatureVo.isShareholder || displayAll}">
 											                    <li class="media leftTab active"  id="b-7" onclick="viewPri(7)" onmouseover="viewPri(7)" >
 											                      <div class="media-body">
 											                        <!--<div class="float-right list_btn" id="downloadDoc7">下载</div>-->
@@ -175,7 +173,8 @@
 											                    </li>
 										                    </c:if>
 										                    
-										                    <c:if test="${isDirector && isNamedDirector || isNamedDirector || displayAll}">
+										                    <c:if test="${selfCompanyOnlineSignatureVo.isShareholder && selfCompanyOnlineSignatureVo.isNamedDirector || 
+										                    	selfCompanyOnlineSignatureVo.isNamedDirector || displayAll}">
 											                    <li class="media leftTab active"  id="b-8" onclick="viewPri(8)" onmouseover="viewPri(8)" >
 											                      <div class="media-body">
 											                        <!--<div class="float-right list_btn" id="downloadDoc8">下载</div>  -->
@@ -852,7 +851,7 @@
 										                    	 <p class="text_signfile text_cn">根据公司法第50章在新加坡成立</p> 	
 																<br/>						 
 										                    	 <p class="text_signfile">
-																	 <span>This is to certify that</span> <span class="text_cn">兹证明</span><span class="underline">SHAREHOLDER’S NAME & NRIC股东的名字与身份证号码(自动替换)</span> 
+																	 <span>This is to certify that</span> <span class="text_cn">兹证明</span><span class="underline">SHAREHOLDER’S NAME &amp; NRIC股东的名字与身份证号码(自动替换)</span> 
 																	 <span>of </span> <span class="underline">SHAREHOLDER’S PERSONAL ADDRESS股东个人居住地址(自动替换)</span> 
 																	 <span>is the registered owner of </span> <span class="text_cn">是持有以下股份数量的登记股东</span><span class="underline">TWO THOUSAND AND FIVE HUNDRED (自动替换)</span> 
 																	 <span>Ordinary shares of One Dollar each fully paid in</span> <span class="text_cn">普通股每股一块全额缴清</span><span class="underline">${companyName} PTE. LTD.(自动替换)</span> 
@@ -2660,7 +2659,7 @@
 																	<div class="col-md-10 col-sm-10"> 
 																		<p class="text_signfile">
 																		<span>
-																			Rsin Group Pte. Ltd. & related companies RESERVES THE RIGHT TO ACCEPT OR REJECT ANY APPLICATIONS SUBMITTED.
+																			Rsin Group Pte. Ltd. &amp; related companies RESERVES THE RIGHT TO ACCEPT OR REJECT ANY APPLICATIONS SUBMITTED.
 																		</span><br/>
 																		<span class="text_cn">
 																			Rsin Group Pte. Ltd.及相关公司保留接受或拒绝任何递交的申请的权利。
@@ -2675,7 +2674,7 @@
 																	<div class="col-md-10 col-sm-10"> 
 																		<p class="text_signfile">
 																		<span>
-																			On termination of any services (including but not limited to corporate secretarial services) provided by Rsin Group Pte. Ltd. & related companies pursuant to this Agreement, Rsin Group Pte. Ltd. & related companies shall not be obliged to furnish hard-copies of the documents prepared by Rsin Group Pte. Ltd. & related companies which have been made available to us via our web. Any time cost involved in preparation of the handover of any services are chargeable separately.
+																			On termination of any services (including but not limited to corporate secretarial services) provided by Rsin Group Pte. Ltd. &amp; related companies pursuant to this Agreement, Rsin Group Pte. Ltd. &amp; related companies shall not be obliged to furnish hard-copies of the documents prepared by Rsin Group Pte. Ltd. &amp; related companies which have been made available to us via our web. Any time cost involved in preparation of the handover of any services are chargeable separately.
 																		</span><br/>
 																		<span class="text_cn">
 																			在Rsin集团私人有限公司和相关公司根据本协议提供的任何服务（包括但不限于公司秘书服务）终止时，Rsin集团私人有限公司和相关公司无义务提供通过我们的网站我公司准备的文件的硬拷贝。准备移交任何服务所涉及的任何时间成本均应单独收取
@@ -2705,7 +2704,7 @@
 																	<div class="col-md-10 col-sm-10"> 
 																		<p class="text_signfile">
 																		<span>
-																			We agree that the share certificates numbering will commence from number “31” (thirty one), regardless the previous number sequence. (applicable for all new, existing, carry over companies and companies which change its company secretarial service provider to Rsin Group Pte. Ltd. & related companies EXCEPT companies incorporated through our website system)
+																			We agree that the share certificates numbering will commence from number “31” (thirty one), regardless the previous number sequence. (applicable for all new, existing, carry over companies and companies which change its company secretarial service provider to Rsin Group Pte. Ltd. &amp; related companies EXCEPT companies incorporated through our website system)
 																		</span><br/>
 																		<span class="text_cn">
 																			我们同意，股票编号将从“31”（三十一）开始，而不考虑之前的编号顺序。（适用于所有新的、现有的、结转的公司以及将其公司秘书服务提供商变更为Rsin集团私人有限公司的公司和相关公司，但通过我们的网站系统注册的公司除外）
@@ -2715,11 +2714,11 @@
 																 </div>	
 																 <p class="text_signfile">
 																 	<span>
-																		For the purposes of this Agreement, “party” or “parties” shall refer to Rsin Group Pte. Ltd. & related companies on the one hand and us on the other hand.<br/>
+																		For the purposes of this Agreement, “party” or “parties” shall refer to Rsin Group Pte. Ltd. &amp; related companies on the one hand and us on the other hand.<br/>
 																		<span class="text_cn">在本协议中，“一方”或“双方”应指Rsin集团私人有限公司和相关公司，另一方是指我们。</span><br/>
 																		This Agreement and the documents referred to herein are in substitution for all previous agreements between all or any of the parties, and contain the whole agreement between the parties relating to the subject matter of this Agreement.<br/>
 																		<span class="text_cn">本协议和本协议提及的文件取代双方或任何一方之前达成的所有协议，并包含双方之间关于本协议标的物的的完整协议。</span><br/>
-																		In the event of any conflict, contradiction or inconsistency between the provisions in this Agreement and any other document and/or agreement entered into between us and Rsin Group Pte. Ltd. & related companies, this Agreement shall prevail.<br/>
+																		In the event of any conflict, contradiction or inconsistency between the provisions in this Agreement and any other document and/or agreement entered into between us and Rsin Group Pte. Ltd. &amp; related companies, this Agreement shall prevail.<br/>
 																		<span class="text_cn">如果本协议的规定与我方与瑞星集团私人有限公司及相关公司签订的任何其他文件和/或协议之间存在任何冲突、矛盾或不一致，则以本协议为准。</span><br/>
 																		Each of the provisions of this Agreement is several and distinct from the others and if at any time one or more of the provisions is or becomes invalid, unlawful or unenforceable, the validity, legality and enforceability of the remaining provisions contained herein shall not in any way be affected or impaired and this Agreement shall be construed as if such invalid unlawful or unenforceable provision had never been contained herein.<br/>
 																		<span class="text_cn">本协议的每一条规定都是单独的，并且与其他条款不同，如果在任何时候一条或多条规定无效、不合法或不可执行，本协议其余条款的有效性、合法性和可执行性不得以任何方式受到影响或损害，本协议应予以解释就好像这些无效的、非法的或不可执行的条款从未包含在本文中。</span><br/>
@@ -2966,10 +2965,9 @@
 										            </div>				            
 										          </div>          
 													                
-					                
 						                        </div>
 				                      		</div>
-				                    	</div>
+				                      	</c:forEach>
 				                 	 </div>
 				                </div>
 				            </div>				    
@@ -3009,7 +3007,7 @@
 							                    </li>
 						                    </c:if>
 						                    
-						                    <c:if test="${isShareholder}">
+						                    <c:if test="${selfCompanyOnlineSignatureVo.isShareholder}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3032,7 +3030,7 @@
 							                    </li>				                    
 						                    </c:if>
 
-						                    <c:if test="${isShareholder}">
+						                    <c:if test="${selfCompanyOnlineSignatureVo.isShareholder}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3055,7 +3053,7 @@
 							                    </li>
 						                    </c:if>
 
- 											<c:if test="${isShareholder}">
+ 											<c:if test="${selfCompanyOnlineSignatureVo.isShareholder}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3078,7 +3076,7 @@
 							                    </li>				                    
 						                    </c:if>
 
- 											<c:if test="${isDirector || isShareholder}">
+ 											<c:if test="${selfCompanyOnlineSignatureVo.isDirector || selfCompanyOnlineSignatureVo.isShareholder}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3101,7 +3099,7 @@
 							                    </li>				                    
 						                    </c:if>
 
-											<c:if test="${isDirector || isNamedDirector}">
+											<c:if test="${selfCompanyOnlineSignatureVo.isDirector || selfCompanyOnlineSignatureVo.isNamedDirector}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3124,7 +3122,7 @@
 							                    </li>				                    
 						                    </c:if>
 
-											<c:if test="${isShareholder}">
+											<c:if test="${selfCompanyOnlineSignatureVo.isShareholder}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3147,7 +3145,8 @@
 							                    </li>				                    
 						                    </c:if>
 
-											<c:if test="${isShareholder && isNamedDirector || isNamedDirector}">
+											<c:if test="${selfCompanyOnlineSignatureVo.isShareholder && selfCompanyOnlineSignatureVo.isNamedDirector 
+												|| selfCompanyOnlineSignatureVo.isNamedDirector}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3205,7 +3204,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.228/pdf.min.js"></script>
-  <!-- <script src="../../../assets/js/html2canvas.js"></script> -->
   <script src="../../../assets/js/stisla.js"></script>
   <!-- Template JS File -->
   <script src="../../../assets/js/scripts.js"></script>

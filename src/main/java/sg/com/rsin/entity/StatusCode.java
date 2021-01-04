@@ -10,21 +10,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "status_code")
 public class StatusCode {
-    @Id
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(name="status_desc")
 	private String statusDesc;
-	@Column(name="display_step")
-	private int displayStep;
-    
-    public StatusCode() {}
-    
-	public StatusCode(Long id, String statusDesc, int displayStep) {
+	@Column(name="defunct_flag")
+	private boolean defunctFlag;
+	
+	public StatusCode() {}
+
+	public StatusCode(String statusDesc, boolean defunctFlag) {
 		super();
-		this.id = id;
 		this.statusDesc = statusDesc;
-		this.displayStep = displayStep;
+		this.defunctFlag = defunctFlag;
 	}
 
 	public Long getId() {
@@ -39,10 +39,10 @@ public class StatusCode {
 	public void setStatusDesc(String statusDesc) {
 		this.statusDesc = statusDesc;
 	}
-	public int getDisplayStep() {
-		return displayStep;
+	public boolean isDefunctFlag() {
+		return defunctFlag;
 	}
-	public void setDisplayStep(int displayStep) {
-		this.displayStep = displayStep;
+	public void setDefunctFlag(boolean defunctFlag) {
+		this.defunctFlag = defunctFlag;
 	}
 }

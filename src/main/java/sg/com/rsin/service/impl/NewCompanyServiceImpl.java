@@ -132,7 +132,7 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 			logger.info("Company " + existedCompany.getName() + " is existed!");
 			return -1;
 		}
-		company.setStatus("2"); //Complete the first 2 steps: 选择服务 and 信息填报
+		company.setStep("2"); //Complete the first 2 steps: 选择服务 and 信息填报
 		company.setCreatedDate(new Date());
 		companyRepository.save(company);
 		
@@ -191,7 +191,7 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 		//Send email to ShareHolder and Director
 		//1. Get the access link
 		//String password = CommonUtils.getHashValue("" + company.getId() + company.getStatus() + company.getCreatedDate() + companyShareholderInfo.getDescription());
-		String password = CommonUtils.getHashValue("" + company.getId() + company.getStatus() + company.getCreatedDate() + companyShareholderInfo.getName());
+		String password = CommonUtils.getHashValue("" + company.getId() + company.getStep() + company.getCreatedDate() + companyShareholderInfo.getName());
 		String URL = mainDomain + newCompanyConfirmUrl + "id=" + company.getId() + "&token=" + password;
 		
 		LocalDateTime linkExpireDateTime = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().plusDays(authLinkExpireDay);

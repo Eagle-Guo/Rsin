@@ -288,20 +288,21 @@ public class ViewController {
 			
 			onlineSignatureVO.setShareholderAndStock(shareholders.toString());
 
-			CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) pageData.get("selfCompanyShareholderInfo");
-			if (selfCompanyShareholderInfo.getPositionType().contains("董事")) {
-				onlineSignatureVO.setDirector(true);
+			if (companyShareholderInfo.getPositionType().contains("董事")) {
+				onlineSignatureVO.setbDirector(true);
 			}
-			if (selfCompanyShareholderInfo.getPositionType().contains("股东")) {
-				onlineSignatureVO.setShareholder(true);
+			if (companyShareholderInfo.getPositionType().contains("股东")) {
+				onlineSignatureVO.setbShareholder(true);
 			}
 			CompanyService companyService = (CompanyService)pageData.get("companyService");
 			if (companyService.getNominalDirector() > 0) {
-				onlineSignatureVO.setNamedDirector(true);
+				onlineSignatureVO.setbNamedDirector(true);
 			}
-			if (selfCompanyShareholderInfo.getSignatureName() != null) {
-				onlineSignatureVO.setAllSignatureFinished(true);
-			} 
+			if (companyShareholderInfo.getSignatureName() != null) {
+				onlineSignatureVO.setAllSignatureStatus("已完成");
+			} else {
+				onlineSignatureVO.setAllSignatureStatus("待处理");
+			}
 			return onlineSignatureVO;
 		}).collect(Collectors.toList());
 		

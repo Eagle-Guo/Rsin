@@ -178,7 +178,7 @@
 														           	   <b>First Director Meeting Resolution</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            		签名人员：签名人1、签名人2、签名人3				                  
+														            		签名人员：签名人1(已签名)、签名人2（待签名）、签名人3	（已签名）			                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -189,7 +189,7 @@
 														           	   <b>Risk Assessment（风险评估）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            		签名人员：签名人1、签名人2、签名人3				                  
+														            		签名人员：签名人1(已签名)、签名人2（待签名）、签名人3	（已签名）		                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -211,7 +211,7 @@
 														           	   <b>Secretary Agreement（秘书协议）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            		签名人员：签名人1、签名人2、签名人3				                  
+														            		签名人员：签名人1(已签名)、签名人2（待签名）、签名人3	（已签名）			                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -268,7 +268,7 @@
 						                    	<div id="">
 						                      		<div class="accordion">
 								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-2" aria-expanded="false">
-								                         	<h4>董事：<span>AAA</span></h4>
+								                         	<h4>董事/股东：<span>AAA</span></h4>
 								                        </div>
 								                        <div class="accordion-body collapse" id="panel-body-2" data-parent="#accordion">
 										                <div class="card">
@@ -337,7 +337,7 @@
 														           	   <b>ANNEX B - Notice for Controllers</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            	签名人员：AAA	                  
+														            	签名人员：AAA（待签名）	                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -348,7 +348,7 @@
 														           	   <b>Application of Shares</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            	签名人员：AAA	                  
+														            	签名人员：AAA（待签名）		                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -359,7 +359,7 @@
 														           	   <b>Client Acceptance Form</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            	签名人员：AAA	                  
+														            	签名人员：AAA（待签名）		                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -370,7 +370,7 @@
 														           	   <b>Form 45 / 201</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            	签名人员：AAA	                  
+														            	签名人员：AAA（已签名）		                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -381,7 +381,7 @@
 														           	   <b>Share Certificate</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            	签名人员：AAA	                  
+														            	签名人员：AAA（待签名）		                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -447,7 +447,7 @@
 														           	   <b>IC正面</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            	人员：AAA	                  
+														            	人员：AAA（待上传）		                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -458,7 +458,7 @@
 														           	   <b>IC背面</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            	人员：AAA	                  
+														            	人员：AAA（待上传）		                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -469,7 +469,7 @@
 														           	   <b> 护照（有照片页）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            	人员：AAA	                  
+														            	人员：AAA（待上传）		                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -480,7 +480,7 @@
 														           	   <b>中国身份证</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            	人员：AAA	                  
+														            	人员：AAA（待上传）		                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -491,7 +491,7 @@
 														           	   <b>持护照（打开有照片页）上半身照</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            	人员：AAA	                  
+														            	人员：AAA（待上传）		                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
@@ -502,7 +502,7 @@
 														           	   <b>住所证明</b>			                  
 																	</div>
 														            <div class="col-12 col-md-5 col-lg-5">	
-														            	人员：AAA	                  
+														            	人员：AAA（待上传）		                  
 																	</div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  

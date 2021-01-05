@@ -4,24 +4,24 @@ public class OnlineSignatureVO {
 	private String userName;
 	private String address;
 	private String shareholderAndStock;
-	private boolean isDirector;
-	private boolean isShareholder;
-	private boolean isNamedDirector;
-	private boolean allSignatureFinished;
+	private boolean bDirector;
+	private boolean bShareholder;
+	private boolean bNamedDirector;
+	private String allSignatureStatus;
 
 	public OnlineSignatureVO() {
 	}
 
 	public OnlineSignatureVO(String userName, String address, String shareholderAndStock, 
-			boolean isDirector, boolean isShareholder, boolean isNamedDirector, boolean allSignatureFinished) {
+			boolean bDirector, boolean bShareholder, boolean bNamedDirector, String allSignatureStatus) {
 		super();
 		this.userName = userName;
 		this.address = address;
 		this.shareholderAndStock = shareholderAndStock;
-		this.isDirector = isDirector;
-		this.isShareholder = isShareholder;
-		this.isNamedDirector = isNamedDirector;
-		this.allSignatureFinished = allSignatureFinished;
+		this.bDirector = bDirector;
+		this.bShareholder = bShareholder;
+		this.bNamedDirector = bNamedDirector;
+		this.allSignatureStatus = allSignatureStatus;
 	}
 	public String getUserName() {
 		return userName;
@@ -41,28 +41,28 @@ public class OnlineSignatureVO {
 	public void setShareholderAndStock(String shareholderAndStock) {
 		this.shareholderAndStock = shareholderAndStock;
 	}
-	public boolean isDirector() {
-		return isDirector;
+	public boolean isbDirector() {
+		return bDirector;
 	}
-	public void setDirector(boolean isDirector) {
-		this.isDirector = isDirector;
+	public void setbDirector(boolean bDirector) {
+		this.bDirector = bDirector;
 	}
-	public boolean isShareholder() {
-		return isShareholder;
+	public boolean isbShareholder() {
+		return bShareholder;
 	}
-	public void setShareholder(boolean isShareholder) {
-		this.isShareholder = isShareholder;
+	public void setbShareholder(boolean bShareholder) {
+		this.bShareholder = bShareholder;
 	}
-	public boolean isNamedDirector() {
-		return isNamedDirector;
+	public boolean isbNamedDirector() {
+		return bNamedDirector;
 	}
-	public void setNamedDirector(boolean isNamedDirector) {
-		this.isNamedDirector = isNamedDirector;
+	public void setbNamedDirector(boolean bNamedDirector) {
+		this.bNamedDirector = bNamedDirector;
 	}
-	public boolean isAllSignatureFinished() {
-		return allSignatureFinished;
+	public String getAllSignatureStatus() {
+		return allSignatureStatus;
 	}
-	public void setAllSignatureFinished(boolean allSignatureFinished) {
-		this.allSignatureFinished = allSignatureFinished;
+	public void setAllSignatureStatus(String allSignatureStatus) {
+		this.allSignatureStatus = allSignatureStatus;
 	}
 }

@@ -201,4 +201,7 @@ function openTab(evt, PartName) {
     evt.currentTarget.className += " active";
 }
 
-$(function(){ $('[data-toggle="tooltip"]').tooltip();});
+$(function(){ 
+	$('[data-toggle="tooltip"]').tooltip();
+	// $('.collapsible1').addClass("accordion-pending-header");
+});

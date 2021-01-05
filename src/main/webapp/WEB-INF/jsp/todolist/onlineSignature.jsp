@@ -63,22 +63,23 @@
 				            <div class="col-12 col-md-12 col-lg-12 menuBotom" id="readyContent">
 				                <div class="card removeBorder">
 				                	<div class="card-body"  style="display:block;padding: 0px;">
-				                    	<c:forEach items="${selfCompanyOnlineSignatureVo}" var="selfCompanyOnlineSignatureVo">
+				                	<div id="accordion">
+				                    	<c:forEach items="${selfCompanyOnlineSignatureVo}" var="selfCompanyOnlineSignature" varStatus="loop">
 				                      		<div class="accordion">
-						                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="true">
-						                         	<h4>${selfCompanyOnlineSignatureVo.userName} - 签名清单 (待处理 / 已完成) </h4>
+						                        <div class="collapsible1 ${selfCompanyOnlineSignature.allSignatureStatus == '已完成' ? 
+						                            'accordion-complete-header' : 'accordion-pending-header'}" role="button" data-toggle="collapse" data-target="#panel-body-${loop.index}" aria-expanded="true">
+						                         	<h4>${selfCompanyOnlineSignature.userName} - 签名清单 (${selfCompanyOnlineSignature.allSignatureStatus}) </h4>
 						                        </div>
-						                        <div class="accordion-body collapse show" id="panel-body-1" data-parent="#accordion">
+						                        <div class="accordion-body collapse show" id="panel-body-${loop.index}" data-parent="#accordion">
 										          <div class="row"> 				          
 										            <div class="col-lg-4 col-md-12 col-12 col-sm-12 card">
 										              <div class=""> <div class="card-header"> <h4>待签名文件清单</h4> </div> </div>
 										              <div class="card-body fixcardhieht">
 										                  <ul class="list-unstyled list-unstyled-border">
 				
-										                  	<c:if test="${selfCompanyOnlineSignatureVo.isDirector || selfCompanyOnlineSignatureVo.isNamedDirector || displayAll}">
-											                    <li class="media leftTab active"  id="b-1" onclick="viewPri(1)" onmouseover="viewPri(1)" >
+										                  	<c:if test="${selfCompanyOnlineSignature.bDirector || selfCompanyOnlineSignature.bNamedDirector || displayAll}">
+											                    <li class="media leftTab active"  id="b-1${loop.index}" onclick="viewPri(1${loop.index})" onmouseover="viewPri(1${loop.index})" >
 											                      <div class="media-body">
-											                        <!--<div class="float-right list_btn" id="downloadDoc1">下载</div>  -->
 																	<div class="">First Director Meeting Resolution</div>   
 												                    <div class="checkbox">
 																	    <label>
@@ -89,10 +90,9 @@
 											                    </li>
 										                    </c:if>
 				
-															<c:if test="${selfCompanyOnlineSignatureVo.isShareholder || displayAll}">
-											                    <li class="media leftTab active"  id="b-2" onclick="viewPri(2)" onmouseover="viewPri(2)" >
+															<c:if test="${selfCompanyOnlineSignature.bShareholder || displayAll}">
+											                    <li class="media leftTab active"  id="b-2${loop.index}" onclick="viewPri(2${loop.index})" onmouseover="viewPri(2${loop.index})" >
 											                      <div class="media-body">
-											                        <!--<div class="float-right list_btn" id="downloadDoc2">下载</div>-->
 											                        <div class="">Secretary Agreement </div> 
 												                    <div class="checkbox">
 																	    <label>
@@ -103,10 +103,9 @@
 											                    </li>
 										                    </c:if>
 										                    
-										                    <c:if test="${selfCompanyOnlineSignatureVo.isShareholder || displayAll}">
-											                    <li class="media leftTab active"  id="b-3" onclick="viewPri(3)" onmouseover="viewPri(3)" >
+										                    <c:if test="${selfCompanyOnlineSignature.bShareholder || displayAll}">
+											                    <li class="media leftTab active"  id="b-3${loop.index}" onclick="viewPri(3${loop.index})" onmouseover="viewPri(3${loop.index})" >
 											                      <div class="media-body">
-											                        <!--<div class="float-right list_btn" id="downloadDoc3">下载</div>-->
 											                        <div class="">ANNEX B - Notice for Controllers</div>    
 												                    <div class="checkbox">
 																	    <label>
@@ -117,10 +116,9 @@
 											                    </li>   
 										                    </c:if>
 										                    
-										                    <c:if test="${selfCompanyOnlineSignatureVo.isShareholder || displayAll}">
-											                    <li class="media leftTab active"  id="b-4" onclick="viewPri(4)" onmouseover="viewPri(4)" >
+										                    <c:if test="${selfCompanyOnlineSignature.bShareholder || displayAll}">
+											                    <li class="media leftTab active"  id="b-4${loop.index}" onclick="viewPri(4${loop.index})" onmouseover="viewPri(4${loop.index})" >
 											                      <div class="media-body">
-											                        <!--<div class="float-right list_btn" id="downloadDoc4">下载</div>-->
 											                        <div class="">Application of Shares</div>  
 												                    <div class="checkbox">
 																	    <label>
@@ -131,10 +129,9 @@
 											                    </li>
 										                    </c:if>
 										                    
-										                    <c:if test="${selfCompanyOnlineSignatureVo.isDirector || selfCompanyOnlineSignatureVo.isShareholder || displayAll}">
-											                    <li class="media leftTab active"  id="b-5" onclick="viewPri(5)" onmouseover="viewPri(5)" >
+										                    <c:if test="${selfCompanyOnlineSignature.bDirector || selfCompanyOnlineSignature.bShareholder || displayAll}">
+											                    <li class="media leftTab active"  id="b-5${loop.index}" onclick="viewPri(5${loop.index})" onmouseover="viewPri(5${loop.index})" >
 											                      <div class="media-body">
-											                        <!--<div class="float-right list_btn" id="downloadDoc5">下载</div>-->
 											                        <div class="">Client Acceptance Form</div>     
 												                    <div class="checkbox">
 																	    <label>
@@ -145,10 +142,9 @@
 											                    </li>
 										                    </c:if>
 										                    
-										                    <c:if test="${selfCompanyOnlineSignatureVo.isDirector || selfCompanyOnlineSignatureVo.isNamedDirector || displayAll}">
-											                    <li class="media leftTab active"  id="b-6" onclick="viewPri(6)" onmouseover="viewPri(6)" >
+										                    <c:if test="${selfCompanyOnlineSignature.bDirector || selfCompanyOnlineSignature.bNamedDirector || displayAll}">
+											                    <li class="media leftTab active"  id="b-6${loop.index}" onclick="viewPri(6${loop.index})" onmouseover="viewPri(6${loop.index})" >
 											                      <div class="media-body">
-											                        <!--<div class="float-right list_btn" id="downloadDoc6">下载</div>-->
 											                        <div class="">Form 45 / 201</div>    
 												                    <div class="checkbox">
 																	    <label>
@@ -159,10 +155,9 @@
 											                    </li>   
 										                    </c:if>
 										                    
-										                    <c:if test="${selfCompanyOnlineSignatureVo.isShareholder || displayAll}">
-											                    <li class="media leftTab active"  id="b-7" onclick="viewPri(7)" onmouseover="viewPri(7)" >
+										                    <c:if test="${selfCompanyOnlineSignature.bShareholder || displayAll}">
+											                    <li class="media leftTab active"  id="b-7${loop.index}" onclick="viewPri(7${loop.index})" onmouseover="viewPri(7${loop.index})" >
 											                      <div class="media-body">
-											                        <!--<div class="float-right list_btn" id="downloadDoc7">下载</div>-->
 											                        <div class="">Share Certificate</div>   
 												                    <div class="checkbox">
 																	    <label>
@@ -173,11 +168,10 @@
 											                    </li>
 										                    </c:if>
 										                    
-										                    <c:if test="${selfCompanyOnlineSignatureVo.isShareholder && selfCompanyOnlineSignatureVo.isNamedDirector || 
-										                    	selfCompanyOnlineSignatureVo.isNamedDirector || displayAll}">
-											                    <li class="media leftTab active"  id="b-8" onclick="viewPri(8)" onmouseover="viewPri(8)" >
+										                    <c:if test="${selfCompanyOnlineSignature.bShareholder && selfCompanyOnlineSignature.bNamedDirector || 
+										                    	selfCompanyOnlineSignature.bNamedDirector || displayAll}">
+											                    <li class="media leftTab active"  id="b-8${loop.index}" onclick="viewPri(8${loop.index})" onmouseover="viewPri(8${loop.index})" >
 											                      <div class="media-body">
-											                        <!--<div class="float-right list_btn" id="downloadDoc8">下载</div>  -->
 											                        <div class="">Nominee's+Dir's+Authrn_Final</div> 
 												                    <div class="checkbox">
 																	    <label>
@@ -195,7 +189,7 @@
 										            <div class="col-lg-8 col-md-12 col-12 col-sm-12 viewFilePart">
 										               <div id="editor"></div>
 										               <div id="temporary" style="display: none;"></div>				               
-										               <div class="card priDesc" id="b8">
+										               <div class="card priDesc" id="b-8${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -829,7 +823,7 @@
 										                </div>			
 										              </div>              
 										               
-										               <div class="card priDesc" id="b7">
+										               <div class="card priDesc" id="b-7${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -876,7 +870,7 @@
 										                </div>				
 										              </div>           
 										               
-										               <div class="card priDesc" id="b6">
+										               <div class="card priDesc" id="b-6${loop.index}">
 										               <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -1291,7 +1285,7 @@
 										                </div>			
 										              </div>          
 										               
-										               <div class="card priDesc" id="b5">
+										               <div class="card priDesc" id="b-5${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -1705,7 +1699,7 @@
 										                </div>
 										              </div>           
 										               
-										               <div class="card priDesc" id="b4">
+										               <div class="card priDesc" id="b-4${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -1755,7 +1749,7 @@
 										                </div>
 										              </div>
 										               
-										               <div class="card priDesc" id="b3">
+										               <div class="card priDesc" id="b-3${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -2372,7 +2366,7 @@
 										                </div>
 										              </div>  
 										               
-										               <div class="card priDesc" id="b2">
+										               <div class="card priDesc" id="b-2${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -2753,7 +2747,7 @@
 										                </div>
 										              </div>              
 										               
-										               <div class="card priDesc view" id="b1">
+										               <div class="card priDesc view" id="b-1${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -2969,10 +2963,9 @@
 				                      		</div>
 				                      	</c:forEach>
 				                 	 </div>
+				                 	 </div>
 				                </div>
 				            </div>				    
-						    
-						    
 					
 						    </div>
 		                    <div id="Signature" class="tabcontent" style="display:none; width: 100%;">
@@ -2984,7 +2977,7 @@
 						              <div class="card-body fixcardhieht">
 						                  <ul class="list-unstyled list-unstyled-border">
 						                  
-						                  	<c:if test="${isDirector || isNamedDirector}">
+						                  	<c:if test="${selfCompanyOnlineSignature.bDirector || selfCompanyOnlineSignature.bNamedDirector}">
 							                    <li class="media leftTab active"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3007,7 +3000,7 @@
 							                    </li>
 						                    </c:if>
 						                    
-						                    <c:if test="${selfCompanyOnlineSignatureVo.isShareholder}">
+						                    <c:if test="${selfCompanyOnlineSignature.bShareholder}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3030,7 +3023,7 @@
 							                    </li>				                    
 						                    </c:if>
 
-						                    <c:if test="${selfCompanyOnlineSignatureVo.isShareholder}">
+						                    <c:if test="${selfCompanyOnlineSignature.bShareholder}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3053,7 +3046,7 @@
 							                    </li>
 						                    </c:if>
 
- 											<c:if test="${selfCompanyOnlineSignatureVo.isShareholder}">
+ 											<c:if test="${selfCompanyOnlineSignature.bShareholder}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3076,7 +3069,7 @@
 							                    </li>				                    
 						                    </c:if>
 
- 											<c:if test="${selfCompanyOnlineSignatureVo.isDirector || selfCompanyOnlineSignatureVo.isShareholder}">
+ 											<c:if test="${selfCompanyOnlineSignature.bDirector || selfCompanyOnlineSignature.bShareholder}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3099,7 +3092,7 @@
 							                    </li>				                    
 						                    </c:if>
 
-											<c:if test="${selfCompanyOnlineSignatureVo.isDirector || selfCompanyOnlineSignatureVo.isNamedDirector}">
+											<c:if test="${selfCompanyOnlineSignature.bDirector || selfCompanyOnlineSignature.bNamedDirector}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3122,7 +3115,7 @@
 							                    </li>				                    
 						                    </c:if>
 
-											<c:if test="${selfCompanyOnlineSignatureVo.isShareholder}">
+											<c:if test="${selfCompanyOnlineSignature.bShareholder}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          
@@ -3145,8 +3138,8 @@
 							                    </li>				                    
 						                    </c:if>
 
-											<c:if test="${selfCompanyOnlineSignatureVo.isShareholder && selfCompanyOnlineSignatureVo.isNamedDirector 
-												|| selfCompanyOnlineSignatureVo.isNamedDirector}">
+											<c:if test="${selfCompanyOnlineSignature.bShareholder && selfCompanyOnlineSignature.bNamedDirector 
+												|| selfCompanyOnlineSignature.bNamedDirector}">
 							                    <li class="media leftTab"  >
 							                      <div class="media-body">
 			 											<div class="row"> 				          

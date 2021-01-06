@@ -5169,6 +5169,16 @@ width
 
 /* The actual timeline (the vertical ruler) */
 .timeline::after {
+<<<<<<< HEAD
+  content: '';
+  position: absolute;
+  width: 6px;
+  /*background-color: white;*/
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+=======
 	content: '';
 	position: absolute;
 	width: 6px;
@@ -5177,6 +5187,7 @@ width
 	bottom: 0;
 	left: 50%;
 	margin-left: -3px;
+>>>>>>> 6774806e82aba4b0dccac2d80e5fff1a03a14b23
 }
 
 /* Container around content */
@@ -5241,27 +5252,51 @@ width
 }
 
 .doneBall {
+<<<<<<< HEAD
+  width: 20px;
+  height: 20px;
+  background-color: #47c363;
+  border: 2px solid white;
+  border-radius: 50%;
+=======
 	width: 25px;
 	height: 25px;
 	background-color: #47c363;
 	border: 2px solid white;
 	border-radius: 50%;
+>>>>>>> 6774806e82aba4b0dccac2d80e5fff1a03a14b23
 }
 
 .notFinishBall {
+<<<<<<< HEAD
+  width: 20px;
+  height: 20px;
+    background-color: #fc544b;
+    border: 2px solid white;
+  border-radius: 50%;
+=======
 	width: 25px;
 	height: 25px;
 	background-color: #fc544b;
 	border: 2px solid white;
 	border-radius: 50%;
+>>>>>>> 6774806e82aba4b0dccac2d80e5fff1a03a14b23
 }
 
 .needToDoBall {
+<<<<<<< HEAD
+  width: 20px;
+  height: 20px;
+  background-color: #6777ef;
+  border: 2px solid white;
+  border-radius: 50%;
+=======
 	width: 25px;
 	height: 25px;
 	background-color: #6777ef;
 	border: 2px solid white;
 	border-radius: 50%;
+>>>>>>> 6774806e82aba4b0dccac2d80e5fff1a03a14b23
 }
 /* Place the container to the left */
 .timeline .left {
@@ -5363,6 +5398,87 @@ width
 	.timeline .right {
 		left: 0%;
 	}
+}
+/* new style timeline css */
+.timeline__content{
+  background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    color: #333;
+    display: block;
+    padding: .5rem !important;
+    position: relative;
+  }
+
+.timeline__item:after {
+    background-color: #fff;
+    border: 2px solid white !important;
+    border-radius: 50%;
+    content: '';
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    width: 20px;
+    z-index: 1;
+    background-color: #6777ef !important;
+}
+.timeline__item.done:after {
+    background-color: #fff;
+    border: 2px solid white !important;
+    border-radius: 50%;
+    content: '';
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    width: 20px;
+    z-index: 1;
+    background-color: #47c363 !important;
+}
+.timeline__item.notFinish:after {
+    background-color: #fff;
+    border: 2px solid white !important;
+    border-radius: 50%;
+    content: '';
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    width: 20px;
+    z-index: 1;
+    background-color: #fc544b !important;
+}
+.timeline__item.now:after {
+    background-color: #fff;
+    border: 2px solid white !important;
+    border-radius: 50%;
+    content: '';
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    width: 20px;
+    z-index: 1;
+    background-color: #ffc107 !important;
+}
+.timeline-nav-button--next:before {
+    background-image: url(../img/arrow-right.svg) !important;
+}
+.timeline-nav-button--prev:before {
+    background-image: url(../img/arrow-left.svg) !important;
 }
 /* 7.1 admin_toDoList page */
 .admin_toDoList.input-group-append {

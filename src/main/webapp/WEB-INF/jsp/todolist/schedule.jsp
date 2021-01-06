@@ -15,17 +15,20 @@
   <link rel="stylesheet" href="../../assets/css/components.css">
   <link rel="stylesheet" href="../../../assets/css/multiplepage.css">
   <link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
+  <!-- TimeLine CSS -->  
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link href="../../../assets/css/timeline.min.css" rel="stylesheet">  
 </head>
 
 <body>
 <jsp:include page="../userMenu.jsp" />
       <!-- Main Content -->
       <div class="main-content">
-        <section class="section" id="onlineSignature">
+        <section class="section" id="">
           <div class="section-header">
             <h1>时间表</h1>
           </div> 
-			<div class="timeline">
+			 <!--<div class="timeline">
 			  <div class="container done left">
 			    <div class="content">
 			      <h5>11.11.2018</h5>
@@ -68,7 +71,90 @@
 				<div class="col-12 col-md-1 col-lg-1">	
 					<div class="notFinishBall"></div><span>待处理</span>		                  
 				</div>																									
+			</div>-->
+       
+   <main style="margin:50px 0 0px 0">
+    <h1></h1>
+    <section class="page-section">
+      <div class="container">
+        <div class="timeline">
+          <div class="timeline__wrap">
+            <div class="timeline__items">
+              <div class="timeline__item done">
+                <div class="timeline__content">
+                  <h2>11/11/2018</h2>
+                  <p>注册日期</p>
+                </div>
+              </div>
+              <div class="timeline__item notFinish">
+                <div class="timeline__content">
+                  <h2>31/10/2019</h2>
+                  <p>公司年审</p>
+                </div>
+              </div>
+              <div class="timeline__item  now">
+                <div class="timeline__content">
+                  <h2>11/11/2020</h2>
+                  <p>现在日期</p>
+                </div>
+              </div>
+              <div class="timeline__item">
+                <div class="timeline__content">
+                  <h2>4/1/2021</h2>
+                  <p>报帐</p>
+                </div>
+              </div>              
+              <div class="timeline__item">
+                <div class="timeline__content">
+                  <h2>4/2/2021</h2>
+                  <p>报帐</p>
+                </div>
+              </div>              
+              <div class="timeline__item">
+                <div class="timeline__content">
+                  <h2>4/3/2021</h2>
+                  <p>报帐</p>
+                </div>
+              </div>                            
+              <div class="timeline__item">
+                <div class="timeline__content">
+                  <h2>31/10/2021</h2>
+                  <p>公司年审</p>
+                </div>
+              </div>
+              <div class="timeline__item">
+                <div class="timeline__content">
+                  <h2>31/10/2022</h2>
+                  <p>公司年审</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    			<br/><br/>
+			<div class="row">
+				<div class="col-12 col-md-1 col-lg-1">	
+					<div class="doneBall"></div><span>完成事项</span>                  
+				</div>
+				<div class="col-12 col-md-1 col-lg-1">	
+					<div class="needToDoBall"></div><span>末来事项</span>
+				</div>		
+				<div class="col-12 col-md-1 col-lg-1">	
+					<div class="notFinishBall"></div><span>待处理</span>		                  
+				</div>																									
 			</div>
+  </main>      
+ <script type="text/javascript" src="../../../assets/js/timeline.min.js"></script>
+  <script>
+    timeline(document.querySelectorAll('.timeline'), {
+      forceVerticalMode: 700,
+      mode: 'horizontal',
+      verticalStartPosition: 'left',
+      visibleItems: 6
+    });
+  </script>      
         </section>
       </div>
       <footer class="main-footer">

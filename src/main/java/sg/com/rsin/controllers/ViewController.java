@@ -283,6 +283,7 @@ public class ViewController {
 		List<CompanyShareholderInfo> sameCompanyShareholderInfos = (List<CompanyShareholderInfo>) pageData.get("sameCompanyShareholderInfos");
 		List<OnlineSignatureVO> selfCompanyOnlineSignatureVo = sameCompanyShareholderInfos.parallelStream().map(companyShareholderInfo -> {
 			OnlineSignatureVO onlineSignatureVO = new OnlineSignatureVO();
+			onlineSignatureVO.setId(companyShareholderInfo.getId());
 			onlineSignatureVO.setUserName(companyShareholderInfo.getName());
 			onlineSignatureVO.setAddress(companyShareholderInfo.getAddress());
 			

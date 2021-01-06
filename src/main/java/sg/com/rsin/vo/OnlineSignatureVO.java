@@ -1,6 +1,7 @@
 package sg.com.rsin.vo;
 
 public class OnlineSignatureVO {
+	private Long id;
 	private String userName;
 	private String address;
 	private String shareholderAndStock;
@@ -12,9 +13,10 @@ public class OnlineSignatureVO {
 	public OnlineSignatureVO() {
 	}
 
-	public OnlineSignatureVO(String userName, String address, String shareholderAndStock, 
+	public OnlineSignatureVO(Long id, String userName, String address, String shareholderAndStock, 
 			boolean bDirector, boolean bShareholder, boolean bNamedDirector, String allSignatureStatus) {
 		super();
+		this.id = id;
 		this.userName = userName;
 		this.address = address;
 		this.shareholderAndStock = shareholderAndStock;
@@ -22,6 +24,12 @@ public class OnlineSignatureVO {
 		this.bShareholder = bShareholder;
 		this.bNamedDirector = bNamedDirector;
 		this.allSignatureStatus = allSignatureStatus;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getUserName() {
 		return userName;

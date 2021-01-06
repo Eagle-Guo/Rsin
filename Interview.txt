@@ -34,7 +34,7 @@ Java：
 	Date API − an improved, immutable JodaTime-inspired Date API
 8. 方法引用 (Method References)：
 		(o) -> o.toString();	变成 Object::toString();  其他的： String::new;   String::valueOf;   str::toString;
-9. 什么是Optional ？怎么使用？
+9. 什么是 Optional ？怎么使用？
 	Optional.ofNullable(nullName).orElse("john");
 10. 价格一般我们用什么数字类型？
 	BigDecimal if memory is not a concern and Performance is not critical, otherwise double with predefined precision.

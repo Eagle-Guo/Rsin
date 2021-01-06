@@ -1,12 +1,24 @@
-var checkBoxes = $('input.compulsory_read'), submitButton = $('#submit_sign');
+var checkBoxes = $('input.compulsory_read');
+let usercounts = new Set();
+for (var i = 0; i < checkBoxes.length; i++) {
+	usercounts.add(checkBoxes[i].name);
+}
 
 checkBoxes.change(function () {
-    submitButton.attr("disabled", checkBoxes.is(":not(:checked)"));
-    if(checkBoxes.is(":not(:checked)")) {
-        submitButton.addClass('disabled');
-    } else {
-        submitButton.removeClass('disabled');
-    }       
+	for (var i = 0; i < usercounts.size; i++) {
+		var allcheckBox = $('input:checkbox[name^=cb-' + i + ']');
+		var count = 0;
+		for (var j = 0; j < allcheckBox.length; j++) {
+			if($(allcheckBox[j]).prop("checked") == true){
+				count = count + 1;
+            }
+		}
+		if (count == allcheckBox.length) {
+			$("#submit_sign"+i).removeClass('disabled');
+		} else {
+			$("#submit_sign"+i).addClass('disabled');
+	    }   
+	}
 });
 
 function SubForm(id){

@@ -2934,8 +2934,8 @@
 																	    <div class="signature-pad--footer">
 																	      <div class="signature-pad--actions">
 																		      <div class="buttons sign_btn">                    
-															                      <button type="button" class="btn btn-default icon-left btn-primary disabled" id="submit_sign${loop.index}" data-action="save-png">
-															                      	<div data-toggle="tooltip" title="请阅读所有待签名文件并完成打勾确认" ><i class="fas fa-check"></i> 提交 </div>
+															                      <button type="button" name="submit_sign${selfCompanyOnlineSignature.id}" class="btn btn-default icon-left btn-primary" disabled id="submit_sign${loop.index}" data-action="save-png">
+															                      	<div data-toggle="tooltip" name="submit_sign${selfCompanyOnlineSignature.id}" title="请阅读所有待签名文件并完成打勾确认" ><i class="fas fa-check"></i> 提交 </div>
 															                      </button>
 															                      <button class="btn btn-icon icon-left btn-primary" data-action="clear"><i class="fas fa-times"></i>清空</button>
 															                      <button class="btn btn-icon icon-left btn-primary" data-action="undo"><i class="fas fa-times"></i>撤销还原</button>

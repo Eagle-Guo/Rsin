@@ -57,37 +57,37 @@ function download(dataURL, filename) {
 }
 
 function dataURLtoBlob2(dataurl) {
-	  var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
-	      bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
-	  while(n--){
-	    u8arr[n] = bstr.charCodeAt(n);
-	  }
-	  return new Blob([u8arr], {type:mime});
+      var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+          bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+      while(n--){
+        u8arr[n] = bstr.charCodeAt(n);
+      }
+      return new Blob([u8arr], {type:mime});
 }
-function uploadSignature(mimetype) {
+function uploadSignature(mimetype, companyShareholderInfoId) {
     var dataurl = signaturePad.toDataURL(mimetype);
     var blobdata = dataURLtoBlob2(dataurl);
 
-    var fd = new FormData(document.getElementById("UploadForm"));
+    var fd = new FormData(document.getElementById("UploadForm0"));
     //fd.append("data[signature]", blobdata, "filename");
     fd.append('signature',blobdata);
     /** will result in normal file upload with post name "signature" on target url **/
     $.ajax({
-        url: "/api/onlineSubmitSignture",
+        url: "/api/onlineSubmitSignture/" + companyShareholderInfoId,
         type: 'POST',
         data: fd,
         processData: false,
         contentType: false,
         dataType: 'html',
         success: function (response) {
-        	console.log(response);
-        	var allFilename = $.parseJSON(response);
-        	var result = "";
-        	$.each(allFilename, function(name, value){
-        	    console.log(name + "--> " + value);   
-        	    result = result + "<div class='col-md-6 col-xs-6 col-sm-6'> <a href = '/api/downloadFiles/" + value +"' class='fa fa-file-pdf-o' style='font-size:60px;color:red' download></a> <br />" + name  + "</div>";
-        	});
-        	$('#withSingatureDoc').html(result);
+            console.log(response);
+            var allFilename = $.parseJSON(response);
+            var result = "";
+            $.each(allFilename, function(name, value){
+                console.log(name + "--> " + value);   
+                result = result + "<div class='col-md-6 col-xs-6 col-sm-6'> <a href = '/api/downloadFiles/" + value +"' class='fa fa-file-pdf-o' style='font-size:60px;color:red' download></a> <br />" + name  + "</div>";
+            });
+            $('#withSingatureDoc').html(result);
         },
         error: function (e) {
             console.log(e);
@@ -135,16 +135,18 @@ undoButton.addEventListener("click", function (event) {
 });*/
 
 savePNGButton.addEventListener("click", function (event) {
-  if (signaturePad.isEmpty()) {
-	  return ("请先输入您的签名!");
-  } else {
-	  var retVal = confirm("我已经阅读并了解以上所有文件内容，并且同意签署以上所有文件，并确认提交签名样本。");
-	  if( retVal == true ) {
-		  var dataURL = signaturePad.toDataURL('image/png');
-		  uploadSignature('image/png');
-		  return true;
-       } else {
-          return false;
-       }
-  }
+    var btn_name = $(event.target).attr('name');
+    if (signaturePad.isEmpty()) {
+    	alert("请先输入您的签名!");
+        return false;
+    } else {
+        var retVal = confirm("我已经阅读并了解以上所有文件内容，并且同意签署以上所有文件，并确认提交签名样本。");
+        if( retVal == true ) {
+            var dataURL = signaturePad.toDataURL('image/png');
+            uploadSignature('image/png', btn_name.substr(11)); //get the button name after submit_sign
+            return true;
+        } else {
+            return false;
+        }
+    }
 });

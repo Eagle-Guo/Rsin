@@ -14,9 +14,9 @@ checkBoxes.change(function () {
             }
 		}
 		if (count == allcheckBox.length) {
-			$("#submit_sign"+i).removeClass('disabled');
+			$("#submit_sign"+i).prop('disabled', false);
 		} else {
-			$("#submit_sign"+i).addClass('disabled');
+			$("#submit_sign"+i).prop('disabled', true);
 	    }   
 	}
 });

@@ -64,6 +64,18 @@ public class FileDownloadController {
 		return new ResponseEntity(signFileAndName, HttpStatus.OK);
     }
 	
+	@PostMapping("/onlineSubmitSignture/{companyShareholderInfoId}")
+    public ResponseEntity<?> userOnlineSubmitSignatureFileTemp(@PathVariable("companyShareholderInfoId") String companyShareholderInfoId,
+    		@RequestParam("signature") MultipartFile uploadfile, HttpServletRequest request) throws IOException {
+		String userId = (String) request.getSession().getAttribute("loginUsername");
+		String companyId = (String) request.getSession().getAttribute("companyId");
+		String ip = request.getRemoteAddr();
+		
+		Map<String, String> signFileAndName = generateJespterReportService.onlineSubmitSignatureFile(userId, ip, uploadfile, companyId);
+		
+		return new ResponseEntity(signFileAndName, HttpStatus.OK);
+    }
+	
 	@RequestMapping(value = "/downloadFiles/{file_name}", method = RequestMethod.GET)
 	public void getFile( @PathVariable("file_name") String fileName, HttpServletRequest request, HttpServletResponse response) {
 		String userId = (String) request.getSession().getAttribute("loginUsername");

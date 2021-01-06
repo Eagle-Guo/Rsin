@@ -66,11 +66,12 @@
 				                	<div id="accordion">
 				                    	<c:forEach items="${selfCompanyOnlineSignatureVo}" var="selfCompanyOnlineSignature" varStatus="loop">
 				                      		<div class="accordion">
-						                        <div class="collapsible1 ${selfCompanyOnlineSignature.allSignatureStatus == '已完成' ? 
-						                            'accordion-complete-header' : 'accordion-pending-header'}" role="button" data-toggle="collapse" data-target="#panel-body-${loop.index}" aria-expanded="true">
+						                        <div class="collapsible1 ${loop.index != 0 ? 'collapsed ':''} ${selfCompanyOnlineSignature.allSignatureStatus == '已完成' ? 
+						                            'accordion-complete-header' : 'accordion-pending-header'}" role="button" data-toggle="collapse" data-target="#panel-body-${loop.index}"
+						                             aria-expanded="${loop.index == 0 ? 'true':'false'}">
 						                         	<h4>${selfCompanyOnlineSignature.userName} - 签名清单 (${selfCompanyOnlineSignature.allSignatureStatus}) </h4>
 						                        </div>
-						                        <div class="accordion-body collapse show" id="panel-body-${loop.index}" data-parent="#accordion">
+						                        <div class="panel-default accordion-body ${loop.index != 0 ? 'collapse':''}" id="panel-body-${loop.index}" data-parent="#accordion">
 										          <div class="row"> 				          
 										            <div class="col-lg-4 col-md-12 col-12 col-sm-12 card">
 										              <div class=""> <div class="card-header"> <h4>待签名文件清单</h4> </div> </div>
@@ -83,7 +84,7 @@
 																	<div class="">First Director Meeting Resolution</div>   
 												                    <div class="checkbox">
 																	    <label>
-																	      <input type="checkbox" class="compulsory_read">  已阅读
+																	      <input type="checkbox" name="cb-${loop.index}" class="compulsory_read cb-${loop.index}">  已阅读
 																	    </label>
 																	 </div>				                                            
 											                      </div>
@@ -96,7 +97,7 @@
 											                        <div class="">Secretary Agreement </div> 
 												                    <div class="checkbox">
 																	    <label>
-																	      <input type="checkbox" class="compulsory_read">  已阅读
+																	      <input type="checkbox" name="cb-${loop.index}" class="compulsory_read cb-${loop.index}">  已阅读
 																	    </label>
 																	 </div>						                                              
 											                      </div>
@@ -109,7 +110,7 @@
 											                        <div class="">ANNEX B - Notice for Controllers</div>    
 												                    <div class="checkbox">
 																	    <label>
-																	      <input type="checkbox" class="compulsory_read">  已阅读并回复文中问题
+																	      <input type="checkbox" name="cb-${loop.index}" class="compulsory_read cb-${loop.index}">  已阅读并回复文中问题
 																	    </label>
 																	 </div>						                                           
 											                      </div>
@@ -122,7 +123,7 @@
 											                        <div class="">Application of Shares</div>  
 												                    <div class="checkbox">
 																	    <label>
-																	      <input type="checkbox" class="compulsory_read">  已阅读
+																	      <input type="checkbox" name="cb-${loop.index}" class="compulsory_read cb-${loop.index}">  已阅读
 																	    </label>
 																	 </div>						                                             
 											                      </div>
@@ -135,7 +136,7 @@
 											                        <div class="">Client Acceptance Form</div>     
 												                    <div class="checkbox">
 																	    <label>
-																	      <input type="checkbox" class="compulsory_read">  已阅读并回复文中问题
+																	      <input type="checkbox" name="cb-${loop.index}" class="compulsory_read cb-${loop.index}">  已阅读并回复文中问题
 																	    </label>
 																	 </div>						                                          
 											                      </div>
@@ -148,7 +149,7 @@
 											                        <div class="">Form 45 / 201</div>    
 												                    <div class="checkbox">
 																	    <label>
-																	      <input type="checkbox" class="compulsory_read">  已阅读
+																	      <input type="checkbox" name="cb-${loop.index}" class="compulsory_read cb-${loop.index}">  已阅读
 																	    </label>
 																	 </div>						                                           
 											                      </div>
@@ -161,7 +162,7 @@
 											                        <div class="">Share Certificate</div>   
 												                    <div class="checkbox">
 																	    <label>
-																	      <input type="checkbox" class="compulsory_read">  已阅读
+																	      <input type="checkbox" name="cb-${loop.index}" class="compulsory_read cb-${loop.index}">  已阅读
 																	    </label>
 																	 </div>						                                            
 											                      </div>
@@ -175,7 +176,7 @@
 											                        <div class="">Nominee's+Dir's+Authrn_Final</div> 
 												                    <div class="checkbox">
 																	    <label>
-																	      <input type="checkbox" class="compulsory_read">  已阅读
+																	      <input type="checkbox" name="cb-${loop.index}" class="compulsory_read cb-${loop.index}">  已阅读
 																	    </label>
 																	 </div>						                                              
 											                      </div>
@@ -189,7 +190,7 @@
 										            <div class="col-lg-8 col-md-12 col-12 col-sm-12 viewFilePart">
 										               <div id="editor"></div>
 										               <div id="temporary" style="display: none;"></div>				               
-										               <div class="card priDesc" id="b-8${loop.index}">
+										               <div class="card priDesc" id="b8${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -823,7 +824,7 @@
 										                </div>			
 										              </div>              
 										               
-										               <div class="card priDesc" id="b-7${loop.index}">
+										               <div class="card priDesc" id="b7${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -870,7 +871,7 @@
 										                </div>				
 										              </div>           
 										               
-										               <div class="card priDesc" id="b-6${loop.index}">
+										               <div class="card priDesc" id="b6${loop.index}">
 										               <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -1285,7 +1286,7 @@
 										                </div>			
 										              </div>          
 										               
-										               <div class="card priDesc" id="b-5${loop.index}">
+										               <div class="card priDesc" id="b5${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -1699,7 +1700,7 @@
 										                </div>
 										              </div>           
 										               
-										               <div class="card priDesc" id="b-4${loop.index}">
+										               <div class="card priDesc" id="b4${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -1749,7 +1750,7 @@
 										                </div>
 										              </div>
 										               
-										               <div class="card priDesc" id="b-3${loop.index}">
+										               <div class="card priDesc" id="b3${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -2366,7 +2367,7 @@
 										                </div>
 										              </div>  
 										               
-										               <div class="card priDesc" id="b-2${loop.index}">
+										               <div class="card priDesc" id="b2${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -2747,7 +2748,7 @@
 										                </div>
 										              </div>              
 										               
-										               <div class="card priDesc view" id="b-1${loop.index}">
+										               <div class="card priDesc view" id="b1${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
 										                </div>
@@ -2923,17 +2924,17 @@
 										              		</div>
 															<div class="form-group row">										
 																	<!-- signature pad -->
-																	<form id="UploadForm" name="UploadForm" action="/api/onlineSubmitSignture">
+																	<form id="UploadForm${loop.index}" name="UploadForm" action="/api/onlineSubmitSignture/${selfCompanyOnlineSignature.id}">
 																	  <input type="hidden" name="anotherinputfield" value="some value" />
 																	</form>
-																	<div id="signature-pad" class="signature-pad col-lg-12 col-md-12 col-12 col-sm-12">
+																	<div id="signature-pad${loop.index == 0 ? '':'loop.index'}" class="signature-pad col-lg-12 col-md-12 col-12 col-sm-12">
 																	    <div class="signature-pad--body">
 																	      <canvas width="460" height="300" style="border:2px solid #000000;"></canvas>
 																	    </div>
 																	    <div class="signature-pad--footer">
 																	      <div class="signature-pad--actions">
 																		      <div class="buttons sign_btn">                    
-															                      <button type="button" class="btn btn-default icon-left btn-primary" disabled="disabled" id="submit_sign" data-action="save-png">
+															                      <button type="button" class="btn btn-default icon-left btn-primary disabled" id="submit_sign${loop.index}" data-action="save-png">
 															                      	<div data-toggle="tooltip" title="请阅读所有待签名文件并完成打勾确认" ><i class="fas fa-check"></i> 提交 </div>
 															                      </button>
 															                      <button class="btn btn-icon icon-left btn-primary" data-action="clear"><i class="fas fa-times"></i>清空</button>
@@ -2942,16 +2943,13 @@
 																	      </div>
 																	    </div>
 																	</div>
-																	<!-- <textarea class="form-control textareaheight signaturediv"
-																				id="signaturediv" placeholder="请在此处签名" >
-																	</textarea>	 -->
 																</div>	  
 													  </div>					                    					
 										              <div class="col-lg-5 col-md-12 col-12 col-sm-12"> 				                     
 									                  	<div class="card-header"> <h4>生成电子签名文件区域</h4> </div>
 										                	<div class="signature-pad--footer">
 														      <div class="signature-pad--actions">
-															      <div class="row buttons sign_btn" id="withSingatureDoc"></div>	
+															      <div class="row buttons sign_btn" id="withSingatureDoc${loop.index == 0 ? '':'loop.index'}"></div>	
 														      </div>
 															</div>
 														</div> 

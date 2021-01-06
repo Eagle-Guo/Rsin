@@ -21,7 +21,7 @@
       <div class="main-content">  
         <section class="section" id="onlineSignature">
 	        <div class="section-header">
-	           <h1>客户清单报表</h1>
+	           <h1>业务信息修改</h1>
 	        </div>  
       <div class="">
         <section class="section admin_editRecord">
@@ -47,9 +47,33 @@
                         </div>
                       </div>
                     </div>
-                   <div  style="padding-left:3%;"><div class="badge badge-danger">导出全部</div></div> 
+                    <!--<div class="section-title" style="padding-right:3%;"><div class="badge badge-danger">导出所列报表</div></div>  -->
                   </div>
                   <div class="card-body">
+                    <!--<div class="float-left">
+                      <select class="form-control selectric" style="display:inline;">
+                        <option>新加坡公司注册</option>
+                        <option>新加坡银行开户</option>
+                        <option>离岸银行开户</option>
+                        <option>新加坡商标与执照申请</option>
+                        <option>新加坡消费税申请</option>
+                        <option>新加坡公司年审</option>                        
+                        <option>新加坡会计服务</option>
+                        <option>呼叫转移服务</option>
+                        <option>新加坡共享办公室</option>                        
+                      </select>
+                    </div>-->
+                    <!--<div class="float-right">
+                      <form>
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>  -->
+
                     <div class="clearfix mb-3"></div>
 
                     <div class="table-responsive">
@@ -58,25 +82,10 @@
                           <th>UEN</th>
                           <th>公司名称</th>                         
                           <th>注册日期</th>
-                          <th>董事</th>
-                          <th>挂名董事</th>
-                          <th>股东</th>                          
-                          <th>秘书</th>                                
-                          <th>联系人</th>                                
-                          <th>注册资本</th>                                
-                          <th>实缴资本</th>  
-                          <th>预计年审时间</th>                          
-                          <th>财务年度时间</th>                                
-                          <th>消费税报税</th>                                
-                          <th>ECI</th>                                
-                          <th>所得税报税</th>                           
-                          <th>所得锐缴税</th>                                               
-                          <th>公司地址 </th>    
-                          <th>服务进度</th>    
-                          <th>渠道方</th>                              
-                          <th>服务记录（时间表）</th>                       
-                          <th>导出公司信息 </th>                                                                                                    
-                          <th>下载全部文件</th>                                                                          
+                          <th>年审时间</th>
+                          <th>财务年度时间</th>
+                          <th>公司信息修改</th>                                                                                                    
+                          <th>时间表信息修改</th>                                                                          
                           <th>备注</th>  																			                          
                         </tr>
                         <tr>
@@ -84,106 +93,43 @@
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                           
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
                           <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">查询</a></div></th>                                                 
-                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                          
-                          <th><div class="badge badge-danger"><a href="#" target="_blank">下载</a></div></th>
+                          <th> <div class="badge badge-danger"><a href="/adminDownLoadFile" target="_blank">公司信息修改</a></div></th>                          
+                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
                           <th></th> 																			                          
-                        </tr>   
+                        </tr>                        
                         <tr>
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                           
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
                           <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">查询</a></div></th>                                                 
-                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                          
-                          <th><div class="badge badge-danger"><a href="#" target="_blank">下载</a></div></th>
+                          <th> <div class="badge badge-danger"><a href="/adminDownLoadFile" target="_blank">公司信息修改</a></div></th>                          
+                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
                           <th></th> 																			                          
-                        </tr>   
+                        </tr>  
                         <tr>
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>
-                          <th>data</th>      
+                          <th>data</th>                          
+                          <th> <div class="badge badge-danger"><a href="/adminDownLoadFile" target="_blank">公司信息修改</a></div></th>                          
+                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
+                          <th></th> 																			                          
+                        </tr>  
+                        <tr>
                           <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                           
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">查询</a></div></th>                                                 
-                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                          
-                          <th><div class="badge badge-danger"><a href="#" target="_blank">下载</a></div></th>
+                          <th> <div class="badge badge-danger"><a href="/adminDownLoadFile" target="_blank">公司信息修改</a></div></th>                          
+                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
                           <th></th> 																			                          
-                        </tr>                           
-                         <tr>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                           
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">查询</a></div></th>                                                 
-                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                          
-                          <th><div class="badge badge-danger"><a href="#" target="_blank">下载</a></div></th>
-                          <th></th> 																			                          
-                        </tr>                          
-                        
-                                                                    
+                        </tr>                                                  
                       </table>
-                    </div> 
-                    <br/><br/>
+                    </div>
                     <div class="float-right">
                       <nav>
                         <ul class="pagination">

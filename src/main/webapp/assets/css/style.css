@@ -5480,6 +5480,9 @@ width
 .timeline-nav-button--prev:before {
     background-image: url(../img/arrow-left.svg) !important;
 }
+
+
+
 /* 7.1 admin_toDoList page */
 .admin_toDoList.input-group-append {
 	
@@ -5488,4 +5491,64 @@ width
 .admin_toDoList .input-group-append {
 	margin-left: -1px;
 	height: 1.75rem;
+}
+
+
+/* 7.2 adminDownLoadFile page */
+.adminDownLoadFile {
+    border-top: 0px solid #dee2e6;
+}
+.table td, .table th {
+    border-top: 0px solid #dee2e6;
+}
+
+.adminDownLoadFile .form-check {
+    position: relative;
+    display: inline;
+    padding-left: 0rem; 
+    padding-right: .2rem;
+    color: #6777ef;
+}
+
+
+.adminDownLoadFile .inline {
+    display:inline;
+}
+
+
+/* 7.3 adminTimeLine page */
+
+.timeLineRecordText {
+    border: 1px solid rgb(228, 230, 252);
+    margin: 1rem 0px 2rem 0;
+    padding: 1% 0px 0px;
+    
+}
+.timeLineRecordText .table {
+    margin-bottom: 0rem !important;
+}
+
+
+.adminTimeLine .form-check {
+    position: relative;
+    display: inline;
+    padding-left: 0rem;
+    padding-right: .2rem;
+    color: #6777ef;
+}
+.adminTimeLine .inline {
+    display: inline;
+}
+.adminTimeLine .divCss {
+    text-align: center;
+    font-size: 16px;
+    padding: 1rem;
+}
+
+/* 7.4 admin_editRecord page */
+
+.admin_editRecord .card.search .card-header .form-control {
+    height: unset !important;
+    font-size: unset!important;
+    border-radius: unset!important;
 }

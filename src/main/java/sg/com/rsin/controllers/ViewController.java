@@ -193,6 +193,11 @@ public class ViewController {
 		return model;
 	}	
 	
+	@RequestMapping("/mybusiness/admin_editRecord")
+	public ModelAndView admin_editRecord() {
+		ModelAndView model = new ModelAndView("mybusiness/admin_editRecord");
+		return model;
+	}	
 	
 	@RequestMapping("/onekey/oneKeyService")
 	public ModelAndView oneKeyService() {

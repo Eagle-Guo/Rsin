@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="../../../assets/css/components.css">
   <link rel="stylesheet" href="../../../assets/css/multiplepage.css">
   <link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
-  
+  <link rel="stylesheet" href="../../../assets/css/rsin.css">
 </head>
 
 <body>
@@ -26,7 +26,10 @@
         <section class="section" id="onlineSignature">
 	        <div class="section-header">
 	           <h1>${companyName}-在线签名</h1>
-	        </div>  
+	        </div>
+	        <div id='loading' style='display: none;'>
+			  <img src='../../../assets/img/loading.gif' width='240px' height='240px'>
+			</div>
 				<div class="" style="overflow: auto;">
 					<!--content inner-->
 					<div class="content__inner">
@@ -2927,15 +2930,18 @@
 																	<form id="UploadForm${loop.index}" name="UploadForm" action="/api/onlineSubmitSignture/${selfCompanyOnlineSignature.id}">
 																	  <input type="hidden" name="anotherinputfield" value="some value" />
 																	</form>
-																	<div id="signature-pad${loop.index == 0 ? '':'loop.index'}" class="signature-pad col-lg-12 col-md-12 col-12 col-sm-12">
+																	<div id="signature-pad${loop.index == 0 ? '':loop.index}" class="signature-pad col-lg-12 col-md-12 col-12 col-sm-12">
 																	    <div class="signature-pad--body">
-																	      <canvas width="460" height="300" style="border:2px solid #000000;"></canvas>
+																	      <canvas width="460" height="300" style="border:2px solid #000000;" onclick="updatePadId(${loop.index})"></canvas>
 																	    </div>
 																	    <div class="signature-pad--footer">
 																	      <div class="signature-pad--actions">
 																		      <div class="buttons sign_btn">                    
-															                      <button type="button" name="submit_sign${selfCompanyOnlineSignature.id}" class="btn btn-default icon-left btn-primary" disabled id="submit_sign${loop.index}" data-action="save-png">
-															                      	<div data-toggle="tooltip" name="submit_sign${selfCompanyOnlineSignature.id}" title="请阅读所有待签名文件并完成打勾确认" ><i class="fas fa-check"></i> 提交 </div>
+															                      <%-- <button type="button" name="submit_sign${selfCompanyOnlineSignature.id}" class="btn btn-default icon-left btn-primary" disabled id="submit_sign${loop.index}" data-action="save-png">
+															                      	<div data-toggle="tooltip" name="submit_sign${selfCompanyOnlineSignature.id}" title="请阅读所有待签名文件并完成打勾确认" ><i class="fas fa-times"></i> 提交 </div>
+															                      </button> --%>
+															                      <button type="button" name="submit_sign${selfCompanyOnlineSignature.id}" class="btn btn-default icon-left btn-primary" disabled 
+															                        id="submit_sign${loop.index}" data-action="save-png"  title="请阅读所有待签名文件并完成打勾确认" >提交
 															                      </button>
 															                      <button class="btn btn-icon icon-left btn-primary" data-action="clear"><i class="fas fa-times"></i>清空</button>
 															                      <button class="btn btn-icon icon-left btn-primary" data-action="undo"><i class="fas fa-times"></i>撤销还原</button>

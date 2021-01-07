@@ -46,6 +46,7 @@ import sg.com.rsin.dao.DocumentTypeRepository;
 import sg.com.rsin.dao.EmployeeDao;
 import sg.com.rsin.dao.SignatureLogRepository;
 import sg.com.rsin.entity.Company;
+import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.CompanyStatusTime;
 import sg.com.rsin.entity.Document;
@@ -140,7 +141,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		Map<String, Object> userData = commonDataService.getSingleCompanyUserData(userId, companyId);
 		String companyName = userData.get("companyName").toString();
 		CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) userData.get("selfCompanyShareholderInfo");
-
+		
 		SignatureLog signatureLog = new SignatureLog();
 		signatureLog.setActionType("Submit");
 		signatureLog.setActionDesc(userData.get("shareholderName").toString() + " 提交签名!");
@@ -204,16 +205,25 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			}
 			JasperPrint jasperPrintTwo = JasperFillManager.fillReport(signatureReport, reportParamMapTwo, new JREmptyDataSource());
 
+			CompanyService selfCompanyService = (CompanyService) userData.get("companyService");
 		    // Generate all 8 documents
 		    for (int i=1; i<=8; i++) {
-		    	if (selfCompanyShareholderInfo.getPositionType().equals("董事")) {
-		    		if (i==2||i==3||i==4||i==7||i==8) {
-		    			continue;
+		    	if (selfCompanyShareholderInfo.getPositionType().contains("董事")) {
+		    		if (!selfCompanyShareholderInfo.getPositionType().contains("股东")) {// only 董事
+		    			if (i==2||i==3||i==4||i==7) {
+		    				continue;
+		    			}
+		    		} else { // 董事 and 股东
+		    			if (selfCompanyService.getNominalDirector()<=0 || i==8) {
+		    				continue;
+		    			}
 		    		}
-		    	} else if (selfCompanyShareholderInfo.getPositionType().equals("股东")) {
+		    	} else if (selfCompanyShareholderInfo.getPositionType().contains("股东")) {// only 股东
 		    		if (i==1||i==6) {
 		    			continue;
-		    		}
+		    		} else if (selfCompanyService.getNominalDirector()<=0 || i==8) {
+	    				continue;
+	    			} 
 		    	}
 		    	List<JasperPrint> jasperPrintList = new ArrayList<JasperPrint>();
 		    	String templateName = CommonUtils.getJaspterTemplateName(i);
@@ -330,7 +340,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		documentRepository.save(document);
 		
 		//update company_shareholder_info table for fields signature name and path.
-		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareHolderInfoRepository.findByEmail(userid);
+		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareHolderInfoRepository.findByEmailAndCompanyId(userid, Long.parseLong(companyId));
 		userCompanyShareholderInfos.parallelStream().forEach(info -> {
 			info.setIp(ip);
 			info.setChecksum(md5Checksum);
@@ -378,7 +388,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	}
 	
 	public InputStream downloadWithSignatureFile(String fileName, String userId) {
-		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareHolderInfoRepository.findByEmail(userId);
+		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareHolderInfoRepository.findByEmailOrderById(userId);
 		String companyId = userCompanyShareholderInfos.get(0).getCompany().getId().toString();
 		try {
 			String fileDirectory = signatureFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);

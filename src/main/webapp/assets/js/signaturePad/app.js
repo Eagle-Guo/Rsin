@@ -64,11 +64,11 @@ function dataURLtoBlob2(dataurl) {
       }
       return new Blob([u8arr], {type:mime});
 }
-function uploadSignature(mimetype, companyShareholderInfoId) {
+function uploadSignature(mimetype, companyShareholderInfoId, btnId) {
     var dataurl = signaturePad.toDataURL(mimetype);
     var blobdata = dataURLtoBlob2(dataurl);
 
-    var fd = new FormData(document.getElementById("UploadForm0"));
+    var fd = new FormData(document.getElementById("UploadForm" + btnId));
     //fd.append("data[signature]", blobdata, "filename");
     fd.append('signature',blobdata);
     /** will result in normal file upload with post name "signature" on target url **/
@@ -76,6 +76,10 @@ function uploadSignature(mimetype, companyShareholderInfoId) {
         url: "/api/onlineSubmitSignture/" + companyShareholderInfoId,
         type: 'POST',
         data: fd,
+        beforeSend: function(){
+            // Show image container
+            $("#loading").show();
+        },
         processData: false,
         contentType: false,
         dataType: 'html',
@@ -88,6 +92,10 @@ function uploadSignature(mimetype, companyShareholderInfoId) {
                 result = result + "<div class='col-md-6 col-xs-6 col-sm-6'> <a href = '/api/downloadFiles/" + value +"' class='fa fa-file-pdf-o' style='font-size:60px;color:red' download></a> <br />" + name  + "</div>";
             });
             $('#withSingatureDoc').html(result);
+        },
+        complete: function(data){
+            // Hide image container
+            $("#loading").hide();
         },
         error: function (e) {
             console.log(e);
@@ -136,6 +144,7 @@ undoButton.addEventListener("click", function (event) {
 
 savePNGButton.addEventListener("click", function (event) {
     var btn_name = $(event.target).attr('name');
+    var btn_id = event.target.id;
     if (signaturePad.isEmpty()) {
     	alert("请先输入您的签名!");
         return false;
@@ -143,7 +152,7 @@ savePNGButton.addEventListener("click", function (event) {
         var retVal = confirm("我已经阅读并了解以上所有文件内容，并且同意签署以上所有文件，并确认提交签名样本。");
         if( retVal == true ) {
             var dataURL = signaturePad.toDataURL('image/png');
-            uploadSignature('image/png', btn_name.substr(11)); //get the button name after submit_sign
+            uploadSignature('image/png', btn_name.substr(11), btn_id.substr(11)); //get the button name after submit_sign
             return true;
         } else {
             return false;

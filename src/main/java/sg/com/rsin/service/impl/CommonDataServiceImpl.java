@@ -3,6 +3,7 @@ package sg.com.rsin.service.impl;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -35,7 +36,7 @@ public class CommonDataServiceImpl implements CommonDataService {
 			return null;
 		}
 
-		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareholderInfoRepository.findByEmail(userEmail);
+		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareholderInfoRepository.findByEmailOrderById(userEmail);
 		// This user not belong to any company
 		if (userCompanyShareholderInfos == null) {
 			return null;
@@ -45,10 +46,10 @@ public class CommonDataServiceImpl implements CommonDataService {
 		
 		List<CompanyShareholderInfo> allCompanyShareholderInfos = new ArrayList<CompanyShareholderInfo>();
 		
-		Set<Company> allCompanies = new HashSet<Company>();
+		Set<Company> allCompanies = new LinkedHashSet<Company>();
 
 		//Get All shareholderInfoa for this user's all companies
-		userCompanyShareholderInfos.parallelStream().forEach(info -> {
+		userCompanyShareholderInfos.stream().forEach(info -> {
 			allCompanyShareholderInfos.addAll(companyShareholderInfoRepository.findByCompanyId(info.getCompany().getId()));
 		});
 		
@@ -65,7 +66,7 @@ public class CommonDataServiceImpl implements CommonDataService {
 			return null;
 		}
 
-		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareholderInfoRepository.findByEmail(userEmail);
+		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareholderInfoRepository.findByEmailOrderById(userEmail);
 		// This user not belong to any company
 		if (userCompanyShareholderInfos == null) {
 			return null;
@@ -96,7 +97,7 @@ public class CommonDataServiceImpl implements CommonDataService {
 		Set<Company> allCompanies = new HashSet<Company>();
 
 		//Get All shareholderInfoa for this user's all companies
-		userCompanyShareholderInfos.parallelStream().forEach(info -> {
+		userCompanyShareholderInfos.stream().forEach(info -> {
 			allCompanyShareholderInfos.addAll(companyShareholderInfoRepository.findByCompanyId(info.getCompany().getId()));
 		});
 		
@@ -111,10 +112,10 @@ public class CommonDataServiceImpl implements CommonDataService {
 				pageData.put("companyId", companyShareholderInfo.getCompany().getId());
 				selfCompany = companyShareholderInfo.getCompany();
 				sameCompanyShareholderInfos.add(companyShareholderInfo);
+				shareholderAndStock.put(companyShareholderInfo.getName(), companyShareholderInfo.getIssueStockAmount());
+				total = total + companyShareholderInfo.getIssueStockAmount();
 			}
 
-			shareholderAndStock.put(companyShareholderInfo.getName(), companyShareholderInfo.getIssueStockAmount());
-			total = total + companyShareholderInfo.getIssueStockAmount();
 		}
 		
 		pageData.put("shareholderName", selfCompanyShareholderInfo.getName());

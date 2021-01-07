@@ -1,7 +1,6 @@
 package sg.com.rsin.restController;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +15,6 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 import sg.com.rsin.service.GenerateJespterReportService;
 import sg.com.rsin.util.CommonUtils;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
@@ -53,6 +51,8 @@ public class FileDownloadController {
         };
     }
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Deprecated
 	@PostMapping("/onlineSubmitSignture")
     public ResponseEntity<?> userOnlineSubmitSignatureFile(@RequestParam("signature") MultipartFile uploadfile, HttpServletRequest request) throws IOException {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
@@ -63,7 +63,8 @@ public class FileDownloadController {
 		
 		return new ResponseEntity(signFileAndName, HttpStatus.OK);
     }
-	
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@PostMapping("/onlineSubmitSignture/{companyShareholderInfoId}")
     public ResponseEntity<?> userOnlineSubmitSignatureFileTemp(@PathVariable("companyShareholderInfoId") String companyShareholderInfoId,
     		@RequestParam("signature") MultipartFile uploadfile, HttpServletRequest request) throws IOException {

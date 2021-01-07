@@ -4,14 +4,16 @@ for (var i = 0; i < checkBoxes.length; i++) {
 	usercounts.add(checkBoxes[i].name);
 }
 function updatePadId (id) {
-	alert ("Canvas:" + id);
 	if (id==0) {
 		return true;
 	}
 	var oriValue = document.getElementById("signature-pad");
 	var newValue = document.getElementById("signature-pad"+id);
-	oriValue.id = "signature-pad"+id;
-	newValue.id = "signature-pad";
+	var data_name =  oriValue.getAttribute("data-name");
+	if (data_name != id) {
+		oriValue.id = "signature-pad"+id;
+		newValue.id = "signature-pad";
+	}
 }
 
 checkBoxes.change(function () {

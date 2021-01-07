@@ -2930,9 +2930,9 @@
 																	<form id="UploadForm${loop.index}" name="UploadForm" action="/api/onlineSubmitSignture/${selfCompanyOnlineSignature.id}">
 																	  <input type="hidden" name="anotherinputfield" value="some value" />
 																	</form>
-																	<div id="signature-pad${loop.index == 0 ? '':loop.index}" class="signature-pad col-lg-12 col-md-12 col-12 col-sm-12">
+																	<div id="signature-pad${loop.index}" class="signature-pad col-lg-12 col-md-12 col-12 col-sm-12">
 																	    <div class="signature-pad--body">
-																	      <canvas width="460" height="300" style="border:2px solid #000000;" onclick="updatePadId(${loop.index})"></canvas>
+																	      <canvas width="460" height="300" style="border:2px solid #000000;"></canvas>
 																	    </div>
 																	    <div class="signature-pad--footer">
 																	      <div class="signature-pad--actions">
@@ -2955,7 +2955,7 @@
 									                  	<div class="card-header"> <h4>生成电子签名文件区域</h4> </div>
 										                	<div class="signature-pad--footer">
 														      <div class="signature-pad--actions">
-															      <div class="row buttons sign_btn" id="withSingatureDoc${loop.index == 0 ? '':'loop.index'}"></div>	
+															      <div class="row buttons sign_btn" id="withSingatureDoc${loop.index}"></div>	
 														      </div>
 															</div>
 														</div> 

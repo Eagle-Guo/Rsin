@@ -76,13 +76,23 @@
 										                      <tbody>
 										                        <tr>
 										                          <th scope="row">年审</th>
-										                          <th scope="row">2018/01/11</th>
+										                          <th scope="row">11/01/2018</th>
 										                          <td>
 										                          	<div class="form-group">
 												                      <select class="form-control" id="textInput010">
 												                        <option>选择服务周期</option>
-												                        <option>年</option>
-												                        <option>月</option>
+												                        <option>1个月</option>
+												                        <option>2个月</option>
+											                        	<option>3个月</option>
+												                        <option>4个月</option>												                        
+											                        	<option>5个月</option>
+												                        <option>6个月</option>												                        
+												                        <option>7个月</option>
+												                        <option>8个月</option>
+											                        	<option>9个月</option>
+												                        <option>10个月</option>												                        
+											                        	<option>11个月</option>
+												                        <option selected="selected">12个月</option>												                        
 												                      </select>
 												                    </div>
                    												  </td>
@@ -91,7 +101,7 @@
 												                      <select class="form-control" id="textInput020">
 												                        <option>选择服务次数</option>
 												                        <option>1</option>
-												                        <option>2</option>
+												                        <option selected="selected">2</option>
 												                        <option>3</option>
 												                        <option>4</option>												                        
 												                        <option>5</option>
@@ -99,21 +109,24 @@
 												                        <option>7</option>
 												                        <option>8</option>												                        
 												                        <option>9</option>
-												                        <option>10</option>													                        
+												                        <option>10</option>		
+												                        <option>11</option>
+												                        <option>12</option>													                        											                        
 												                      </select>
 												                    </div>
                    												  </td>                   												  
 										                          <td>                    
 												                    <div class="form-group">
-												                      <input type="date" class="form-control" id="textInput030">
+												                      <input type="date" class="form-control" id="textInput030" placeholder="11/01/2019">
 												                    </div>
 											                      </td>
 										                          <td>  
-										                         	 <div class="badge badge-danger"><div style="cursor:pointer" onclick="timeLineRecord(1)" id="textInput040">生成时间记录</div></div>                    
+										                         	 <div class="badge badge-danger"><div style="cursor:pointer" onclick="" id="">生成记录</div></div>
+										                         	 <div class="badge badge-danger"><div style="cursor:pointer" onclick="timeLineRecord(1)" id="textInput040" >查看记录</div></div>                      
                       											  </td>
-										                        </tr>
+										                        </tr>										                       										                        
 										                    </table>										                  
-										                    <div id="timeLineRecord1" class="timeLineRecordText" style="display:none;">
+										                    <div id="timeLineRecord1" class="timeLineRecordText" >
 											                    <table class="table table-sm">
 											                      <thead>
 											                        <tr>
@@ -1166,7 +1179,7 @@
   <script>
 
   function timeLineRecord(x) {
-	  var text = document.getElementById("timeLineRecord"+x);
+	  var text = document.getElementById("timeLineRecord"+x);	  
 	  if (text.style.display === "none") {
 		  text.style.display = "block";
 	  } else {

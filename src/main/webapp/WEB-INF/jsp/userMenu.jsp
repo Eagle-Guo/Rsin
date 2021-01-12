@@ -71,7 +71,7 @@
             </li>
             <li class="menu-header">快速服务</li>
             <li>
-                <a href="/mybusiness/admin_editRecord" class="nav-link"><i class="fas fa-columns"></i><span>客户信息修改</span></a>
+                <a href="/mybusiness/admin_editRecord" class="nav-link"><i class="fas fa-columns"></i><span>客户信息</span></a>
             </li>            
             <!--<li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>业务报表查询</span></a>
@@ -89,7 +89,7 @@
             </li>  -->
             <li class="menu-header">客户清单</li>
             <li class="nav-item dropdown">
-                <a href="/mybusiness/admin_record" class="nav-link"><i class="fas fa-th-large"></i> <span>客户报表查询</span></a>
+                <a href="/mybusiness/admin_record" class="nav-link"><i class="fas fa-th-large"></i> <span>数据库</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>收款明细</span></a>

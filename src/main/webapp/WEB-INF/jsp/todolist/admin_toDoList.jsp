@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -13,6 +14,7 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../../../assets/css/style.css">
   <link rel="stylesheet" href="../../../assets/css/components.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -33,19 +35,7 @@
                     <h4>待办事项清单</h4>
                   </div>
                   <div class="card-body admin_toDoList">
-                    <!--<div class="float-left">
-                      <select class="form-control selectric" style="display:inline;">
-                        <option>公司A</option>
-                        <option>公司B</option>
-                        <option>公司C</option>
-                      </select>
-                      <select class="form-control selectric" style="display:inline;">
-                        <option>电子签名</option>
-                        <option>资料上传</option>
-                        <option>待完成步骤</option>
-                      </select>
-                    </div>  -->
-                    <div class="float-right">
+                    <!-- <div class="float-right">
                       <form>
                         <div class="input-group">
                           <input type="text" class="form-control" placeholder="Search">
@@ -54,75 +44,23 @@
                           </div>
                         </div>
                       </form>
-                    </div>
+                    </div> -->
 
                     <div class="clearfix mb-3"></div>
 
-                    <div class="table-responsive">
-                      <table class="table table-striped">
-                        <tr>
-                          <th>创建日期</th>
-                          <th>公司名称</th>
-                          <th>待办事项</th>
-                          <th>其它</th>
-                        </tr>
-                        <tr>
-                          <td>
-                          20/12/2020
-                          </td>
-                          <td>公司A
-                          </td>
-                          <td>
-                          	  <div class="badge badge-danger"><a href="/adminDownLoadFile" target="_blank">新公司注册</a></div>
-                          	  <!-- <a href="#" class="btn btn-secondary">新公司注册</a>
-                          	  <a href="#" class="btn btn-secondary">查看文件</a> -->
-                          </td>
-                          <td>                                                        
-                          </td>
-                        </tr>  
-                        <tr>
-                          <td>
-                          20/12/2020
-                          </td>
-                          <td>公司A
-                          </td>
-                          <td>
-                          	  <div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表</a></div>
-                          	  <!-- <a href="#" class="btn btn-secondary">新公司注册</a>
-                          	  <a href="#" class="btn btn-secondary">查看文件</a> -->
-                          </td>
-                          <td>                                                        
-                          </td>
-                        </tr>                                                                      
-                      </table>
-                    </div>
-                    <div class="float-right">
-                      <nav>
-                        <ul class="pagination">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                              <span aria-hidden="true">&laquo;</span>
-                              <span class="sr-only">Previous</span>
-                            </a>
-                          </li>
-                          <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">&raquo;</span>
-                              <span class="sr-only">Next</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </nav>
-                    </div>
+					<div class="table-responsive">
+						<table id="example" class="table table-striped display" style="width:100%" >
+					        <thead>
+					            <tr>
+					                  <th>创建日期</th>
+			                          <th>公司名称</th>
+			                          <th>待办事项</th>
+			                          <th>其它</th>
+					            </tr>
+					        </thead>
+					    </table>
+					</div>
+
                   </div>
                 </div>
               </div>
@@ -153,8 +91,7 @@
   <!-- <script src="../../../assets/js/html2canvas.js"></script> -->
   
   <script src="../../../assets/js/page/index-0.js"></script>
-  <script src="../../../assets/js/onlineSignature.js"></script>
-  <script src="../../../assets/js/signaturePad/signature_pad.umd.js"></script>
-  <script src="../../../assets/js/signaturePad/app.js"></script>
+  <script src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+  <script src="../../../assets/js/admin_toDolist.js"></script>
 </body>
 </html>

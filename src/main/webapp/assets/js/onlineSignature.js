@@ -33,14 +33,14 @@ checkBoxes.change(function () {
 	}
 });
 
-function SubForm(id){
+function subForm(shareholderId, docId, buttonId){
 	var formData = new FormData();
-	var file_id = "#myFile" + id;
-	$("#uploaddoc"+id).attr("disabled", "disabled");  
+	var file_id = "#myFile" + buttonId;
+	$("#uploaddoc"+buttonId).attr("disabled", "disabled");  
     formData.append("file",$(file_id)[0].files[0]);
-    formData.append("id", id);
+    formData.append("doc", docId);
     $.ajax({
-        url:'/api/uploadfile/offline/singature/'+id, /*接口域名地址*/
+        url:'/api/uploadfile/offline/singature/'+shareholderId, /*接口域名地址*/
         type:'post',
         data: formData,
         contentType: false,
@@ -54,141 +54,43 @@ function SubForm(id){
         }
     });
 }
-  $('#downloadDoc1').click(function () {
-     var req = new XMLHttpRequest();
-     req.open("GET", "/api/downloadfile/1", true);
-     req.responseType = "blob";
-     req.onload = function (event) {
-         var blob = req.response;
-         var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
-         var link=document.createElement('a');
-         link.href=window.URL.createObjectURL(blob);
-         link.download=fileName;
-         link.click();
-     };
-     req.send();
-  });
-  
-  $('#downloadDoc2').click(function () {
-	 var req = new XMLHttpRequest();
-     req.open("GET", "/api/downloadfile/2", true);
-     req.responseType = "blob";
-     req.onload = function (event) {
-         var blob = req.response;
-         var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
-         var link=document.createElement('a');
-         link.href=window.URL.createObjectURL(blob);
-         link.download=fileName;
-         link.click();
-     };
-     req.send();
-  });
-  $('#downloadDoc3').click(function () {
-	  var req = new XMLHttpRequest();
-	     req.open("GET", "/api/downloadfile/3", true);
-	     req.responseType = "blob";
-	     req.onload = function (event) {
-	         var blob = req.response;
-	         var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
-	         var link=document.createElement('a');
-	         link.href=window.URL.createObjectURL(blob);
-	         link.download=fileName;
-	         link.click();
-	     };
-	     req.send();
-  });
-  $('#downloadDoc4').click(function () {
-	  var req = new XMLHttpRequest();
-	     req.open("GET", "/api/downloadfile/4", true);
-	     req.responseType = "blob";
-	     req.onload = function (event) {
-	         var blob = req.response;
-	         var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
-	         var link=document.createElement('a');
-	         link.href=window.URL.createObjectURL(blob);
-	         link.download=fileName;
-	         link.click();
-	     };
-	     req.send();
-  });
-  $('#downloadDoc5').click(function () {
-	  var req = new XMLHttpRequest();
-	     req.open("GET", "/api/downloadfile/5", true);
-	     req.responseType = "blob";
-	     req.onload = function (event) {
-	         var blob = req.response;
-	         var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
-	         var link=document.createElement('a');
-	         link.href=window.URL.createObjectURL(blob);
-	         link.download=fileName;
-	         link.click();
-	     };
-	     req.send();
-  });
-  $('#downloadDoc6').click(function () {
-	  var req = new XMLHttpRequest();
-	     req.open("GET", "/api/downloadfile/6", true);
-	     req.responseType = "blob";
-	     req.onload = function (event) {
-	         var blob = req.response;
-	         var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
-	         var link=document.createElement('a');
-	         link.href=window.URL.createObjectURL(blob);
-	         link.download=fileName;
-	         link.click();
-	     };
-	     req.send();
-  });
-  $('#downloadDoc7').click(function () {
-	  var req = new XMLHttpRequest();
-	     req.open("GET", "/api/downloadfile/7", true);
-	     req.responseType = "blob";
-	     req.onload = function (event) {
-	         var blob = req.response;
-	         var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
-	         var link=document.createElement('a');
-	         link.href=window.URL.createObjectURL(blob);
-	         link.download=fileName;
-	         link.click();
-	     };
-	     req.send();
-  });
-  $('#downloadDoc8').click(function () {
-	  var req = new XMLHttpRequest();
-	     req.open("GET", "/api/downloadfile/8", true);
-	     req.responseType = "blob";
-	     req.onload = function (event) {
-	         var blob = req.response;
-	         var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
-	         var link=document.createElement('a');
-	         link.href=window.URL.createObjectURL(blob);
-	         link.download=fileName;
-	         link.click();
-	     };
-	     req.send();
-  });
-  
-  function previewDoc(docId) {
-	  var req = new XMLHttpRequest();
-	     req.open("GET", "/api/downloadfile/"+docId, true);
-	     req.responseType = "blob";
-	     req.onload = function (event) {
-	         var blob = req.response;
-	         var blobURL = URL.createObjectURL(blob);
-	         window.open(blobURL);
-	     };
-	     req.send();
-  }
 
-  function preview (docId) {
-	  pdffile=document.getElementById("myFile"+ docId).files[0];
-	  if (!pdffile) {
-		  alert("请先选择文件");
-		  return false;
-	  }
-	  pdffile_url=URL.createObjectURL(pdffile);
-	  window.open(pdffile_url, '_blank');
-  }
+function downloadDoc(shareholderId, docId){
+	var req = new XMLHttpRequest();
+    req.open("GET", "/api/downloadfile/"+shareholderId+"?doc="+docId, true);
+    req.responseType = "blob";
+    req.onload = function (event) {
+        var blob = req.response;
+        var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
+        var link=document.createElement('a');
+        link.href=window.URL.createObjectURL(blob);
+        link.download=fileName;
+        link.click();
+    };
+    req.send();
+}
+  
+function previewDoc(shareholderId, docId) {
+    var req = new XMLHttpRequest();
+    req.open("GET", "/api/downloadfile/"+shareholderId+"?doc="+docId, true);
+    req.responseType = "blob";
+    req.onload = function (event) {
+        var blob = req.response;
+        var blobURL = URL.createObjectURL(blob);
+        window.open(blobURL);
+    };
+    req.send();
+}
+
+function preview (docId) {
+    pdffile=document.getElementById("myFile"+ docId).files[0];
+    if (!pdffile) {
+        alert("请先选择文件");
+        return false;
+    }
+    pdffile_url=URL.createObjectURL(pdffile);
+    window.open(pdffile_url, '_blank');
+}
   
 function viewPri(x) {
     document.getElementsByClassName("leftTab active")[0].classList.remove("active");

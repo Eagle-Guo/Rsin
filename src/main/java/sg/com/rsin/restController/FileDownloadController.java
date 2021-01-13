@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
+import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.GenerateJespterReportService;
 import sg.com.rsin.util.CommonUtils;
 
@@ -28,24 +29,27 @@ public class FileDownloadController {
 	
 	@Autowired
 	GenerateJespterReportService generateJespterReportService;
+
+	@Autowired
+	CommonDataService commonDataService;
 	/**
 	 * Its Spring boot download file using StreamingResponseBody 
 	 * it same like spring mvc download file.
 	 */
 	
-	@RequestMapping(value = "/downloadfile/{id}", method = RequestMethod.GET)
-    public StreamingResponseBody downloadFile(@PathVariable int id, 
+	@RequestMapping(value = "/downloadfile/{shareholderId}", method = RequestMethod.GET)
+    public StreamingResponseBody downloadFile(@PathVariable int shareholderId,  @RequestParam int doc,
     		HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
 		String companyId = (String) request.getSession().getAttribute("companyId");
 		
-        String filename = CommonUtils.getFileName(id);
+        String filename = CommonUtils.getFileName(doc+1);
 
         response.setContentType("application/pdf");
         response.setHeader("fileName", filename);
         response.setHeader("content-disposition", "attachment;");
         
-        byte[] source = generateJespterReportService.exportReport("pdf", userId, id, companyId);
+        byte[] source = generateJespterReportService.exportReport("pdf", userId, doc+1, companyId);
         return outputStream -> {
             outputStream.write(source);
         };
@@ -68,7 +72,8 @@ public class FileDownloadController {
 	@PostMapping("/onlineSubmitSignture/{companyShareholderInfoId}")
     public ResponseEntity<?> userOnlineSubmitSignatureFileTemp(@PathVariable("companyShareholderInfoId") String companyShareholderInfoId,
     		@RequestParam("signature") MultipartFile uploadfile, HttpServletRequest request) throws IOException {
-		String userId = (String) request.getSession().getAttribute("loginUsername");
+		//get the userId from shareholder table
+		String userId =  commonDataService.getUserId((String) request.getSession().getAttribute("loginUsername"), companyShareholderInfoId);
 		String companyId = (String) request.getSession().getAttribute("companyId");
 		String ip = request.getRemoteAddr();
 		

@@ -100,7 +100,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		shareholder.append("Total: \t\t").append(Integer.parseInt(userData.get("totalStockAmount").toString()));
 
 		try {
-			String signatureFileDirectory = uploadFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
+			String signatureFileDirectory = uploadFilePathRoot.concat(companyId).concat(File.separator);
 			File directory = new File(signatureFileDirectory);
 		    if (! directory.exists()){
 		        directory.mkdirs();
@@ -175,7 +175,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		    
 		    StringBuilder sb = new StringBuilder();
 		    List <SignatureLog> signatureLogs = signatureLogRepository.findByCompanyId(Long.parseLong(companyId));
-		    signatureLogs.forEach(signLog -> {
+		    signatureLogs.stream().skip(signatureLogs.size() - 6).forEach(signLog -> {
 		    	sb.append(signLog.getCreatedDate()).append(": ").append(signLog.getActionDesc()).append("\n");
 		    });
 		    
@@ -278,9 +278,11 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 				exporter.exportReport();
 				JasperExportManager.exportReportToPdf(jasperPrintOne);
 				
-				insertToDB(companyId, i, ip, md5Checksum, userId, singatureFileName, documentReference);
+				saveDocumentDetail(companyId, i, userId, singatureFileName, documentReference);
+				
 				signatureAndPath.put(fileName, singatureFileName);
 		    }
+		    saveShareholder(companyId, ip, md5Checksum, userId);
 			return signatureAndPath;
 			
 		} catch (JRException jre) {
@@ -293,7 +295,22 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		return null;
 	}
 	
-	private void insertToDB (String companyId, int documentTypeId, String ip, String md5Checksum, String userid, String filename, String referenceNo) {
+	private void saveShareholder (String companyId, String ip, String md5Checksum, String userid) {
+		//update company_shareholder_info table for fields signature name and path.
+		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareHolderInfoRepository.findByEmailAndCompanyId(userid, Long.parseLong(companyId));
+		userCompanyShareholderInfos.parallelStream().forEach(info -> {
+			info.setIp(ip);
+			info.setChecksum(md5Checksum);
+			info.setSignatureName(userid + SIGNATURE_SUFFIX);
+			info.setSignaturePath(signatureFilePathRoot.concat(companyId).concat(File.separator));
+			companyShareHolderInfoRepository.save(info);
+		});
+		// update the signature timing
+		CompanyStatusTime companyStatusTime = companyStatusTimeRepository.findByCompanyId(Long.parseLong(companyId));
+		companyStatusTime.setSignature(new Date());
+		companyStatusTimeRepository.save(companyStatusTime);
+	}
+	private void saveDocumentDetail (String companyId, int documentTypeId, String userid, String filename, String referenceNo) {
 		Optional<Company> company = companyRepository.findById(Long.parseLong(companyId));
 		Document document = new Document();
 		document.setCompany(company.get());
@@ -301,6 +318,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		document.setCreatedDate(new Date());
 		document.setDocumentName(filename);
 		document.setReferenceNo(referenceNo);
+		document.setUserId(userid);
 		document.setDocumentPath(signatureFilePathRoot.concat(companyId).concat(File.separator));
 		
 		DocumentTypeCode documentTypeCode = null; 
@@ -333,25 +351,11 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		DocumentType documentType = documentTypeRepository.findByDocumentTypeCode(documentTypeCode.name());
 		document.setDocumentType(documentType);
 		
-		Document existedDocument = documentRepository.findByDocumentTypeAndCompany(documentType, company.get());
+		Document existedDocument = documentRepository.findByDocumentTypeAndUserIdAndCompany(documentType.getDocumentTypeCode(),userid, company.get().getId());
 		if (existedDocument != null) {
 			documentRepository.delete(existedDocument);
 		}
 		documentRepository.save(document);
-		
-		//update company_shareholder_info table for fields signature name and path.
-		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareHolderInfoRepository.findByEmailAndCompanyId(userid, Long.parseLong(companyId));
-		userCompanyShareholderInfos.parallelStream().forEach(info -> {
-			info.setIp(ip);
-			info.setChecksum(md5Checksum);
-			info.setSignatureName(userid + SIGNATURE_SUFFIX);
-			info.setSignaturePath(signatureFilePathRoot.concat(companyId).concat(File.separator));
-			companyShareHolderInfoRepository.save(info);
-		});
-		// update the signature timing
-		CompanyStatusTime companyStatusTime = companyStatusTimeRepository.findByCompanyId(Long.parseLong(companyId));
-		companyStatusTime.setSignature(new Date());
-		companyStatusTimeRepository.save(companyStatusTime);
 	}
 	public byte[] exportReport(String reportFormat, String userId, int id, String companyId) {
 		return generateJasperPDF(userId, id, companyId);

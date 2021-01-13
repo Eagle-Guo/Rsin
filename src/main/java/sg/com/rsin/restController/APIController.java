@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +30,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Industry;
+import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmailService;
 import sg.com.rsin.service.IndustryService;
 import sg.com.rsin.service.UploadFileService;
@@ -49,6 +53,8 @@ public class APIController {
 	IndustryService industryService;
 	@Autowired
 	UploadFileService uploadFileService;
+	@Autowired
+	CommonDataService commonDataService;
 	
     @GetMapping("/employees")
     public String  all() {
@@ -89,9 +95,9 @@ public class APIController {
 		}
 	}
     
-    @PostMapping("/uploadfile/offline/singature/{id}")
-    public ResponseEntity<?> uploadOfflineSingature(@PathVariable String id, @RequestParam("file") MultipartFile uploadfile,
-    		HttpServletRequest request){
+    @PostMapping("/uploadfile/offline/singature/{shareholderId}")
+    public ResponseEntity<?> uploadOfflineSingature(@PathVariable int shareholderId,  @RequestParam int doc, 
+    		@RequestParam("file") MultipartFile uploadfile, HttpServletRequest request){
     	logger.debug("Single file upload!");
     	
     	String userId = (String) request.getSession().getAttribute("loginUsername");
@@ -101,7 +107,7 @@ public class APIController {
             return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
         }
         try {
-        	uploadFileService.uploadOfflineFile(Arrays.asList(uploadfile), id, userId, companyId);
+        	uploadFileService.uploadOfflineFile(Arrays.asList(uploadfile), shareholderId, doc, userId, companyId);
         } catch (IOException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -156,6 +162,11 @@ public class APIController {
     @GetMapping("/category") 
     public List<Industry> getCategoryByName(@RequestParam("term") String name) {
     	return industryService.getIndustryByName(name);
+    }
+    
+    @GetMapping(path="/allPendingCompanies", produces=MediaType.APPLICATION_JSON_VALUE)
+    public Set<Company> allPendingCompanies() {
+    	return commonDataService.getAllPendingCompany();
     }
     
 }

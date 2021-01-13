@@ -2978,199 +2978,204 @@
 						              <div class="card-header"> 
 						              	<h4>上传线下签名文件</h4> 
 						              </div> 
-						              <div class="card-body fixcardhieht">
-						                  <ul class="list-unstyled list-unstyled-border">
-						                  
-						                  	<c:if test="${selfCompanyOnlineSignature.bDirector || selfCompanyOnlineSignature.bNamedDirector}">
-							                    <li class="media leftTab active"  >
-							                      <div class="media-body">
-			 											<div class="row"> 				          
-							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-													              <div class="">First Director Meeting Resolution</div> 
-													         </div>     
-							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-															    <div class="btn-group btn-group-sm">
-																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(1)">查看</button>
-																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc1">下载</button>
-																</div>	
-															 </div>		
-							          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-																  <input type="file" id="myFile1" placeholder="First Director Meeting Resolution"/>
-																  <input type="button" class="btn btn-default viewFile" onclick="preview(1);" value="预览" >
-																  <input type="button" id="uploaddoc1" onclick="SubForm(1);" value="上传" >
-															 </div>		
-														 </div>											 	                        	                                            
-							                      </div>
-							                    </li>
-						                    </c:if>
-						                    
-						                    <c:if test="${selfCompanyOnlineSignature.bShareholder}">
-							                    <li class="media leftTab"  >
-							                      <div class="media-body">
-			 											<div class="row"> 				          
-							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-													              <div class="">Secretary Agreement</div> 
-													         </div>     
-							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-															    <div class="btn-group btn-group-sm">
-																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(2)">查看</button>
-																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc2">下载</button>
-																</div>	
-															 </div>		
-							          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-																  <input type="file" id="myFile2" placeholder="Secretary Agreement"/>
-																  <input type="button" class="btn btn-default viewFile" onclick="preview(2);" value="预览" >
-																  <input type="button" id="uploaddoc2" onclick="SubForm(2);" value="上传" >
-															 </div>		
-														 </div>											 	                        	                                            
-							                      </div>
-							                    </li>				                    
-						                    </c:if>
-
-						                    <c:if test="${selfCompanyOnlineSignature.bShareholder}">
-							                    <li class="media leftTab"  >
-							                      <div class="media-body">
-			 											<div class="row"> 				          
-							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-													              <div class="">ANNEX B - Notice for Controllers</div> 
-													         </div>     
-							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-															    <div class="btn-group btn-group-sm">
-																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(3)">查看</button>
-																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc3">下载</button>
-																</div>	
-															 </div>		
-							          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-																  <input type="file" id="myFile3" placeholder="Notice for Controllers"/>
-																  <input type="button" class="btn btn-default viewFile" onclick="preview(3);" value="预览" >
-																  <input type="button" id="uploaddoc3"  onclick="SubForm(3);" value="上传" >
-															 </div>		
-														 </div>											 	                        	                                            
-							                      </div>
-							                    </li>
-						                    </c:if>
-
- 											<c:if test="${selfCompanyOnlineSignature.bShareholder}">
-							                    <li class="media leftTab"  >
-							                      <div class="media-body">
-			 											<div class="row"> 				          
-							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-													              <div class="">Application of Shares</div> 
-													         </div>     
-							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-															    <div class="btn-group btn-group-sm">
-																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(4)">查看</button>
-																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc4">下载</button>
-																</div>	
-															 </div>		
-							          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-																  <input type="file" id="myFile4" placeholder="Application of Shares"/>
-																  <input type="button" class="btn btn-default viewFile" onclick="preview(4);" value="预览" >
-																  <input type="button" id="uploaddoc4" onclick="SubForm(4);" value="上传" >
-															 </div>	
-														 </div>											 	                        	                                            
-							                      </div>
-							                    </li>				                    
-						                    </c:if>
-
- 											<c:if test="${selfCompanyOnlineSignature.bDirector || selfCompanyOnlineSignature.bShareholder}">
-							                    <li class="media leftTab"  >
-							                      <div class="media-body">
-			 											<div class="row"> 				          
-							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-													              <div class="">Client Acceptance Form</div> 
-													         </div>     
-							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-															    <div class="btn-group btn-group-sm">
-																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(5)">查看</button>
-																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc5">下载</button>
-																</div>	
-															 </div>		
-							          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-																  <input type="file" id="myFile5" placeholder="Client Acceptance Form"/>
-																  <input type="button" class="btn btn-default viewFile" onclick="preview(5);" value="预览" >
-																  <input type="button" id="uploaddoc5"  onclick="SubForm(5);" value="上传" >
-															 </div>	
-														 </div>											 	                        	                                            
-							                      </div>
-							                    </li>				                    
-						                    </c:if>
-
-											<c:if test="${selfCompanyOnlineSignature.bDirector || selfCompanyOnlineSignature.bNamedDirector}">
-							                    <li class="media leftTab"  >
-							                      <div class="media-body">
-			 											<div class="row"> 				          
-							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-													              <div class="">Form 45 / 201</div> 
-													         </div>     
-							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-															    <div class="btn-group btn-group-sm">
-																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(6)">查看</button>
-																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc6">下载</button>
-																</div>	
-															 </div>		
-							          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-																  <input type="file" id="myFile6" placeholder="Form 45 / 201"/>
-																  <input type="button" class="btn btn-default viewFile" onclick="preview(6);" value="预览" >
-																  <input type="button" id="uploaddoc6"  onclick="SubForm(6);" value="上传" >
-															 </div>		
-														 </div>											 	                        	                                            
-							                      </div>
-							                    </li>				                    
-						                    </c:if>
-
-											<c:if test="${selfCompanyOnlineSignature.bShareholder}">
-							                    <li class="media leftTab"  >
-							                      <div class="media-body">
-			 											<div class="row"> 				          
-							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-													              <div class="">Share Certificate</div> 
-													         </div>     
-							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-															    <div class="btn-group btn-group-sm">
-																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(7)">查看</button>
-																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc7">下载</button>
-																</div>	
-															 </div>		
-							          						<div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-																  <input type="file" id="myFile7" placeholder="Share Certificate"/>
-																  <input type="button" class="btn btn-default viewFile" onclick="preview(7);" value="预览" >
-																  <input type="button" id="uploaddoc7" onclick="SubForm(7);" value="上传" >
-															 </div>	
-														 </div>											 	                        	                                            
-							                      </div>
-							                    </li>				                    
-						                    </c:if>
-
-											<c:if test="${selfCompanyOnlineSignature.bShareholder && selfCompanyOnlineSignature.bNamedDirector 
-												|| selfCompanyOnlineSignature.bNamedDirector}">
-							                    <li class="media leftTab"  >
-							                      <div class="media-body">
-			 											<div class="row"> 				          
-							          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
-													              <div class="">Nominee's+Dir's+Authrn_Final</div> 
-													         </div>     
-							          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
-															    <div class="btn-group btn-group-sm">
-																    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(8)">查看</button>
-																    <button type="button" class="btn btn-default downloadFile" id="downloadDoc8">下载</button>
-																</div>	
-															 </div>		
-							          						<div class="col-lg-6 col-md-12 col-12 col-sm-12">		
-																  <input type="file" id="myFile8" placeholder="Nominee's Dir's Authrn Final"/>
-																  <input type="button" class="btn btn-default viewFile" onclick="preview(8);" value="预览" >
-																  <input type="button" id="uploaddoc8"  onclick="SubForm(8);" value="上传" >
-															 </div>	
-														 </div>											 	                        	                                            
-							                      </div>
-							                    </li>					                    
-						                    </c:if>
-
-						                  </ul> 
-						                  <!--<div class="text-center pt-1 pb-1"><a id="download_all" href="#" class="btn btn-primary btn-sm btn-round">全部下载</a></div>    -->  
-						              </div>
-		
-						            </div>	                    
+						              <c:forEach items="${selfCompanyOnlineSignatureVo}" var="selfCompanyOnlineSignature" varStatus="loop">
+						              <div class="accordion">
+							              <div class="collapsible1 ${loop.index != 0 ? 'collapsed ':''} ${selfCompanyOnlineSignature.allSignatureStatus == '已完成' ? 
+							                         'accordion-complete-header' : 'accordion-pending-header'}" data-toggle="collapse" data-target="#offline-upload-${loop.index}"
+							                          aria-expanded="${loop.index == 0 ? 'true':'false'}">
+							                   <h4>${selfCompanyOnlineSignature.userName} - 线下签名清单 (${selfCompanyOnlineSignature.allSignatureStatus}) </h4>
+							              </div>
+							              <div class="panel-default accordion-body ${loop.index != 0 ? 'collapse':''}" id="offline-upload-${loop.index}" data-parent="#accordion">
+							                  <ul class="list-unstyled list-unstyled-border">
+							                  	<c:if test="${selfCompanyOnlineSignature.bDirector || selfCompanyOnlineSignature.bNamedDirector}">
+								                    <li class="media leftTab active"  >
+								                      <div class="media-body">
+				 											<div class="row"> 				          
+								          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+														              <div class="">First Director Meeting Resolution</div> 
+														         </div>     
+								          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+																    <div class="btn-group btn-group-sm">
+																	    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(${selfCompanyOnlineSignature.id},${loop.index})">查看</button>
+																	    <button type="button" class="btn btn-default downloadFile" onclick="downloadDoc(${selfCompanyOnlineSignature.id},${loop.index})">下载</button>
+																	</div>	
+																 </div>		
+								          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																	  <input type="file" id="myFile1${loop.index}" placeholder="First Director Meeting Resolution"/>
+																	  <input type="button" class="btn btn-default viewFile" onclick="preview(1${loop.index});" value="预览" >
+																	  <input type="button" id="uploaddoc1${loop.index}" onclick="subForm(${selfCompanyOnlineSignature.id},1,1${loop.index});" value="上传" >
+																 </div>		
+															 </div>
+								                      </div>
+								                    </li>
+							                    </c:if>
+							                    
+							                    <c:if test="${selfCompanyOnlineSignature.bShareholder}">
+								                    <li class="media leftTab"  >
+								                      <div class="media-body">
+				 											<div class="row"> 				          
+								          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+														              <div class="">Secretary Agreement</div> 
+														         </div>     
+								          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+																    <div class="btn-group btn-group-sm">
+																	    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(${selfCompanyOnlineSignature.id},${loop.index})">查看</button>
+																	    <button type="button" class="btn btn-default downloadFile" onclick="downloadDoc(${selfCompanyOnlineSignature.id},${loop.index})">下载</button>
+																	</div>	
+																 </div>		
+								          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																	  <input type="file" id="myFile2${loop.index}" placeholder="Secretary Agreement"/>
+																	  <input type="button" class="btn btn-default viewFile" onclick="preview(2${loop.index});" value="预览" >
+																	  <input type="button" id="uploaddoc2${loop.index}" onclick="subForm(${selfCompanyOnlineSignature.id},2,2${loop.index});" value="上传" >
+																 </div>		
+															 </div>											 	                        	                                            
+								                      </div>
+								                    </li>				                    
+							                    </c:if>
+	
+							                    <c:if test="${selfCompanyOnlineSignature.bShareholder}">
+								                    <li class="media leftTab"  >
+								                      <div class="media-body">
+				 											<div class="row"> 				          
+								          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+														              <div class="">ANNEX B - Notice for Controllers</div> 
+														         </div>     
+								          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+																    <div class="btn-group btn-group-sm">
+																	    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(${selfCompanyOnlineSignature.id},${loop.index})">查看</button>
+																	    <button type="button" class="btn btn-default downloadFile" onclick="downloadDoc(${selfCompanyOnlineSignature.id},${loop.index})">下载</button>
+																	</div>	
+																 </div>		
+								          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																	  <input type="file" id="myFile3${loop.index}" placeholder="Notice for Controllers"/>
+																	  <input type="button" class="btn btn-default viewFile" onclick="preview(3${loop.index});" value="预览" >
+																	  <input type="button" id="uploaddoc3${loop.index}"  onclick="subForm(${selfCompanyOnlineSignature.id},3,3${loop.index});" value="上传" >
+																 </div>		
+															 </div>											 	                        	                                            
+								                      </div>
+								                    </li>
+							                    </c:if>
+	
+	 											<c:if test="${selfCompanyOnlineSignature.bShareholder}">
+								                    <li class="media leftTab"  >
+								                      <div class="media-body">
+				 											<div class="row"> 				          
+								          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+														              <div class="">Application of Shares</div> 
+														         </div>     
+								          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+																    <div class="btn-group btn-group-sm">
+																	    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(${selfCompanyOnlineSignature.id},${loop.index})">查看</button>
+																	    <button type="button" class="btn btn-default downloadFile" onclick="downloadDoc(${selfCompanyOnlineSignature.id},${loop.index})">下载</button>
+																	</div>	
+																 </div>		
+								          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																	  <input type="file" id="myFile4${loop.index}" placeholder="Application of Shares"/>
+																	  <input type="button" class="btn btn-default viewFile" onclick="preview(4${loop.index});" value="预览" >
+																	  <input type="button" id="uploaddoc4${loop.index}" onclick="subForm(${selfCompanyOnlineSignature.id},4,4${loop.index});" value="上传" >
+																 </div>	
+															 </div>											 	                        	                                            
+								                      </div>
+								                    </li>				                    
+							                    </c:if>
+	
+	 											<c:if test="${selfCompanyOnlineSignature.bDirector || selfCompanyOnlineSignature.bShareholder}">
+								                    <li class="media leftTab"  >
+								                      <div class="media-body">
+				 											<div class="row"> 				          
+								          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+														              <div class="">Client Acceptance Form</div> 
+														         </div>     
+								          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+																    <div class="btn-group btn-group-sm">
+																	    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(${selfCompanyOnlineSignature.id},${loop.index})">查看</button>
+																	    <button type="button" class="btn btn-default downloadFile" onclick="downloadDoc(${selfCompanyOnlineSignature.id},${loop.index})">下载</button>
+																	</div>	
+																 </div>		
+								          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																	  <input type="file" id="myFile5${loop.index}" placeholder="Client Acceptance Form"/>
+																	  <input type="button" class="btn btn-default viewFile" onclick="preview(5${loop.index});" value="预览" >
+																	  <input type="button" id="uploaddoc5${loop.index}"  onclick="subForm(${selfCompanyOnlineSignature.id},5,5${loop.index});" value="上传" >
+																 </div>	
+															 </div>											 	                        	                                            
+								                      </div>
+								                    </li>				                    
+							                    </c:if>
+	
+												<c:if test="${selfCompanyOnlineSignature.bDirector || selfCompanyOnlineSignature.bNamedDirector}">
+								                    <li class="media leftTab"  >
+								                      <div class="media-body">
+				 											<div class="row"> 				          
+								          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+														              <div class="">Form 45 / 201</div> 
+														         </div>     
+								          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+																    <div class="btn-group btn-group-sm">
+																	    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(${selfCompanyOnlineSignature.id},${loop.index})">查看</button>
+																	    <button type="button" class="btn btn-default downloadFile" onclick="downloadDoc(${selfCompanyOnlineSignature.id},${loop.index})">下载</button>
+																	</div>	
+																 </div>		
+								          						 <div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																	  <input type="file" id="myFile6${loop.index}" placeholder="Form 45 / 201"/>
+																	  <input type="button" class="btn btn-default viewFile" onclick="preview(6${loop.index});" value="预览" >
+																	  <input type="button" id="uploaddoc6${loop.index}"  onclick="subForm(${selfCompanyOnlineSignature.id},6,6${loop.index});" value="上传" >
+																 </div>		
+															 </div>											 	                        	                                            
+								                      </div>
+								                    </li>				                    
+							                    </c:if>
+	
+												<c:if test="${selfCompanyOnlineSignature.bShareholder}">
+								                    <li class="media leftTab"  >
+								                      <div class="media-body">
+				 											<div class="row"> 				          
+								          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+														              <div class="">Share Certificate</div> 
+														         </div>     
+								          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+																    <div class="btn-group btn-group-sm">
+																	    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(${selfCompanyOnlineSignature.id},${loop.index})">查看</button>
+																	    <button type="button" class="btn btn-default downloadFile" onclick="downloadDoc(${selfCompanyOnlineSignature.id},${loop.index})">下载</button>
+																	</div>	
+																 </div>		
+								          						<div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																	  <input type="file" id="myFile7${loop.index}" placeholder="Share Certificate"/>
+																	  <input type="button" class="btn btn-default viewFile" onclick="preview(7${loop.index});" value="预览" >
+																	  <input type="button" id="uploaddoc7${loop.index}" onclick="subForm(${selfCompanyOnlineSignature.id},7,7${loop.index});" value="上传" >
+																 </div>	
+															 </div>											 	                        	                                            
+								                      </div>
+								                    </li>				                    
+							                    </c:if>
+	
+												<c:if test="${selfCompanyOnlineSignature.bShareholder && selfCompanyOnlineSignature.bNamedDirector 
+													|| selfCompanyOnlineSignature.bNamedDirector}">
+								                    <li class="media leftTab"  >
+								                      <div class="media-body">
+				 											<div class="row"> 				          
+								          						 <div class="col-lg-4 col-md-12 col-12 col-sm-12">				                      
+														              <div class="">Nominee's+Dir's+Authrn_Final</div> 
+														         </div>     
+								          						 <div class="col-lg-2 col-md-12 col-12 col-sm-12">												              										              										                				                       
+																    <div class="btn-group btn-group-sm">
+																	    <button type="button" class="btn btn-default viewFile" onclick="previewDoc(${selfCompanyOnlineSignature.id},${loop.index})">查看</button>
+																	    <button type="button" class="btn btn-default downloadFile" id="downloadDoc(${selfCompanyOnlineSignature.id},${loop.index})">下载</button>
+																	</div>	
+																 </div>		
+								          						<div class="col-lg-6 col-md-12 col-12 col-sm-12">		
+																	  <input type="file" id="myFile8${loop.index}" placeholder="Nominee's Dir's Authrn Final"/>
+																	  <input type="button" class="btn btn-default viewFile" onclick="preview(8${loop.index});" value="预览" >
+																	  <input type="button" id="uploaddoc8${loop.index}"  onclick="subForm(${selfCompanyOnlineSignature.id},8,8${loop.index});" value="上传" >
+																 </div>	
+															 </div>											 	                        	                                            
+								                      </div>
+								                    </li>					                    
+							                    </c:if>
+							                  </ul> 
+							                </div>
+						                </div>
+									</c:forEach>
+						        </div>	                    
 		                    </div>
 		
 		                    <div class="clearfix"></div>

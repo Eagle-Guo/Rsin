@@ -2,13 +2,13 @@ package sg.com.rsin.dao;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import sg.com.rsin.entity.CompanyShareholderInfo;
 
-public interface CompanyShareholderInfoRepository extends CrudRepository<CompanyShareholderInfo, Long> {
+public interface CompanyShareholderInfoRepository extends JpaRepository<CompanyShareholderInfo, Long> {
 	CompanyShareholderInfo findById(long id);
 	List<CompanyShareholderInfo> findByName(String name);
 	List<CompanyShareholderInfo> findByEmailOrderById (String email);

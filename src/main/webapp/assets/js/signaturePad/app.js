@@ -169,7 +169,7 @@ signaturePad1.clear();
 window.onresize = resizeCanvas1;
 resizeCanvas1();
 function uploadSignature2(mimetype, companyShareholderInfoId, btnId) {
-    var dataurl = signaturePad0.toDataURL(mimetype);
+    var dataurl = signaturePad1.toDataURL(mimetype);
     var blobdata = dataURLtoBlob2(dataurl);
 
     var fd = new FormData(document.getElementById("UploadForm" + btnId));
@@ -195,7 +195,7 @@ function uploadSignature2(mimetype, companyShareholderInfoId, btnId) {
                 console.log(name + "--> " + value);   
                 result = result + "<div class='col-md-6 col-xs-6 col-sm-6'> <a href = '/api/downloadFiles/" + value +"' class='fa fa-file-pdf-o' style='font-size:60px;color:red' download></a> <br />" + name  + "</div>";
             });
-            $('#withSingatureDoc').html(result);
+            $('#withSingatureDoc' + btnId).html(result);
         },
         complete: function(data){
             // Hide image container
@@ -224,7 +224,7 @@ savePNGButton1.addEventListener("click", function (event) {
         var retVal = confirm("我已经阅读并了解以上所有文件内容，并且同意签署以上所有文件，并确认提交签名样本。");
         if( retVal == true ) {
             var dataURL = signaturePad1.toDataURL('image/png');
-            uploadSignature('image/png', btn_name.substr(11), btn_id.substr(11)); //get the button name after submit_sign
+            uploadSignature2('image/png', btn_name.substr(11), btn_id.substr(11)); //get the button name after submit_sign
             return true;
         } else {
             return false;

@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,9 +16,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import sg.com.rsin.dao.CompanyRepository;
+import sg.com.rsin.dao.CompanyShareholderInfoRepository;
 import sg.com.rsin.dao.DocumentRepository;
 import sg.com.rsin.dao.DocumentTypeRepository;
 import sg.com.rsin.entity.Company;
+import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentType;
 import sg.com.rsin.enums.DocumentTypeCode;
@@ -40,14 +43,18 @@ public class UploadFileServiceImpl implements UploadFileService {
 	
 	@Autowired
 	CompanyRepository companyRepository;
+	
+	@Autowired
+	CompanyShareholderInfoRepository companyShareHolderInfoRepository;
 
-	public void uploadOfflineFile(List<MultipartFile> files, String id, String userid, String companyId) throws IOException {
+	public void uploadOfflineFile(List<MultipartFile> files, int shareholderId, int id, String userid, String companyId) throws IOException {
 		File offlineFileFolder = new File (uploadFilePathRoot.concat(companyId).concat(File.separator).concat(OFFLINE_FOLDER));
 		
 		if (!offlineFileFolder.exists()) {
 			offlineFileFolder.mkdir();
 		}
 		
+		CompanyShareholderInfo companyShareholderInfo = companyShareHolderInfoRepository.findById(shareholderId);
 		Optional<Company> company = companyRepository.findById(Long.parseLong(companyId));
 
 		for (MultipartFile file : files) {
@@ -61,43 +68,44 @@ public class UploadFileServiceImpl implements UploadFileService {
 			Files.write(path, bytes);
 			
 			Document document = new Document();
-			document.setCompany(company.get());
-			document.setCreatedBy(userid);
-			document.setCreatedDate(new Date());
-			document.setDocumentName(file.getOriginalFilename());
-			document.setDocumentPath(uploadFilePathRoot.concat(companyId).concat(File.separator));
-			
 			DocumentTypeCode documentTypeCode = null; 
 			switch (id) {
-			case "1" :
+			case 1 :
 				documentTypeCode = DocumentTypeCode.TYPE1;
 				break;
-			case "2" :
+			case 2 :
 				documentTypeCode = DocumentTypeCode.TYPE2;
 				break;
-			case "3" :
+			case 3 :
 				documentTypeCode = DocumentTypeCode.TYPE3;
 				break;
-			case "4" :
+			case 4 :
 				documentTypeCode = DocumentTypeCode.TYPE4;
 				break;
-			case "5" :
+			case 5 :
 				documentTypeCode = DocumentTypeCode.TYPE5;
 				break;
-			case "6" :
+			case 6 :
 				documentTypeCode = DocumentTypeCode.TYPE6;
 				break;
-			case "7" :
+			case 7 :
 				documentTypeCode = DocumentTypeCode.TYPE7;
 				break;
-			case "8" :
+			case 8 :
 				documentTypeCode = DocumentTypeCode.TYPE8;
 				break;
 			}
 			DocumentType documentType = documentTypeRepository.findByDocumentTypeCode(documentTypeCode.name());
 			document.setDocumentType(documentType);
+			document.setDocumentPath(uploadFilePathRoot.concat(companyId).concat(File.separator));
+			document.setDocumentName(file.getOriginalFilename());
+			document.setReferenceNo(UUID.randomUUID().toString());	
+			document.setUserId(companyShareholderInfo.getEmail());
+			document.setCompany(company.get());
+			document.setCreatedBy(userid);
+			document.setCreatedDate(new Date());
 			
-			Document existedDocument = documentRepository.findByDocumentTypeAndCompany(documentType, company.get());
+			Document existedDocument = documentRepository.findByDocumentTypeAndUserIdAndCompany(documentType.getDocumentTypeCode(), userid, company.get().getId());
 			if (existedDocument != null) {
 				documentRepository.delete(existedDocument);
 			}
@@ -154,7 +162,7 @@ public class UploadFileServiceImpl implements UploadFileService {
 			DocumentType documentType = documentTypeRepository.findByDocumentTypeCode(documentTypeCode.name());
 			document.setDocumentType(documentType);
 			
-			Document existedDocument = documentRepository.findByDocumentTypeAndCompany(documentType, company.get());
+			Document existedDocument = documentRepository.findByDocumentTypeAndUserIdAndCompany(documentType.getDocumentTypeCode(), userid, company.get().getId());
 			if (existedDocument != null) {
 				documentRepository.delete(existedDocument);
 			}

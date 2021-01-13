@@ -14,9 +14,11 @@ import org.springframework.stereotype.Service;
 import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.CompanyServiceRepository;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
+import sg.com.rsin.dao.CompanyStatusTimeRepository;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
+import sg.com.rsin.entity.CompanyStatusTime;
 import sg.com.rsin.service.CommonDataService;
 
 @Service
@@ -27,6 +29,9 @@ public class CommonDataServiceImpl implements CommonDataService {
 
 	@Autowired
 	CompanyServiceRepository companyServiceRepository;
+	
+	@Autowired
+	CompanyStatusTimeRepository companyStatusTimeRepository;
 
 	@Autowired
 	CompanyShareholderInfoRepository companyShareholderInfoRepository;
@@ -129,5 +134,35 @@ public class CommonDataServiceImpl implements CommonDataService {
 		pageData.put("companyService", selfCompanyService);
 		pageData.put("companies", allCompanies);
 		return pageData;
+	}
+	
+	public String getUserId (String userId, String companyShareholderInfoId) {
+		//TODO do the validation that userid have access to this shareholder record
+		return companyShareholderInfoRepository.findById(Long.parseLong(companyShareholderInfoId)).getEmail();
+	}
+	
+	public Set<Company> getAllPendingCompany() {
+		List<CompanyStatusTime> companyStatusTimes = companyStatusTimeRepository.findByPaymentNotNullOrSignatureNotNullOrUploadfileStatusNotNull();
+		if (companyStatusTimes == null) {
+			return null;
+		}
+
+		Set<Company> allCompanies = new LinkedHashSet<Company>();
+
+		companyStatusTimes.stream().forEach(time -> {
+			Company company = new Company();
+			company.setActivityOne(time.getCompany().getActivityOne());
+			company.setActivityTwo(time.getCompany().getActivityTwo());
+			company.setActualStockCapital(time.getCompany().getActualStockCapital());
+			company.setAddress(time.getCompany().getAddress());
+			company.setBackupName(time.getCompany().getBackupName());
+			company.setCreatedDate(time.getCompany().getCreatedDate()); 
+			company.setId(time.getCompany().getId()); 
+			company.setName(time.getCompany().getName()); 
+			company.setType(time.getCompany().getType());
+			allCompanies.add(company);
+		});
+		
+		return allCompanies;
 	}
 }

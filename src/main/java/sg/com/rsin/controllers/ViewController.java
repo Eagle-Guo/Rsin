@@ -2,6 +2,7 @@ package sg.com.rsin.controllers;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import sg.com.rsin.dao.CompanyStatusTimeRepository;
 import sg.com.rsin.entity.CommonResponse;
+import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.CompanyStatusTime;
@@ -241,6 +243,9 @@ public class ViewController {
 	@RequestMapping("/todolist/admin_toDoList")
 	public ModelAndView admin_toDoList() {
 		ModelAndView model = new ModelAndView("todolist/admin_toDoList");
+
+		Set<Company> companies = commonDataService.getAllPendingCompany();
+		model.addObject("companies", companies);
 		return model;
 	}
 

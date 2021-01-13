@@ -56,7 +56,7 @@
 						                	<div class="card-body">
 						                    	<div id="accordion">
 						                      		<div class="accordion">
-								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="false">
+								                        <div class="accordion-header collapsible1 collapsed" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="false">
 								                         	<h4>公司基本信息和注册文件</h4>
 								                        </div>
 								                        <div class="accordion-body collapse" id="panel-body-1" data-parent="#accordion">
@@ -161,15 +161,15 @@
 												                        </label>
 												                    </div>	
 												                    <div class="inline">														            	
-														            	<span> | </span><a id="menuBtn11"  href="#" >下载</a>	
-														            	<span> | </span><a id="menuBtn21"  class="btnMenu view" href="#" >浏览</a>		
-														            	<span> | </span><a id="menuBtn31"  class="btnMenu view" href="#" >上传</a>		
-														            	<span> | </span><a id="menuBtn41"  class="btnMenu view" href="#" >删除</a>						                  
+														            	<span> | </span><a id=""  href="#" >下载</a>	
+														            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+														            	<span> | </span><a id="menuBtn11"  class="btnMenu view" href="#" >上传</a>		
+														            	<span> | </span><a id="menuBtn21"  class="btnMenu view" href="#" >删除</a>						                  
 																	</div>
 																	</div>																								
 															</div>	
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4" data-toggle="collapse"  data-target="#AttachedReport" style="cursor: pointer">	
+														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#AttachedReport" style="cursor: pointer">	
 														           	    <b>Attached AML/CFT Report</b><span style="color: #6777ef;">(最新版)</span>                 
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4">				                  
@@ -182,10 +182,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn12"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn22"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn32"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn42"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn12"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn22"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>								
 															</div>								
@@ -198,8 +198,8 @@
 														            <div class="col-12 col-md-4 col-lg-4">														            	
 														            	<div class="inline">														            	
 															            	<a   href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn22001"  class="btnMenu view" href="#" >浏览</a>			
-															            	<span> | </span><a id="menuBtn42001"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>			
+															            	<span> | </span><a id="menuBtn32"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>							                  
 																	</div>		
 																	<div class="col-12 col-md-1 col-lg-1"></div>					
@@ -219,12 +219,12 @@
 													                       		 确认锁定
 													                        </label>
 													                    </div>															            	
-														            	<div class="inline">														            	
-															            	<span> | </span><a id="menuBtn13"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn23"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn33"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn43"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>					                  
+													                    <div class="inline">														            	
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn13"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn23"  class="btnMenu view" href="#" >删除</a>						                  
+																		</div>				                  
 																	</div>																									
 															</div>	
 															<div class="row">
@@ -242,10 +242,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn14"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn24"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn34"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn44"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn14"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn24"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																									
 															</div>		
@@ -264,10 +264,11 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn15"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn25"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn35"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn45"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn15"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn25"  class="btnMenu view" href="#" >删除</a>	
+																			<span> | </span><a id="menuBtn35"  class="btnMenu view" href="#" >在线签名</a>										            						                  
 																		</div>
 																	</div>																									
 															</div>	
@@ -286,10 +287,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn16"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn26"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn36"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn46"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn16"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn26"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																										
 															</div>	
@@ -308,11 +309,11 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn17"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn27"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn37"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn47"  class="btnMenu view" href="#" >删除</a>		
-															            	<span> | </span><a id="menuBtn57"  class="btnMenu view" href="#" >在线签名</a>					                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn17"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn27"  class="btnMenu view" href="#" >删除</a>		
+															            	<span> | </span><a id="menuBtn37"  class="btnMenu view" href="#" >在线签名</a>					                  
 																		</div>
 																	</div>																									
 															</div>	
@@ -331,10 +332,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn18"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn28"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn38"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn48"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn18"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn28"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																										
 															</div>	
@@ -353,10 +354,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn19"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn29"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn39"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn49"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn19"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn29"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																									
 															</div>	
@@ -375,10 +376,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn110"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn210"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn310"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn410"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn110"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn210"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																									
 															</div>															
@@ -399,7 +400,7 @@
 						                	<div class="card-body">
 						                    	<div id="">
 						                      		<div class="accordion">
-								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-2" aria-expanded="false">
+								                        <div class="accordion-header collapsible1  collapsed" role="button" data-toggle="collapse" data-target="#panel-body-2" aria-expanded="false">
 								                         	<h4>董事/股东：<span>AAA</span></h4>
 								                        </div>
 								                        <div class="accordion-body collapse" id="panel-body-2" data-parent="#accordion">
@@ -460,10 +461,6 @@
 														                        </tr>										                        																						                        									                        
 														                      </tbody>
 														                    </table>	
-															                <!-- <div class="buttons">
-														                      <a href="#" class="btn btn-icon icon-left btn-success"><i class="fas fa-check"></i>确认</a>                      
-																			  <a href="#" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i>修改</a>
-														                    </div>	-->
 																			<div class="row">
 																		            <div class="col-12 col-md-4 col-lg-4"></div>
 																		            <div class="col-12 col-md-4 col-lg-4"></div>		
@@ -499,10 +496,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn111"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn211"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn311"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn411"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn111"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn211"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																									
 															</div>	
@@ -521,10 +518,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn112"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn212"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn312"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn412"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn112"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn212"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																									
 															</div>								
@@ -543,10 +540,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn113"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn213"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn313"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn413"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn113"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn213"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																									
 															</div>	
@@ -565,10 +562,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn114"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn214"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn314"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn414"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn114"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn214"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																									
 															</div>
@@ -587,11 +584,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn115"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn215"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn315"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn415"  class="btnMenu view" href="#" >删除</a>	
-															            	<span> | </span><a id="menuBtn515"  class="btnMenu view" href="#" >在线签名</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn115"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn215"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																										
 															</div>								
@@ -610,10 +606,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn116"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn216"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn316"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn416"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn116"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn216"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																										
 															</div>	
@@ -632,10 +628,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn117"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn217"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn317"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn417"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn117"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn217"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																									
 															</div>															
@@ -654,10 +650,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn118"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn218"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn318"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn418"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn118"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn218"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																										
 															</div>								
@@ -676,10 +672,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn119"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn219"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn319"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn419"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn119"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn219"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																									
 															</div>	
@@ -698,10 +694,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn120"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn220"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn320"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn420"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn120"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn220"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																										
 															</div>
@@ -720,10 +716,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn121"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn221"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn321"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn421"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn121"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn221"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																										
 															</div>								
@@ -742,10 +738,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn122"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn222"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn322"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn422"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn122"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn222"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																								
 															</div>	
@@ -764,10 +760,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn123"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn223"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn323"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn423"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn123"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn223"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																										
 															</div>																														
@@ -786,10 +782,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn124"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn224"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn324"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn424"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn124"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn224"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																										
 															</div>	
@@ -808,10 +804,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn125"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn225"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn325"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn425"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn125"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn225"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																										
 															</div>	
@@ -830,10 +826,10 @@
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id="menuBtn126"  href="#" >下载</a>	
-															            	<span> | </span><a id="menuBtn226"  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn326"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn426"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><a id=""  href="#" >下载</a>	
+															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
+															            	<span> | </span><a id="menuBtn126"  class="btnMenu view" href="#" >上传</a>		
+															            	<span> | </span><a id="menuBtn226"  class="btnMenu view" href="#" >删除</a>						                  
 																		</div>
 																	</div>																									
 															</div>																				                  

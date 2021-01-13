@@ -4404,13 +4404,27 @@ opacity
 	color: white;
 }
 
-.collapsible1:after {
-	content: '\2212';
+.collapsible1.collapsed:after {
+	/*content: '\2212';*/
+	content: '\002B';
 	color: #6777ef;
 	font-weight: bold;
 	float: right;
 	margin-left: 5px;
-	margin-top: -3%;
+	margin-top: -2%;
+	background-color: white;
+	padding: 0rem 9px;
+	border-radius: 50%;
+	font-size: 17px;
+	font-weight: 900;
+}
+.collapsible1:after {
+    content: "\2212";
+    	color: #6777ef;
+	font-weight: bold;
+	float: right;
+	margin-left: 5px;
+	margin-top: -2%;
 	background-color: white;
 	padding: 0rem 9px;
 	border-radius: 50%;
@@ -4418,9 +4432,6 @@ opacity
 	font-weight: 900;
 }
 
-.collapsible1.collapsed:after {
-	content: "\002B";
-}
 
 #newcompany .infoConfirm {
 	margin-left: 10% !important;
@@ -5515,6 +5526,50 @@ width
     display:inline;
 }
 
+/*
+.downLoadFile .has-dropdownText:before  {
+    content: "";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0, -50%);
+    font-size: 12px;
+    transition: all .5s;
+}
+.downLoadFile .has-dropdownText:after{
+    transform: translate(0, -50%) rotate(90deg);
+}*/
+
+.collapsible_record.collapsed:after {
+	/*content: '\2212';*/
+	content: '\002B';
+	color: #6777ef;
+	font-weight: bold;
+	float: unset;
+	margin-left: 0px;
+	margin-top: 0%;
+	background-color: white;
+	padding: 0rem 9px;
+	border-radius: 50%;
+	font-size: 17px;
+	font-weight: 900;
+}
+.collapsible_record:after {
+    content: "\2212";
+    	color: #6777ef;
+	font-weight: bold;
+	float: unset;
+	margin-left: 0px;
+	margin-top: 0%;
+	background-color: white;
+	padding: 0rem 9px;
+	border-radius: 50%;
+	font-size: 17px;
+	font-weight: 900;
+}
+
 
 /* 7.3 adminTimeLine page */
 
@@ -5544,6 +5599,7 @@ width
     font-size: 16px;
     padding: 1rem;
 }
+
 
 /* 7.4 admin_editRecord page */
 

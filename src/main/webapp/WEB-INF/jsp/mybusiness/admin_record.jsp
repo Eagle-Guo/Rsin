@@ -99,7 +99,7 @@
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">查询</a></div></th>                                                 
+                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                                                
                           <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                          
                           <th><div class="badge badge-danger"><a href="#" target="_blank">下载</a></div></th>
                           <th></th> 																			                          
@@ -124,7 +124,7 @@
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">查询</a></div></th>                                                 
+                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                                               
                           <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                          
                           <th><div class="badge badge-danger"><a href="#" target="_blank">下载</a></div></th>
                           <th></th> 																			                          
@@ -149,7 +149,7 @@
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">查询</a></div></th>                                                 
+                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                                                  
                           <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                          
                           <th><div class="badge badge-danger"><a href="#" target="_blank">下载</a></div></th>
                           <th></th> 																			                          
@@ -174,7 +174,7 @@
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">查询</a></div></th>                                                 
+                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                                                 
                           <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                          
                           <th><div class="badge badge-danger"><a href="#" target="_blank">下载</a></div></th>
                           <th></th> 																			                          

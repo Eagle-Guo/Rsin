@@ -38,7 +38,7 @@
               <div class="col-12">
                 <div class="card ">
                   <div class="card-header">
-                    <h4>公司AAA</h4>
+                    <h4>${company.name}</h4>
                     <div class="card-header-form">
                       <form>
                         <div class="input-group">
@@ -72,15 +72,15 @@
 										                      <tbody>
 										                        <tr>
 										                          <th scope="row">ID</th>
-										                          <td>0000000001</td>
+										                          <td>${company.id }</td>
 										                        </tr>
 										                        <tr>
 										                          <th scope="row">UEN(注册号)</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput010"  value="201500518N"></td>
+										                          <td><input type="text" class="form-control form-control-sm" id="textInput010"  value="${company.uen }"></td>
 										                        </tr>
 										                        <tr>
 										                          <th scope="row">公司名称</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput020" value="KNOCKNOCK TECHNOLOGIES ASIA PTE. LTD"></td>
+										                          <td><input type="text" class="form-control form-control-sm" id="textInput020" value="${company.name }"></td>
 										                        </tr>
 										                        <tr>
 										                          <th scope="row">公司类型</th>

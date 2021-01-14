@@ -2,6 +2,7 @@ package sg.com.rsin.controllers;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -13,8 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.CompanyStatusTimeRepository;
 import sg.com.rsin.entity.CommonResponse;
 import sg.com.rsin.entity.Company;
@@ -27,7 +30,7 @@ import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.ResponseCode;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmployeeService;
-import sg.com.rsin.service.PendingStepService;
+import sg.com.rsin.service.AdminManageCompanyService;
 import sg.com.rsin.service.UserRegistrationService;
 import sg.com.rsin.vo.OnlineSignatureVO;
 
@@ -44,8 +47,11 @@ public class ViewController {
 	CommonDataService commonDataService;
 
 	@Autowired
-	PendingStepService pendingStepService;
+	AdminManageCompanyService adminManageCompanyService;
 	
+	@Autowired
+	CompanyRepository companyRepository;
+
 	@Autowired
 	CompanyStatusTimeRepository companyStatusTimeRepository;
 
@@ -177,9 +183,15 @@ public class ViewController {
 		ModelAndView model = new ModelAndView("mybusiness/downLoadFile");
 		return model;
 	}	
-	@RequestMapping("/adminDownLoadFile")
-	public ModelAndView adminDownLoadFile() {
-		ModelAndView model = new ModelAndView("todolist/adminDownLoadFile");
+	@RequestMapping("/adminManageCompany")
+	public ModelAndView adminManageCompany(@RequestParam("id") Long companyId) {
+		ModelAndView model = new ModelAndView("todolist/adminManageCompany");
+		Optional<Company> company = companyRepository.findById(companyId);
+		
+		if (company.isPresent()) {
+			model.addObject("company", company.get());
+		}
+		
 		return model;
 	}
 	@RequestMapping("/adminTimeLine")

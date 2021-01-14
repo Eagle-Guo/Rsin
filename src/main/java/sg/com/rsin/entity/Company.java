@@ -23,6 +23,8 @@ public class Company {
 	private String name;
 	@Column(name="backup_name")
 	private String backupName;
+	@Column(name="UEN")
+	private String uen;
 	@Column(name="type")
 	private String type;
 	@Column(name="total_stock_capital")
@@ -52,7 +54,7 @@ public class Company {
     
     public Company() {}
     
-	public Company(Long id, String name, String backupName, String type, float totalStockCapital,
+	public Company(Long id, String name, String backupName, String uen,	String type, float totalStockCapital,
 			float actualStockCapital, String activityOne, String activityTwo, String address, String step,
 			int totalShareholder, int shareholderComfirm, Date createdDate, CompanyService serviceList,
 			List<CompanyShareholderInfo> shareholderInfoList) {
@@ -60,6 +62,7 @@ public class Company {
 		this.id = id;
 		this.name = name;
 		this.backupName = backupName;
+		this.uen = uen;
 		this.type = type;
 		this.totalStockCapital = totalStockCapital;
 		this.actualStockCapital = actualStockCapital;
@@ -92,6 +95,12 @@ public class Company {
 	}
 	public void setBackupName(String backupName) {
 		this.backupName = backupName;
+	}
+	public String getUen() {
+		return uen;
+	}
+	public void setUen(String uen) {
+		this.uen = uen;
 	}
 	public String getType() {
 		return type;

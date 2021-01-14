@@ -94,7 +94,7 @@
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminDownLoadFile" target="_blank">公司信息修改</a></div></th>                          
+                          <th> <div class="badge badge-danger"><a href="/adminManageCompany" target="_blank">公司信息修改</a></div></th>                          
                           <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
                           <th></th> 																			                          
                         </tr>                        
@@ -104,7 +104,7 @@
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminDownLoadFile" target="_blank">公司信息修改</a></div></th>                          
+                          <th> <div class="badge badge-danger"><a href="/adminManageCompany" target="_blank">公司信息修改</a></div></th>                          
                           <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
                           <th></th> 																			                          
                         </tr>  
@@ -114,7 +114,7 @@
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminDownLoadFile" target="_blank">公司信息修改</a></div></th>                          
+                          <th> <div class="badge badge-danger"><a href="/adminManageCompany" target="_blank">公司信息修改</a></div></th>                          
                           <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
                           <th></th> 																			                          
                         </tr>  
@@ -124,7 +124,7 @@
                           <th>data</th>
                           <th>data</th>
                           <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminDownLoadFile" target="_blank">公司信息修改</a></div></th>                          
+                          <th> <div class="badge badge-danger"><a href="/adminManageCompany" target="_blank">公司信息修改</a></div></th>                          
                           <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
                           <th></th> 																			                          
                         </tr>                                                  

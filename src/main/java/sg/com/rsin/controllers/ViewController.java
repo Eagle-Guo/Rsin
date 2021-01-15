@@ -256,8 +256,10 @@ public class ViewController {
 	public ModelAndView admin_toDoList() {
 		ModelAndView model = new ModelAndView("todolist/admin_toDoList");
 
-		Set<Company> companies = commonDataService.getAllPendingCompany();
-		model.addObject("companies", companies);
+		/*
+		 * Set<Company> companies = commonDataService.getAllPendingCompany();
+		 * model.addObject("companies", companies);
+		 */
 		return model;
 	}
 

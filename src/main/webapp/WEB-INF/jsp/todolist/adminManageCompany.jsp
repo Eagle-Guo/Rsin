@@ -84,15 +84,15 @@
 										                        </tr>
 										                        <tr>
 										                          <th scope="row">公司类型</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput030" value="私人有限公司 (PTE. LTD.)"></td>
+										                          <td><input type="text" class="form-control form-control-sm" id="textInput030" value="${company.type }"></td>
 										                        </tr>
 										                        <tr>
 										                          <th scope="row">商业 活动1</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput040" value="AGRICULTURE AND RELATED SERVICE ACTIVITIES: 农业及相关服务"></td>
+										                          <td><input type="text" class="form-control form-control-sm" id="textInput040" value="${company.activityOne }"></td>
 										                        </tr>										                        
 										                        <tr>
 										                          <th scope="row">商业 活动2</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput050" value="AGRICULTURE AND RELATED SERVICE ACTIVITIES: 农业及相关服务"></td>
+										                          <td><input type="text" class="form-control form-control-sm" id="textInput050" value="${company.activityTwo }"></td>
 										                        </tr>										                        
 										                        <tr>
 										                          <th scope="row">挂名董事</th>
@@ -112,28 +112,24 @@
 										                        </tr>																
 										                        <tr>
 										                          <th scope="row">注册资本</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput100" value="743968"></td>
+										                          <td><input type="text" class="form-control form-control-sm" id="textInput100" value="${company.totalStockCapital }"></td>
 										                        </tr>																	
 										                        <tr>
 										                          <th scope="row">实缴资本</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput110" value="743968"></td>
+										                          <td><input type="text" class="form-control form-control-sm" id="textInput110" value="${company.actualStockCapital }"></td>
 										                        </tr>		
 										                        <tr>
 										                          <th scope="row">注册时间</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput120" value="12/12/2020"></td>
+										                          <td><input type="text" class="form-control form-control-sm" id="textInput120" value="${company.createdDate }"></td>
 										                        </tr>																						                        									                        
 										                      </tbody>
 										                    </table>
-											                <!--<div class="buttons">
-										                      <a href="#" class="btn btn-icon icon-left btn-success"><i class="fas fa-check"></i>确认</a>                      
-															  <a href="#" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i>修改</a>
-										                    </div>-->
 															<div class="row">
 														            <div class="col-12 col-md-4 col-lg-4"></div>
 														            <div class="col-12 col-md-4 col-lg-4"></div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 																	<div class="form-check">
-												                        <input class="form-check-input" type="checkbox"  id="infoCheckbox0"  onclick="confirmInfo(0)">
+												                        <input class="form-check-input" type="checkbox"  id="infoCheckbox0"  onclick="confirmInfo(0)" value="${company.shareholderComfirm }">
 												                        <label class="form-check-label" for="gridCheck">
 												                       		 确认锁定
 												                        </label>

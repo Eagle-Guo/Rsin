@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -24,6 +25,46 @@
 	           <h1>业务信息修改</h1>
 	        </div>  
       <div class="">
+        <section class="section">
+          <div class="section-body">
+            <div class="row mt-4">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>待办事项清单</h4>
+                  </div>
+                  <div class="card-body admin_editRecord">
+
+                    <div class="clearfix mb-3"></div>
+
+					<div class="table-responsive">
+						<table id="example" class="table table-striped display" style="width:100%" >
+					        <thead>
+					            <tr>
+		                          <th>UEN</th>
+		                          <th>公司名称</th>                         
+		                          <th>注册日期</th>
+		                          <th>年审时间</th>
+		                          <th>财务年度时间</th>
+		                          <th>公司信息修改</th>                                                                                                    
+		                          <th>时间表信息修改</th>                                                                          
+		                          <th>备注</th>  																			                          
+					            </tr>
+					        </thead>
+					    </table>
+					</div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div> 	        
+	        
+   
+   
+     <div class="">
         <section class="section admin_editRecord">
           <div class="section-body">
             <div class="row mt-4">
@@ -47,32 +88,8 @@
                         </div>
                       </div>
                     </div>
-                    <!--<div class="section-title" style="padding-right:3%;"><div class="badge badge-danger">导出所列报表</div></div>  -->
                   </div>
                   <div class="card-body">
-                    <!--<div class="float-left">
-                      <select class="form-control selectric" style="display:inline;">
-                        <option>新加坡公司注册</option>
-                        <option>新加坡银行开户</option>
-                        <option>离岸银行开户</option>
-                        <option>新加坡商标与执照申请</option>
-                        <option>新加坡消费税申请</option>
-                        <option>新加坡公司年审</option>                        
-                        <option>新加坡会计服务</option>
-                        <option>呼叫转移服务</option>
-                        <option>新加坡共享办公室</option>                        
-                      </select>
-                    </div>-->
-                    <!--<div class="float-right">
-                      <form>
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search">
-                          <div class="input-group-append">
-                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>  -->
 
                     <div class="clearfix mb-3"></div>
 
@@ -163,7 +180,7 @@
             </div>
           </div>
         </section>
-      </div>        
+      </div>      
         </section>
       </div>
       
@@ -190,5 +207,6 @@
   <script src="../../../assets/js/onlineSignature.js"></script>
   <script src="../../../assets/js/signaturePad/signature_pad.umd.js"></script>
   <script src="../../../assets/js/signaturePad/app.js"></script>
+  <script src="../../../assets/js/admin_editRecord.js"></script>
 </body>
 </html>

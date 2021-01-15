@@ -141,7 +141,7 @@
 											                      <tbody>
 											                      	<tr>
 											                          <th scope="row">年审</th>
-											                          <td>2019/10/31</td>
+											                          <td>31/10/2019</td>
 											                          <td>
 													                    <div class="form-group">
 													                      <input type="date" class="form-control" >
@@ -171,7 +171,7 @@
 											                        </tr>
 											                      	<tr>
 											                          <th scope="row">年审</th>
-											                          <td>2020/10/31</td>
+											                          <td>31/10/2020</td>
 											                          <td>
 													                    <div class="form-group">
 													                      <input type="date" class="form-control">
@@ -206,7 +206,7 @@
 										                      <tbody>
 										                        <tr>
 										                          <th scope="row">财务年度</th>
-										                          <th scope="row">2018/01/11</th>
+										                          <th scope="row">11/01/2018</th>
 										                          <td>
 										                          	<div class="form-group">
 												                      <select class="form-control" id="textInput050">

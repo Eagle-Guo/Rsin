@@ -52,8 +52,8 @@
 						<table id="example" class="table table-striped display" style="width:100%" >
 					        <thead>
 					            <tr>
-					                  <th>创建日期</th>
-			                          <th>公司名称</th>
+					                  <th>公司名称</th>
+			                          <th>创建日期</th>
 			                          <th>待办事项</th>
 			                          <th>其它</th>
 					            </tr>

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#example').DataTable( {
+    $('#adminEditRecord').DataTable( {
     	ajax: {
             url: '/api/allPendingCompanies',
             method: "GET",
@@ -10,13 +10,16 @@ $(document).ready(function() {
          },
         "deferRender": true ,
         "columns": [
+            { "data": "uen" },
             { "data": "name" },
-            { "data": "createdDate" },
+            { "data": "uen" },
+            { "data": "name" },
+            { "data": "uen" },                      
             { "data": "id",
                 "render": function (data, type, row, meta) {
                 	return  "<div class='badge badge-danger'><a href='/adminManageCompany?id=" + data + 
-                	        "' target='_blank'>新公司注册</a></div> <div class='badge badge-danger'><a href='/adminTimeLine?id=" + data + 
-                	        "' target='_blank'>时间表</a></div>"},
+                	        "' target='_blank'>公司信息修改</a></div> <div class='badge badge-danger'><a href='/adminTimeLine?id=" + data + 
+                	        "' target='_blank'>时间表信息修改</a></div>"},
             },
             {"data": "step"}
         ]

@@ -5600,6 +5600,11 @@ width
     padding: 1rem;
 }
 
+.addBottom_adminTimeLine {
+    border-bottom: 1px solid gray;
+}
+
+
 
 /* 7.4 admin_editRecord page */
 
@@ -5607,4 +5612,40 @@ width
     height: unset !important;
     font-size: unset!important;
     border-radius: unset!important;
+}
+.admin_editRecord .dataTables_filter {
+    display: inline;
+}
+.admin_editRecord .dataTables_length {
+    display: inline;
+}
+.admin_editRecord #adminEditRecord_filter {
+    float: right;
+}
+.admin_editRecord .dataTables_info {
+    display: inline;
+}
+.admin_editRecord #adminEditRecord_paginate {
+    display: inline;
+    float: right;
+}
+
+/* 7.4 admin_record page */
+
+
+.admin_record .dataTables_filter {
+    display: inline;
+}
+.admin_record .dataTables_length {
+    display: inline;
+}
+.admin_record #adminRecord_filter {
+    float: right;
+}
+.admin_record .dataTables_info {
+    display: inline;
+}
+.admin_record #adminRecord_paginate {
+    display: inline;
+    float: right;
 }

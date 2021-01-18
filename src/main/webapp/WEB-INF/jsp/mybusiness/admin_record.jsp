@@ -22,7 +22,60 @@
         <section class="section" id="onlineSignature">
 	        <div class="section-header">
 	           <h1>客户清单报表</h1>
-	        </div>  
+	        </div> 
+      <div class="">
+        <section class="section">
+          <div class="section-body">
+            <div class="row mt-4">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>待办事项清单</h4>
+                  </div>
+                  <div class="card-body admin_record">
+
+                    <div class="clearfix mb-3"></div>
+
+					<div class="table-responsive">
+						<table id="adminRecord" class="table table-striped display" style="width:100%" >
+					        <thead>
+					            <tr>
+		                          <th>UEN</th>
+		                          <th>公司名称</th>                         
+		                          <th>注册日期</th>
+		                          <th>董事</th>
+		                          <th>挂名董事</th>
+		                          <th>股东</th>                          
+		                          <th>秘书</th>                                
+		                          <th>联系人</th>                                
+		                          <th>注册资本</th>                                
+		                          <th>实缴资本</th>  
+		                          <th>预计年审时间</th>                          
+		                          <th>财务年度时间</th>                                
+		                          <th>消费税报税</th>                                
+		                          <th>ECI</th>                                
+		                          <th>所得税报税</th>                           
+		                          <th>所得锐缴税</th>                                               
+		                          <th>公司地址 </th>    
+		                          <th>服务进度</th>    
+		                          <th>渠道方</th>                              
+		                          <th>服务记录（时间表）</th>                       
+		                          <th>导出公司信息 </th>                                                                                                    
+		                          <th>下载全部文件</th>                                                                          
+		                          <th>备注</th>  																		                          
+					            </tr>
+					        </thead>
+					    </table>
+					</div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div> 		        
+	         
       <div class="">
         <section class="section admin_editRecord">
           <div class="section-body">
@@ -244,5 +297,8 @@
   <script src="../../../assets/js/onlineSignature.js"></script>
   <script src="../../../assets/js/signaturePad/signature_pad.umd.js"></script>
   <script src="../../../assets/js/signaturePad/app.js"></script>
+  <script src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>  
+  <script src="../../../assets/js/admin_record.js"></script> 
+  
 </body>
 </html>

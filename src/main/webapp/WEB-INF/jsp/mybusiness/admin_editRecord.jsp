@@ -38,7 +38,7 @@
                     <div class="clearfix mb-3"></div>
 
 					<div class="table-responsive">
-						<table id="example" class="table table-striped display" style="width:100%" >
+						<table id="adminEditRecord" class="table table-striped display" style="width:100%" >
 					        <thead>
 					            <tr>
 		                          <th>UEN</th>
@@ -46,8 +46,7 @@
 		                          <th>注册日期</th>
 		                          <th>年审时间</th>
 		                          <th>财务年度时间</th>
-		                          <th>公司信息修改</th>                                                                                                    
-		                          <th>时间表信息修改</th>                                                                          
+		                          <th>信息修改</th>                                                                                                    
 		                          <th>备注</th>  																			                          
 					            </tr>
 					        </thead>
@@ -207,6 +206,8 @@
   <script src="../../../assets/js/onlineSignature.js"></script>
   <script src="../../../assets/js/signaturePad/signature_pad.umd.js"></script>
   <script src="../../../assets/js/signaturePad/app.js"></script>
+  
+  <script src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>  
   <script src="../../../assets/js/admin_editRecord.js"></script>
 </body>
 </html>

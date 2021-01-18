@@ -162,7 +162,7 @@
 																</div>
 															</div>
 																<c:forEach items="${documentType1}" var="doc1" varStatus="loop">
-																	<div id="AttachedReport" class="collapse in">							
+																	<div id="AttachedReport${doc1.id}" class="collapse in">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -196,7 +196,7 @@
 																</div>								
 															</div>
 																<c:forEach items="${documentType2}" var="doc2" varStatus="loop">
-																	<div id="AttachedReport" class="collapse in">							
+																	<div id="AttachedReport${doc2.id}" class="collapse in">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -235,7 +235,7 @@
 																	</div>																									
 															</div>
 															<c:forEach items="${documentType3}" var="doc3" varStatus="loop">
-																	<div id="AttachedReport" class="collapse in">							
+																	<div id="AttachedReport${doc3.id}" class="collapse in">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -274,7 +274,7 @@
 																</div>																									
 															</div>	
 															<c:forEach items="${documentType4}" var="doc4" varStatus="loop">
-																	<div id="AttachedReport" class="collapse in">							
+																	<div id="AttachedReport${doc4.id}" class="collapse in">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -314,7 +314,7 @@
 																	</div>																									
 															</div>
 															<c:forEach items="${documentType5}" var="doc5" varStatus="loop">
-																	<div id="AttachedReport" class="collapse in">							
+																	<div id="AttachedReport${doc5.id}" class="collapse in">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -353,7 +353,7 @@
 																	</div>																										
 															</div>
 															<c:forEach items="${documentType6}" var="doc6" varStatus="loop">
-																	<div id="AttachedReport" class="collapse in">							
+																	<div id="AttachedReport${doc6.id}" class="collapse in">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -393,7 +393,7 @@
 																	</div>
 															</div>
 															<c:forEach items="${documentType7}" var="doc7" varStatus="loop">
-																	<div id="AttachedReport" class="collapse in">							
+																	<div id="AttachedReport${doc7.id}" class="collapse in">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -432,7 +432,7 @@
 																	</div>																										
 															</div>	
 															<c:forEach items="${documentType8}" var="doc8" varStatus="loop">
-																	<div id="AttachedReport" class="collapse in">							
+																	<div id="AttachedReport${doc8.id}" class="collapse in">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -471,7 +471,7 @@
 																	</div>																									
 															</div>	
 															<c:forEach items="${documentType9}" var="doc9" varStatus="loop">
-																	<div id="AttachedReport" class="collapse in">							
+																	<div id="AttachedReport${doc9.id}" class="collapse in">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -510,7 +510,7 @@
 																	</div>																									
 															</div>
 															<c:forEach items="${documentType10}" var="doc10" varStatus="loop">
-																	<div id="AttachedReport" class="show in">							
+																	<div id="AttachedReport${doc10.id}" class="show in">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	

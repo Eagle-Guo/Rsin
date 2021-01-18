@@ -65,11 +65,12 @@ function companyuploadfile(company_id, id) {
         }
     });
 } 
-function companydeletefile(doc_id) {
-	  $.ajax({url: "/api/company/delete/file?uuid=" + uuid, 
-		  success: function(result){
-	    $("#div1").html(result);
-		  }});
+function companydeletefile(uuid) {
+  $.ajax({url: "/api/company/delete/file?uuid=" + uuid, 
+	  success: function(result){
+		  //$("#div1").html(result);
+		  //Put your delete div code here
+	  }});
 	
 } 
 

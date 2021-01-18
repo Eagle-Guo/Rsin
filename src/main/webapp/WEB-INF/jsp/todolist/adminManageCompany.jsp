@@ -170,9 +170,9 @@
 																				</div>
 																            <div class="col-12 col-md-4 col-lg-4">														            	
 																            	<div class="inline">														            	
-																	            	<a id="download_company_file${doc1.id}" onclick="companydownloadfile(${doc1.referenceNo})" >下载</a>	
-																	            	<span> | </span><a id="preview_company_file${doc1.id}" class="btnMenu view" onclick="companypreviewfile(${doc1.id})">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc1.id}" class="btnMenu view" onclick="companydeletefile(${doc1.id})">删除</a>						                  
+																	            	<a id="download_company_file${doc1.id}" onclick="companydownloadfile('${doc1.referenceNo}')" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc1.id}" class="btnMenu view" onclick="companypreviewfile('${doc1.referenceNo}')">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc1.id}" class="btnMenu view" onclick="companydeletefile('${doc1.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
@@ -204,9 +204,9 @@
 																				</div>
 																            <div class="col-12 col-md-4 col-lg-4">														            	
 																            	<div class="inline">														            	
-																	            	<a id="download_company_file${doc2.id}" onclick="companydownloadfile(${doc2.referenceNo})" >下载</a>	
-																	            	<span> | </span><a id="preview_company_file${doc2.id}" class="btnMenu view" onclick="companypreviewfile(${doc2.id})">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc2.id}" class="btnMenu view" onclick="companydeletefile(${doc2.id})">删除</a>						                  
+																	            	<a id="download_company_file${doc2.id}" onclick="companydownloadfile('${doc2.referenceNo}')" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc2.id}" class="btnMenu view" onclick="companypreviewfile('${doc2.referenceNo}')">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc2.id}" class="btnMenu view" onclick="companydeletefile('${doc2.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
@@ -243,9 +243,9 @@
 																				</div>
 																            <div class="col-12 col-md-4 col-lg-4">														            	
 																            	<div class="inline">														            	
-																	            	<a id="download_company_file${doc3.id}" onclick="companydownloadfile(${doc3.referenceNo})" >下载</a>	
-																	            	<span> | </span><a id="preview_company_file${doc3.id}" class="btnMenu view" onclick="companypreviewfile(${doc3.id})">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc3.id}" class="btnMenu view" onclick="companydeletefile(${doc3.id})">删除</a>						                  
+																	            	<a id="download_company_file${doc3.id}" onclick="companydownloadfile('${doc3.referenceNo}')" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc3.id}" class="btnMenu view" onclick="companypreviewfile('${doc3.referenceNo}')">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc3.id}" class="btnMenu view" onclick="companydeletefile('${doc3.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
@@ -282,9 +282,9 @@
 																				</div>
 																            <div class="col-12 col-md-4 col-lg-4">														            	
 																            	<div class="inline">														            	
-																	            	<a id="download_company_file${doc4.id}" onclick="companydownloadfile(${doc4.referenceNo})" >下载</a>	
-																	            	<span> | </span><a id="preview_company_file${doc4.id}" class="btnMenu view" onclick="companypreviewfile(${doc4.id})">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc4.id}" class="btnMenu view" onclick="companydeletefile(${doc4.id})">删除</a>						                  
+																	            	<a id="download_company_file${doc4.id}" onclick="companydownloadfile('${doc4.referenceNo}')" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc4.id}" class="btnMenu view" onclick="companypreviewfile('${doc4.referenceNo}')">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc4.id}" class="btnMenu view" onclick="companydeletefile('${doc4.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
@@ -322,9 +322,9 @@
 																				</div>
 																            <div class="col-12 col-md-4 col-lg-4">														            	
 																            	<div class="inline">														            	
-																	            	<a id="download_company_file${doc5.id}" onclick="companydownloadfile(${doc5.referenceNo})" >下载</a>	
-																	            	<span> | </span><a id="preview_company_file${doc5.id}" class="btnMenu view" onclick="companypreviewfile(${doc5.id})">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc5.id}" class="btnMenu view" onclick="companydeletefile(${doc5.id})">删除</a>						                  
+																	            	<a id="download_company_file${doc5.id}" onclick="companydownloadfile('${doc5.referenceNo}')" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc5.id}" class="btnMenu view" onclick="companypreviewfile('${doc5.referenceNo}')">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc5.id}" class="btnMenu view" onclick="companydeletefile('${doc5.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
@@ -361,9 +361,9 @@
 																				</div>
 																            <div class="col-12 col-md-4 col-lg-4">														            	
 																            	<div class="inline">														            	
-																	            	<a id="download_company_file${doc6.id}" onclick="companydownloadfile(${doc6.referenceNo})" >下载</a>	
-																	            	<span> | </span><a id="preview_company_file${doc6.id}" class="btnMenu view" onclick="companypreviewfile(${doc6.id})">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc6.id}" class="btnMenu view" onclick="companydeletefile(${doc6.id})">删除</a>						                  
+																	            	<a id="download_company_file${doc6.id}" onclick="companydownloadfile('${doc6.referenceNo}')" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc6.id}" class="btnMenu view" onclick="companypreviewfile('${doc6.referenceNo}')">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc6.id}" class="btnMenu view" onclick="companydeletefile('${doc6.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
@@ -401,9 +401,9 @@
 																				</div>
 																            <div class="col-12 col-md-4 col-lg-4">														            	
 																            	<div class="inline">														            	
-																	            	<a id="download_company_file${doc7.id}" onclick="companydownloadfile(${doc7.referenceNo})" >下载</a>	
-																	            	<span> | </span><a id="preview_company_file${doc7.id}" class="btnMenu view" onclick="companypreviewfile(${doc7.id})">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc7.id}" class="btnMenu view" onclick="companydeletefile(${doc7.id})">删除</a>						                  
+																	            	<a id="download_company_file${doc7.id}" onclick="companydownloadfile('${doc7.referenceNo}')" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc7.id}" class="btnMenu view" onclick="companypreviewfile('${doc7.referenceNo}')">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc7.id}" class="btnMenu view" onclick="companydeletefile('${doc7.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
@@ -440,9 +440,9 @@
 																				</div>
 																            <div class="col-12 col-md-4 col-lg-4">														            	
 																            	<div class="inline">														            	
-																	            	<a id="download_company_file${doc8.id}" onclick="companydownloadfile(${doc8.referenceNo})" >下载</a>	
-																	            	<span> | </span><a id="preview_company_file${doc8.id}" class="btnMenu view" onclick="companypreviewfile(${doc8.id})">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc8.id}" class="btnMenu view" onclick="companydeletefile(${doc8.id})">删除</a>						                  
+																	            	<a id="download_company_file${doc8.id}" onclick="companydownloadfile('${doc8.referenceNo}')" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc8.id}" class="btnMenu view" onclick="companypreviewfile('${doc8.referenceNo}')">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc8.id}" class="btnMenu view" onclick="companydeletefile('${doc8.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
@@ -479,9 +479,9 @@
 																				</div>
 																            <div class="col-12 col-md-4 col-lg-4">														            	
 																            	<div class="inline">														            	
-																	            	<a id="download_company_file${doc9.id}" onclick="companydownloadfile(${doc9.referenceNo})" >下载</a>	
-																	            	<span> | </span><a id="preview_company_file${doc9.id}" class="btnMenu view" onclick="companypreviewfile(${doc9.id})">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc9.id}" class="btnMenu view" onclick="companydeletefile(${doc9.id})">删除</a>						                  
+																	            	<a id="download_company_file${doc9.id}" onclick="companydownloadfile('${doc9.referenceNo}')" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc9.id}" class="btnMenu view" onclick="companypreviewfile('${doc9.referenceNo}')">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc9.id}" class="btnMenu view" onclick="companydeletefile('${doc9.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
@@ -510,7 +510,7 @@
 																	</div>																									
 															</div>
 															<c:forEach items="${documentType10}" var="doc10" varStatus="loop">
-																	<div id="AttachedReport" class="collapse in">							
+																	<div id="AttachedReport" class="show in">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -518,9 +518,9 @@
 																				</div>
 																            <div class="col-12 col-md-4 col-lg-4">														            	
 																            	<div class="inline">														            	
-																	            	<a id="download_company_file${doc10.id}" onclick="companydownloadfile(${doc10.referenceNo})" >下载</a>	
-																	            	<span> | </span><a id="preview_company_file${doc10.id}" class="btnMenu view" onclick="companypreviewfile(${doc10.id})">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc10.id}" class="btnMenu view" onclick="companydeletefile(${doc10.id})">删除</a>						                  
+																	            	<a id="download_company_file${doc10.id}" onclick="companydownloadfile('${doc10.referenceNo}')" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc10.id}" class="btnMenu view" onclick="companypreviewfile('${doc10.referenceNo}')">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc10.id}" class="btnMenu view" onclick="companydeletefile('${doc10.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					

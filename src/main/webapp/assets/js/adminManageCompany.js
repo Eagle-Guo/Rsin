@@ -19,9 +19,9 @@ function companyshowfilediag(doc_id) {
 	$('#file_com_upload'+doc_id).trigger('click');
 }
 
-function companydownloadfile(companyId, doc_id) {
+function companydownloadfile(uuid) {
 	var req = new XMLHttpRequest();
-    req.open("GET", "/api/company/download/file" + companyId+ "?doc=" + doc_id, true);
+    req.open("GET", "/api/company/download/file?uuid=" + uuid, true);
     req.responseType = "blob";
     req.onload = function (event) {
         var blob = req.response;
@@ -33,10 +33,9 @@ function companydownloadfile(companyId, doc_id) {
     };
     req.send();
 }
-function companypreviewfile(companyId, doc_id) {
-	alert ("preview the file" + doc_id + " from company " + companyId);
+function companypreviewfile(uuid) {
 	var req = new XMLHttpRequest();
-    req.open("GET", "/api/company/download/"+companyId+"?doc=" + doc_id, true);
+    req.open("GET", "/api/company/download/file?uuid=" + uuid, true);
     req.responseType = "blob";
     req.onload = function (event) {
         var blob = req.response;
@@ -67,7 +66,11 @@ function companyuploadfile(company_id, id) {
     });
 } 
 function companydeletefile(doc_id) {
-	alert ("delete the file" + doc_id);
+	  $.ajax({url: "/api/company/delete/file?uuid=" + uuid, 
+		  success: function(result){
+	    $("#div1").html(result);
+		  }});
+	
 } 
 
 //Get the modal

@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.mail.MessagingException;
 
@@ -33,6 +34,7 @@ import sg.com.rsin.dao.CompanyOTHAccessRepository;
 import sg.com.rsin.dao.CompanyServiceRepository;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
 import sg.com.rsin.dao.CompanyStatusTimeRepository;
+import sg.com.rsin.dao.DocumentRepository;
 import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.RoleRepository;
 import sg.com.rsin.dao.UserRegistrationRepository;
@@ -40,6 +42,7 @@ import sg.com.rsin.entity.CompanyOTHAccess;
 import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.CompanyStatusTime;
+import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.Mail;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Role;
@@ -76,6 +79,8 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	@Autowired
 	private RoleRepository roleRepository;
+	@Autowired
+	private DocumentRepository documentRepository;
 	@Autowired
 	private CompanyStatusTimeRepository companyStatusTimeRepository;
 	
@@ -217,5 +222,38 @@ public class NewCompanyServiceImpl implements NewCompanyService {
         logger.info("Prepare to send email....with URL" + URL);
         emailService.sendEmail(mail);
         
+	}
+	
+	public Company findCompany (long companyId) {
+		return companyRepository.findById(companyId).orElse(null);
+	}
+	
+	public void saveCompany (Company company) {
+		companyRepository.save(company);
+	}
+	
+	public Map<String, List<String>> getShareholderSignatureStatus(Long companyId) {
+		Map<String, List<String>> signedFiles = new HashMap<String,List<String>>();
+		//1. Get all the company shareholders and directors
+		List<CompanyShareholderInfo> shareholders = companyShareholderInfoRepository.findByCompanyId(companyId);
+		//2. check the file have signed
+		shareholders.stream().forEach(shareholder -> {
+			List<Document> documents = documentRepository.findByUserIdAndCompany(shareholder.getEmail(), companyId);
+			List<String> docTypes = documents.stream().map(doc -> doc.getDocumentType().getDocumentTypeCode()).collect(Collectors.toList());
+			signedFiles.put(shareholder.getName(), docTypes);
+		});
+		return signedFiles;
+	}
+
+	public String listSignedUserName(Map<String, List<String>> signedDocs, String documentType) {
+		StringBuilder sb = new StringBuilder();
+		signedDocs.forEach((k, value) -> {
+			if (value.contains(documentType)) {
+				sb.append(", " + k + "(已签名)");
+			} else {
+				sb.append(", " + k + "(待签名)");
+			}
+		});
+		return sb.toString().substring(2);
 	}
 }

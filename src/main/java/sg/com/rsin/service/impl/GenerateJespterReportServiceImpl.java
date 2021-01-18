@@ -21,6 +21,7 @@ import java.util.UUID;
 import javax.imageio.ImageIO;
 
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.jfree.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,6 +42,7 @@ import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
 import sg.com.rsin.dao.CompanyStatusTimeRepository;
+import sg.com.rsin.dao.DocumentHistoryRepository;
 import sg.com.rsin.dao.DocumentRepository;
 import sg.com.rsin.dao.DocumentTypeRepository;
 import sg.com.rsin.dao.EmployeeDao;
@@ -50,6 +52,7 @@ import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.CompanyStatusTime;
 import sg.com.rsin.entity.Document;
+import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.entity.DocumentType;
 import sg.com.rsin.entity.SignatureLog;
 import sg.com.rsin.enums.DocumentTypeCode;
@@ -69,6 +72,8 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	@Autowired
 	DocumentRepository documentRepository;
 	@Autowired
+	DocumentHistoryRepository documentHistoryRepository;
+	@Autowired
 	DocumentTypeRepository documentTypeRepository;
 	@Autowired
 	CompanyRepository companyRepository;
@@ -80,7 +85,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	@Autowired
 	CommonDataService commonDataService;
 	
-	@Value("${upload.path}")
+	@Value("${file.main.path}")
 	private String uploadFilePathRoot;
 	
 	@Value("${signature.path}")
@@ -100,7 +105,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		shareholder.append("Total: \t\t").append(Integer.parseInt(userData.get("totalStockAmount").toString()));
 
 		try {
-			String signatureFileDirectory = uploadFilePathRoot.concat(companyId).concat(File.separator);
+			String signatureFileDirectory = uploadFilePathRoot.concat(File.separator).concat(signatureFilePathRoot).concat(companyId).concat(File.separator);
 			File directory = new File(signatureFileDirectory);
 		    if (! directory.exists()){
 		        directory.mkdirs();
@@ -229,7 +234,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		    	String templateName = CommonUtils.getJaspterTemplateName(i);
 			    
 			    String fileName = templateName.substring(0, templateName.indexOf(".jrxml"));
-			    String singatureFileName = userId + "_" + fileName + ".pdf"; 
+			    String singatureFileName = userId + "_" + fileName + "_" + RandomStringUtils.randomAlphanumeric(10) + ".pdf"; 
 			    // Report one
 				InputStream employeeReportStream = resourceLoader.getResource("classpath:reports/" + templateName).getInputStream();
 				JasperReport jasperReportOne = JasperCompileManager.compileReport(employeeReportStream);
@@ -316,46 +321,50 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		document.setCompany(company.get());
 		document.setCreatedBy(userid);
 		document.setCreatedDate(new Date());
-		document.setDocumentName(filename);
-		document.setReferenceNo(referenceNo);
+		//document.setDocumentName(filename);
+		//document.setReferenceNo(referenceNo);
 		document.setUserId(userid);
-		document.setDocumentPath(signatureFilePathRoot.concat(companyId).concat(File.separator));
+		//document.setDocumentPath(signatureFilePathRoot.concat(companyId).concat(File.separator));
 		
 		DocumentTypeCode documentTypeCode = null; 
 		switch (documentTypeId) {
 		case 1 :
-			documentTypeCode = DocumentTypeCode.TYPE1;
+			documentTypeCode = DocumentTypeCode.TYPE_COM_1;
 			break;
 		case 2 :
-			documentTypeCode = DocumentTypeCode.TYPE2;
+			documentTypeCode = DocumentTypeCode.TYPE_COM_2;
 			break;
 		case 3 :
-			documentTypeCode = DocumentTypeCode.TYPE3;
+			documentTypeCode = DocumentTypeCode.TYPE_COM_3;
 			break;
 		case 4 :
-			documentTypeCode = DocumentTypeCode.TYPE4;
+			documentTypeCode = DocumentTypeCode.TYPE_COM_4;
 			break;
 		case 5 :
-			documentTypeCode = DocumentTypeCode.TYPE5;
+			documentTypeCode = DocumentTypeCode.TYPE_COM_5;
 			break;
 		case 6 :
-			documentTypeCode = DocumentTypeCode.TYPE6;
+			documentTypeCode = DocumentTypeCode.TYPE_COM_6;
 			break;
 		case 7 :
-			documentTypeCode = DocumentTypeCode.TYPE7;
+			documentTypeCode = DocumentTypeCode.TYPE_COM_7;
 			break;
 		case 8 :
-			documentTypeCode = DocumentTypeCode.TYPE8;
+			documentTypeCode = DocumentTypeCode.TYPE_COM_8;
 			break;
 		}
 		DocumentType documentType = documentTypeRepository.findByDocumentTypeCode(documentTypeCode.name());
 		document.setDocumentType(documentType);
-		
-		Document existedDocument = documentRepository.findByDocumentTypeAndUserIdAndCompany(documentType.getDocumentTypeCode(),userid, company.get().getId());
-		if (existedDocument != null) {
-			documentRepository.delete(existedDocument);
-		}
 		documentRepository.save(document);
+		
+		DocumentHistory documentHistory = new DocumentHistory();
+		documentHistory.setReferenceNo(referenceNo);
+		documentHistory.setDocumentPath(signatureFilePathRoot.concat(companyId).concat(File.separator));
+		documentHistory.setDocumentName(filename);
+		documentHistory.setCreatedBy(userid);
+		documentHistory.setCreatedDate(new Date());
+		documentHistory.setDocument(document);
+		documentHistoryRepository.save(documentHistory);
 	}
 	public byte[] exportReport(String reportFormat, String userId, int id, String companyId) {
 		return generateJasperPDF(userId, id, companyId);

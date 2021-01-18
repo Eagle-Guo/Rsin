@@ -1,8 +1,14 @@
 package sg.com.rsin.service;
 
-import sg.com.rsin.entity.Company;
-import sg.com.rsin.entity.CompanyStatusTime;
+import java.util.List;
+import java.util.Map;
+
+import sg.com.rsin.entity.DocumentHistory;
 
 public interface AdminManageCompanyService {
-	public Company getCompany (String userEmail, String companyId);
+	public List<String> getShareholders(Long companyId);
+	
+	public List<String> getDirectors(Long companyId);
+
+	public Map<String, List<DocumentHistory>> getDocumentList(Long companyId);
 }

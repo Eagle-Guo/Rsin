@@ -7,8 +7,12 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +39,7 @@ import sg.com.rsin.entity.Industry;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmailService;
 import sg.com.rsin.service.IndustryService;
+import sg.com.rsin.service.NewCompanyService;
 import sg.com.rsin.service.UploadFileService;
 
 @RestController
@@ -44,7 +49,7 @@ public class APIController {
 	private final Logger logger = LoggerFactory.getLogger(APIController.class);
 
 	//Save the uploaded file to this folder
-	@Value("${upload.path}")
+	@Value("${file.main.path}")
 	private String uploadFilePathRoot;
     
 	@Autowired
@@ -55,6 +60,9 @@ public class APIController {
 	UploadFileService uploadFileService;
 	@Autowired
 	CommonDataService commonDataService;
+	
+	@Autowired
+	NewCompanyService newCompanyService;
 	
     @GetMapping("/employees")
     public String  all() {
@@ -169,4 +177,42 @@ public class APIController {
     	return commonDataService.getAllPendingCompany();
     }
     
+    @PostMapping(path="/company/manage/update")
+    public ResponseEntity<?> updateCompanyDetail(HttpServletRequest request) {
+    	String id = request.getParameter("hide_id");
+
+    	Company company = newCompanyService.findCompany(Long.parseLong(id));
+    	if (company == null) {
+    		return new ResponseEntity<String>("Company not existed", new HttpHeaders(), HttpStatus.NOT_FOUND);
+    	}
+
+    	company.setUen(request.getParameter("txt_uen"));
+    	company.setName(request.getParameter("txt_name"));
+    	company.setType(request.getParameter("txt_type"));
+    	company.setActivityOne(request.getParameter("txt_activity1"));
+    	company.setActivityTwo(request.getParameter("txt_activity2"));
+    	company.setNominatedDirector(request.getParameter("txt_nominated"));
+    	company.setSecretary(request.getParameter("txt_secretary"));
+    	
+    	company.setTotalStockCapital(company.getTotalStockCapital());
+    	company.setActualStockCapital(company.getActualStockCapital());
+    	try {
+    		company.setTotalStockCapital(Float.parseFloat(request.getParameter("txt_totalStock")));
+        	company.setActualStockCapital(Float.parseFloat(request.getParameter("txt_actualStock")));
+    	} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+    	
+    	company.setRegistrationDate(company.getRegistrationDate());
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MMM-dd", Locale.ENGLISH);
+			Date registrationDate = formatter.parse(request.getParameter("txt_registrationDate"));
+			company.setRegistrationDate(registrationDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+    	
+    	newCompanyService.saveCompany(company);
+    	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
+    }
 }

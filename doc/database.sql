@@ -57,7 +57,9 @@ CREATE TABLE `company` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   `backup_name` varchar(255),
-  `UEM` varchar(255),
+  `uen` varchar(255),
+  `nominated_director` varchar(255),
+  `secretary` varchar(255),
   `type` varchar(100),
   `total_stock_capital` float,
   `actual_stock_capital` float,
@@ -66,7 +68,8 @@ CREATE TABLE `company` (
   `address` varchar(255),
   `status` varchar(10) NOT NULL,
   `total_shareholder` int not null default 0,
-  `shareholder_comfirm` int not null default 0,  
+  `shareholder_comfirm` int not null default 0,
+  `registration_date` DATETIME,
   `created_date` DATETIME,
   PRIMARY KEY (`id`)  
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
@@ -156,25 +159,35 @@ CREATE TABLE `industry` (
 CREATE TABLE `document_type` (
   `document_type_code` varchar(11) NOT NULL,
   `document_type_desc` varchar(255) NOT NULL,
+  `document_type_desc_cn` varchar(255),
   `created_date` DATETIME,
   PRIMARY KEY (`document_type_code`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE1','First Director Meeting Resolution', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE2','Secretary Agreement', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE3','ANNEX B - Notice for Controllers', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE4','Application of Shares', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE5','Client Acceptance Form', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE6','Form 45 / 201', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE7','Share Certificate', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE8','Nominee+Dir+Authrn_Final', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_1','First Director Meeting Resolution', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_2','Secretary Agreement', '秘书协议', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_3','ANNEX B - Notice for Controllers', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_4','Application of Shares', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_5','Client Acceptance Form', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_6','Form 45 / 201', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_7','Share Certificate', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_8','Nominee+Dir+Authrn_Final', '', sysdate());
 
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE11','IC Front', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE12','IC Back', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE13','Passport', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE14','Chinese IC', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE15','Resident Proof', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, created_date) value ('TYPE16','Selfie With Passport', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_9','Constitution of Company', '公司章程', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_10','Attached AML/CFT Report', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_11','Certificate of Incorporation', '公司注册证书', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_12','Risk Assessment', '风险评估', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_13','Risk Assessment Checklist', '风险评估清单', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_14','Company info', '公司信息', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_15','Register of Charges', '收费登记册', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_16','Register of Secretary', '秘书名册', sysdate());
+	
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_1','IC Front', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_2','IC Back', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_3','Passport', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_4','Chinese IC', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_5','Resident Proof', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_6','Selfie With Passport', '', sysdate());
     
 CREATE TABLE `document` (
   `id` int(11) NOT NULL auto_increment,
@@ -189,6 +202,18 @@ CREATE TABLE `document` (
   PRIMARY KEY (`id`),
   CONSTRAINT `document_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`),
   CONSTRAINT `document_type_fk` FOREIGN KEY (`document_type_code`) REFERENCES `document_type` (`document_type_code`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE `document_history` (
+  `id` int(11) NOT NULL auto_increment,
+  `document_path` varchar(255) NOT NULL,
+  `document_name` varchar(255),
+  `reference_no` varchar(100),
+  `created_by` varchar(255) NOT NULL,
+  `created_date` DATETIME,
+  `document_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `document_history_fk` FOREIGN KEY (`document_id`) REFERENCES `document` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE `signature_log` (

@@ -46,6 +46,15 @@ public class CommonUtils {
 	        case 6: filename = "Form_45_201.pdf"; break;
 	        case 7: filename = "Share_Certificate.pdf"; break;
 	        case 8: filename = "Nominee_Dir_Authrn_Final.pdf"; break;
+	        case 9: filename = "Constitution_of_Company.pdf"; break;
+	        case 10: filename = "Attached_AML/CFT_Report.pdf"; break;
+	        case 11: filename = "Certificate_of_Incorporation.pdf"; break;
+	        case 12: filename = "Risk_Assessment.pdf"; break;
+	        case 13: filename = "Risk_Assessment_Checklist.pdf"; break;
+	        case 14: filename = "Company_info.pdf"; break;
+	        case 15: filename = "Register_of_Charges.pdf"; break;
+	        case 16: filename = "Register_of_Secretary.pdf"; break;
+	        
 	        default:  filename = "First_Director_Meeting_Resolution.pdf";
 	    }
 		return filename;

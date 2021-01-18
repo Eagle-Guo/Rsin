@@ -174,7 +174,12 @@ public class APIController {
     
     @GetMapping(path="/allPendingCompanies", produces=MediaType.APPLICATION_JSON_VALUE)
     public Set<Company> allPendingCompanies() {
-    	return commonDataService.getAllPendingCompany();
+    	return commonDataService.getAllPendingCompanies();
+    }
+    
+    @GetMapping(path="/allCompanies", produces=MediaType.APPLICATION_JSON_VALUE)
+    public List<Company> allCompanies() {
+    	return commonDataService.getAllCompanies();
     }
     
     @PostMapping(path="/company/manage/update")

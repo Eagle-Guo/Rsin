@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -52,7 +53,7 @@ public class Company {
     @Column(name="created_date")
 	private Date createdDate;
     
-    @OneToOne(mappedBy = "company")
+    @OneToOne(mappedBy = "company", fetch = FetchType.LAZY)
     private CompanyService serviceList;
     
     @OneToMany(cascade = {CascadeType.ALL})

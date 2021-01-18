@@ -47,7 +47,7 @@ public class CommonUtils {
 	        case 7: filename = "Share_Certificate.pdf"; break;
 	        case 8: filename = "Nominee_Dir_Authrn_Final.pdf"; break;
 	        case 9: filename = "Constitution_of_Company.pdf"; break;
-	        case 10: filename = "Attached_AML/CFT_Report.pdf"; break;
+	        case 10: filename = "Attached_AML_CFT_Report.pdf"; break;
 	        case 11: filename = "Certificate_of_Incorporation.pdf"; break;
 	        case 12: filename = "Risk_Assessment.pdf"; break;
 	        case 13: filename = "Risk_Assessment_Checklist.pdf"; break;

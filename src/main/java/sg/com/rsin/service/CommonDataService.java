@@ -1,5 +1,6 @@
 package sg.com.rsin.service;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -12,5 +13,7 @@ public interface CommonDataService {
 	
 	public String getUserId (String userId, String companyShareholderInfoId);
 	
-	public Set<Company> getAllPendingCompany();
+	public Set<Company> getAllPendingCompanies();
+	
+	public List<Company> getAllCompanies();
 }

@@ -24,162 +24,175 @@
 	        <div class="section-header">
 	           <h1>业务信息修改</h1>
 	        </div>  
-      <div class="">
-        <section class="section">
-          <div class="section-body">
-            <div class="row mt-4">
-              <div class="col-12">
-                <div class="card">
-                  <div class="card-header">
-                    <h4>待办事项清单</h4>
-                  </div>
-                  <div class="card-body admin_editRecord">
-
-                    <div class="clearfix mb-3"></div>
-
-					<div class="table-responsive">
-						<table id="adminEditRecord" class="table table-striped display" style="width:100%" >
-					        <thead>
-					            <tr>
+		      <div class="">
+		        <section class="section">
+		          <div class="section-body">
+		            <div class="row mt-4">
+		              <div class="col-12">
+		                <div class="card">
+		                  <div class="card-header">
+		                    <h4>待办事项清单</h4>
+		                  </div>
+		                  <div class="card-body admin_editRecord">
+		
+		                    <div class="clearfix mb-3"></div>
+		
+							<div class="table-responsive">
+								<table id="adminEditRecord" class="table table-striped display" style="width:100%" >
+							        <thead>
+							            <tr>
+				                          <th>UEN</th>
+				                          <th>公司名称</th>                         
+				                          <th>注册日期</th>
+				                          <th>年审时间</th>
+				                          <th>财务年度时间</th>
+				                          <th>信息修改</th>                                                                                                    
+				                          <th>备注</th>  																			                          
+							            </tr>
+							        </thead>
+							        <tfoot>
+								        <tr>
+								           <th>UEN</th>
+				                          <th>公司名称</th>                         
+				                          <th>注册日期</th>
+				                          <th>年审时间</th>
+				                          <th>财务年度时间</th>
+				                          <th>信息修改</th>                                                                                                    
+				                          <th>备注</th>  	
+								        </tr>
+								    </tfoot>
+							    </table>
+							</div>
+		
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+		        </section>
+		      </div> 	        
+			        
+		   
+		   
+		     <!-- 
+		     <div class="">
+		        <section class="section admin_editRecord">
+		          <div class="section-body">
+		            <div class="row mt-4">
+		              <div class="col-12">
+		                <div class="card search">
+		                  <div class="card-header">
+		                    <div class="section-title" style="padding-right:3%;">条件筛选</div>
+		                    <div class="form-group" style="width:60%;">
+		                      <div class="input-group">
+		                        <select class="custom-select" id="inputGroupSelect05">
+		                          <option selected>全部</option>
+		                          <option value="1">公司名称</option>
+		                          <option value="2">注册日期</option>
+		                          <option value="3">年审时间</option>
+		                          <option value="4">财务年度时间</option>
+		                          <option value="5">关键词</option>                                                   
+		                        </select>
+		                        <input type="text" class="form-control">
+		                        <div class="input-group-append">
+		                          <button class="btn btn-primary" type="button">搜索</button>
+		                        </div>
+		                      </div>
+		                    </div>
+		                  </div>
+		                  <div class="card-body">
+		
+		                    <div class="clearfix mb-3"></div>
+		
+		                    <div class="table-responsive">
+		                      <table class="table table-striped">
+		                        <tr>
 		                          <th>UEN</th>
 		                          <th>公司名称</th>                         
 		                          <th>注册日期</th>
 		                          <th>年审时间</th>
 		                          <th>财务年度时间</th>
-		                          <th>信息修改</th>                                                                                                    
+		                          <th>公司信息修改</th>                                                                                                    
+		                          <th>时间表信息修改</th>                                                                          
 		                          <th>备注</th>  																			                          
-					            </tr>
-					        </thead>
-					    </table>
-					</div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div> 	        
-	        
-   
-   
-     <div class="">
-        <section class="section admin_editRecord">
-          <div class="section-body">
-            <div class="row mt-4">
-              <div class="col-12">
-                <div class="card search">
-                  <div class="card-header">
-                    <div class="section-title" style="padding-right:3%;">条件筛选</div>
-                    <div class="form-group" style="width:60%;">
-                      <div class="input-group">
-                        <select class="custom-select" id="inputGroupSelect05">
-                          <option selected>全部</option>
-                          <option value="1">公司名称</option>
-                          <option value="2">注册日期</option>
-                          <option value="3">年审时间</option>
-                          <option value="4">财务年度时间</option>
-                          <option value="5">关键词</option>                                                   
-                        </select>
-                        <input type="text" class="form-control">
-                        <div class="input-group-append">
-                          <button class="btn btn-primary" type="button">搜索</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-
-                    <div class="clearfix mb-3"></div>
-
-                    <div class="table-responsive">
-                      <table class="table table-striped">
-                        <tr>
-                          <th>UEN</th>
-                          <th>公司名称</th>                         
-                          <th>注册日期</th>
-                          <th>年审时间</th>
-                          <th>财务年度时间</th>
-                          <th>公司信息修改</th>                                                                                                    
-                          <th>时间表信息修改</th>                                                                          
-                          <th>备注</th>  																			                          
-                        </tr>
-                        <tr>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminManageCompany" target="_blank">公司信息修改</a></div></th>                          
-                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
-                          <th></th> 																			                          
-                        </tr>                        
-                        <tr>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminManageCompany" target="_blank">公司信息修改</a></div></th>                          
-                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
-                          <th></th> 																			                          
-                        </tr>  
-                        <tr>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminManageCompany" target="_blank">公司信息修改</a></div></th>                          
-                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
-                          <th></th> 																			                          
-                        </tr>  
-                        <tr>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="/adminManageCompany" target="_blank">公司信息修改</a></div></th>                          
-                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
-                          <th></th> 																			                          
-                        </tr>                                                  
-                      </table>
-                    </div>
-                    <div class="float-right">
-                      <nav>
-                        <ul class="pagination">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                              <span aria-hidden="true">&laquo;</span>
-                              <span class="sr-only">Previous</span>
-                            </a>
-                          </li>
-                          <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">&raquo;</span>
-                              <span class="sr-only">Next</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </nav>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>      
+		                        </tr>
+		                        <tr>
+		                          <th>data</th>
+		                          <th>data</th>
+		                          <th>data</th>
+		                          <th>data</th>
+		                          <th>data</th>                          
+		                          <th> <div class="badge badge-danger"><a href="/adminManageCompany" target="_blank">公司信息修改</a></div></th>                          
+		                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
+		                          <th></th> 																			                          
+		                        </tr>                        
+		                        <tr>
+		                          <th>data</th>
+		                          <th>data</th>
+		                          <th>data</th>
+		                          <th>data</th>
+		                          <th>data</th>                          
+		                          <th> <div class="badge badge-danger"><a href="/adminManageCompany" target="_blank">公司信息修改</a></div></th>                          
+		                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
+		                          <th></th> 																			                          
+		                        </tr>  
+		                        <tr>
+		                          <th>data</th>
+		                          <th>data</th>
+		                          <th>data</th>
+		                          <th>data</th>
+		                          <th>data</th>                          
+		                          <th> <div class="badge badge-danger"><a href="/adminManageCompany" target="_blank">公司信息修改</a></div></th>                          
+		                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
+		                          <th></th> 																			                          
+		                        </tr>  
+		                        <tr>
+		                          <th>data</th>
+		                          <th>data</th>
+		                          <th>data</th>
+		                          <th>data</th>
+		                          <th>data</th>                          
+		                          <th> <div class="badge badge-danger"><a href="/adminManageCompany" target="_blank">公司信息修改</a></div></th>                          
+		                          <th><div class="badge badge-danger"><a href="/adminTimeLine" target="_blank">时间表信息修改</a></div></th>
+		                          <th></th> 																			                          
+		                        </tr>                                                  
+		                      </table>
+		                    </div>
+		                    <div class="float-right">
+		                      <nav>
+		                        <ul class="pagination">
+		                          <li class="page-item disabled">
+		                            <a class="page-link" href="#" aria-label="Previous">
+		                              <span aria-hidden="true">&laquo;</span>
+		                              <span class="sr-only">Previous</span>
+		                            </a>
+		                          </li>
+		                          <li class="page-item active">
+		                            <a class="page-link" href="#">1</a>
+		                          </li>
+		                          <li class="page-item">
+		                            <a class="page-link" href="#">2</a>
+		                          </li>
+		                          <li class="page-item">
+		                            <a class="page-link" href="#">3</a>
+		                          </li>
+		                          <li class="page-item">
+		                            <a class="page-link" href="#" aria-label="Next">
+		                              <span aria-hidden="true">&raquo;</span>
+		                              <span class="sr-only">Next</span>
+		                            </a>
+		                          </li>
+		                        </ul>
+		                      </nav>
+		                    </div>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+		        </section>
+		      </div>      
+         	-->
         </section>
       </div>
       

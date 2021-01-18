@@ -141,7 +141,7 @@ public class CommonDataServiceImpl implements CommonDataService {
 		return companyShareholderInfoRepository.findById(Long.parseLong(companyShareholderInfoId)).getEmail();
 	}
 	
-	public Set<Company> getAllPendingCompany() {
+	public Set<Company> getAllPendingCompanies() {
 		List<CompanyStatusTime> companyStatusTimes = companyStatusTimeRepository.findByPaymentNotNullOrSignatureNotNullOrUploadfileStatusNotNull();
 		if (companyStatusTimes == null) {
 			return null;
@@ -164,5 +164,13 @@ public class CommonDataServiceImpl implements CommonDataService {
 		});
 		
 		return allCompanies;
+	}
+	
+	public List<Company> getAllCompanies() {
+		List<Company> companies = companyRepository.findAll();
+		if (companies == null) {
+			return null;
+		}
+		return companies;
 	}
 }

@@ -23,8 +23,12 @@ public class Company {
 	private String name;
 	@Column(name="backup_name")
 	private String backupName;
-	@Column(name="UEN")
+	@Column(name="uen")
 	private String uen;
+	@Column(name="nominated_director")
+	private String nominatedDirector;
+	@Column(name="secretary")
+	private String secretary;
 	@Column(name="type")
 	private String type;
 	@Column(name="total_stock_capital")
@@ -43,6 +47,8 @@ public class Company {
 	private int totalShareholder;
     @Column(name="shareholder_comfirm")
 	private int shareholderComfirm;
+    @Column(name="registration_date")
+	private Date registrationDate;
     @Column(name="created_date")
 	private Date createdDate;
     
@@ -54,15 +60,17 @@ public class Company {
     
     public Company() {}
     
-	public Company(Long id, String name, String backupName, String uen,	String type, float totalStockCapital,
-			float actualStockCapital, String activityOne, String activityTwo, String address, String step,
-			int totalShareholder, int shareholderComfirm, Date createdDate, CompanyService serviceList,
-			List<CompanyShareholderInfo> shareholderInfoList) {
+	public Company(Long id, String name, String backupName, String uen,	String nominatedDirector, String secretary, 
+			String type, float totalStockCapital, float actualStockCapital, String activityOne, String activityTwo, 
+			String address, String step, int totalShareholder, int shareholderComfirm, Date registrationDate, Date createdDate, 
+			CompanyService serviceList, List<CompanyShareholderInfo> shareholderInfoList) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.backupName = backupName;
 		this.uen = uen;
+		this.nominatedDirector = nominatedDirector;
+		this.secretary = secretary;
 		this.type = type;
 		this.totalStockCapital = totalStockCapital;
 		this.actualStockCapital = actualStockCapital;
@@ -72,11 +80,11 @@ public class Company {
 		this.step = step;
 		this.totalShareholder = totalShareholder;
 		this.shareholderComfirm = shareholderComfirm;
+		this.registrationDate = registrationDate;
 		this.createdDate = createdDate;
 		this.serviceList = serviceList;
 		this.shareholderInfoList = shareholderInfoList;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -101,6 +109,18 @@ public class Company {
 	}
 	public void setUen(String uen) {
 		this.uen = uen;
+	}
+	public String getNominatedDirector() {
+		return nominatedDirector;
+	}
+	public void setNominatedDirector(String nominatedDirector) {
+		this.nominatedDirector = nominatedDirector;
+	}
+	public String getSecretary() {
+		return secretary;
+	}
+	public void setSecretary(String secretary) {
+		this.secretary = secretary;
 	}
 	public String getType() {
 		return type;
@@ -155,6 +175,12 @@ public class Company {
 	}
 	public void setShareholderComfirm(int shareholderComfirm) {
 		this.shareholderComfirm = shareholderComfirm;
+	}
+	public Date getRegistrationDate() {
+		return registrationDate;
+	}
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
 	}
 	public Date getCreatedDate() {
 		return createdDate;

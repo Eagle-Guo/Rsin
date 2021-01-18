@@ -15,6 +15,8 @@ public class DocumentType {
 	private String documentTypeCode;
 	@Column(name="document_type_desc")
 	private String documentTypeDesc;
+	@Column(name="document_type_desc_cn")
+	private String documentTypeDescCn;
     @Column(name="created_date")
 	private Date createdDate;
     
@@ -34,6 +36,14 @@ public class DocumentType {
 
 	public void setDocumentTypeDesc(String documentTypeDesc) {
 		this.documentTypeDesc = documentTypeDesc;
+	}
+
+	public String getDocumentTypeDescCn() {
+		return documentTypeDescCn;
+	}
+
+	public void setDocumentTypeDescCn(String documentTypeDescCn) {
+		this.documentTypeDescCn = documentTypeDescCn;
 	}
 
 	public Date getCreatedDate() {

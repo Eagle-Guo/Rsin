@@ -3,7 +3,6 @@ package sg.com.rsin.controllers;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,12 +23,14 @@ import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.CompanyStatusTime;
+import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.entity.Employee;
 import sg.com.rsin.entity.ErrorObject;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.ResponseCode;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmployeeService;
+import sg.com.rsin.service.NewCompanyService;
 import sg.com.rsin.service.AdminManageCompanyService;
 import sg.com.rsin.service.UserRegistrationService;
 import sg.com.rsin.vo.OnlineSignatureVO;
@@ -51,6 +52,8 @@ public class ViewController {
 	
 	@Autowired
 	CompanyRepository companyRepository;
+	@Autowired
+	NewCompanyService newCompanyService;
 
 	@Autowired
 	CompanyStatusTimeRepository companyStatusTimeRepository;
@@ -191,6 +194,33 @@ public class ViewController {
 		if (company.isPresent()) {
 			model.addObject("company", company.get());
 		}
+
+		//Get the director
+		List<String> directorsName = adminManageCompanyService.getDirectors(company.get().getId());
+		model.addObject("directorsName", directorsName.stream().collect(Collectors.joining(", ")));
+		//Get the Shareholder
+		List<String> shareholdersName = adminManageCompanyService.getShareholders(company.get().getId());
+		model.addObject("shareholdersName", shareholdersName.stream().collect(Collectors.joining(", ")));
+
+		Map<String, List<String>> signedFile = newCompanyService.getShareholderSignatureStatus(companyId);
+		String nameInFirstDirectorMeetingResolution = newCompanyService.listSignedUserName(signedFile, "TYPE_COM_1");
+		model.addObject("nameInFirstDirectorMeetingResolution", nameInFirstDirectorMeetingResolution);
+		String nameInRiskAssessment = newCompanyService.listSignedUserName(signedFile, "TYPE_COM_12");
+		model.addObject("nameInRiskAssessment", nameInRiskAssessment);
+		String nameInSecretaryAgreement = newCompanyService.listSignedUserName(signedFile, "TYPE_COM_2"); //"签名人1(待签名)、签名人2(已签名)、签名人3(待签名)";
+		model.addObject("nameInSecretaryAgreement", nameInSecretaryAgreement);
+		
+		Map<String, List<DocumentHistory>> docMap = adminManageCompanyService.getDocumentList(companyId);
+		model.addObject("documentType1", docMap.get("TYPE_COM_9"));
+		model.addObject("documentType2", docMap.get("TYPE_COM_10"));
+		model.addObject("documentType3", docMap.get("TYPE_COM_11"));
+		model.addObject("documentType4", docMap.get("TYPE_COM_1"));
+		model.addObject("documentType5", docMap.get("TYPE_COM_12"));
+		model.addObject("documentType6", docMap.get("TYPE_COM_13"));
+		model.addObject("documentType7", docMap.get("TYPE_COM_2"));
+		model.addObject("documentType8", docMap.get("TYPE_COM_14"));
+		model.addObject("documentType9", docMap.get("TYPE_COM_15"));
+		model.addObject("documentType10", docMap.get("TYPE_COM_16"));
 		
 		return model;
 	}

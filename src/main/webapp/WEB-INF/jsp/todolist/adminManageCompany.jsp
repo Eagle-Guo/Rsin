@@ -61,146 +61,159 @@
 								                        </div>
 								                        <div class="accordion-body collapse" id="panel-body-1" data-parent="#accordion">
 										                <div class="card">
-										                  <div class="card-body">
-										                    <table class="table table-sm">
-										                      <thead>
-										                        <tr>
-										                          <th scope="col">项目</th>
-										                          <th scope="col">内容</th>						  
-										                        </tr>
-										                      </thead>
-										                      <tbody>
-										                        <tr>
-										                          <th scope="row">ID</th>
-										                          <td>${company.id }</td>
-										                        </tr>
-										                        <tr>
-										                          <th scope="row">UEN(注册号)</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput010"  value="${company.uen }"></td>
-										                        </tr>
-										                        <tr>
-										                          <th scope="row">公司名称</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput020" value="${company.name }"></td>
-										                        </tr>
-										                        <tr>
-										                          <th scope="row">公司类型</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput030" value="${company.type }"></td>
-										                        </tr>
-										                        <tr>
-										                          <th scope="row">商业 活动1</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput040" value="${company.activityOne }"></td>
-										                        </tr>										                        
-										                        <tr>
-										                          <th scope="row">商业 活动2</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput050" value="${company.activityTwo }"></td>
-										                        </tr>										                        
-										                        <tr>
-										                          <th scope="row">挂名董事</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput060" value="挂名董事1,挂名董事2"></td>
-										                        </tr>																
-										                        <tr>
-										                          <th scope="row">董事</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput070" value="董事1,董事2"></td>
-										                        </tr>																	
-										                        <tr>
-										                          <th scope="row">股东</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput080" value="股东1,股东2"></td>
-										                        </tr>																	
-										                        <tr>
-										                          <th scope="row">秘书</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput090" value="秘书1"></td>
-										                        </tr>																
-										                        <tr>
-										                          <th scope="row">注册资本</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput100" value="${company.totalStockCapital }"></td>
-										                        </tr>																	
-										                        <tr>
-										                          <th scope="row">实缴资本</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput110" value="${company.actualStockCapital }"></td>
-										                        </tr>		
-										                        <tr>
-										                          <th scope="row">注册时间</th>
-										                          <td><input type="text" class="form-control form-control-sm" id="textInput120" value="${company.createdDate }"></td>
-										                        </tr>																						                        									                        
-										                      </tbody>
-										                    </table>
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4"></div>
-														            <div class="col-12 col-md-4 col-lg-4"></div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-																	<div class="form-check">
-												                        <input class="form-check-input" type="checkbox"  id="infoCheckbox0"  onclick="confirmInfo(0)" value="${company.shareholderComfirm }">
-												                        <label class="form-check-label" for="gridCheck">
-												                       		 确认锁定
-												                        </label>
-												                    </div>	
-												                    <div class="inline">														            	
-														            	<span></span><a id="textInput000"  href="#" ></a>							                  
-																	</div>
-																	</div>																								
-															</div>											                    
-										                  </div>
+											                <form id = "companyDetailForm" name="employeeForm">
+											                  <div class="card-body">
+											                    <table class="table table-sm">
+											                      <thead>
+											                        <tr>
+											                          <th scope="col">项目</th>
+											                          <th scope="col">内容</th>						  
+											                        </tr>
+											                      </thead>
+											                      
+											                      <tbody>
+											                        <tr>
+											                          <th scope="row">ID</th>
+											                          <td>${company.id } <input type="hidden" name="hide_id"  value="${company.id }"></td>
+											                        </tr>
+											                        <tr>
+											                          <th scope="row">UEN(注册号)</th>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_uen" value="${company.uen }"></td>
+											                        </tr>
+											                        <tr>
+											                          <th scope="row">公司名称</th>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_name" value="${company.name }"></td>
+											                        </tr>
+											                        <tr>
+											                          <th scope="row">公司类型</th>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_type"  value="${company.type }"></td>
+											                        </tr>
+											                        <tr>
+											                          <th scope="row">商业 活动1</th>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_activity1" value="${company.activityOne }"></td>
+											                        </tr>										                        
+											                        <tr>
+											                          <th scope="row">商业 活动2</th>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_activity2" value="${company.activityTwo }"></td>
+											                        </tr>										                        
+											                        <tr>
+											                          <th scope="row">挂名董事</th>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_nominated" value="${company.nominatedDirector }"></td>
+											                        </tr>																
+											                        <tr>
+											                          <th scope="row">董事</th>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_director" value="${directorsName }" disabled></td>
+											                        </tr>																	
+											                        <tr>
+											                          <th scope="row">股东</th>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_shareholder" value="${shareholdersName }" disabled></td>
+											                        </tr>																	
+											                        <tr>
+											                          <th scope="row">秘书</th>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_secretary" value="${company.secretary }"></td>
+											                        </tr>																
+											                        <tr>
+											                          <th scope="row">注册资本</th>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_totalStock" value="${company.totalStockCapital }"></td>
+											                        </tr>																	
+											                        <tr>
+											                          <th scope="row">实缴资本</th>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_actualStock" value="${company.actualStockCapital }"></td>
+											                        </tr>		
+											                        <tr>
+											                          <th scope="row">注册时间</th>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_registrationDate" value="${company.registrationDate }"></td>
+											                        </tr>																						                        									                        
+											                      </tbody>
+											                     
+											                    </table>
+																<div class="row">
+															            <div class="col-12 col-md-4 col-lg-4"></div>
+															            <div class="col-12 col-md-4 col-lg-4"></div>		
+															            <div class="col-12 col-md-4 col-lg-4">	
+																		<div class="form-check">
+													                        <input class="form-check-input" type="checkbox"  id="infoCheckbox" onclick="confirmCompanyInfo()">
+													                        <label class="form-check-label" for="gridCheck">确认锁定</label>
+													                    </div>	
+													                    <div class="inline">														            	
+															            	<span></span><a id="textInput000" href="#"></a>							                  
+																		</div>
+																		</div>																								
+																</div>											                    
+											                  </div>
+											                </form>
 										                </div>
 										                <div class="card">
 										                  <div class="card-body">
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>Constitution of Company（公司章程）</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">			            					                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
+													            <div class="col-12 col-md-4 col-lg-4">	
+													           	   <b>Constitution of Company（公司章程）</b>			                  
+																</div>
+													            <div class="col-12 col-md-4 col-lg-4"></div>		
+													            <div class="col-12 col-md-4 col-lg-4">	
 																	<div class="form-check">
-												                        <input class="form-check-input" type="checkbox"  id="checkbox1"  onclick="confirm(1)">
-												                        <label class="form-check-label" for="gridCheck">
-												                       		 确认锁定
-												                        </label>
+												                        <input class="form-check-input" type="checkbox"  id="companyfilelock9"  onclick="lock(9)">
+												                        <label class="form-check-label" for="gridCheck">确认锁定 </label>
 												                    </div>	
 												                    <div class="inline">														            	
-														            	<span> | </span><a id=""  href="#" >下载</a>	
-														            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-														            	<span> | </span><a id="menuBtn11"  class="btnMenu view" href="#" >上传</a>		
-														            	<span> | </span><a id="menuBtn21"  class="btnMenu view" href="#" >删除</a>						                  
+														            	<span> | </span><input type="file" id="file_com_upload9" style="display:none" onchange="companyuploadfile(${company.id }, 9)"/>
+														            					<a id="upload_company_file9" class="btnMenu view" style="text-decoration: underline;" onclick="companyshowfilediag(9)">上传</a>		
 																	</div>
-																	</div>																								
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#AttachedReport" style="cursor: pointer">	
-														           	    <b>Attached AML/CFT Report</b><span style="color: #6777ef;">(最新版)</span>                 
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">				                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox"  id="checkbox2"  onclick="confirm(2)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn12"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn22"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>								
-															</div>								
-															<div id="AttachedReport" class="collapse in">							
-																<div class="row">
-																		<div class="col-12 col-md-1 col-lg-1"></div>		
-															            <div class="col-12 col-md-7 col-lg-7">	
-															           	 <span>修改记录：</span> 28.02.2019 07:44:11		                  
-																		</div>
-														            <div class="col-12 col-md-4 col-lg-4">														            	
-														            	<div class="inline">														            	
-															            	<a   href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>			
-															            	<span> | </span><a id="menuBtn32"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>							                  
-																	</div>		
-																	<div class="col-12 col-md-1 col-lg-1"></div>					
 																</div>
-															</div>		
+															</div>
+																<c:forEach items="${documentType1}" var="doc1" varStatus="loop">
+																	<div id="AttachedReport" class="collapse in">							
+																		<div class="row">
+																				<div class="col-12 col-md-1 col-lg-1"></div>		
+																	            <div class="col-12 col-md-7 col-lg-7">	
+																	           	 	<span>修改记录：</span> ${doc1.createdDate}		                  
+																				</div>
+																            <div class="col-12 col-md-4 col-lg-4">														            	
+																            	<div class="inline">														            	
+																	            	<a id="download_company_file${doc1.id}" onclick="companydownloadfile(${doc1.referenceNo})" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc1.id}" class="btnMenu view" onclick="companypreviewfile(${doc1.id})">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc1.id}" class="btnMenu view" onclick="companydeletefile(${doc1.id})">删除</a>						                  
+																				</div>							                  
+																			</div>		
+																			<div class="col-12 col-md-1 col-lg-1"></div>					
+																		</div>
+																	</div>
+																</c:forEach>	
+															<div class="row">
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#AttachedReport" style="cursor: pointer">	
+													           	    <b>Attached AML/CFT Report</b>
+																</div>
+													            <div class="col-12 col-md-4 col-lg-4"></div>		
+													            <div class="col-12 col-md-4 col-lg-4">
+														            <div class="form-check">
+												                        <input class="form-check-input" type="checkbox"  id="companyfilelock10"  onclick="lock(10)">
+												                        <label class="form-check-label" for="gridCheck"> 确认锁定 </label>
+												                    </div>															            	
+												                    <div class="inline">
+														            	<span> | </span><input type="file" id="file_com_upload10" style="display:none" onchange="companyuploadfile(${company.id }, 10)"/>
+														            					<a id="upload_company_file10" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(10)">上传</a>		
+																	</div>
+																</div>								
+															</div>
+																<c:forEach items="${documentType2}" var="doc2" varStatus="loop">
+																	<div id="AttachedReport" class="collapse in">							
+																		<div class="row">
+																				<div class="col-12 col-md-1 col-lg-1"></div>		
+																	            <div class="col-12 col-md-7 col-lg-7">	
+																	           	 	<span>修改记录：</span> ${doc2.createdDate}		                  
+																				</div>
+																            <div class="col-12 col-md-4 col-lg-4">														            	
+																            	<div class="inline">														            	
+																	            	<a id="download_company_file${doc2.id}" onclick="companydownloadfile(${doc2.referenceNo})" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc2.id}" class="btnMenu view" onclick="companypreviewfile(${doc2.id})">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc2.id}" class="btnMenu view" onclick="companydeletefile(${doc2.id})">删除</a>						                  
+																				</div>							                  
+																			</div>		
+																			<div class="col-12 col-md-1 col-lg-1"></div>					
+																		</div>
+																	</div>
+																</c:forEach>
+
 															<div class="row">
 														            <div class="col-12 col-md-4 col-lg-4">	
 														           	   <b>Certificate of Incorporation（公司注册证书）</b>			                  
@@ -210,64 +223,115 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox3"  onclick="confirm(3)">
+													                        <input class="form-check-input" type="checkbox" id="companyfilelock11"  onclick="lock(11)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn13"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn23"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><input type="file" id="file_com_upload11" style="display:none" onchange="companyuploadfile(${company.id }, 11)"/>
+															            					<a id="upload_company_file11" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(11)">上传</a>
 																		</div>				                  
 																	</div>																									
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>First Director Meeting Resolution</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            		签名人员：签名人1(待签名)、签名人2(已签名)、签名人3(待签名)			                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox4"  onclick="confirm(4)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn14"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn24"  class="btnMenu view" href="#" >删除</a>						                  
+															</div>
+															<c:forEach items="${documentType3}" var="doc3" varStatus="loop">
+																	<div id="AttachedReport" class="collapse in">							
+																		<div class="row">
+																				<div class="col-12 col-md-1 col-lg-1"></div>		
+																	            <div class="col-12 col-md-7 col-lg-7">	
+																	           	 	<span>修改记录：</span> ${doc3.createdDate}		                  
+																				</div>
+																            <div class="col-12 col-md-4 col-lg-4">														            	
+																            	<div class="inline">														            	
+																	            	<a id="download_company_file${doc3.id}" onclick="companydownloadfile(${doc3.referenceNo})" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc3.id}" class="btnMenu view" onclick="companypreviewfile(${doc3.id})">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc3.id}" class="btnMenu view" onclick="companydeletefile(${doc3.id})">删除</a>						                  
+																				</div>							                  
+																			</div>		
+																			<div class="col-12 col-md-1 col-lg-1"></div>					
 																		</div>
-																	</div>																									
-															</div>		
+																	</div>
+																</c:forEach>
+																
+															<div class="row">
+													            <div class="col-12 col-md-4 col-lg-4">	
+													           	   <b>First Director Meeting Resolution</b>			                  
+																</div>
+													            <div class="col-12 col-md-4 col-lg-4">	
+													            		签名人员：${nameInFirstDirectorMeetingResolution }
+																</div>		
+													            <div class="col-12 col-md-4 col-lg-4">	
+														            <div class="form-check">
+												                        <input class="form-check-input" type="checkbox" id="companyfilelock1"  onclick="lock(1)">
+												                        <label class="form-check-label" for="gridCheck">
+												                       		 确认锁定
+												                        </label>
+												                    </div>															            	
+												                    <div class="inline">														            	
+														            	<span> | </span><input type="file" id="file_com_upload1" style="display:none" onchange="companyuploadfile(${company.id }, 1)"/>
+														            					<a id="upload_company_file1" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(1)">上传</a>
+																	</div>
+																</div>																									
+															</div>	
+															<c:forEach items="${documentType4}" var="doc4" varStatus="loop">
+																	<div id="AttachedReport" class="collapse in">							
+																		<div class="row">
+																				<div class="col-12 col-md-1 col-lg-1"></div>		
+																	            <div class="col-12 col-md-7 col-lg-7">	
+																	           	 	<span>修改记录：</span> ${doc4.createdDate}		                  
+																				</div>
+																            <div class="col-12 col-md-4 col-lg-4">														            	
+																            	<div class="inline">														            	
+																	            	<a id="download_company_file${doc4.id}" onclick="companydownloadfile(${doc4.referenceNo})" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc4.id}" class="btnMenu view" onclick="companypreviewfile(${doc4.id})">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc4.id}" class="btnMenu view" onclick="companydeletefile(${doc4.id})">删除</a>						                  
+																				</div>							                  
+																			</div>		
+																			<div class="col-12 col-md-1 col-lg-1"></div>					
+																		</div>
+																	</div>
+																</c:forEach>
+
 															<div class="row">
 														            <div class="col-12 col-md-4 col-lg-4">	
 														           	   <b>Risk Assessment（风险评估）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4">	
-														            		签名人员：签名人1(待签名)、签名人2(已签名)、签名人3(待签名)				                  
+														            		签名人员：${nameInRiskAssessment } 			                  
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox5"  onclick="confirm(5)">
+													                        <input class="form-check-input" type="checkbox" id="companyfilelock12"  onclick="lock(12)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn15"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn25"  class="btnMenu view" href="#" >删除</a>	
-																			<span> | </span><a id="menuBtn35"  class="btnMenu view" href="#" >在线签名</a>										            						                  
+															            	<span> | </span><input type="file" id="file_com_upload12" style="display:none" onchange="companyuploadfile(${company.id }, 12)"/>
+															            					<a id="upload_company_file12" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(12)">上传</a>
+																			<span> | </span><a id="sign_company_file12"  class="btnMenu view">在线签名</a>										            						                  
 																		</div>
 																	</div>																									
-															</div>	
+															</div>
+															<c:forEach items="${documentType5}" var="doc5" varStatus="loop">
+																	<div id="AttachedReport" class="collapse in">							
+																		<div class="row">
+																				<div class="col-12 col-md-1 col-lg-1"></div>		
+																	            <div class="col-12 col-md-7 col-lg-7">	
+																	           	 	<span>修改记录：</span> ${doc5.createdDate}		                  
+																				</div>
+																            <div class="col-12 col-md-4 col-lg-4">														            	
+																            	<div class="inline">														            	
+																	            	<a id="download_company_file${doc5.id}" onclick="companydownloadfile(${doc5.referenceNo})" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc5.id}" class="btnMenu view" onclick="companypreviewfile(${doc5.id})">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc5.id}" class="btnMenu view" onclick="companydeletefile(${doc5.id})">删除</a>						                  
+																				</div>							                  
+																			</div>		
+																			<div class="col-12 col-md-1 col-lg-1"></div>					
+																		</div>
+																	</div>
+																</c:forEach>
+	
 															<div class="row">
 														            <div class="col-12 col-md-4 col-lg-4">	
 														           	   <b>Risk Assessment Checklist（风险评估清单）</b>			                  
@@ -277,42 +341,76 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox6"  onclick="confirm(6)">
+													                        <input class="form-check-input" type="checkbox" id="companyfilelock13"  onclick="lock(13)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn16"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn26"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><input type="file" id="file_com_upload13" style="display:none" onchange="companyuploadfile(${company.id }, 13)"/>
+															            					<a id="upload_company_file13" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(13)">上传</a>		
 																		</div>
 																	</div>																										
-															</div>	
+															</div>
+															<c:forEach items="${documentType6}" var="doc6" varStatus="loop">
+																	<div id="AttachedReport" class="collapse in">							
+																		<div class="row">
+																				<div class="col-12 col-md-1 col-lg-1"></div>		
+																	            <div class="col-12 col-md-7 col-lg-7">	
+																	           	 	<span>修改记录：</span> ${doc6.createdDate}		                  
+																				</div>
+																            <div class="col-12 col-md-4 col-lg-4">														            	
+																            	<div class="inline">														            	
+																	            	<a id="download_company_file${doc6.id}" onclick="companydownloadfile(${doc6.referenceNo})" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc6.id}" class="btnMenu view" onclick="companypreviewfile(${doc6.id})">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc6.id}" class="btnMenu view" onclick="companydeletefile(${doc6.id})">删除</a>						                  
+																				</div>							                  
+																			</div>		
+																			<div class="col-12 col-md-1 col-lg-1"></div>					
+																		</div>
+																	</div>
+																</c:forEach>
+																
 															<div class="row">
 														            <div class="col-12 col-md-4 col-lg-4">	
 														           	   <b>Secretary Agreement（秘书协议）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4">	
-														            		签名人员：签名人1(待签名)、签名人2(已签名)、签名人3(待签名)				                  
+														            		签名人员：${nameInSecretaryAgreement }		                  
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox7"  onclick="confirm(7)">
+													                        <input class="form-check-input" type="checkbox" id="companyfilelock2"  onclick="lock(2)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn17"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn27"  class="btnMenu view" href="#" >删除</a>		
-															            	<span> | </span><a id="menuBtn37"  class="btnMenu view" href="#" >在线签名</a>					                  
+															            	<span> | </span><input type="file" id="file_com_upload2" style="display:none" onchange="companyuploadfile(${company.id }, 2)"/>
+															            					<a id="upload_company_file2" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(2)">上传</a>
+															            	<span> | </span><a id="sign_company_file2"  class="btnMenu view">在线签名</a>					                  
 																		</div>
-																	</div>																									
-															</div>	
+																	</div>
+															</div>
+															<c:forEach items="${documentType7}" var="doc7" varStatus="loop">
+																	<div id="AttachedReport" class="collapse in">							
+																		<div class="row">
+																				<div class="col-12 col-md-1 col-lg-1"></div>		
+																	            <div class="col-12 col-md-7 col-lg-7">	
+																	           	 	<span>修改记录：</span> ${doc7.createdDate}		                  
+																				</div>
+																            <div class="col-12 col-md-4 col-lg-4">														            	
+																            	<div class="inline">														            	
+																	            	<a id="download_company_file${doc7.id}" onclick="companydownloadfile(${doc7.referenceNo})" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc7.id}" class="btnMenu view" onclick="companypreviewfile(${doc7.id})">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc7.id}" class="btnMenu view" onclick="companydeletefile(${doc7.id})">删除</a>						                  
+																				</div>							                  
+																			</div>		
+																			<div class="col-12 col-md-1 col-lg-1"></div>					
+																		</div>
+																	</div>
+																</c:forEach>
+
 															<div class="row">
 														            <div class="col-12 col-md-4 col-lg-4">	
 														           	   <b>Company info（公司信息）</b>			                  
@@ -322,19 +420,36 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox8"  onclick="confirm(8)">
+													                        <input class="form-check-input" type="checkbox" id="companyfilelock14"  onclick="lock(14)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn18"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn28"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><input type="file" id="file_com_upload14" style="display:none" onchange="companyuploadfile(${company.id }, 14)"/>
+															            					<a id="upload_company_file14" class="btnMenu view" style="text-decoration: underline;" onclick="companyshowfilediag(14)">上传</a>
 																		</div>
 																	</div>																										
 															</div>	
+															<c:forEach items="${documentType8}" var="doc8" varStatus="loop">
+																	<div id="AttachedReport" class="collapse in">							
+																		<div class="row">
+																				<div class="col-12 col-md-1 col-lg-1"></div>		
+																	            <div class="col-12 col-md-7 col-lg-7">	
+																	           	 	<span>修改记录：</span> ${doc4.createdDate}		                  
+																				</div>
+																            <div class="col-12 col-md-4 col-lg-4">														            	
+																            	<div class="inline">														            	
+																	            	<a id="download_company_file${doc8.id}" onclick="companydownloadfile(${doc8.referenceNo})" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc8.id}" class="btnMenu view" onclick="companypreviewfile(${doc8.id})">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc8.id}" class="btnMenu view" onclick="companydeletefile(${doc8.id})">删除</a>						                  
+																				</div>							                  
+																			</div>		
+																			<div class="col-12 col-md-1 col-lg-1"></div>					
+																		</div>
+																	</div>
+																</c:forEach>
+															
 															<div class="row">
 														            <div class="col-12 col-md-4 col-lg-4">	
 														           	   <b>Register of Charges（收费登记册）</b>			                  
@@ -344,19 +459,36 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox9"  onclick="confirm(9)">
+													                        <input class="form-check-input" type="checkbox" id="companyfilelock15"  onclick="lock(15)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn19"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn29"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><input type="file" id="file_com_upload15" style="display:none" onchange="companyuploadfile(${company.id }, 15)"/>
+															            					<a id="upload_company_file15" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(15)">上传</a>
 																		</div>
 																	</div>																									
 															</div>	
+															<c:forEach items="${documentType9}" var="doc9" varStatus="loop">
+																	<div id="AttachedReport" class="collapse in">							
+																		<div class="row">
+																				<div class="col-12 col-md-1 col-lg-1"></div>		
+																	            <div class="col-12 col-md-7 col-lg-7">	
+																	           	 	<span>修改记录：</span> ${doc9.createdDate}		                  
+																				</div>
+																            <div class="col-12 col-md-4 col-lg-4">														            	
+																            	<div class="inline">														            	
+																	            	<a id="download_company_file${doc9.id}" onclick="companydownloadfile(${doc9.referenceNo})" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc9.id}" class="btnMenu view" onclick="companypreviewfile(${doc9.id})">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc9.id}" class="btnMenu view" onclick="companydeletefile(${doc9.id})">删除</a>						                  
+																				</div>							                  
+																			</div>		
+																			<div class="col-12 col-md-1 col-lg-1"></div>					
+																		</div>
+																	</div>
+																</c:forEach>
+
 															<div class="row">
 														            <div class="col-12 col-md-4 col-lg-4">	
 														           	   <b>Register of Secretary（秘书名册）</b>			                  
@@ -366,19 +498,35 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox10"  onclick="confirm(10)">
+													                        <input class="form-check-input" type="checkbox" id="companyfilelock16"  onclick="lock(16)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn110"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn210"  class="btnMenu view" href="#" >删除</a>						                  
+															            	<span> | </span><input type="file" id="file_com_upload16" style="display:none" onchange="companyuploadfile(${company.id }, 16)"/>
+															            					<a id="upload_company_file16" class="btnMenu view" style="text-decoration: underline;" onclick="companyshowfilediag(16)">上传</a>
 																		</div>
 																	</div>																									
-															</div>															
+															</div>
+															<c:forEach items="${documentType10}" var="doc10" varStatus="loop">
+																	<div id="AttachedReport" class="collapse in">							
+																		<div class="row">
+																				<div class="col-12 col-md-1 col-lg-1"></div>		
+																	            <div class="col-12 col-md-7 col-lg-7">	
+																	           	 	<span>修改记录：</span> ${doc10.createdDate}		                  
+																				</div>
+																            <div class="col-12 col-md-4 col-lg-4">														            	
+																            	<div class="inline">														            	
+																	            	<a id="download_company_file${doc10.id}" onclick="companydownloadfile(${doc10.referenceNo})" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc10.id}" class="btnMenu view" onclick="companypreviewfile(${doc10.id})">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc10.id}" class="btnMenu view" onclick="companydeletefile(${doc10.id})">删除</a>						                  
+																				</div>							                  
+																			</div>		
+																			<div class="col-12 col-md-1 col-lg-1"></div>					
+																		</div>
+																	</div>
+																</c:forEach>
 										                  
 										                  </div>
 										                </div>								                       
@@ -486,7 +634,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox11"  onclick="confirm(11)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox11"  onclick="lock(11)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -508,7 +656,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox12"  onclick="confirm(12)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox12"  onclick="lock(12)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -530,7 +678,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox13"  onclick="confirm(13)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox13"  onclick="lock(13)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -552,7 +700,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox14"  onclick="confirm(14)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox14"  onclick="lock(14)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -574,7 +722,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox15"  onclick="confirm(15)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox15"  onclick="lock(15)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -596,7 +744,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox16"  onclick="confirm(16)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox16"  onclick="lock(16)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -618,7 +766,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox17"  onclick="confirm(17)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox17"  onclick="lock(17)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -640,7 +788,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox18"  onclick="confirm(18)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox18"  onclick="lock(18)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -662,7 +810,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox19"  onclick="confirm(19)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox19"  onclick="lock(19)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -684,7 +832,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox20"  onclick="confirm(20)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox20"  onclick="lock(20)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -706,7 +854,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox21"  onclick="confirm(21)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox21"  onclick="lock(21)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -728,7 +876,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox22"  onclick="confirm(22)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox22"  onclick="lock(22)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -750,7 +898,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox23"  onclick="confirm(23)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox23"  onclick="lock(23)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -772,7 +920,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox24"  onclick="confirm(24)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox24"  onclick="lock(24)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -794,7 +942,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox25"  onclick="confirm(25)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox25"  onclick="lock(25)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -816,7 +964,7 @@
 																	</div>		
 														            <div class="col-12 col-md-4 col-lg-4">
 														            	 <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox26"  onclick="confirm(26)">
+													                        <input class="form-check-input" type="checkbox" id="checkbox26"  onclick="lock(26)">
 													                        <label class="form-check-label" for="gridCheck">
 													                       		 确认锁定
 													                        </label>
@@ -861,150 +1009,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="../assets/js/stisla.js"></script>
 
-
   <!-- Template JS File -->
   <script src="../../../assets/js/scripts.js"></script>
   <script src="../../../assets/js/custom.js"></script>
   <script  src="../../../assets/js/multiplepage.js"></script>
   <!-- Page Specific JS File -->
-  <script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-function confirm(x) {
-	var checkBox = document.getElementById("checkbox"+x);
-	var text1 = document.getElementById("menuBtn1"+x);
-	var text2 = document.getElementById("menuBtn2"+x);
-	var text3 = document.getElementById("menuBtn3"+x);
-	var text4 = document.getElementById("menuBtn4"+x);
-	var text5 = document.getElementById("menuBtn5"+x);	
-	if (checkBox.checked == true){
-		text1.style.color = "gray";
-		text1.style.pointerEvents="none";	
-		text1.style.textDecoration = "none";
-		text2.style.color = "gray";
-		text2.style.pointerEvents="none";	
-		text2.style.textDecoration = "none";		
-		text3.style.color = "gray";
-		text3.style.pointerEvents="none";	
-		text3.style.textDecoration = "none";		
-		text4.style.color = "gray";
-		text4.style.pointerEvents="none";	
-		text4.style.textDecoration = "none";		
-		text5.style.color = "gray";
-		text5.style.pointerEvents="none";	
-		text5.style.textDecoration = "none";				
-	} else {
-		text1.style.color = "#6777ef";
-		text1.style.pointerEvents="unset";	
-		text1.style.textDecoration = "underline";  
-		text2.style.color = "#6777ef";
-		text2.style.pointerEvents="unset";	
-		text2.style.textDecoration = "underline";  		
-		text3.style.color = "#6777ef";
-		text3.style.pointerEvents="unset";	
-		text3.style.textDecoration = "underline";  		
-		text4.style.color = "#6777ef";
-		text4.style.pointerEvents="unset";	
-		text4.style.textDecoration = "underline";  		
-		text5.style.color = "#6777ef";
-		text5.style.pointerEvents="unset";	
-		text5.style.textDecoration = "underline";  			
-	}
-}	
-
-function confirmInfo(x) {
-	var checkBox = document.getElementById("infoCheckbox"+x);
-	var text0 = document.getElementById("textInput00"+x);	
-	var text1 = document.getElementById("textInput01"+x);
-	var text2 = document.getElementById("textInput02"+x);
-	var text3 = document.getElementById("textInput03"+x);
-	var text4 = document.getElementById("textInput04"+x);
-	var text5 = document.getElementById("textInput05"+x);	
-	var text6 = document.getElementById("textInput06"+x);
-	var text7 = document.getElementById("textInput07"+x);
-	var text8 = document.getElementById("textInput08"+x);
-	var text9 = document.getElementById("textInput09"+x);
-	var text10 = document.getElementById("textInput10"+x);		
-	var text11 = document.getElementById("textInput11"+x);
-	var text12 = document.getElementById("textInput12"+x);		
-	if (checkBox.checked == true){
-		text0.style.pointerEvents="none";	 
-		text1.style.pointerEvents="none";
-		text1.style.borderColor="white";		
-		text2.style.pointerEvents="none";
-		text2.style.borderColor="white";				
-		text3.style.pointerEvents="none";
-		text3.style.borderColor="white";			
-		text4.style.pointerEvents="none";
-		text4.style.borderColor="white";				
-		text5.style.pointerEvents="none";
-		text5.style.borderColor="white";			
-		text6.style.pointerEvents="none";	
-		text6.style.borderColor="white";			
-		text7.style.pointerEvents="none";	
-		text7.style.borderColor="white";			
-		text8.style.pointerEvents="none";	
-		text8.style.borderColor="white";			
-		text9.style.pointerEvents="none";
-		text9.style.borderColor="white";			
-		text10.style.pointerEvents="none";	
-		text10.style.borderColor="white";			
-		text11.style.pointerEvents="none";
-		text11.style.borderColor="white";			
-		text12.style.pointerEvents="none";	
-		text12.style.borderColor="white";				
-	} else {
-		text0.style.pointerEvents="unset";	 
-		text1.style.pointerEvents="unset";
-		text1.style.borderColor="#e4e6fc";		
-		text2.style.pointerEvents="unset";	
-		text2.style.borderColor="#e4e6fc";			
-		text3.style.pointerEvents="unset";	
-		text3.style.borderColor="#e4e6fc";			
-		text4.style.pointerEvents="unset";	
-		text4.style.borderColor="#e4e6fc";			
-		text5.style.pointerEvents="unset";	
-		text5.style.borderColor="#e4e6fc";			
-		text6.style.pointerEvents="unset";	
-		text6.style.borderColor="#e4e6fc";			
-		text7.style.pointerEvents="unset";	
-		text7.style.borderColor="#e4e6fc";			
-		text8.style.pointerEvents="unset";	
-		text8.style.borderColor="#e4e6fc";			
-		text9.style.pointerEvents="unset";	
-		text9.style.borderColor="#e4e6fc";			
-		text10.style.pointerEvents="unset";	
-		text10.style.borderColor="#e4e6fc";			
-		text11.style.pointerEvents="unset";	
-		text11.style.borderColor="#e4e6fc";			
-		text12.style.pointerEvents="unset";	 	
-		text12.style.borderColor="#e4e6fc";					
-	}
-}	
-</script>
+  <script  src="../../../assets/js/adminManageCompany.js"></script>
 </body>
 </html>

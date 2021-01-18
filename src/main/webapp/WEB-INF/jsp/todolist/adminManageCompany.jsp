@@ -180,7 +180,7 @@
 																	</div>
 																</c:forEach>	
 															<div class="row">
-													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#AttachedReport" style="cursor: pointer">	
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#AttachedReport10" style="cursor: pointer">	
 													           	    <b>Attached AML/CFT Report</b>
 																</div>
 													            <div class="col-12 col-md-4 col-lg-4"></div>		

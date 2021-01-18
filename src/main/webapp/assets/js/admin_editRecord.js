@@ -1,7 +1,14 @@
 $(document).ready(function() {
+	$('#adminEditRecord tfoot th').each( function () {
+        var title = $(this).text();
+        if (title == 'UEN' || title == '公司名称' || title == '注册日期') {
+        	$(this).html( '<input type="text" placeholder="搜索 '+title+'" />' );
+        }
+    } );
+	
     $('#adminEditRecord').DataTable( {
     	ajax: {
-            url: '/api/allPendingCompanies',
+            url: '/api/allCompanies',
             method: "GET",
             xhrFields: {
                 withCredentials: true
@@ -12,9 +19,9 @@ $(document).ready(function() {
         "columns": [
             { "data": "uen" },
             { "data": "name" },
-            { "data": "uen" },
-            { "data": "name" },
-            { "data": "uen" },                      
+            { "data": "registrationDate" },
+            { "data": "step" },
+            { "data": "step" },                      
             { "data": "id",
                 "render": function (data, type, row, meta) {
                 	return  "<div class='badge badge-danger'><a href='/adminManageCompany?id=" + data + 
@@ -22,6 +29,20 @@ $(document).ready(function() {
                 	        "' target='_blank'>时间表信息修改</a></div>"},
             },
             {"data": "step"}
-        ]
+        ],
+        initComplete: function () {
+            // Apply the search
+            this.api().columns().every( function () {
+                var that = this;
+ 
+                $( 'input', this.footer() ).on( 'keyup change clear', function () {
+                    if ( that.search() !== this.value ) {
+                        that
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );
+        }
     } );
 } );

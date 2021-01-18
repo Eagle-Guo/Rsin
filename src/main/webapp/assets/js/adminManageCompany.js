@@ -11,7 +11,16 @@ function confirmCompanyInfo() {
         console.error("ERROR : ", e);
     }
     });
-	$("#companyDetailForm input").prop("disabled", true);
+	var checkBox = document.getElementById("infoCheckbox");
+	if (checkBox.checked == true) {
+		$("#companyDetailForm input").prop("disabled", true);
+		$("#txt_director").attr("disabled","disabled");
+		$("#txt_shareholder").attr("disabled","disabled");		
+	} else {
+		$("#companyDetailForm input").prop('disabled', false);
+		$("#txt_director").attr("disabled","disabled");
+		$("#txt_shareholder").attr("disabled","disabled");	
+	}	
 }
 
 $('#a_com_upload').click(function(){ $('#imgupload').trigger('click'); });

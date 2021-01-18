@@ -61,8 +61,8 @@
 								                        </div>
 								                        <div class="accordion-body collapse" id="panel-body-1" data-parent="#accordion">
 										                <div class="card">
-											                <form id = "companyDetailForm" name="employeeForm">
-											                  <div class="card-body">
+											                <div class="card-body">
+											                  <form id = "companyDetailForm" name="employeeForm">
 											                    <table class="table table-sm">
 											                      <thead>
 											                        <tr>
@@ -102,11 +102,11 @@
 											                        </tr>																
 											                        <tr>
 											                          <th scope="row">董事</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_director" value="${directorsName }" disabled></td>
+											                          <td><input type="text" class="form-control form-control-sm" id="txt_director" name="txt_director" value="${directorsName }" disabled></td>
 											                        </tr>																	
 											                        <tr>
 											                          <th scope="row">股东</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_shareholder" value="${shareholdersName }" disabled></td>
+											                          <td><input type="text" class="form-control form-control-sm" id="txt_shareholder" name="txt_shareholder" value="${shareholdersName }" disabled></td>
 											                        </tr>																	
 											                        <tr>
 											                          <th scope="row">秘书</th>
@@ -127,6 +127,7 @@
 											                      </tbody>
 											                     
 											                    </table>
+											                    </form>
 																<div class="row">
 															            <div class="col-12 col-md-4 col-lg-4"></div>
 															            <div class="col-12 col-md-4 col-lg-4"></div>		
@@ -141,7 +142,7 @@
 																		</div>																								
 																</div>											                    
 											                  </div>
-											                </form>
+											                
 										                </div>
 										                <div class="card">
 										                  <div class="card-body">

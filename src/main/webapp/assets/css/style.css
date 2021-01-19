@@ -5604,6 +5604,16 @@ width
     border-bottom: 1px solid gray;
 }
 
+input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+    cursor: pointer;
+}
+.btnMenu.view {
+    color: #6777ef !important;
+    cursor: pointer;
+}
+
 
 
 /* 7.4 admin_editRecord page */
@@ -5648,4 +5658,10 @@ width
 .admin_record #adminRecord_paginate {
     display: inline;
     float: right;
+}
+
+// adminManageCompany.jsp
+
+.displayNone {
+    display: none !important;
 }

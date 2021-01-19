@@ -11,7 +11,16 @@ function confirmCompanyInfo() {
         console.error("ERROR : ", e);
     }
     });
-	$("#companyDetailForm input").prop("disabled", true);
+	var checkBox = document.getElementById("infoCheckbox");
+	if (checkBox.checked == true) {
+		$("#companyDetailForm input").prop("disabled", true);
+		$("#txt_director").attr("disabled","disabled");
+		$("#txt_shareholder").attr("disabled","disabled");		
+	} else {
+		$("#companyDetailForm input").prop('disabled', false);
+		$("#txt_director").attr("disabled","disabled");
+		$("#txt_shareholder").attr("disabled","disabled");	
+	}	
 }
 
 $('#a_com_upload').click(function(){ $('#imgupload').trigger('click'); });
@@ -66,11 +75,16 @@ function companyuploadfile(company_id, id) {
     });
 } 
 function companydeletefile(uuid) {
-  $.ajax({url: "/api/company/delete/file?uuid=" + uuid, 
+  /*$.ajax({url: "/api/company/delete/file?uuid=" + uuid, 
 	  success: function(result){
 		  //$("#div1").html(result);
 		  //Put your delete div code here
-	  }});
+		  $('#AttachedReport'+uuid).addClass("displayNone");
+	  }});*/
+	var flag = confirm("提示：确认删除此条记录吗?");
+	if(flag) {
+		$('#AttachedReport'+uuid).remove();	
+	}	
 	
 } 
 
@@ -125,20 +139,15 @@ function lock(x) {
 		text5.style.textDecoration = "none";				
 	} else {
 		text1.style.color = "#6777ef";
-		text1.style.pointerEvents="unset";	
-		text1.style.textDecoration = "underline";  
+		text1.style.pointerEvents="unset";	 
 		text2.style.color = "#6777ef";
-		text2.style.pointerEvents="unset";	
-		text2.style.textDecoration = "underline";  		
+		text2.style.pointerEvents="unset";			
 		text3.style.color = "#6777ef";
-		text3.style.pointerEvents="unset";	
-		text3.style.textDecoration = "underline";  		
+		text3.style.pointerEvents="unset";			
 		text4.style.color = "#6777ef";
-		text4.style.pointerEvents="unset";	
-		text4.style.textDecoration = "underline";  		
+		text4.style.pointerEvents="unset";	 		
 		text5.style.color = "#6777ef";
-		text5.style.pointerEvents="unset";	
-		text5.style.textDecoration = "underline";  			
+		text5.style.pointerEvents="unset";			
 	}
 }	
 

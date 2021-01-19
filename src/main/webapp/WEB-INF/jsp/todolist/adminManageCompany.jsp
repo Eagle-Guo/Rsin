@@ -61,8 +61,8 @@
 								                        </div>
 								                        <div class="accordion-body collapse" id="panel-body-1" data-parent="#accordion">
 										                <div class="card">
-											                <form id = "companyDetailForm" name="employeeForm">
-											                  <div class="card-body">
+											                <div class="card-body">
+											                  <form id = "companyDetailForm" name="employeeForm">
 											                    <table class="table table-sm">
 											                      <thead>
 											                        <tr>
@@ -102,11 +102,11 @@
 											                        </tr>																
 											                        <tr>
 											                          <th scope="row">董事</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_director" value="${directorsName }" disabled></td>
+											                          <td><input type="text" class="form-control form-control-sm" id="txt_director" name="txt_director" value="${directorsName }" disabled></td>
 											                        </tr>																	
 											                        <tr>
 											                          <th scope="row">股东</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_shareholder" value="${shareholdersName }" disabled></td>
+											                          <td><input type="text" class="form-control form-control-sm" id="txt_shareholder" name="txt_shareholder" value="${shareholdersName }" disabled></td>
 											                        </tr>																	
 											                        <tr>
 											                          <th scope="row">秘书</th>
@@ -127,6 +127,7 @@
 											                      </tbody>
 											                     
 											                    </table>
+											                    </form>
 																<div class="row">
 															            <div class="col-12 col-md-4 col-lg-4"></div>
 															            <div class="col-12 col-md-4 col-lg-4"></div>		
@@ -141,12 +142,12 @@
 																		</div>																								
 																</div>											                    
 											                  </div>
-											                </form>
+											                
 										                </div>
 										                <div class="card">
 										                  <div class="card-body">
 															<div class="row">
-													            <div class="col-12 col-md-4 col-lg-4">	
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport1" style="cursor: pointer">
 													           	   <b>Constitution of Company（公司章程）</b>			                  
 																</div>
 													            <div class="col-12 col-md-4 col-lg-4"></div>		
@@ -157,30 +158,32 @@
 												                    </div>	
 												                    <div class="inline">														            	
 														            	<span> | </span><input type="file" id="file_com_upload9" style="display:none" onchange="companyuploadfile(${company.id }, 9)"/>
-														            					<a id="upload_company_file9" class="btnMenu view" style="text-decoration: underline;" onclick="companyshowfilediag(9)">上传</a>		
+														            					<a id="upload_company_file9" class="btnMenu view"  onclick="companyshowfilediag(9)">上传</a>		
 																	</div>
 																</div>
 															</div>
-																<c:forEach items="${documentType1}" var="doc1" varStatus="loop">
-																	<div id="AttachedReport${doc1.id}" class="collapse in">							
-																		<div class="row">
-																				<div class="col-12 col-md-1 col-lg-1"></div>		
-																	            <div class="col-12 col-md-7 col-lg-7">	
-																	           	 	<span>修改记录：</span> ${doc1.createdDate}		                  
-																				</div>
-																            <div class="col-12 col-md-4 col-lg-4">														            	
-																            	<div class="inline">														            	
-																	            	<a id="download_company_file${doc1.id}" onclick="companydownloadfile('${doc1.referenceNo}')" >下载</a>	
-																	            	<span> | </span><a id="preview_company_file${doc1.id}" class="btnMenu view" onclick="companypreviewfile('${doc1.referenceNo}')">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc1.id}" class="btnMenu view" onclick="companydeletefile('${doc1.referenceNo}')">删除</a>						                  
-																				</div>							                  
-																			</div>		
-																			<div class="col-12 col-md-1 col-lg-1"></div>					
+																<div id="showReport1" class="collapse in">
+																	<c:forEach items="${documentType1}" var="doc1" varStatus="loop">
+																		<div id="AttachedReport${doc1.referenceNo}">							
+																			<div class="row">
+																					<div class="col-12 col-md-1 col-lg-1"></div>		
+																		            <div class="col-12 col-md-7 col-lg-7">	
+																		           	 	<span>修改记录：</span> ${doc1.createdDate}		                  
+																					</div>
+																	            <div class="col-12 col-md-4 col-lg-4">														            	
+																	            	<div class="inline">														            	
+																		            	<a id="download_company_file${doc1.id}" class="btnMenu view"  onclick="companydownloadfile('${doc1.referenceNo}')" >下载</a>	
+																		            	<span> | </span><a id="preview_company_file${doc1.id}" class="btnMenu view" onclick="companypreviewfile('${doc1.referenceNo}')">浏览</a>			
+																		            	<span> | </span><a id="delete_company_file${doc1.id}" class="btnMenu view" onclick="companydeletefile('${doc1.referenceNo}')">删除</a>						                  
+																					</div>							                  
+																				</div>		
+																				<div class="col-12 col-md-1 col-lg-1"></div>					
+																			</div>
 																		</div>
-																	</div>
-																</c:forEach>	
+																	</c:forEach>
+																</div>
 															<div class="row">
-													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#AttachedReport10" style="cursor: pointer">	
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport2" style="cursor: pointer">	
 													           	    <b>Attached AML/CFT Report</b>
 																</div>
 													            <div class="col-12 col-md-4 col-lg-4"></div>		
@@ -191,12 +194,13 @@
 												                    </div>															            	
 												                    <div class="inline">
 														            	<span> | </span><input type="file" id="file_com_upload10" style="display:none" onchange="companyuploadfile(${company.id }, 10)"/>
-														            					<a id="upload_company_file10" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(10)">上传</a>		
+														            					<a id="upload_company_file10" class="btnMenu view"   onclick="companyshowfilediag(10)">上传</a>		
 																	</div>
 																</div>								
 															</div>
+															<div id="showReport2" class="collapse in">
 																<c:forEach items="${documentType2}" var="doc2" varStatus="loop">
-																	<div id="AttachedReport${doc2.id}" class="collapse in">							
+																	<div id="AttachedReport${doc2.id}">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -213,6 +217,7 @@
 																		</div>
 																	</div>
 																</c:forEach>
+																</div>
 
 															<div class="row">
 														            <div class="col-12 col-md-4 col-lg-4">	
@@ -230,7 +235,7 @@
 													                    </div>															            	
 													                    <div class="inline">														            	
 															            	<span> | </span><input type="file" id="file_com_upload11" style="display:none" onchange="companyuploadfile(${company.id }, 11)"/>
-															            					<a id="upload_company_file11" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(11)">上传</a>
+															            					<a id="upload_company_file11" class="btnMenu view"  onclick="companyshowfilediag(11)">上传</a>
 																		</div>				                  
 																	</div>																									
 															</div>
@@ -269,7 +274,7 @@
 												                    </div>															            	
 												                    <div class="inline">														            	
 														            	<span> | </span><input type="file" id="file_com_upload1" style="display:none" onchange="companyuploadfile(${company.id }, 1)"/>
-														            					<a id="upload_company_file1" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(1)">上传</a>
+														            					<a id="upload_company_file1" class="btnMenu view"   onclick="companyshowfilediag(1)">上传</a>
 																	</div>
 																</div>																									
 															</div>	
@@ -308,7 +313,7 @@
 													                    </div>															            	
 													                    <div class="inline">														            	
 															            	<span> | </span><input type="file" id="file_com_upload12" style="display:none" onchange="companyuploadfile(${company.id }, 12)"/>
-															            					<a id="upload_company_file12" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(12)">上传</a>
+															            					<a id="upload_company_file12" class="btnMenu view"   onclick="companyshowfilediag(12)">上传</a>
 																			<span> | </span><a id="sign_company_file12"  class="btnMenu view">在线签名</a>										            						                  
 																		</div>
 																	</div>																									
@@ -348,7 +353,7 @@
 													                    </div>															            	
 													                    <div class="inline">														            	
 															            	<span> | </span><input type="file" id="file_com_upload13" style="display:none" onchange="companyuploadfile(${company.id }, 13)"/>
-															            					<a id="upload_company_file13" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(13)">上传</a>		
+															            					<a id="upload_company_file13" class="btnMenu view"   onclick="companyshowfilediag(13)">上传</a>		
 																		</div>
 																	</div>																										
 															</div>
@@ -387,7 +392,7 @@
 													                    </div>															            	
 													                    <div class="inline">														            	
 															            	<span> | </span><input type="file" id="file_com_upload2" style="display:none" onchange="companyuploadfile(${company.id }, 2)"/>
-															            					<a id="upload_company_file2" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(2)">上传</a>
+															            					<a id="upload_company_file2" class="btnMenu view"  onclick="companyshowfilediag(2)">上传</a>
 															            	<span> | </span><a id="sign_company_file2"  class="btnMenu view">在线签名</a>					                  
 																		</div>
 																	</div>
@@ -427,7 +432,7 @@
 													                    </div>															            	
 													                    <div class="inline">														            	
 															            	<span> | </span><input type="file" id="file_com_upload14" style="display:none" onchange="companyuploadfile(${company.id }, 14)"/>
-															            					<a id="upload_company_file14" class="btnMenu view" style="text-decoration: underline;" onclick="companyshowfilediag(14)">上传</a>
+															            					<a id="upload_company_file14" class="btnMenu view"  onclick="companyshowfilediag(14)">上传</a>
 																		</div>
 																	</div>																										
 															</div>	
@@ -466,7 +471,7 @@
 													                    </div>															            	
 													                    <div class="inline">														            	
 															            	<span> | </span><input type="file" id="file_com_upload15" style="display:none" onchange="companyuploadfile(${company.id }, 15)"/>
-															            					<a id="upload_company_file15" class="btnMenu view" style="text-decoration: underline;"  onclick="companyshowfilediag(15)">上传</a>
+															            					<a id="upload_company_file15" class="btnMenu view"  onclick="companyshowfilediag(15)">上传</a>
 																		</div>
 																	</div>																									
 															</div>	
@@ -505,7 +510,7 @@
 													                    </div>															            	
 													                    <div class="inline">														            	
 															            	<span> | </span><input type="file" id="file_com_upload16" style="display:none" onchange="companyuploadfile(${company.id }, 16)"/>
-															            					<a id="upload_company_file16" class="btnMenu view" style="text-decoration: underline;" onclick="companyshowfilediag(16)">上传</a>
+															            					<a id="upload_company_file16" class="btnMenu view" onclick="companyshowfilediag(16)">上传</a>
 																		</div>
 																	</div>																									
 															</div>

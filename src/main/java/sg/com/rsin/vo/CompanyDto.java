@@ -3,6 +3,7 @@ package sg.com.rsin.vo;
 import java.util.Date;
 
 public class CompanyDto {
+	private long id;
 	private String uen;
 	private String name;
 	private Date registrationDate;
@@ -23,6 +24,12 @@ public class CompanyDto {
 	private String step;
 	private String agency;
 
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getUen() {
 		return uen;
 	}

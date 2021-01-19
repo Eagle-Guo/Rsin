@@ -15,4 +15,6 @@ public interface FileService {
 	public void saveToDocmentAndHistory(String userId, long company_id, String filename, MultipartFile uploadfile, DocumentType documentType)  throws IOException;
 	
 	public InputStream downloadCompanyFile(String uuid) throws Exception;
+	
+	public void deleteCompanyFile(String uuid) throws Exception;
 }

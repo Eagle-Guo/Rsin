@@ -137,4 +137,14 @@ public class FileDownloadController {
 		  throw new RuntimeException("Download file error");
 		}
     }
+	
+	@GetMapping(value = "/company/delete/file")
+    public ResponseEntity<?> companyDeleteFile(@RequestParam String uuid, HttpServletRequest request, HttpServletResponse response) {
+		try {
+        	fileService.deleteCompanyFile(uuid);
+        } catch (Exception ex) {
+        	return new ResponseEntity<String>("File delete Failed", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<String>("File delete Successful", HttpStatus.OK);
+    }
 }

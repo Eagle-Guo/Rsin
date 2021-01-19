@@ -92,6 +92,7 @@ public class FileServiceImpl implements FileService {
 		DocumentHistory documentHistory= documentHistoryRepository.findByReferenceNo(uuid);
 		return (documentHistory == null) ? "" : documentHistory.getDocumentName();
 	}
+
 	public InputStream downloadCompanyFile(String uuid) throws Exception {
 		DocumentHistory documentHistory= documentHistoryRepository.findByReferenceNo(uuid);
 		if (documentHistory==null) {
@@ -106,6 +107,13 @@ public class FileServiceImpl implements FileService {
 	      throw new RuntimeException("IOError writing file to output stream");
 	    }
 		return is;
-		
+	}
+
+	public void deleteCompanyFile(String uuid) throws Exception {
+		DocumentHistory documentHistory= documentHistoryRepository.findByReferenceNo(uuid);
+		if (documentHistory==null) {
+			throw new Exception("Document Not Found!");
+		}
+		documentHistoryRepository.delete(documentHistory);
 	}
 }

@@ -75,15 +75,13 @@ function companyuploadfile(company_id, id) {
     });
 } 
 function companydeletefile(uuid) {
-  /*$.ajax({url: "/api/company/delete/file?uuid=" + uuid, 
-	  success: function(result){
-		  //$("#div1").html(result);
-		  //Put your delete div code here
-		  $('#AttachedReport'+uuid).addClass("displayNone");
-	  }});*/
-	var flag = confirm("提示：确认删除此条记录吗?");
+	var flag = confirm("提示: 确认删除此条记录吗? ");
 	if(flag) {
-		$('#AttachedReport'+uuid).remove();	
+		$.ajax({url: "/api/company/delete/file?uuid=" + uuid, 
+			  success: function(result){
+				  $('#AttachedReport'+uuid).remove();	
+		}});
+		
 	}	
 	
 } 

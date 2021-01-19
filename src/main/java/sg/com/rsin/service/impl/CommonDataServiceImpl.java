@@ -152,6 +152,7 @@ public class CommonDataServiceImpl implements CommonDataService {
 
 		companyStatusTimes.stream().forEach(time -> {
 			CompanyDto companyDto = new CompanyDto();
+			companyDto.setId(time.getCompany().getId());
 			companyDto.setUen(time.getCompany().getUen());
 			companyDto.setName(time.getCompany().getName()); 
 			companyDto.setRegistrationDate(time.getCompany().getRegistrationDate());
@@ -189,7 +190,7 @@ public class CommonDataServiceImpl implements CommonDataService {
 
 		companies.stream().forEach(company -> {
 			CompanyDto companyDto = new CompanyDto();
-			
+			companyDto.setId(company.getId());
 			companyDto.setUen(company.getUen());
 			companyDto.setName(company.getName()); 
 			companyDto.setRegistrationDate(company.getRegistrationDate());

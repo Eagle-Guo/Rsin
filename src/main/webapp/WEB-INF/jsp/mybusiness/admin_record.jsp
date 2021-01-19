@@ -65,6 +65,34 @@
 		                          <th>备注</th>  																		                          
 					            </tr>
 					        </thead>
+					        <tfoot>
+					            <tr>
+		                          <th>UEN</th>
+		                          <th>公司名称</th>                         
+		                          <th>注册日期</th>
+		                          <th>董事</th>
+		                          <th>挂名董事</th>
+		                          <th>股东</th>                          
+		                          <th>秘书</th>                                
+		                          <th>联系人</th>                                
+		                          <th>注册资本</th>                                
+		                          <th>实缴资本</th>  
+		                          <th>预计年审时间</th>                          
+		                          <th>财务年度时间</th>                                
+		                          <th>消费税报税</th>                                
+		                          <th>ECI</th>                                
+		                          <th>所得税报税</th>                           
+		                          <th>所得锐缴税</th>                                               
+		                          <th>公司地址 </th>    
+		                          <th>服务进度</th>    
+		                          <th>渠道方</th>                              
+		                          <th>服务记录（时间表）</th>                       
+		                          <th>导出公司信息 </th>                                                                                                    
+		                          <th>下载全部文件</th>                                                                          
+		                          <th>备注</th>  																		                          
+					            </tr>
+					        </tfoot>
+					        
 					    </table>
 					</div>
 
@@ -75,7 +103,7 @@
           </div>
         </section>
       </div> 		        
-	         
+	   <!-- 
       <div class="">
         <section class="section admin_editRecord">
           <div class="section-body">
@@ -270,7 +298,7 @@
             </div>
           </div>
         </section>
-      </div>        
+      </div>  -->    
         </section>
       </div>
       

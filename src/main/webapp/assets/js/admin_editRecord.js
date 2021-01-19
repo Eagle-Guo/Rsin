@@ -10,9 +10,6 @@ $(document).ready(function() {
     	ajax: {
             url: '/api/allCompanies',
             method: "GET",
-            xhrFields: {
-                withCredentials: true
-            },
             dataSrc:""
          },
         "deferRender": true ,

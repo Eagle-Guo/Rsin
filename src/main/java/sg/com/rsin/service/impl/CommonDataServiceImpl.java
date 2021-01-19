@@ -20,6 +20,7 @@ import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.CompanyStatusTime;
 import sg.com.rsin.service.CommonDataService;
+import sg.com.rsin.vo.CompanyDto;
 
 @Service
 public class CommonDataServiceImpl implements CommonDataService {
@@ -141,36 +142,78 @@ public class CommonDataServiceImpl implements CommonDataService {
 		return companyShareholderInfoRepository.findById(Long.parseLong(companyShareholderInfoId)).getEmail();
 	}
 	
-	public Set<Company> getAllPendingCompanies() {
+	public Set<CompanyDto> getAllPendingCompanies() {
 		List<CompanyStatusTime> companyStatusTimes = companyStatusTimeRepository.findByPaymentNotNullOrSignatureNotNullOrUploadfileStatusNotNull();
 		if (companyStatusTimes == null) {
 			return null;
 		}
 
-		Set<Company> allCompanies = new LinkedHashSet<Company>();
+		Set<CompanyDto> allCompanies = new LinkedHashSet<CompanyDto>();
 
 		companyStatusTimes.stream().forEach(time -> {
-			Company company = new Company();
-			company.setActivityOne(time.getCompany().getActivityOne());
-			company.setActivityTwo(time.getCompany().getActivityTwo());
-			company.setActualStockCapital(time.getCompany().getActualStockCapital());
-			company.setAddress(time.getCompany().getAddress());
-			company.setBackupName(time.getCompany().getBackupName());
-			company.setCreatedDate(time.getCompany().getCreatedDate()); 
-			company.setId(time.getCompany().getId()); 
-			company.setName(time.getCompany().getName()); 
-			company.setType(time.getCompany().getType());
-			allCompanies.add(company);
+			CompanyDto companyDto = new CompanyDto();
+			companyDto.setUen(time.getCompany().getUen());
+			companyDto.setName(time.getCompany().getName()); 
+			companyDto.setRegistrationDate(time.getCompany().getRegistrationDate());
+			companyDto.setDirectors("");
+			companyDto.setNominated("");
+			companyDto.setShareholder("");
+			companyDto.setSecretary(time.getCompany().getSecretary());
+			companyDto.setContactPerson("");
+			companyDto.setActualStockCapital(time.getCompany().getActualStockCapital());
+			companyDto.setActualStockCapital(time.getCompany().getActualStockCapital()); 
+			
+			companyDto.setAnnualAudit("");
+			companyDto.setFinancePeriod("");
+			companyDto.setGstax("");
+			companyDto.setEci("");
+			companyDto.setIncometaxSubmit("");
+			companyDto.setIncometaxPay("");
+			companyDto.setAddress(time.getCompany().getAddress());
+			companyDto.setStep(time.getCompany().getStep());
+			companyDto.setAgency(""); 
+			
+			allCompanies.add(companyDto);
 		});
 		
 		return allCompanies;
 	}
 	
-	public List<Company> getAllCompanies() {
+	public Set<CompanyDto> getAllCompanies() {
 		List<Company> companies = companyRepository.findAll();
 		if (companies == null) {
 			return null;
 		}
-		return companies;
+
+		Set<CompanyDto> allCompanies = new LinkedHashSet<CompanyDto>();
+
+		companies.stream().forEach(company -> {
+			CompanyDto companyDto = new CompanyDto();
+			
+			companyDto.setUen(company.getUen());
+			companyDto.setName(company.getName()); 
+			companyDto.setRegistrationDate(company.getRegistrationDate());
+			companyDto.setDirectors("");
+			companyDto.setNominated("");
+			companyDto.setShareholder("");
+			companyDto.setSecretary(company.getSecretary());
+			companyDto.setContactPerson("");
+			companyDto.setActualStockCapital(company.getActualStockCapital());
+			companyDto.setActualStockCapital(company.getActualStockCapital()); 
+			
+			companyDto.setAnnualAudit("");
+			companyDto.setFinancePeriod("");
+			companyDto.setGstax("");
+			companyDto.setEci("");
+			companyDto.setIncometaxSubmit("");
+			companyDto.setIncometaxPay("");
+			companyDto.setAddress(company.getAddress());
+			companyDto.setStep(company.getStep());
+			companyDto.setAgency(""); 
+			
+			allCompanies.add(companyDto);
+		});
+		
+		return allCompanies;
 	}
 }

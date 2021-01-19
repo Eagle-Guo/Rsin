@@ -52,7 +52,7 @@
 							        </thead>
 							        <tfoot>
 								        <tr>
-								           <th>UEN</th>
+								          <th>UEN</th>
 				                          <th>公司名称</th>                         
 				                          <th>注册日期</th>
 				                          <th>年审时间</th>

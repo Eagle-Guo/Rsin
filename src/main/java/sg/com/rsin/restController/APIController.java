@@ -41,6 +41,7 @@ import sg.com.rsin.service.EmailService;
 import sg.com.rsin.service.IndustryService;
 import sg.com.rsin.service.NewCompanyService;
 import sg.com.rsin.service.UploadFileService;
+import sg.com.rsin.vo.CompanyDto;
 
 @RestController
 @RequestMapping(value = "/api")
@@ -173,12 +174,12 @@ public class APIController {
     }
     
     @GetMapping(path="/allPendingCompanies", produces=MediaType.APPLICATION_JSON_VALUE)
-    public Set<Company> allPendingCompanies() {
+    public Set<CompanyDto> allPendingCompanies() {
     	return commonDataService.getAllPendingCompanies();
     }
     
     @GetMapping(path="/allCompanies", produces=MediaType.APPLICATION_JSON_VALUE)
-    public List<Company> allCompanies() {
+    public Set<CompanyDto> allCompanies() {
     	return commonDataService.getAllCompanies();
     }
     

@@ -1,10 +1,9 @@
 package sg.com.rsin.service;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import sg.com.rsin.entity.Company;
+import sg.com.rsin.vo.CompanyDto;
 
 public interface CommonDataService {
 	public Map<String, Object> getAllCompanyUserData(String userEmail);
@@ -13,7 +12,7 @@ public interface CommonDataService {
 	
 	public String getUserId (String userId, String companyShareholderInfoId);
 	
-	public Set<Company> getAllPendingCompanies();
+	public Set<CompanyDto> getAllPendingCompanies();
 	
-	public List<Company> getAllCompanies();
+	public Set<CompanyDto> getAllCompanies();
 }

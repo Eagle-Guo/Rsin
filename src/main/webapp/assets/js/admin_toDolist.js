@@ -11,7 +11,7 @@ $(document).ready(function() {
         "deferRender": true ,
         "columns": [
             { "data": "name" },
-            { "data": "createdDate" },
+            { "data": "registrationDate" },
             { "data": "id",
                 "render": function (data, type, row, meta) {
                 	return  "<div class='badge badge-danger'><a href='/adminManageCompany?id=" + data + 

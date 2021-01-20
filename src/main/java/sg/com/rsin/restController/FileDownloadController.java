@@ -13,14 +13,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.entity.DocumentType;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.FileService;
 import sg.com.rsin.service.GenerateJespterReportService;
 import sg.com.rsin.util.CommonUtils;
+import sg.com.rsin.vo.DocumentHistoryDto;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -112,12 +117,21 @@ public class FileDownloadController {
         response.setHeader("content-disposition", "attachment;");
 
         DocumentType documentType = fileService.getDocumentTypeCode(id);
+        SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
         try {
-        	fileService.saveToDocmentAndHistory(userId, company_id, filename, uploadfile, documentType);
+        	DocumentHistory dh = fileService.saveToDocmentAndHistory(userId, company_id, filename, uploadfile, documentType);
+        	DocumentHistoryDto documentHistoryDto = new DocumentHistoryDto();
+        	documentHistoryDto.setCreatedBy(dh.getCreatedBy());
+        	documentHistoryDto.setCreatedDate(sm.format(dh.getCreatedDate()));
+        	documentHistoryDto.setDocumentName(dh.getDocumentName());
+        	documentHistoryDto.setDocumentPath(dh.getDocumentPath());
+        	documentHistoryDto.setId(dh.getId());
+        	documentHistoryDto.setReferenceNo(dh.getReferenceNo());
+        	String result = new ObjectMapper().writeValueAsString(documentHistoryDto);
+        	 return new ResponseEntity<String>(result, HttpStatus.OK);
         } catch (IOException ex) {
         	return new ResponseEntity<String>("File upload Failed", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<String>("File upload Successful", HttpStatus.OK);
     }
 	
 	@GetMapping(value = "/company/download/file")

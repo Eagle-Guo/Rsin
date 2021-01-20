@@ -17,8 +17,8 @@ $(document).ready(function() {
             { "data": "uen" },
             { "data": "name" },
             { "data": "registrationDate" },
-            { "data": "step" },
-            { "data": "step" },                      
+            { "data": "annualAudit" },
+            { "data": "financePeriod" },                      
             { "data": "id",
                 "render": function (data, type, row, meta) {
                 	return  "<div class='badge badge-danger'><a href='/adminManageCompany?id=" + data + 

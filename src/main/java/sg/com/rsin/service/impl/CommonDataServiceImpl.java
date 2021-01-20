@@ -1,5 +1,6 @@
 package sg.com.rsin.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -149,23 +150,23 @@ public class CommonDataServiceImpl implements CommonDataService {
 		}
 
 		Set<CompanyDto> allCompanies = new LinkedHashSet<CompanyDto>();
-
+		SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
 		companyStatusTimes.stream().forEach(time -> {
 			CompanyDto companyDto = new CompanyDto();
 			companyDto.setId(time.getCompany().getId());
 			companyDto.setUen(time.getCompany().getUen());
 			companyDto.setName(time.getCompany().getName()); 
-			companyDto.setRegistrationDate(time.getCompany().getRegistrationDate());
+			companyDto.setRegistrationDate(sm.format(time.getCompany().getRegistrationDate()));
 			companyDto.setDirectors("");
-			companyDto.setNominated("");
+			companyDto.setNominated(time.getCompany().getNominatedDirector());
 			companyDto.setShareholder("");
 			companyDto.setSecretary(time.getCompany().getSecretary());
 			companyDto.setContactPerson("");
 			companyDto.setActualStockCapital(time.getCompany().getActualStockCapital());
 			companyDto.setActualStockCapital(time.getCompany().getActualStockCapital()); 
 			
-			companyDto.setAnnualAudit("");
-			companyDto.setFinancePeriod("");
+			companyDto.setAnnualAudit("2020-01-20");
+			companyDto.setFinancePeriod("2020-01-19");
 			companyDto.setGstax("");
 			companyDto.setEci("");
 			companyDto.setIncometaxSubmit("");
@@ -187,23 +188,23 @@ public class CommonDataServiceImpl implements CommonDataService {
 		}
 
 		Set<CompanyDto> allCompanies = new LinkedHashSet<CompanyDto>();
-
+		SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
 		companies.stream().forEach(company -> {
 			CompanyDto companyDto = new CompanyDto();
 			companyDto.setId(company.getId());
 			companyDto.setUen(company.getUen());
 			companyDto.setName(company.getName()); 
-			companyDto.setRegistrationDate(company.getRegistrationDate());
+			companyDto.setRegistrationDate(sm.format(company.getRegistrationDate()));
 			companyDto.setDirectors("");
-			companyDto.setNominated("");
+			companyDto.setNominated(company.getNominatedDirector());
 			companyDto.setShareholder("");
 			companyDto.setSecretary(company.getSecretary());
 			companyDto.setContactPerson("");
 			companyDto.setActualStockCapital(company.getActualStockCapital());
 			companyDto.setActualStockCapital(company.getActualStockCapital()); 
 			
-			companyDto.setAnnualAudit("");
-			companyDto.setFinancePeriod("");
+			companyDto.setAnnualAudit("2020-01-20");
+			companyDto.setFinancePeriod("2020-01-19");
 			companyDto.setGstax("");
 			companyDto.setEci("");
 			companyDto.setIncometaxSubmit("");

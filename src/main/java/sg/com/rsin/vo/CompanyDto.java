@@ -1,12 +1,10 @@
 package sg.com.rsin.vo;
 
-import java.util.Date;
-
 public class CompanyDto {
 	private long id;
 	private String uen;
 	private String name;
-	private Date registrationDate;
+	private String registrationDate;
 	private String directors;
 	private String nominated;
 	private String shareholder;
@@ -42,10 +40,10 @@ public class CompanyDto {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getRegistrationDate() {
+	public String getRegistrationDate() {
 		return registrationDate;
 	}
-	public void setRegistrationDate(Date registrationDate) {
+	public void setRegistrationDate(String registrationDate) {
 		this.registrationDate = registrationDate;
 	}
 	public String getDirectors() {

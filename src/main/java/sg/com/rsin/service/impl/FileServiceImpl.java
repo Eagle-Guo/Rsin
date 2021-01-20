@@ -46,7 +46,7 @@ public class FileServiceImpl implements FileService {
 		return documentTypeRepository.findByDocumentTypeCode("TYPE_COM_" + id);
 	}
 
-	public void saveToDocmentAndHistory(String userId, long companyId, String filename, MultipartFile uploadfile, DocumentType documentType) throws IOException {
+	public DocumentHistory saveToDocmentAndHistory(String userId, long companyId, String filename, MultipartFile uploadfile, DocumentType documentType) throws IOException {
 		String referenceNo = UUID.randomUUID().toString();
 		filename = referenceNo.replace("-", "").concat("_").concat(filename);
 		String pathString = uploadFilePathRoot + companyId + File.separator + companyManageFilePath;
@@ -86,6 +86,8 @@ public class FileServiceImpl implements FileService {
 	    documentHistory.setDocumentPath(pathString);
 	    documentHistory.setReferenceNo(referenceNo);
 	    documentHistoryRepository.save(documentHistory);
+
+	    return documentHistory;
 	}
 
 	public String getFileNameByUuid(String uuid) {
@@ -115,5 +117,9 @@ public class FileServiceImpl implements FileService {
 			throw new Exception("Document Not Found!");
 		}
 		documentHistoryRepository.delete(documentHistory);
+	}
+	
+	public DocumentHistory getDocHistory(String uuid) {
+		return documentHistoryRepository.findByReferenceNo(uuid);
 	}
 }

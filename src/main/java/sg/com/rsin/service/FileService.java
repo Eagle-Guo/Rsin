@@ -5,6 +5,7 @@ import java.io.InputStream;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.entity.DocumentType;
 
 public interface FileService {
@@ -12,9 +13,11 @@ public interface FileService {
 
 	public String getFileNameByUuid(String uuid);
 
-	public void saveToDocmentAndHistory(String userId, long company_id, String filename, MultipartFile uploadfile, DocumentType documentType)  throws IOException;
+	public DocumentHistory saveToDocmentAndHistory(String userId, long company_id, String filename, MultipartFile uploadfile, DocumentType documentType)  throws IOException;
 	
 	public InputStream downloadCompanyFile(String uuid) throws Exception;
 	
 	public void deleteCompanyFile(String uuid) throws Exception;
+	
+	public DocumentHistory getDocHistory(String uuid);
 }

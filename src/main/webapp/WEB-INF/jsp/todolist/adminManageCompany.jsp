@@ -147,7 +147,7 @@
 										                <div class="card">
 										                  <div class="card-body">
 															<div class="row">
-													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport1" style="cursor: pointer">
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport9" style="cursor: pointer">
 													           	   <b>Constitution of Company（公司章程）</b>			                  
 																</div>
 													            <div class="col-12 col-md-4 col-lg-4"></div>		
@@ -162,7 +162,7 @@
 																	</div>
 																</div>
 															</div>
-																<div id="showReport1" class="collapse in">
+																<div id="showReport9" class="collapse in">
 																	<c:forEach items="${documentType1}" var="doc1" varStatus="loop">
 																		<div id="AttachedReport${doc1.referenceNo}">							
 																			<div class="row">
@@ -174,7 +174,7 @@
 																	            	<div class="inline">														            	
 																		            	<a id="download_company_file${doc1.id}" class="btnMenu view"  onclick="companydownloadfile('${doc1.referenceNo}')" >下载</a>	
 																		            	<span> | </span><a id="preview_company_file${doc1.id}" class="btnMenu view" onclick="companypreviewfile('${doc1.referenceNo}')">浏览</a>			
-																		            	<span> | </span><a id="delete_company_file${doc1.id}" class="btnMenu view" onclick="companydeletefile('${doc1.referenceNo}')">删除</a>						                  
+																		            	<span> | </span><a id="delete_company_file${doc1.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${doc1.referenceNo}')">删除</a>						                  
 																					</div>							                  
 																				</div>		
 																				<div class="col-12 col-md-1 col-lg-1"></div>					
@@ -183,7 +183,7 @@
 																	</c:forEach>
 																</div>
 															<div class="row">
-													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport2" style="cursor: pointer">	
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport10" style="cursor: pointer">	
 													           	    <b>Attached AML/CFT Report</b>
 																</div>
 													            <div class="col-12 col-md-4 col-lg-4"></div>		
@@ -198,9 +198,9 @@
 																	</div>
 																</div>								
 															</div>
-															<div id="showReport2" class="collapse in">
+															<div id="showReport10" class="collapse in">
 																<c:forEach items="${documentType2}" var="doc2" varStatus="loop">
-																	<div id="AttachedReport${doc2.id}">							
+																	<div id="AttachedReport${doc2.referenceNo}">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -210,7 +210,7 @@
 																            	<div class="inline">														            	
 																	            	<a id="download_company_file${doc2.id}" onclick="companydownloadfile('${doc2.referenceNo}')" >下载</a>	
 																	            	<span> | </span><a id="preview_company_file${doc2.id}" class="btnMenu view" onclick="companypreviewfile('${doc2.referenceNo}')">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc2.id}" class="btnMenu view" onclick="companydeletefile('${doc2.referenceNo}')">删除</a>						                  
+																	            	<span> | </span><a id="delete_company_file${doc2.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${doc2.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
@@ -220,7 +220,7 @@
 																</div>
 
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
+														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport11" style="cursor: pointer"">	
 														           	   <b>Certificate of Incorporation（公司注册证书）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4">	
@@ -239,8 +239,9 @@
 																		</div>				                  
 																	</div>																									
 															</div>
+															<div id="showReport11" class="collapse in">
 															<c:forEach items="${documentType3}" var="doc3" varStatus="loop">
-																	<div id="AttachedReport${doc3.id}" class="collapse in">							
+																	<div id="AttachedReport${doc3.referenceNo}">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -250,16 +251,16 @@
 																            	<div class="inline">														            	
 																	            	<a id="download_company_file${doc3.id}" onclick="companydownloadfile('${doc3.referenceNo}')" >下载</a>	
 																	            	<span> | </span><a id="preview_company_file${doc3.id}" class="btnMenu view" onclick="companypreviewfile('${doc3.referenceNo}')">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc3.id}" class="btnMenu view" onclick="companydeletefile('${doc3.referenceNo}')">删除</a>						                  
+																	            	<span> | </span><a id="delete_company_file${doc3.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${doc3.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
 																		</div>
 																	</div>
 																</c:forEach>
-																
+																</div>
 															<div class="row">
-													            <div class="col-12 col-md-4 col-lg-4">	
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport1" style="cursor: pointer"">	
 													           	   <b>First Director Meeting Resolution</b>			                  
 																</div>
 													            <div class="col-12 col-md-4 col-lg-4">	
@@ -278,8 +279,9 @@
 																	</div>
 																</div>																									
 															</div>	
+															<div id="showReport1" class="collapse in">
 															<c:forEach items="${documentType4}" var="doc4" varStatus="loop">
-																	<div id="AttachedReport${doc4.id}" class="collapse in">							
+																	<div id="AttachedReport${doc4.referenceNo}">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -289,16 +291,17 @@
 																            	<div class="inline">														            	
 																	            	<a id="download_company_file${doc4.id}" onclick="companydownloadfile('${doc4.referenceNo}')" >下载</a>	
 																	            	<span> | </span><a id="preview_company_file${doc4.id}" class="btnMenu view" onclick="companypreviewfile('${doc4.referenceNo}')">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc4.id}" class="btnMenu view" onclick="companydeletefile('${doc4.referenceNo}')">删除</a>						                  
+																	            	<span> | </span><a id="delete_company_file${doc4.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${doc4.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
 																		</div>
 																	</div>
 																</c:forEach>
+																</div>
 
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
+														            <div class="col-12 col-md-4 col-lg-4  collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport12" style="cursor: pointer"">	
 														           	   <b>Risk Assessment（风险评估）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4">	
@@ -318,8 +321,9 @@
 																		</div>
 																	</div>																									
 															</div>
-															<c:forEach items="${documentType5}" var="doc5" varStatus="loop">
-																	<div id="AttachedReport${doc5.id}" class="collapse in">							
+															<div id="showReport12" class="collapse in">
+																<c:forEach items="${documentType5}" var="doc5" varStatus="loop">
+																	<div id="AttachedReport${doc5.referenceNo}">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -329,16 +333,17 @@
 																            	<div class="inline">														            	
 																	            	<a id="download_company_file${doc5.id}" onclick="companydownloadfile('${doc5.referenceNo}')" >下载</a>	
 																	            	<span> | </span><a id="preview_company_file${doc5.id}" class="btnMenu view" onclick="companypreviewfile('${doc5.referenceNo}')">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc5.id}" class="btnMenu view" onclick="companydeletefile('${doc5.referenceNo}')">删除</a>						                  
+																	            	<span> | </span><a id="delete_company_file${doc5.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${doc5.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
 																		</div>
 																	</div>
 																</c:forEach>
+																</div>
 	
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
+														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport13" style="cursor: pointer"">	
 														           	   <b>Risk Assessment Checklist（风险评估清单）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4">	
@@ -357,8 +362,9 @@
 																		</div>
 																	</div>																										
 															</div>
-															<c:forEach items="${documentType6}" var="doc6" varStatus="loop">
-																	<div id="AttachedReport${doc6.id}" class="collapse in">							
+															<div id="showReport13" class="collapse in">
+																<c:forEach items="${documentType6}" var="doc6" varStatus="loop">
+																	<div id="AttachedReport${doc6.referenceNo}">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -368,16 +374,16 @@
 																            	<div class="inline">														            	
 																	            	<a id="download_company_file${doc6.id}" onclick="companydownloadfile('${doc6.referenceNo}')" >下载</a>	
 																	            	<span> | </span><a id="preview_company_file${doc6.id}" class="btnMenu view" onclick="companypreviewfile('${doc6.referenceNo}')">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc6.id}" class="btnMenu view" onclick="companydeletefile('${doc6.referenceNo}')">删除</a>						                  
+																	            	<span> | </span><a id="delete_company_file${doc6.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${doc6.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
 																		</div>
 																	</div>
 																</c:forEach>
-																
+																</div>
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
+														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport2" style="cursor: pointer"">	
 														           	   <b>Secretary Agreement（秘书协议）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4">	
@@ -397,8 +403,9 @@
 																		</div>
 																	</div>
 															</div>
-															<c:forEach items="${documentType7}" var="doc7" varStatus="loop">
-																	<div id="AttachedReport${doc7.id}" class="collapse in">							
+															<div id="showReport2" class="collapse in">
+																<c:forEach items="${documentType7}" var="doc7" varStatus="loop">
+																	<div id="AttachedReport${doc7.referenceNo}">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -408,16 +415,17 @@
 																            	<div class="inline">														            	
 																	            	<a id="download_company_file${doc7.id}" onclick="companydownloadfile('${doc7.referenceNo}')" >下载</a>	
 																	            	<span> | </span><a id="preview_company_file${doc7.id}" class="btnMenu view" onclick="companypreviewfile('${doc7.referenceNo}')">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc7.id}" class="btnMenu view" onclick="companydeletefile('${doc7.referenceNo}')">删除</a>						                  
+																	            	<span> | </span><a id="delete_company_file${doc7.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${doc7.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
 																		</div>
 																	</div>
 																</c:forEach>
+																</div>
 
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
+														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport14" style="cursor: pointer"">	
 														           	   <b>Company info（公司信息）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4">	
@@ -436,27 +444,29 @@
 																		</div>
 																	</div>																										
 															</div>	
+															<div id="showReport14" class="collapse in">
 															<c:forEach items="${documentType8}" var="doc8" varStatus="loop">
-																	<div id="AttachedReport${doc8.id}" class="collapse in">							
+																	<div id="AttachedReport${doc8.referenceNo}">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
-																	           	 	<span>修改记录：</span> ${doc4.createdDate}		                  
+																	           	 	<span>修改记录：</span> ${doc8.createdDate}		                  
 																				</div>
 																            <div class="col-12 col-md-4 col-lg-4">														            	
 																            	<div class="inline">														            	
 																	            	<a id="download_company_file${doc8.id}" onclick="companydownloadfile('${doc8.referenceNo}')" >下载</a>	
 																	            	<span> | </span><a id="preview_company_file${doc8.id}" class="btnMenu view" onclick="companypreviewfile('${doc8.referenceNo}')">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc8.id}" class="btnMenu view" onclick="companydeletefile('${doc8.referenceNo}')">删除</a>						                  
+																	            	<span> | </span><a id="delete_company_file${doc8.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${doc8.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
 																		</div>
 																	</div>
 																</c:forEach>
+																</div>
 															
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
+														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport15" style="cursor: pointer"">	
 														           	   <b>Register of Charges（收费登记册）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4">	
@@ -475,8 +485,9 @@
 																		</div>
 																	</div>																									
 															</div>	
-															<c:forEach items="${documentType9}" var="doc9" varStatus="loop">
-																	<div id="AttachedReport${doc9.id}" class="collapse in">							
+															<div id="showReport15" class="collapse in">
+																<c:forEach items="${documentType9}" var="doc9" varStatus="loop">
+																	<div id="AttachedReport${doc9.referenceNo}">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -486,16 +497,17 @@
 																            	<div class="inline">														            	
 																	            	<a id="download_company_file${doc9.id}" onclick="companydownloadfile('${doc9.referenceNo}')" >下载</a>	
 																	            	<span> | </span><a id="preview_company_file${doc9.id}" class="btnMenu view" onclick="companypreviewfile('${doc9.referenceNo}')">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc9.id}" class="btnMenu view" onclick="companydeletefile('${doc9.referenceNo}')">删除</a>						                  
+																	            	<span> | </span><a id="delete_company_file${doc9.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${doc9.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
 																		</div>
 																	</div>
 																</c:forEach>
+																</div>
 
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
+														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport16" style="cursor: pointer"">	
 														           	   <b>Register of Secretary（秘书名册）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4">	
@@ -514,8 +526,9 @@
 																		</div>
 																	</div>																									
 															</div>
-															<c:forEach items="${documentType10}" var="doc10" varStatus="loop">
-																	<div id="AttachedReport${doc10.id}" class="show in">							
+															<div id="showReport16" class="collapse in">
+																<c:forEach items="${documentType10}" var="doc10" varStatus="loop">
+																	<div id="AttachedReport${doc10.referenceNo}">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
 																	            <div class="col-12 col-md-7 col-lg-7">	
@@ -525,13 +538,14 @@
 																            	<div class="inline">														            	
 																	            	<a id="download_company_file${doc10.id}" onclick="companydownloadfile('${doc10.referenceNo}')" >下载</a>	
 																	            	<span> | </span><a id="preview_company_file${doc10.id}" class="btnMenu view" onclick="companypreviewfile('${doc10.referenceNo}')">浏览</a>			
-																	            	<span> | </span><a id="delete_company_file${doc10.id}" class="btnMenu view" onclick="companydeletefile('${doc10.referenceNo}')">删除</a>						                  
+																	            	<span> | </span><a id="delete_company_file${doc10.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${doc10.referenceNo}')">删除</a>						                  
 																				</div>							                  
 																			</div>		
 																			<div class="col-12 col-md-1 col-lg-1"></div>					
 																		</div>
 																	</div>
 																</c:forEach>
+															</div>
 										                  
 										                  </div>
 										                </div>								                       

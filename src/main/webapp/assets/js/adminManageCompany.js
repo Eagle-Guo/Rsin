@@ -22,11 +22,13 @@ function confirmCompanyInfo() {
 		$("#txt_shareholder").attr("disabled","disabled");	
 	}	
 }
-
 $('#a_com_upload').click(function(){ $('#imgupload').trigger('click'); });
+
+
 function companyshowfilediag(doc_id) {
-	$('#file_com_upload'+doc_id).trigger('click');
+	$('#file_com_upload'+doc_id).trigger('click');		
 }
+
 
 function companydownloadfile(uuid) {
 	var req = new XMLHttpRequest();
@@ -114,43 +116,48 @@ window.onclick = function(event) {
 
 function lock(x) {
 	var checkBox = document.getElementById("companyfilelock"+x);
-	var text1 = document.getElementById("upload_company_file"+x);	
-	
-	//var text1 = document.getElementById("download_company_file"+x);
-	var text2 = document.getElementById("preview_company_file"+x);
+	var text1 = document.getElementById("file_com_upload"+x);
+	var text2 = document.getElementById("showReport"+x).querySelectorAll(".delete_company_file");
+	var text3 = document.getElementById("upload_company_file"+x);
+	/*var text2 = document.getElementById("preview_company_file"+x);
 	var text3 = document.getElementById("upload_company_file"+x);
 	var text4 = document.getElementById("delete_company_file"+x);
-	var text5 = document.getElementById("sign_company_file"+x);	
-	
-	cursor: not-allowed
+	var text5 = document.getElementById("sign_company_file"+x);	*/
 	if (checkBox.checked == true){
-		$('#upload_company_file'+x).addClass("disabled");
-		text1.event.stopPropagation();
-		text1.style.pointerEvents="none";	
+		for (var i = 0; i < text2.length; i++) {
+			text2[i].style.cssText = "pointer-events: none; cursor: not-allowed;color:gray !important;";
+		}
+		text1.style.color = "gray";
+		text1.style.pointerEvents="none";
 		text1.style.textDecoration = "none";
-		text2.style.color = "gray";
-		text2.style.pointerEvents="none";	
-		text2.style.textDecoration = "none";		
-		text3.style.color = "gray";
-		text3.style.pointerEvents="none";	
-		text3.style.textDecoration = "none";		
-		text4.style.color = "gray";
-		text4.style.pointerEvents="none";	
-		text4.style.textDecoration = "none";		
+		text3.style.cssText = "color:gray !important;";
+		text3.style.pointerEvents="none";
+		text3.style.textDecoration = "none";
+		//text2.style.color = "gray";
+		//text2.style.pointerEvents="none";
+		//text2.style.textDecoration = "none";
+		/*text4.style.color = "gray";
+		text4.style.pointerEvents="none";
+		text4.style.textDecoration = "none";
 		text5.style.color = "gray";
-		text5.style.pointerEvents="none";	
-		text5.style.textDecoration = "none";				
+		text5.style.pointerEvents="none";
+		text5.style.textDecoration = "none";	*/
 	} else {
+		for (var i = 0; i < text2.length; i++) {
+			text2[i].style.removeProperty("pointer-events");
+			text2[i].style.removeProperty("cursor");
+			text2[i].style.removeProperty("color");
+		}
 		text1.style.color = "#6777ef";
-		text1.style.pointerEvents="unset";	 
-		text2.style.color = "#6777ef";
-		text2.style.pointerEvents="unset";			
-		text3.style.color = "#6777ef";
-		text3.style.pointerEvents="unset";			
-		text4.style.color = "#6777ef";
-		text4.style.pointerEvents="unset";	 		
+		text1.style.pointerEvents="unset";
+		text3.style.cssText = "color:#6777ef !important;";
+		text3.style.pointerEvents="unset";
+		//text2.style.color = "#6777ef";
+		//text2.style.pointerEvents="unset";
+		/*text4.style.color = "#6777ef";
+		text4.style.pointerEvents="unset";
 		text5.style.color = "#6777ef";
-		text5.style.pointerEvents="unset";			
+		text5.style.pointerEvents="unset";	*/
 	}
 }	
 

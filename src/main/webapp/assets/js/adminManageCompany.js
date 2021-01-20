@@ -68,6 +68,7 @@ function companyuploadfile(company_id, id) {
         processData: false,
         success: function(response){
         	console.log("Upload Successful", response);
+        	
         	alert('上传文件成功');
         },
         error: function(e) {

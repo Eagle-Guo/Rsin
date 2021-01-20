@@ -26,11 +26,13 @@ function confirmCompanyInfo() {
 		$("#txt_shareholder").attr("disabled","disabled");	
 	}	
 }
-
 $('#a_com_upload').click(function(){ $('#imgupload').trigger('click'); });
+
+
 function companyshowfilediag(doc_id) {
-	$('#file_com_upload'+doc_id).trigger('click');
+	$('#file_com_upload'+doc_id).trigger('click');		
 }
+
 
 function companydownloadfile(uuid) {
 	var req = new XMLHttpRequest();
@@ -70,6 +72,7 @@ function companyuploadfile(company_id, id) {
         processData: false,
         success: function(response){
         	console.log("Upload Successful", response);
+        	
         	alert('上传文件成功');
         },
         error: function(e) {
@@ -127,12 +130,12 @@ function lock(x) {
 	var text5 = document.getElementById("sign_company_file"+x);	*/
 	if (checkBox.checked == true){
 		for (var i = 0; i < text2.length; i++) {
-			text2[i].style.cssText = "pointer-events: none; cursor: default;";
+			text2[i].style.cssText = "pointer-events: none; cursor: not-allowed;color:gray !important;";
 		}
 		text1.style.color = "gray";
 		text1.style.pointerEvents="none";
 		text1.style.textDecoration = "none";
-		text3.style.color = "gray";
+		text3.style.cssText = "color:gray !important;";
 		text3.style.pointerEvents="none";
 		text3.style.textDecoration = "none";
 		//text2.style.color = "gray";
@@ -148,10 +151,11 @@ function lock(x) {
 		for (var i = 0; i < text2.length; i++) {
 			text2[i].style.removeProperty("pointer-events");
 			text2[i].style.removeProperty("cursor");
+			text2[i].style.removeProperty("color");
 		}
 		text1.style.color = "#6777ef";
 		text1.style.pointerEvents="unset";
-		text3.style.color = "#6777ef";
+		text3.style.cssText = "color:#6777ef !important;";
 		text3.style.pointerEvents="unset";
 		//text2.style.color = "#6777ef";
 		//text2.style.pointerEvents="unset";

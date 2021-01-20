@@ -114,13 +114,18 @@ window.onclick = function(event) {
 
 function lock(x) {
 	var checkBox = document.getElementById("companyfilelock"+x);
-	var text1 = document.getElementById("download_company_file"+x);
+	var text1 = document.getElementById("upload_company_file"+x);	
+	
+	//var text1 = document.getElementById("download_company_file"+x);
 	var text2 = document.getElementById("preview_company_file"+x);
 	var text3 = document.getElementById("upload_company_file"+x);
 	var text4 = document.getElementById("delete_company_file"+x);
 	var text5 = document.getElementById("sign_company_file"+x);	
+	
+	cursor: not-allowed
 	if (checkBox.checked == true){
-		text1.style.color = "gray";
+		$('#upload_company_file'+x).addClass("disabled");
+		text1.event.stopPropagation();
 		text1.style.pointerEvents="none";	
 		text1.style.textDecoration = "none";
 		text2.style.color = "gray";

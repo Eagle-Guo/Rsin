@@ -5665,3 +5665,9 @@ input[type=checkbox], input[type=radio] {
 .displayNone {
     display: none !important;
 }
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    cursor: not-allowed;
+    
+}

@@ -1,10 +1,7 @@
 
 //TEST
 
-        /* 删除tr的响应函数 */
         function delA() {
-
-
             var tr = this.parentNode.parentNode;
             var name = tr.children[0].innerHTML;
             var flag = confirm("确定" + name + "删除吗？");
@@ -19,16 +16,11 @@
                 allA[i].onclick = delA;
             }
 
-            /* ------------------------------------------------------------------------------
-                           添加员工的功能
-                               -点击按钮以后，将员工的信息添加到表格中
-                        */
-            //  为提交按钮绑定一个单击响应函数
+
             var addEmpButton = document.getElementById("addEmpButton");
             addEmpButton.onclick = function () {
-                // alert("hello");//测试
 
-                //获取信息
+
                 var service = document.getElementById("service").value;
                 var registerDate = document.getElementById("registerDate").value;            	
                 var ServiceCycle = document.getElementById("ServiceCycle").value;
@@ -37,49 +29,19 @@
                 var actualDate = document.getElementById("startDate");
                 
                 
-                
-                
-                
-                // alert(name+","+email+","+salary);
-                // 需要将将获取到的信息保存到tr中
-                // 创建一个tr
                 var tr = document.createElement("tr");
 
-                // 设置tr中的内容
                 tr.innerHTML="<td colspan='2'>"+startDate+"</td>"+
 				                "<td>"+actualDate+"</td>" +
 				                "<td>"+ServiceCycle+"</td>"+
                                 "<td>"+serviceTimes+"</td>" +
                                 "<td>"+startDate+"</td>" +
                                 "<td><a href='javascript:;'>Delete</a></td>" ;
-
-                
-                
-                
-                
-                
-                // 获取刚刚添加的a元素，并为其绑定单击响应函数
                 var a=tr.getElementsByTagName("a")[0];
                 a.onclick=delA;
-                
-
-                // 获取table
                 var recordTable = document.getElementById("recordTable");
-
-                // 获取employeeTable中的tbody
                 var tbody = recordTable.getElementsByTagName("tbody")[0];
-
-                // 将tr添加到tbody中
                 tbody.appendChild(tr);
-                // tbody.innerHTML +="<tr>"+
-                //     "<td>" + name + "</td>" +
-                //     "<td>" + email + "</td>" +
-                //     "<td>" + salary + "</td>" +
-                //     "<td><a href='javascript:;'>Delete</a></td>"
-                // +"</tr>";
-
-
-
             };
         };
 

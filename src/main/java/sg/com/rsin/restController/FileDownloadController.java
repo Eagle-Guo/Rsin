@@ -117,7 +117,7 @@ public class FileDownloadController {
         response.setHeader("content-disposition", "attachment;");
 
         DocumentType documentType = fileService.getDocumentTypeCode(id);
-        SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
         try {
         	DocumentHistory dh = fileService.saveToDocmentAndHistory(userId, company_id, filename, uploadfile, documentType);
         	DocumentHistoryDto documentHistoryDto = new DocumentHistoryDto();

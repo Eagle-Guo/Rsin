@@ -71,6 +71,7 @@ CREATE TABLE `company` (
   `shareholder_comfirm` int not null default 0,
   `registration_date` DATETIME,
   `created_date` DATETIME,
+  `lock_flag` TINYINT(1) default 0,
   PRIMARY KEY (`id`)  
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
@@ -160,6 +161,7 @@ CREATE TABLE `document_type` (
   `document_type_code` varchar(11) NOT NULL,
   `document_type_desc` varchar(255) NOT NULL,
   `document_type_desc_cn` varchar(255),
+  ``
   `created_date` DATETIME,
   PRIMARY KEY (`document_type_code`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
@@ -192,9 +194,9 @@ INSERT INTO document_type (document_type_code, document_type_desc, document_type
 CREATE TABLE `document` (
   `id` int(11) NOT NULL auto_increment,
   `document_type_code` varchar(11) NOT NULL,
-  `document_path` varchar(255) NOT NULL,
-  `document_name` varchar(255),
-  `reference_no` varchar(100),
+	`document_path` varchar(255) NOT NULL,
+	`document_name` varchar(255),
+	`reference_no` varchar(100),
   `user_id` varchar(100),
   `company_id` int(11) NOT NULL,
   `created_by` varchar(255) NOT NULL,

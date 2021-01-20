@@ -1,4 +1,5 @@
 function confirmCompanyInfo() {
+	var checkBox = document.getElementById("infoCheckbox");
 	$.ajax({
         url: '/api/company/manage/update',
         type : "POST",
@@ -11,12 +12,15 @@ function confirmCompanyInfo() {
         console.error("ERROR : ", e);
     }
     });
-	var checkBox = document.getElementById("infoCheckbox");
+
 	if (checkBox.checked == true) {
+		$("#lock_record").val("yes");
 		$("#companyDetailForm input").prop("disabled", true);
+		$("#hide_id").prop('disabled', false);
 		$("#txt_director").attr("disabled","disabled");
 		$("#txt_shareholder").attr("disabled","disabled");		
 	} else {
+		$("#lock_record").val("no");
 		$("#companyDetailForm input").prop('disabled', false);
 		$("#txt_director").attr("disabled","disabled");
 		$("#txt_shareholder").attr("disabled","disabled");	

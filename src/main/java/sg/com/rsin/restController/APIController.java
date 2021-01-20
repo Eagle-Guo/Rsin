@@ -192,32 +192,37 @@ public class APIController {
     		return new ResponseEntity<String>("Company not existed", new HttpHeaders(), HttpStatus.NOT_FOUND);
     	}
 
-    	company.setUen(request.getParameter("txt_uen"));
-    	company.setName(request.getParameter("txt_name"));
-    	company.setType(request.getParameter("txt_type"));
-    	company.setActivityOne(request.getParameter("txt_activity1"));
-    	company.setActivityTwo(request.getParameter("txt_activity2"));
-    	company.setNominatedDirector(request.getParameter("txt_nominated"));
-    	company.setSecretary(request.getParameter("txt_secretary"));
-    	
-    	company.setTotalStockCapital(company.getTotalStockCapital());
-    	company.setActualStockCapital(company.getActualStockCapital());
-    	try {
-    		company.setTotalStockCapital(Float.parseFloat(request.getParameter("txt_totalStock")));
-        	company.setActualStockCapital(Float.parseFloat(request.getParameter("txt_actualStock")));
-    	} catch (NumberFormatException e) {
-			e.printStackTrace();
-		}
-    	
-    	company.setRegistrationDate(company.getRegistrationDate());
-		try {
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MMM-dd", Locale.ENGLISH);
-			Date registrationDate = formatter.parse(request.getParameter("txt_registrationDate"));
-			company.setRegistrationDate(registrationDate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-    	
+    	String lockRecord = request.getParameter("lock_record");
+    	if (lockRecord == null) {
+    		company.setLockFlag(false);
+    	} else {
+    		company.setLockFlag(true);
+	    	company.setUen(request.getParameter("txt_uen"));
+	    	company.setName(request.getParameter("txt_name"));
+	    	company.setType(request.getParameter("txt_type"));
+	    	company.setActivityOne(request.getParameter("txt_activity1"));
+	    	company.setActivityTwo(request.getParameter("txt_activity2"));
+	    	company.setNominatedDirector(request.getParameter("txt_nominated"));
+	    	company.setSecretary(request.getParameter("txt_secretary"));
+	    	
+	    	company.setTotalStockCapital(company.getTotalStockCapital());
+	    	company.setActualStockCapital(company.getActualStockCapital());
+	    	try {
+	    		company.setTotalStockCapital(Float.parseFloat(request.getParameter("txt_totalStock")));
+	        	company.setActualStockCapital(Float.parseFloat(request.getParameter("txt_actualStock")));
+	    	} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+	    	
+	    	company.setRegistrationDate(company.getRegistrationDate());
+			try {
+				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+				Date registrationDate = formatter.parse(request.getParameter("txt_registrationDate"));
+				company.setRegistrationDate(registrationDate);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+    	}
     	newCompanyService.saveCompany(company);
     	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
     }

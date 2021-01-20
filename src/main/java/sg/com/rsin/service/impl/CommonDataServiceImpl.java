@@ -2,6 +2,8 @@ package sg.com.rsin.service.impl;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -150,8 +152,12 @@ public class CommonDataServiceImpl implements CommonDataService {
 		}
 
 		Set<CompanyDto> allCompanies = new LinkedHashSet<CompanyDto>();
-		SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
 		companyStatusTimes.stream().forEach(time -> {
+			Calendar registerDate = Calendar.getInstance();
+			registerDate.setTime(time.getCompany().getRegistrationDate());
+			registerDate.add(Calendar.MONTH, 12);
+
 			CompanyDto companyDto = new CompanyDto();
 			companyDto.setId(time.getCompany().getId());
 			companyDto.setUen(time.getCompany().getUen());
@@ -165,8 +171,8 @@ public class CommonDataServiceImpl implements CommonDataService {
 			companyDto.setActualStockCapital(time.getCompany().getActualStockCapital());
 			companyDto.setActualStockCapital(time.getCompany().getActualStockCapital()); 
 			
-			companyDto.setAnnualAudit("2020-01-20");
-			companyDto.setFinancePeriod("2020-01-19");
+			companyDto.setAnnualAudit(sm.format(registerDate.getTime()));
+			companyDto.setFinancePeriod(sm.format(registerDate.getTime()));
 			companyDto.setGstax("");
 			companyDto.setEci("");
 			companyDto.setIncometaxSubmit("");
@@ -188,8 +194,12 @@ public class CommonDataServiceImpl implements CommonDataService {
 		}
 
 		Set<CompanyDto> allCompanies = new LinkedHashSet<CompanyDto>();
-		SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
 		companies.stream().forEach(company -> {
+			Calendar registerDate = Calendar.getInstance();
+			registerDate.setTime(company.getRegistrationDate());
+			registerDate.add(Calendar.MONTH, 12);
+	        
 			CompanyDto companyDto = new CompanyDto();
 			companyDto.setId(company.getId());
 			companyDto.setUen(company.getUen());
@@ -203,8 +213,8 @@ public class CommonDataServiceImpl implements CommonDataService {
 			companyDto.setActualStockCapital(company.getActualStockCapital());
 			companyDto.setActualStockCapital(company.getActualStockCapital()); 
 			
-			companyDto.setAnnualAudit("2020-01-20");
-			companyDto.setFinancePeriod("2020-01-19");
+			companyDto.setAnnualAudit(sm.format(registerDate.getTime()));
+			companyDto.setFinancePeriod(sm.format(registerDate.getTime()));
 			companyDto.setGstax("");
 			companyDto.setEci("");
 			companyDto.setIncometaxSubmit("");

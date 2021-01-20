@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix ="fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
@@ -74,31 +75,35 @@
 											                      <tbody>
 											                        <tr>
 											                          <th scope="row">ID</th>
-											                          <td>${company.id } <input type="hidden" name="hide_id"  value="${company.id }"></td>
+											                          <td>${company.id } 
+											                          		<input type="hidden" id="hide_id" name="hide_id"  value="${company.id }">
+											                                <input type="hidden" name="lock_record"  value="yes">
+											                          </td>
 											                        </tr>
+											                        
 											                        <tr>
 											                          <th scope="row">UEN(注册号)</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_uen" value="${company.uen }"></td>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_uen" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.uen }"></td>
 											                        </tr>
 											                        <tr>
 											                          <th scope="row">公司名称</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_name" value="${company.name }"></td>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_name" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.name }"></td>
 											                        </tr>
 											                        <tr>
 											                          <th scope="row">公司类型</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_type"  value="${company.type }"></td>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_type" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.type }"></td>
 											                        </tr>
 											                        <tr>
 											                          <th scope="row">商业 活动1</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_activity1" value="${company.activityOne }"></td>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_activity1" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.activityOne }"></td>
 											                        </tr>										                        
 											                        <tr>
 											                          <th scope="row">商业 活动2</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_activity2" value="${company.activityTwo }"></td>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_activity2" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.activityTwo }"></td>
 											                        </tr>										                        
 											                        <tr>
 											                          <th scope="row">挂名董事</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_nominated" value="${company.nominatedDirector }"></td>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_nominated" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.nominatedDirector }"></td>
 											                        </tr>																
 											                        <tr>
 											                          <th scope="row">董事</th>
@@ -110,19 +115,19 @@
 											                        </tr>																	
 											                        <tr>
 											                          <th scope="row">秘书</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_secretary" value="${company.secretary }"></td>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_secretary" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.secretary }"></td>
 											                        </tr>																
 											                        <tr>
 											                          <th scope="row">注册资本</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_totalStock" value="${company.totalStockCapital }"></td>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_totalStock" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.totalStockCapital }"></td>
 											                        </tr>																	
 											                        <tr>
 											                          <th scope="row">实缴资本</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_actualStock" value="${company.actualStockCapital }"></td>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_actualStock" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.actualStockCapital }"></td>
 											                        </tr>		
 											                        <tr>
 											                          <th scope="row">注册时间</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_registrationDate" value="${company.registrationDate }"></td>
+											                          <td><input type="text" class="form-control form-control-sm" name="txt_registrationDate" <c:if test="${company.lockFlag }">disabled</c:if>  value="<fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' />"></td>
 											                        </tr>																						                        									                        
 											                      </tbody>
 											                     
@@ -133,7 +138,7 @@
 															            <div class="col-12 col-md-4 col-lg-4"></div>		
 															            <div class="col-12 col-md-4 col-lg-4">	
 																		<div class="form-check">
-													                        <input class="form-check-input" type="checkbox"  id="infoCheckbox" onclick="confirmCompanyInfo()">
+													                        <input class="form-check-input" type="checkbox"  id="infoCheckbox" <c:if test="${company.lockFlag }">checked</c:if> onclick="confirmCompanyInfo()">
 													                        <label class="form-check-label" for="gridCheck">确认锁定</label>
 													                    </div>	
 													                    <div class="inline">														            	

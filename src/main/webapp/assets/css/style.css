@@ -5541,6 +5541,11 @@ width
     color: #6c757d;
 }
 
+.sorting_desc {
+    background-image: url(../images/sort_desc.png);
+}
+
+
 .adminDownLoadFile .form-check {
     position: relative;
     display: inline;

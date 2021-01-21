@@ -115,7 +115,7 @@
 															             </td>                   												  
 																		 <td>                    
 																			<div class="form-group">
-																				<input type="date" class="form-control" id="startDate" placeholder="11/01/2019" >
+																				<input  type="datetime-local" id="startDate" class="form-control" name="meeting-time" value="2019-01-11T00:00" min="2019-01-11 T00:00">
 																			</div>
 																		 </td>
 																		 <td>  
@@ -124,7 +124,7 @@
 															             </td>
 																	</tr>	
 															        <tr>
-															                <td colspan="6" align="center" class="addBottom_adminTimeLine">记录列表
+															                <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b>
 															                </td>
 															        </tr>		
 																	<tr>

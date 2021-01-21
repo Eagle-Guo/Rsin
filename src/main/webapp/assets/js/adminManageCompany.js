@@ -79,7 +79,7 @@ function companyuploadfile(company_id, id) {
 									            <div class="col-12 col-md-7 col-lg-7"><span>修改记录：</span> ${obj.createdDate}</div>
 									            <div class="col-12 col-md-4 col-lg-4">														            	
 									            	<div class="inline">														            	
-										            	<a id="download_company_file${obj.id}" onclick="companydownloadfile('${obj.referenceNo}')" >下载</a>	
+										            	<a id="download_company_file${obj.id}" class="btnMenu view" onclick="companydownloadfile('${obj.referenceNo}')" >下载</a>	
 										            	<span> | </span><a id="preview_company_file${obj.id}" class="btnMenu view" onclick="companypreviewfile('${obj.referenceNo}')">浏览</a>			
 										            	<span> | </span><a id="delete_company_file${obj.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${obj.referenceNo}')">删除</a>						                  
 													</div>							                  

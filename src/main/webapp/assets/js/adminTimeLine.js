@@ -15,28 +15,36 @@
             for (var i = 0; i < allA.length; i++) {
                 allA[i].onclick = delA;
             }
-
-
             var addEmpButton = document.getElementById("addEmpButton");
             addEmpButton.onclick = function () {
-
-
                 var service = document.getElementById("service").value;
                 var registerDate = document.getElementById("registerDate").value;            	
                 var ServiceCycle = document.getElementById("ServiceCycle").value;
                 var serviceTimes = document.getElementById("serviceTimes").value;
                 var startDate = document.getElementById("startDate").value;
                 var actualDate = document.getElementById("startDate");
-                
-                
                 var tr = document.createElement("tr");
 
-                tr.innerHTML="<td colspan='2'>"+startDate+"</td>"+
-				                "<td>"+actualDate+"</td>" +
-				                "<td>"+ServiceCycle+"</td>"+
-                                "<td>"+serviceTimes+"</td>" +
-                                "<td>"+startDate+"</td>" +
-                                "<td><a href='javascript:;'>Delete</a></td>" ;
+                tr.innerHTML="<td  colspan='2' scope='col'>"+startDate+"</td>"+
+				                `<td>
+									<div class='form-group'>
+										<input type='date' class='form-control' id='startDate'>
+									</div>
+								</td>` +
+								`<td>										                          
+									<div class='form-check'>
+											<input class='form-check-input' type='checkbox' id='defaultCheck1'>
+													<label class='form-check-label' for='defaultCheck1'>
+															 已完成
+													</label>
+									</div>
+								</td>`+
+								`<td>
+									<div class='form-group'>
+											<input type='text' class='form-control'>
+									</div>
+								</td>`+
+                                "<td><a href='javascript:;'>删除此记录</a></td>" ;
                 var a=tr.getElementsByTagName("a")[0];
                 a.onclick=delA;
                 var recordTable = document.getElementById("recordTable");

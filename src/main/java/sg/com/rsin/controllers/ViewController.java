@@ -222,6 +222,9 @@ public class ViewController {
 		model.addObject("documentType9", docMap.get("TYPE_COM_15"));
 		model.addObject("documentType10", docMap.get("TYPE_COM_16"));
 		
+		List<CompanyShareholderInfo> sharehoderInfos = companyShareholderInfoRepository.company.get().getShareholderInfoList();
+		//sharehoderInfos.forEach(action);
+		
 		return model;
 	}
 	@RequestMapping("/adminTimeLine")

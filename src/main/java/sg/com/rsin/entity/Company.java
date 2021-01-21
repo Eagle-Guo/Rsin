@@ -59,7 +59,7 @@ public class Company {
     @OneToOne(mappedBy = "company", fetch = FetchType.LAZY)
     private CompanyService serviceList;
     
-    @OneToMany(cascade = {CascadeType.ALL})
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<CompanyShareholderInfo> shareholderInfoList;
     
     public Company() {}

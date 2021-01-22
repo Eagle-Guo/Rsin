@@ -26,12 +26,14 @@ import sg.com.rsin.entity.CompanyStatusTime;
 import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.entity.Employee;
 import sg.com.rsin.entity.ErrorObject;
+import sg.com.rsin.entity.Timeline;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.ResponseCode;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmployeeService;
 import sg.com.rsin.service.NewCompanyService;
 import sg.com.rsin.service.AdminManageCompanyService;
+import sg.com.rsin.service.AdminTimelineService;
 import sg.com.rsin.service.UserRegistrationService;
 import sg.com.rsin.vo.OnlineSignatureVO;
 
@@ -49,7 +51,9 @@ public class ViewController {
 
 	@Autowired
 	AdminManageCompanyService adminManageCompanyService;
-	
+	@Autowired
+	AdminTimelineService adminTimelineService;
+
 	@Autowired
 	CompanyRepository companyRepository;
 	@Autowired
@@ -236,6 +240,11 @@ public class ViewController {
 			model.addObject("company", company.get());
 		}
 		
+		List<Timeline> timelines = adminTimelineService.getAllTimelineByCompanyId(companyId);
+		model.addObject("timelines", timelines);
+
+		model.addObject("auditTimelineDetail", adminTimelineService.getTimelineDetailByService("年审", timelines));
+		model.addObject("financeTimelineDetail", adminTimelineService.getTimelineDetailByService("财务年度", timelines));
 		return model;
 	}	
 

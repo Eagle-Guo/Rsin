@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$("#startDate").attr("value", new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().slice(0, 10));
+	//$("#startDate").attr("value", new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().slice(0, 10));
 	$("#startDate").attr("min", new Date().toISOString().slice(0, 10));
 	
 	var allA = document.getElementsByTagName("a");

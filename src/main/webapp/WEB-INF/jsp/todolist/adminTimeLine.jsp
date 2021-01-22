@@ -124,59 +124,28 @@
 															             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
 															        </tr>		
 																	<tr>
-																		
 																		<th colspan="2" scope="col">预计年审时间</th>	
 																		<th scope="col">实际年审时间</th>  
 																		<th scope="col">项目办理结果</th>    
 																		<th scope="col">其它内容备注</th>   
 																		<th scope="col">是否删除记录</th>                    				  
-																	</tr>			
-																	<tr>
-																		
-																		<td colspan="2" >31/10/2019</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="date" class="form-control" id="startDate">
-																			</div>
-																		</td>
-																		<td>										                          
-																			<div class="form-check">
-																					<input class="form-check-input" type="checkbox" id="defaultCheck1">
-																							<label class="form-check-label" for="defaultCheck1">
-																									 已完成
-																							</label>
-																			</div>
-																		</td>
-																		<td>
-																			<div class="form-group">
-																					<input type="text" class="form-control">
-																			</div>
-																		</td>													                      
-															 			<td><a href="javascript:;">删除此记录</a></td>
 																	</tr>
-																	<tr>
-																		
-																		<td colspan="2" >31/10/2020</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="date" class="form-control">
-																			</div>
-																		</td>
-																		<td>										                          
-																			<div class="form-check">
-																				<input class="form-check-input" type="checkbox" id="defaultCheck1">
-																				<label class="form-check-label" for="defaultCheck1">
-																				已完成
-																				</label>
-																			</div>
-																		</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="text" class="form-control">
-																			</div>
-																		</td>													                      
-															            <td><a href="deleteEmp?id=002">删除此记录</a></td>
-																		</tr>		
+																	<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																		<tr>
+																			<td colspan="2" ><fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/></td>
+																			<td><div class="form-group"><input type="date" class="form-control" id="startDate${audit.id}"></div></td>
+																			<td>										                          
+																				<div class="form-check">
+																					<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}">	
+																					<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
+																				</div>
+																			</td>
+																			<td>
+																				<div class="form-group"><input type="text" class="form-control"></div>
+																			</td>													                      
+																 			<td><a href="javascript:;">删除此记录</a></td>
+																		</tr>
+																	</c:forEach>
 															    </table>
 														</div>
 										                </div>

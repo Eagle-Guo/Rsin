@@ -268,3 +268,26 @@ CREATE TABLE `status_code` (
 
 INSERT INTO status_code (id, status_desc) value (1,'待处理');
 INSERT INTO status_code (id, status_desc) value (2,'已完成');
+
+CREATE TABLE `timeline` (
+    `id` int(11) NOT NULL auto_increment,
+    `service` varchar(20) NOT NULL,
+    `registration` DATETIME,
+    `period` int(11),
+    `times` int(11),
+    `start_date` DATETIME,
+    `company_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `timeline_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE `timeline_detail` (
+    `id` int(11) NOT NULL auto_increment,
+    `estimate_date` DATETIME NOT NULL,
+    `actual_date` DATETIME,
+    `result` tinyint(1) DEFAULT '0',
+    `comment` varchar(255),
+    `timeline_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `timeline_detail_id_fk` FOREIGN KEY (`timeline_id`) REFERENCES `timeline` (`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;

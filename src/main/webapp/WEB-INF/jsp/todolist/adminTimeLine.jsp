@@ -178,9 +178,17 @@
 															            <td><a href="deleteEmp?id=002">删除此记录</a></td>
 																		</tr>		
 															    </table>
+																			<div class="form-check" style="text-align: center;color: #6777ef;font-weight: 500;font-size: 1rem;">
+																					<input class="form-check-input" type="checkbox" id="confirmCheck">
+																							<label class="form-check-label" for="">
+																									 确认以上信息
+																							</label>
+																			</div>																	    
 														</div>
 										                </div>
 								                        </div>
+						                        
+								                        
 						                      		</div>
 						                    	
 						                      		<div class="accordion">

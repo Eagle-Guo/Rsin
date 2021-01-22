@@ -1,4 +1,51 @@
-
+$(document).ready(function() {
+	$("#startDate").attr("value", new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().slice(0, 10));
+	$("#startDate").attr("min", new Date().toISOString().slice(0, 10));
+	
+	var allA = document.getElementsByTagName("a");
+    for (var i = 0; i < allA.length; i++) {
+        allA[i].onclick = delA;
+    }
+    var addEmpButton = document.getElementById("addEmpButton");
+    addEmpButton.onclick = function () {
+        var service = document.getElementById("service").value;
+        var registerDate = document.getElementById("registerDate").value;            	
+        var ServiceCycle = document.getElementById("ServiceCycle").value;
+        var serviceTimes = document.getElementById("serviceTimes").value;
+        var startDate = document.getElementById("startDate").value;
+        var actualDate = document.getElementById("startDate");
+        
+        for (var i = 0; i < serviceTimes; i++) {
+        	var tr = document.createElement("tr");
+            tr.innerHTML="<td  colspan='2' scope='col'>"+startDate+"</td>"+
+    		                `<td>
+    							<div class='form-group'>
+    								<input type='date' class='form-control' id='startDate'>
+    							</div>
+    						</td>` +
+    						`<td>										                          
+    							<div class='form-check'>
+    									<input class='form-check-input' type='checkbox' id='defaultCheck1'>
+    											<label class='form-check-label' for='defaultCheck1'>
+    													 已完成
+    											</label>
+    							</div>
+    						</td>`+
+    						`<td>
+    							<div class='form-group'>
+    									<input type='text' class='form-control'>
+    							</div>
+    						</td>`+
+                            "<td><a href='javascript:;'>删除此记录</a></td>" ;
+            var a=tr.getElementsByTagName("a")[0];
+            a.onclick=delA;
+            var recordTable = document.getElementById("recordTable");
+            var tbody = recordTable.getElementsByTagName("tbody")[0];
+            tbody.appendChild(tr);
+        }
+        
+    };
+});
 //TEST
 
         function delA() {
@@ -9,48 +56,6 @@
                 tr.parentNode.removeChild(tr);
             }
             return false;
-        };
-        window.onload = function () {
-            var allA = document.getElementsByTagName("a");
-            for (var i = 0; i < allA.length; i++) {
-                allA[i].onclick = delA;
-            }
-            var addEmpButton = document.getElementById("addEmpButton");
-            addEmpButton.onclick = function () {
-                var service = document.getElementById("service").value;
-                var registerDate = document.getElementById("registerDate").value;            	
-                var ServiceCycle = document.getElementById("ServiceCycle").value;
-                var serviceTimes = document.getElementById("serviceTimes").value;
-                var startDate = document.getElementById("startDate").value;
-                var actualDate = document.getElementById("startDate");
-                var tr = document.createElement("tr");
-
-                tr.innerHTML="<td  colspan='2' scope='col'>"+startDate+"</td>"+
-				                `<td>
-									<div class='form-group'>
-										<input type='date' class='form-control' id='startDate'>
-									</div>
-								</td>` +
-								`<td>										                          
-									<div class='form-check'>
-											<input class='form-check-input' type='checkbox' id='defaultCheck1'>
-													<label class='form-check-label' for='defaultCheck1'>
-															 已完成
-													</label>
-									</div>
-								</td>`+
-								`<td>
-									<div class='form-group'>
-											<input type='text' class='form-control'>
-									</div>
-								</td>`+
-                                "<td><a href='javascript:;'>删除此记录</a></td>" ;
-                var a=tr.getElementsByTagName("a")[0];
-                a.onclick=delA;
-                var recordTable = document.getElementById("recordTable");
-                var tbody = recordTable.getElementsByTagName("tbody")[0];
-                tbody.appendChild(tr);
-            };
         };
 
 

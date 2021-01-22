@@ -1,6 +1,6 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix ="fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
@@ -11,7 +11,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>睿信集团  &mdash;  睿信集团</title>
+  <title>睿信集团  &mdash;  时间表</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
@@ -38,7 +38,7 @@
               <div class="col-12">
                 <div class="card ">
 			                  <div class="card-header">
-			                    <h4>公司AAA</h4>
+			                    <h4>公司 ${company.name}</h4>
 			                    <div class="card-header-form">
 			                      <form>
 			                        <div class="input-group">
@@ -74,7 +74,7 @@
 															      </tr>
 															      <tr>        
 																		<th scope="row" id="service">年审</th>
-																		<th scope="row"  id="registerDate">11/01/2018</th>
+																		<th scope="row"  id="registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
 																		<td>
 																			<div class="form-group">
 																				<select class="form-control" id="ServiceCycle" >
@@ -115,17 +115,13 @@
 															             </td>                   												  
 																		 <td>                    
 																			<div class="form-group">
-																				<input  type="datetime-local" id="startDate" class="form-control" name="meeting-time" value="2019-01-11T00:00" min="2019-01-11 T00:00">
+																				<input type="date" id="startDate" class="form-control" name="meeting-time">
 																			</div>
 																		 </td>
-																		 <td>  
-																		     
-																			 <div class="badge badge-danger"><div style="cursor:pointer" id="addEmpButton">生成记录</div></div>
-															             </td>
+																		 <td><div class="badge badge-danger"><div style="cursor:pointer" id="addEmpButton">生成记录</div></div></td>
 																	</tr>	
 															        <tr>
-															                <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b>
-															                </td>
+															             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
 															        </tr>		
 																	<tr>
 																		

@@ -222,14 +222,20 @@ public class ViewController {
 		model.addObject("documentType9", docMap.get("TYPE_COM_15"));
 		model.addObject("documentType10", docMap.get("TYPE_COM_16"));
 		
-		List<CompanyShareholderInfo> sharehoderInfos = companyShareholderInfoRepository.company.get().getShareholderInfoList();
+		//List<CompanyShareholderInfo> sharehoderInfos = companyShareholderInfoRepository.company.get().getShareholderInfoList();
 		//sharehoderInfos.forEach(action);
 		
 		return model;
 	}
 	@RequestMapping("/adminTimeLine")
-	public ModelAndView adminTimeLine() {
+	public ModelAndView adminTimeLine(@RequestParam("id") Long companyId) {
 		ModelAndView model = new ModelAndView("todolist/adminTimeLine");
+		Optional<Company> company = companyRepository.findById(companyId);
+
+		if (company.isPresent()) {
+			model.addObject("company", company.get());
+		}
+		
 		return model;
 	}	
 

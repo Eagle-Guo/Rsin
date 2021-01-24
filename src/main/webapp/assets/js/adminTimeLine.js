@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	//$("#startDate").attr("value", new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().slice(0, 10));
-	$("#startDate").attr("min", new Date().toISOString().slice(0, 10));
+	$("#annual_audit_start_date").attr("min", new Date().toISOString().slice(0, 10));
 	
 	var allA = document.getElementsByTagName("a");
     for (var i = 0; i < allA.length; i++) {
@@ -10,14 +10,13 @@ $(document).ready(function() {
     addEmpButton.onclick = function () {
         var service = document.getElementById("service").value;
         var registerDate = document.getElementById("registerDate").value;            	
-        var ServiceCycle = document.getElementById("ServiceCycle").value;
         var serviceTimes = document.getElementById("serviceTimes").value;
         var startDate = document.getElementById("startDate").value;
         var actualDate = document.getElementById("startDate");
         
         for (var i = 0; i < serviceTimes; i++) {
         	var tr = document.createElement("tr");
-            tr.innerHTML="<td  colspan='2' scope='col'>"+startDate+"</td>"+
+            tr.innerHTML="<td colspan='2' scope='col'>"+startDate+"</td>"+
     		                `<td>
     							<div class='form-group'>
     								<input type='date' class='form-control' id='startDate'>
@@ -37,7 +36,7 @@ $(document).ready(function() {
     							</div>
     						</td>`+
                             "<td><a href='javascript:;'>删除此记录</a></td>" ;
-            var a=tr.getElementsByTagName("a")[0];
+            var a = tr.getElementsByTagName("a")[0];
             a.onclick=delA;
             var recordTable = document.getElementById("recordTable");
             var tbody = recordTable.getElementsByTagName("tbody")[0];
@@ -46,6 +45,42 @@ $(document).ready(function() {
         
     };
 });
+
+function generateRecord(type){
+    var registerDate = document.getElementById(type + "_registerDate").value;            	
+    var serviceCycle = document.getElementById(type + "_service_cycle").value;
+    var serviceTimes = document.getElementById(type + "_service_times").value;
+    var startDate = new Date(document.getElementById(type + "_start_date").value);
+    for (var i = 0; i < serviceTimes; i++) {
+    	var tr = document.createElement("tr");
+        tr.innerHTML="<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+"</td>"+
+		                `<td>
+							<div class='form-group'>
+								<input type='date' class='form-control' id='startDate'>
+							</div>
+						</td>
+						<td>										                          
+							<div class='form-check'>
+									<input class='form-check-input' type='checkbox' id='defaultCheck1'>
+											<label class='form-check-label' for='defaultCheck1'>
+													 已完成
+											</label>
+							</div>
+						</td>
+						<td>
+							<div class='form-group'>
+									<input type='text' class='form-control'>
+							</div>
+						</td>`+
+                        "<td><a href='javascript:;'>删除此记录</a></td>" ;
+        var a = tr.getElementsByTagName("a")[0];
+        a.onclick=delA;
+        var recordTable = document.getElementById("recordTable");
+        var tbody = recordTable.getElementsByTagName("tbody")[0];
+        tbody.appendChild(tr);
+        startDate.setFullYear(startDate.getFullYear() + 1);
+    }
+}
 //TEST
 
         function delA() {
@@ -293,14 +328,14 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 //When the user clicks the button, open the modal 
-btn.onclick = function() {
-modal.style.display = "block";
-}
+//btn.onclick = function() {
+//	modal.style.display = "block";
+//}
 
 //When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-modal.style.display = "none";
-}
+//span.onclick = function() {
+//	modal.style.display = "none";
+//}
 
 //When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {

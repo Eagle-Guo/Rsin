@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "timeline")
 public class Timeline {
@@ -18,12 +20,14 @@ public class Timeline {
 	private Long id;
 	@Column(name="service")
 	private String service;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	@Column(name="registration")
 	private Date registration;
 	@Column(name="period")
 	private int period;
 	@Column(name="times")
 	private int times;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	@Column(name="start_date")
 	private Date start_date;
 

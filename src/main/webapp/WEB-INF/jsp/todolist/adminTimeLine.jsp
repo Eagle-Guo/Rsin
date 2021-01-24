@@ -61,23 +61,23 @@
 								                         	<h4>年审</h4>
 								                        </div>
 								                        <div class="accordion-body collapse show" id="panel-body-1" data-parent="#accordion">
-										                <div class="card">
-										                  <div class="card-body">
-															<table id="recordTable" class="table table-sm">
-															      <tr>
-																		<th scope="col">服务项目</th>
-																		<th scope="col">注册时间</th>
-																		<th scope="col">服务周期</th>
-																		<th scope="col">服务次数</th>	
-																		<th scope="col">开始时间</th>   
-																		<th scope="col">生成记录</th> 	
-															      </tr>
-															      <tr>        
-																		<th scope="row" id="service">年审</th>
-																		<th scope="row"  id="registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
-																		<td>
-																			<div class="form-group">
-																				<select class="form-control" id="ServiceCycle" >
+										                	<div class="card">
+										                  		<div class="card-body">
+																	<table id="recordTable" class="table table-sm">
+															      		<tr>
+																			<th scope="col">服务项目</th>
+																			<th scope="col">注册时间</th>
+																			<th scope="col">服务周期</th>
+																			<th scope="col">服务次数</th>	
+																			<th scope="col">开始时间</th>   
+																			<th scope="col">生成记录</th> 	
+															      		</tr>
+															      		<tr>        
+																		<th scope="row" id="annual_audit_service">年审</th>
+																		<th scope="row"  id="annual_audit_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
+																			<td>
+																				<div class="form-group">
+																					<select class="form-control" id="annual_audit_service_cycle" >
 																						<option>选择服务周期</option>
 																						<option>1个月</option>
 																						<option>2个月</option>
@@ -91,73 +91,69 @@
 																						<option>10个月</option>												                        
 																						<option>11个月</option>
 																						<option selected="selected">12个月</option>												                        
-																				</select>
-																			 </div>
-															              </td>
-																		  <td>
-																			 <div class="form-group">
-																				<select class="form-control" id="serviceTimes">
-																					<option>选择服务次数</option>
-																					<option value="1">1</option>
-																					<option selected="selected">2</option>
-																					<option>3</option>
-																					<option>4</option>												                        
-																					<option>5</option>
-																					<option>6</option>												                        
-																					<option>7</option>
-																					<option>8</option>												                        
-																					<option>9</option>
-																					<option>10</option>		
-																					<option>11</option>
-																					<option>12</option>													                        											                        
-																				</select>
-																			</div>
-															             </td>                   												  
-																		 <td>                    
-																			<div class="form-group">
-																				<input type="date" id="startDate" class="form-control" name="meeting-time">
-																			</div>
-																		 </td>
-																		 <td><div class="badge badge-danger"><div style="cursor:pointer" id="addEmpButton">生成记录</div></div></td>
-																	</tr>	
-															        <tr>
-															             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
-															        </tr>		
-																	<tr>
-																		<th colspan="2" scope="col">预计年审时间</th>	
-																		<th scope="col">实际年审时间</th>  
-																		<th scope="col">项目办理结果</th>    
-																		<th scope="col">其它内容备注</th>   
-																		<th scope="col">是否删除记录</th>                    				  
-																	</tr>
-																	<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
-																		<tr>
-																			<td colspan="2" ><fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/></td>
-																			<td><div class="form-group"><input type="date" class="form-control" id="startDate${audit.id}"></div></td>
-																			<td>										                          
-																				<div class="form-check">
-																					<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}">	
-																					<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
-																				</div>
-																			</td>
+																					</select>
+																				 </div>
+																            </td>
 																			<td>
-																				<div class="form-group"><input type="text" class="form-control"></div>
-																			</td>													                      
-																 			<td><a href="javascript:;">删除此记录</a></td>
+																				 <div class="form-group">
+																					<select class="form-control" id="annual_audit_service_times">
+																						<option>选择服务次数</option>
+																						<option value="1">1</option>
+																						<option selected="selected">2</option>
+																						<option>3</option>
+																						<option>4</option>												                        
+																						<option>5</option>
+																						<option>6</option>												                        
+																						<option>7</option>
+																						<option>8</option>												                        
+																						<option>9</option>
+																						<option>10</option>		
+																						<option>11</option>
+																						<option>12</option>													                        											                        
+																					</select>
+																				</div>
+																             </td>                   												  
+																			 <td>                    
+																				<div class="form-group">
+																					<input type="date" id="annual_audit_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="meeting-time">
+																				</div>
+																			 </td>
+																		 	<td><div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('annual_audit')">生成记录</div></div></td>
+																		</tr>	
+																        <tr>
+																             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
+																        </tr>		
+																		<tr>
+																			<th colspan="2" scope="col">预计年审时间</th>	
+																			<th scope="col">实际年审时间</th>  
+																			<th scope="col">项目办理结果</th>    
+																			<th scope="col">其它内容备注</th>   
+																			<th scope="col">是否删除记录</th>                    				  
 																		</tr>
-																	</c:forEach>
-															    </table>
-																			<div class="form-check" style="text-align: center;color: #6777ef;font-weight: 500;font-size: 1rem;">
-																					<input class="form-check-input" type="checkbox" id="confirmCheck">
-																							<label class="form-check-label" for="">
-																									 确认以上信息
-																							</label>
-																			</div>																	    
-														</div>
-										                </div>
+																		<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																			<tr>
+																				<td colspan="2" ><fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/></td>
+																				<td><div class="form-group"><input type="date" class="form-control" id="startDate${audit.id}"></div></td>
+																				<td>										                          
+																					<div class="form-check">
+																						<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}">	
+																						<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
+																					</div>
+																				</td>
+																				<td>
+																					<div class="form-group"><input type="text" class="form-control"></div>
+																				</td>													                      
+																	 			<td><a href="javascript:;">删除此记录</a></td>
+																			</tr>
+																		</c:forEach>
+															    	</table>
+																	<div class="form-check" style="text-align: center;color: #6777ef;font-weight: 500;font-size: 1rem;">
+																		<input class="form-check-input" type="checkbox" id="confirmCheck">
+																		<label class="form-check-label" for="">确认以上信息</label>
+																	</div>																	    
+																</div>
+										                	</div>
 								                        </div>
-						                        
-								                        
 						                      		</div>
 						                    	
 						                      		<div class="accordion">

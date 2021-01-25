@@ -569,7 +569,7 @@
 						                    	<div id="">
 						                      		<div class="accordion">
 								                        <div class="accordion-header collapsible1  collapsed" role="button" data-toggle="collapse" data-target="#panel-body-2" aria-expanded="false">
-								                         	<h4>董事/股东：<span>AAA</span></h4>
+								                         	<h4>董事/股东/联系人：<span>AAA</span><span>状态（有效/撤销）</span></h4>
 								                        </div>
 								                        <div class="accordion-body collapse" id="panel-body-2" data-parent="#accordion">
 										                <div class="card">
@@ -596,36 +596,68 @@
 														                        <tr>
 														                          <th scope="row">全名(护照姓名)</th>
 														                          <td><input type="text" class="form-control form-control-sm" id="textInput011"  value="AAA"></td>
-														                          <th scope="row">性别</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="textInput021" value="女"></td>										                          
+														                          <th scope="row">状态</th>
+														                          <td>
+																					<div class="form-group">
+																						<div class="form-check form-check-inline">
+																							<input class="form-check-input" type="checkbox" id=""> 
+																							<label style="height: auto;" class="form-check-label">有效</label>
+																						</div>
+																						<div class="form-check form-check-inline">
+																							<input class="form-check-input" type="checkbox" id="" >
+																							<label style="height: auto;" class="form-check-label">撤销</label>
+																						</div>
+																					</div>
+														                          </td>										                          
 														                        </tr>
 														                        <tr>
+														                          <th scope="row">性别</th>
+														                          <td><input type="text" class="form-control form-control-sm" id="textInput021" value="女"></td>														                        
+														                          <th scope="row">职位</th>
+														                          <td>
+																					<div class="form-group">
+																						<div class="form-check form-check-inline">
+																							<input class="form-check-input" type="checkbox" id=""> 
+																							<label style="height: auto;" class="form-check-label">董事</label>
+																						</div>
+																						<div class="form-check form-check-inline">
+																							<input class="form-check-input" type="checkbox" id="" >
+																							<label style="height: auto;" class="form-check-label">股东</label>
+																						</div>
+																						<div class="form-check form-check-inline">
+																							<input class="form-check-input" type="checkbox" id=""> 
+																							<label style="height: auto;" class="form-check-label">联系人</label>
+																						</div>
+																					</div>
+														                          </td>															                        													                            									                          
+														                        </tr>														                        
+														                        <tr>
 														                          <th scope="row">国籍</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="textInput031" value="中国"></td>
+														                          <td><input type="text" class="form-control form-control-sm" id="textInput031" value="中国"></td>															                        
+														                          <th scope="row">发行股份数量</th>
+														                          <td><input type="text" class="form-control form-control-sm" id="textInput081" value="5000"></td>	
+														                        </tr>
+														                        <tr>
 														                          <th scope="row">证件类型</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="textInput041" value="护照"></td>										                          
+														                          <td><input type="text" class="form-control form-control-sm" id="textInput041" value="护照"></td>		
+																				  <th scope="row">实缴股份数量</th>
+														                          <td><input type="text" class="form-control form-control-sm" id="textInput091" value="5000"></td>		
 														                        </tr>
 														                        <tr>
 														                          <th scope="row">证件号码</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="textInput051" value="W2222222222"></td>
-														                          <th scope="row">电子邮箱</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="textInput061" value="test@gmail.com"></td>										                          
+														                          <td><input type="text" class="form-control form-control-sm" id="textInput051" value="W2222222222"></td>	
+														                          <th scope="row">每股价值S$</th>
+														                          <td><input type="text" class="form-control form-control-sm" id="textInput101" value="1"></td>															                          
 														                        </tr>
 														                        <tr>
 														                          <th scope="row">联系电话</th>
 														                          <td><input type="text" class="form-control form-control-sm" id="textInput071" value="65+83627182"></td>
-														                          <th scope="row">发行股份数量</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="textInput081" value="5000"></td>										                          
+														                          <th scope="row">电子邮箱</th>
+														                          <td><input type="text" class="form-control form-control-sm" id="textInput061" value="test@gmail.com"></td>														                         
 														                        </tr>
-														                        <tr>
-														                          <th scope="row">实缴股份数量</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="textInput091" value="5000"></td>
-														                          <th scope="row">每股价值S$</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="textInput101" value="1"></td>										                          
-														                        </tr>										                        
-														                        <tr>
+														                        <tr>														                         
 														                          <th scope="row">个人地址及邮编</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="textInput111" value="test"></td>
+														                          <td colspan="3"><input type="text" class="form-control form-control-sm" id="textInput111" value="test"></td>
 														                        </tr>										                        																						                        									                        
 														                      </tbody>
 														                    </table>	

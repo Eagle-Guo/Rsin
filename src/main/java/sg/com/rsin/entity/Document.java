@@ -17,16 +17,10 @@ public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name="document_path")
-	private String documentPath;
-	@Column(name="document_name")
-	private String documentName;
 	@Column(name="created_by")
 	private String createdBy;
     @Column(name="created_date")
 	private Date createdDate;
-    @Column(name="reference_no")
-	private String referenceNo;
     @Column(name="user_id")
 	private String userId;
     
@@ -40,15 +34,12 @@ public class Document {
     
     public Document() {}
 
-	public Document(Long id, String documentPath, String documentName, String createdBy, Date createdDate,
-			String referenceNo, String userId, Company company, DocumentType documentType) {
+	public Document(Long id, String createdBy, Date createdDate,
+			String userId, Company company, DocumentType documentType) {
 		super();
 		this.id = id;
-		this.documentPath = documentPath;
-		this.documentName = documentName;
 		this.createdBy = createdBy;
 		this.createdDate = createdDate;
-		this.referenceNo = referenceNo;
 		this.company = company;
 		this.documentType = documentType;
 	}
@@ -58,18 +49,6 @@ public class Document {
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public String getDocumentPath() {
-		return documentPath;
-	}
-	public void setDocumentPath(String documentPath) {
-		this.documentPath = documentPath;
-	}
-	public String getDocumentName() {
-		return documentName;
-	}
-	public void setDocumentName(String documentName) {
-		this.documentName = documentName;
 	}
 	public String getCreatedBy() {
 		return createdBy;
@@ -82,12 +61,6 @@ public class Document {
 	}
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
-	}
-	public String getReferenceNo() {
-		return referenceNo;
-	}
-	public void setReferenceNo(String referenceNo) {
-		this.referenceNo = referenceNo;
 	}
 	public String getUserId() {
 		return userId;

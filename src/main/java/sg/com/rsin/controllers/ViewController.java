@@ -29,6 +29,7 @@ import sg.com.rsin.entity.ErrorObject;
 import sg.com.rsin.entity.Timeline;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.ResponseCode;
+import sg.com.rsin.enums.TimeLineType;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmployeeService;
 import sg.com.rsin.service.NewCompanyService;
@@ -242,9 +243,29 @@ public class ViewController {
 		
 		List<Timeline> timelines = adminTimelineService.getAllTimelineByCompanyId(companyId);
 		model.addObject("timelines", timelines);
+		
+		timelines.forEach(timeline -> {
+			if (timeline.getService().equals(TimeLineType.TYPE_1.getDescription())) {
+				model.addObject("annualaudittimelines", timelines);
+			} else if (timeline.getService().equals(TimeLineType.TYPE_2.getDescription())) {
+				model.addObject("eciclaimtimelines", timelines);
+			} else if (timeline.getService().equals(TimeLineType.TYPE_3.getDescription())) {
+				model.addObject("eciclaimtimelines", timelines);
+			} else if (timeline.getService().equals(TimeLineType.TYPE_4.getDescription())) {
+				model.addObject("eciclaimtimelines", timelines);
+			} else if (timeline.getService().equals(TimeLineType.TYPE_5.getDescription())) {
+				model.addObject("eciclaimtimelines", timelines);
+			} else if (timeline.getService().equals(TimeLineType.TYPE_6.getDescription())) {
+				model.addObject("eciclaimtimelines", timelines);
+			} 
+		});
+		model.addObject("allTimeline", timelines);
 
-		model.addObject("auditTimelineDetail", adminTimelineService.getTimelineDetailByService("年审", timelines));
-		model.addObject("financeTimelineDetail", adminTimelineService.getTimelineDetailByService("财务年度", timelines));
+		model.addObject("auditTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_1.getDescription(), timelines));
+		model.addObject("ECIClaimTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_2.getDescription(), timelines));
+		model.addObject("GSTTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_3.getDescription(), timelines));
+		model.addObject("incomeTaxClaimTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_4.getDescription(), timelines));
+		model.addObject("incomeTaxPayableTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_5.getDescription(), timelines));
 		return model;
 	}	
 

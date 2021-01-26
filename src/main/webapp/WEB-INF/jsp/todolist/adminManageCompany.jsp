@@ -62,81 +62,80 @@
 								                        </div>
 								                        <div class="accordion-body collapse" id="panel-body-1" data-parent="#accordion">
 										                <div class="card">
-											                <div class="card-body">
-											                  <form id = "companyDetailForm" name="employeeForm">
-											                    <table class="table table-sm">
-											                      <thead>
-											                        <tr>
-											                          <th scope="col">项目</th>
-											                          <th scope="col">内容</th>						  
-											                        </tr>
-											                      </thead>
+											            	<div class="card-body">
+											                	<form id = "companyDetailForm" name="employeeForm">
+											                    	<table class="table table-sm">
+											                      		<thead>
+													                        <tr>
+													                          <th scope="col">项目</th>
+													                          <th scope="col">内容</th>						  
+													                        </tr>
+											                     		</thead>
 											                      
-											                      <tbody>
-											                        <tr>
-											                          <th scope="row">ID</th>
-											                          <td>${company.id } 
-											                          		<input type="hidden" id="hide_id" name="hide_id"  value="${company.id }">
-											                                <input type="hidden" name="lock_record"  value="yes">
-											                          </td>
-											                        </tr>
+											                      		<tbody>
+											                        		<tr>
+													                          <th scope="row">ID</th>
+													                          <td>${company.id } 
+													                          		<input type="hidden" id="hide_id" name="hide_id" value="${company.id }">
+													                                <input type="hidden" name="lock_record" value="yes">
+													                          </td>
+											                       			</tr>
 											                        
-											                        <tr>
-											                          <th scope="row">UEN(注册号)</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_uen" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.uen }"></td>
-											                        </tr>
-											                        <tr>
-											                          <th scope="row">公司名称</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_name" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.name }"></td>
-											                        </tr>
-											                        <tr>
-											                          <th scope="row">公司类型</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_type" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.type }"></td>
-											                        </tr>
-											                        <tr>
-											                          <th scope="row">商业 活动1</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_activity1" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.activityOne }"></td>
-											                        </tr>										                        
-											                        <tr>
-											                          <th scope="row">商业 活动2</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_activity2" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.activityTwo }"></td>
-											                        </tr>										                        
-											                        <tr>
-											                          <th scope="row">挂名董事</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_nominated" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.nominatedDirector }"></td>
-											                        </tr>																
-											                        <tr>
-											                          <th scope="row">董事</th>
-											                          <td><input type="text" class="form-control form-control-sm" id="txt_director" name="txt_director" value="${directorsName }" disabled></td>
-											                        </tr>																	
-											                        <tr>
-											                          <th scope="row">股东</th>
-											                          <td><input type="text" class="form-control form-control-sm" id="txt_shareholder" name="txt_shareholder" value="${shareholdersName }" disabled></td>
-											                        </tr>																	
-											                        <tr>
-											                          <th scope="row">秘书</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_secretary" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.secretary }"></td>
-											                        </tr>																
-											                        <tr>
-											                          <th scope="row">注册资本</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_totalStock" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.totalStockCapital }"></td>
-											                        </tr>																	
-											                        <tr>
-											                          <th scope="row">实缴资本</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_actualStock" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.actualStockCapital }"></td>
-											                        </tr>		
-											                        <tr>
-											                          <th scope="row">注册时间</th>
-											                          <td><input type="text" class="form-control form-control-sm" name="txt_registrationDate" <c:if test="${company.lockFlag }">disabled</c:if>  value="<fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' />"></td>
-											                        </tr>																						                        									                        
-											                      </tbody>
-											                     
-											                    </table>
+													                        <tr>
+													                          <th scope="row">UEN(注册号)</th>
+													                          <td><input type="text" class="form-control form-control-sm" name="txt_uen" <c:if test="${company.lockFlag || companay.uen != null }">disabled</c:if> value="${company.uen }"></td>
+													                        </tr>
+													                        <tr>
+													                          <th scope="row">公司名称</th>
+													                          <td><input type="text" class="form-control form-control-sm" name="txt_name" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.name }"></td>
+													                        </tr>
+													                        <tr>
+													                          <th scope="row">公司类型</th>
+													                          <td><input type="text" class="form-control form-control-sm" name="txt_type" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.type }"></td>
+													                        </tr>
+													                        <tr>
+													                          <th scope="row">商业 活动1</th>
+													                          <td><input type="text" class="form-control form-control-sm" name="txt_activity1" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.activityOne }"></td>
+													                        </tr>										                        
+													                        <tr>
+													                          <th scope="row">商业 活动2</th>
+													                          <td><input type="text" class="form-control form-control-sm" name="txt_activity2" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.activityTwo }"></td>
+													                        </tr>										                        
+													                        <tr>
+													                          <th scope="row">挂名董事</th>
+													                          <td><input type="text" class="form-control form-control-sm" name="txt_nominated" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.nominatedDirector }"></td>
+													                        </tr>																
+													                        <tr>
+													                          <th scope="row">董事</th>
+													                          <td><input type="text" class="form-control form-control-sm" id="txt_director" name="txt_director" value="${directorsName }" disabled></td>
+													                        </tr>																	
+													                        <tr>
+													                          <th scope="row">股东</th>
+													                          <td><input type="text" class="form-control form-control-sm" id="txt_shareholder" name="txt_shareholder" value="${shareholdersName }" disabled></td>
+													                        </tr>																	
+													                        <tr>
+													                          <th scope="row">秘书</th>
+													                          <td><input type="text" class="form-control form-control-sm" name="txt_secretary" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.secretary }"></td>
+													                        </tr>																
+													                        <tr>
+													                          <th scope="row">注册资本</th>
+													                          <td><input type="text" class="form-control form-control-sm" name="txt_totalStock" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.totalStockCapital }"></td>
+													                        </tr>																	
+													                        <tr>
+													                          <th scope="row">实缴资本</th>
+													                          <td><input type="text" class="form-control form-control-sm" name="txt_actualStock" <c:if test="${company.lockFlag }">disabled</c:if> value="${company.actualStockCapital }"></td>
+													                        </tr>		
+													                        <tr>
+													                          <th scope="row">注册时间</th>
+													                          <td><input type="text" class="form-control form-control-sm" name="txt_registrationDate" <c:if test="${company.lockFlag }">disabled</c:if>  value="<fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' />"></td>
+													                        </tr>																						                        									                        
+											                      		</tbody>
+											                    	</table>
 											                    </form>
 																<div class="row">
-															            <div class="col-12 col-md-4 col-lg-4"></div>
-															            <div class="col-12 col-md-4 col-lg-4"></div>		
-															            <div class="col-12 col-md-4 col-lg-4">	
+														            <div class="col-12 col-md-4 col-lg-4"></div>
+														            <div class="col-12 col-md-4 col-lg-4"></div>		
+														            <div class="col-12 col-md-4 col-lg-4">	
 																		<div class="form-check">
 													                        <input class="form-check-input" type="checkbox"  id="infoCheckbox" <c:if test="${company.lockFlag }">checked</c:if> onclick="confirmCompanyInfo()">
 													                        <label class="form-check-label" for="gridCheck">确认锁定</label>
@@ -144,29 +143,30 @@
 													                    <div class="inline">														            	
 															            	<span></span><a id="textInput000" href="#"></a>							                  
 																		</div>
-																		</div>																								
+																	</div>																								
 																</div>											                    
-											                  </div>
-											                
+											            	</div>
 										                </div>
+
 										                <div class="card">
 										                  <div class="card-body">
-															<div class="row">
-													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport9" style="cursor: pointer">
-													           	   <b>Constitution of Company（公司章程）</b>			                  
-																</div>
-													            <div class="col-12 col-md-4 col-lg-4"></div>		
-													            <div class="col-12 col-md-4 col-lg-4">	
-																	<div class="form-check">
-												                        <input class="form-check-input" type="checkbox"  id="companyfilelock9"  onclick="lock(9)">
-												                        <label class="form-check-label" for="gridCheck">确认锁定 </label>
-												                    </div>	
-												                    <div class="inline">														            	
-														            	<span> | </span><input type="file" id="file_com_upload9" style="display:none" onchange="companyuploadfile(${company.id }, 9)"/>
-														            					<a id="upload_company_file9" class="btnMenu view"  onclick="companyshowfilediag(9)">上传</a>		
+															<c:forEach>
+																<div class="row">
+														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport9" style="cursor: pointer">
+														           	   <b>Constitution of Company（公司章程）</b>			                  
+																	</div>
+														            <div class="col-12 col-md-4 col-lg-4"></div>		
+														            <div class="col-12 col-md-4 col-lg-4">	
+																		<div class="form-check">
+													                        <input class="form-check-input" type="checkbox"  id="companyfilelock9"  onclick="lock(9)">
+													                        <label class="form-check-label" for="gridCheck">确认锁定 </label>
+													                    </div>	
+													                    <div class="inline">														            	
+															            	<span> | </span><input type="file" id="file_com_upload9" style="display:none" onchange="companyuploadfile(${company.id }, 9)"/>
+															            					<a id="upload_company_file9" class="btnMenu view"  onclick="companyshowfilediag(9)">上传</a>		
+																		</div>
 																	</div>
 																</div>
-															</div>
 																<div id="showReport9" class="collapse in">
 																	<c:forEach items="${documentType1}" var="doc1" varStatus="loop">
 																		<div id="AttachedReport${doc1.referenceNo}">							
@@ -187,6 +187,45 @@
 																		</div>
 																	</c:forEach>
 																</div>
+															</c:forEach> 
+
+															<div class="row">
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport9" style="cursor: pointer">
+													           	   <b>Constitution of Company（公司章程）</b>			                  
+																</div>
+													            <div class="col-12 col-md-4 col-lg-4"></div>		
+													            <div class="col-12 col-md-4 col-lg-4">	
+																	<div class="form-check">
+												                        <input class="form-check-input" type="checkbox"  id="companyfilelock9"  onclick="lock(9)">
+												                        <label class="form-check-label" for="gridCheck">确认锁定 </label>
+												                    </div>	
+												                    <div class="inline">														            	
+														            	<span> | </span><input type="file" id="file_com_upload9" style="display:none" onchange="companyuploadfile(${company.id }, 9)"/>
+														            					<a id="upload_company_file9" class="btnMenu view"  onclick="companyshowfilediag(9)">上传</a>		
+																	</div>
+																</div>
+															</div>
+															<div id="showReport9" class="collapse in">
+																<c:forEach items="${documentType1}" var="doc1" varStatus="loop">
+																	<div id="AttachedReport${doc1.referenceNo}">							
+																		<div class="row">
+																				<div class="col-12 col-md-1 col-lg-1"></div>		
+																	            <div class="col-12 col-md-7 col-lg-7">	
+																	           	 	<span>修改记录：</span> ${doc1.createdDate}		                  
+																				</div>
+																            <div class="col-12 col-md-4 col-lg-4">														            	
+																            	<div class="inline">														            	
+																	            	<a id="download_company_file${doc1.id}" class="btnMenu view"  onclick="companydownloadfile('${doc1.referenceNo}')" >下载</a>	
+																	            	<span> | </span><a id="preview_company_file${doc1.id}" class="btnMenu view" onclick="companypreviewfile('${doc1.referenceNo}')">浏览</a>			
+																	            	<span> | </span><a id="delete_company_file${doc1.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${doc1.referenceNo}')">删除</a>						                  
+																				</div>							                  
+																			</div>		
+																			<div class="col-12 col-md-1 col-lg-1"></div>					
+																		</div>
+																	</div>
+																</c:forEach>
+															</div>
+
 															<div class="row">
 													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport10" style="cursor: pointer">	
 													           	    <b>Attached AML/CFT Report</b>
@@ -201,15 +240,15 @@
 														            	<span> | </span><input type="file" id="file_com_upload10" style="display:none" onchange="companyuploadfile(${company.id }, 10)"/>
 														            					<a id="upload_company_file10" class="btnMenu view"   onclick="companyshowfilediag(10)">上传</a>		
 																	</div>
-																</div>								
+																</div>
 															</div>
 															<div id="showReport10" class="collapse in">
 																<c:forEach items="${documentType2}" var="doc2" varStatus="loop">
-																	<div id="AttachedReport${doc2.referenceNo}">							
+																	<div id="AttachedReport${doc2.referenceNo}">
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
-																	            <div class="col-12 col-md-7 col-lg-7">	
-																	           	 	<span>修改记录：</span> ${doc2.createdDate}		                  
+																	            <div class="col-12 col-md-7 col-lg-7">
+																	           	 	<span>修改记录：</span> ${doc2.createdDate}
 																				</div>
 																            <div class="col-12 col-md-4 col-lg-4">														            	
 																            	<div class="inline">														            	
@@ -225,24 +264,24 @@
 																</div>
 
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport11" style="cursor: pointer"">	
-														           	   <b>Certificate of Incorporation（公司注册证书）</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            				                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="companyfilelock11"  onclick="lock(11)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><input type="file" id="file_com_upload11" style="display:none" onchange="companyuploadfile(${company.id }, 11)"/>
-															            					<a id="upload_company_file11" class="btnMenu view"  onclick="companyshowfilediag(11)">上传</a>
-																		</div>				                  
-																	</div>																									
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport11" style="cursor: pointer">	
+													           	   <b>Certificate of Incorporation（公司注册证书）</b>			                  
+																</div>
+													            <div class="col-12 col-md-4 col-lg-4">	
+													            				                  
+																</div>		
+													            <div class="col-12 col-md-4 col-lg-4">	
+														            <div class="form-check">
+												                        <input class="form-check-input" type="checkbox" id="companyfilelock11"  onclick="lock(11)">
+												                        <label class="form-check-label" for="gridCheck">
+												                       		 确认锁定
+												                        </label>
+												                    </div>															            	
+												                    <div class="inline">														            	
+														            	<span> | </span><input type="file" id="file_com_upload11" style="display:none" onchange="companyuploadfile(${company.id }, 11)"/>
+														            					<a id="upload_company_file11" class="btnMenu view"  onclick="companyshowfilediag(11)">上传</a>
+																	</div>				                  
+																</div>																									
 															</div>
 															<div id="showReport11" class="collapse in">
 															<c:forEach items="${documentType3}" var="doc3" varStatus="loop">
@@ -264,8 +303,9 @@
 																	</div>
 																</c:forEach>
 																</div>
+
 															<div class="row">
-													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport1" style="cursor: pointer"">	
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport1" style="cursor: pointer">	
 													           	   <b>First Director Meeting Resolution</b>			                  
 																</div>
 													            <div class="col-12 col-md-4 col-lg-4">	
@@ -285,7 +325,7 @@
 																</div>																									
 															</div>	
 															<div id="showReport1" class="collapse in">
-															<c:forEach items="${documentType4}" var="doc4" varStatus="loop">
+																<c:forEach items="${documentType4}" var="doc4" varStatus="loop">
 																	<div id="AttachedReport${doc4.referenceNo}">							
 																		<div class="row">
 																				<div class="col-12 col-md-1 col-lg-1"></div>		
@@ -303,28 +343,28 @@
 																		</div>
 																	</div>
 																</c:forEach>
-																</div>
+															</div>
 
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4  collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport12" style="cursor: pointer"">	
-														           	   <b>Risk Assessment（风险评估）</b>			                  
+													            <div class="col-12 col-md-4 col-lg-4  collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport12" style="cursor: pointer">	
+													           	   <b>Risk Assessment（风险评估）</b>			                  
+																</div>
+													            <div class="col-12 col-md-4 col-lg-4">	
+													            		签名人员：${nameInRiskAssessment } 			                  
+																</div>		
+													            <div class="col-12 col-md-4 col-lg-4">
+														            <div class="form-check">
+												                        <input class="form-check-input" type="checkbox" id="companyfilelock12"  onclick="lock(12)">
+												                        <label class="form-check-label" for="gridCheck">
+												                       		 确认锁定
+												                        </label>
+												                    </div>															            	
+												                    <div class="inline">														            	
+														            	<span> | </span><input type="file" id="file_com_upload12" style="display:none" onchange="companyuploadfile(${company.id }, 12)"/>
+														            					<a id="upload_company_file12" class="btnMenu view"   onclick="companyshowfilediag(12)">上传</a>
+																		<span> | </span><a id="sign_company_file12"  class="btnMenu view">在线签名</a>										            						                  
 																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            		签名人员：${nameInRiskAssessment } 			                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="companyfilelock12"  onclick="lock(12)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><input type="file" id="file_com_upload12" style="display:none" onchange="companyuploadfile(${company.id }, 12)"/>
-															            					<a id="upload_company_file12" class="btnMenu view"   onclick="companyshowfilediag(12)">上传</a>
-																			<span> | </span><a id="sign_company_file12"  class="btnMenu view">在线签名</a>										            						                  
-																		</div>
-																	</div>																									
+																</div>																									
 															</div>
 															<div id="showReport12" class="collapse in">
 																<c:forEach items="${documentType5}" var="doc5" varStatus="loop">
@@ -345,29 +385,29 @@
 																		</div>
 																	</div>
 																</c:forEach>
-																</div>
+															</div>
 	
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport13" style="cursor: pointer"">	
-														           	   <b>Risk Assessment Checklist（风险评估清单）</b>			                  
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport13" style="cursor: pointer">	
+													           	   <b>Risk Assessment Checklist（风险评估清单）</b>			                  
+																</div>
+													            <div class="col-12 col-md-4 col-lg-4">	
+													            					                  
+																</div>		
+													            <div class="col-12 col-md-4 col-lg-4">
+														            <div class="form-check">
+												                        <input class="form-check-input" type="checkbox" id="companyfilelock13"  onclick="lock(13)">
+												                        <label class="form-check-label" for="gridCheck">
+												                       		 确认锁定
+												                        </label>
+												                    </div>															            	
+												                    <div class="inline">														            	
+														            	<span> | </span><input type="file" id="file_com_upload13" style="display:none" onchange="companyuploadfile(${company.id }, 13)"/>
+														            					<a id="upload_company_file13" class="btnMenu view"   onclick="companyshowfilediag(13)">上传</a>		
 																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            					                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="companyfilelock13"  onclick="lock(13)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><input type="file" id="file_com_upload13" style="display:none" onchange="companyuploadfile(${company.id }, 13)"/>
-															            					<a id="upload_company_file13" class="btnMenu view"   onclick="companyshowfilediag(13)">上传</a>		
-																		</div>
-																	</div>																										
+																</div>																										
 															</div>
-															<div id="showReport13" class="collapse in">
+														    <div id="showReport13" class="collapse in">
 																<c:forEach items="${documentType6}" var="doc6" varStatus="loop">
 																	<div id="AttachedReport${doc6.referenceNo}">							
 																		<div class="row">
@@ -386,9 +426,10 @@
 																		</div>
 																	</div>
 																</c:forEach>
-																</div>
+															</div>
+
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport2" style="cursor: pointer"">	
+														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport2" style="cursor: pointer">	
 														           	   <b>Secretary Agreement（秘书协议）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4">	
@@ -430,23 +471,23 @@
 																</div>
 
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport14" style="cursor: pointer"">	
-														           	   <b>Company info（公司信息）</b>			                  
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport14" style="cursor: pointer">	
+													           	   <b>Company info（公司信息）</b>			                  
+																</div>
+													            <div class="col-12 col-md-4 col-lg-4">	
+													            					                  
+																</div>		
+													            <div class="col-12 col-md-4 col-lg-4">	
+														            <div class="form-check">
+												                        <input class="form-check-input" type="checkbox" id="companyfilelock14"  onclick="lock(14)">
+												                        <label class="form-check-label" for="gridCheck">
+												                       		 确认锁定
+												                        </label>
+												                    </div>															            	
+												                    <div class="inline">														            	
+														            	<span> | </span><input type="file" id="file_com_upload14" style="display:none" onchange="companyuploadfile(${company.id }, 14)"/>
+														            					<a id="upload_company_file14" class="btnMenu view"  onclick="companyshowfilediag(14)">上传</a>
 																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            					                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="companyfilelock14"  onclick="lock(14)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><input type="file" id="file_com_upload14" style="display:none" onchange="companyuploadfile(${company.id }, 14)"/>
-															            					<a id="upload_company_file14" class="btnMenu view"  onclick="companyshowfilediag(14)">上传</a>
-																		</div>
 																	</div>																										
 															</div>	
 															<div id="showReport14" class="collapse in">
@@ -471,24 +512,24 @@
 																</div>
 															
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport15" style="cursor: pointer"">	
-														           	   <b>Register of Charges（收费登记册）</b>			                  
+													            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport15" style="cursor: pointer">	
+													           	   <b>Register of Charges（收费登记册）</b>			                  
+																</div>
+													            <div class="col-12 col-md-4 col-lg-4">	
+													            					                  
+																</div>		
+													            <div class="col-12 col-md-4 col-lg-4">	
+														            <div class="form-check">
+												                        <input class="form-check-input" type="checkbox" id="companyfilelock15"  onclick="lock(15)">
+												                        <label class="form-check-label" for="gridCheck">
+												                       		 确认锁定
+												                        </label>
+												                    </div>															            	
+												                    <div class="inline">														            	
+														            	<span> | </span><input type="file" id="file_com_upload15" style="display:none" onchange="companyuploadfile(${company.id }, 15)"/>
+														            					<a id="upload_company_file15" class="btnMenu view"  onclick="companyshowfilediag(15)">上传</a>
 																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            					                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="companyfilelock15"  onclick="lock(15)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><input type="file" id="file_com_upload15" style="display:none" onchange="companyuploadfile(${company.id }, 15)"/>
-															            					<a id="upload_company_file15" class="btnMenu view"  onclick="companyshowfilediag(15)">上传</a>
-																		</div>
-																	</div>																									
+																</div>																									
 															</div>	
 															<div id="showReport15" class="collapse in">
 																<c:forEach items="${documentType9}" var="doc9" varStatus="loop">
@@ -512,7 +553,7 @@
 																</div>
 
 															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport16" style="cursor: pointer"">	
+														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport16" style="cursor: pointer">	
 														           	   <b>Register of Secretary（秘书名册）</b>			                  
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4">	

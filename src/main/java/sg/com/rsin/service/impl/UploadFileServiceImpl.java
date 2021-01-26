@@ -150,8 +150,6 @@ public class UploadFileServiceImpl implements UploadFileService {
 			document.setCompany(company.get());
 			document.setCreatedBy(userid);
 			document.setCreatedDate(new Date());
-			document.setDocumentName(file.getOriginalFilename());
-			document.setDocumentPath(uploadFilePathRoot.concat(companyId).concat(File.separator));
 			
 			DocumentTypeCode documentTypeCode = null; 
 			switch (id) {

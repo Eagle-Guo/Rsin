@@ -74,7 +74,7 @@
 															      		</tr>
 															      		<tr>        
 																		<th scope="row" id="annual_audit_service">年审</th>
-																		<th scope="row"  id="annual_audit_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
+																		<th scope="row"  id="annual_audit_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${timelines.getService().equals("年审")? timelines.startDate}' /></th>
 																			<td>
 																				<div class="form-group">
 																					<select class="form-control" id="annual_audit_service_cycle" >

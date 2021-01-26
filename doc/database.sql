@@ -251,7 +251,7 @@ CREATE TABLE `document` (
     `category` char(1) NOT NULL,
     `display_sequence` int,
     `document_desc` varchar(255),
-    `document_type_desc_cn` varchar(255),
+    `document_desc_cn` varchar(255),
     `user_id` varchar(100), -- this is important to differentship different directors and shareholder
     `company_id` int(11) NOT NULL,
     `created_by` varchar(255) NOT NULL,

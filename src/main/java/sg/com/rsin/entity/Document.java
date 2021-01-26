@@ -24,6 +24,15 @@ public class Document {
     @Column(name="user_id")
 	private String userId;
     
+    @Column(name="category")
+   	private String category;
+    @Column(name="display_sequence")
+   	private int displaySequence;
+    @Column(name="document_desc")
+   	private String documentDesc;
+    @Column(name="document_desc_cn")
+   	private String documentDesccn;
+    
     @ManyToOne
     @JoinColumn(name = "company_id", nullable = false)
 	private Company company;
@@ -33,16 +42,6 @@ public class Document {
     private DocumentType documentType;
     
     public Document() {}
-
-	public Document(Long id, String createdBy, Date createdDate,
-			String userId, Company company, DocumentType documentType) {
-		super();
-		this.id = id;
-		this.createdBy = createdBy;
-		this.createdDate = createdDate;
-		this.company = company;
-		this.documentType = documentType;
-	}
 
 	public Long getId() {
 		return id;
@@ -79,5 +78,29 @@ public class Document {
 	}
 	public void setDocumentType(DocumentType documentType) {
 		this.documentType = documentType;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public int getDisplaySequence() {
+		return displaySequence;
+	}
+	public void setDisplaySequence(int displaySequence) {
+		this.displaySequence = displaySequence;
+	}
+	public String getDocumentDesc() {
+		return documentDesc;
+	}
+	public void setDocumentDesc(String documentDesc) {
+		this.documentDesc = documentDesc;
+	}
+	public String getDocumentDesccn() {
+		return documentDesccn;
+	}
+	public void setDocumentDesccn(String documentDesccn) {
+		this.documentDesccn = documentDesccn;
 	}
 }

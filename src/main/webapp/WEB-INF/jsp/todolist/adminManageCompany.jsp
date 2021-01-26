@@ -150,7 +150,7 @@
 
 										                <div class="card">
 										                  <div class="card-body">
-															<c:forEach>
+															<c:forEach var >
 																<div class="row">
 														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport9" style="cursor: pointer">
 														           	   <b>Constitution of Company（公司章程）</b>			                  

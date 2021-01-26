@@ -215,6 +215,9 @@ public class ViewController {
 		String nameInSecretaryAgreement = newCompanyService.listSignedUserName(signedFile, "TYPE_COM_2"); //"签名人1(待签名)、签名人2(已签名)、签名人3(待签名)";
 		model.addObject("nameInSecretaryAgreement", nameInSecretaryAgreement);
 		
+		//Get all document belong to this company
+		
+		
 		Map<String, List<DocumentHistory>> docMap = adminManageCompanyService.getDocumentList(companyId);
 		model.addObject("documentType1", docMap.get("TYPE_COM_9"));
 		model.addObject("documentType2", docMap.get("TYPE_COM_10"));

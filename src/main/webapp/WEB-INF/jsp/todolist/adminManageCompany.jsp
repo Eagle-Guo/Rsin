@@ -162,7 +162,7 @@
 													                        <label class="form-check-label" for="gridCheck">确认锁定 </label>
 													                    </div>	
 													                    <div class="inline">														            	
-															            	<span> | </span><input type="file" id="file_com_upload${docs.id}" style="display:none" onchange="companyuploadfile(${company.id }, 9)"/>
+															            	<span> | </span><input type="file" id="file_com_upload${docs.id}" style="display:none" onchange="companyuploadfile(${company.id }, ${docs.id})"/>
 															            					<a id="upload_company_file${docs.id}" class="btnMenu view"  onclick="companyshowfilediag(${docs.id})">上传</a>		
 																		</div>
 																	</div>

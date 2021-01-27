@@ -150,24 +150,24 @@
 
 										                <div class="card">
 										                  <div class="card-body">
-															<c:forEach var >
+															<c:forEach var="docs" items="${docList}" >
 																<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport9" style="cursor: pointer">
-														           	   <b>Constitution of Company（公司章程）</b>			                  
+														            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport${docs.id}" style="cursor: pointer">
+														           	   <b>${docs.documentDesc} <c:if test="${docs.documentDesccn != null || !''.equal(docs.documentDesccn) }">${docs.documentDesccn}</c:if></b>			                  
 																	</div>
 														            <div class="col-12 col-md-4 col-lg-4"></div>		
 														            <div class="col-12 col-md-4 col-lg-4">	
 																		<div class="form-check">
-													                        <input class="form-check-input" type="checkbox"  id="companyfilelock9"  onclick="lock(9)">
+													                        <input class="form-check-input" type="checkbox"  id="companyfilelock${docs.id}"  onclick="lock(${docs.id})">
 													                        <label class="form-check-label" for="gridCheck">确认锁定 </label>
 													                    </div>	
 													                    <div class="inline">														            	
-															            	<span> | </span><input type="file" id="file_com_upload9" style="display:none" onchange="companyuploadfile(${company.id }, 9)"/>
-															            					<a id="upload_company_file9" class="btnMenu view"  onclick="companyshowfilediag(9)">上传</a>		
+															            	<span> | </span><input type="file" id="file_com_upload${docs.id}" style="display:none" onchange="companyuploadfile(${company.id }, 9)"/>
+															            					<a id="upload_company_file${docs.id}" class="btnMenu view"  onclick="companyshowfilediag(${docs.id})">上传</a>		
 																		</div>
 																	</div>
 																</div>
-																<div id="showReport9" class="collapse in">
+																<div id="showReport${docs.id}" class="collapse in">
 																	<c:forEach items="${documentType1}" var="doc1" varStatus="loop">
 																		<div id="AttachedReport${doc1.referenceNo}">							
 																			<div class="row">

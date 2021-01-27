@@ -1,6 +1,6 @@
 package sg.com.rsin.service.impl;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -43,13 +43,20 @@ public class AdminManageCompanyServiceImpl implements AdminManageCompanyService 
 	}
 
 	@Override
-	public Map<String, List<DocumentHistory>> getDocumentList(Long companyId) {
-		List<Document> documents = documentRepository.findByCompanyId(companyId);
-		Map<String, List<DocumentHistory>> fileMap = new HashMap<String, List<DocumentHistory>>();
+	public List<Document> getDocumentList(Long companyId) {
+		List<Document> documents = documentRepository.findByCompanyIdOrderByDisplaySequenceAsc(companyId);
+		return documents;
+	}
+
+	@Override
+	public Map<String, List<DocumentHistory>> getDocumentListWithDetail(Long companyId) {
+		List<Document> documents = documentRepository.findByCompanyIdOrderByDisplaySequenceAsc(companyId);
+		Map<String, List<DocumentHistory>> fileMap = new LinkedHashMap<String, List<DocumentHistory>>();
 		documents.stream().forEach(doc -> {
-			String type = doc.getDocumentType().getDocumentTypeCode();
+			//String type = doc.getDocumentType().getDocumentTypeCode();
+			String desc = doc.getDocumentDesc() + ((doc.getDocumentDesccn() == null || "".equals(doc.getDocumentDesccn())) ? "" : " (" + doc.getDocumentDesccn() + ")");
 			List<DocumentHistory> hiss = documentHistoryRepository.findByDocumentId(doc.getId());
-			fileMap.put(type, hiss);
+			fileMap.put(desc, hiss);
 		});
 		
 		return fileMap;

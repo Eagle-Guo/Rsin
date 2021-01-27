@@ -23,6 +23,7 @@ import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.CompanyStatusTime;
+import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.entity.Employee;
 import sg.com.rsin.entity.ErrorObject;
@@ -216,9 +217,11 @@ public class ViewController {
 		model.addObject("nameInSecretaryAgreement", nameInSecretaryAgreement);
 		
 		//Get all document belong to this company
+		List<Document> docList = adminManageCompanyService.getDocumentList(companyId);
 		
-		
-		Map<String, List<DocumentHistory>> docMap = adminManageCompanyService.getDocumentList(companyId);
+		Map<String, List<DocumentHistory>> docMap = adminManageCompanyService.getDocumentListWithDetail(companyId);
+		model.addObject("docList", docList);
+		model.addObject("docMap", docMap);
 		model.addObject("documentType1", docMap.get("TYPE_COM_9"));
 		model.addObject("documentType2", docMap.get("TYPE_COM_10"));
 		model.addObject("documentType3", docMap.get("TYPE_COM_11"));

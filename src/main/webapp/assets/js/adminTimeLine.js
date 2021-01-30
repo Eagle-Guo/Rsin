@@ -51,9 +51,11 @@ function generateRecord(type){
     var serviceCycle = document.getElementById(type + "_service_cycle").value;
     var serviceTimes = document.getElementById(type + "_service_times").value;
     var startDate = new Date(document.getElementById(type + "_start_date").value);
+ 
     for (var i = 0; i < serviceTimes; i++) {
     	var tr = document.createElement("tr");
-        tr.innerHTML="<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+"</td>"+
+        tr.innerHTML="" +
+        		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+"</td>"+
 		                `<td>
 							<div class='form-group'>
 								<input type='date' class='form-control' id='startDate'>
@@ -75,11 +77,12 @@ function generateRecord(type){
                         "<td><a href='javascript:;'>删除此记录</a></td>" ;
         var a = tr.getElementsByTagName("a")[0];
         a.onclick=delA;
-        var recordTable = document.getElementById("recordTable");
+        var recordTable = document.getElementById("recordTable_"+ type);
         var tbody = recordTable.getElementsByTagName("tbody")[0];
         tbody.appendChild(tr);
         startDate.setFullYear(startDate.getFullYear() + 1);
-    }
+
+    }        alert("已生成记录，请在记录列表进行查看。");
 }
 //TEST
 
@@ -132,6 +135,7 @@ function addTimeLineRecord() {
         `;
 		var element=document.getElementById("timeLineRecord1");
 		element.appendChild(record);
+		
 }
 
 
@@ -343,3 +347,23 @@ if (event.target == modal) {
   modal.style.display = "none";
 }
 }
+
+
+function showAndHideRecord(type) {
+	  var x = document.getElementById("recordTable_"+type);
+	  //var a = document.getElementById("changeFaIcon");	
+	  var text = document.getElementById("viewRecord_"+type);	
+	  var addBorder = document.getElementById("div_"+type);		  
+	  if (x.style.display === "none") {
+		x.style.display = "table";	
+		//a.classList.replace("fa-plus-circle","fa-minus-circle");  
+		text.innerHTML="收起记录";
+		addBorder.style.border = "2px solid #3abaf4;";	
+	  } else {
+	    x.style.display = "none";
+		//a.classList.replace("fa-minus-circle","fa-plus-circle");  
+		text.innerHTML="展开记录";
+		addBorder.style.border = "0px solid #3abaf4;";
+		addBorder.replace("unfoldBorder","removeBorder");  
+	  }
+	}

@@ -5602,6 +5602,15 @@ width
 	font-size: 17px;
 	font-weight: 900;
 }
+.unfoldBorder {
+    border: 2px solid #3abaf4;;
+    margin-bottom:1rem;
+}
+.removeBorder {
+    border: 0px solid #3abaf4;;
+    margin-bottom:1rem;
+}
+
 
 
 /* 7.3 adminTimeLine page */
@@ -5647,7 +5656,9 @@ input[type=checkbox], input[type=radio] {
     cursor: pointer;
 }
 
-
+.collapse .table {
+    margin-bottom: 0rem;
+}
 
 /* 7.4 admin_editRecord page */
 

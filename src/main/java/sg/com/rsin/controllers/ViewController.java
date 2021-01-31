@@ -23,12 +23,14 @@ import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.CompanyStatusTime;
+import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.entity.Employee;
 import sg.com.rsin.entity.ErrorObject;
 import sg.com.rsin.entity.Timeline;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.ResponseCode;
+import sg.com.rsin.enums.TimeLineType;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmployeeService;
 import sg.com.rsin.service.NewCompanyService;
@@ -214,7 +216,12 @@ public class ViewController {
 		String nameInSecretaryAgreement = newCompanyService.listSignedUserName(signedFile, "TYPE_COM_2"); //"签名人1(待签名)、签名人2(已签名)、签名人3(待签名)";
 		model.addObject("nameInSecretaryAgreement", nameInSecretaryAgreement);
 		
-		Map<String, List<DocumentHistory>> docMap = adminManageCompanyService.getDocumentList(companyId);
+		//Get all document belong to this company
+		List<Document> docList = adminManageCompanyService.getDocumentList(companyId);
+		
+		Map<String, List<DocumentHistory>> docMap = adminManageCompanyService.getDocumentListWithDetail(companyId);
+		model.addObject("docList", docList);
+		model.addObject("docMap", docMap);
 		model.addObject("documentType1", docMap.get("TYPE_COM_9"));
 		model.addObject("documentType2", docMap.get("TYPE_COM_10"));
 		model.addObject("documentType3", docMap.get("TYPE_COM_11"));
@@ -242,9 +249,29 @@ public class ViewController {
 		
 		List<Timeline> timelines = adminTimelineService.getAllTimelineByCompanyId(companyId);
 		model.addObject("timelines", timelines);
+		
+		timelines.forEach(timeline -> {
+			if (timeline.getService().equals(TimeLineType.TYPE_1.getDescription())) {
+				model.addObject("annualaudittimelines", timelines);
+			} else if (timeline.getService().equals(TimeLineType.TYPE_2.getDescription())) {
+				model.addObject("eciclaimtimelines", timelines);
+			} else if (timeline.getService().equals(TimeLineType.TYPE_3.getDescription())) {
+				model.addObject("eciclaimtimelines", timelines);
+			} else if (timeline.getService().equals(TimeLineType.TYPE_4.getDescription())) {
+				model.addObject("eciclaimtimelines", timelines);
+			} else if (timeline.getService().equals(TimeLineType.TYPE_5.getDescription())) {
+				model.addObject("eciclaimtimelines", timelines);
+			} else if (timeline.getService().equals(TimeLineType.TYPE_6.getDescription())) {
+				model.addObject("eciclaimtimelines", timelines);
+			} 
+		});
+		model.addObject("allTimeline", timelines);
 
-		model.addObject("auditTimelineDetail", adminTimelineService.getTimelineDetailByService("年审", timelines));
-		model.addObject("financeTimelineDetail", adminTimelineService.getTimelineDetailByService("财务年度", timelines));
+		model.addObject("auditTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_1.getDescription(), timelines));
+		model.addObject("ECIClaimTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_2.getDescription(), timelines));
+		model.addObject("GSTTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_3.getDescription(), timelines));
+		model.addObject("incomeTaxClaimTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_4.getDescription(), timelines));
+		model.addObject("incomeTaxPayableTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_5.getDescription(), timelines));
 		return model;
 	}	
 

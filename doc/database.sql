@@ -158,10 +158,9 @@ CREATE TABLE `industry` (
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE `document_type` (
-  `document_type_code` varchar(11) NOT NULL,
+  `document_type_code` varchar(15) NOT NULL,
   `document_type_desc` varchar(255) NOT NULL,
   `document_type_desc_cn` varchar(255),
-  ``
   `created_date` DATETIME,
   PRIMARY KEY (`document_type_code`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
@@ -183,20 +182,60 @@ INSERT INTO document_type (document_type_code, document_type_desc, document_type
 INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_14','Company info', '公司信息', sysdate());
 INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_15','Register of Charges', '收费登记册', sysdate());
 INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_16','Register of Secretary', '秘书名册', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_17','Register of member', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_18','Register of director ', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_19','Register of Auditor', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_20','Register of Controllers', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_21','Register of Beneficial Owner', '', sysdate());
 	
-INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_1','IC Front', '', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_2','IC Back', '', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_3','Passport', '', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_4','Chinese IC', '', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_5','Resident Proof', '', sysdate());
-INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_6','Selfie With Passport', '', sysdate());
-    
-CREATE TABLE `document` (
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_1','IC Front', 'IC正面', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_2','IC Back', 'IC背面', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_3','Passport', '护照（有照片页）', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_4','Chinese IC', '中国身份证', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_5','Resident Proof', '住所证明', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_6','Selfie With Passport', '持护照（打开有照片页）上半身照', sysdate());
+
+CREATE TABLE `initiate_document` (
   `id` int(11) NOT NULL auto_increment,
-  `document_type_code` varchar(11) NOT NULL,
-	`document_path` varchar(255) NOT NULL,
-	`document_name` varchar(255),
-	`reference_no` varchar(100),
+  `document_type_code` varchar(15) NOT NULL,
+  `category` char(1) NOT NULL,
+  `display_sequence` int,
+  `created_by` varchar(255) NOT NULL,
+  `created_date` DATETIME,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `initiate_document_type_fk` FOREIGN KEY (`document_type_code`) REFERENCES `document_type` (`document_type_code`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_9', 1, 1, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_10', 1, 2, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_11', 1, 3, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_1', 1, 4, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_12', 1, 5, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_13', 1, 6, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_2', 1, 7, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_14', 1, 8, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_15', 1, 9, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_16', 1, 10, 'admin', sysdate());
+
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_3', 2, 1, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_4', 2, 2, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_5', 2, 3, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_6', 2, 4, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_7', 2, 5, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_17', 2, 6, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_18', 2, 7, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_19', 2, 8, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_20', 2, 9, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_21', 2, 10, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_1', 2, 11, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_2', 2, 12, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_3', 2, 13, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_4', 2, 14, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_5', 2, 15, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_6', 2, 16, 'admin', sysdate());
+/*
+CREATE TABLE `dynamic_document` (
+  `id` int(11) NOT NULL auto_increment,
+  `document_type_code` varchar(15) NOT NULL,
   `user_id` varchar(100),
   `company_id` int(11) NOT NULL,
   `created_by` varchar(255) NOT NULL,
@@ -204,6 +243,22 @@ CREATE TABLE `document` (
   PRIMARY KEY (`id`),
   CONSTRAINT `document_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`),
   CONSTRAINT `document_type_fk` FOREIGN KEY (`document_type_code`) REFERENCES `document_type` (`document_type_code`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+*/
+CREATE TABLE `document` (
+    `id` int(11) NOT NULL auto_increment,
+    `document_type_code` varchar(11),
+    `category` char(1) NOT NULL,
+    `display_sequence` int,
+    `document_desc` varchar(255),
+    `document_desc_cn` varchar(255),
+    `user_id` varchar(100), -- this is important to differentship different directors and shareholder
+    `company_id` int(11) NOT NULL,
+    `created_by` varchar(255) NOT NULL,
+    `created_date` DATETIME,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `document_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`),
+    CONSTRAINT `document_type_fk` FOREIGN KEY (`document_type_code`) REFERENCES `document_type` (`document_type_code`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE `document_history` (

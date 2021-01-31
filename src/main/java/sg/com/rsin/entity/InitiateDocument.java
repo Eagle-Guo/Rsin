@@ -12,36 +12,26 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
-@Table(name = "document")
-public class Document {
+@Table(name = "initiate_document")
+public class InitiateDocument {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name="created_by")
-	private String createdBy;
-    @Column(name="created_date")
-	private Date createdDate;
-    @Column(name="user_id")
-	private String userId;
-    
     @Column(name="category")
    	private String category;
     @Column(name="display_sequence")
    	private int displaySequence;
-    @Column(name="document_desc")
-   	private String documentDesc;
-    @Column(name="document_desc_cn")
-   	private String documentDesccn;
-    
-    @ManyToOne
-    @JoinColumn(name = "company_id", nullable = false)
-	private Company company;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "document_type_code", nullable = false)
     private DocumentType documentType;
+
+    @Column(name="created_by")
+	private String createdBy;
+    @Column(name="created_date")
+	private Date createdDate;
     
-    public Document() {}
+    public InitiateDocument() {}
 
 	public Long getId() {
 		return id;
@@ -61,18 +51,6 @@ public class Document {
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	public Company getCompany() {
-		return company;
-	}
-	public void setCompany(Company company) {
-		this.company = company;
-	}
 	public DocumentType getDocumentType() {
 		return documentType;
 	}
@@ -90,17 +68,5 @@ public class Document {
 	}
 	public void setDisplaySequence(int displaySequence) {
 		this.displaySequence = displaySequence;
-	}
-	public String getDocumentDesc() {
-		return documentDesc;
-	}
-	public void setDocumentDesc(String documentDesc) {
-		this.documentDesc = documentDesc;
-	}
-	public String getDocumentDesccn() {
-		return documentDesccn;
-	}
-	public void setDocumentDesccn(String documentDesccn) {
-		this.documentDesccn = documentDesccn;
 	}
 }

@@ -24,7 +24,7 @@ CREATE TABLE `users` (
   `country_code` varchar(8) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL,
-  `enabled` tinyint(1) DEFAULT '1',
+  `enabled` BOOLEAN DEFAULT true,
   `expire_date` date DEFAULT NULL,
   `login_date` date DEFAULT NULL,
   `fail_count` int(11) DEFAULT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE `company` (
   `shareholder_comfirm` int not null default 0,
   `registration_date` DATETIME,
   `created_date` DATETIME,
-  `lock_flag` TINYINT(1) default 0,
+  `lock_flag` BOOLEAN default false,
   PRIMARY KEY (`id`)  
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
@@ -127,6 +127,7 @@ CREATE TABLE `company_shareholder_info` (
   `signature_path` varchar(200),
   `ip` varchar(100),
   `checksum` varchar(100),
+  `status` BOOLEAN default true,
   `company_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `company_shareholder_info_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
@@ -261,6 +262,34 @@ CREATE TABLE `document` (
     CONSTRAINT `document_type_fk` FOREIGN KEY (`document_type_code`) REFERENCES `document_type` (`document_type_code`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_9', 'C', 1, 'Constitution of Company','公司章程', 'admin', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_10', 'C', 2, 'Attached AML/CFT Report','', 'admin', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_11', 'C', 3, 'Certificate of Incorporation','公司注册证书', 'admin', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_1', 'C', 4, 'First Director Meeting Resolution','', 'admin', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_12', 'C', 5, 'Risk Assessment','风险评估', 'admin', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_13', 'C', 6, 'Risk Assessment Checklist','风险评估清单', 'admin', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_2', 'C', 7, 'Secretary Agreement','秘书协议', 'admin', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_14', 'C', 8, 'Company info','公司信息', 'admin', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_15', 'C', 9, 'Register of Charges','收费登记册', 'admin', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date)  values ('TYPE_COM_16', 'C', 10, 'Register of Secretary','秘书名册', 'admin', 28, 'admin', sysdate());
+
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_3', 'P', 1, 'ANNEX B - Notice for Controllers', '', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_4', 'P', 2, 'Application of Shares','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_5', 'P', 3, 'Client Acceptance Form','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_6', 'P', 4, 'Form 45 / 201','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_7', 'P', 5, 'Share Certificate','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_17', 'P', 6, 'Register of member','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_18', 'P', 7, 'Register of director ','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_19', 'P', 8, 'Register of Auditor','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_20', 'P', 9, 'Register of Controllers','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_COM_21', 'P', 10, 'Register of Beneficial Owner','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_PER_1', 'P', 11, 'IC正面','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_PER_2', 'P', 12, 'IC背面','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_PER_3', 'P', 13, '护照（有照片页）','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_PER_4', 'P', 14, '中国身份证','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_PER_5', 'P', 15, '持护照（打开有照片页）上半身照','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_PER_6', 'P', 16, '住所证明','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+
 CREATE TABLE `document_history` (
   `id` int(11) NOT NULL auto_increment,
   `document_path` varchar(255) NOT NULL,
@@ -340,7 +369,7 @@ CREATE TABLE `timeline_detail` (
     `id` int(11) NOT NULL auto_increment,
     `estimate_date` DATETIME NOT NULL,
     `actual_date` DATETIME,
-    `result` tinyint(1) DEFAULT '0',
+    `result` BOOLEAN DEFAULT false,
     `comment` varchar(255),
     `timeline_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),

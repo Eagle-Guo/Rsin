@@ -37,7 +37,7 @@ public class Document {
     @JoinColumn(name = "company_id", nullable = false)
 	private Company company;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "document_type_code", nullable = false)
     private DocumentType documentType;
     

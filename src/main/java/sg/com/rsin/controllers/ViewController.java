@@ -73,7 +73,7 @@ public class ViewController {
 	public ModelAndView userPage() {
 		return new ModelAndView("userWelcome");
 	}
-	
+
 	@RequestMapping("/adminWelcome")
 	public ModelAndView adminPage() {
 		return new ModelAndView("adminWelcome");
@@ -83,7 +83,7 @@ public class ViewController {
 	public ModelAndView register() {
 		return new ModelAndView("registration", "userRegistration", new UserRegistration());
 	}
-	
+
 	@RequestMapping(value = "/error", method = RequestMethod.GET)
 	public ModelAndView error() {
 		return new ModelAndView("error/error");
@@ -133,7 +133,7 @@ public class ViewController {
 		model.addObject("employees", employees);
 		return model;
 	}
-	
+
 	@RequestMapping("/mybusiness/newCompany")
 	public ModelAndView newCompany() {
 		ModelAndView model = new ModelAndView("mybusiness/newCompany");
@@ -145,7 +145,7 @@ public class ViewController {
 		ModelAndView model = new ModelAndView("mybusiness/licenseApplication");
 		return model;
 	}	
-	
+
 	@RequestMapping("/mybusiness/GSTApplication")
 	public ModelAndView GSTApplication() {
 		ModelAndView model = new ModelAndView("mybusiness/GSTApplication");
@@ -157,36 +157,36 @@ public class ViewController {
 		ModelAndView model = new ModelAndView("mybusiness/annualReview");
 		return model;
 	}	
-	
+
 	@RequestMapping("/mybusiness/accountingServices")
 	public ModelAndView accountingServices() {
 		ModelAndView model = new ModelAndView("mybusiness/accountingServices");
 		return model;
 	}	
-	
+
 	@RequestMapping("/mybusiness/callService")
 	public ModelAndView callService() {
 		ModelAndView model = new ModelAndView("mybusiness/callService");
 		return model;
 	}	
-	
+
 	@RequestMapping("/mybusiness/officeService")
 	public ModelAndView officeService() {
 		ModelAndView model = new ModelAndView("mybusiness/officeService");
 		return model;
 	}	
-	
+
 	@RequestMapping("/mybusiness/myRecord")
 	public ModelAndView myRecord(HttpServletRequest request) {
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		ModelAndView model = new ModelAndView("mybusiness/myRecord");
-		
+
 		Map<String, Object> pageData = commonDataService.getAllCompanyUserData(userEmail);
 		model.addObject("companies", pageData.get("companies"));
-		
+
 		return model;
 	}	
-	
+
 	@RequestMapping("/mybusiness/downLoadFile")
 	public ModelAndView downLoadFile() {
 		ModelAndView model = new ModelAndView("mybusiness/downLoadFile");
@@ -196,7 +196,7 @@ public class ViewController {
 	public ModelAndView adminManageCompany(@RequestParam("id") Long companyId) {
 		ModelAndView model = new ModelAndView("todolist/adminManageCompany");
 		Optional<Company> company = companyRepository.findById(companyId);
-		
+
 		if (company.isPresent()) {
 			model.addObject("company", company.get());
 		}
@@ -215,27 +215,25 @@ public class ViewController {
 		model.addObject("nameInRiskAssessment", nameInRiskAssessment);
 		String nameInSecretaryAgreement = newCompanyService.listSignedUserName(signedFile, "TYPE_COM_2"); //"签名人1(待签名)、签名人2(已签名)、签名人3(待签名)";
 		model.addObject("nameInSecretaryAgreement", nameInSecretaryAgreement);
-		
+
+		//Get all director, Shareholder and contactor
+		List<CompanyShareholderInfo> infos = adminManageCompanyService.getCompanyShareholders(company.get().getId());
+		model.addObject("infos", infos);
+
 		//Get all document belong to this company
-		List<Document> docList = adminManageCompanyService.getDocumentList(companyId);
-		
-		Map<String, List<DocumentHistory>> docMap = adminManageCompanyService.getDocumentListWithDetail(companyId);
-		model.addObject("docList", docList);
-		model.addObject("docMap", docMap);
-		model.addObject("documentType1", docMap.get("TYPE_COM_9"));
-		model.addObject("documentType2", docMap.get("TYPE_COM_10"));
-		model.addObject("documentType3", docMap.get("TYPE_COM_11"));
-		model.addObject("documentType4", docMap.get("TYPE_COM_1"));
-		model.addObject("documentType5", docMap.get("TYPE_COM_12"));
-		model.addObject("documentType6", docMap.get("TYPE_COM_13"));
-		model.addObject("documentType7", docMap.get("TYPE_COM_2"));
-		model.addObject("documentType8", docMap.get("TYPE_COM_14"));
-		model.addObject("documentType9", docMap.get("TYPE_COM_15"));
-		model.addObject("documentType10", docMap.get("TYPE_COM_16"));
-		
-		//List<CompanyShareholderInfo> sharehoderInfos = companyShareholderInfoRepository.company.get().getShareholderInfoList();
-		//sharehoderInfos.forEach(action);
-		
+		List<Document> docCompanyList = adminManageCompanyService.getCompanyDocumentList(companyId);
+
+		Map<String, List<DocumentHistory>> docCompanyMap = adminManageCompanyService.getCompanyDocumentListWithDetail(companyId);
+		model.addObject("docCompanyList", docCompanyList);
+		model.addObject("docCompanyMap", docCompanyMap);
+
+		//Get all document belong to this company
+		List<Document> docPersonalList = adminManageCompanyService.getPersonalDocumentList(companyId);
+
+		Map<String, List<DocumentHistory>> docPersonalMap = adminManageCompanyService.getPersonalDocumentListWithDetail(companyId);
+		model.addObject("docPersonalList", docPersonalList);
+		model.addObject("docPersonalMap", docPersonalMap);
+
 		return model;
 	}
 	@RequestMapping("/adminTimeLine")

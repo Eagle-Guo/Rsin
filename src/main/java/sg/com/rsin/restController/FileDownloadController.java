@@ -15,8 +15,8 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentHistory;
-import sg.com.rsin.entity.DocumentType;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.FileService;
 import sg.com.rsin.service.GenerateJespterReportService;
@@ -106,20 +106,20 @@ public class FileDownloadController {
 	    }
 	}
 	
-	@RequestMapping(value = "/company/upload/{company_id}")
-    public ResponseEntity<?> companyUploadFile(@PathVariable long company_id, @RequestParam("id") int id, @RequestParam("file") MultipartFile uploadfile,
+	@RequestMapping(value = "/company/company/document/upload/{company_id}")
+    public ResponseEntity<?> companyUploadFile(@PathVariable long company_id, @RequestParam("id") int documentId, @RequestParam("file") MultipartFile uploadfile,
     		HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
-		String filename = CommonUtils.getFileName(id);
+		String filename = CommonUtils.getFileName(documentId);
 
         response.setContentType("application/pdf");
         response.setHeader("fileName", filename);
         response.setHeader("content-disposition", "attachment;");
 
-        DocumentType documentType = fileService.getDocumentTypeCode(id);
+        Document document = fileService.getDocument(documentId);
         SimpleDateFormat sm = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         try {
-        	DocumentHistory dh = fileService.saveToDocmentAndHistory(userId, company_id, filename, uploadfile, documentType);
+        	DocumentHistory dh = fileService.saveToDocmentAndHistory(userId, company_id, filename, uploadfile, document);
         	DocumentHistoryDto documentHistoryDto = new DocumentHistoryDto();
         	documentHistoryDto.setCreatedBy(dh.getCreatedBy());
         	documentHistoryDto.setCreatedDate(sm.format(dh.getCreatedDate()));

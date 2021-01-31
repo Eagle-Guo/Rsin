@@ -31,6 +31,7 @@ public class CompanyShareholderInfo {
 	private String signaturePath;
 	private String ip;
 	private String checksum;
+	private boolean status;
 
 	//@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@ManyToOne
@@ -42,7 +43,7 @@ public class CompanyShareholderInfo {
 	public CompanyShareholderInfo(Long id, String positionType, String name, String gender, String nationality,
 			String icType, String icNumber, String email, String contactNumber, int issueStockAmount,
 			int actualStockAmount, int valuePerStock, String address, int seq, String signatureName, 
-			String ip, String checksum, String signaturePath,  Company company) {
+			String ip, String checksum, boolean status, String signaturePath,  Company company) {
 		super();
 		this.id = id;
 		this.positionType = positionType;
@@ -62,6 +63,7 @@ public class CompanyShareholderInfo {
 		this.signaturePath = signaturePath;
 		this.ip = ip;
 		this.checksum = checksum;
+		this.status = status;
 		this.company = company;
 	}
 
@@ -172,6 +174,12 @@ public class CompanyShareholderInfo {
 	}
 	public void setChecksum(String checksum) {
 		this.checksum = checksum;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public Company getCompany() {
 		return company;

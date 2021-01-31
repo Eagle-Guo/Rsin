@@ -34,6 +34,12 @@ public class AdminManageCompanyServiceImpl implements AdminManageCompanyService 
 		List<String> name = companyShareholderInfos.stream().filter(shareholder -> shareholder.getPositionType().contains("股东")).map(CompanyShareholderInfo::getName).collect(Collectors.toList());
 		return name;
 	}
+	
+	@Override
+	public List<CompanyShareholderInfo> getCompanyShareholders(Long companyId) {
+		List<CompanyShareholderInfo> companyShareholderInfos = companyShareholderInfoRepository.findByCompanyId(companyId);
+		return companyShareholderInfos;
+	}
 
 	@Override
 	public List<String> getDirectors(Long companyId) {
@@ -43,22 +49,43 @@ public class AdminManageCompanyServiceImpl implements AdminManageCompanyService 
 	}
 
 	@Override
-	public List<Document> getDocumentList(Long companyId) {
-		List<Document> documents = documentRepository.findByCompanyIdOrderByDisplaySequenceAsc(companyId);
+	public List<Document> getCompanyDocumentList(Long companyId) {
+		List<Document> documents = documentRepository.findByCompanyIdAndCategoryOrderByDisplaySequenceAsc(companyId, "C");
 		return documents;
 	}
 
 	@Override
-	public Map<String, List<DocumentHistory>> getDocumentListWithDetail(Long companyId) {
-		List<Document> documents = documentRepository.findByCompanyIdOrderByDisplaySequenceAsc(companyId);
+	public Map<String, List<DocumentHistory>> getCompanyDocumentListWithDetail(Long companyId) {
+		List<Document> documents = documentRepository.findByCompanyIdAndCategoryOrderByDisplaySequenceAsc(companyId, "C");
 		Map<String, List<DocumentHistory>> fileMap = new LinkedHashMap<String, List<DocumentHistory>>();
 		documents.stream().forEach(doc -> {
-			//String type = doc.getDocumentType().getDocumentTypeCode();
-			String desc = doc.getDocumentDesc() + ((doc.getDocumentDesccn() == null || "".equals(doc.getDocumentDesccn())) ? "" : " (" + doc.getDocumentDesccn() + ")");
+			String type = doc.getDocumentType().getDocumentTypeCode();
+			//String desc = doc.getDocumentDesc() + ((doc.getDocumentDesccn() == null || "".equals(doc.getDocumentDesccn())) ? "" : " (" + doc.getDocumentDesccn() + ")");
 			List<DocumentHistory> hiss = documentHistoryRepository.findByDocumentId(doc.getId());
-			fileMap.put(desc, hiss);
+			fileMap.put(type, hiss);
 		});
 		
 		return fileMap;
 	}
+	
+	@Override
+	public List<Document> getPersonalDocumentList(Long companyId) {
+		List<Document> documents = documentRepository.findByCompanyIdAndCategoryOrderByDisplaySequenceAsc(companyId, "P");
+		return documents;
+	}
+
+	@Override
+	public Map<String, List<DocumentHistory>> getPersonalDocumentListWithDetail(Long companyId) {
+		List<Document> documents = documentRepository.findByCompanyIdAndCategoryOrderByDisplaySequenceAsc(companyId, "C");
+		Map<String, List<DocumentHistory>> fileMap = new LinkedHashMap<String, List<DocumentHistory>>();
+		documents.stream().forEach(doc -> {
+			String type = doc.getDocumentType().getDocumentTypeCode();
+			//String desc = doc.getDocumentDesc() + ((doc.getDocumentDesccn() == null || "".equals(doc.getDocumentDesccn())) ? "" : " (" + doc.getDocumentDesccn() + ")");
+			List<DocumentHistory> hiss = documentHistoryRepository.findByDocumentId(doc.getId());
+			fileMap.put(type, hiss);
+		});
+		
+		return fileMap;
+	}
+	
 }

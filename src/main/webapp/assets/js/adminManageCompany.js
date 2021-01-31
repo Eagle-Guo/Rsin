@@ -65,7 +65,7 @@ function companyuploadfile(company_id, id) {
     formData.append("company_id", company_id);
     formData.append("id", id);
     $.ajax({
-        url:'/api/company/upload/'+company_id,
+        url:'/api/company/company/document/upload/'+company_id,
         type:'post',
         data: formData,
         contentType: false,

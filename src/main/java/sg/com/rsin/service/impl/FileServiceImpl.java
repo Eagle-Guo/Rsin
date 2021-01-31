@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +44,16 @@ public class FileServiceImpl implements FileService {
 	DocumentTypeRepository documentTypeRepository;
 	
 	public DocumentType getDocumentTypeCode (long id) {
-		return documentTypeRepository.findByDocumentTypeCode("TYPE_COM_" + id);
+		Optional<Document> doc = documentRepository.findById(id);
+		return doc.get().getDocumentType();
+	}
+	
+	public Document getDocument (long id) {
+		Optional<Document> doc = documentRepository.findById(id);
+		return doc.get();
 	}
 
-	public DocumentHistory saveToDocmentAndHistory(String userId, long companyId, String filename, MultipartFile uploadfile, DocumentType documentType) throws IOException {
+	public DocumentHistory saveToDocmentAndHistory(String userId, long companyId, String filename, MultipartFile uploadfile, Document document) throws IOException {
 		String referenceNo = UUID.randomUUID().toString();
 		filename = referenceNo.replace("-", "").concat("_").concat(filename);
 		String pathString = uploadFilePathRoot + companyId + File.separator + companyManageFilePath;
@@ -66,17 +73,18 @@ public class FileServiceImpl implements FileService {
 	    	throw ex;
 	    }
 		
-		
-		Document document = documentRepository.findByDocumentTypeAndUserIdAndCompany(documentType.getDocumentTypeCode(), userId, companyId);
+		/*
+		 * Document document = documentRepository.findByDocumentTypeAndUserIdAndCompany(documentType.getDocumentTypeCode(), userId, companyId);
 		if ( document == null) {
 			document = new Document();
 			document.setCreatedBy(userId);
 			document.setCreatedDate(new Date());
 			document.setDocumentType(documentType);
 			document.setUserId(userId);
+			document.setCategory("C");
 		    document.setCompany(companyRepository.findById(companyId).orElse(null));
 		    documentRepository.save(document);
-		}
+		}*/
 
 	    DocumentHistory documentHistory = new DocumentHistory();
 	    documentHistory.setCreatedBy(userId);

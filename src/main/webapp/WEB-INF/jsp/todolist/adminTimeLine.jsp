@@ -57,12 +57,13 @@
 						                    	<div id="accordion">
 						                    	
 						                      		<div class="accordion">
-								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-1" aria-expanded="true">
-								                         	<h4>年审</h4>
+								                        <div class="accordion-header" role="button" data-toggle="collapse" data-target="" aria-expanded="true">
+								                         	<h4>各项业务时间表记录</h4>
 								                        </div>
-								                        <div class="accordion-body collapse show" id="panel-body-1" data-parent="#accordion">
+								                        <div class="accordion-body collapse show" id="" data-parent="">
 										                	<div class="card">
 										                  		<div class="card-body">
+											                  		<div id="div_annual_audit" class="unfoldBorder">
 																	<table id="recordTable" class="table table-sm">
 															      		<tr>
 																			<th scope="col">服务项目</th>
@@ -74,7 +75,7 @@
 															      		</tr>
 															      		<tr>        
 																		<th scope="row" id="annual_audit_service">年审</th>
-																		<th scope="row"  id="annual_audit_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${timelines.getService().equals("年审")? timelines.startDate}' /></th>
+																		<th scope="row"  id="annual_audit_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
 																			<td>
 																				<div class="form-group">
 																					<select class="form-control" id="annual_audit_service_cycle" >
@@ -118,8 +119,13 @@
 																					<input type="date" id="annual_audit_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="meeting-time">
 																				</div>
 																			 </td>
-																		 	<td><div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('annual_audit')">生成记录</div></div></td>
-																		</tr>	
+																		 	<td>
+																		 		<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('annual_audit')">生成记录</div></div>
+																		 		<div class="badge badge-info"><div class="" id="viewRecord_annual_audit" style="cursor:pointer" onclick="showAndHideRecord('annual_audit')">收起记录</div></div>
+																		 	</td>
+																			</tr>	
+																			</table>
+																		<table class="table table-sm" id="recordTable_annual_audit"  >																		 																			 																			 																		
 																        <tr>
 																             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
 																        </tr>		
@@ -146,1318 +152,493 @@
 																	 			<td><a href="javascript:;">删除此记录</a></td>
 																			</tr>
 																		</c:forEach>
-															    	</table>
-																	<div class="form-check" style="text-align: center;color: #6777ef;font-weight: 500;font-size: 1rem;">
-																		<input class="form-check-input" type="checkbox" id="confirmCheck">
-																		<label class="form-check-label" for="">确认以上信息</label>
-																	</div>																	    
+																			
+																    	</table>															    
+																	</div>
+											                  		<div id="div_ECI" class="unfoldBorder">
+																		<table  class="table table-sm">
+																      		<tr>
+																				<th scope="col">服务项目</th>
+																				<th scope="col">注册时间</th>
+																				<th scope="col">服务周期</th>
+																				<th scope="col">服务次数</th>	
+																				<th scope="col">开始时间</th>   
+																				<th scope="col">生成记录</th> 	
+																      		</tr>
+																      		<tr>        
+																			<th scope="row" id="ECI_service">ECI申报</th>
+																			<th scope="row"  id="ECI_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
+																				<td>
+																					<div class="form-group">
+																						<select class="form-control" id="ECI_service_cycle" >
+																							<option>选择服务周期</option>
+																							<option>1个月</option>
+																							<option>2个月</option>
+																							<option>3个月</option>
+																							<option>4个月</option>												                        
+																							<option>5个月</option>
+																							<option>6个月</option>												                        
+																							<option>7个月</option>
+																							<option>8个月</option>
+																							<option>9个月</option>
+																							<option>10个月</option>												                        
+																							<option>11个月</option>
+																							<option selected="selected">12个月</option>												                        
+																						</select>
+																					 </div>
+																	            </td>
+																				<td>
+																					 <div class="form-group">
+																						<select class="form-control" id="ECI_service_times">
+																							<option>选择服务次数</option>
+																							<option value="1">1</option>
+																							<option selected="selected">2</option>
+																							<option>3</option>
+																							<option>4</option>												                        
+																							<option>5</option>
+																							<option>6</option>												                        
+																							<option>7</option>
+																							<option>8</option>												                        
+																							<option>9</option>
+																							<option>10</option>		
+																							<option>11</option>
+																							<option>12</option>													                        											                        
+																						</select>
+																					</div>
+																	             </td>                   												  
+																				 <td>                    
+																					<div class="form-group">
+																						<input type="date" id="ECI_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="meeting-time">
+																					</div>
+																				 </td>
+																			 	<td>
+																				 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('ECI')">生成记录</div></div>
+																				 	<div class="badge badge-info"><div class="" id="viewRecord_ECI" style="cursor:pointer" onclick="showAndHideRecord('ECI')">收起记录</div></div>
+																			 	</td>
+																			</tr>	
+																			</table>
+																		<table class="table table-sm" id="recordTable_ECI"  >
+																	        <tr>
+																	             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
+																	        </tr>		
+																			<tr>
+																				<th colspan="2" scope="col">预计ECI申报时间</th>	
+																				<th scope="col">实际ECI申报时间</th>  
+																				<th scope="col">服务办理结果</th>    
+																				<th scope="col">其它内容备注</th>   
+																				<th scope="col">是否删除记录</th>                    				  
+																			</tr>
+																			<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																				<tr>
+																					<td colspan="2" ><fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/></td>
+																					<td><div class="form-group"><input type="date" class="form-control" id="startDate${audit.id}"></div></td>
+																					<td>										                          
+																						<div class="form-check">
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}">	
+																							<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
+																						</div>
+																					</td>
+																					<td>
+																						<div class="form-group"><input type="text" class="form-control"></div>
+																					</td>													                      
+																		 			<td><a href="javascript:;">删除此记录</a></td>
+																				</tr>
+																			</c:forEach>
+																			
+																    	</table>															    
+																	</div>
+											                  		<div id="div_GST" class="unfoldBorder">
+																		<table  class="table table-sm">
+																      		<tr>
+																				<th scope="col">服务项目</th>
+																				<th scope="col">注册时间</th>
+																				<th scope="col">服务周期</th>
+																				<th scope="col">服务次数</th>	
+																				<th scope="col">开始时间</th>   
+																				<th scope="col">生成记录</th> 	
+																      		</tr>
+																      		<tr>        
+																			<th scope="row" id="GST_service">消费费申报</th>
+																			<th scope="row"  id="GST_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
+																				<td>
+																					<div class="form-group">
+																						<select class="form-control" id="GST_service_cycle" >
+																							<option>选择服务周期</option>
+																							<option>1个月</option>
+																							<option>2个月</option>
+																							<option selected="selected">3个月</option>
+																							<option>4个月</option>												                        
+																							<option>5个月</option>
+																							<option>6个月</option>												                        
+																							<option>7个月</option>
+																							<option>8个月</option>
+																							<option>9个月</option>
+																							<option>10个月</option>												                        
+																							<option>11个月</option>
+																							<option>12个月</option>												                        
+																						</select>
+																					 </div>
+																	            </td>
+																				<td>
+																					 <div class="form-group">
+																						<select class="form-control" id="GST_service_times">
+																							<option>选择服务次数</option>
+																							<option value="1">1</option>
+																							<option>2</option>
+																							<option>3</option>
+																							<option selected="selected">4</option>												                        
+																							<option>5</option>
+																							<option>6</option>												                        
+																							<option>7</option>
+																							<option>8</option>												                        
+																							<option>9</option>
+																							<option>10</option>		
+																							<option>11</option>
+																							<option>12</option>													                        											                        
+																						</select>
+																					</div>
+																	             </td>                   												  
+																				 <td>                    
+																					<div class="form-group">
+																						<input type="date" id="GST_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="meeting-time">
+																					</div>
+																				 </td>
+																			 	<td>
+																				 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('GST')">生成记录</div></div>
+																				 	<div class="badge badge-info"><div class="" id="viewRecord_GST" style="cursor:pointer" onclick="showAndHideRecord('GST')">收起记录</div></div>
+																			 	</td>
+																			</tr>	
+																			</table>
+																		<table class="table table-sm" id="recordTable_GST"  >
+																	        <tr>
+																	             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
+																	        </tr>		
+																			<tr>
+																				<th colspan="2" scope="col">预计消费税申报时间</th>	
+																				<th scope="col">实际消费税申报时间</th>  
+																				<th scope="col">服务办理结果</th>    
+																				<th scope="col">其它内容备注</th>   
+																				<th scope="col">是否删除记录</th>                    				  
+																			</tr>
+																			<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																				<tr>
+																					<td colspan="2" ><fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/></td>
+																					<td><div class="form-group"><input type="date" class="form-control" id="startDate${audit.id}"></div></td>
+																					<td>										                          
+																						<div class="form-check">
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}">	
+																							<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
+																						</div>
+																					</td>
+																					<td>
+																						<div class="form-group"><input type="text" class="form-control"></div>
+																					</td>													                      
+																		 			<td><a href="javascript:;">删除此记录</a></td>
+																				</tr>
+																			</c:forEach>
+																			
+																    	</table>															    
+																	</div>
+											                  		<div id="div_CIT" class="unfoldBorder">
+																		<table  class="table table-sm">
+																      		<tr>
+																				<th scope="col">服务项目</th>
+																				<th scope="col">注册时间</th>
+																				<th scope="col">服务周期</th>
+																				<th scope="col">服务次数</th>	
+																				<th scope="col">开始时间</th>   
+																				<th scope="col">生成记录</th> 	
+																      		</tr>
+																      		<tr>        
+																			<th scope="row" id="CIT_service">所得税报税</th>
+																			<th scope="row"  id="CIT_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
+																				<td>
+																					<div class="form-group">
+																						<select class="form-control" id="CIT_service_cycle" >
+																							<option>选择服务周期</option>
+																							<option>1个月</option>
+																							<option>2个月</option>
+																							<option>3个月</option>
+																							<option>4个月</option>												                        
+																							<option>5个月</option>
+																							<option>6个月</option>												                        
+																							<option>7个月</option>
+																							<option>8个月</option>
+																							<option>9个月</option>
+																							<option>10个月</option>												                        
+																							<option>11个月</option>
+																							<option selected="selected">12个月</option>												                        
+																						</select>
+																					 </div>
+																	            </td>
+																				<td>
+																					 <div class="form-group">
+																						<select class="form-control" id="CIT_service_times">
+																							<option>选择服务次数</option>
+																							<option value="1">1</option>
+																							<option>2</option>
+																							<option>3</option>
+																							<option selected="selected">4</option>												                        
+																							<option>5</option>
+																							<option>6</option>												                        
+																							<option>7</option>
+																							<option>8</option>												                        
+																							<option>9</option>
+																							<option>10</option>		
+																							<option>11</option>
+																							<option>12</option>													                        											                        
+																						</select>
+																					</div>
+																	             </td>                   												  
+																				 <td>                    
+																					<div class="form-group">
+																						<input type="date" id="CIT_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="meeting-time">
+																					</div>
+																				 </td>
+																			 	<td>
+																				 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('CIT')">生成记录</div></div>
+																				 	<div class="badge badge-info"><div class="" id="viewRecord_CIT" style="cursor:pointer" onclick="showAndHideRecord('CIT')">收起记录</div></div>
+																			 	</td>
+																			</tr>	
+																			</table>
+																		<table class="table table-sm" id="recordTable_CIT"  >
+																	        <tr>
+																	             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
+																	        </tr>		
+																			<tr>
+																				<th colspan="2" scope="col">预计所得税报税时间</th>	
+																				<th scope="col">实际所得税报税时间</th>  
+																				<th scope="col">服务办理结果</th>    
+																				<th scope="col">其它内容备注</th>   
+																				<th scope="col">是否删除记录</th>                    				  
+																			</tr>
+																			<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																				<tr>
+																					<td colspan="2" ><fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/></td>
+																					<td><div class="form-group"><input type="date" class="form-control" id="startDate${audit.id}"></div></td>
+																					<td>										                          
+																						<div class="form-check">
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}">	
+																							<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
+																						</div>
+																					</td>
+																					<td>
+																						<div class="form-group"><input type="text" class="form-control"></div>
+																					</td>													                      
+																		 			<td><a href="javascript:;">删除此记录</a></td>
+																				</tr>
+																			</c:forEach>
+																			
+																    	</table>															    
+																	</div>
+											                  		<div id="div_CIT_payment" class="unfoldBorder">
+																		<table  class="table table-sm">
+																      		<tr>
+																				<th scope="col">服务项目</th>
+																				<th scope="col">注册时间</th>
+																				<th scope="col">服务周期</th>
+																				<th scope="col">服务次数</th>	
+																				<th scope="col">开始时间</th>   
+																				<th scope="col">生成记录</th> 	
+																      		</tr>
+																      		<tr>        
+																			<th scope="row" id="CIT_payment_service">所得税缴税</th>
+																			<th scope="row"  id="CIT_payment_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
+																				<td>
+																					<div class="form-group">
+																						<select class="form-control" id="CIT_payment_service_cycle" >
+																							<option>选择服务周期</option>
+																							<option>1个月</option>
+																							<option>2个月</option>
+																							<option>3个月</option>
+																							<option>4个月</option>												                        
+																							<option>5个月</option>
+																							<option>6个月</option>												                        
+																							<option>7个月</option>
+																							<option>8个月</option>
+																							<option>9个月</option>
+																							<option>10个月</option>												                        
+																							<option>11个月</option>
+																							<option selected="selected">12个月</option>												                        
+																						</select>
+																					 </div>
+																	            </td>
+																				<td>
+																					 <div class="form-group">
+																						<select class="form-control" id="CIT_payment_service_times">
+																							<option>选择服务次数</option>
+																							<option value="1">1</option>
+																							<option>2</option>
+																							<option>3</option>
+																							<option selected="selected">4</option>												                        
+																							<option>5</option>
+																							<option>6</option>												                        
+																							<option>7</option>
+																							<option>8</option>												                        
+																							<option>9</option>
+																							<option>10</option>		
+																							<option>11</option>
+																							<option>12</option>													                        											                        
+																						</select>
+																					</div>
+																	             </td>                   												  
+																				 <td>                    
+																					<div class="form-group">
+																						<input type="date" id="CIT_payment_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="meeting-time">
+																					</div>
+																				 </td>
+																			 	<td>
+																				 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('CIT_payment')">生成记录</div></div>
+																				 	<div class="badge badge-info"><div class="" id="viewRecord_CIT_payment" style="cursor:pointer" onclick="showAndHideRecord('CIT_payment')">收起记录</div></div>
+																			 	</td>
+																			</tr>	
+																			</table>
+																		<table class="table table-sm" id="recordTable_CIT_payment"  >
+																	        <tr>
+																	             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
+																	        </tr>		
+																			<tr>
+																				<th colspan="2" scope="col">预计所得税缴税时间</th>	
+																				<th scope="col">实际所得税缴税时间</th>  
+																				<th scope="col">服务办理结果</th>    
+																				<th scope="col">其它内容备注</th>   
+																				<th scope="col">是否删除记录</th>                    				  
+																			</tr>
+																			<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																				<tr>
+																					<td colspan="2" ><fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/></td>
+																					<td><div class="form-group"><input type="date" class="form-control" id="startDate${audit.id}"></div></td>
+																					<td>										                          
+																						<div class="form-check">
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}">	
+																							<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
+																						</div>
+																					</td>
+																					<td>
+																						<div class="form-group"><input type="text" class="form-control"></div>
+																					</td>													                      
+																		 			<td><a href="javascript:;">删除此记录</a></td>
+																				</tr>
+																			</c:forEach>
+																			
+																    	</table>															    
+																	</div>
+											                  		<div id="div_new" class="unfoldBorder">
+																		<table  class="table table-sm">
+																      		<tr>
+																				<th scope="col">服务项目</th>
+																				<th scope="col">注册时间</th>
+																				<th scope="col">服务周期</th>
+																				<th scope="col">服务次数</th>	
+																				<th scope="col">开始时间</th>   
+																				<th scope="col">生成记录</th> 	
+																      		</tr>
+																      		<tr>        
+																			<th scope="row" id="new_service"><div class="form-group"><input type="text" class="form-control"></div></th>
+																			<th scope="row"  id="new_registerDate"><div class="form-group"><input type="text" class="form-control"></div></th>
+																				<td>
+																					<div class="form-group">
+																						<select class="form-control" id="new_service_cycle" >
+																							<option>选择服务周期</option>
+																							<option>1个月</option>
+																							<option>2个月</option>
+																							<option>3个月</option>
+																							<option>4个月</option>												                        
+																							<option>5个月</option>
+																							<option>6个月</option>												                        
+																							<option>7个月</option>
+																							<option>8个月</option>
+																							<option>9个月</option>
+																							<option>10个月</option>												                        
+																							<option>11个月</option>
+																							<option selected="selected">12个月</option>												                        
+																						</select>
+																					 </div>
+																	            </td>
+																				<td>
+																					 <div class="form-group">
+																						<select class="form-control" id="new_service_times">
+																							<option>选择服务次数</option>
+																							<option value="1">1</option>
+																							<option>2</option>
+																							<option>3</option>
+																							<option selected="selected">4</option>												                        
+																							<option>5</option>
+																							<option>6</option>												                        
+																							<option>7</option>
+																							<option>8</option>												                        
+																							<option>9</option>
+																							<option>10</option>		
+																							<option>11</option>
+																							<option>12</option>													                        											                        
+																						</select>
+																					</div>
+																	             </td>                   												  
+																				 <td>                    
+																					<div class="form-group">
+																						<input type="date" id="new_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="meeting-time">
+																					</div>
+																				 </td>
+																			 	<td>
+																				 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('new')">生成记录</div></div>
+																				 	<div class="badge badge-info"><div class="" id="viewRecord_new" style="cursor:pointer" onclick="showAndHideRecord('new')">收起记录</div></div>
+																			 	</td>
+																			</tr>	
+																			</table>
+																		<table class="table table-sm" id="recordTable_new"  >
+																	        <tr>
+																	             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
+																	        </tr>		
+																			<tr>
+																				<th colspan="2" scope="col">预计服务时间</th>	
+																				<th scope="col">实际服务时间</th>  
+																				<th scope="col">服务办理结果</th>    
+																				<th scope="col">其它内容备注</th>   
+																				<th scope="col">是否删除记录</th>                    				  
+																			</tr>
+																			<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																				<tr>
+																					<td colspan="2" ><fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/></td>
+																					<td><div class="form-group"><input type="date" class="form-control" id="startDate${audit.id}"></div></td>
+																					<td>										                          
+																						<div class="form-check">
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}">	
+																							<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
+																						</div>
+																					</td>
+																					<td>
+																						<div class="form-group"><input type="text" class="form-control"></div>
+																					</td>													                      
+																		 			<td><a href="javascript:;">删除此记录</a></td>
+																				</tr>
+																			</c:forEach>
+																			
+																    	</table>															    
+																	</div>
+																	<div class="row  adminTimeLine">
+																            <div class="col-12 col-md-12 col-lg-12 divCss">	
+																	            <div class="form-check">
+															                        <input class="form-check-input" type="checkbox" id="infoCheckbox0"  onclick="confirmInfo(0)">
+															                        <label class="form-check-label" for="gridCheck">
+															                       		 确认锁定
+															                        </label>
+															                    </div>															            	
+															                    <div class="inline">														            	
+																	            	<span> | </span><a id="textInput000"  class="btnMenu view" href="#" >增加服务项</a>		
+																				</div>
+																			</div>																									
+																	</div>																																																					
 																</div>
+																	
 										                	</div>
 								                        </div>
 						                      		</div>
-						                    	
-						                      		<div class="accordion">
-								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-2" aria-expanded="true">
-								                         	<h4>财务年度</h4>
-								                        </div>
-								                        <div class="accordion-body collapse show" id="panel-body-2" data-parent="#accordion">
-										                <div class="card">
-										                  <div class="card-body">
-															<table id="recordTable" class="table table-sm">
-															      <tr>
-																		<th scope="col">服务项目</th>
-																		<th scope="col">注册时间</th>
-																		<th scope="col">服务周期</th>
-																		<th scope="col">服务次数</th>	
-																		<th scope="col">开始时间</th>   
-																		<th scope="col">生成记录</th> 	
-															      </tr>
-															      <tr>        
-																		<th scope="row" id="service">财务年度</th>
-																		<th scope="row"  id="registerDate">11/01/2018</th>
-																		<td>
-																			<div class="form-group">
-																				<select class="form-control" id="ServiceCycle" >
-																						<option>选择服务周期</option>
-																						<option>1个月</option>
-																						<option>2个月</option>
-																						<option>3个月</option>
-																						<option>4个月</option>												                        
-																						<option>5个月</option>
-																						<option>6个月</option>												                        
-																						<option>7个月</option>
-																						<option>8个月</option>
-																						<option>9个月</option>
-																						<option>10个月</option>												                        
-																						<option>11个月</option>
-																						<option selected="selected">12个月</option>												                        
-																				</select>
-																			 </div>
-															              </td>
-																		  <td>
-																			 <div class="form-group">
-																				<select class="form-control" id="serviceTimes">
-																					<option>选择服务次数</option>
-																					<option value="1">1</option>
-																					<option selected="selected">2</option>
-																					<option>3</option>
-																					<option>4</option>												                        
-																					<option>5</option>
-																					<option>6</option>												                        
-																					<option>7</option>
-																					<option>8</option>												                        
-																					<option>9</option>
-																					<option>10</option>		
-																					<option>11</option>
-																					<option>12</option>													                        											                        
-																				</select>
-																			</div>
-															             </td>                   												  
-																		 <td>                    
-																			<div class="form-group">
-																				<input type="date" class="form-control" id="startDate" placeholder="11/01/2019" >
-																			</div>
-																		 </td>
-																		 <td>  
-																		     
-																			 <div class="badge badge-danger"><div style="cursor:pointer" id="addEmpButton">生成记录</div></div>
-															             </td>
-																	</tr>	
-															        <tr>
-															                <td colspan="6" align="center" class="addBottom_adminTimeLine">记录列表
-															                </td>
-															        </tr>		
-																	<tr>
-																		
-																		<th colspan="2" scope="col">预计财务年度时间</th>	
-																		<th scope="col">实际财务年度时间</th>  
-																		<th scope="col">项目办理结果</th>    
-																		<th scope="col">其它内容备注</th>   
-																		<th scope="col">是否删除记录</th>                    				  
-																	</tr>			
-																	<tr>
-																		
-																		<td colspan="2" >31/10/2019</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="date" class="form-control" id="startDate">
-																			</div>
-																		</td>
-																		<td>										                          
-																			<div class="form-check">
-																					<input class="form-check-input" type="checkbox" id="defaultCheck1">
-																							<label class="form-check-label" for="defaultCheck1">
-																									 已完成
-																							</label>
-																			</div>
-																		</td>
-																		<td>
-																			<div class="form-group">
-																					<input type="text" class="form-control">
-																			</div>
-																		</td>													                      
-															 			<td><a href="javascript:;">删除此记录</a></td>
-																	</tr>
-																	<tr>
-																		
-																		<td colspan="2" >31/10/2020</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="date" class="form-control">
-																			</div>
-																		</td>
-																		<td>										                          
-																			<div class="form-check">
-																				<input class="form-check-input" type="checkbox" id="defaultCheck1">
-																				<label class="form-check-label" for="defaultCheck1">
-																				已完成
-																				</label>
-																			</div>
-																		</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="text" class="form-control">
-																			</div>
-																		</td>													                      
-															            <td><a href="deleteEmp?id=002">删除此记录</a></td>
-																		</tr>		
-															    </table>
-														</div>
-										                </div>
-								                        </div>
-						                      		</div>
-						                    	
-						                      		<div class="accordion">
-								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-3" aria-expanded="true">
-								                         	<h4>ECI申报</h4>
-								                        </div>
-								                        <div class="accordion-body collapse show" id="panel-body-3" data-parent="#accordion">
-										                <div class="card">
-										                  <div class="card-body">
-															<table id="recordTable" class="table table-sm">
-															      <tr>
-																		<th scope="col">服务项目</th>
-																		<th scope="col">注册时间</th>
-																		<th scope="col">服务周期</th>
-																		<th scope="col">服务次数</th>	
-																		<th scope="col">开始时间</th>   
-																		<th scope="col">生成记录</th> 	
-															      </tr>
-															      <tr>        
-																		<th scope="row" id="service">ECI申报</th>
-																		<th scope="row"  id="registerDate">11/01/2018</th>
-																		<td>
-																			<div class="form-group">
-																				<select class="form-control" id="ServiceCycle" >
-																						<option>选择服务周期</option>
-																						<option>1个月</option>
-																						<option>2个月</option>
-																						<option>3个月</option>
-																						<option>4个月</option>												                        
-																						<option>5个月</option>
-																						<option>6个月</option>												                        
-																						<option>7个月</option>
-																						<option>8个月</option>
-																						<option>9个月</option>
-																						<option>10个月</option>												                        
-																						<option>11个月</option>
-																						<option selected="selected">12个月</option>												                        
-																				</select>
-																			 </div>
-															              </td>
-																		  <td>
-																			 <div class="form-group">
-																				<select class="form-control" id="serviceTimes">
-																					<option>选择服务次数</option>
-																					<option value="1">1</option>
-																					<option selected="selected">2</option>
-																					<option>3</option>
-																					<option>4</option>												                        
-																					<option>5</option>
-																					<option>6</option>												                        
-																					<option>7</option>
-																					<option>8</option>												                        
-																					<option>9</option>
-																					<option>10</option>		
-																					<option>11</option>
-																					<option>12</option>													                        											                        
-																				</select>
-																			</div>
-															             </td>                   												  
-																		 <td>                    
-																			<div class="form-group">
-																				<input type="date" class="form-control" id="startDate" placeholder="11/01/2019" >
-																			</div>
-																		 </td>
-																		 <td>  
-																		     
-																			 <div class="badge badge-danger"><div style="cursor:pointer" id="addEmpButton">生成记录</div></div>
-															             </td>
-																	</tr>	
-															        <tr>
-															                <td colspan="6" align="center" class="addBottom_adminTimeLine">记录列表
-															                </td>
-															        </tr>		
-																	<tr>
-																		
-																		<th colspan="col">财务年度时间</th>	
-																		<th colspan="col">ECI申报</th>	
-																		<th scope="col">实际ECI申报时间</th>  
-																		<th scope="col">项目办理结果</th>    
-																		<th scope="col">其它内容备注</th>   
-																		<th scope="col">是否删除记录</th>                    				  
-																	</tr>			
-																	<tr>
-																		
-																		<td >31/10/2019</td>
-																		<td >31/10/2020</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="date" class="form-control" id="startDate">
-																			</div>
-																		</td>
-																		<td>										                          
-																			<div class="form-check">
-																					<input class="form-check-input" type="checkbox" id="defaultCheck1">
-																							<label class="form-check-label" for="defaultCheck1">
-																									 已完成
-																							</label>
-																			</div>
-																		</td>
-																		<td>
-																			<div class="form-group">
-																					<input type="text" class="form-control">
-																			</div>
-																		</td>													                      
-															 			<td><a href="javascript:;">删除此记录</a></td>
-																	</tr>
-																	<tr>
-																		
-																		<td >31/10/2020</td>
-																		<td >31/10/2021</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="date" class="form-control">
-																			</div>
-																		</td>
-																		<td>										                          
-																			<div class="form-check">
-																				<input class="form-check-input" type="checkbox" id="defaultCheck1">
-																				<label class="form-check-label" for="defaultCheck1">
-																				已完成
-																				</label>
-																			</div>
-																		</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="text" class="form-control">
-																			</div>
-																		</td>													                      
-															            <td><a href="deleteEmp?id=002">删除此记录</a></td>
-																		</tr>		
-															    </table>
-														</div>
-										                </div>
-								                        </div>
-						                      		</div>
 
-
-						                      		<div class="accordion">
-								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-4" aria-expanded="true">
-								                         	<h4>报消费税</h4>
-								                        </div>
-								                        <div class="accordion-body collapse show" id="panel-body-4" data-parent="#accordion">
-										                <div class="card">
-										                  <div class="card-body">
-															<table id="recordTable" class="table table-sm">
-															      <tr>
-																		<th scope="col">服务项目</th>
-																		<th scope="col">注册时间</th>
-																		<th scope="col">服务周期</th>
-																		<th scope="col">服务次数</th>	
-																		<th scope="col">开始时间</th>   
-																		<th scope="col">生成记录</th> 	
-															      </tr>
-															      <tr>        
-																		<th scope="row" id="service">报消费税</th>
-																		<th scope="row"  id="registerDate">11/01/2018</th>
-																		<td>
-																			<div class="form-group">
-																				<select class="form-control" id="ServiceCycle" >
-																						<option>选择服务周期</option>
-																						<option>1个月</option>
-																						<option>2个月</option>
-																						<option>3个月</option>
-																						<option>4个月</option>												                        
-																						<option>5个月</option>
-																						<option>6个月</option>												                        
-																						<option>7个月</option>
-																						<option>8个月</option>
-																						<option>9个月</option>
-																						<option>10个月</option>												                        
-																						<option>11个月</option>
-																						<option selected="selected">12个月</option>												                        
-																				</select>
-																			 </div>
-															              </td>
-																		  <td>
-																			 <div class="form-group">
-																				<select class="form-control" id="serviceTimes">
-																					<option>选择服务次数</option>
-																					<option value="1">1</option>
-																					<option selected="selected">2</option>
-																					<option>3</option>
-																					<option>4</option>												                        
-																					<option>5</option>
-																					<option>6</option>												                        
-																					<option>7</option>
-																					<option>8</option>												                        
-																					<option>9</option>
-																					<option>10</option>		
-																					<option>11</option>
-																					<option>12</option>													                        											                        
-																				</select>
-																			</div>
-															             </td>                   												  
-																		 <td>                    
-																			<div class="form-group">
-																				<input type="date" class="form-control" id="startDate" placeholder="11/01/2019" >
-																			</div>
-																		 </td>
-																		 <td>  
-																		     
-																			 <div class="badge badge-danger"><div style="cursor:pointer" id="addEmpButton">生成记录</div></div>
-															             </td>
-																	</tr>	
-															        <tr>
-															                <td colspan="6" align="center" class="addBottom_adminTimeLine">记录列表
-															                </td>
-															        </tr>		
-																	<tr>
-																		
-																		<th colspan="col">预计申报时间</th>	
-																		<th scope="col">实际申报时间</th>  
-																		<th scope="col">项目办理结果</th>    
-																		<th scope="col">其它内容备注</th>   
-																		<th scope="col">是否删除记录</th>                    				  
-																	</tr>			
-																	<tr>
-																		
-																		<td >31/10/2019</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="date" class="form-control" id="startDate">
-																			</div>
-																		</td>
-																		<td>										                          
-																			<div class="form-check">
-																					<input class="form-check-input" type="checkbox" id="defaultCheck1">
-																							<label class="form-check-label" for="defaultCheck1">
-																									 已完成
-																							</label>
-																			</div>
-																		</td>
-																		<td>
-																			<div class="form-group">
-																					<input type="text" class="form-control">
-																			</div>
-																		</td>													                      
-															 			<td><a href="javascript:;">删除此记录</a></td>
-																	</tr>
-																	<tr>
-																		
-																		<td >31/10/2020</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="date" class="form-control">
-																			</div>
-																		</td>
-																		<td>										                          
-																			<div class="form-check">
-																				<input class="form-check-input" type="checkbox" id="defaultCheck1">
-																				<label class="form-check-label" for="defaultCheck1">
-																				已完成
-																				</label>
-																			</div>
-																		</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="text" class="form-control">
-																			</div>
-																		</td>													                      
-															            <td><a href="deleteEmp?id=002">删除此记录</a></td>
-																		</tr>		
-															    </table>
-														</div>
-										                </div>
-								                        </div>
-						                      		</div>
 						                    	
 						                      		<div class="accordion">
-								                        <div class="accordion-header collapsible1" role="button" data-toggle="collapse" data-target="#panel-body-5" aria-expanded="true">
-								                         	<h4>ECI申报</h4>
-								                        </div>
+
 								                        <div class="accordion-body collapse show" id="panel-body-5" data-parent="#accordion">
-										                <div class="card">
-										                  <div class="card-body">
-															<table id="recordTable" class="table table-sm">
-															      <tr>
-																		<th scope="col">服务项目</th>
-																		<th scope="col">注册时间</th>
-																		<th scope="col">服务周期</th>
-																		<th scope="col">服务次数</th>	
-																		<th scope="col">开始时间</th>   
-																		<th scope="col">生成记录</th> 	
-															      </tr>
-															      <tr>        
-																		<th scope="row" id="service">ECI申报</th>
-																		<th scope="row"  id="registerDate">11/01/2018</th>
-																		<td>
-																			<div class="form-group">
-																				<select class="form-control" id="ServiceCycle" >
-																						<option>选择服务周期</option>
-																						<option>1个月</option>
-																						<option>2个月</option>
-																						<option>3个月</option>
-																						<option>4个月</option>												                        
-																						<option>5个月</option>
-																						<option>6个月</option>												                        
-																						<option>7个月</option>
-																						<option>8个月</option>
-																						<option>9个月</option>
-																						<option>10个月</option>												                        
-																						<option>11个月</option>
-																						<option selected="selected">12个月</option>												                        
-																				</select>
-																			 </div>
-															              </td>
-																		  <td>
-																			 <div class="form-group">
-																				<select class="form-control" id="serviceTimes">
-																					<option>选择服务次数</option>
-																					<option value="1">1</option>
-																					<option selected="selected">2</option>
-																					<option>3</option>
-																					<option>4</option>												                        
-																					<option>5</option>
-																					<option>6</option>												                        
-																					<option>7</option>
-																					<option>8</option>												                        
-																					<option>9</option>
-																					<option>10</option>		
-																					<option>11</option>
-																					<option>12</option>													                        											                        
-																				</select>
-																			</div>
-															             </td>                   												  
-																		 <td>                    
-																			<div class="form-group">
-																				<input type="date" class="form-control" id="startDate" placeholder="11/01/2019" >
-																			</div>
-																		 </td>
-																		 <td>  
-																		     
-																			 <div class="badge badge-danger"><div style="cursor:pointer" id="addEmpButton">生成记录</div></div>
-															             </td>
-																	</tr>	
-															        <tr>
-															                <td colspan="6" align="center" class="addBottom_adminTimeLine">记录列表
-															                </td>
-															        </tr>		
-																	<tr>
-																		
-																		<th colspan="col">财务年度时间</th>	
-																		<th colspan="col">ECI申报</th>	
-																		<th scope="col">实际ECI申报时间</th>  
-																		<th scope="col">项目办理结果</th>    
-																		<th scope="col">其它内容备注</th>   
-																		<th scope="col">是否删除记录</th>                    				  
-																	</tr>			
-																	<tr>
-																		
-																		<td >31/10/2019</td>
-																		<td >31/10/2020</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="date" class="form-control" id="startDate">
-																			</div>
-																		</td>
-																		<td>										                          
-																			<div class="form-check">
-																					<input class="form-check-input" type="checkbox" id="defaultCheck1">
-																							<label class="form-check-label" for="defaultCheck1">
-																									 已完成
-																							</label>
-																			</div>
-																		</td>
-																		<td>
-																			<div class="form-group">
-																					<input type="text" class="form-control">
-																			</div>
-																		</td>													                      
-															 			<td><a href="javascript:;">删除此记录</a></td>
-																	</tr>
-																	<tr>
-																		
-																		<td >31/10/2020</td>
-																		<td >31/10/2021</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="date" class="form-control">
-																			</div>
-																		</td>
-																		<td>										                          
-																			<div class="form-check">
-																				<input class="form-check-input" type="checkbox" id="defaultCheck1">
-																				<label class="form-check-label" for="defaultCheck1">
-																				已完成
-																				</label>
-																			</div>
-																		</td>
-																		<td>
-																			<div class="form-group">
-																				<input type="text" class="form-control">
-																			</div>
-																		</td>													                      
-															            <td><a href="deleteEmp?id=002">删除此记录</a></td>
-																		</tr>		
-															    </table>
-															    <div></div>            
-														
-										                    <table class="table table-sm">
-										                      <tbody>
-										                        <tr>
-										                          <th scope="row">财务年度</th>
-										                          <th scope="row">11/01/2018</th>
-										                          <td>
-										                          	<div class="form-group">
-												                      <select class="form-control" id="textInput050">
-												                        <option>选择服务周期</option>
-												                        <option>年</option>
-												                        <option>月</option>
-												                      </select>
-												                    </div>
-                   												  </td>
-										                          <td>
-										                          	<div class="form-group">
-												                      <select class="form-control"  id="textInput060">
-												                        <option>选择服务次数</option>
-												                        <option>1</option>
-												                        <option>2</option>
-												                        <option>3</option>
-												                        <option>4</option>												                        
-												                        <option>5</option>
-												                        <option>6</option>												                        
-												                        <option>7</option>
-												                        <option>8</option>												                        
-												                        <option>9</option>
-												                        <option>10</option>													                        
-												                      </select>
-												                    </div>
-                   												  </td>                   												  
-										                          <td>                    
-												                    <div class="form-group">
-												                      <input type="date" class="form-control"  id="textInput070">
-												                    </div>
-											                      </td>
-										                          <td>  
-										                         	 <div class="badge badge-danger"><div style="cursor:pointer" onclick="timeLineRecord(2)"  id="textInput080">生成时间记录</div></div>                    
-                      											  </td>
-										                        </tr>
-										                    </table>										                  
-										                    <div id="timeLineRecord2" class="timeLineRecordText" style="display:none;">
-											                    <table class="table table-sm">
-											                      <thead>
-											                        <tr>
-											                          <th scope="col">项目</th>
-											                          <th scope="col">预计年审时间</th>	
-											  						  <th scope="col">实际年审时间</th>  
-											  						  <th scope="col">项目办理结果</th>    
-											  						  <th scope="col">其它内容备注</th>   
-											  						  <th scope="col">是否删除记录</th>                    				  
-											                        </tr>
-											                      </thead>
-											                      <tbody>
-											                      	<tr>
-											                          <th scope="row">财务年度</th>
-											                          <td>2019/10/31</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>
-											                      	<tr>
-											                          <th scope="row">财务年度</th>
-											                          <td>2020/10/31</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>
-											                    </table>
-															</div>															
-															
 
-										                    <table class="table table-sm">
-										                      <tbody>
-										                        <tr>
-										                          <th scope="row">ECI申报</th>
-										                          <th scope="row">2018/01/11</th>
-										                          <td>
-										                          	<div class="form-group" >
-												                      <select class="form-control" id="textInput090">
-												                        <option>选择服务周期</option>
-												                        <option>年</option>
-												                        <option>月</option>
-												                      </select>
-												                    </div>
-                   												  </td>
-										                          <td>
-										                          	<div class="form-group">
-												                      <select class="form-control" id="textInput100">
-												                        <option>选择服务次数</option>
-												                        <option>1</option>
-												                        <option>2</option>
-												                        <option>3</option>
-												                        <option>4</option>												                        
-												                        <option>5</option>
-												                        <option>6</option>												                        
-												                        <option>7</option>
-												                        <option>8</option>												                        
-												                        <option>9</option>
-												                        <option>10</option>													                        
-												                      </select>
-												                    </div>
-                   												  </td>                   												  
-										                          <td>                    
-												                    <div class="form-group">
-												                      <input type="date" class="form-control" id="textInput110">
-												                    </div>
-											                      </td>
-										                          <td>  
-										                         	 <div class="badge badge-danger"><div style="cursor:pointer" onclick="timeLineRecord(3)" id="textInput120">生成时间记录</div></div>                    
-                      											  </td>
-										                        </tr>
-										                    </table>										                  
-										                    <div id="timeLineRecord3" class="timeLineRecordText" style="display:none;">
-											                    <table class="table table-sm">
-											                      <thead>
-											                        <tr>
-											                          <th scope="col">项目</th>
-											                          <th scope="col">财务年度时间</th>	
-											                          <th scope="col">预计ECI时间</th>	
-											  						  <th scope="col">实际ECI时间</th>  
-											  						  <th scope="col">项目办理结果</th>    
-											  						  <th scope="col">其它内容备注</th>   
-											  						  <th scope="col">是否删除记录</th>                    				  
-											                        </tr>
-											                      </thead>
-											                      <tbody>
-											                      	<tr>
-											                          <th scope="row">ECI申报</th>
-											                          <td>2019/10/31</td>
-											                          <td>2020/01/31</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>
-											                      	<tr>
-											                          <th scope="row">ECI申报</th>
-											                          <td>2020/10/31</td>
-											                          <td>2021/01/31</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>
-											                    </table>
-															</div>															
-											
-															
-
-										                    <table class="table table-sm">
-										                      <tbody>
-										                        <tr>
-										                          <th scope="row">报消费税</th>
-										                          <th scope="row">2018/01/11</th>
-										                          <td>
-										                          	<div class="form-group">
-												                      <select class="form-control"  id="textInput130">
-												                        <option>选择服务周期</option>
-												                        <option>年</option>
-												                        <option>月</option>
-												                      </select>
-												                    </div>
-                   												  </td>
-										                          <td>
-										                          	<div class="form-group">
-												                      <select class="form-control"  id="textInput140">
-												                        <option>选择服务次数</option>
-												                        <option>1</option>
-												                        <option>2</option>
-												                        <option>3</option>
-												                        <option>4</option>												                        
-												                        <option>5</option>
-												                        <option>6</option>												                        
-												                        <option>7</option>
-												                        <option>8</option>												                        
-												                        <option>9</option>
-												                        <option>10</option>													                        
-												                      </select>
-												                    </div>
-                   												  </td>                   												  
-										                          <td>                    
-												                    <div class="form-group">
-												                      <input type="date" class="form-control"  id="textInput150">
-												                    </div>
-											                      </td>
-										                          <td>  
-										                         	 <div class="badge badge-danger"><div style="cursor:pointer" onclick="timeLineRecord(4)"  id="textInput160">生成时间记录</div></div>                    
-                      											  </td>
-										                        </tr>
-										                    </table>										                  
-										                    <div id="timeLineRecord4" class="timeLineRecordText" style="display:none;">
-											                    <table class="table table-sm">
-											                      <thead>
-											                        <tr>
-											                          <th scope="col">项目</th>
-											                          <th scope="col">预计申报时间</th>	
-											  						  <th scope="col">实际申报时间</th>  
-											  						  <th scope="col">项目办理结果</th>    
-											  						  <th scope="col">其它内容备注</th>   
-											  						  <th scope="col">是否删除记录</th>                    				  
-											                        </tr>
-											                      </thead>
-											                      <tbody>
-											                      	<tr>
-											                          <th scope="row">消费税</th>
-											                          <td>2021/01/01</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>
-											                      	<tr>
-											                          <th scope="row">消费税</th>
-											                           <td>2021/04/01</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>											                           
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>
-											                      	<tr>
-											                          <th scope="row">消费税</th>
-											                           <td>2021/07/01</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>											                           
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>											                        
-											                    </table>
-															</div>															
-											
-
-										                    <table class="table table-sm">
-										                      <tbody>
-										                        <tr>
-										                          <th scope="row">所得税报税</th>
-										                          <th scope="row">2018/01/11</th>
-										                          <td>
-										                          	<div class="form-group">
-												                      <select class="form-control"  id="textInput170">
-												                        <option>选择服务周期</option>
-												                        <option>年</option>
-												                        <option>月</option>
-												                      </select>
-												                    </div>
-                   												  </td>
-										                          <td>
-										                          	<div class="form-group">
-												                      <select class="form-control"  id="textInput180">
-												                        <option>选择服务次数</option>
-												                        <option>1</option>
-												                        <option>2</option>
-												                        <option>3</option>
-												                        <option>4</option>												                        
-												                        <option>5</option>
-												                        <option>6</option>												                        
-												                        <option>7</option>
-												                        <option>8</option>												                        
-												                        <option>9</option>
-												                        <option>10</option>													                        
-												                      </select>
-												                    </div>
-                   												  </td>                   												  
-										                          <td>                    
-												                    <div class="form-group">
-												                      <input type="date" class="form-control"  id="textInput190">
-												                    </div>
-											                      </td>
-										                          <td>  
-										                         	 <div class="badge badge-danger"><div style="cursor:pointer" onclick="timeLineRecord(5)"  id="textInput200">生成时间记录</div></div>                    
-                      											  </td>
-										                        </tr>
-										                    </table>										                  
-										                    <div id="timeLineRecord5" class="timeLineRecordText" style="display:none;">
-											                    <table class="table table-sm">
-											                      <thead>
-											                        <tr>
-											                          <th scope="col">项目</th>
-											                          <th scope="col">预计申报时间</th>	
-											  						  <th scope="col">实际申报时间</th>  
-											  						  <th scope="col">项目办理结果</th>    
-											  						  <th scope="col">其它内容备注</th>   
-											  						  <th scope="col">是否删除记录</th>                    				  
-											                        </tr>
-											                      </thead>
-											                      <tbody>
-											                      	<tr>
-											                          <th scope="row">所得税报税</th>
-											                          <td>2019/12/15</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>
-											                      	<tr>
-											                          <th scope="row">所得税报税</th>
-											                           <td>2020/12/15</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>											                           
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>										                        
-											                    </table>
-															</div>															
-											
-
-
-										                    <table class="table table-sm">
-										                      <tbody>
-										                        <tr>
-										                          <th scope="row">所得锐缴税</th>
-										                          <th scope="row">2018/01/11</th>
-										                          <td>
-										                          	<div class="form-group">
-												                      <select class="form-control"  id="textInput210">
-												                        <option>选择服务周期</option>
-												                        <option>年</option>
-												                        <option>月</option>
-												                      </select>
-												                    </div>
-                   												  </td>
-										                          <td>
-										                          	<div class="form-group">
-												                      <select class="form-control"  id="textInput220">
-												                        <option>选择服务次数</option>
-												                        <option>1</option>
-												                        <option>2</option>
-												                        <option>3</option>
-												                        <option>4</option>												                        
-												                        <option>5</option>
-												                        <option>6</option>												                        
-												                        <option>7</option>
-												                        <option>8</option>												                        
-												                        <option>9</option>
-												                        <option>10</option>													                        
-												                      </select>
-												                    </div>
-                   												  </td>                   												  
-										                          <td>                    
-												                    <div class="form-group">
-												                      <input type="date" class="form-control"  id="textInput230">
-												                    </div>
-											                      </td>
-										                          <td>  
-										                         	 <div class="badge badge-danger"><div style="cursor:pointer" onclick="timeLineRecord(6)"  id="textInput240">生成时间记录</div></div>                    
-                      											  </td>
-										                        </tr>
-										                    </table>										                  
-										                    <div id="timeLineRecord6" class="timeLineRecordText" style="display:none;">
-											                    <table class="table table-sm">
-											                      <thead>
-											                        <tr>
-											                          <th scope="col">项目</th>
-											                          <th scope="col">所得税报税时间</th>	
-											                          <th scope="col">预计缴税时间</th>	
-											  						  <th scope="col">实际缴税时间</th>  
-											  						  <th scope="col">项目办理结果</th>    
-											  						  <th scope="col">其它内容备注</th>   
-											  						  <th scope="col">是否删除记录</th>                    				  
-											                        </tr>
-											                      </thead>
-											                      <tbody>
-											                      	<tr>
-											                          <th scope="row">所得锐缴税</th>
- 																	  <td>2019/12/15</td>
-											                          <td>2020/2/15</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>
-											                      	<tr>
-											                          <th scope="row">所得锐缴税</th>
- 																	  <td>2020/12/15</td>
-											                          <td>2021/2/15</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>											                           
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>										                        
-											                    </table>
-															</div>																										
-															
-
-										                    <table class="table table-sm">
-										                      <tbody>
-										                        <tr>
-										                          <th>                    
-												                    <div class="form-group">
-												                      <input type="text" class="form-control"  id="textInput250">
-												                    </div>
-											                      </th>										                        
-										                          <td>                    
-												                    <div class="form-group">
-												                      <input type="date" class="form-control"  id="textInput260">
-												                    </div>
-											                      </td>
-										                          <td>
-										                          	<div class="form-group">
-												                      <select class="form-control"  id="textInput270">
-												                        <option>周期</option>
-												                        <option>年</option>
-												                        <option>月</option>
-												                      </select>
-												                    </div>
-                   												  </td>
-										                          <td>
-										                          	<div class="form-group">
-												                      <select class="form-control"  id="textInput280">
-												                        <option>次数</option>
-												                        <option>1</option>
-												                        <option>2</option>
-												                        <option>3</option>
-												                        <option>4</option>												                        
-												                        <option>5</option>
-												                        <option>6</option>												                        
-												                        <option>7</option>
-												                        <option>8</option>												                        
-												                        <option>9</option>
-												                        <option>10</option>													                        
-												                      </select>
-												                    </div>
-                   												  </td>                   												  
-										                          <td>                    
-												                    <div class="form-group">
-												                      <input type="date" class="form-control"  id="textInput290">
-												                    </div>
-											                      </td>
-										                          <td>  
-										                         	 <div class="badge badge-danger"><div style="cursor:pointer" onclick="timeLineRecord(7)"  id="textInput300">生成时间记录</div></div>                    
-                      											  </td>
-										                        </tr>
-										                    </table>										                  
-										                    <div id="timeLineRecord7" class="timeLineRecordText" style="display:none;">
-											                    <table class="table table-sm">
-											                      <thead>
-											                        <tr>
-											                          <th scope="col">项目</th>
-											                          <th scope="col">预计时间</th>	
-											  						  <th scope="col">实际时间</th>  
-											  						  <th scope="col">项目办理结果</th>    
-											  						  <th scope="col">其它内容备注</th>   
-											  						  <th scope="col">是否删除记录</th>                    				  
-											                        </tr>
-											                      </thead>
-											                      <tbody>
-											                      	<tr>
-											                          <th scope="row">data</th>
- 																	  <td>data</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>
-											                      	<tr>
-											                          <th scope="row">data</th>
- 																	  <td>data</td>
-											                          <td>
-													                    <div class="form-group">
-													                      <input type="date" class="form-control">
-													                    </div>
-											                          </td>											                           
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck1">
-													                        <label class="form-check-label" for="defaultCheck1">
-													                      			  已完成
-													                        </label>
-													                      </div>
-												                      </td>
-											                          <td>
-											                               <div class="form-group">
-														                      <input type="text" class="form-control">
-														                    </div>
-											                          </td>													                      
-											                          <td>										                          
-												                          <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="defaultCheck2">
-													                        <label class="form-check-label" for="defaultCheck2">
-													                      			  删除此记录
-													                        </label>
-													                      </div>
-												                      </td>	
-											                        </tr>										                        
-											                    </table>
-															</div>		
-															
-															
-										                    
-															<div class="row  adminTimeLine">
-														            <div class="col-12 col-md-12 col-lg-12 divCss">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="infoCheckbox0"  onclick="confirmInfo(0)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id="textInput000"  class="btnMenu view" href="#" >增加服务项</a>		
-																		</div>
-																	</div>																									
-															</div>											                    
-										                    
-										                   
-										                    
-				                 
-														</div>
-										                </div>
 														<div class="card" >
 										                  <div class="card-body">					                
 																<div class="row">	
@@ -1514,12 +695,6 @@
 								                        </div>
 						                      		</div>
 								                    	
-						                    	
-						                    	
-						                    	
-						                    	
-						                    	
-						                    	
 						                    	
 						                    	</div>
 						                 	 </div>

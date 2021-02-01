@@ -367,3 +367,114 @@ function showAndHideRecord(type) {
 		addBorder.replace("unfoldBorder","removeBorder");  
 	  }
 	}
+
+
+
+function confirmCompanyInfo() {
+	var checkBox = document.getElementById("infoCheckbox_timeLineRecord");
+
+	if (checkBox.checked == true) {
+		//$(".badge").val("yes");
+		$(".lineRecordArea input").prop("disabled", true);
+		$(".lineRecordArea select").prop("disabled", true);
+		$(".lineRecordArea button").prop("disabled", true);
+		$(".lineRecordArea .badge").addClass("disabled");		
+		$(".lineRecordArea a").addClass("disabled");
+		$(".confirmArea #addNewService_timeLineRecord").addClass("disabled gray");		
+		$(".confirmArea #addNewService_timeLineRecord").removeClass("view");		
+		//$(".badge").attr("disabled","disabled");			
+	} else {
+		//$("#lock_record").val("no");
+		$(".lineRecordArea input").prop('disabled', false);
+		$(".lineRecordArea select").prop("disabled", false);
+		$(".lineRecordArea button").prop("disabled", false);
+		$(".lineRecordArea a").prop("disabled", false);	
+		$(".lineRecordArea .badge").removeClass("disabled");
+		$(".lineRecordArea a").removeClass("disabled");		
+		$(".confirmArea #addNewService_timeLineRecord").removeClass("disabled gray");	
+		$(".confirmArea #addNewService_timeLineRecord").addClass("view");		
+		//$(".badge").attr("disabled","disabled");
+	}	
+}
+
+
+
+function addNewServiceArea(){
+$("#lineRecordArea").append(`<div id="div_new" class="unfoldBorder">
+								<table  class="table table-sm">
+						      		<tr>
+										<th scope="col">服务项目</th>
+										<th scope="col">备注说明</th>
+										<th scope="col">服务周期</th>
+										<th scope="col">服务次数</th>	
+										<th scope="col">开始时间</th>   
+										<th scope="col">生成记录</th> 	
+						      		</tr>
+						      		<tr>        
+									<th scope="row" id="new_service"><div class="form-group"><input type="text" class="form-control"></div></th>
+									<th scope="row"  id="new_registerDate"><div class="form-group"><input type="text" class="form-control"></div></th>
+										<td>
+											<div class="form-group">
+												<select class="form-control" id="new_service_cycle" >
+													<option>选择服务周期</option>
+													<option>1个月</option>
+													<option>2个月</option>
+													<option>3个月</option>
+													<option>4个月</option>												                        
+													<option>5个月</option>
+													<option>6个月</option>												                        
+													<option>7个月</option>
+													<option>8个月</option>
+													<option>9个月</option>
+													<option>10个月</option>												                        
+													<option>11个月</option>
+													<option selected="selected">12个月</option>												                        
+												</select>
+											 </div>
+							            </td>
+										<td>
+											 <div class="form-group">
+												<select class="form-control" id="new_service_times">
+													<option>选择服务次数</option>
+													<option value="1">1</option>
+													<option>2</option>
+													<option>3</option>
+													<option selected="selected">4</option>												                        
+													<option>5</option>
+													<option>6</option>												                        
+													<option>7</option>
+													<option>8</option>												                        
+													<option>9</option>
+													<option>10</option>		
+													<option>11</option>
+													<option>12</option>													                        											                        
+												</select>
+											</div>
+							             </td>                   												  
+										 <td>                    
+											<div class="form-group">
+												<input type="date" id="new_start_date"  class="form-control" name="meeting-time">
+											</div>
+										 </td>
+									 	<td>
+										 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('new')">生成记录</div></div>
+										 	<div class="badge badge-info"><div class="" id="viewRecord_new" style="cursor:pointer" onclick="showAndHideRecord('new')">收起记录</div></div>
+									 	</td>
+									</tr>	
+									</table>
+								<table class="table table-sm" id="recordTable_new"  >
+							        <tr>
+							             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
+							        </tr>		
+									<tr>
+										<th colspan="2" scope="col">预计服务时间</th>	
+										<th scope="col">实际服务时间</th>  
+										<th scope="col">服务办理结果</th>    
+										<th scope="col">其它内容备注</th>   
+										<th scope="col">是否删除记录</th>                    				  
+									</tr>
+			
+									
+						    	</table>															    
+							</div>`);
+}

@@ -5660,6 +5660,17 @@ input[type=checkbox], input[type=radio] {
     margin-bottom: 0rem;
 }
 
+.btnDisabled {
+    pointer-events:none;
+}
+.removeBtnDisabled {
+    pointer-events:unset;
+}
+
+.gray{
+    color:gray !important;
+}
+
 /* 7.4 admin_editRecord page */
 
 .admin_editRecord .card.search .card-header .form-control {

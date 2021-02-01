@@ -33,6 +33,9 @@ function companyshowfilediag(doc_id) {
 	$('#file_com_upload'+doc_id).trigger('click');		
 }
 
+function personshowfilediag(doc_id) {
+	$('#file_per_upload'+doc_id).trigger('click');		
+}
 
 function companydownloadfile(uuid) {
 	var req = new XMLHttpRequest();
@@ -65,7 +68,7 @@ function companyuploadfile(company_id, id) {
     formData.append("company_id", company_id);
     formData.append("id", id);
     $.ajax({
-        url:'/api/company/upload/'+company_id,
+        url:'/api/company/company/document/upload/'+company_id,
         type:'post',
         data: formData,
         contentType: false,
@@ -94,7 +97,45 @@ function companyuploadfile(company_id, id) {
         	alert('上传文件失败');
         }
     });
-} 
+}
+
+function personuploadfile(company_id, person_id) {
+	var formData = new FormData();
+    formData.append("file",$("#file_per_upload" + person_id)[0].files[0]);
+    formData.append("company_id", company_id);
+    formData.append("person_id", person_id);
+    $.ajax({
+        url:'/api/company/person/document/upload/'+company_id,
+        type:'post',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response){
+        	console.log("Upload Successful", response);
+        	var obj = JSON.parse(response);
+        	$("#showReport"+person_id).append(`<div id='AttachedReport${obj.referenceNo}'>						
+											<div class="row">
+												<div class="col-12 col-md-1 col-lg-1"></div>		
+									            <div class="col-12 col-md-7 col-lg-7"><span>修改记录：</span> ${obj.createdDate}</div>
+									            <div class="col-12 col-md-4 col-lg-4">														            	
+									            	<div class="inline">														            	
+										            	<a id="download_company_file${obj.id}" class="btnMenu view" onclick="companydownloadfile('${obj.referenceNo}')" >下载</a>	
+										            	<span> | </span><a id="preview_company_file${obj.id}" class="btnMenu view" onclick="companypreviewfile('${obj.referenceNo}')">浏览</a>			
+										            	<span> | </span><a id="delete_company_file${obj.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${obj.referenceNo}')">删除</a>						                  
+													</div>							                  
+												</div>		
+												<div class="col-12 col-md-1 col-lg-1"></div>					
+											</div>
+										</div>`);
+        	alert('上传文件成功');
+        },
+        error: function(e) {
+        	console.error("ERROR : ", e)
+        	alert('上传文件失败');
+        }
+    });
+}
+
 function companydeletefile(uuid) {
 	var flag = confirm("提示: 确认删除此条记录吗? ");
 	if(flag) {
@@ -152,15 +193,6 @@ function lock(x) {
 		text3.style.cssText = "color:gray !important;";
 		text3.style.pointerEvents="none";
 		text3.style.textDecoration = "none";
-		//text2.style.color = "gray";
-		//text2.style.pointerEvents="none";
-		//text2.style.textDecoration = "none";
-		/*text4.style.color = "gray";
-		text4.style.pointerEvents="none";
-		text4.style.textDecoration = "none";
-		text5.style.color = "gray";
-		text5.style.pointerEvents="none";
-		text5.style.textDecoration = "none";	*/
 	} else {
 		for (var i = 0; i < text2.length; i++) {
 			text2[i].style.removeProperty("pointer-events");
@@ -171,30 +203,48 @@ function lock(x) {
 		text1.style.pointerEvents="unset";
 		text3.style.cssText = "color:#6777ef !important;";
 		text3.style.pointerEvents="unset";
-		//text2.style.color = "#6777ef";
-		//text2.style.pointerEvents="unset";
-		/*text4.style.color = "#6777ef";
-		text4.style.pointerEvents="unset";
-		text5.style.color = "#6777ef";
-		text5.style.pointerEvents="unset";	*/
 	}
 }	
 
-function confirmInfo(x) {
-	var checkBox = document.getElementById("infoCheckbox"+x);
-	var text0 = document.getElementById("textInput00"+x);	
-	var text1 = document.getElementById("textInput01"+x);
-	var text2 = document.getElementById("textInput02"+x);
-	var text3 = document.getElementById("textInput03"+x);
-	var text4 = document.getElementById("textInput04"+x);
-	var text5 = document.getElementById("textInput05"+x);	
-	var text6 = document.getElementById("textInput06"+x);
-	var text7 = document.getElementById("textInput07"+x);
-	var text8 = document.getElementById("textInput08"+x);
-	var text9 = document.getElementById("textInput09"+x);
-	var text10 = document.getElementById("textInput10"+x);		
-	var text11 = document.getElementById("textInput11"+x);
-	var text12 = document.getElementById("textInput12"+x);		
+function confirmShareholderInfo(shareholderId) {
+	var checkBox = document.getElementById("shareholder_info_" + shareholderId);
+	console.log($('#shareholderDetailForm_' + shareholderId).serialize());
+	$.ajax({
+        url: '/api/shareholder/manage/update/' + shareholderId,
+        type : "POST",
+        data: $('#shareholderDetailForm_' + shareholderId).serialize(),
+        timeout: 600000,
+        success: function(response){
+        	console.log("Update Successful", response);
+        },
+        error: function(e) {
+        console.error("ERROR : ", e);
+    }
+    });
+
+	if (checkBox.checked == true) {
+		$("#lock_shareholder_" + shareholderId).val("yes");
+		$("#shareholderDetailForm_" + shareholderId + " input").prop("disabled", true);
+		$("#shareholder_id_" + shareholderId).prop('disabled', false);
+	} else {
+		$("#lock_shareholder_" + shareholderId).val("no");
+		$("#shareholderDetailForm_" + shareholderId + " input").prop('disabled', false);
+	}	
+	
+	/*var checkBox = document.getElementById("infoCheckbox"+shareholderId);
+	var name = document.getElementById("name_"+shareholderId);	
+	var text1 = document.getElementById("textInput01"+shareholderId);
+	var text2 = document.getElementById("textInput02"+shareholderId);
+	var text3 = document.getElementById("textInput03"+shareholderId);
+	var text4 = document.getElementById("textInput04"+shareholderId);
+	var text5 = document.getElementById("textInput05"+shareholderId);	
+	var text6 = document.getElementById("textInput06"+shareholderId);
+	var text7 = document.getElementById("textInput07"+shareholderId);
+	var text8 = document.getElementById("textInput08"+shareholderId);
+	var text9 = document.getElementById("textInput09"+shareholderId);
+	var text10 = document.getElementById("textInput10"+shareholderId);		
+	var text11 = document.getElementById("textInput11"+shareholderId);
+	var text12 = document.getElementById("textInput12"+shareholderId);		
 	if (checkBox.checked == true){
 		text0.style.pointerEvents="none";	 
 		text1.style.pointerEvents="none";
@@ -247,5 +297,5 @@ function confirmInfo(x) {
 		text11.style.borderColor="#e4e6fc";			
 		text12.style.pointerEvents="unset";	 	
 		text12.style.borderColor="#e4e6fc";					
-	}
+	}*/
 }	

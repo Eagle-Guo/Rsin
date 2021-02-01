@@ -110,13 +110,13 @@ public class FileDownloadController {
     public ResponseEntity<?> companyUploadFile(@PathVariable long company_id, @RequestParam("id") int documentId, @RequestParam("file") MultipartFile uploadfile,
     		HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
-		String filename = CommonUtils.getFileName(documentId);
+		Document document = fileService.getDocument(documentId);
+		String filename = document.getDocumentDesc();
 
         response.setContentType("application/pdf");
         response.setHeader("fileName", filename);
         response.setHeader("content-disposition", "attachment;");
 
-        Document document = fileService.getDocument(documentId);
         SimpleDateFormat sm = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         try {
         	DocumentHistory dh = fileService.saveToDocmentAndHistory(userId, company_id, filename, uploadfile, document);
@@ -160,5 +160,33 @@ public class FileDownloadController {
         	return new ResponseEntity<String>("File delete Failed", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<String>("File delete Successful", HttpStatus.OK);
+    }
+	
+	@RequestMapping(value = "/company/person/document/upload/{company_id}")
+    public ResponseEntity<?> personUploadFile(@PathVariable long company_id, @RequestParam("person_id") int documentId, @RequestParam("file") MultipartFile uploadfile,
+    		HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String userId = (String) request.getSession().getAttribute("loginUsername");
+		Document document = fileService.getDocument(documentId);
+		String filename = document.getDocumentDesc();
+
+        response.setContentType("application/pdf");
+        response.setHeader("fileName", filename);
+        response.setHeader("content-disposition", "attachment;");
+
+        SimpleDateFormat sm = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        try {
+        	DocumentHistory dh = fileService.saveToDocmentAndHistory(userId, company_id, filename, uploadfile, document);
+        	DocumentHistoryDto documentHistoryDto = new DocumentHistoryDto();
+        	documentHistoryDto.setCreatedBy(dh.getCreatedBy());
+        	documentHistoryDto.setCreatedDate(sm.format(dh.getCreatedDate()));
+        	documentHistoryDto.setDocumentName(dh.getDocumentName());
+        	documentHistoryDto.setDocumentPath(dh.getDocumentPath());
+        	documentHistoryDto.setId(dh.getId());
+        	documentHistoryDto.setReferenceNo(dh.getReferenceNo());
+        	String result = new ObjectMapper().writeValueAsString(documentHistoryDto);
+        	 return new ResponseEntity<String>(result, HttpStatus.OK);
+        } catch (IOException ex) {
+        	return new ResponseEntity<String>("File upload Failed", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

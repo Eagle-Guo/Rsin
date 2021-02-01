@@ -76,7 +76,7 @@ public class AdminManageCompanyServiceImpl implements AdminManageCompanyService 
 
 	@Override
 	public Map<String, List<DocumentHistory>> getPersonalDocumentListWithDetail(Long companyId) {
-		List<Document> documents = documentRepository.findByCompanyIdAndCategoryOrderByDisplaySequenceAsc(companyId, "C");
+		List<Document> documents = documentRepository.findByCompanyIdAndCategoryOrderByDisplaySequenceAsc(companyId, "P");
 		Map<String, List<DocumentHistory>> fileMap = new LinkedHashMap<String, List<DocumentHistory>>();
 		documents.stream().forEach(doc -> {
 			String type = doc.getDocumentType().getDocumentTypeCode();

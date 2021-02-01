@@ -128,6 +128,7 @@ CREATE TABLE `company_shareholder_info` (
   `ip` varchar(100),
   `checksum` varchar(100),
   `status` BOOLEAN default true,
+  `lock_flag` BOOLEAN default false,
   `company_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `company_shareholder_info_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
@@ -254,6 +255,7 @@ CREATE TABLE `document` (
     `document_desc` varchar(255),
     `document_desc_cn` varchar(255),
     `user_id` varchar(100), -- this is important to differentship different directors and shareholder
+	`lock_flag` BOOLEAN default false,
     `company_id` int(11) NOT NULL,
     `created_by` varchar(255) NOT NULL,
     `created_date` DATETIME,

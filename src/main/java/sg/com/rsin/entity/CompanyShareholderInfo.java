@@ -1,5 +1,6 @@
 package sg.com.rsin.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,24 +15,44 @@ public class CompanyShareholderInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+    @Column(name="position_type")
 	private String positionType;
+    @Column(name="name")
 	private String name;
+    @Column(name="gender")
 	private String gender;
+    @Column(name="nationality")
 	private String nationality;
+    @Column(name="ic_type")
 	private String icType;
+    @Column(name="ic_number")
 	private String icNumber;
+    @Column(name="email")
 	private String email;
+    @Column(name="contact_number")
 	private String contactNumber;
+    @Column(name="issue_stock_amount")
 	private int issueStockAmount;
+    @Column(name="actual_stock_amount")
 	private int actualStockAmount;
+    @Column(name="value_per_stock")
 	private int valuePerStock;
+    @Column(name="address")
 	private String address;
+    @Column(name="seq")
 	private int seq;
+    @Column(name="signature_name")
 	private String signatureName;
+    @Column(name="signature_path")
 	private String signaturePath;
+    @Column(name="ip")
 	private String ip;
+    @Column(name="checksum")
 	private String checksum;
+	@Column(name="status")
 	private boolean status;
+    @Column(name="lock_flag")
+	private boolean lockFlag;
 
 	//@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@ManyToOne
@@ -43,7 +64,7 @@ public class CompanyShareholderInfo {
 	public CompanyShareholderInfo(Long id, String positionType, String name, String gender, String nationality,
 			String icType, String icNumber, String email, String contactNumber, int issueStockAmount,
 			int actualStockAmount, int valuePerStock, String address, int seq, String signatureName, 
-			String ip, String checksum, boolean status, String signaturePath,  Company company) {
+			String ip, String checksum, boolean status, boolean lockFlag, String signaturePath,  Company company) {
 		super();
 		this.id = id;
 		this.positionType = positionType;
@@ -180,6 +201,12 @@ public class CompanyShareholderInfo {
 	}
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+	public boolean isLockFlag() {
+		return lockFlag;
+	}
+	public void setLockFlag(boolean lockFlag) {
+		this.lockFlag = lockFlag;
 	}
 	public Company getCompany() {
 		return company;

@@ -35,11 +35,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import sg.com.rsin.entity.Company;
+import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.Industry;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmailService;
 import sg.com.rsin.service.IndustryService;
 import sg.com.rsin.service.NewCompanyService;
+import sg.com.rsin.service.ShareholderInfoService;
 import sg.com.rsin.service.UploadFileService;
 import sg.com.rsin.vo.CompanyDto;
 
@@ -64,6 +66,8 @@ public class APIController {
 	
 	@Autowired
 	NewCompanyService newCompanyService;
+	@Autowired
+	ShareholderInfoService shareholderInfoService;
 	
     @GetMapping("/employees")
     public String  all() {
@@ -224,6 +228,60 @@ public class APIController {
 			}
     	}
     	newCompanyService.saveCompany(company);
+    	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
+    }
+    
+    @PostMapping(path="/shareholder/manage/update/{id}")
+    public ResponseEntity<?> updateShareholderDetail(@PathVariable String id, HttpServletRequest request) {
+    	
+    	CompanyShareholderInfo info = shareholderInfoService.getShareholderInfoById(Long.parseLong(id)) ;
+    	if (info == null) {
+    		return new ResponseEntity<String>("CompanyShareholderInfo not existed", new HttpHeaders(), HttpStatus.NOT_FOUND);
+    	}
+
+    	String lockRecord = request.getParameter("lock_shareholder_" + id);
+    	if (lockRecord == null) {
+    		info.setLockFlag(false);
+    	} else {
+    		info.setLockFlag(true);
+    		info.setActualStockAmount(request.getParameter("actual_stock_" + id)!=null? Integer.parseInt(request.getParameter("actual_stock_" + id)) : 0);
+    		info.setAddress(request.getParameter("address_" + id));
+    		info.setContactNumber(request.getParameter("contact_number_" + id));
+    		info.setEmail(request.getParameter("email_" + id));
+    		info.setGender(request.getParameter("gender_" + id));
+    		info.setIcNumber(request.getParameter("ic_number_" + id));
+    		info.setIcType(request.getParameter("ic_type_" + id));
+
+    		String remoteAddr = request.getHeader("X-FORWARDED-FOR");
+            if (remoteAddr == null || "".equals(remoteAddr)) {
+                remoteAddr = request.getRemoteAddr();
+            }
+    		info.setIp(remoteAddr);
+
+    		info.setIssueStockAmount(request.getParameter("issue_stock_" + id)!=null? Integer.parseInt(request.getParameter("issue_stock_" + id)) : 0);
+    		info.setName(request.getParameter("name_" + id));
+    		info.setNationality(request.getParameter("national_" + id));
+
+    		StringBuilder sb = new StringBuilder();
+    		if ("on".equals(request.getParameter("director_" + id))) {
+    			sb.append("董事, ");
+    		}
+    		if ("on".equals(request.getParameter("shareholder_" + id))) {
+    			sb.append("股东, ");
+    		}
+    		if ("on".equals(request.getParameter("cotact_" + id))) {
+    			sb.append("联系人, ");
+    		} 
+    		info.setPositionType(sb.substring(0, sb.length() -2));
+    		
+    		if (request.getParameter("status_valid_" + id).equals("on")) {
+    			info.setStatus(true);
+    		} else {
+    			info.setStatus(false);
+    		}
+    		info.setValuePerStock(request.getParameter("value_per_stock_" + id)!=null? Integer.parseInt(request.getParameter("value_per_stock_" + id)) : 1);
+    	}
+    	shareholderInfoService.saveShareholderInfo(info);
     	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
     }
 }

@@ -224,7 +224,7 @@
 									<div class="row">
 							            <div class="col-12 col-md-12 col-lg-12">
 							                <div class="card downLoadFile">
-							                	<div class="card-body">
+							                	<div class="card-body" id="accordion_${shareholderInfo.id}">
 						                      		<div class="accordion">
 								                        <div class="accordion-header collapsible1  collapsed" role="button" data-toggle="collapse" data-target="#panel-body-2" aria-expanded="false">
 								                         	<h4>董事/股东/联系人: <span>${shareholderInfo.name }</span>
@@ -234,477 +234,231 @@
 								                         	     </c:choose>
 								                         	</h4>
 								                        </div>
-								                        <div class="accordion-body collapse" id="panel-body-2" data-parent="#accordion">
-										                <div class="card">
-										                  <div class="card-body">
-										                  	<div class="row">
+								                        <div class="accordion-body collapse" id="panel-body-2" data-parent="#accordion_${shareholderInfo.id}">
+											                <div class="card">
+											                  <div class="card-body">
+											                  	<div class="row">
 														            <div class="col-12 col-md-12 col-lg-12" data-toggle="collapse"  data-target="#staffDetail_${shareholderInfo.id}" style="cursor: pointer">	
 														           	    <b>${shareholderInfo.name }个人基本信息</b><span style="color: #6777ef;">(查看|修改)</span>                 
 																	</div>							
-															</div>	
-															<div id="staffDetail_${shareholderInfo.id}" class="collapse in">							
-																<div class="row">
+																</div>	
+																<div id="staffDetail_${shareholderInfo.id}" class="collapse in">							
+																	<div class="row">
 																		<div class="col-12 col-md-1 col-lg-1"></div>		
-															            <div class="col-12 col-md-10 col-lg-10">	
-														                    <table class="table table-sm">
-														                      <thead>
-														                        <tr>
-														                          <th scope="col">项目</th>
-														                          <th scope="col">内容</th>
-														                          <th scope="col">项目</th>
-														                          <th scope="col">内容</th>											                          						  
-														                        </tr>
-														                      </thead>
-														                      <tbody>
-														                        <tr>
-														                          <th scope="row">全名(护照姓名)</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="name_${shareholderInfo.id }"  value="${shareholderInfo.name }"></td>
-														                          <th scope="row">状态</th>
-														                          <td>
-																					<div class="form-group">
-																						<div class="form-check form-check-inline">
-																							<input class="form-check-input" type="radio" name="status_${shareholderInfo.id }" id="status_valid_${shareholderInfo.id }" <c:if test="${shareholderInfo.status}">checked</c:if>/> 
-																							<label style="height: auto;" class="form-check-label">有效</label>
+															            <div class="col-12 col-md-10 col-lg-10">
+															            	<form id = "shareholderDetailForm_${shareholderInfo.id }" name="employeeForm">
+															                    <table class="table table-sm">
+															                      <thead>
+															                        <tr>
+															                          <th scope="col">项目</th>
+															                          <th scope="col">内容</th>
+															                          <th scope="col">项目</th>
+															                          <th scope="col">内容</th>											                          						  
+															                        </tr>
+															                      </thead>
+															                      <tbody>
+															                        <tr>
+															                          <th scope="row">全名(护照姓名)</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="name_${shareholderInfo.id }" name="name_${shareholderInfo.id }" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.name }"></td>
+															                          <th scope="row">状态</th>
+															                          <td>
+																						<div class="form-group">
+																							<div class="form-check form-check-inline">
+																								<input type="hidden" id="shareholder_id_${shareholderInfo.id }" name="shareholder_id_${shareholderInfo.id }" value="${shareholderInfo.id }">
+													                                			<input type="hidden" name="lock_shareholder_${shareholderInfo.id }" value="yes">
+																								<input class="form-check-input" type="radio" name="status_valid_${shareholderInfo.id }" id="status_valid_${shareholderInfo.id }" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${shareholderInfo.status}">checked</c:if>/> 
+																								<label style="height: auto;" class="form-check-label">有效</label>
+																							</div>
+																							<div class="form-check form-check-inline">
+																								<input class="form-check-input" type="radio" name="status_cancel_${shareholderInfo.id }" id="status_cancel_${shareholderInfo.id }" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${not shareholderInfo.status}">checked </c:if> />
+																								<label style="height: auto;" class="form-check-label">撤销</label>
+																							</div>
 																						</div>
-																						<div class="form-check form-check-inline">
-																							<input class="form-check-input" type="radio" name="status_${shareholderInfo.id }" id="status_cancel_${shareholderInfo.id }" <c:if test="${not shareholderInfo.status}">checked </c:if> />
-																							<label style="height: auto;" class="form-check-label">撤销</label>
+															                          </td>										                          
+															                        </tr>
+															                        <tr>
+															                          <th scope="row">性别</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="gender_${shareholderInfo.id}" name="gender_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.gender }"></td>														                        
+															                          <th scope="row">职位</th>
+															                          <td>
+																						<div class="form-group">
+																							<div class="form-check form-check-inline">
+																								<input class="form-check-input" type="checkbox" id="director_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> name="director_${shareholderInfo.id}" <c:if test="${fn:contains(shareholderInfo.positionType, '董事')}">checked</c:if> /> 
+																								<label style="height: auto;" class="form-check-label">董事</label>
+																							</div>
+																							<div class="form-check form-check-inline">
+																								<input class="form-check-input" type="checkbox" id="shareholder_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> name="shareholder_${shareholderInfo.id}" <c:if test="${fn:contains(shareholderInfo.positionType, '股东')}">checked</c:if> />
+																								<label style="height: auto;" class="form-check-label">股东</label>
+																							</div>
+																							<div class="form-check form-check-inline">
+																								<input class="form-check-input" type="checkbox" id="cotact_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> name="cotact_${shareholderInfo.id}" <c:if test="${fn:contains(shareholderInfo.positionType, '联系人')}">checked</c:if> /> 
+																								<label style="height: auto;" class="form-check-label">联系人</label>
+																							</div>
 																						</div>
-																					</div>
-														                          </td>										                          
-														                        </tr>
-														                        <tr>
-														                          <th scope="row">性别</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="gender_${shareholderInfo.id}" value="${shareholderInfo.gender }"></td>														                        
-														                          <th scope="row">职位</th>
-														                          <td>
-																					<div class="form-group">
-																						<div class="form-check form-check-inline">
-																							<input class="form-check-input" type="checkbox" id="director_${shareholderInfo.id}" <c:if test="${fn:contains(shareholderInfo.positionType, '董事')}">checked</c:if> /> 
-																							<label style="height: auto;" class="form-check-label">董事</label>
-																						</div>
-																						<div class="form-check form-check-inline">
-																							<input class="form-check-input" type="checkbox" id="shareholder_${shareholderInfo.id}" <c:if test="${fn:contains(shareholderInfo.positionType, '股东')}">checked</c:if> />
-																							<label style="height: auto;" class="form-check-label">股东</label>
-																						</div>
-																						<div class="form-check form-check-inline">
-																							<input class="form-check-input" type="checkbox" id="cotact_${shareholderInfo.id}" <c:if test="${fn:contains(shareholderInfo.positionType, '联系人')}">checked</c:if> /> 
-																							<label style="height: auto;" class="form-check-label">联系人</label>
-																						</div>
-																					</div>
-														                          </td>															                        													                            									                          
-														                        </tr>														                        
-														                        <tr>
-														                          <th scope="row">国籍</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="national_${shareholderInfo.id}" value="${shareholderInfo.nationality}"></td>
-														                          <th scope="row">发行股份数量</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="issue_stock_${shareholderInfo.id}" value="${shareholderInfo.issueStockAmount}"></td>	
-														                        </tr>
-														                        <tr>
-														                          <th scope="row">证件类型</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="ic_type_${shareholderInfo.id}" value="${shareholderInfo.icType}"></td>		
-																				  <th scope="row">实缴股份数量</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="actual_stock_${shareholderInfo.id}" value="${shareholderInfo.actualStockAmount}"></td>		
-														                        </tr>
-														                        <tr>
-														                          <th scope="row">证件号码</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="ic_number_${shareholderInfo.id}" value="${shareholderInfo.icNumber}"></td>	
-														                          <th scope="row">每股价值S$</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="value_per_stock_${shareholderInfo.id}" value="${shareholderInfo.valuePerStock}"></td>															                          
-														                        </tr>
-														                        <tr>
-														                          <th scope="row">联系电话</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="contact_number_${shareholderInfo.id}" value="${shareholderInfo.valuePerStock}"></td>
-														                          <th scope="row">电子邮箱</th>
-														                          <td><input type="text" class="form-control form-control-sm" id="email_${shareholderInfo.id}" value="${shareholderInfo.email}"></td>														                         
-														                        </tr>
-														                        <tr>														                         
-														                          <th scope="row">个人地址及邮编</th>
-														                          <td colspan="3"><input type="text" class="form-control form-control-sm" id="address_${shareholderInfo.id}" value="${shareholderInfo.address}"></td>
-														                        </tr>										                        																						                        									                        
-														                      </tbody>
-														                    </table>	
+															                          </td>															                        													                            									                          
+															                        </tr>														                        
+															                        <tr>
+															                          <th scope="row">国籍</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="national_${shareholderInfo.id}" name="national_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.nationality}"></td>
+															                          <th scope="row">发行股份数量</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="issue_stock_${shareholderInfo.id}" name="issue_stock_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.issueStockAmount}"></td>	
+															                        </tr>
+															                        <tr>
+															                          <th scope="row">证件类型</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="ic_type_${shareholderInfo.id}" name="ic_type_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.icType}"></td>		
+																					  <th scope="row">实缴股份数量</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="actual_stock_${shareholderInfo.id}" name="actual_stock_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.actualStockAmount}"></td>		
+															                        </tr>
+															                        <tr>
+															                          <th scope="row">证件号码</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="ic_number_${shareholderInfo.id}" name="ic_number_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.icNumber}"></td>	
+															                          <th scope="row">每股价值S$</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="value_per_stock_${shareholderInfo.id}" name="value_per_stock_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.valuePerStock}"></td>															                          
+															                        </tr>
+															                        <tr>
+															                          <th scope="row">联系电话</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="contact_number_${shareholderInfo.id}" name="contact_number_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.contactNumber}"></td>
+															                          <th scope="row">电子邮箱</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="email_${shareholderInfo.id}" name="email_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.email}"></td>														                         
+															                        </tr>
+															                        <tr>														                         
+															                          <th scope="row">个人地址及邮编</th>
+															                          <td colspan="3">
+															                          	<input type="text" class="form-control form-control-sm" id="address_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> 
+															                          	name="address_${shareholderInfo.id}" value="${shareholderInfo.address}">
+															                          </td>
+															                        </tr>										                        																						                        									                        
+															                      </tbody>
+															                    </table>
+														                    </form>	
 																			<div class="row">
-																		            <div class="col-12 col-md-4 col-lg-4"></div>
-																		            <div class="col-12 col-md-4 col-lg-4"></div>		
-																		            <div class="col-12 col-md-3 col-lg-3" style="padding-left: 5%;">	
-																					<div class="form-check">
-																                        <input class="form-check-input" type="checkbox"  id="info_${shareholderInfo.id}"  onclick="confirmInfo(${shareholderInfo.id})">
-																                        <label class="form-check-label" for="gridCheck">
-																                       		 确认锁定
-																                        </label>
-																                    </div>	
-																                    <div class="inline">														            	
-																		            	<span></span><a id="textInput001"  href="#" ></a>							                  
-																					</div>
-																					</div>																								
+																	            <div class="col-12 col-md-4 col-lg-4"></div>
+																	            <div class="col-12 col-md-4 col-lg-4"></div>		
+																	            <div class="col-12 col-md-3 col-lg-3" style="padding-left: 5%;">	
+																				<div class="form-check">
+															                        <input class="form-check-input" type="checkbox"  id="shareholder_info_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">checked</c:if> onclick="confirmShareholderInfo(${shareholderInfo.id})">
+															                        <label class="form-check-label" for="gridCheck">
+															                       		 确认锁定
+															                        </label>
+															                    </div>	
+															                    <div class="inline">														            	
+																	            	<span></span><a id="textInput001"  href="#" ></a>							                  
+																				</div>
+																				</div>																								
 																			</div>															                    
 														                    <br/><br/>
 																		</div>	
-																	<div class="col-12 col-md-1 col-lg-1"></div>					
+																		<div class="col-12 col-md-1 col-lg-1"></div>					
+																	</div>
 																</div>
-															</div>																
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>ANNEX B - Notice for Controllers</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	签名人员：AAA（已签名）	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox11"  onclick="lock(11)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn111"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn211"  class="btnMenu view" href="#" >删除</a>						                  
+
+																<c:forEach var="docpers" items="${docPersonalList}" >
+																	<div class="row">
+																		<div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport${docpers.id}" style="cursor: pointer">
+																		   <b>${docpers.documentDesc}</b>			                  
 																		</div>
-																	</div>																									
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>Application of Shares</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	签名人员：AAA（已签名）	 	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox12"  onclick="lock(12)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn112"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn212"  class="btnMenu view" href="#" >删除</a>						                  
+																		<c:choose>
+																			<c:when test = "${docpers.documentDesc eq 'ANNEX B - Notice for Controllers'}">
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					签名人员：${shareholderInfo.name } (已签名)
+																				</div>
+																			</c:when>
+																			<c:when test = "${docpers.documentDesc eq 'Application of Shares'}">
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					签名人员：${shareholderInfo.name } (已签名)
+																				</div>
+																			</c:when>
+																			<c:when test = "${docpers.documentDesc eq 'Client Acceptance Form'}">
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					签名人员：${shareholderInfo.name } (已签名)
+																				</div>
+																			</c:when>
+																			<c:when test = "${docpers.documentDesc eq 'Form 45 / 201'}">
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					签名人员：${shareholderInfo.name } (已签名)
+																				</div>
+																			</c:when>
+																			<c:when test = "${docpers.documentDesc eq 'Share Certificate'}">
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					签名人员：${shareholderInfo.name } (已签名)
+																				</div>
+																			</c:when>
+																			<c:when test = "${docpers.documentDesc eq 'IC正面'  && not empty docPersonalMap[docpers.documentType.documentTypeCode]}">
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					人员：${shareholderInfo.name} (已上传)
+																				</div>
+																			</c:when>
+																			<c:when test = "${docpers.documentDesc eq 'IC背面' && not empty docPersonalMap[docpers.documentType.documentTypeCode]}">
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					人员：${shareholderInfo.name} (已上传)
+																				</div>
+																			</c:when>
+																			<c:when test = "${docpers.documentDesc eq '护照（有照片页）' && not empty docPersonalMap[docpers.documentType.documentTypeCode]}">
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					人员：${shareholderInfo.name} (已上传)
+																				</div>
+																			</c:when>
+																			<c:when test = "${docpers.documentDesc eq '中国身份证' && not empty docPersonalMap[docpers.documentType.documentTypeCode]}">
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					人员：${shareholderInfo.name} (已上传)
+																				</div>
+																			</c:when>
+																			<c:when test = "${docpers.documentDesc eq '持护照（打开有照片页）上半身照' && not empty docPersonalMap[docpers.documentType.documentTypeCode]}">
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					人员：${shareholderInfo.name} (已上传)
+																				</div>
+																			</c:when>
+																			<c:when test = "${docpers.documentDesc eq '住所证明' && not empty docPersonalMap[docpers.documentType.documentTypeCode]}">
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					人员：${shareholderInfo.name} (已上传)
+																				</div>
+																			</c:when>
+																			<c:otherwise>
+																				<div class="col-12 col-md-4 col-lg-4"></div>		
+																			</c:otherwise>
+																		</c:choose>
+																		<div class="col-12 col-md-4 col-lg-4">	
+																			<div class="form-check">
+																				<input class="form-check-input" type="checkbox"  id="personalfilelock${docpers.id}"  onclick="personlock(${docpers.id})">
+																				<label class="form-check-label" for="gridCheck">确认锁定 </label>
+																			</div>	
+																			<div class="inline">														            	
+																				<span> | </span><input type="file" id="file_per_upload${docpers.id}" style="display:none" onchange="personuploadfile(${company.id }, ${docpers.id})"/>
+																								<a id="upload_person_file${docpers.id}" class="btnMenu view"  onclick="personshowfilediag(${docpers.id})">上传</a>		
+																			</div>
 																		</div>
-																	</div>																									
-															</div>								
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>Client Acceptance Form</b>			                  
 																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	签名人员：AAA（已签名）	 	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox13"  onclick="lock(13)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn113"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn213"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																									
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>Form 45 / 201</b>			                  
+																
+																	<div id="showReport${docpers.id}" class="collapse in">
+																		<c:forEach items="${docPersonalMap[docpers.documentType.documentTypeCode]}" var="docPerHistory" varStatus="loop">
+																			<div id="AttachedReport${docPerHistory.referenceNo}">							
+																				<div class="row">
+																						<div class="col-12 col-md-1 col-lg-1"></div>		
+																						<div class="col-12 col-md-7 col-lg-7">	
+																							<span>修改记录：</span> ${docPerHistory.createdDate}		                  
+																						</div>
+																					<div class="col-12 col-md-4 col-lg-4">														            	
+																						<div class="inline">														            	
+																							<a id="download_company_file${docPerHistory.id}" class="btnMenu view"  onclick="companydownloadfile('${docPerHistory.referenceNo}')" >下载</a>	
+																							<span> | </span><a id="preview_company_file${docPerHistory.id}" class="btnMenu view" onclick="companypreviewfile('${docPerHistory.referenceNo}')">浏览</a>			
+																							<span> | </span><a id="delete_company_file${docPerHistory.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${docPerHistory.referenceNo}')">删除</a>						                  
+																						</div>							                  
+																					</div>		
+																					<div class="col-12 col-md-1 col-lg-1"></div>					
+																				</div>
+																			</div>
+																		</c:forEach>
 																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	签名人员：AAA（已签名）	 	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox14"  onclick="lock(14)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn114"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn214"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																									
-															</div>
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>Share Certificate</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	签名人员：AAA（已签名）	 	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox15"  onclick="lock(15)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn115"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn215"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																										
-															</div>								
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>Register of member </b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox16"  onclick="lock(16)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn116"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn216"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																										
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>Register of director </b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox17"  onclick="lock(17)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn117"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn217"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																									
-															</div>															
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>Register of Auditor</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox18"  onclick="lock(18)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn118"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn218"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																										
-															</div>								
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>Register of Controllers </b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            		                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox19"  onclick="lock(19)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn119"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn219"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																									
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>Register of Beneficial Owner</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox20"  onclick="lock(20)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn120"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn220"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																										
-															</div>
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>IC正面</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	人员：AAA（已上传）	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox21"  onclick="lock(21)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn121"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn221"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																										
-															</div>								
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>IC背面</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	人员：AAA（已上传）	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox22"  onclick="lock(22)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn122"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn222"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																								
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b> 护照（有照片页）</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	人员：AAA（已上传）	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox23"  onclick="lock(23)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn123"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn223"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																										
-															</div>																														
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>中国身份证</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	人员：AAA（已上传）	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox24"  onclick="lock(24)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn124"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn224"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																										
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>持护照（打开有照片页）上半身照</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	人员：AAA（已上传）	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox25"  onclick="lock(25)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn125"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn225"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																										
-															</div>	
-															<div class="row">
-														            <div class="col-12 col-md-4 col-lg-4">	
-														           	   <b>住所证明</b>			                  
-																	</div>
-														            <div class="col-12 col-md-4 col-lg-4">	
-														            	人员：AAA（已上传）	                  
-																	</div>		
-														            <div class="col-12 col-md-4 col-lg-4">
-														            	 <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="checkbox26"  onclick="lock(26)">
-													                        <label class="form-check-label" for="gridCheck">
-													                       		 确认锁定
-													                        </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><a id=""  href="#" >下载</a>	
-															            	<span> | </span><a id=""  class="btnMenu view" href="#" >浏览</a>		
-															            	<span> | </span><a id="menuBtn126"  class="btnMenu view" href="#" >上传</a>		
-															            	<span> | </span><a id="menuBtn226"  class="btnMenu view" href="#" >删除</a>						                  
-																		</div>
-																	</div>																									
-															</div>																				                  
-										                  </div>
-										                </div>
+																</c:forEach>
+											                  </div>
+											                </div>
 								                        </div>
 						                      		</div>
 							                 	 </div>
 							                </div>
 							            </div>			  		
 	                                </div> 
-								</c:forEach> 
+							</c:forEach> 
        				</div>
                </div>
            </div>	        

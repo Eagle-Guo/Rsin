@@ -4,7 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,7 +31,9 @@ public class Document {
    	private String documentDesc;
     @Column(name="document_desc_cn")
    	private String documentDesccn;
-    
+    @Column(name="lock_flag")
+	private boolean lockFlag;
+
     @ManyToOne
     @JoinColumn(name = "company_id", nullable = false)
 	private Company company;
@@ -102,5 +103,11 @@ public class Document {
 	}
 	public void setDocumentDesccn(String documentDesccn) {
 		this.documentDesccn = documentDesccn;
+	}
+	public boolean isLockFlag() {
+		return lockFlag;
+	}
+	public void setLockFlag(boolean lockFlag) {
+		this.lockFlag = lockFlag;
 	}
 }

@@ -21,7 +21,15 @@ public class ShareholderInfoServiceImpl implements ShareholderInfoService {
 
 	public List<CompanyShareholderInfo> getAllShareholderInfoByCompanyId(Long companyId){
 		
-		companyShareholderInfoRepository.findByCompanyId(companyId);
-		return null;
+		return companyShareholderInfoRepository.findByCompanyId(companyId);
+	}
+	
+	public CompanyShareholderInfo getShareholderInfoById(Long id) {
+		CompanyShareholderInfo info = companyShareholderInfoRepository.findById(id).get();
+		return info;
+	}
+	
+	public void saveShareholderInfo (CompanyShareholderInfo info) {
+		companyShareholderInfoRepository.save(info);
 	}
 }

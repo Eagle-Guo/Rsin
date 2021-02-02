@@ -299,3 +299,41 @@ function confirmShareholderInfo(shareholderId) {
 		text12.style.borderColor="#e4e6fc";					
 	}*/
 }	
+
+
+
+function personlock(x) {
+	var checkBox = document.getElementById("personalfilelock"+x);
+	var text1 = document.getElementById("upload_person_file"+x);
+	var text2 = document.getElementById("showReport"+x).querySelectorAll(".delete_company_file");
+	var text3 = document.getElementById("upload_person_file"+x);
+	if (checkBox.checked == true){
+		for (var i = 0; i < text2.length; i++) {
+			text2[i].style.cssText = "pointer-events: none; cursor: not-allowed;color:gray !important;";
+		}
+		text1.style.color = "gray";
+		text1.style.pointerEvents="none";
+		text1.style.textDecoration = "none";
+		text3.style.cssText = "color:gray !important;";
+		text3.classList.remove("view");
+		text3.style.pointerEvents="none";
+		text3.style.textDecoration = "none";
+	} else {
+		for (var i = 0; i < text2.length; i++) {
+			text2[i].style.removeProperty("pointer-events");
+			text2[i].style.removeProperty("cursor");
+			text2[i].style.removeProperty("color");
+		}
+		text1.style.color = "#6777ef";
+		text1.style.pointerEvents="unset";
+		text3.style.cssText = "color:#6777ef !important;";
+		text3.classList.add("view");
+		text3.style.pointerEvents="unset";
+	}
+}	
+
+
+function addNewUploadFile(){
+	$("#newUploadFileArea").append(``);
+	}
+

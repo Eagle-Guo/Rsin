@@ -211,6 +211,53 @@
 																	</div>
 																</c:forEach> 
 																
+															<div id="newUploadFileArea">	
+																<!--<c:forEach var="docs" items="${docCompanyList}" >-->
+																	<div class="row">
+															            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport${docs.id}" style="cursor: pointer">
+															           	   <input type="text" class="form-control">		                  
+																		</div>
+															            <div class="col-12 col-md-4 col-lg-4">	
+																			<div class="form-check">
+														                        <input class="form-check-input" type="checkbox"  id="companyfilelock${docs.id}"  onclick="lock(${docs.id})">
+														                        <label class="form-check-label" for="gridCheck">确认锁定 </label>
+														                    </div>	
+														                    <div class="inline">														            	
+																            	<span> | </span><input type="file" id="file_com_upload${docs.id}" style="display:none" onchange="companyuploadfile(${company.id }, ${docs.id})"/>
+																            					<a id="upload_company_file${docs.id}" class="btnMenu view"  onclick="companyshowfilediag(${docs.id})">上传</a>		
+																			</div>
+																		</div>
+																	</div>
+
+																	<div id="showReport${docs.id}" class="collapse in">
+																		
+																			<div id="AttachedReport${docHistory.referenceNo}">							
+																				<div class="row">
+																						<div class="col-12 col-md-1 col-lg-1"></div>		
+																			            <div class="col-12 col-md-7 col-lg-7">	
+																			           	 	<span>修改记录：</span> ${docHistory.createdDate}		                  
+																						</div>
+																		            <div class="col-12 col-md-4 col-lg-4">														            	
+																		            	<div class="inline">														            	
+																			            	<a id="download_company_file${docHistory.id}" class="btnMenu view"  onclick="companydownloadfile('${docHistory.referenceNo}')" >下载</a>	
+																			            	<span> | </span><a id="preview_company_file${docHistory.id}" class="btnMenu view" onclick="companypreviewfile('${docHistory.referenceNo}')">浏览</a>			
+																			            	<span> | </span><a id="delete_company_file${docHistory.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${docHistory.referenceNo}')">删除</a>						                  
+																						</div>							                  
+																					</div>		
+																					<div class="col-12 col-md-1 col-lg-1"></div>					
+																				</div>
+																			</div>
+						
+																	</div>
+																<!--</c:forEach>-->																
+																
+																
+															</div>	
+																
+																<div class="inline">	
+															          <div class="badge badge-danger"><span  id="addNewUploadFile"  onclick="addNewUploadFile()">增加上传文件</span></div>												            	
+																</div>																
+																
 											                  </div>
 											                </div>								                       
 								                        </div>
@@ -266,11 +313,11 @@
 																							<div class="form-check form-check-inline">
 																								<input type="hidden" id="shareholder_id_${shareholderInfo.id }" name="shareholder_id_${shareholderInfo.id }" value="${shareholderInfo.id }">
 													                                			<input type="hidden" name="lock_shareholder_${shareholderInfo.id }" value="yes">
-																								<input class="form-check-input" type="radio" name="status_valid_${shareholderInfo.id }" id="status_valid_${shareholderInfo.id }" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${shareholderInfo.status}">checked</c:if>/> 
+																								<input class="form-check-input" type="radio" name="status_${shareholderInfo.id }" id="status_${shareholderInfo.id }" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${shareholderInfo.status}">checked</c:if>/> 
 																								<label style="height: auto;" class="form-check-label">有效</label>
 																							</div>
 																							<div class="form-check form-check-inline">
-																								<input class="form-check-input" type="radio" name="status_cancel_${shareholderInfo.id }" id="status_cancel_${shareholderInfo.id }" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${not shareholderInfo.status}">checked </c:if> />
+																								<input class="form-check-input" type="radio" name="status_${shareholderInfo.id }" id="status_${shareholderInfo.id }" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${not shareholderInfo.status}">checked </c:if> />
 																								<label style="height: auto;" class="form-check-label">撤销</label>
 																							</div>
 																						</div>

@@ -64,7 +64,7 @@
 								                        <div class="accordion-body collapse" id="panel-body-1" data-parent="#accordion">
 											                <div class="card">
 												            	<div class="card-body">
-												                	<form id = "companyDetailForm" name="employeeForm">
+												                	<form id = "companyDetailForm">
 												                    	<table class="table table-sm">
 												                      		<thead>
 														                        <tr>
@@ -294,7 +294,7 @@
 																	<div class="row">
 																		<div class="col-12 col-md-1 col-lg-1"></div>		
 															            <div class="col-12 col-md-10 col-lg-10">
-															            	<form id = "shareholderDetailForm_${shareholderInfo.id }" name="employeeForm">
+															            	<form id = "shareholderDetailForm_${shareholderInfo.id }">
 															                    <table class="table table-sm">
 															                      <thead>
 															                        <tr>

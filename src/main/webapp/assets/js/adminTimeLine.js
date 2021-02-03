@@ -1,49 +1,10 @@
 $(document).ready(function() {
 	//$("#startDate").attr("value", new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().slice(0, 10));
 	$("#annual_audit_start_date").attr("min", new Date().toISOString().slice(0, 10));
-	
 	var allA = document.getElementsByTagName("a");
     for (var i = 0; i < allA.length; i++) {
-        allA[i].onclick = delA;
+        allA[i].onclick = deleteList;
     }
-    var addEmpButton = document.getElementById("addEmpButton");
-    addEmpButton.onclick = function () {
-        var service = document.getElementById("service").value;
-        var registerDate = document.getElementById("registerDate").value;            	
-        var serviceTimes = document.getElementById("serviceTimes").value;
-        var startDate = document.getElementById("startDate").value;
-        var actualDate = document.getElementById("startDate");
-        
-        for (var i = 0; i < serviceTimes; i++) {
-        	var tr = document.createElement("tr");
-            tr.innerHTML="<td colspan='2' scope='col'>"+startDate+"</td>"+
-    		                `<td>
-    							<div class='form-group'>
-    								<input type='date' class='form-control' id='startDate'>
-    							</div>
-    						</td>` +
-    						`<td>										                          
-    							<div class='form-check'>
-    									<input class='form-check-input' type='checkbox' id='defaultCheck1'>
-    											<label class='form-check-label' for='defaultCheck1'>
-    													 已完成
-    											</label>
-    							</div>
-    						</td>`+
-    						`<td>
-    							<div class='form-group'>
-    									<input type='text' class='form-control'>
-    							</div>
-    						</td>`+
-                            "<td><a href='javascript:;'>删除此记录</a></td>" ;
-            var a = tr.getElementsByTagName("a")[0];
-            a.onclick=delA;
-            var recordTable = document.getElementById("recordTable");
-            var tbody = recordTable.getElementsByTagName("tbody")[0];
-            tbody.appendChild(tr);
-        }
-        
-    };
 });
 
 function generateRecord(type){
@@ -55,90 +16,35 @@ function generateRecord(type){
     for (var i = 0; i < serviceTimes; i++) {
     	var tr = document.createElement("tr");
         tr.innerHTML="" +
-        		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+"</td>"+
-		                `<td>
-							<div class='form-group'>
-								<input type='date' class='form-control' id='startDate'>
-							</div>
-						</td>
-						<td>										                          
-							<div class='form-check'>
-									<input class='form-check-input' type='checkbox' id='defaultCheck1'>
-											<label class='form-check-label' for='defaultCheck1'>
-													 已完成
-											</label>
-							</div>
-						</td>
-						<td>
-							<div class='form-group'>
-									<input type='text' class='form-control'>
-							</div>
-						</td>`+
-                        "<td><a href='javascript:;'>删除此记录</a></td>" ;
+        		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+        			"<input type='hidden' name='annual_audit_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
+		        "<td><div class='form-group'><input type='date' class='form-control' name='annual_audit_actual_date_gen_"+ i +"'></div></td>" +
+				"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='annual_audit_status_gen_" + i + "'> " +
+					"<label class='form-check-label' for='annual_audit_status_gen_"+ i +"'>已完成</label>" +
+					"</div></td>" +
+				"<td><div class='form-group'><input type='text' class='form-control' name='annual_audit_comment_gen_"+ i + "'></div></td>" +
+                "<td><a href='javascript:;'>删除此记录</a></td>" ;
         var a = tr.getElementsByTagName("a")[0];
-        a.onclick=delA;
+        a.onclick=deleteList;
         var recordTable = document.getElementById("recordTable_"+ type);
         var tbody = recordTable.getElementsByTagName("tbody")[0];
         tbody.appendChild(tr);
         startDate.setFullYear(startDate.getFullYear() + 1);
 
-    }        alert("已生成记录，请在记录列表进行查看。");
+    }
+    alert("已生成记录，请在记录列表进行查看。");
 }
 //TEST
 
-        function delA() {
-            var tr = this.parentNode.parentNode;
-            var name = tr.children[0].innerHTML;
-            var flag = confirm("确定" + name + "删除吗？");
-            if (flag) {
-                tr.parentNode.removeChild(tr);
-            }
-            return false;
-        };
-
-
-
-
-//add record
-function addTimeLineRecord() {
-  var record = document.createElement("tr");
-  record.innerHTML = `
-          <div id="defaultparent"><div id="defaultchild"><th scope="row">年审</th>
-          <td>31/10/2019</td>
-          <td>
-            <div class="form-group">
-              <input type="date" class="form-control" >
-            </div>
-          </td>
-          <td>										                          
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-              			  已完成
-                </label>
-              </div>
-          </td>
-          <td>
-               <div class="form-group">
-                  <input type="text" class="form-control">
-                </div>
-          </td>													                      
-          <td>			
-          <button onclick="removeTimeLineRecord()"> 删除此记录</button>							                          
-              <!--<div class="form-check">
-                <input class="form-check-input" type="checkbox" id="defaultCheck2" onclick="removeTimeLineRecord()">
-                <label class="form-check-label" for="defaultCheck2">
-              			  删除此记录
-                </label>
-              </div>-->
-          </td>	</div></div>
-        `;
-		var element=document.getElementById("timeLineRecord1");
-		element.appendChild(record);
-		
-}
-
-
+function deleteList() {
+    var tr = this.parentNode.parentNode;
+    var name = tr.children[0].innerHTML;
+    var flag = confirm("确定" + name + "删除吗？");
+    if (flag) {
+        tr.parentNode.removeChild(tr);
+    }
+    return false;
+};
 
 //remove record
 function removeTimeLineRecord() {
@@ -147,9 +53,7 @@ function removeTimeLineRecord() {
 	parent.removeChild(child);
 }
 
-
 //
-
 function timeLineRecord(x) {
 	  var text = document.getElementById("timeLineRecord"+x);	  
 	  if (text.style.display === "none") {
@@ -321,34 +225,6 @@ function confirmInfo(x) {
 		}
 	}		
 
-
-//Get the modal
-var modal = document.getElementById("myModal");
-
-//Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-//Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-//When the user clicks the button, open the modal 
-//btn.onclick = function() {
-//	modal.style.display = "block";
-//}
-
-//When the user clicks on <span> (x), close the modal
-//span.onclick = function() {
-//	modal.style.display = "none";
-//}
-
-//When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-if (event.target == modal) {
-  modal.style.display = "none";
-}
-}
-
-
 function showAndHideRecord(type) {
 	  var x = document.getElementById("recordTable_"+type);
 	  //var a = document.getElementById("changeFaIcon");	
@@ -368,13 +244,39 @@ function showAndHideRecord(type) {
 	  }
 	}
 
-
-
-function confirmCompanyInfo() {
+function confirmTimelineInfo() {
+	console.log($('#timeLineForm').serialize());
 	var checkBox = document.getElementById("infoCheckbox_timeLineRecord");
+	$.ajax({
+        url: '/api/timeline/manage/update',
+        type : "POST",
+        data: $('#timeLineForm').serialize(),
+        timeout: 600000,
+        success: function(response){
+        	console.log("Update Successful", response);
+        },
+        error: function(e) {
+        	console.error("ERROR : ", e);
+        }
+    });
+
+	/*if (checkBox.checked == true) {
+		$("#lock_record").val("yes");
+		$("#companyDetailForm input").prop("disabled", true);
+		$("#hide_id").prop('disabled', false);
+		$("#txt_director").attr("disabled","disabled");
+		$("#txt_shareholder").attr("disabled","disabled");		
+	} else {
+		$("#lock_record").val("no");
+		$("#companyDetailForm input").prop('disabled', false);
+		$("#txt_director").attr("disabled","disabled");
+		$("#txt_shareholder").attr("disabled","disabled");	
+	}*/
 
 	if (checkBox.checked == true) {
 		//$(".badge").val("yes");
+		$("#lock_record").val("yes");
+
 		$(".lineRecordArea input").prop("disabled", true);
 		$(".lineRecordArea select").prop("disabled", true);
 		$(".lineRecordArea button").prop("disabled", true);
@@ -385,6 +287,8 @@ function confirmCompanyInfo() {
 		//$(".badge").attr("disabled","disabled");			
 	} else {
 		//$("#lock_record").val("no");
+		$("#lock_record").val("no");
+
 		$(".lineRecordArea input").prop('disabled', false);
 		$(".lineRecordArea select").prop("disabled", false);
 		$(".lineRecordArea button").prop("disabled", false);

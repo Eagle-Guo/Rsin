@@ -54,7 +54,8 @@ public class Company {
 	private Date createdDate;
     @Column(name="lock_flag")
 	private boolean lockFlag;
-    
+    @Column(name="timeline_lock_flag")
+	private boolean timelineLockFlag;
     
     @OneToOne(mappedBy = "company", fetch = FetchType.LAZY)
     private CompanyService serviceList;
@@ -67,7 +68,7 @@ public class Company {
 	public Company(Long id, String name, String backupName, String uen,	String nominatedDirector, String secretary, 
 			String type, float totalStockCapital, float actualStockCapital, String activityOne, String activityTwo, 
 			String address, String step, int totalShareholder, int shareholderComfirm, Date registrationDate, Date createdDate, 
-			boolean lockFlag, CompanyService serviceList, List<CompanyShareholderInfo> shareholderInfoList) {
+			boolean lockFlag, boolean timelineLockFlag, CompanyService serviceList, List<CompanyShareholderInfo> shareholderInfoList) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -88,6 +89,7 @@ public class Company {
 		this.createdDate = createdDate;
 		this.serviceList = serviceList;
 		this.lockFlag = lockFlag;
+		this.timelineLockFlag = timelineLockFlag;
 		this.shareholderInfoList = shareholderInfoList;
 	}
 
@@ -198,6 +200,12 @@ public class Company {
 	}
 	public void setLockFlag(boolean lockFlag) {
 		this.lockFlag = lockFlag;
+	}
+	public boolean isTimelineLockFlag() {
+		return timelineLockFlag;
+	}
+	public void setTimelineLockFlag(boolean timelineLockFlag) {
+		this.timelineLockFlag = timelineLockFlag;
 	}
 	public CompanyService getServiceList() {
 		return serviceList;

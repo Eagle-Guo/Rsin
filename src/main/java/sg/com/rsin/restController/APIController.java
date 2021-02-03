@@ -11,8 +11,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,6 +40,7 @@ import org.springframework.web.multipart.MultipartFile;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.Industry;
+import sg.com.rsin.service.AdminTimelineService;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmailService;
 import sg.com.rsin.service.IndustryService;
@@ -68,6 +72,9 @@ public class APIController {
 	NewCompanyService newCompanyService;
 	@Autowired
 	ShareholderInfoService shareholderInfoService;
+	
+	@Autowired
+	AdminTimelineService adminTimelineService;
 	
     @GetMapping("/employees")
     public String  all() {
@@ -282,6 +289,31 @@ public class APIController {
     		info.setValuePerStock(request.getParameter("value_per_stock_" + id)!=null? Integer.parseInt(request.getParameter("value_per_stock_" + id)) : 1);
     	}
     	shareholderInfoService.saveShareholderInfo(info);
+    	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
+    }
+    
+    @PostMapping(path="/timeline/manage/update")
+    public ResponseEntity<?> updateTimelineDetail(HttpServletRequest request) {
+    	Enumeration<String> parameterNames = request.getParameterNames();
+    	Map<String, String> parameters = new HashMap<String, String>();
+        while (parameterNames.hasMoreElements()) {
+            String paramName = parameterNames.nextElement();
+            String[] paramValues = request.getParameterValues(paramName);
+            parameters.put(paramName, paramValues[0]);
+        }
+        
+    	String id = request.getParameter("hide_company_id");
+
+    	Company company = newCompanyService.findCompany(Long.parseLong(id));
+    	if (company == null) {
+    		return new ResponseEntity<String>("Company not existed", new HttpHeaders(), HttpStatus.NOT_FOUND);
+    	}
+    	
+    	adminTimelineService.saveCompanyFlag(company, request.getParameter("lock_record"));
+
+    	//update timeliene and timeline_detail
+    	adminTimelineService.saveTimelineAndDetail(company.getId(), parameters);
+
     	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
     }
 }

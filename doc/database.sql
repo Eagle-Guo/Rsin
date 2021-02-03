@@ -72,6 +72,7 @@ CREATE TABLE `company` (
   `registration_date` DATETIME,
   `created_date` DATETIME,
   `lock_flag` BOOLEAN default false,
+  `timeline_lock_flag` BOOLEAN default false,
   PRIMARY KEY (`id`)  
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 

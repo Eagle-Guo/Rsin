@@ -333,7 +333,352 @@ function personlock(x) {
 }	
 
 
-function addNewUploadFile(){
-	$("#newUploadFileArea").append(``);
+function addNewUploadFile_company(){
+	$("#newUploadFileArea_company").append(`
+																<div id="newArea_company">
+																	<div class="row" style="padding-top:1%;">
+																	
+															            <div class="col-12 col-md-8 col-lg-8 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport_new" style="cursor: pointer;padding-right: 8%;display: inherit;padding-bottom: 1%;">
+															           	   <input type="text" class="form-control">		                  
+																		</div>
+															            <div class="col-12 col-md-4 col-lg-4">	
+																			<div class="form-check">
+														                        <input class="form-check-input" type="checkbox"  id="companyfilelock$_new"  onclick="lock(new)">
+														                        <label class="form-check-label" for="gridCheck">确认锁定 </label>
+														                    </div>	
+														                    <div class="inline">														            	
+																            	<span> | </span><input type="file" id="file_com_upload_new" style="display:none" onchange=""/>
+																            					<a id="upload_company_file_new" class="btnMenu view"  onclick="companyshowfilediag_new">上传</a>	
+																            	<span> | </span><input type="file" id="file_com_del_new" style="display:none" onchange=""/>
+																            					<a id="" class="btnMenu view"  onclick="del_newAdd_company()">删除</a>					
+																			</div>
+																		</div>
+																	</div>
+
+																	<div id="showReport_new" class="collapse in">
+																		
+																			<div id="AttachedReport_new">							
+																				<div class="row">
+																						<div class="col-12 col-md-1 col-lg-1"></div>		
+																			            <div class="col-12 col-md-7 col-lg-7">	
+																			           	 	<span>修改记录：</span> 		                  
+																						</div>
+																		            <div class="col-12 col-md-4 col-lg-4">														            	
+																		            	<div class="inline">														            	
+																			            	<a id="download_company_file_new" class="btnMenu view"  onclick="companydownloadfile('new')" >下载</a>	
+																			            	<span> | </span><a id="preview_company_file_new" class="btnMenu view" onclick="companypreviewfile('new')">浏览</a>			
+																			            	<span> | </span><a id="delete_company_file$_new" class="btnMenu view delete_company_file" onclick="companydeletefile('new')">删除</a>						                  
+																						</div>							                  
+																					</div>		
+																					<div class="col-12 col-md-1 col-lg-1"></div>					
+																				</div>
+																			</div>
+						
+																	</div>														
+																</div>
+	`);
+	}
+
+
+function del_newAdd_company() {
+	var parent=document.getElementById("newUploadFileArea_company");
+	var child=document.getElementById("newArea_company");
+	alert("确定要删除此条记录吗？");
+	parent.removeChild(child);
+};
+
+
+
+
+
+function addNewUploadFile_personal(){
+	$("#newUploadFileArea_personal").append(`
+																<div id="newArea_personal">
+																	<div class="row" style="padding-top:1%;">
+																	
+															            <div class="col-12 col-md-8 col-lg-8 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport_new" style="cursor: pointer;padding-right: 8%;display: inherit;padding-bottom: 1%;">
+															           	   <input type="text" class="form-control">		                  
+																		</div>
+															            <div class="col-12 col-md-4 col-lg-4">	
+																			<div class="form-check">
+														                        <input class="form-check-input" type="checkbox"  id="companyfilelock$_new"  onclick="lock(new)">
+														                        <label class="form-check-label" for="gridCheck">确认锁定 </label>
+														                    </div>	
+														                    <div class="inline">														            	
+																            	<span> | </span><input type="file" id="file_com_upload_new" style="display:none" onchange=""/>
+																            					<a id="upload_company_file_new" class="btnMenu view"  onclick="personalshowfilediag_new">上传</a>	
+																            	<span> | </span><input type="file" id="file_com_del_new" style="display:none" onchange=""/>
+																            					<a id="" class="btnMenu view"  onclick="del_newAdd_personal()">删除</a>					
+																			</div>
+																		</div>
+																	</div>
+
+																	<div id="showReport_new" class="collapse in">
+																		
+																			<div id="AttachedReport_new">							
+																				<div class="row">
+																						<div class="col-12 col-md-1 col-lg-1"></div>		
+																			            <div class="col-12 col-md-7 col-lg-7">	
+																			           	 	<span>修改记录：</span> 		                  
+																						</div>
+																		            <div class="col-12 col-md-4 col-lg-4">														            	
+																		            	<div class="inline">														            	
+																			            	<a id="download_company_file_new" class="btnMenu view"  onclick="personaldownloadfile('new')" >下载</a>	
+																			            	<span> | </span><a id="preview_company_file_new" class="btnMenu view" onclick="personalpreviewfile('new')">浏览</a>			
+																			            	<span> | </span><a id="delete_company_file$_new" class="btnMenu view delete_company_file" onclick="personaldeletefile('new')">删除</a>						                  
+																						</div>							                  
+																					</div>		
+																					<div class="col-12 col-md-1 col-lg-1"></div>					
+																				</div>
+																			</div>
+						
+																	</div>														
+																</div>	
+																
+	`);
+	}
+
+
+function del_newAdd_personal() {
+	var parent=document.getElementById("newUploadFileArea_personal");
+	var child=document.getElementById("newArea_personal");
+	alert("确定要删除此条记录吗？");
+	parent.removeChild(child);
+};
+
+
+
+
+
+function addNewPerson_personal(){
+	$("#newPersonArea_personal").append(`
+							        	<div class="col-12 col-md-12 col-lg-12">
+							                <div class="card downLoadFile">
+							                	<div class="card-body" id="accordion_id">
+						                      		<div class="accordion">
+								                        <div class="accordion-header collapsible1  collapsed" role="button" data-toggle="collapse" data-target="#panel-body-new" aria-expanded="false">
+								                         	<h4>董事/股东/联系人:
+								                         	</h4>
+								                        </div>
+								                        <div class="accordion-body collapse" id="panel-body-new" data-parent="#accordion_id">
+											                <div class="card">
+											                  <div class="card-body">
+											                  	<div class="row">
+														            <div class="col-12 col-md-12 col-lg-12" data-toggle="collapse"  data-target="#staffDetail_id" style="cursor: pointer">	
+														           	    <b>个人基本信息</b><span style="color: #6777ef;">(查看|修改)</span>                 
+																	</div>							
+																</div>	
+																<div id="staffDetail_id" class="collapse in">							
+																	<div class="row">
+																		<div class="col-12 col-md-1 col-lg-1"></div>		
+															            <div class="col-12 col-md-10 col-lg-10">
+															            	<form id = "shareholderDetailForm_id" name="employeeForm">
+															                    <table class="table table-sm">
+															                      <thead>
+															                        <tr>
+															                          <th scope="col">项目</th>
+															                          <th scope="col">内容</th>
+															                          <th scope="col">项目</th>
+															                          <th scope="col">内容</th>											                          						  
+															                        </tr>
+															                      </thead>
+															                      <tbody>
+															                        <tr>
+															                          <th scope="row">全名(护照姓名)</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="name_id" name="name_id"  value=""></td>
+															                          <th scope="row">状态</th>
+															                          <td>
+																						<div class="form-group">
+																							<div class="form-check form-check-inline">
+																								<input type="hidden" id="shareholder_id_id }" name="shareholder_id_id" value="">
+													                                			<input type="hidden" name="lock_shareholder_id" value="yes">
+																								<input class="form-check-input" type="radio" name="status_id" id="status_id" >
+																								<label style="height: auto;" class="form-check-label">有效</label>
+																							</div>
+																							<div class="form-check form-check-inline">
+																								<input class="form-check-input" type="radio" name="status_id" id="status_id"/>
+																								<label style="height: auto;" class="form-check-label">撤销</label>
+																							</div>
+																						</div>
+															                          </td>										                          
+															                        </tr>
+															                        <tr>
+															                          <th scope="row">性别</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="gender_id" name="gender_id"  value=""></td>														                        
+															                          <th scope="row">职位</th>
+															                          <td>
+																						<div class="form-group">
+																							<div class="form-check form-check-inline">
+																								<input class="form-check-input" type="checkbox" id="director_id"  name="director_id"  /> 
+																								<label style="height: auto;" class="form-check-label">董事</label>
+																							</div>
+																							<div class="form-check form-check-inline">
+																								<input class="form-check-input" type="checkbox" id="shareholder_id"/>
+																								<label style="height: auto;" class="form-check-label">股东</label>
+																							</div>
+																							<div class="form-check form-check-inline">
+																								<input class="form-check-input" type="checkbox" id="cotact_id"  /> 
+																								<label style="height: auto;" class="form-check-label">联系人</label>
+																							</div>
+																						</div>
+															                          </td>															                        													                            									                          
+															                        </tr>														                        
+															                        <tr>
+															                          <th scope="row">国籍</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="national_id" name="national_idd}"  value=""></td>
+															                          <th scope="row">发行股份数量</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="issue_stock_id" name="issue_stock_id"  value=""></td>	
+															                        </tr>
+															                        <tr>
+															                          <th scope="row">证件类型</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="ic_type_id" name="ic_type_id" value=""></td>		
+																					  <th scope="row">实缴股份数量</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="actual_stock_id" name="actual_stock_id"  value=""></td>		
+															                        </tr>
+															                        <tr>
+															                          <th scope="row">证件号码</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="ic_number_id" name="ic_number_id"  value=""></td>	
+															                          <th scope="row">每股价值S$</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="value_per_stock_id" name="value_per_stock_id"  value=""></td>															                          
+															                        </tr>
+															                        <tr>
+															                          <th scope="row">联系电话</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="contact_number_id" name="contact_number_id"  value=""></td>
+															                          <th scope="row">电子邮箱</th>
+															                          <td><input type="text" class="form-control form-control-sm" id="email_id" name="email_id"  value=""></td>														                         
+															                        </tr>
+															                        <tr>														                         
+															                          <th scope="row">个人地址及邮编</th>
+															                          <td colspan="3">
+															                          	<input type="text" class="form-control form-control-sm" id="address_id" 
+															                          	name="address_id" value="">
+															                          </td>
+															                        </tr>										                        																						                        									                        
+															                      </tbody>
+															                    </table>
+														                    </form>	
+																			<div class="row">
+																	            <div class="col-12 col-md-4 col-lg-4"></div>
+																	            <div class="col-12 col-md-4 col-lg-4"></div>		
+																	            <div class="col-12 col-md-3 col-lg-3" style="padding-left: 5%;">	
+																				<div class="form-check">
+															                        <input class="form-check-input" type="checkbox"  id="shareholder_info_id"  onclick="confirmShareholderInfo(id)">
+															                        <label class="form-check-label" for="gridCheck">
+															                       		 确认锁定
+															                        </label>
+															                    </div>	
+															                    <div class="inline">														            	
+																	            	<span></span><a id="textInput001"  href="#" ></a>							                  
+																				</div>
+																				</div>																								
+																			</div>															                    
+														                    <br/><br/>
+																		</div>	
+																		<div class="col-12 col-md-1 col-lg-1"></div>					
+																	</div>
+																</div>
+
+																
+																	<div class="row">
+																		<div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReportid" style="cursor: pointer">
+																		   <b></b>			                  
+																		</div>
+																
+																			
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					签名人员： (已签名)
+																				</div>
+																		
+																		
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					签名人员： (已签名)
+																				</div>
+																			
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					签名人员： (已签名)
+																				</div>
+																		
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					签名人员： (已签名)
+																				</div>
+																	
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					签名人员： (已签名)
+																				</div>
+																			
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					人员： (已上传)
+																				</div>
+																			
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					人员： (已上传)
+																				</div>
+																	
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					人员： (已上传)
+																				</div>
+																	
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					人员： (已上传)
+																				</div>
+																			
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					人员： (已上传)
+																				</div>
+																			
+																				<div class="col-12 col-md-4 col-lg-4">	
+																					人员： (已上传)
+																				</div>
+
+																		<div class="col-12 col-md-4 col-lg-4">	
+																			<div class="form-check">
+																				<input class="form-check-input" type="checkbox"  id="personalfilelockid"  onclick="personlock(id)">
+																				<label class="form-check-label" for="gridCheck">确认锁定 </label>
+																			</div>	
+																			<div class="inline">														            	
+																				<span> | </span><input type="file" id="file_per_uploadid" style="display:none" onchange="personuploadfile(id)"/>
+																								<a id="upload_person_fileid" class="btnMenu view"  onclick="personshowfilediag(id)">上传</a>		
+																			</div>
+																		</div>
+																	</div>
+																
+																	<div id="showReportid" class="collapse in">
+																		
+																			<div id="AttachedReportid">							
+																				<div class="row">
+																						<div class="col-12 col-md-1 col-lg-1"></div>		
+																						<div class="col-12 col-md-7 col-lg-7">	
+																							<span>修改记录：</span>                 
+																						</div>
+																					<div class="col-12 col-md-4 col-lg-4">														            	
+																						<div class="inline">														            	
+																							<a id="download_company_fileid" class="btnMenu view"  onclick="companydownloadfile(id)" >下载</a>	
+																							<span> | </span><a id="preview_company_fileid" class="btnMenu view" onclick="companypreviewfile(id)">浏览</a>			
+																							<span> | </span><a id="delete_company_fileid" class="btnMenu view delete_company_file" onclick="companydeletefile(id)">删除</a>						                  
+																						</div>							                  
+																					</div>		
+																					<div class="col-12 col-md-1 col-lg-1"></div>					
+																				</div>
+																			</div>
+																	
+																	</div>
+															
+																
+																<div id="newUploadFileArea_personal">																	
+																</div>	
+																	
+																<div class="inline">	
+																       <div class="badge badge-danger"><span  id="addNewUploadFile_personal"  onclick="addNewUploadFile_personal()" style="cursor: pointer;">增加上传文件</span></div>												            	
+																</div>																	
+																
+											                  </div>
+											                </div>
+								                        </div>
+						                      		</div>
+							                 	 </div>
+							                </div>
+							            </div>
+																
+	`);
 	}
 

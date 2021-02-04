@@ -12,10 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import sg.com.rsin.dao.CompanyRepository;
+import sg.com.rsin.dao.TimelineAdditionRepository;
 import sg.com.rsin.dao.TimelineDetailRepository;
 import sg.com.rsin.dao.TimelineRepository;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Timeline;
+import sg.com.rsin.entity.TimelineAddition;
 import sg.com.rsin.entity.TimelineDetail;
 import sg.com.rsin.service.AdminTimelineService;
 
@@ -30,7 +32,10 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 
 	@Autowired
 	TimelineDetailRepository timelineDetailRepository;
-	
+
+	@Autowired
+	TimelineAdditionRepository timelineAdditionRepository;
+
 	public List<Timeline> getAllTimelineByCompanyId(long companyId) {
 		List<Timeline> timelines = timelineRepository.findByCompanyId(companyId);
 		return timelines;
@@ -74,7 +79,7 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 
 		// update ECI 
 		String ECITimelinePeriod = parameters.get("ECI_service_cycle"); //12个月
-		Timeline ECITimeline = timelines.stream().filter(timeline -> "年审".equals(timeline.getService())).findAny().orElse(null);
+		Timeline ECITimeline = timelines.stream().filter(timeline -> "ECI申报".equals(timeline.getService())).findAny().orElse(null);
 		ECITimeline.setPeriod(Integer.parseInt(ECITimelinePeriod.substring(0, ECITimelinePeriod.indexOf("个月"))));//12个月
 		ECITimeline.setTimes(Integer.parseInt(parameters.get("ECI_service_times"))); //2
 		ECITimeline.setStart_date(Date.valueOf(parameters.get("ECI_start_date")));
@@ -82,7 +87,7 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 
 		// update GST 
 		String GSTTimelinePeriod = parameters.get("GST_service_cycle"); //12个月
-		Timeline GSTTimeline = timelines.stream().filter(timeline -> "年审".equals(timeline.getService())).findAny().orElse(null);
+		Timeline GSTTimeline = timelines.stream().filter(timeline -> "消费税申报".equals(timeline.getService())).findAny().orElse(null);
 		GSTTimeline.setPeriod(Integer.parseInt(GSTTimelinePeriod.substring(0, GSTTimelinePeriod.indexOf("个月"))));//12个月
 		GSTTimeline.setTimes(Integer.parseInt(parameters.get("GST_service_times"))); //2
 		GSTTimeline.setStart_date(Date.valueOf(parameters.get("GST_start_date")));
@@ -90,7 +95,7 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 
 		// update CIT 
 		String CITTimelinePeriod = parameters.get("CIT_service_cycle"); //12个月
-		Timeline CITTimeline = timelines.stream().filter(timeline -> "年审".equals(timeline.getService())).findAny().orElse(null);
+		Timeline CITTimeline = timelines.stream().filter(timeline -> "所得税报税".equals(timeline.getService())).findAny().orElse(null);
 		CITTimeline.setPeriod(Integer.parseInt(CITTimelinePeriod.substring(0, CITTimelinePeriod.indexOf("个月"))));//12个月
 		CITTimeline.setTimes(Integer.parseInt(parameters.get("CIT_service_times"))); //2
 		CITTimeline.setStart_date(Date.valueOf(parameters.get("CIT_start_date")));
@@ -98,7 +103,7 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 
 		// update CIT_payment 
 		String CITPaymentTimelinePeriod = parameters.get("CIT_payment_service_cycle"); //12个月
-		Timeline CITPaymentTimeline = timelines.stream().filter(timeline -> "年审".equals(timeline.getService())).findAny().orElse(null);
+		Timeline CITPaymentTimeline = timelines.stream().filter(timeline -> "所得税缴税".equals(timeline.getService())).findAny().orElse(null);
 		CITPaymentTimeline.setPeriod(Integer.parseInt(CITPaymentTimelinePeriod.substring(0, CITPaymentTimelinePeriod.indexOf("个月"))));//12个月
 		CITPaymentTimeline.setTimes(Integer.parseInt(parameters.get("CIT_payment_service_times"))); //2
 		CITPaymentTimeline.setStart_date(Date.valueOf(parameters.get("CIT_payment_start_date")));
@@ -293,5 +298,24 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		timelineDetails.forEach(detail -> {
 			timelineDetailRepository.save(detail);
 		});
+	}
+
+	public void saveTimelineAddtion (Long companyId, Map<String, String> parameters) {
+		
+		TimelineAddition timelineAddition = timelineAdditionRepository.findByCompanyId(companyId);
+
+		if (timelineAddition == null) {
+			timelineAddition = new TimelineAddition();
+			timelineAddition.setCompany(companyRepository.findById(companyId).get());
+		}
+		String serviceProgress = parameters.get("textarea1");
+		String channel = parameters.get("textarea2");
+		
+        if (serviceProgress != null) {
+        	timelineAddition.setServiceProgress(serviceProgress);
+        } else if (channel !=  null) {
+        	timelineAddition.setChannel(channel);
+        }
+    	timelineAdditionRepository.save(timelineAddition);
 	}
 }

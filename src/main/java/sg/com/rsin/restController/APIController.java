@@ -316,4 +316,21 @@ public class APIController {
 
     	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
     }
+    
+    @PostMapping(path="/timeline/addition/update/{companyId}")
+    public ResponseEntity<?> updateTimelineAddition(@PathVariable Long companyId, HttpServletRequest request) {
+    	Enumeration<String> parameterNames = request.getParameterNames();
+    	Map<String, String> parameters = new HashMap<String, String>();
+
+    	while (parameterNames.hasMoreElements()) {
+            String paramName = parameterNames.nextElement();
+            
+            String[] paramValues = request.getParameterValues(paramName);
+            parameters.put(paramName, paramValues[0]);
+        }
+
+        adminTimelineService.saveTimelineAddtion(companyId, parameters);
+
+    	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
+    }
 }

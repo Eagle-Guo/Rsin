@@ -368,6 +368,15 @@ CREATE TABLE `timeline` (
   CONSTRAINT `timeline_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
+CREATE TABLE `timeline_additional` (
+    `id` int(11) NOT NULL auto_increment,
+    `service_progress` varchar(255),
+    `channel` varchar(255),
+    `company_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `timeline_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+
 insert into timeline (service, registration, period, times, start_date, company_id) values ('年审','2021-01-29',12,2,null,'23');
 insert into timeline (service, registration, period, times, start_date, company_id) values ('ECI申报','2021-01-29',12,2,null,'23');
 insert into timeline (service, registration, period, times, start_date, company_id) values ('消费税申报','2021-01-29',12,2,null,'23');

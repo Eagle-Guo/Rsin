@@ -251,17 +251,17 @@ public class ViewController {
 		
 		timelines.forEach(timeline -> {
 			if (timeline.getService().equals(TimeLineType.TYPE_1.getDescription())) {
-				model.addObject("annualaudittimelines", timelines);
+				model.addObject("annualaudittimeline", timeline);
 			} else if (timeline.getService().equals(TimeLineType.TYPE_2.getDescription())) {
-				model.addObject("eciclaimtimelines", timelines);
+				model.addObject("ecitimeline", timeline);
 			} else if (timeline.getService().equals(TimeLineType.TYPE_3.getDescription())) {
-				model.addObject("eciclaimtimelines", timelines);
+				model.addObject("gsttimeline", timeline);
 			} else if (timeline.getService().equals(TimeLineType.TYPE_4.getDescription())) {
-				model.addObject("eciclaimtimelines", timelines);
+				model.addObject("incometaxclaimtimeline", timeline);
 			} else if (timeline.getService().equals(TimeLineType.TYPE_5.getDescription())) {
-				model.addObject("eciclaimtimelines", timelines);
+				model.addObject("incometaxpayabletimeline", timeline);
 			} else if (timeline.getService().equals(TimeLineType.TYPE_6.getDescription())) {
-				model.addObject("eciclaimtimelines", timelines);
+				model.addObject("othertimeline", timeline);
 			} 
 		});
 		model.addObject("allTimeline", timelines);

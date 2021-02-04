@@ -80,9 +80,9 @@
 																      		<tr>        
 																			<th scope="row" id="annual_audit_service" >年审</th>
 																			<th scope="row"  id="annual_audit_registerDate">
-																				<fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' />
+																				<fmt:formatDate pattern = 'dd/MM/yyyy' value='${annualaudittimeline.registrationDate}' />
 																				<input type="hidden" id="hide_company_id" name="hide_company_id" value="${company.id }">
-																				<input type="hidden" name="lock_record" value="yes">
+																				<input type="hidden" name="lock_record">
 																			</th>
 																				<td>
 																					<div class="form-group">
@@ -124,7 +124,7 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="annual_audit_start_date" name="annual_audit_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" <c:if test="${company.timelineLockFlag}">disabled</c:if> class="form-control">
+																						<input type="date" id="annual_audit_start_date" name="annual_audit_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${annualaudittimeline.startDate}' />" <c:if test="${company.timelineLockFlag}">disabled</c:if> class="form-control">
 																					</div>
 																				 </td>
 																			 	<td>
@@ -179,7 +179,7 @@
 																      		</tr>
 																      		<tr>        
 																			<th scope="row" id="ECI_service">ECI申报</th>
-																			<th scope="row"  id="ECI_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
+																			<th scope="row"  id="ECI_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${ecitimeline.registrationDate}' /></th>
 																				<td>
 																					<div class="form-group">
 																						<select class="form-control" id="ECI_service_cycle" name="ECI_service_cycle" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
@@ -220,7 +220,7 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="ECI_start_date" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="ECI_start_date">
+																						<input type="date" id="ECI_start_date" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${ecitimeline.startDate}' />" class="form-control" name="ECI_start_date">
 																					</div>
 																				 </td>
 																			 	<td>
@@ -275,7 +275,7 @@
 																      		</tr>
 																      		<tr>        
 																			<th scope="row" id="GST_service">消费费申报</th>
-																			<th scope="row" id="GST_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
+																			<th scope="row" id="GST_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${gsttimeline.registrationDate}' /></th>
 																				<td>
 																					<div class="form-group">
 																						<select class="form-control" id="GST_service_cycle" name="GST_service_cycle" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
@@ -316,7 +316,7 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="GST_start_date" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="GST_start_date">
+																						<input type="date" id="GST_start_date" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${gsttimeline.startDate}' />" class="form-control" name="GST_start_date">
 																					</div>
 																				 </td>
 																			 	<td>
@@ -371,7 +371,7 @@
 																      		</tr>
 																      		<tr>        
 																			<th scope="row" id="CIT_service">所得税报税</th>
-																			<th scope="row"  id="CIT_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
+																			<th scope="row"  id="CIT_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${incometaxclaimtimeline.registrationDate}' /></th>
 																				<td>
 																					<div class="form-group">
 																						<select class="form-control" id="CIT_service_cycle" name="CIT_service_cycle" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
@@ -412,7 +412,7 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="CIT_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" <c:if test="${company.timelineLockFlag}">disabled</c:if> class="form-control" name="CIT_start_date">
+																						<input type="date" id="CIT_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${incometaxclaimtimeline.startDate}' />" <c:if test="${company.timelineLockFlag}">disabled</c:if> class="form-control" name="CIT_start_date">
 																					</div>
 																				 </td>
 																			 	<td>
@@ -467,7 +467,7 @@
 																      		</tr>
 																      		<tr>        
 																			<th scope="row" id="CIT_payment_service">所得税缴税</th>
-																			<th scope="row"  id="CIT_payment_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
+																			<th scope="row"  id="CIT_payment_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${incometaxpayabletimeline.registrationDate}' /></th>
 																				<td>
 																					<div class="form-group">
 																						<select class="form-control" id="CIT_payment_service_cycle" name="CIT_payment_service_cycle" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
@@ -508,7 +508,7 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="CIT_payment_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" <c:if test="${company.timelineLockFlag}">disabled</c:if> class="form-control" name="CIT_payment_start_date">
+																						<input type="date" id="CIT_payment_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${incometaxpayabletimeline.startDate}' />" <c:if test="${company.timelineLockFlag}">disabled</c:if> class="form-control" name="CIT_payment_start_date">
 																					</div>
 																				 </td>
 																			 	<td>
@@ -555,7 +555,7 @@
 															 <div class="row  adminTimeLine confirmArea">
 														            <div class="col-12 col-md-12 col-lg-12 divCss">	
 															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="infoCheckbox_timeLineRecord"  onclick="confirmTimelineInfo()">
+													                        <input class="form-check-input" type="checkbox" id="infoCheckbox_timeLineRecord" <c:if test="${company.timelineLockFlag}">checked</c:if> onclick="confirmTimelineInfo()">
 													                        <label class="form-check-label" for="gridCheck"> 确认锁定  </label>
 													                    </div>															            	
 													                    <div class="inline">														            	
@@ -593,7 +593,7 @@
 																				</div>																                    														            	
 																			</div>																									
 																		</div>														                    												                    
-												                    </div>												                    
+												                    </div>
 																 </div>											                
 								                        	</div>
 						                      			</div>	

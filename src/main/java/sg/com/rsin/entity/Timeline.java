@@ -21,15 +21,15 @@ public class Timeline {
 	@Column(name="service")
 	private String service;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-	@Column(name="registration")
-	private Date registration;
+	@Column(name="registration_date")
+	private Date registrationDate;
 	@Column(name="period")
 	private int period;
 	@Column(name="times")
 	private int times;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	@Column(name="start_date")
-	private Date start_date;
+	private Date startDate;
 
 	@ManyToOne
     @JoinColumn(name = "company_id", nullable = false)
@@ -37,15 +37,15 @@ public class Timeline {
     
     public Timeline() {}
 
-	public Timeline(Long id, String service, Date registration, int period, int times, Date start_date,
+	public Timeline(Long id, String service, Date registrationDate, int period, int times, Date startDate,
 			Company company) {
 		super();
 		this.id = id;
 		this.service = service;
-		this.registration = registration;
+		this.registrationDate = registrationDate;
 		this.period = period;
 		this.times = times;
-		this.start_date = start_date;
+		this.startDate = startDate;
 		this.company = company;
 	}
 
@@ -65,12 +65,12 @@ public class Timeline {
 		this.service = service;
 	}
 
-	public Date getRegistration() {
-		return registration;
+	public Date getRegistrationDate() {
+		return registrationDate;
 	}
 
-	public void setRegistration(Date registration) {
-		this.registration = registration;
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
 	}
 
 	public int getPeriod() {
@@ -89,12 +89,12 @@ public class Timeline {
 		this.times = times;
 	}
 
-	public Date getStart_date() {
-		return start_date;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setStart_date(Date start_date) {
-		this.start_date = start_date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
 	public Company getCompany() {

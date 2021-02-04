@@ -74,7 +74,7 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		Timeline auditTimeline = timelines.stream().filter(timeline -> "年审".equals(timeline.getService())).findAny().orElse(null);
 		auditTimeline.setPeriod(Integer.parseInt(timelinePeriod.substring(0, timelinePeriod.indexOf("个月"))));//12个月
 		auditTimeline.setTimes(Integer.parseInt(parameters.get("annual_audit_service_times"))); //2
-		auditTimeline.setStart_date(Date.valueOf(parameters.get("annual_audit_start_date")));
+		auditTimeline.setStartDate(Date.valueOf(parameters.get("annual_audit_start_date")));
 		timelineRepository.save(auditTimeline);
 
 		// update ECI 
@@ -82,7 +82,7 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		Timeline ECITimeline = timelines.stream().filter(timeline -> "ECI申报".equals(timeline.getService())).findAny().orElse(null);
 		ECITimeline.setPeriod(Integer.parseInt(ECITimelinePeriod.substring(0, ECITimelinePeriod.indexOf("个月"))));//12个月
 		ECITimeline.setTimes(Integer.parseInt(parameters.get("ECI_service_times"))); //2
-		ECITimeline.setStart_date(Date.valueOf(parameters.get("ECI_start_date")));
+		ECITimeline.setStartDate(Date.valueOf(parameters.get("ECI_start_date")));
 		timelineRepository.save(ECITimeline);
 
 		// update GST 
@@ -90,7 +90,7 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		Timeline GSTTimeline = timelines.stream().filter(timeline -> "消费税申报".equals(timeline.getService())).findAny().orElse(null);
 		GSTTimeline.setPeriod(Integer.parseInt(GSTTimelinePeriod.substring(0, GSTTimelinePeriod.indexOf("个月"))));//12个月
 		GSTTimeline.setTimes(Integer.parseInt(parameters.get("GST_service_times"))); //2
-		GSTTimeline.setStart_date(Date.valueOf(parameters.get("GST_start_date")));
+		GSTTimeline.setStartDate(Date.valueOf(parameters.get("GST_start_date")));
 		timelineRepository.save(GSTTimeline);
 
 		// update CIT 
@@ -98,7 +98,7 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		Timeline CITTimeline = timelines.stream().filter(timeline -> "所得税报税".equals(timeline.getService())).findAny().orElse(null);
 		CITTimeline.setPeriod(Integer.parseInt(CITTimelinePeriod.substring(0, CITTimelinePeriod.indexOf("个月"))));//12个月
 		CITTimeline.setTimes(Integer.parseInt(parameters.get("CIT_service_times"))); //2
-		CITTimeline.setStart_date(Date.valueOf(parameters.get("CIT_start_date")));
+		CITTimeline.setStartDate(Date.valueOf(parameters.get("CIT_start_date")));
 		timelineRepository.save(CITTimeline);
 
 		// update CIT_payment 
@@ -106,7 +106,7 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		Timeline CITPaymentTimeline = timelines.stream().filter(timeline -> "所得税缴税".equals(timeline.getService())).findAny().orElse(null);
 		CITPaymentTimeline.setPeriod(Integer.parseInt(CITPaymentTimelinePeriod.substring(0, CITPaymentTimelinePeriod.indexOf("个月"))));//12个月
 		CITPaymentTimeline.setTimes(Integer.parseInt(parameters.get("CIT_payment_service_times"))); //2
-		CITPaymentTimeline.setStart_date(Date.valueOf(parameters.get("CIT_payment_start_date")));
+		CITPaymentTimeline.setStartDate(Date.valueOf(parameters.get("CIT_payment_start_date")));
 		timelineRepository.save(CITPaymentTimeline);
 
 

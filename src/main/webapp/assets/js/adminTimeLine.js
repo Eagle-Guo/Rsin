@@ -152,6 +152,17 @@ function showAndHideRecord(type) {
 function confirmTimelineInfo() {
 	console.log($('#timeLineForm').serialize());
 	var checkBox = document.getElementById("infoCheckbox_timeLineRecord");
+	var locked = false;
+	if (checkBox.checked == true) {
+		$("#infoCheckbox_timeLineRecord").val("yes");
+		$("#lock_record").val("yes");
+		locked = true;
+	} else {
+		$("#lock_record").val("no");
+		$("#infoCheckbox_timeLineRecord").val("no");
+		locked = false;
+	}	
+	
 	$.ajax({
         url: '/api/timeline/manage/update',
         type : "POST",
@@ -165,23 +176,7 @@ function confirmTimelineInfo() {
         }
     });
 
-	/*if (checkBox.checked == true) {
-		$("#lock_record").val("yes");
-		$("#companyDetailForm input").prop("disabled", true);
-		$("#hide_id").prop('disabled', false);
-		$("#txt_director").attr("disabled","disabled");
-		$("#txt_shareholder").attr("disabled","disabled");		
-	} else {
-		$("#lock_record").val("no");
-		$("#companyDetailForm input").prop('disabled', false);
-		$("#txt_director").attr("disabled","disabled");
-		$("#txt_shareholder").attr("disabled","disabled");	
-	}*/
-
-	if (checkBox.checked == true) {
-		//$(".badge").val("yes");
-		$("#lock_record").val("yes");
-
+	if (locked) {
 		$(".lineRecordArea input").prop("disabled", true);
 		$(".lineRecordArea select").prop("disabled", true);
 		$(".lineRecordArea button").prop("disabled", true);
@@ -189,11 +184,7 @@ function confirmTimelineInfo() {
 		$(".lineRecordArea a").addClass("disabled");
 		$(".confirmArea #addNewService_timeLineRecord").addClass("disabled gray");		
 		$(".confirmArea #addNewService_timeLineRecord").removeClass("view");		
-		//$(".badge").attr("disabled","disabled");			
 	} else {
-		//$("#lock_record").val("no");
-		$("#lock_record").val("no");
-
 		$(".lineRecordArea input").prop('disabled', false);
 		$(".lineRecordArea select").prop("disabled", false);
 		$(".lineRecordArea button").prop("disabled", false);
@@ -202,7 +193,6 @@ function confirmTimelineInfo() {
 		$(".lineRecordArea a").removeClass("disabled");		
 		$(".confirmArea #addNewService_timeLineRecord").removeClass("disabled gray");	
 		$(".confirmArea #addNewService_timeLineRecord").addClass("view");		
-		//$(".badge").attr("disabled","disabled");
 	}	
 }
 

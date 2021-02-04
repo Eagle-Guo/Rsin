@@ -220,7 +220,7 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="ECI_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="meeting-time">
+																						<input type="date" id="ECI_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="ECI_start_date">
 																					</div>
 																				 </td>
 																			 	<td>
@@ -230,9 +230,7 @@
 																			</tr>	
 																			</table>
 																		<table class="table table-sm" id="recordTable_ECI"  >
-																	        <tr>
-																	             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
-																	        </tr>		
+																	        <tr><td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td></tr>		
 																			<tr>
 																				<th colspan="2" scope="col">预计ECI申报时间</th>	
 																				<th scope="col">实际ECI申报时间</th>  
@@ -240,22 +238,23 @@
 																				<th scope="col">其它内容备注</th>
 																				<th scope="col">是否删除记录</th>
 																			</tr>
-																			<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																			<c:forEach items="${ECIClaimTimelineDetail}" var="eci" varStatus="loop">
 																				<tr>
 																					<td colspan="2" >
-																						<fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/>
-																						<input type="hidden" name="ECI_plan_date_${audit.id}" value="${audit.estimateDate}">
+																						<fmt:formatDate value="${eci.estimateDate}" pattern="dd/MM/yyyy"/>
+																						<input type="hidden" name="ECI_plan_date_exist_${eci.id}" value="${eci.estimateDate}">
 																					</td>
-																					<td><div class="form-group"><input type="date" class="form-control" id="startDate${audit.id}"></div></td>
+																					<td><div class="form-group"><input type="date" class="form-control" name="ECI_actual_date_exist_${eci.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${eci.actualDate}' />"></div></td>
 																					<td>										                          
 																						<div class="form-check">
-																							<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}">	
-																							<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${eci.id}" name="ECI_status_exist_${eci.id}" <c:if test="${eci.result}">checked</c:if>>	
+																							<label class="form-check-label" for="defaultCheck${eci.id}"> 已完成</label>
 																						</div>
 																					</td>
 																					<td>
-																						<div class="form-group"><input type="text" class="form-control"></div>
-																					</td>													                      
+																						<div class="form-group"><input type="text" class="form-control" name="ECI_comment_exist_${eci.id}" value="${eci.comment}"></div>
+																					</td>
+																					
 																		 			<td><a href="javascript:;">删除此记录</a></td>
 																				</tr>
 																			</c:forEach>
@@ -275,10 +274,10 @@
 																      		</tr>
 																      		<tr>        
 																			<th scope="row" id="GST_service">消费费申报</th>
-																			<th scope="row"  id="GST_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
+																			<th scope="row" id="GST_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
 																				<td>
 																					<div class="form-group">
-																						<select class="form-control" id="GST_service_cycle" >
+																						<select class="form-control" id="GST_service_cycle" name="GST_service_cycle">
 																							<option>选择服务周期</option>
 																							<option>1个月</option>
 																							<option>2个月</option>
@@ -297,7 +296,7 @@
 																	            </td>
 																				<td>
 																					 <div class="form-group">
-																						<select class="form-control" id="GST_service_times">
+																						<select class="form-control" id="GST_service_times" name="GST_service_times">
 																							<option>选择服务次数</option>
 																							<option value="1">1</option>
 																							<option>2</option>
@@ -316,7 +315,7 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="GST_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="meeting-time">
+																						<input type="date" id="GST_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="GST_start_date">
 																					</div>
 																				 </td>
 																			 	<td>
@@ -336,18 +335,21 @@
 																				<th scope="col">其它内容备注</th>   
 																				<th scope="col">是否删除记录</th>                    				  
 																			</tr>
-																			<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																			<c:forEach items="${GSTTimelineDetail}" var="gst" varStatus="loop">
 																				<tr>
-																					<td colspan="2" ><fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/></td>
-																					<td><div class="form-group"><input type="date" class="form-control" id="startDate${audit.id}"></div></td>
+																					<td colspan="2" >
+																						<fmt:formatDate value="${gst.estimateDate}" pattern="dd/MM/yyyy"/>
+																						<input type="hidden" name="GST_plan_date_exist_${gst.id}" value="${gst.estimateDate}">
+																					</td>
+																					<td><div class="form-group"><input type="date" class="form-control" name="ECI_actual_date_exist_${gst.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${gst.actualDate}' />"></div></td>
 																					<td>										                          
 																						<div class="form-check">
-																							<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}">	
-																							<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${gst.id}" name="ECI_status_exist_${gst.id}" <c:if test="${gst.result}">checked</c:if>>	
+																							<label class="form-check-label" for="defaultCheck${gst.id}"> 已完成</label>
 																						</div>
 																					</td>
 																					<td>
-																						<div class="form-group"><input type="text" class="form-control"></div>
+																						<div class="form-group"><input type="text" class="form-control" name="ECI_comment_exist_${gst.id}" value="${gst.comment}"></div>
 																					</td>													                      
 																		 			<td><a href="javascript:;">删除此记录</a></td>
 																				</tr>
@@ -371,7 +373,7 @@
 																			<th scope="row"  id="CIT_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
 																				<td>
 																					<div class="form-group">
-																						<select class="form-control" id="CIT_service_cycle" >
+																						<select class="form-control" id="CIT_service_cycle" name="CIT_service_cycle">
 																							<option>选择服务周期</option>
 																							<option>1个月</option>
 																							<option>2个月</option>
@@ -390,7 +392,7 @@
 																	            </td>
 																				<td>
 																					 <div class="form-group">
-																						<select class="form-control" id="CIT_service_times">
+																						<select class="form-control" id="CIT_service_times" name="CIT_service_times">
 																							<option>选择服务次数</option>
 																							<option value="1">1</option>
 																							<option>2</option>
@@ -409,7 +411,7 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="CIT_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="meeting-time">
+																						<input type="date" id="CIT_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="CIT_start_date">
 																					</div>
 																				 </td>
 																			 	<td>
@@ -429,18 +431,21 @@
 																				<th scope="col">其它内容备注</th>   
 																				<th scope="col">是否删除记录</th>                    				  
 																			</tr>
-																			<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																			<c:forEach items="${incomeTaxClaimTimelineDetail}" var="incomeTax" varStatus="loop">
 																				<tr>
-																					<td colspan="2" ><fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/></td>
-																					<td><div class="form-group"><input type="date" class="form-control" id="startDate${audit.id}"></div></td>
+																					<td colspan="2" >
+																						<fmt:formatDate value="${incomeTax.estimateDate}" pattern="dd/MM/yyyy"/>
+																						<input type="hidden" name="CIT_plan_date_exist_${incomeTax.id}" value="${incomeTax.estimateDate}">
+																					</td>
+																					<td><div class="form-group"><input type="date" class="form-control" name="CIT_actual_date_exist_${incomeTax.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${incomeTax.actualDate}' />"></div></td>
 																					<td>										                          
 																						<div class="form-check">
-																							<input class="form-check-input" type="checkbox" id="annual_audit_check_${audit.id}" name="annual_audit_check_${audit.id}" >	
-																							<label class="form-check-label" for="annual_audit_check_${audit.id}"> 已完成</label>
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${incomeTax.id}" name="CIT_status_exist_${incomeTax.id}" <c:if test="${incomeTax.result}">checked</c:if>>	
+																							<label class="form-check-label" for="annual_audit_check_${incomeTax.id}"> 已完成</label>
 																						</div>
 																					</td>
 																					<td>
-																						<div class="form-group"><input type="text" class="form-control"></div>
+																						<div class="form-group"><input type="text" class="form-control" name="CIT_comment_exist_${incomeTaxci.id}" value="${incomeTax.comment}"></div>
 																					</td>													                      
 																		 			<td><a href="javascript:;">删除此记录</a></td>
 																				</tr>
@@ -464,7 +469,7 @@
 																			<th scope="row"  id="CIT_payment_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${company.registrationDate}' /></th>
 																				<td>
 																					<div class="form-group">
-																						<select class="form-control" id="CIT_payment_service_cycle" >
+																						<select class="form-control" id="CIT_payment_service_cycle" name="CIT_payment_service_cycle">
 																							<option>选择服务周期</option>
 																							<option>1个月</option>
 																							<option>2个月</option>
@@ -483,7 +488,7 @@
 																	            </td>
 																				<td>
 																					 <div class="form-group">
-																						<select class="form-control" id="CIT_payment_service_times">
+																						<select class="form-control" id="CIT_payment_service_times" name="CIT_payment_service_times">
 																							<option>选择服务次数</option>
 																							<option value="1">1</option>
 																							<option>2</option>
@@ -502,7 +507,7 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="CIT_payment_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="meeting-time">
+																						<input type="date" id="CIT_payment_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${company.registrationDate}' />" class="form-control" name="CIT_payment_start_date">
 																					</div>
 																				 </td>
 																			 	<td>
@@ -522,18 +527,21 @@
 																				<th scope="col">其它内容备注</th>   
 																				<th scope="col">是否删除记录</th>                    				  
 																			</tr>
-																			<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																			<c:forEach items="${incomeTaxPayableTimelineDetail}" var="payable" varStatus="loop">
 																				<tr>
-																					<td colspan="2" ><fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/></td>
-																					<td><div class="form-group"><input type="date" class="form-control" id="startDate${audit.id}"></div></td>
+																					<td colspan="2" >
+																						<fmt:formatDate value="${payable.estimateDate}" pattern="dd/MM/yyyy"/>
+																						<input type="hidden" name="CIT_payment_plan_date_exist_${payable.id}" value="${payable.estimateDate}">
+																					</td>
+																					<td><div class="form-group"><input type="date" class="form-control" name="CIT_payment_actual_date_exist_${payable.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${payable.actualDate}' />"></div></td>
 																					<td>										                          
 																						<div class="form-check">
-																							<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}">	
-																							<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${payable.id}" name="CIT_payment_status_exist_${payable.id}" <c:if test="${payable.result}">checked</c:if>>	>	
+																							<label class="form-check-label" for="defaultCheck${payable.id}"> 已完成</label>
 																						</div>
 																					</td>
 																					<td>
-																						<div class="form-group"><input type="text" class="form-control"></div>
+																						<div class="form-group"><input type="text" class="form-control" name="CIT_payment_comment_exist_${payable.id}" value="${payable.comment}"></div>
 																					</td>													                      
 																		 			<td><a href="javascript:;">删除此记录</a></td>
 																				</tr>

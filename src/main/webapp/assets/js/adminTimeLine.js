@@ -15,15 +15,58 @@ function generateRecord(type){
  
     for (var i = 0; i < serviceTimes; i++) {
     	var tr = document.createElement("tr");
-        tr.innerHTML="" +
-        		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
-        			"<input type='hidden' name='annual_audit_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
-		        "<td><div class='form-group'><input type='date' class='form-control' name='annual_audit_actual_date_gen_"+ i +"'></div></td>" +
-				"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='annual_audit_status_gen_" + i + "'> " +
-					"<label class='form-check-label' for='annual_audit_status_gen_"+ i +"'>已完成</label>" +
-					"</div></td>" +
-				"<td><div class='form-group'><input type='text' class='form-control' name='annual_audit_comment_gen_"+ i + "'></div></td>" +
-                "<td><a href='javascript:;'>删除此记录</a></td>" ;
+    	if (type == "annual_audit") {
+    		tr.innerHTML="" +
+    		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+    			"<input type='hidden' name='annual_audit_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
+	        "<td><div class='form-group'><input type='date' class='form-control' name='annual_audit_actual_date_gen_"+ i +"'></div></td>" +
+			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='annual_audit_status_gen_" + i + "'> " +
+				"<label class='form-check-label' for='annual_audit_status_gen_"+ i +"'>已完成</label>" +
+				"</div></td>" +
+			"<td><div class='form-group'><input type='text' class='form-control' name='annual_audit_comment_gen_"+ i + "'></div></td>" +
+            "<td><a href='javascript:;'>删除此记录</a></td>" ;
+    	} else if (type == "ECI") {
+    		tr.innerHTML="" +
+    		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+    			"<input type='hidden' name='ECI_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
+	        "<td><div class='form-group'><input type='date' class='form-control' name='ECI_actual_date_gen_"+ i +"'></div></td>" +
+			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='ECI_status_gen_" + i + "'> " +
+				"<label class='form-check-label' for='ECI_status_gen_"+ i +"'>已完成</label>" +
+				"</div></td>" +
+			"<td><div class='form-group'><input type='text' class='form-control' name='ECI_comment_gen_"+ i + "'></div></td>" +
+            "<td><a href='javascript:;'>删除此记录</a></td>" ;
+    	} else if (type == "GST") {
+    		tr.innerHTML="" +
+    		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+    			"<input type='hidden' name='GST_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
+	        "<td><div class='form-group'><input type='date' class='form-control' name='GST_actual_date_gen_"+ i +"'></div></td>" +
+			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='GST_status_gen_" + i + "'> " +
+				"<label class='form-check-label' for='GST_status_gen_"+ i +"'>已完成</label>" +
+				"</div></td>" +
+			"<td><div class='form-group'><input type='text' class='form-control' name='GST_comment_gen_"+ i + "'></div></td>" +
+            "<td><a href='javascript:;'>删除此记录</a></td>" ;
+    	} else if (type == "CIT") {
+    		tr.innerHTML="" +
+    		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+    			"<input type='hidden' name='CIT_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
+	        "<td><div class='form-group'><input type='date' class='form-control' name='CIT_actual_date_gen_"+ i +"'></div></td>" +
+			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='CIT_status_gen_" + i + "'> " +
+				"<label class='form-check-label' for='CIT_status_gen_"+ i +"'>已完成</label>" +
+				"</div></td>" +
+			"<td><div class='form-group'><input type='text' class='form-control' name='CIT_comment_gen_"+ i + "'></div></td>" +
+            "<td><a href='javascript:;'>删除此记录</a></td>" ;
+    	} else if (type == "CIT_payment") {
+    		tr.innerHTML="" +
+    		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+    			"<input type='hidden' name='CIT_payment_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
+	        "<td><div class='form-group'><input type='date' class='form-control' name='CIT_payment_actual_date_gen_"+ i +"'></div></td>" +
+			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='CIT_payment_status_gen_" + i + "'> " +
+				"<label class='form-check-label' for='CIT_payment_status_gen_"+ i +"'>已完成</label>" +
+				"</div></td>" +
+			"<td><div class='form-group'><input type='text' class='form-control' name='CIT_payment_comment_gen_"+ i + "'></div></td>" +
+            "<td><a href='javascript:;'>删除此记录</a></td>" ;
+    	}
+        
         var a = tr.getElementsByTagName("a")[0];
         a.onclick=deleteList;
         var recordTable = document.getElementById("recordTable_"+ type);

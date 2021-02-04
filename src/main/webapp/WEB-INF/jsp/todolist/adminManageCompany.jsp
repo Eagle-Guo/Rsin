@@ -154,27 +154,27 @@
 
 																<c:forEach var="docs" items="${docCompanyList}" >
 																	<div class="row">
-															            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport${docs.id}" style="cursor: pointer">
+															            <div class="col-12 col-md-5 col-lg-5 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport${docs.id}" style="cursor: pointer">
 															           	   <b>${docs.documentDesc} <c:if test="${not empty docs.documentDesccn}"> (${docs.documentDesccn}) </c:if></b>			                  
 																		</div>
 																		<c:choose>
 																			<c:when test = "${docs.documentDesc eq 'First Director Meeting Resolution'}">
-																				<div class="col-12 col-md-4 col-lg-4">	
+																				<div class="col-12 col-md-3 col-lg-3">	
 																            		签名人员：${nameInFirstDirectorMeetingResolution }
 																				</div>
 																			</c:when>
 																			<c:when test = "${docs.documentDesc eq 'Risk Assessment'}">
-																				<div class="col-12 col-md-4 col-lg-4">	
+																				<div class="col-12 col-md-3 col-lg-3">	
 																            		签名人员：${nameInRiskAssessment }
 																				</div>
 																			</c:when>
 																			<c:when test = "${docs.documentDesc eq 'Secretary Agreement'}">
-																				<div class="col-12 col-md-4 col-lg-4">	
+																				<div class="col-12 col-md-3 col-lg-3">	
 																            		签名人员：${nameInSecretaryAgreement }
 																				</div>
 																			</c:when>
 																			<c:otherwise>
-																				<div class="col-12 col-md-4 col-lg-4"></div>		
+																				<div class="col-12 col-md-3 col-lg-3"></div>		
 																			</c:otherwise>
 																		</c:choose>
 															            <div class="col-12 col-md-4 col-lg-4">	
@@ -211,8 +211,9 @@
 																	</div>
 																</c:forEach> 
 																
-															<div id="newUploadFileArea">	
+															<div id="newUploadFileArea_company">	
 																<!--<c:forEach var="docs" items="${docCompanyList}" >-->
+																<!-- <div>
 																	<div class="row">
 															            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport${docs.id}" style="cursor: pointer">
 															           	   <input type="text" class="form-control">		                  
@@ -223,7 +224,7 @@
 														                        <label class="form-check-label" for="gridCheck">确认锁定 </label>
 														                    </div>	
 														                    <div class="inline">														            	
-																            	<span> | </span><input type="file" id="file_com_upload${docs.id}" style="display:none" onchange="companyuploadfile(${company.id }, ${docs.id})"/>
+																            	<span> | </span><input type="file" id="file_com_upload${docs.id}" style="display:none" onchange=""/>
 																            					<a id="upload_company_file${docs.id}" class="btnMenu view"  onclick="companyshowfilediag(${docs.id})">上传</a>		
 																			</div>
 																		</div>
@@ -250,12 +251,12 @@
 						
 																	</div>
 																<!--</c:forEach>-->																
-																
+																<!-- </div> -->
 																
 															</div>	
 																
 																<div class="inline">	
-															          <div class="badge badge-danger"><span  id="addNewUploadFile"  onclick="addNewUploadFile()">增加上传文件</span></div>												            	
+															          <div class="badge badge-danger"><span  id="addNewUploadFile"  onclick="addNewUploadFile_company()" style="cursor: pointer;">增加上传文件</span></div>												            	
 																</div>																
 																
 											                  </div>
@@ -269,7 +270,7 @@
                                 </div>
                                 <c:forEach items="${infos}" var="shareholderInfo" varStatus="loop">
 									<div class="row">
-							            <div class="col-12 col-md-12 col-lg-12">
+							        	<div class="col-12 col-md-12 col-lg-12">
 							                <div class="card downLoadFile">
 							                	<div class="card-body" id="accordion_${shareholderInfo.id}">
 						                      		<div class="accordion">
@@ -497,6 +498,14 @@
 																		</c:forEach>
 																	</div>
 																</c:forEach>
+																
+																<div id="newUploadFileArea_personal">																	
+																</div>	
+																	
+																<div class="inline">	
+																       <div class="badge badge-danger"><span  id="addNewUploadFile_personal"  onclick="addNewUploadFile_personal()" style="cursor: pointer;">增加上传文件</span></div>												            	
+																</div>																	
+																
 											                  </div>
 											                </div>
 								                        </div>
@@ -504,7 +513,15 @@
 							                 	 </div>
 							                </div>
 							            </div>			  		
-	                                </div> 
+
+	                       			</div> 
+	                       			
+										<div class="row" id="newPersonArea_personal">																	
+										</div>	
+										<div class="inline" style="text-align: center;padding-top: 2%;padding-bottom: 2%;">	
+											 <div class="badge badge-danger"><span  id=""  onclick="addNewPerson_personal()" style="cursor: pointer;">增加股东/董事/联系人</span></div>												            	
+										</div>	                       			
+	                       			
 							</c:forEach> 
        				</div>
                </div>

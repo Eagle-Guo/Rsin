@@ -14,7 +14,6 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -329,7 +328,7 @@ public class APIController {
             parameters.put(paramName, paramValues[0]);
         }
 
-        adminTimelineService.saveTimelineAddtion(companyId, parameters);
+        adminTimelineService.saveTimelineAddition(companyId, parameters);
 
     	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
     }

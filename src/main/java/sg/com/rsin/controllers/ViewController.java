@@ -28,6 +28,7 @@ import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.entity.Employee;
 import sg.com.rsin.entity.ErrorObject;
 import sg.com.rsin.entity.Timeline;
+import sg.com.rsin.entity.TimelineAddition;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.ResponseCode;
 import sg.com.rsin.enums.TimeLineType;
@@ -270,6 +271,9 @@ public class ViewController {
 		model.addObject("GSTTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_3.getDescription(), timelines));
 		model.addObject("incomeTaxClaimTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_4.getDescription(), timelines));
 		model.addObject("incomeTaxPayableTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_5.getDescription(), timelines));
+
+		TimelineAddition timelineAddition = adminTimelineService.getTimelineAdditionByCompanyId(companyId);
+		model.addObject("timelineAddition", timelineAddition);
 		return model;
 	}	
 

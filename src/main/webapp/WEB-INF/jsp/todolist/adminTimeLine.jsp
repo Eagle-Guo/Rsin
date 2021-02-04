@@ -578,7 +578,7 @@
 																	<div class="col-12 col-md-12 col-lg-12">
 													                    <div class="form-group">
 													                      <label>服务进展</label>
-													                      <textarea class="form-control" id="textarea1" name="textarea1"></textarea>
+													                      <textarea class="form-control" id="textarea1" name="textarea1">${timelineAddition.serviceProgress}</textarea>
 													                    </div>
 																		<div class="row adminTimeLine">
 																            <div class="col-12 col-md-12 col-lg-12 divCss">	
@@ -604,7 +604,7 @@
 																	<div class="col-12 col-md-12 col-lg-12">
 													                    <div class="form-group">
 													                      <label>渠道方</label>
-													                      <textarea class="form-control"  id="textarea2" name="textarea2"></textarea>
+													                      <textarea class="form-control"  id="textarea2" name="textarea2">${timelineAddition.channel} </textarea>
 													                    </div>
 																		<div class="row  adminTimeLine">
 																	            <div class="col-12 col-md-12 col-lg-12 divCss">	

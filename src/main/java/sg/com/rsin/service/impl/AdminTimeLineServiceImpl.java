@@ -300,7 +300,7 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		});
 	}
 
-	public void saveTimelineAddtion (Long companyId, Map<String, String> parameters) {
+	public void saveTimelineAddition (Long companyId, Map<String, String> parameters) {
 		
 		TimelineAddition timelineAddition = timelineAdditionRepository.findByCompanyId(companyId);
 
@@ -317,5 +317,10 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
         	timelineAddition.setChannel(channel);
         }
     	timelineAdditionRepository.save(timelineAddition);
+	}
+	
+	public TimelineAddition getTimelineAdditionByCompanyId(long companyId) {
+		TimelineAddition timelineAddition = timelineAdditionRepository.findByCompanyId(companyId);
+		return timelineAddition;
 	}
 }

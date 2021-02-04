@@ -5,6 +5,7 @@ import java.util.Map;
 
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Timeline;
+import sg.com.rsin.entity.TimelineAddition;
 import sg.com.rsin.entity.TimelineDetail;
 
 public interface AdminTimelineService {
@@ -19,5 +20,7 @@ public interface AdminTimelineService {
 
 	public void saveTimelineAndDetail (Long companyId, Map<String, String> parameters);
 
-	public void saveTimelineAddtion (Long companyId, Map<String, String> parameters);
+	public void saveTimelineAddition (Long companyId, Map<String, String> parameters);
+	
+	public TimelineAddition getTimelineAdditionByCompanyId(long companyId);
 }

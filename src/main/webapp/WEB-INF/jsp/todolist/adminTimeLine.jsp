@@ -82,7 +82,7 @@
 																			<th scope="row"  id="annual_audit_registerDate">
 																				<fmt:formatDate pattern = 'dd/MM/yyyy' value='${annualaudittimeline.registrationDate}' />
 																				<input type="hidden" id="hide_company_id" name="hide_company_id" value="${company.id }">
-																				<input type="hidden" name="lock_record" value="${company.timelineLockFlag}">
+																				<input type="hidden" name="lock_record" value="${!company.timelineLockFlag}">
 																			</th>
 																				<td>
 																					<div class="form-group">
@@ -248,7 +248,6 @@
 																					<td>										                          
 																						<div class="form-check">
 																							<input class="form-check-input" type="checkbox" id="defaultCheck${eci.id}" name="ECI_status_exist_${eci.id}" <c:if test="${company.timelineLockFlag}">disabled</c:if> <c:if test="${eci.result}">checked</c:if>>	
-																							<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}" name="annual_audit_status_exist_${audit.id}" <c:if test="${company.timelineLockFlag}">disabled</c:if> <c:if test="${audit.result}">checked</c:if>>
 																							<label class="form-check-label" for="defaultCheck${eci.id}"> 已完成</label>
 																						</div>
 																					</td>

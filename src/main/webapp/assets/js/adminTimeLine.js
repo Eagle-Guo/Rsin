@@ -154,10 +154,8 @@ function confirmTimelineInfo() {
 	var checkBox = document.getElementById("infoCheckbox_timeLineRecord");
 	var locked = false;
 	if (checkBox.checked == true) {
-		$("#infoCheckbox_timeLineRecord").val("yes");
 		locked = true;
 	} else {
-		$("#infoCheckbox_timeLineRecord").val("no");
 		locked = false;
 	}	
 	

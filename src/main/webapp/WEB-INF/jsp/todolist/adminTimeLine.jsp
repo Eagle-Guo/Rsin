@@ -82,7 +82,7 @@
 																			<th scope="row"  id="annual_audit_registerDate">
 																				<fmt:formatDate pattern = 'dd/MM/yyyy' value='${annualaudittimeline.registrationDate}' />
 																				<input type="hidden" id="hide_company_id" name="hide_company_id" value="${company.id }">
-																				<input type="hidden" name="lock_record">
+																				<input type="hidden" name="lock_record" value="${company.timelineLockFlag}">
 																			</th>
 																				<td>
 																					<div class="form-group">
@@ -342,7 +342,7 @@
 																						<fmt:formatDate value="${gst.estimateDate}" pattern="dd/MM/yyyy"/>
 																						<input type="hidden" name="GST_plan_date_exist_${gst.id}" value="${gst.estimateDate}">
 																					</td>
-																					<td><div class="form-group"><input type="date" class="form-control" name="ECI_actual_date_exist_${gst.id}" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${gst.actualDate}' />"></div></td>
+																					<td><div class="form-group"><input type="date" class="form-control" name="GST_actual_date_exist_${gst.id}" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${gst.actualDate}' />"></div></td>
 																					<td>										                          
 																						<div class="form-check">
 																							<input class="form-check-input" type="checkbox" id="defaultCheck${gst.id}" name="GST_status_exist_${gst.id}" <c:if test="${gst.result}">checked</c:if>  <c:if test="${company.timelineLockFlag}">disabled</c:if>>	

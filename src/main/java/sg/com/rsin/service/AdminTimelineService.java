@@ -16,7 +16,7 @@ public interface AdminTimelineService {
 
 	public List<TimelineDetail> getTimelineDetailByService(String service, List<Timeline> timelines);
 
-	public void saveCompanyFlag (Company company, String flag);
+	public void saveCompanyFlag (Long companyid, String flag);
 
 	public void saveTimelineAndDetail (Long companyId, Map<String, String> parameters);
 

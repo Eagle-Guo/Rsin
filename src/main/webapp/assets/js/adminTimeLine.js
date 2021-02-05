@@ -155,10 +155,8 @@ function confirmTimelineInfo() {
 	var locked = false;
 	if (checkBox.checked == true) {
 		$("#infoCheckbox_timeLineRecord").val("yes");
-		$("#lock_record").val("yes");
 		locked = true;
 	} else {
-		$("#lock_record").val("no");
 		$("#infoCheckbox_timeLineRecord").val("no");
 		locked = false;
 	}	
@@ -183,14 +181,19 @@ function confirmTimelineInfo() {
 		$(".lineRecordArea .badge").addClass("disabled");		
 		$(".lineRecordArea a").addClass("disabled");
 		$(".confirmArea #addNewService_timeLineRecord").addClass("disabled gray");		
-		$(".confirmArea #addNewService_timeLineRecord").removeClass("view");		
+		$(".confirmArea #addNewService_timeLineRecord").removeClass("view");
+		// $(".lineRecordArea input[type=hidden]").prop("disabled", false);
+		$(".lineRecordArea a").attr('class', 'disabled');
+		$("#hide_company_id").prop("disabled", false);
+		
 	} else {
 		$(".lineRecordArea input").prop('disabled', false);
 		$(".lineRecordArea select").prop("disabled", false);
 		$(".lineRecordArea button").prop("disabled", false);
 		$(".lineRecordArea a").prop("disabled", false);	
 		$(".lineRecordArea .badge").removeClass("disabled");
-		$(".lineRecordArea a").removeClass("disabled");		
+		$(".lineRecordArea a").removeClass("disabled");	
+		$(".lineRecordArea a").attr('class', 'enabled');
 		$(".confirmArea #addNewService_timeLineRecord").removeClass("disabled gray");	
 		$(".confirmArea #addNewService_timeLineRecord").addClass("view");		
 	}	

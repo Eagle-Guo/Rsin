@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.Industry;
@@ -74,6 +75,9 @@ public class APIController {
 	
 	@Autowired
 	AdminTimelineService adminTimelineService;
+	
+	@Autowired
+	CompanyRepository companyRepository;
 	
     @GetMapping("/employees")
     public String  all() {
@@ -307,11 +311,19 @@ public class APIController {
     	if (company == null) {
     		return new ResponseEntity<String>("Company not existed", new HttpHeaders(), HttpStatus.NOT_FOUND);
     	}
-    	
-    	adminTimelineService.saveCompanyFlag(company, request.getParameter("lock_record"));
+    	String lockFlag = request.getParameter("lock_record");
+    	if (lockFlag == null || lockFlag.equals("true")) {
+    		company.setTimelineLockFlag(false);
+    	} else {
+    		company.setTimelineLockFlag(true);
+    	}
+		companyRepository.save(company);
+    	//adminTimelineService.saveCompanyFlag(company.getId(), lockFlag);
 
-    	//update timeliene and timeline_detail
-    	adminTimelineService.saveTimelineAndDetail(company.getId(), parameters);
+    	if (lockFlag != null && lockFlag.equals("false")) {
+	    	//update timeliene and timeline_detail
+	    	adminTimelineService.saveTimelineAndDetail(company.getId(), parameters);
+    	}
 
     	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
     }

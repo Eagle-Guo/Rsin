@@ -56,13 +56,14 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		return timelineDetails;
 	}
 	
-	public void saveCompanyFlag (Company company, String flag) {
-    	if (flag == null) {
+	public void saveCompanyFlag (Long companyid, String flag) {
+		Company company = companyRepository.findById(companyid).get();
+    	if (flag == null || flag.equals("")) {
     		company.setTimelineLockFlag(false);
     	} else {
     		company.setTimelineLockFlag(true);
     	}
-    	companyRepository.save(company);
+		companyRepository.save(company);
 	}
 	
 	public void saveTimelineAndDetail (Long companyId, Map<String, String> parameters) {
@@ -119,12 +120,15 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineDetail.setTimeline(auditTimeline);
 			String count = key.substring(key.indexOf("annual_audit_plan_date_exist_") + 29);
 			String planDate = parameters.get("annual_audit_plan_date_exist_" + count);
+			String actualDate = parameters.get("annual_audit_actual_date_exist_" + count);
 			try {
 				timelineDetail.setEstimateDate(new SimpleDateFormat("yyyy-MM-dd").parse(planDate.substring(0, 10)));
+				timelineDetail.setActualDate(new SimpleDateFormat("yyyy-MM-dd").parse(actualDate.substring(0, 10))); //2021-02-04
 			} catch (ParseException e) {
 				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			} //2022-01-28 08:00:00.0
-			timelineDetail.setActualDate(Date.valueOf(parameters.get("annual_audit_actual_date_exist_" + count))); //2021-02-04
 			timelineDetail.setResult("on".equals(parameters.get("annual_audit_status_exist_" + count)) ? true:false); //on
 			timelineDetail.setComment(parameters.get("annual_audit_comment_exist_" + count));
 			timelineDetails.add(timelineDetail);
@@ -135,12 +139,15 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineDetail.setTimeline(auditTimeline);
 			String count = key.substring(key.indexOf("annual_audit_plan_date_gen_") + 27);
 			String planDate = parameters.get("annual_audit_plan_date_gen_" + count);
+			String actualDate = parameters.get("annual_audit_actual_date_gen_" + count);
 			try {
 				timelineDetail.setEstimateDate(new SimpleDateFormat("dd/MM/yyyy").parse(planDate.substring(0, 10)));
+				timelineDetail.setActualDate(new SimpleDateFormat("dd/MM/yyyy").parse(actualDate.substring(0, 10))); //2021-02-04
 			} catch (ParseException e) {
 				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			} //2022-01-28 08:00:00.0
-			timelineDetail.setActualDate(Date.valueOf(parameters.get("annual_audit_actual_date_gen_" + count))); //2021-02-04
 			timelineDetail.setResult("on".equals(parameters.get("annual_audit_status_" + count)) ? true:false); //on
 			timelineDetail.setComment(parameters.get("annual_audit_comment_gen_" + count));
 			timelineDetails.add(timelineDetail);
@@ -153,12 +160,15 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineDetail.setTimeline(ECITimeline);
 			String count = key.substring(key.indexOf("ECI_plan_date_exist_") + 20);
 			String planDate = parameters.get("ECI_plan_date_exist_" + count);
+			String actualDate = parameters.get("ECI_actual_date_exist_" + count);
 			try {
 				timelineDetail.setEstimateDate(new SimpleDateFormat("yyyy-MM-dd").parse(planDate.substring(0, 10)));
+				timelineDetail.setActualDate(new SimpleDateFormat("yyyy-MM-dd").parse(actualDate.substring(0, 10))); //2021-02-04
 			} catch (ParseException e) {
 				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			} //2022-01-28 08:00:00.0
-			timelineDetail.setActualDate(Date.valueOf(parameters.get("ECI_actual_date_exist_" + count))); //2021-02-04
 			timelineDetail.setResult("on".equals(parameters.get("ECI_status_exist_" + count)) ? true:false); //on
 			timelineDetail.setComment(parameters.get("ECI_comment_exist_" + count));
 			timelineDetails.add(timelineDetail);
@@ -169,12 +179,15 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineDetail.setTimeline(ECITimeline);
 			String count = key.substring(key.indexOf("ECI_plan_date_gen_") + 18);
 			String planDate = parameters.get("ECI_plan_date_gen_" + count);
+			String actualDate = parameters.get("ECI_actual_date_gen_" + count);
 			try {
 				timelineDetail.setEstimateDate(new SimpleDateFormat("dd/MM/yyyy").parse(planDate.substring(0, 10)));
+				timelineDetail.setActualDate(new SimpleDateFormat("dd/MM/yyyy").parse(actualDate.substring(0, 10))); //2021-02-04
 			} catch (ParseException e) {
 				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			} //2022-01-28 08:00:00.0
-			timelineDetail.setActualDate(Date.valueOf(parameters.get("ECI_actual_date_gen_" + count))); //2021-02-04
 			timelineDetail.setResult("on".equals(parameters.get("ECI_status_" + count)) ? true:false); //on
 			timelineDetail.setComment(parameters.get("ECI_comment_gen_" + count));
 			timelineDetails.add(timelineDetail);
@@ -187,12 +200,15 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineDetail.setTimeline(GSTTimeline);
 			String count = key.substring(key.indexOf("GST_plan_date_exist_") + 20);
 			String planDate = parameters.get("GST_plan_date_exist_" + count);
+			String actualDate = parameters.get("GST_actual_date_exist_" + count);
 			try {
 				timelineDetail.setEstimateDate(new SimpleDateFormat("yyyy-MM-dd").parse(planDate.substring(0, 10)));
+				timelineDetail.setActualDate(new SimpleDateFormat("yyyy-MM-dd").parse(actualDate.substring(0, 10))); //2021-02-04
 			} catch (ParseException e) {
 				e.printStackTrace();
-			} //2022-01-28 08:00:00.0
-			timelineDetail.setActualDate(Date.valueOf(parameters.get("GST_actual_date_exist_" + count))); //2021-02-04
+			} catch (Exception e) {
+				e.printStackTrace();
+			}//2022-01-28 08:00:00.0
 			timelineDetail.setResult("on".equals(parameters.get("GST_status_exist_" + count)) ? true:false); //on
 			timelineDetail.setComment(parameters.get("GST_comment_exist_" + count));
 			timelineDetails.add(timelineDetail);
@@ -203,12 +219,15 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineDetail.setTimeline(GSTTimeline);
 			String count = key.substring(key.indexOf("GST_plan_date_gen_") + 18);
 			String planDate = parameters.get("GST_plan_date_gen_" + count);
+			String actualDate = parameters.get("GST_actual_date_gen_" + count);
 			try {
 				timelineDetail.setEstimateDate(new SimpleDateFormat("dd/MM/yyyy").parse(planDate.substring(0, 10)));
+				timelineDetail.setActualDate(new SimpleDateFormat("dd/MM/yyyy").parse(actualDate.substring(0, 10))); //2021-02-04
 			} catch (ParseException e) {
 				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			} //2022-01-28 08:00:00.0
-			timelineDetail.setActualDate(Date.valueOf(parameters.get("GST_actual_date_gen_" + count))); //2021-02-04
 			timelineDetail.setResult("on".equals(parameters.get("GST_status_" + count)) ? true:false); //on
 			timelineDetail.setComment(parameters.get("GST_comment_gen_" + count));
 			timelineDetails.add(timelineDetail);
@@ -221,12 +240,15 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineDetail.setTimeline(CITTimeline);
 			String count = key.substring(key.indexOf("CIT_plan_date_exist_") + 20);
 			String planDate = parameters.get("CIT_plan_date_exist_" + count);
+			String actualDate = parameters.get("CIT_actual_date_exist_" + count);
 			try {
 				timelineDetail.setEstimateDate(new SimpleDateFormat("yyyy-MM-dd").parse(planDate.substring(0, 10)));
+				timelineDetail.setActualDate(new SimpleDateFormat("yyyy-MM-dd").parse(actualDate.substring(0, 10))); //2021-02-04
 			} catch (ParseException e) {
 				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			} //2022-01-28 08:00:00.0
-			timelineDetail.setActualDate(Date.valueOf(parameters.get("CIT_actual_date_exist_" + count))); //2021-02-04
 			timelineDetail.setResult("on".equals(parameters.get("CIT_status_exist_" + count)) ? true:false); //on
 			timelineDetail.setComment(parameters.get("CIT_comment_exist_" + count));
 			timelineDetails.add(timelineDetail);
@@ -237,12 +259,15 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineDetail.setTimeline(CITTimeline);
 			String count = key.substring(key.indexOf("CIT_plan_date_gen_") + 18);
 			String planDate = parameters.get("CIT_plan_date_gen_" + count);
+			String actualDate = parameters.get("CIT_actual_date_gen_" + count);
 			try {
 				timelineDetail.setEstimateDate(new SimpleDateFormat("dd/MM/yyyy").parse(planDate.substring(0, 10)));
+				timelineDetail.setActualDate(new SimpleDateFormat("dd/MM/yyyy").parse(actualDate.substring(0, 10))); //2021-02-04
 			} catch (ParseException e) {
 				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			} //2022-01-28 08:00:00.0
-			timelineDetail.setActualDate(Date.valueOf(parameters.get("CIT_actual_date_gen_" + count))); //2021-02-04
 			timelineDetail.setResult("on".equals(parameters.get("CIT_status_" + count)) ? true:false); //on
 			timelineDetail.setComment(parameters.get("CIT_comment_gen_" + count));
 			timelineDetails.add(timelineDetail);
@@ -255,12 +280,15 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineDetail.setTimeline(CITPaymentTimeline);
 			String count = key.substring(key.indexOf("CIT_payment_plan_date_exist_") + 28);
 			String planDate = parameters.get("CIT_payment_plan_date_exist_" + count);
+			String actualDate = parameters.get("CIT_payment_actual_date_exist_" + count);
 			try {
 				timelineDetail.setEstimateDate(new SimpleDateFormat("yyyy-MM-dd").parse(planDate.substring(0, 10)));
+				timelineDetail.setActualDate(new SimpleDateFormat("yyyy-MM-dd").parse(actualDate.substring(0, 10))); //2021-02-04
 			} catch (ParseException e) {
 				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			} //2022-01-28 08:00:00.0
-			timelineDetail.setActualDate(Date.valueOf(parameters.get("CIT_payment_actual_date_exist_" + count))); //2021-02-04
 			timelineDetail.setResult("on".equals(parameters.get("CIT_payment_status_exist_" + count)) ? true:false); //on
 			timelineDetail.setComment(parameters.get("CIT_payment_comment_exist_" + count));
 			timelineDetails.add(timelineDetail);
@@ -271,12 +299,15 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineDetail.setTimeline(CITPaymentTimeline);
 			String count = key.substring(key.indexOf("CIT_payment_plan_date_gen_") + 26);
 			String planDate = parameters.get("CIT_payment_plan_date_gen_" + count);
+			String actualDate = parameters.get("CIT_payment_actual_date_gen_" + count);
 			try {
 				timelineDetail.setEstimateDate(new SimpleDateFormat("dd/MM/yyyy").parse(planDate.substring(0, 10)));
+				timelineDetail.setActualDate(new SimpleDateFormat("dd/MM/yyyy").parse(actualDate.substring(0, 10))); //2021-02-04
 			} catch (ParseException e) {
 				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			} //2022-01-28 08:00:00.0
-			timelineDetail.setActualDate(Date.valueOf(parameters.get("CIT_payment_actual_date_gen_" + count))); //2021-02-04
 			timelineDetail.setResult("on".equals(parameters.get("CIT_payment_status_" + count)) ? true:false); //on
 			timelineDetail.setComment(parameters.get("CIT_payment_comment_gen_" + count));
 			timelineDetails.add(timelineDetail);

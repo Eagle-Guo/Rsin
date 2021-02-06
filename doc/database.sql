@@ -359,7 +359,7 @@ INSERT INTO status_code (id, status_desc) value (2,'已完成');
 CREATE TABLE `timeline` (
     `id` int(11) NOT NULL auto_increment,
     `service` varchar(20) NOT NULL,
-    `registration` DATETIME,
+    `registration_date` DATETIME,
     `period` int(11),
     `times` int(11),
     `start_date` DATETIME,
@@ -368,13 +368,15 @@ CREATE TABLE `timeline` (
   CONSTRAINT `timeline_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE `timeline_additional` (
+CREATE TABLE `timeline_addition` (
     `id` int(11) NOT NULL auto_increment,
     `service_progress` varchar(255),
+	`service_flag` BOOLEAN DEFAULT false,
     `channel` varchar(255),
+	`channel_flag` BOOLEAN DEFAULT false,
     `company_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `timeline_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
+  CONSTRAINT `timeline_addition_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
 insert into timeline (service, registration, period, times, start_date, company_id) values ('年审','2021-01-29',12,2,null,'23');

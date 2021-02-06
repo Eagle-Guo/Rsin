@@ -341,12 +341,28 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		}
 		String serviceProgress = parameters.get("textarea1");
 		String channel = parameters.get("textarea2");
-		
+		String lockFlag = parameters.get("lockflag");
+
         if (serviceProgress != null) {
         	timelineAddition.setServiceProgress(serviceProgress);
+
+        	if ("true".equals(lockFlag)) {
+        		timelineAddition.setServiceFlag(true);
+        	} else {
+        		timelineAddition.setServiceFlag(false);
+        	}
         } else if (channel !=  null) {
         	timelineAddition.setChannel(channel);
+        	if ("true".equals(lockFlag)) {
+        		timelineAddition.setChannelFlag(true);
+        	} else {
+        		timelineAddition.setChannelFlag(false);
+        	}
+        } else {
+        	timelineAddition.setServiceFlag(false);
+        	timelineAddition.setChannelFlag(false);
         }
+        
     	timelineAdditionRepository.save(timelineAddition);
 	}
 	

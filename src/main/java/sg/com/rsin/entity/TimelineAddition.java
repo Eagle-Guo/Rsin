@@ -17,19 +17,26 @@ public class TimelineAddition {
 	private Long id;
 	@Column(name="service_progress")
 	private String serviceProgress;
+	@Column(name="service_flag")
+	private boolean serviceFlag;
 	@Column(name="channel")
 	private String channel;
+	@Column(name="channel_flag")
+	private boolean channelFlag;
 	@ManyToOne
     @JoinColumn(name = "company_id", nullable = false)
 	private Company company;
     
     public TimelineAddition() {}
 
-	public TimelineAddition(Long id, String serviceProgress, String channel, Company company) {
+	public TimelineAddition(Long id, String serviceProgress, boolean serviceFlag,
+			String channel, boolean channelFlag, Company company) {
 		super();
 		this.id = id;
 		this.serviceProgress = serviceProgress;
+		this.serviceFlag = serviceFlag;
 		this.channel = channel;
+		this.channelFlag = channelFlag;
 		this.company = company;
 	}
 	public Long getId() {
@@ -49,6 +56,18 @@ public class TimelineAddition {
 	}
 	public void setChannel(String channel) {
 		this.channel = channel;
+	}
+	public boolean isServiceFlag() {
+		return serviceFlag;
+	}
+	public void setServiceFlag(boolean serviceFlag) {
+		this.serviceFlag = serviceFlag;
+	}
+	public boolean isChannelFlag() {
+		return channelFlag;
+	}
+	public void setChannelFlag(boolean channelFlag) {
+		this.channelFlag = channelFlag;
 	}
 	public Company getCompany() {
 		return company;

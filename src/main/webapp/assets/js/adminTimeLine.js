@@ -1,10 +1,19 @@
 $(document).ready(function() {
 	//$("#startDate").attr("value", new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().slice(0, 10));
-	$("#annual_audit_start_date").attr("min", new Date().toISOString().slice(0, 10));
+	// $("#annual_audit_start_date").attr("min", new Date().toISOString().slice(0, 10));
 	var allA = document.getElementsByTagName("a");
     for (var i = 0; i < allA.length; i++) {
         allA[i].onclick = deleteList;
     }
+    
+    var initiateLock = $( "#initiate_lock" ).val();
+    //if default is lock then need to lock all the input and link
+    if (initiateLock == 'true') {
+    	$("#timeLineForm :input").prop("disabled", true);
+		$("#hide_company_id").prop("disabled", false);
+		$('#timeLineForm div').css({"pointer-events":"none"});
+    }
+
 });
 
 function generateRecord(type){
@@ -109,11 +118,20 @@ function timeLineRecord(x) {
 function confirmInfo(companyId, i) {
 	var checkBox = document.getElementById("infoCheckbox"+i);
 	var text = document.getElementById("textarea"+i);
+	var lockflag = false;
+
+	if (checkBox.checked == true){
+		lockflag = true;
+	} else {
+		$("#textarea"+i).prop("disabled", false);
+		lockflag = false;
+	}
+
 	console.log($('#textarea' + i).serialize());
 	$.ajax({
         url: '/api/timeline/addition/update/'+companyId,
         type : "POST",
-        data: $('#textarea' + i).serialize(),
+        data: $('#textarea' + i).serialize() + "&lockflag=" + lockflag,
         timeout: 600000,
         success: function(response){
         	console.log("Update Successful", response);
@@ -126,7 +144,7 @@ function confirmInfo(companyId, i) {
 	if (checkBox.checked == true){
 		$("#textarea"+i).prop("disabled", true);
 	} else {
-		$("#textarea"+i).prop("disabled", false);
+		
 	}
 }		
 
@@ -183,7 +201,7 @@ function confirmTimelineInfo() {
 		// $(".lineRecordArea input[type=hidden]").prop("disabled", false);
 		$(".lineRecordArea a").attr('class', 'disabled');
 		$("#hide_company_id").prop("disabled", false);
-		
+		$('#timeLineForm div').css({"pointer-events":"none"});
 	} else {
 		$(".lineRecordArea input").prop('disabled', false);
 		$(".lineRecordArea select").prop("disabled", false);
@@ -193,7 +211,8 @@ function confirmTimelineInfo() {
 		$(".lineRecordArea a").removeClass("disabled");	
 		$(".lineRecordArea a").attr('class', 'enabled');
 		$(".confirmArea #addNewService_timeLineRecord").removeClass("disabled gray");	
-		$(".confirmArea #addNewService_timeLineRecord").addClass("view");		
+		$(".confirmArea #addNewService_timeLineRecord").addClass("view");	
+		$('#timeLineForm div').css({"pointer-events":""});
 	}	
 }
 

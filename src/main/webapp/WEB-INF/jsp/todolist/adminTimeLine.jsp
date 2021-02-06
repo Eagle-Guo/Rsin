@@ -66,6 +66,7 @@
 								                  		<div class="card-body">
 						                        			<div id="lineRecordArea" class="lineRecordArea">
 							                        			<form id = "timeLineForm">
+							                        				<input type="hidden" id="initiate_lock" value="${company.timelineLockFlag}" />
 	
 											                  		<div id="div_annual_audit" class="unfoldBorder">
 																		<table id="recordTable" class="table table-sm">
@@ -86,7 +87,7 @@
 																			</th>
 																				<td>
 																					<div class="form-group">
-																						<select class="form-control" id="annual_audit_service_cycle" name="annual_audit_service_cycle" <c:if test="${company.timelineLockFlag}">disabled</c:if> >
+																						<select class="form-control" id="annual_audit_service_cycle" name="annual_audit_service_cycle">
 																							<option>选择服务周期</option>
 																							<option>1个月</option>
 																							<option>2个月</option>
@@ -105,7 +106,7 @@
 																	            </td>
 																				<td>
 																					 <div class="form-group">
-																						<select class="form-control" id="annual_audit_service_times" name="annual_audit_service_times" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
+																						<select class="form-control" id="annual_audit_service_times" name="annual_audit_service_times">
 																							<option>选择服务次数</option>
 																							<option value="1">1</option>
 																							<option selected="selected">2</option>
@@ -124,12 +125,12 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="annual_audit_start_date" name="annual_audit_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${annualaudittimeline.startDate}' />" <c:if test="${company.timelineLockFlag}">disabled</c:if> class="form-control">
+																						<input type="date" id="annual_audit_start_date" name="annual_audit_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${annualaudittimeline.startDate}' />" class="form-control">
 																					</div>
 																				 </td>
 																			 	<td>
-																			 		<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('annual_audit')" <c:if test="${company.timelineLockFlag}">disabled</c:if>>生成记录</div></div>
-																			 		<div class="badge badge-info"><div class="" id="viewRecord_annual_audit" style="cursor:pointer" onclick="showAndHideRecord('annual_audit')" <c:if test="${company.timelineLockFlag}">disabled</c:if>>收起记录</div></div>
+																			 		<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('annual_audit')">生成记录</div></div>
+																			 		<div class="badge badge-info"><div class="" id="viewRecord_annual_audit" style="cursor:pointer" onclick="showAndHideRecord('annual_audit')">收起记录</div></div>
 																			 	</td>
 																			</tr>	
 																		</table>
@@ -150,15 +151,15 @@
 																					<fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/>
 																					<input type="hidden" name="annual_audit_plan_date_exist_${audit.id}" value="${audit.estimateDate}"/>
 																				</td>
-																				<td><div class="form-group"><input type="date" class="form-control" name="annual_audit_actual_date_exist_${audit.id}" id="actual_date_${audit.id}" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${audit.actualDate}' />"></div></td>
+																				<td><div class="form-group"><input type="date" class="form-control" name="annual_audit_actual_date_exist_${audit.id}" id="actual_date_${audit.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${audit.actualDate}' />"></div></td>
 																				<td>										                          
 																					<div class="form-check">
-																						<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}" name="annual_audit_status_exist_${audit.id}" <c:if test="${audit.result}">checked</c:if> <c:if test="${company.timelineLockFlag}">disabled</c:if>>	
+																						<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}" name="annual_audit_status_exist_${audit.id}" <c:if test="${audit.result}">checked</c:if>>	
 																						<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
 																					</div>
 																				</td>
 																				<td>
-																					<div class="form-group"><input type="text" class="form-control" name="annual_audit_comment_exist_${audit.id}" value="${audit.comment}" <c:if test="${company.timelineLockFlag}">disabled</c:if>></div>
+																					<div class="form-group"><input type="text" class="form-control" name="annual_audit_comment_exist_${audit.id}" value="${audit.comment}"></div>
 																				</td>													                      
 																	 			<td><a href="javascript:;">删除此记录</a></td>
 																			</tr>
@@ -182,7 +183,7 @@
 																			<th scope="row"  id="ECI_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${ecitimeline.registrationDate}' /></th>
 																				<td>
 																					<div class="form-group">
-																						<select class="form-control" id="ECI_service_cycle" name="ECI_service_cycle" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
+																						<select class="form-control" id="ECI_service_cycle" name="ECI_service_cycle">
 																							<option>选择服务周期</option>
 																							<option>1个月</option>
 																							<option>2个月</option>
@@ -201,7 +202,7 @@
 																	            </td>
 																				<td>
 																					 <div class="form-group">
-																						<select class="form-control" id="ECI_service_times" name="ECI_service_times" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
+																						<select class="form-control" id="ECI_service_times" name="ECI_service_times">
 																							<option>选择服务次数</option>
 																							<option value="1">1</option>
 																							<option selected="selected">2</option>
@@ -220,12 +221,12 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="ECI_start_date" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${ecitimeline.startDate}' />" class="form-control" name="ECI_start_date">
+																						<input type="date" id="ECI_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${ecitimeline.startDate}' />" class="form-control" name="ECI_start_date">
 																					</div>
 																				 </td>
 																			 	<td>
-																				 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('ECI')" <c:if test="${company.timelineLockFlag}">disabled</c:if>>生成记录</div></div>
-																				 	<div class="badge badge-info"><div class="" id="viewRecord_ECI" style="cursor:pointer" onclick="showAndHideRecord('ECI')" <c:if test="${company.timelineLockFlag}">disabled</c:if>>收起记录</div></div>
+																				 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('ECI')" >生成记录</div></div>
+																				 	<div class="badge badge-info"><div class="" id="viewRecord_ECI" style="cursor:pointer" onclick="showAndHideRecord('ECI')">收起记录</div></div>
 																			 	</td>
 																			</tr>	
 																			</table>
@@ -244,15 +245,15 @@
 																						<fmt:formatDate value="${eci.estimateDate}" pattern="dd/MM/yyyy"/>
 																						<input type="hidden" name="ECI_plan_date_exist_${eci.id}" value="${eci.estimateDate}">
 																					</td>
-																					<td><div class="form-group"><input type="date" class="form-control" name="ECI_actual_date_exist_${eci.id}" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${eci.actualDate}' />"></div></td>
+																					<td><div class="form-group"><input type="date" class="form-control" name="ECI_actual_date_exist_${eci.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${eci.actualDate}' />"></div></td>
 																					<td>										                          
 																						<div class="form-check">
-																							<input class="form-check-input" type="checkbox" id="defaultCheck${eci.id}" name="ECI_status_exist_${eci.id}" <c:if test="${company.timelineLockFlag}">disabled</c:if> <c:if test="${eci.result}">checked</c:if>>	
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${eci.id}" name="ECI_status_exist_${eci.id}" <c:if test="${eci.result}">checked</c:if>>	
 																							<label class="form-check-label" for="defaultCheck${eci.id}"> 已完成</label>
 																						</div>
 																					</td>
 																					<td>
-																						<div class="form-group"><input type="text" class="form-control" name="ECI_comment_exist_${eci.id}" value="${eci.comment}" <c:if test="${company.timelineLockFlag}">disabled</c:if>></div>
+																						<div class="form-group"><input type="text" class="form-control" name="ECI_comment_exist_${eci.id}" value="${eci.comment}"></div>
 																					</td>
 																					
 																		 			<td><a href="javascript:;">删除此记录</a></td>
@@ -277,7 +278,7 @@
 																			<th scope="row" id="GST_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${gsttimeline.registrationDate}' /></th>
 																				<td>
 																					<div class="form-group">
-																						<select class="form-control" id="GST_service_cycle" name="GST_service_cycle" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
+																						<select class="form-control" id="GST_service_cycle" name="GST_service_cycle">
 																							<option>选择服务周期</option>
 																							<option>1个月</option>
 																							<option>2个月</option>
@@ -296,7 +297,7 @@
 																	            </td>
 																				<td>
 																					 <div class="form-group">
-																						<select class="form-control" id="GST_service_times" name="GST_service_times" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
+																						<select class="form-control" id="GST_service_times" name="GST_service_times">
 																							<option>选择服务次数</option>
 																							<option value="1">1</option>
 																							<option>2</option>
@@ -315,12 +316,12 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="GST_start_date" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${gsttimeline.startDate}' />" class="form-control" name="GST_start_date">
+																						<input type="date" id="GST_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${gsttimeline.startDate}' />" class="form-control" name="GST_start_date">
 																					</div>
 																				 </td>
 																			 	<td>
-																				 	<div class="badge badge-danger"><div style="cursor:pointer" <c:if test="${company.timelineLockFlag}">disabled</c:if> onclick="generateRecord('GST')">生成记录</div></div>
-																				 	<div class="badge badge-info"><div class="" id="viewRecord_GST" style="cursor:pointer" <c:if test="${company.timelineLockFlag}">disabled</c:if> onclick="showAndHideRecord('GST')">收起记录</div></div>
+																				 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('GST')">生成记录</div></div>
+																				 	<div class="badge badge-info"><div class="" id="viewRecord_GST" style="cursor:pointer" onclick="showAndHideRecord('GST')">收起记录</div></div>
 																			 	</td>
 																			</tr>	
 																			</table>
@@ -341,15 +342,15 @@
 																						<fmt:formatDate value="${gst.estimateDate}" pattern="dd/MM/yyyy"/>
 																						<input type="hidden" name="GST_plan_date_exist_${gst.id}" value="${gst.estimateDate}">
 																					</td>
-																					<td><div class="form-group"><input type="date" class="form-control" name="GST_actual_date_exist_${gst.id}" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${gst.actualDate}' />"></div></td>
+																					<td><div class="form-group"><input type="date" class="form-control" name="GST_actual_date_exist_${gst.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${gst.actualDate}' />"></div></td>
 																					<td>										                          
 																						<div class="form-check">
-																							<input class="form-check-input" type="checkbox" id="defaultCheck${gst.id}" name="GST_status_exist_${gst.id}" <c:if test="${gst.result}">checked</c:if>  <c:if test="${company.timelineLockFlag}">disabled</c:if>>	
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${gst.id}" name="GST_status_exist_${gst.id}" <c:if test="${gst.result}">checked</c:if> >	
 																							<label class="form-check-label" for="defaultCheck${gst.id}"> 已完成</label>
 																						</div>
 																					</td>
 																					<td>
-																						<div class="form-group"><input type="text" class="form-control" name="GST_comment_exist_${gst.id}" value="${gst.comment}"  <c:if test="${company.timelineLockFlag}">disabled</c:if>></div>
+																						<div class="form-group"><input type="text" class="form-control" name="GST_comment_exist_${gst.id}" value="${gst.comment}" ></div>
 																					</td>													                      
 																		 			<td><a href="javascript:;">删除此记录</a></td>
 																				</tr>
@@ -373,7 +374,7 @@
 																			<th scope="row"  id="CIT_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${incometaxclaimtimeline.registrationDate}' /></th>
 																				<td>
 																					<div class="form-group">
-																						<select class="form-control" id="CIT_service_cycle" name="CIT_service_cycle" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
+																						<select class="form-control" id="CIT_service_cycle" name="CIT_service_cycle">
 																							<option>选择服务周期</option>
 																							<option>1个月</option>
 																							<option>2个月</option>
@@ -392,7 +393,7 @@
 																	            </td>
 																				<td>
 																					 <div class="form-group">
-																						<select class="form-control" id="CIT_service_times" name="CIT_service_times" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
+																						<select class="form-control" id="CIT_service_times" name="CIT_service_times">
 																							<option>选择服务次数</option>
 																							<option value="1">1</option>
 																							<option>2</option>
@@ -411,12 +412,12 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="CIT_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${incometaxclaimtimeline.startDate}' />" <c:if test="${company.timelineLockFlag}">disabled</c:if> class="form-control" name="CIT_start_date">
+																						<input type="date" id="CIT_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${incometaxclaimtimeline.startDate}' />" class="form-control" name="CIT_start_date">
 																					</div>
 																				 </td>
 																			 	<td>
-																				 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('CIT')" <c:if test="${company.timelineLockFlag}">disabled</c:if>>生成记录</div></div>
-																				 	<div class="badge badge-info"><div class="" id="viewRecord_CIT" style="cursor:pointer" onclick="showAndHideRecord('CIT')" <c:if test="${company.timelineLockFlag}">disabled</c:if>>收起记录</div></div>
+																				 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('CIT')" >生成记录</div></div>
+																				 	<div class="badge badge-info"><div class="" id="viewRecord_CIT" style="cursor:pointer" onclick="showAndHideRecord('CIT')" >收起记录</div></div>
 																			 	</td>
 																			</tr>	
 																			</table>
@@ -437,15 +438,15 @@
 																						<fmt:formatDate value="${incomeTax.estimateDate}" pattern="dd/MM/yyyy"/>
 																						<input type="hidden" name="CIT_plan_date_exist_${incomeTax.id}" value="${incomeTax.estimateDate}">
 																					</td>
-																					<td><div class="form-group"><input type="date" class="form-control" name="CIT_actual_date_exist_${incomeTax.id}" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${incomeTax.actualDate}' />"></div></td>
+																					<td><div class="form-group"><input type="date" class="form-control" name="CIT_actual_date_exist_${incomeTax.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${incomeTax.actualDate}' />"></div></td>
 																					<td>										                          
 																						<div class="form-check">
-																							<input class="form-check-input" type="checkbox" id="defaultCheck${incomeTax.id}" name="CIT_status_exist_${incomeTax.id}" <c:if test="${company.timelineLockFlag}">disabled</c:if> <c:if test="${incomeTax.result}">checked</c:if>>	
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${incomeTax.id}" name="CIT_status_exist_${incomeTax.id}" <c:if test="${incomeTax.result}">checked</c:if>>	
 																							<label class="form-check-label" for="annual_audit_check_${incomeTax.id}"> 已完成</label>
 																						</div>
 																					</td>
 																					<td>
-																						<div class="form-group"><input type="text" class="form-control" name="CIT_comment_exist_${incomeTaxci.id}" value="${incomeTax.comment}" <c:if test="${company.timelineLockFlag}">disabled</c:if>></div>
+																						<div class="form-group"><input type="text" class="form-control" name="CIT_comment_exist_${incomeTaxci.id}" value="${incomeTax.comment}" ></div>
 																					</td>													                      
 																		 			<td><a href="javascript:;">删除此记录</a></td>
 																				</tr>
@@ -469,7 +470,7 @@
 																			<th scope="row"  id="CIT_payment_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${incometaxpayabletimeline.registrationDate}' /></th>
 																				<td>
 																					<div class="form-group">
-																						<select class="form-control" id="CIT_payment_service_cycle" name="CIT_payment_service_cycle" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
+																						<select class="form-control" id="CIT_payment_service_cycle" name="CIT_payment_service_cycle">
 																							<option>选择服务周期</option>
 																							<option>1个月</option>
 																							<option>2个月</option>
@@ -488,7 +489,7 @@
 																	            </td>
 																				<td>
 																					 <div class="form-group">
-																						<select class="form-control" id="CIT_payment_service_times" name="CIT_payment_service_times" <c:if test="${company.timelineLockFlag}">disabled</c:if>>
+																						<select class="form-control" id="CIT_payment_service_times" name="CIT_payment_service_times">
 																							<option>选择服务次数</option>
 																							<option value="1">1</option>
 																							<option>2</option>
@@ -507,12 +508,12 @@
 																	             </td>                   												  
 																				 <td>                    
 																					<div class="form-group">
-																						<input type="date" id="CIT_payment_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${incometaxpayabletimeline.startDate}' />" <c:if test="${company.timelineLockFlag}">disabled</c:if> class="form-control" name="CIT_payment_start_date">
+																						<input type="date" id="CIT_payment_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${incometaxpayabletimeline.startDate}' />" class="form-control" name="CIT_payment_start_date">
 																					</div>
 																				 </td>
 																			 	<td>
-																				 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('CIT_payment')" <c:if test="${company.timelineLockFlag}">disabled</c:if>>生成记录</div></div>
-																				 	<div class="badge badge-info"><div class="" id="viewRecord_CIT_payment" style="cursor:pointer" onclick="showAndHideRecord('CIT_payment')" <c:if test="${company.timelineLockFlag}">disabled</c:if>>收起记录</div></div>
+																				 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('CIT_payment')" >生成记录</div></div>
+																				 	<div class="badge badge-info"><div class="" id="viewRecord_CIT_payment" style="cursor:pointer" onclick="showAndHideRecord('CIT_payment')">收起记录</div></div>
 																			 	</td>
 																			</tr>	
 																			</table>
@@ -533,15 +534,15 @@
 																						<fmt:formatDate value="${payable.estimateDate}" pattern="dd/MM/yyyy"/>
 																						<input type="hidden" name="CIT_payment_plan_date_exist_${payable.id}" value="${payable.estimateDate}">
 																					</td>
-																					<td><div class="form-group"><input type="date" class="form-control" name="CIT_payment_actual_date_exist_${payable.id}" <c:if test="${company.timelineLockFlag}">disabled</c:if> value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${payable.actualDate}' />"></div></td>
+																					<td><div class="form-group"><input type="date" class="form-control" name="CIT_payment_actual_date_exist_${payable.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${payable.actualDate}' />"></div></td>
 																					<td>										                          
 																						<div class="form-check">
-																							<input class="form-check-input" type="checkbox" id="defaultCheck${payable.id}" name="CIT_payment_status_exist_${payable.id}" <c:if test="${company.timelineLockFlag}">disabled</c:if> <c:if test="${payable.result}">checked</c:if>>	>	
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${payable.id}" name="CIT_payment_status_exist_${payable.id}" <c:if test="${payable.result}">checked</c:if> >	
 																							<label class="form-check-label" for="defaultCheck${payable.id}"> 已完成</label>
 																						</div>
 																					</td>
 																					<td>
-																						<div class="form-group"><input type="text" class="form-control" name="CIT_payment_comment_exist_${payable.id}" value="${payable.comment}" <c:if test="${company.timelineLockFlag}">disabled</c:if>></div>
+																						<div class="form-group"><input type="text" class="form-control" name="CIT_payment_comment_exist_${payable.id}" value="${payable.comment}"></div>
 																					</td>													                      
 																		 			<td><a href="javascript:;">删除此记录</a></td>
 																				</tr>
@@ -552,19 +553,18 @@
 																</form>
 						                        			</div>																		
 															 <div class="row  adminTimeLine confirmArea">
-														            <div class="col-12 col-md-12 col-lg-12 divCss">	
-															            <div class="form-check">
-													                        <input class="form-check-input" type="checkbox" id="infoCheckbox_timeLineRecord" <c:if test="${company.timelineLockFlag}">checked</c:if> onclick="confirmTimelineInfo()">
-													                        <label class="form-check-label" for="gridCheck"> 确认锁定  </label>
-													                    </div>															            	
-													                    <div class="inline">														            	
-															            	<span> | </span><span id="addNewService_timeLineRecord"  class="btnMenu view"  onclick="addNewServiceArea()" >增加服务项</span>		
-																		</div>
-																	</div>																									
-															</div>																																																					
-														
+													            <div class="col-12 col-md-12 col-lg-12 divCss">	
+														            <div class="form-check">
+												                        <input class="form-check-input" type="checkbox" id="infoCheckbox_timeLineRecord" <c:if test="${company.timelineLockFlag}">checked</c:if> onclick="confirmTimelineInfo()">
+												                        <label class="form-check-label" for="gridCheck"> 确认锁定  </label>
+												                    </div>															            	
+												                    <div class="inline">
+														            	<span> | </span><span id="addNewService_timeLineRecord"  class="btnMenu view"  onclick="addNewServiceArea()" >增加服务项</span>		
+																	</div>
+																</div>
+															</div>
 														</div>
-															
+
 								                	</div>
 						                        </div>
 					                      		</div>
@@ -577,12 +577,12 @@
 																	<div class="col-12 col-md-12 col-lg-12">
 													                    <div class="form-group">
 													                      <label>服务进展</label>
-													                      <textarea class="form-control" id="textarea1" name="textarea1">${timelineAddition.serviceProgress}</textarea>
+													                      <textarea class="form-control" id="textarea1" name="textarea1" <c:if test="${timelineAddition.serviceFlag}">disabled</c:if> >${timelineAddition.serviceProgress}</textarea>
 													                    </div>
 																		<div class="row adminTimeLine">
 																            <div class="col-12 col-md-12 col-lg-12 divCss">	
 																	            <div class="form-check">
-															                        <input class="form-check-input" type="checkbox" id="infoCheckbox1"  onclick="confirmInfo(${company.id },1)">
+															                        <input class="form-check-input" type="checkbox" id="infoCheckbox1" <c:if test="${timelineAddition.serviceFlag}">checked</c:if> onclick="confirmInfo(${company.id },1)">
 															                        <label class="form-check-label" for="gridCheck">
 															                       		 确认锁定
 															                        </label>
@@ -603,12 +603,12 @@
 																	<div class="col-12 col-md-12 col-lg-12">
 													                    <div class="form-group">
 													                      <label>渠道方</label>
-													                      <textarea class="form-control"  id="textarea2" name="textarea2">${timelineAddition.channel} </textarea>
+													                      <textarea class="form-control"  id="textarea2" name="textarea2" <c:if test="${timelineAddition.channelFlag}">disabled</c:if>>${timelineAddition.channel} </textarea>
 													                    </div>
 																		<div class="row  adminTimeLine">
 																	            <div class="col-12 col-md-12 col-lg-12 divCss">	
 																		            <div class="form-check">
-																                        <input class="form-check-input" type="checkbox" id="infoCheckbox2"  onclick="confirmInfo(${company.id },2)">
+																                        <input class="form-check-input" type="checkbox" id="infoCheckbox2" <c:if test="${timelineAddition.channelFlag}">checked</c:if>  onclick="confirmInfo(${company.id },2)">
 																                        <label class="form-check-label" for="gridCheck">
 																                       		 确认锁定
 																                        </label>

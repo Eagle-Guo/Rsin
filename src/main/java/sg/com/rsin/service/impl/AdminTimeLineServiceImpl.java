@@ -344,16 +344,20 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			List<String> newServideDetail = parameters.keySet().stream().filter(x -> x.startsWith("new_service_plan_date_gen")).collect(Collectors.toList());
 			for (int j=1; j<newServideDetail.size(); j++) {
 				TimelineDetail timelineDetail =  new TimelineDetail();
-				timelineDetail.setEstimateDate(estimateDate);
-				timelineDetail.setActualDate(actualDate);
-				timelineDetail.setComment(comment);
-				timelineDetail.setResult(result);
+				try {
+					String newservicePlanDate = parameters.get("new_service_plan_date_gen_"+i);
+					timelineDetail.setEstimateDate(newservicePlanDate!=null? new SimpleDateFormat("dd/MM/yyyy").parse(newservicePlanDate.substring(0, 10)):null);
+					String newserviceaActualDate = parameters.get("new_service_actual_date_gen_"+i);
+					timelineDetail.setActualDate(newserviceaActualDate!=null? new SimpleDateFormat("yyyy-MM-dd").parse(newserviceaActualDate.substring(0, 10)):null);
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+				timelineDetail.setComment(parameters.get("new_service_comment_gen_"+i));
+				String status = parameters.get("new_service_status_gen_"+i);
+				timelineDetail.setResult(status !=null && status.equals("on")? true: false);
 				timelineDetail.setTimeline(timeline);
+				timelineDetailRepository.save(timelineDetail);
 			}
-			CITPaymentTimeline.setPeriod(Integer.parseInt(CITPaymentTimelinePeriod.substring(0, CITPaymentTimelinePeriod.indexOf("个月"))));//12个月
-			CITPaymentTimeline.setTimes(Integer.parseInt(parameters.get("CIT_payment_service_times"))); //2
-			CITPaymentTimeline.setStartDate(Date.valueOf(parameters.get("CIT_payment_start_date")));
-			
 		}
 		
 		List <TimelineDetail> details = timelineDetailRepository.findByTimelineId(auditTimeline.getId());

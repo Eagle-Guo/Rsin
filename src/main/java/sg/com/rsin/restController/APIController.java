@@ -312,7 +312,7 @@ public class APIController {
     		return new ResponseEntity<String>("Company not existed", new HttpHeaders(), HttpStatus.NOT_FOUND);
     	}
     	String lockFlag = request.getParameter("lock_record");
-    	if (lockFlag == null || lockFlag.equals("false")) {
+    	if (lockFlag == null) {
     		company.setTimelineLockFlag(false);
     	} else {
     		company.setTimelineLockFlag(true);
@@ -320,7 +320,7 @@ public class APIController {
 		companyRepository.save(company);
     	//adminTimelineService.saveCompanyFlag(company.getId(), lockFlag);
 
-    	if (lockFlag != null && lockFlag.equals("true")) {
+    	if (lockFlag != null) {
 	    	//update timeliene and timeline_detail
 	    	adminTimelineService.saveTimelineAndDetail(company.getId(), parameters);
     	}

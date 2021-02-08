@@ -78,7 +78,7 @@
 																				<th scope="col">开始时间</th>   
 																				<th scope="col">生成记录</th> 	
 																      		</tr>
-																      		<tr>        
+																      		<tr>
 																			<th scope="row" id="annual_audit_service" >年审</th>
 																			<th scope="row"  id="annual_audit_registerDate">
 																				<fmt:formatDate pattern = 'dd/MM/yyyy' value='${annualaudittimeline.registrationDate}' />
@@ -551,6 +551,7 @@
 																    	</table>															    
 																	</div>
 																</form>
+						                        				<form id = "timeLineNewserviceForm"></form>
 						                        			</div>																		
 															 <div class="row  adminTimeLine confirmArea">
 													            <div class="col-12 col-md-12 col-lg-12 divCss">	

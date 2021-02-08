@@ -21,6 +21,8 @@ function generateRecord(type){
     var serviceCycle = document.getElementById(type + "_service_cycle").value;
     var serviceTimes = document.getElementById(type + "_service_times").value;
     var startDate = new Date(document.getElementById(type + "_start_date").value);
+
+    var startDate = new Date(document.getElementById(type + "_start_date").value);
  
     for (var i = 0; i < serviceTimes; i++) {
     	var tr = document.createElement("tr");
@@ -86,12 +88,41 @@ function generateRecord(type){
     }
     alert("已生成记录，请在记录列表进行查看。");
 }
-//TEST
+
+function generateNewserviceRecord(type){
+    var serviceName = $("#new_service_"+type).val();
+    var comment = $("#new_service_comment_"+type).val();
+    var serviceCycle = $("#new_service_cycle_"+type).val();
+    var serviceTimes = $("#new_service_times_"+type).val();
+    var startDate = new Date(document.getElementById("new_service_start_date_" + type).value);
+ 
+    for (var i = 0; i < serviceTimes; i++) {
+    	var tr = document.createElement("tr");
+    	tr.innerHTML="" +
+    		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+    			"<input type='hidden' name='new_service_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
+	        "<td><div class='form-group'><input type='date' class='form-control' name='new_service_actual_date_gen_"+ i +"'></div></td>" +
+			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='new_service_status_gen_" + i + "'> " +
+				"<label class='form-check-label' for='new_service_status_gen_"+ i +"'>已完成</label>" +
+				"</div></td>" +
+			"<td><div class='form-group'><input type='text' class='form-control' name='new_service_comment_gen_"+ i + "'></div></td>" +
+            "<td><a href='javascript:;'>删除此记录</a></td>" ;
+
+        var a = tr.getElementsByTagName("a")[0];
+        a.onclick=deleteList;
+        var recordTable = document.getElementById("recordTable_new_"+ type);
+        var tbody = recordTable.getElementsByTagName("tbody")[0];
+        tbody.appendChild(tr);
+        startDate.setFullYear(startDate.getFullYear() + 1);
+
+    }
+    alert("已生成记录，请在记录列表进行查看。");
+}
 
 function deleteList() {
     var tr = this.parentNode.parentNode;
     var name = tr.children[0].innerHTML;
-    var flag = confirm("确定" + name + "删除吗？");
+    var flag = confirm("确定 删除吗 ?");
     if (flag) {
         tr.parentNode.removeChild(tr);
     }
@@ -168,7 +199,9 @@ function showAndHideRecord(type) {
 	}
 
 function confirmTimelineInfo() {
-	console.log($('#timeLineForm').serialize());
+	console.log("timeLineForm: " + $('#timeLineForm').serialize());
+	console.log("timeLineNewserviceForm: " + $('#timeLineNewserviceForm').serialize());
+	
 	var checkBox = document.getElementById("infoCheckbox_timeLineRecord");
 	var locked = false;
 	if (checkBox.checked == true) {
@@ -180,7 +213,7 @@ function confirmTimelineInfo() {
 	$.ajax({
         url: '/api/timeline/manage/update',
         type : "POST",
-        data: $('#timeLineForm').serialize(),
+        data: $('#timeLineForm').serialize() + "&" +  $('#timeLineNewserviceForm').serialize(),
         timeout: 600000,
         success: function(response){
         	console.log("Update Successful", response);
@@ -216,10 +249,10 @@ function confirmTimelineInfo() {
 	}	
 }
 
-
-
+var new_timeline_count = 0;
 function addNewServiceArea(){
-$("#lineRecordArea").append(`<div id="div_new" class="unfoldBorder">
+	new_timeline_count = new_timeline_count +1;
+	$("#timeLineNewserviceForm").append(`<div class="unfoldBorder">
 								<table  class="table table-sm">
 						      		<tr>
 										<th scope="col">服务项目</th>
@@ -230,11 +263,11 @@ $("#lineRecordArea").append(`<div id="div_new" class="unfoldBorder">
 										<th scope="col">生成记录</th> 	
 						      		</tr>
 						      		<tr>        
-									<th scope="row" id="new_service"><div class="form-group"><input type="text" class="form-control"></div></th>
-									<th scope="row"  id="new_registerDate"><div class="form-group"><input type="text" class="form-control"></div></th>
+										<th scope="row"><div class="form-group"><input type="text" class="form-control" id="new_service_` + new_timeline_count + `" name="new_service_` + new_timeline_count + `"></div></th>
+										<th scope="row"><div class="form-group"><input type="text" class="form-control" id="new_service_comment_` + new_timeline_count + `" name="new_service_comment_` + new_timeline_count + `"></div></th>
 										<td>
 											<div class="form-group">
-												<select class="form-control" id="new_service_cycle" >
+												<select class="form-control" id="new_service_cycle_` + new_timeline_count + `" name="new_service_cycle_` + new_timeline_count + `" >
 													<option>选择服务周期</option>
 													<option>1个月</option>
 													<option>2个月</option>
@@ -253,7 +286,7 @@ $("#lineRecordArea").append(`<div id="div_new" class="unfoldBorder">
 							            </td>
 										<td>
 											 <div class="form-group">
-												<select class="form-control" id="new_service_times">
+												<select class="form-control" id="new_service_times_` + new_timeline_count + `" name="new_service_times_` + new_timeline_count + `">
 													<option>选择服务次数</option>
 													<option value="1">1</option>
 													<option>2</option>
@@ -272,16 +305,16 @@ $("#lineRecordArea").append(`<div id="div_new" class="unfoldBorder">
 							             </td>                   												  
 										 <td>                    
 											<div class="form-group">
-												<input type="date" id="new_start_date"  class="form-control" name="meeting-time">
+												<input type="date" class="form-control"  id="new_service_start_date_` + new_timeline_count + `" name="new_service_start_date_` + new_timeline_count + `">
 											</div>
 										 </td>
 									 	<td>
-										 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('new')">生成记录</div></div>
-										 	<div class="badge badge-info"><div class="" id="viewRecord_new" style="cursor:pointer" onclick="showAndHideRecord('new')">收起记录</div></div>
+										 	<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateNewserviceRecord(` + new_timeline_count + `)">生成记录</div></div>
+										 	<div class="badge badge-info"><div class="" id="viewRecord_new" style="cursor:pointer" onclick="showAndHideRecord(` + new_timeline_count + `)">收起记录</div></div>
 									 	</td>
 									</tr>	
 									</table>
-								<table class="table table-sm" id="recordTable_new"  >
+								<table class="table table-sm" id="recordTable_new_` + new_timeline_count + `"  >
 							        <tr>
 							             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
 							        </tr>		
@@ -292,8 +325,6 @@ $("#lineRecordArea").append(`<div id="div_new" class="unfoldBorder">
 										<th scope="col">其它内容备注</th>   
 										<th scope="col">是否删除记录</th>                    				  
 									</tr>
-			
-									
 						    	</table>															    
 							</div>`);
 }

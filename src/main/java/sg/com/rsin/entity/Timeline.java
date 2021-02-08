@@ -25,6 +25,8 @@ public class Timeline {
 	private Date registrationDate;
 	@Column(name="period")
 	private int period;
+	@Column(name="comment")
+	private String comment;
 	@Column(name="times")
 	private int times;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
@@ -37,13 +39,14 @@ public class Timeline {
     
     public Timeline() {}
 
-	public Timeline(Long id, String service, Date registrationDate, int period, int times, Date startDate,
+	public Timeline(Long id, String service, Date registrationDate, int period, String comment, int times, Date startDate,
 			Company company) {
 		super();
 		this.id = id;
 		this.service = service;
 		this.registrationDate = registrationDate;
 		this.period = period;
+		this.comment = comment;
 		this.times = times;
 		this.startDate = startDate;
 		this.company = company;
@@ -52,55 +55,48 @@ public class Timeline {
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public String getService() {
 		return service;
 	}
-
 	public void setService(String service) {
 		this.service = service;
 	}
-
 	public Date getRegistrationDate() {
 		return registrationDate;
 	}
-
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
-
 	public int getPeriod() {
 		return period;
 	}
-
 	public void setPeriod(int period) {
 		this.period = period;
 	}
-
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 	public int getTimes() {
 		return times;
 	}
-
 	public void setTimes(int times) {
 		this.times = times;
 	}
-
 	public Date getStartDate() {
 		return startDate;
 	}
-
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
-
 	public Company getCompany() {
 		return company;
 	}
-
 	public void setCompany(Company company) {
 		this.company = company;
 	}

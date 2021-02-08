@@ -313,6 +313,48 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineDetails.add(timelineDetail);
 		});
 		
+		//New Service
+		genList = parameters.keySet().stream().filter(x -> x.startsWith("new_service_")).collect(Collectors.toList());
+		Company company  = companyRepository.findById(companyId).get();
+		for (int i=1; i<=genList.size(); i++) {
+			String service = parameters.get("new_service_"+i);
+			Timeline timeline = timelineRepository.findByServiceAndCompanyId(service, companyId);
+			if (timeline == null) {
+				timeline = new Timeline();
+				timeline.setService(parameters.get("new_service_"+i));
+			}
+			
+			timeline.setComment(parameters.get("new_service_comment_"+i));
+			String newserviceCycle = parameters.get("new_service_cycle_"+i); //12个月
+			timeline.setPeriod(newserviceCycle!=null? Integer.parseInt(newserviceCycle.substring(0, newserviceCycle.length()-2)) : 0);
+			String newserviceTimes = parameters.get("new_service_times_"+i);
+			timeline.setTimes(newserviceTimes!=null? Integer.parseInt(newserviceTimes) : 0);
+			String newserviceStartDate = parameters.get("new_service_start_date_"+i);
+			try {
+				timeline.setStartDate(newserviceStartDate!=null? new SimpleDateFormat("yyyy-MM-dd").parse(newserviceStartDate.substring(0, 10)) : null );
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			timeline.setCompany(company);
+			timelineRepository.save(timeline);
+			
+			// save to timeline detail
+			timelineDetailRepository.deleteByTimelineId(timeline.getId());
+			
+			List<String> newServideDetail = parameters.keySet().stream().filter(x -> x.startsWith("new_service_plan_date_gen")).collect(Collectors.toList());
+			for (int j=1; j<newServideDetail.size(); j++) {
+				TimelineDetail timelineDetail =  new TimelineDetail();
+				timelineDetail.setEstimateDate(estimateDate);
+				timelineDetail.setActualDate(actualDate);
+				timelineDetail.setComment(comment);
+				timelineDetail.setResult(result);
+				timelineDetail.setTimeline(timeline);
+			}
+			CITPaymentTimeline.setPeriod(Integer.parseInt(CITPaymentTimelinePeriod.substring(0, CITPaymentTimelinePeriod.indexOf("个月"))));//12个月
+			CITPaymentTimeline.setTimes(Integer.parseInt(parameters.get("CIT_payment_service_times"))); //2
+			CITPaymentTimeline.setStartDate(Date.valueOf(parameters.get("CIT_payment_start_date")));
+			
+		}
 		
 		List <TimelineDetail> details = timelineDetailRepository.findByTimelineId(auditTimeline.getId());
 		details.addAll(timelineDetailRepository.findByTimelineId(ECITimeline.getId()));

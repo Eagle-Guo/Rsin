@@ -263,7 +263,7 @@ function addNewServiceArea(){
 										<th scope="col">生成记录</th> 	
 						      		</tr>
 						      		<tr>        
-										<th scope="row"><div class="form-group"><input type="text" class="form-control" id="new_service_` + new_timeline_count + `" name="new_service_` + new_timeline_count + `"></div></th>
+										<th scope="row"><div class="form-group"><input type="text" class="form-control" id="new_service_name_` + new_timeline_count + `" name="new_service_name_` + new_timeline_count + `"></div></th>
 										<th scope="row"><div class="form-group"><input type="text" class="form-control" id="new_service_comment_` + new_timeline_count + `" name="new_service_comment_` + new_timeline_count + `"></div></th>
 										<td>
 											<div class="form-group">

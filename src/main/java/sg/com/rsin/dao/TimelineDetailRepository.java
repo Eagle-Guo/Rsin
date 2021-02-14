@@ -12,7 +12,5 @@ public interface TimelineDetailRepository extends JpaRepository<TimelineDetail, 
 	@Query("select td from TimelineDetail td, Timeline t where td.timeline.id = t.id and t.id = :id order by td.estimateDate desc")
 	List<TimelineDetail> findByTimelineId(Long id);
 	
-	@Modifying
-	@Query("delete from TimelineDetail td where td.timeline.id = :id")
 	void deleteByTimelineId(Long id);
 }

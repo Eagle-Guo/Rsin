@@ -327,7 +327,7 @@ public class APIController {
 
     	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
     }
-    
+
     @PostMapping(path="/timeline/addition/update/{companyId}")
     public ResponseEntity<?> updateTimelineAddition(@PathVariable Long companyId, HttpServletRequest request) {
     	Enumeration<String> parameterNames = request.getParameterNames();

@@ -23,4 +23,6 @@ public interface AdminTimelineService {
 	public void saveTimelineAddition (Long companyId, Map<String, String> parameters);
 	
 	public TimelineAddition getTimelineAdditionByCompanyId(long companyId);
+	
+	public List <TimelineDetail> getOthersTimeline (List<Timeline> timelines);
 }

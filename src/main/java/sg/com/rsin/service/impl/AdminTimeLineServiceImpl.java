@@ -20,6 +20,7 @@ import sg.com.rsin.entity.Timeline;
 import sg.com.rsin.entity.TimelineAddition;
 import sg.com.rsin.entity.TimelineDetail;
 import sg.com.rsin.service.AdminTimelineService;
+import sg.com.rsin.util.CommonUtils;
 
 @Service
 public class AdminTimeLineServiceImpl implements AdminTimelineService {
@@ -314,14 +315,14 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		});
 		
 		//New Service
-		genList = parameters.keySet().stream().filter(x -> x.startsWith("new_service_")).collect(Collectors.toList());
+		genList = parameters.keySet().stream().filter(x -> x.startsWith("new_service_name_")).collect(Collectors.toList());
 		Company company  = companyRepository.findById(companyId).get();
 		for (int i=1; i<=genList.size(); i++) {
-			String service = parameters.get("new_service_"+i);
+			String service = parameters.get("new_service_name_"+i);
 			Timeline timeline = timelineRepository.findByServiceAndCompanyId(service, companyId);
 			if (timeline == null) {
 				timeline = new Timeline();
-				timeline.setService(parameters.get("new_service_"+i));
+				timeline.setService(parameters.get("new_service_name_"+i));
 			}
 			
 			timeline.setComment(parameters.get("new_service_comment_"+i));
@@ -339,21 +340,21 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineRepository.save(timeline);
 			
 			// save to timeline detail
-			timelineDetailRepository.deleteByTimelineId(timeline.getId());
+			timelineDetailRepository.deleteAll(timelineDetailRepository.findByTimelineId(timeline.getId()));
 			
 			List<String> newServideDetail = parameters.keySet().stream().filter(x -> x.startsWith("new_service_plan_date_gen")).collect(Collectors.toList());
-			for (int j=1; j<newServideDetail.size(); j++) {
+			for (int j=0; j<newServideDetail.size(); j++) {
 				TimelineDetail timelineDetail =  new TimelineDetail();
 				try {
-					String newservicePlanDate = parameters.get("new_service_plan_date_gen_"+i);
+					String newservicePlanDate = parameters.get("new_service_plan_date_gen_"+j);
 					timelineDetail.setEstimateDate(newservicePlanDate!=null? new SimpleDateFormat("dd/MM/yyyy").parse(newservicePlanDate.substring(0, 10)):null);
-					String newserviceaActualDate = parameters.get("new_service_actual_date_gen_"+i);
+					String newserviceaActualDate = parameters.get("new_service_actual_date_gen_"+j);
 					timelineDetail.setActualDate(newserviceaActualDate!=null? new SimpleDateFormat("yyyy-MM-dd").parse(newserviceaActualDate.substring(0, 10)):null);
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
-				timelineDetail.setComment(parameters.get("new_service_comment_gen_"+i));
-				String status = parameters.get("new_service_status_gen_"+i);
+				timelineDetail.setComment(parameters.get("new_service_comment_gen_"+j));
+				String status = parameters.get("new_service_status_gen_"+j);
 				timelineDetail.setResult(status !=null && status.equals("on")? true: false);
 				timelineDetail.setTimeline(timeline);
 				timelineDetailRepository.save(timelineDetail);
@@ -415,5 +416,23 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 	public TimelineAddition getTimelineAdditionByCompanyId(long companyId) {
 		TimelineAddition timelineAddition = timelineAdditionRepository.findByCompanyId(companyId);
 		return timelineAddition;
+	}
+	
+	public List <TimelineDetail> getOthersTimeline (List<Timeline> timelines) {
+		List <Timeline> newServices = timelines.parallelStream().map(timeline -> {
+			if (!CommonUtils.timeLineTypeContains(timeline.getService())) {
+				return timeline;
+			}
+			return null;
+			
+		}).collect(Collectors.toList());
+
+		List <TimelineDetail> timelineDetails = new ArrayList<TimelineDetail>();
+		
+		newServices.stream().forEach(timeline -> {
+			timelineDetails.addAll(timelineDetailRepository.findByTimelineId(timeline.getId()));
+		});
+
+		return timelineDetails;
 	}
 }

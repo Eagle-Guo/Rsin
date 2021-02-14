@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
+import sg.com.rsin.enums.TimeLineType;
 import sg.com.rsin.vo.CompanyInfoVO;
 import sg.com.rsin.vo.CompanyServiceVO;
 
@@ -182,5 +183,14 @@ public class CommonUtils {
 			companyShareholderInfos.add(companyShareholderInfo);
 		}
 		return companyShareholderInfos;
+	}
+	
+	public static boolean timeLineTypeContains(String test) {
+	    for (TimeLineType c : TimeLineType.values()) {
+	        if (c.getDescription().equals(test)) {
+	            return true;
+	        }
+	    }
+	    return false;
 	}
 }

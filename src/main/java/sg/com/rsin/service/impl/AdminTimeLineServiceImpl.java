@@ -417,19 +417,22 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		TimelineAddition timelineAddition = timelineAdditionRepository.findByCompanyId(companyId);
 		return timelineAddition;
 	}
-	
-	public List <TimelineDetail> getOthersTimeline (List<Timeline> timelines) {
-		List <Timeline> newServices = timelines.parallelStream().map(timeline -> {
-			if (!CommonUtils.timeLineTypeContains(timeline.getService())) {
-				return timeline;
-			}
-			return null;
-			
-		}).collect(Collectors.toList());
 
+	public List <Timeline> getOthersTimeline (List<Timeline> timelines) {
+		List <Timeline> newServices = new ArrayList<Timeline>();
+		timelines.forEach(timeline -> {
+			if (!CommonUtils.timeLineTypeContains(timeline.getService())) {
+				newServices.add(timeline);
+			}
+		});
+
+		return newServices;
+	}
+
+	public List<TimelineDetail> getOthersTimelineDetail(List<Timeline> timelines) {
 		List <TimelineDetail> timelineDetails = new ArrayList<TimelineDetail>();
 		
-		newServices.stream().forEach(timeline -> {
+		timelines.stream().forEach(timeline -> {
 			timelineDetails.addAll(timelineDetailRepository.findByTimelineId(timeline.getId()));
 		});
 

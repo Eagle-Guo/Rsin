@@ -135,37 +135,37 @@
 																			</tr>	
 																		</table>
 																		<table class="table table-sm" id="recordTable_annual_audit"  >																		 																			 																			 																		
-																        <tr>
-																             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
-																        </tr>		
-																		<tr>
-																			<th colspan="2" scope="col">预计年审时间</th>	
-																			<th scope="col">实际年审时间</th>  
-																			<th scope="col">项目办理结果</th>    
-																			<th scope="col">其它内容备注</th>   
-																			<th scope="col">是否删除记录</th>                    				  
-																		</tr>
-																		<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																	        <tr>
+																	             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
+																	        </tr>		
 																			<tr>
-																				<td colspan="2" >
-																					<fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/>
-																					<input type="hidden" name="annual_audit_plan_date_exist_${audit.id}" value="${audit.estimateDate}"/>
-																				</td>
-																				<td><div class="form-group"><input type="date" class="form-control" name="annual_audit_actual_date_exist_${audit.id}" id="actual_date_${audit.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${audit.actualDate}' />"></div></td>
-																				<td>										                          
-																					<div class="form-check">
-																						<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}" name="annual_audit_status_exist_${audit.id}" <c:if test="${audit.result}">checked</c:if>>	
-																						<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
-																					</div>
-																				</td>
-																				<td>
-																					<div class="form-group"><input type="text" class="form-control" name="annual_audit_comment_exist_${audit.id}" value="${audit.comment}"></div>
-																				</td>													                      
-																	 			<td><a href="javascript:;">删除此记录</a></td>
+																				<th colspan="2" scope="col">预计年审时间</th>	
+																				<th scope="col">实际年审时间</th>  
+																				<th scope="col">项目办理结果</th>    
+																				<th scope="col">其它内容备注</th>   
+																				<th scope="col">是否删除记录</th>                    				  
 																			</tr>
-																		</c:forEach>
+																			<c:forEach items="${auditTimelineDetail}" var="audit" varStatus="loop">
+																				<tr>
+																					<td colspan="2" >
+																						<fmt:formatDate value="${audit.estimateDate}" pattern="dd/MM/yyyy"/>
+																						<input type="hidden" name="annual_audit_plan_date_exist_${audit.id}" value="${audit.estimateDate}"/>
+																					</td>
+																					<td><div class="form-group"><input type="date" class="form-control" name="annual_audit_actual_date_exist_${audit.id}" id="actual_date_${audit.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${audit.actualDate}' />"></div></td>
+																					<td>										                          
+																						<div class="form-check">
+																							<input class="form-check-input" type="checkbox" id="defaultCheck${audit.id}" name="annual_audit_status_exist_${audit.id}" <c:if test="${audit.result}">checked</c:if>>	
+																							<label class="form-check-label" for="defaultCheck${audit.id}"> 已完成</label>
+																						</div>
+																					</td>
+																					<td>
+																						<div class="form-group"><input type="text" class="form-control" name="annual_audit_comment_exist_${audit.id}" value="${audit.comment}"></div>
+																					</td>													                      
+																		 			<td><a href="javascript:;">删除此记录</a></td>
+																				</tr>
+																			</c:forEach>
 																			
-																    </table>															    
+																    	</table>															    
 																	</div>
 	
 											                  		<div id="div_ECI" class="unfoldBorder">
@@ -550,6 +550,110 @@
 																			
 																    	</table>															    
 																	</div>
+
+																	<c:forEach items="${otherServiceTimelines}" var="othersService" varStatus="loop">
+																		<div id="div_${othersService.service}" class="unfoldBorder">
+																			<table class="table table-sm">
+																	      		<tr>
+																					<th scope="col">服务项目</th>
+																					<th scope="col">备注说明</th>
+																					<th scope="col">服务周期</th>
+																					<th scope="col">服务次数</th>	
+																					<th scope="col">开始时间</th>   
+																					<th scope="col">生成记录</th> 	
+																	      		</tr>
+																	      		<tr>
+																				<th scope="row" id="${othersService.service}_service" >${othersService.service}</th>
+																				<th scope="row"  id="${othersService.service}_registerDate">
+																					<fmt:formatDate pattern = 'dd/MM/yyyy' value='${othersService.registrationDate}' />
+																				</th>
+																					<td>
+																						<div class="form-group">
+																							<select class="form-control" id="${othersService.service}_service_cycle" name="${othersService.service}_service_cycle">
+																								<option>选择服务周期</option>
+																								<option>1个月</option>
+																								<option>2个月</option>
+																								<option>3个月</option>
+																								<option>4个月</option>												                        
+																								<option>5个月</option>
+																								<option>6个月</option>												                        
+																								<option>7个月</option>
+																								<option>8个月</option>
+																								<option>9个月</option>
+																								<option>10个月</option>												                        
+																								<option>11个月</option>
+																								<option selected="selected">12个月</option>												                        
+																							</select>
+																						 </div>
+																		            </td>
+																					<td>
+																						 <div class="form-group">
+																							<select class="form-control" id="${othersService.service}_service_times" name="${othersService.service}_service_times">
+																								<option>选择服务次数</option>
+																								<option value="1">1</option>
+																								<option selected="selected">2</option>
+																								<option>3</option>
+																								<option>4</option>												                        
+																								<option>5</option>
+																								<option>6</option>												                        
+																								<option>7</option>
+																								<option>8</option>												                        
+																								<option>9</option>
+																								<option>10</option>		
+																								<option>11</option>
+																								<option>12</option>													                        											                        
+																							</select>
+																						</div>
+																		             </td>                   												  
+																					 <td>                    
+																						<div class="form-group">
+																							<input type="date" id="${othersService.service}_start_date" name="${othersService.service}_start_date" value="<fmt:formatDate pattern = 'yyyy-MM-dd' value='${othersService.startDate}' />" class="form-control">
+																						</div>
+																					 </td>
+																				 	<td>
+																				 		<div class="badge badge-danger"><div style="cursor:pointer" onclick="generateRecord('${othersService.service}')">生成记录</div></div>
+																				 		<div class="badge badge-info"><div class="" id="viewRecord_${othersService.service}" style="cursor:pointer" onclick="showAndHideRecord('${othersService.service}')">收起记录</div></div>
+																				 	</td>
+																				</tr>	
+																			</table>
+																			<table class="table table-sm" id="recordTable_${othersService.service}"  >																		 																			 																			 																		
+																		        <tr>
+																		             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>
+																		        </tr>		
+																				<tr>
+																					<th colspan="2" scope="col">预计年审时间</th>	
+																					<th scope="col">实际年审时间</th>  
+																					<th scope="col">项目办理结果</th>    
+																					<th scope="col">其它内容备注</th>   
+																					<th scope="col">是否删除记录</th>                    				  
+																				</tr>
+																				<c:forEach items="${otherServiceTimelineDetails}" var="detail" varStatus="loop">
+																					<c:if test="${detail.timeline.id eq othersService.id}">
+																						<tr>
+																							<td colspan="2" >
+																								<fmt:formatDate value="${detail.estimateDate}" pattern="dd/MM/yyyy"/>
+																								<input type="hidden" name="annual_audit_plan_date_exist_${detail.id}" value="${detail.estimateDate}"/>
+																							</td>
+																							<td><div class="form-group"><input type="date" class="form-control" name="annual_audit_actual_date_exist_${detail.id}" id="actual_date_${detail.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${detail.actualDate}' />"></div></td>
+																							<td>										                          
+																								<div class="form-check">
+																									<input class="form-check-input" type="checkbox" id="defaultCheck${detail.id}" name="annual_audit_status_exist_${detail.id}" <c:if test="${detail.result}">checked</c:if>>	
+																									<label class="form-check-label" for="defaultCheck${detail.id}"> 已完成</label>
+																								</div>
+																							</td>
+																							<td>
+																								<div class="form-group"><input type="text" class="form-control" name="${othersService.service}_comment_exist_${detail.id}" value="${detail.comment}"></div>
+																							</td>													                      
+																				 			<td><a href="javascript:;">删除此记录</a></td>
+																						</tr>
+																					</c:if>
+																				</c:forEach>
+																				
+																	    	</table>
+																		</div>
+																		
+																	</c:forEach>
+																	
 																</form>
 						                        				<form id = "timeLineNewserviceForm"></form>
 						                        			</div>																		

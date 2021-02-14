@@ -273,9 +273,12 @@ public class ViewController {
 		model.addObject("incomeTaxClaimTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_4.getDescription(), timelines));
 		model.addObject("incomeTaxPayableTimelineDetail", adminTimelineService.getTimelineDetailByService(TimeLineType.TYPE_5.getDescription(), timelines));
 
-		List<TimelineDetail> timelineDetails = adminTimelineService.getOthersTimeline(timelines);
 
-		model.addObject("timelineDetails", timelineDetails);
+		List<Timeline> otherServiceTimelines = adminTimelineService.getOthersTimeline(timelines);
+		List<TimelineDetail> otherServiceTimelineDetails = adminTimelineService.getOthersTimelineDetail(timelines);
+
+		model.addObject("otherServiceTimelines", otherServiceTimelines);
+		model.addObject("otherServiceTimelineDetails", otherServiceTimelineDetails);
 		TimelineAddition timelineAddition = adminTimelineService.getTimelineAdditionByCompanyId(companyId);
 		model.addObject("timelineAddition", timelineAddition);
 		return model;

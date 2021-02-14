@@ -3,7 +3,6 @@ package sg.com.rsin.service;
 import java.util.List;
 import java.util.Map;
 
-import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Timeline;
 import sg.com.rsin.entity.TimelineAddition;
 import sg.com.rsin.entity.TimelineDetail;
@@ -24,5 +23,7 @@ public interface AdminTimelineService {
 	
 	public TimelineAddition getTimelineAdditionByCompanyId(long companyId);
 	
-	public List <TimelineDetail> getOthersTimeline (List<Timeline> timelines);
+	public List <Timeline> getOthersTimeline (List<Timeline> timelines);
+	
+	public List<TimelineDetail> getOthersTimelineDetail(List<Timeline> timelines);
 }

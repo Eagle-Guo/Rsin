@@ -1,10 +1,14 @@
 $(document).ready(function() {
 	//$("#startDate").attr("value", new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().slice(0, 10));
 	// $("#annual_audit_start_date").attr("min", new Date().toISOString().slice(0, 10));
-	var allA = document.getElementsByTagName("a");
+	/*var allA = document.getElementsByTagName("a");
     for (var i = 0; i < allA.length; i++) {
         allA[i].onclick = deleteList;
-    }
+    }*/
+    
+    $('#readyContent').find('a').each(function() {
+        $(this).click(deleteList);
+    });
     
     var initiateLock = $( "#initiate_lock" ).val();
     //if default is lock then need to lock all the input and link
@@ -17,18 +21,14 @@ $(document).ready(function() {
 });
 
 function generateRecord(type){
-    var registerDate = document.getElementById(type + "_registerDate").value;            	
     var serviceCycle = document.getElementById(type + "_service_cycle").value;
     var serviceTimes = document.getElementById(type + "_service_times").value;
-    var startDate = new Date(document.getElementById(type + "_start_date").value);
-
     var startDate = new Date(document.getElementById(type + "_start_date").value);
  
     for (var i = 0; i < serviceTimes; i++) {
     	var tr = document.createElement("tr");
     	if (type == "annual_audit") {
-    		tr.innerHTML="" +
-    		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+    		tr.innerHTML="<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
     			"<input type='hidden' name='annual_audit_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
 	        "<td><div class='form-group'><input type='date' class='form-control' name='annual_audit_actual_date_gen_"+ i +"'></div></td>" +
 			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='annual_audit_status_gen_" + i + "'> " +
@@ -37,8 +37,7 @@ function generateRecord(type){
 			"<td><div class='form-group'><input type='text' class='form-control' name='annual_audit_comment_gen_"+ i + "'></div></td>" +
             "<td><a href='javascript:;'>删除此记录</a></td>" ;
     	} else if (type == "ECI") {
-    		tr.innerHTML="" +
-    		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+    		tr.innerHTML="<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
     			"<input type='hidden' name='ECI_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
 	        "<td><div class='form-group'><input type='date' class='form-control' name='ECI_actual_date_gen_"+ i +"'></div></td>" +
 			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='ECI_status_gen_" + i + "'> " +
@@ -47,8 +46,7 @@ function generateRecord(type){
 			"<td><div class='form-group'><input type='text' class='form-control' name='ECI_comment_gen_"+ i + "'></div></td>" +
             "<td><a href='javascript:;'>删除此记录</a></td>" ;
     	} else if (type == "GST") {
-    		tr.innerHTML="" +
-    		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+    		tr.innerHTML="<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
     			"<input type='hidden' name='GST_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
 	        "<td><div class='form-group'><input type='date' class='form-control' name='GST_actual_date_gen_"+ i +"'></div></td>" +
 			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='GST_status_gen_" + i + "'> " +
@@ -57,8 +55,7 @@ function generateRecord(type){
 			"<td><div class='form-group'><input type='text' class='form-control' name='GST_comment_gen_"+ i + "'></div></td>" +
             "<td><a href='javascript:;'>删除此记录</a></td>" ;
     	} else if (type == "CIT") {
-    		tr.innerHTML="" +
-    		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+    		tr.innerHTML="<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
     			"<input type='hidden' name='CIT_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
 	        "<td><div class='form-group'><input type='date' class='form-control' name='CIT_actual_date_gen_"+ i +"'></div></td>" +
 			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='CIT_status_gen_" + i + "'> " +
@@ -67,14 +64,22 @@ function generateRecord(type){
 			"<td><div class='form-group'><input type='text' class='form-control' name='CIT_comment_gen_"+ i + "'></div></td>" +
             "<td><a href='javascript:;'>删除此记录</a></td>" ;
     	} else if (type == "CIT_payment") {
-    		tr.innerHTML="" +
-    		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+    		tr.innerHTML="<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
     			"<input type='hidden' name='CIT_payment_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
 	        "<td><div class='form-group'><input type='date' class='form-control' name='CIT_payment_actual_date_gen_"+ i +"'></div></td>" +
 			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='CIT_payment_status_gen_" + i + "'> " +
 				"<label class='form-check-label' for='CIT_payment_status_gen_"+ i +"'>已完成</label>" +
 				"</div></td>" +
 			"<td><div class='form-group'><input type='text' class='form-control' name='CIT_payment_comment_gen_"+ i + "'></div></td>" +
+            "<td><a href='javascript:;'>删除此记录</a></td>" ;
+    	} else {
+    		tr.innerHTML="<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
+    			"<input type='hidden' name='" + type + "_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
+	        "<td><div class='form-group'><input type='date' class='form-control' name='" + type + "_actual_date_gen_"+ i +"'></div></td>" +
+			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='" + type + "_status_gen_" + i + "'> " +
+				"<label class='form-check-label' for='" + type + "_status_gen_"+ i +"'>已完成</label>" +
+				"</div></td>" +
+			"<td><div class='form-group'><input type='text' class='form-control' name='" + type + "_comment_gen_"+ i + "'></div></td>" +
             "<td><a href='javascript:;'>删除此记录</a></td>" ;
     	}
         

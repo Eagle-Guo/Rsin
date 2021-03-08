@@ -283,8 +283,8 @@ public class APIController {
     			sb.append("联系人, ");
     		} 
     		info.setPositionType(sb.substring(0, sb.length() -2));
-    		
-    		if (request.getParameter("status_valid_" + id).equals("on")) {
+    		String aa = request.getParameter("status_valid_" + id);
+    		if (("on").equals(request.getParameter("status_valid_" + id))) {
     			info.setStatus(true);
     		} else {
     			info.setStatus(false);

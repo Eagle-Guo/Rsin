@@ -195,7 +195,7 @@
 																				<div class="row">
 																						<div class="col-12 col-md-1 col-lg-1"></div>		
 																			            <div class="col-12 col-md-7 col-lg-7">	
-																			           	 	<span>修改记录：</span> ${docHistory.createdDate}		                  
+																			           	 	<span>修改记录：</span> <fmt:formatDate pattern = "yyyy-MM-dd HH:mm:ss"  value = "${docHistory.createdDate}" />
 																						</div>
 																		            <div class="col-12 col-md-4 col-lg-4">														            	
 																		            	<div class="inline">														            	
@@ -314,11 +314,11 @@
 																							<div class="form-check form-check-inline">
 																								<input type="hidden" id="shareholder_id_${shareholderInfo.id }" name="shareholder_id_${shareholderInfo.id }" value="${shareholderInfo.id }">
 													                                			<input type="hidden" name="lock_shareholder_${shareholderInfo.id }" value="yes">
-																								<input class="form-check-input" type="radio" name="status_${shareholderInfo.id }" id="status_${shareholderInfo.id }" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${shareholderInfo.status}">checked</c:if>/> 
+																								<input class="form-check-input" type="radio" name="status_valid_${shareholderInfo.id }" value="on" id="status_valid_${shareholderInfo.id }" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${shareholderInfo.status}">checked</c:if>/> 
 																								<label style="height: auto;" class="form-check-label">有效</label>
 																							</div>
 																							<div class="form-check form-check-inline">
-																								<input class="form-check-input" type="radio" name="status_${shareholderInfo.id }" id="status_${shareholderInfo.id }" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${not shareholderInfo.status}">checked </c:if> />
+																								<input class="form-check-input" type="radio" name="status_valid_${shareholderInfo.id }" value="off" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${not shareholderInfo.status}">checked </c:if> />
 																								<label style="height: auto;" class="form-check-label">撤销</label>
 																							</div>
 																						</div>
@@ -479,11 +479,11 @@
 																
 																	<div id="showReport${docpers.id}" class="collapse in">
 																		<c:forEach items="${docPersonalMap[docpers.documentType.documentTypeCode]}" var="docPerHistory" varStatus="loop">
-																			<div id="AttachedReport${docPerHistory.referenceNo}">							
+																			<div id="AttachedReport${docPerHistory.referenceNo}">
 																				<div class="row">
 																						<div class="col-12 col-md-1 col-lg-1"></div>		
 																						<div class="col-12 col-md-7 col-lg-7">	
-																							<span>修改记录：</span> ${docPerHistory.createdDate}		                  
+																							<span>修改记录：</span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value ="${docPerHistory.createdDate}" />
 																						</div>
 																					<div class="col-12 col-md-4 col-lg-4">														            	
 																						<div class="inline">														            	

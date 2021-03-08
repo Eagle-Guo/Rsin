@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "document_history")
 public class DocumentHistory {
@@ -24,6 +26,7 @@ public class DocumentHistory {
 	private String referenceNo;
 	@Column(name="created_by")
 	private String createdBy;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name="created_date")
 	private Date createdDate;
     

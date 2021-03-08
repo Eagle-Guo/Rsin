@@ -563,29 +563,29 @@
 																					<th scope="col">生成记录</th> 	
 																	      		</tr>
 																	      		<tr>
-																				<th scope="row" id="${othersService.service}_service" >${othersService.service}</th>
-																				<th scope="row"  id="${othersService.service}_registerDate">
-																					<fmt:formatDate pattern = 'dd/MM/yyyy' value='${othersService.registrationDate}' />
+																				<th scope="row"  id="${othersService.service}_service" >${othersService.service}</th>
+																				<th scope="row"  id="${othersService.service}_comment">
+																					${othersService.comment}
 																				</th>
-																					<td>
-																						<div class="form-group">
-																							<select class="form-control" id="${othersService.service}_service_cycle" name="${othersService.service}_service_cycle">
-																								<option>选择服务周期</option>
-																								<option>1个月</option>
-																								<option>2个月</option>
-																								<option>3个月</option>
-																								<option>4个月</option>												                        
-																								<option>5个月</option>
-																								<option>6个月</option>												                        
-																								<option>7个月</option>
-																								<option>8个月</option>
-																								<option>9个月</option>
-																								<option>10个月</option>												                        
-																								<option>11个月</option>
-																								<option selected="selected">12个月</option>												                        
-																							</select>
-																						 </div>
-																		            </td>
+																				<td>
+																					<div class="form-group">
+																						<select class="form-control" id="${othersService.service}_service_cycle" name="${othersService.service}_service_cycle">
+																							<option>选择服务周期</option>
+																							<option>1个月</option>
+																							<option>2个月</option>
+																							<option>3个月</option>
+																							<option>4个月</option>												                        
+																							<option>5个月</option>
+																							<option>6个月</option>												                        
+																							<option>7个月</option>
+																							<option>8个月</option>
+																							<option>9个月</option>
+																							<option>10个月</option>												                        
+																							<option>11个月</option>
+																							<option selected="selected">12个月</option>												                        
+																						</select>
+																					 </div>
+																	            </td>
 																					<td>
 																						 <div class="form-group">
 																							<select class="form-control" id="${othersService.service}_service_times" name="${othersService.service}_service_times">
@@ -632,12 +632,12 @@
 																						<tr>
 																							<td colspan="2" >
 																								<fmt:formatDate value="${detail.estimateDate}" pattern="dd/MM/yyyy"/>
-																								<input type="hidden" name="annual_audit_plan_date_exist_${detail.id}" value="${detail.estimateDate}"/>
+																								<input type="hidden" name="${othersService.service}_plan_date_exist_${detail.id}" value="${detail.estimateDate}"/>
 																							</td>
-																							<td><div class="form-group"><input type="date" class="form-control" name="annual_audit_actual_date_exist_${detail.id}" id="actual_date_${detail.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${detail.actualDate}' />"></div></td>
+																							<td><div class="form-group"><input type="date" class="form-control" name="${othersService.service}_actual_date_exist_${detail.id}" id="actual_date_${detail.id}" value="<fmt:formatDate pattern ='yyyy-MM-dd' value='${detail.actualDate}' />"></div></td>
 																							<td>										                          
 																								<div class="form-check">
-																									<input class="form-check-input" type="checkbox" id="defaultCheck${detail.id}" name="annual_audit_status_exist_${detail.id}" <c:if test="${detail.result}">checked</c:if>>	
+																									<input class="form-check-input" type="checkbox" id="defaultCheck${detail.id}" name="${othersService.service}_status_exist_${detail.id}" <c:if test="${detail.result}">checked</c:if>>	
 																									<label class="form-check-label" for="defaultCheck${detail.id}"> 已完成</label>
 																								</div>
 																							</td>
@@ -657,7 +657,7 @@
 																</form>
 						                        				<form id = "timeLineNewserviceForm"></form>
 						                        			</div>																		
-															 <div class="row  adminTimeLine confirmArea">
+															 <div class="row adminTimeLine confirmArea">
 													            <div class="col-12 col-md-12 col-lg-12 divCss">	
 														            <div class="form-check">
 												                        <input class="form-check-input" type="checkbox" id="infoCheckbox_timeLineRecord" <c:if test="${company.timelineLockFlag}">checked</c:if> onclick="confirmTimelineInfo()">

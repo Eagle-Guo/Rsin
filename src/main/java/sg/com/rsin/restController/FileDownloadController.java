@@ -117,7 +117,7 @@ public class FileDownloadController {
         response.setHeader("fileName", filename);
         response.setHeader("content-disposition", "attachment;");
 
-        SimpleDateFormat sm = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
         	DocumentHistory dh = fileService.saveToDocmentAndHistory(userId, company_id, filename, uploadfile, document);
         	DocumentHistoryDto documentHistoryDto = new DocumentHistoryDto();
@@ -173,7 +173,7 @@ public class FileDownloadController {
         response.setHeader("fileName", filename);
         response.setHeader("content-disposition", "attachment;");
 
-        SimpleDateFormat sm = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
         	DocumentHistory dh = fileService.saveToDocmentAndHistory(userId, company_id, filename, uploadfile, document);
         	DocumentHistoryDto documentHistoryDto = new DocumentHistoryDto();

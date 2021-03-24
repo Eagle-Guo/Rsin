@@ -551,8 +551,11 @@
 																    	</table>															    
 																	</div>
 
+																	<!-- New service -->
 																	<c:forEach items="${otherServiceTimelines}" var="othersService" varStatus="loop">
 																		<div id="div_${othersService.service}" class="unfoldBorder">
+																			<input type="hidden" name="${othersService.service}_service" value="${othersService.service}"/>
+																			<input type="hidden" name="${othersService.service}_comment" value="${othersService.comment}"/>
 																			<table class="table table-sm">
 																	      		<tr>
 																					<th scope="col">服务项目</th>
@@ -563,29 +566,27 @@
 																					<th scope="col">生成记录</th> 	
 																	      		</tr>
 																	      		<tr>
-																				<th scope="row"  id="${othersService.service}_service" >${othersService.service}</th>
-																				<th scope="row"  id="${othersService.service}_comment">
-																					${othersService.comment}
-																				</th>
-																				<td>
-																					<div class="form-group">
-																						<select class="form-control" id="${othersService.service}_service_cycle" name="${othersService.service}_service_cycle">
-																							<option>选择服务周期</option>
-																							<option>1个月</option>
-																							<option>2个月</option>
-																							<option>3个月</option>
-																							<option>4个月</option>												                        
-																							<option>5个月</option>
-																							<option>6个月</option>												                        
-																							<option>7个月</option>
-																							<option>8个月</option>
-																							<option>9个月</option>
-																							<option>10个月</option>												                        
-																							<option>11个月</option>
-																							<option selected="selected">12个月</option>												                        
-																						</select>
-																					 </div>
-																	            </td>
+																					<th scope="row"  id="${othersService.service}_service"> ${othersService.service} </th>
+																					<th scope="row"  id="${othersService.service}_comment"> ${othersService.comment} </th>
+																					<td>
+																						<div class="form-group">
+																							<select class="form-control" id="${othersService.service}_service_cycle" name="${othersService.service}_service_cycle">
+																								<option>选择服务周期</option>
+																								<option>1个月</option>
+																								<option>2个月</option>
+																								<option>3个月</option>
+																								<option>4个月</option>												                        
+																								<option>5个月</option>
+																								<option>6个月</option>												                        
+																								<option>7个月</option>
+																								<option>8个月</option>
+																								<option>9个月</option>
+																								<option>10个月</option>												                        
+																								<option>11个月</option>
+																								<option selected="selected">12个月</option>												                        
+																							</select>
+																						 </div>
+																	            	</td>
 																					<td>
 																						 <div class="form-group">
 																							<select class="form-control" id="${othersService.service}_service_times" name="${othersService.service}_service_times">

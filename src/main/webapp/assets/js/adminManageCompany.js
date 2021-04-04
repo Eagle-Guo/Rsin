@@ -382,9 +382,6 @@ function del_newAdd_personal() {
 };
 
 
-
-
-
 function addNewPerson_personal(){
 	$("#newPersonArea_personal").append(`
 		<div class="col-12 col-md-12 col-lg-12">
@@ -518,53 +515,39 @@ function addNewPerson_personal(){
 										<div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReportid" style="cursor: pointer">
 										   <b></b>			                  
 										</div>
-								
-											
 												<div class="col-12 col-md-4 col-lg-4">	
 													签名人员： (已签名)
 												</div>
-										
-										
 												<div class="col-12 col-md-4 col-lg-4">	
 													签名人员： (已签名)
 												</div>
-											
 												<div class="col-12 col-md-4 col-lg-4">	
 													签名人员： (已签名)
 												</div>
-										
 												<div class="col-12 col-md-4 col-lg-4">	
 													签名人员： (已签名)
 												</div>
-									
 												<div class="col-12 col-md-4 col-lg-4">	
 													签名人员： (已签名)
 												</div>
-											
 												<div class="col-12 col-md-4 col-lg-4">	
 													人员： (已上传)
 												</div>
-											
 												<div class="col-12 col-md-4 col-lg-4">	
 													人员： (已上传)
 												</div>
-									
 												<div class="col-12 col-md-4 col-lg-4">	
 													人员： (已上传)
 												</div>
-									
 												<div class="col-12 col-md-4 col-lg-4">	
 													人员： (已上传)
 												</div>
-											
 												<div class="col-12 col-md-4 col-lg-4">	
 													人员： (已上传)
 												</div>
-											
 												<div class="col-12 col-md-4 col-lg-4">	
 													人员： (已上传)
 												</div>
-		
 										<div class="col-12 col-md-4 col-lg-4">	
 											<div class="form-check">
 												<input class="form-check-input" type="checkbox"  id="personalfilelockid"  onclick="personlock(id)">
@@ -572,40 +555,31 @@ function addNewPerson_personal(){
 											</div>	
 											<div class="inline">														            	
 												<span> | </span><input type="file" id="file_per_uploadid" style="display:none" onchange="personuploadfile(id)"/>
-																<a id="upload_person_fileid" class="btnMenu view"  onclick="personshowfilediag(id)">上传</a>		
+												  <a id="upload_person_fileid" class="btnMenu view"  onclick="personshowfilediag(id)">上传</a>		
 											</div>
 										</div>
 									</div>
 								
 									<div id="showReportid" class="collapse in">
 										
-											<div id="AttachedReportid">							
-												<div class="row">
-														<div class="col-12 col-md-1 col-lg-1"></div>		
-														<div class="col-12 col-md-7 col-lg-7">	
-															<span>修改记录：</span>                 
-														</div>
-													<div class="col-12 col-md-4 col-lg-4">														            	
-														<div class="inline">														            	
-															<a id="download_company_fileid" class="btnMenu view"  onclick="companydownloadfile(id)" >下载</a>	
-															<span> | </span><a id="preview_company_fileid" class="btnMenu view" onclick="companypreviewfile(id)">浏览</a>			
-															<span> | </span><a id="delete_company_fileid" class="btnMenu view delete_company_file" onclick="companydeletefile(id)">删除</a>						                  
-														</div>							                  
-													</div>		
-													<div class="col-12 col-md-1 col-lg-1"></div>					
-												</div>
+										<div id="AttachedReportid">							
+											<div class="row">
+													<div class="col-12 col-md-1 col-lg-1"></div>		
+													<div class="col-12 col-md-7 col-lg-7">	
+														<span>修改记录：</span>                 
+													</div>
+												<div class="col-12 col-md-4 col-lg-4">														            	
+													<div class="inline">														            	
+														<a id="download_company_fileid" class="btnMenu view"  onclick="companydownloadfile(id)" >下载</a>	
+														<span> | </span><a id="preview_company_fileid" class="btnMenu view" onclick="companypreviewfile(id)">浏览</a>			
+														<span> | </span><a id="delete_company_fileid" class="btnMenu view delete_company_file" onclick="companydeletefile(id)">删除</a>						                  
+													</div>							                  
+												</div>		
+												<div class="col-12 col-md-1 col-lg-1"></div>					
 											</div>
+										</div>
 									
 									</div>
-							
-								
-								<div id="newUploadFileArea_personal">																	
-								</div>	
-									
-								<div class="inline">	
-								       <div class="badge badge-danger"><span  id="addNewUploadFile_personal"  onclick="addNewUploadFile_personal()" style="cursor: pointer;">增加上传文件</span></div>												            	
-								</div>																	
-								
 			                  </div>
 			                </div>
 		                </div>

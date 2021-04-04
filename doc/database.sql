@@ -197,6 +197,7 @@ INSERT INTO document_type (document_type_code, document_type_desc, document_type
 INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_4','Chinese IC', '中国身份证', sysdate());
 INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_5','Resident Proof', '住所证明', sysdate());
 INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_6','Selfie With Passport', '持护照（打开有照片页）上半身照', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_0','Others', '其他文件', sysdate());
 
 CREATE TABLE `initiate_document` (
   `id` int(11) NOT NULL auto_increment,
@@ -363,6 +364,7 @@ CREATE TABLE `timeline` (
     `period` int(11),
     `times` int(11),
     `start_date` DATETIME,
+	`comment` varchar(100),
     `company_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `timeline_company_id_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)

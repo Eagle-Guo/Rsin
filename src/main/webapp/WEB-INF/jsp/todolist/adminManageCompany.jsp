@@ -457,11 +457,11 @@
 																	</div>
 																</c:forEach>
 																
-																<div id="newUploadFileArea_personal"></div>	
+																<!-- <div id="newUploadFileArea_personal"></div>	
 																	
 																<div class="inline">	
 																   <div class="badge badge-danger"><span id="addNewUploadFile_personal"  onclick="addNewUploadFile_personal()" style="cursor: pointer;">增加上传文件</span></div>												            	
-																</div>																	
+																</div> -->																	
 																
 											                  </div>
 											                </div>
@@ -471,15 +471,13 @@
 							                </div>
 							            </div>			  		
 
-	                       			</div> 
-	                       			
-										<div class="row" id="newPersonArea_personal">																	
-										</div>	
-										<div class="inline" style="text-align: center;padding-top: 2%;padding-bottom: 2%;">	
-											 <div class="badge badge-danger"><span  id=""  onclick="addNewPerson_personal()" style="cursor: pointer;">增加股东/董事/联系人</span></div>												            	
-										</div>	                       			
-	                       			
-							</c:forEach> 
+	                       			</div>
+	                       		</c:forEach> 		
+								<div class="row" id="newPersonArea_personal">																	
+								</div>	
+								<div class="inline" style="text-align: center;padding-top: 2%;padding-bottom: 2%;">	
+									 <div class="badge badge-danger"><span  id=""  onclick="addNewPerson_personal()" style="cursor: pointer;">增加股东/董事/联系人</span></div>												            	
+								</div>	                       			
        				</div>
                </div>
            </div>	        

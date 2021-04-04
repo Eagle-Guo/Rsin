@@ -554,8 +554,6 @@
 																	<!-- New service -->
 																	<c:forEach items="${otherServiceTimelines}" var="othersService" varStatus="loop">
 																		<div id="div_${othersService.service}" class="unfoldBorder">
-																			<input type="hidden" name="${othersService.service}_service" value="${othersService.service}"/>
-																			<input type="hidden" name="${othersService.service}_comment" value="${othersService.comment}"/>
 																			<table class="table table-sm">
 																	      		<tr>
 																					<th scope="col">服务项目</th>
@@ -566,8 +564,8 @@
 																					<th scope="col">生成记录</th> 	
 																	      		</tr>
 																	      		<tr>
-																					<th scope="row"  id="${othersService.service}_service"> ${othersService.service} </th>
-																					<th scope="row"  id="${othersService.service}_comment"> ${othersService.comment} </th>
+																					<th scope="row"><div class="form-group"><input type="text" class="form-control" name="${othersService.service}_service" value="${othersService.service}"></div></th>
+																					<th scope="row"><div class="form-group"><input type="text" class="form-control" name="${othersService.service}_comment" value="${othersService.comment}"></div></th>
 																					<td>
 																						<div class="form-group">
 																							<select class="form-control" id="${othersService.service}_service_cycle" name="${othersService.service}_service_cycle">
@@ -617,6 +615,7 @@
 																				 	</td>
 																				</tr>	
 																			</table>
+
 																			<table class="table table-sm" id="recordTable_${othersService.service}"  >																		 																			 																			 																		
 																		        <tr>
 																		             <td colspan="6" align="center" class="addBottom_adminTimeLine"><b>记录列表</b></td>

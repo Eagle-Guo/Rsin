@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.jfree.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -111,7 +112,6 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		CITPaymentTimeline.setStartDate(Date.valueOf(parameters.get("CIT_payment_start_date")));
 		timelineRepository.save(CITPaymentTimeline);
 
-
 		//Save to timeline detail tables
 		List<TimelineDetail> timelineDetails = new ArrayList<TimelineDetail> ();
 
@@ -126,6 +126,7 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 				timelineDetail.setEstimateDate(new SimpleDateFormat("yyyy-MM-dd").parse(planDate.substring(0, 10)));
 				timelineDetail.setActualDate(new SimpleDateFormat("yyyy-MM-dd").parse(actualDate.substring(0, 10))); //2021-02-04
 			} catch (ParseException e) {
+				Log.error(planDate + "-->" + actualDate);
 				e.printStackTrace();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -313,7 +314,8 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timelineDetail.setComment(parameters.get("CIT_payment_comment_gen_" + count));
 			timelineDetails.add(timelineDetail);
 		});
-		
+
+
 		//New Service
 		genList = parameters.keySet().stream().filter(x -> x.startsWith("new_service_name_")).collect(Collectors.toList());
 		Company company  = companyRepository.findById(companyId).get();
@@ -366,13 +368,14 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		company  = companyRepository.findById(companyId).get();
 		for (int i=0; i<genList.size(); i++) {
 			String serviceParameter = genList.get(i);
-			String service = parameters.get(serviceParameter);
+			String service = serviceParameter.substring(0, serviceParameter.indexOf("_service"));
+			String servicename = parameters.get(serviceParameter);
 			Timeline timeline = timelineRepository.findByServiceAndCompanyId(service, companyId);
 			if (timeline == null) {
 				timeline = new Timeline();
 				timeline.setService(parameters.get(service));
 			}
-			
+			timeline.setService(servicename);
 			timeline.setComment(parameters.get(service + "_comment"));
 			String newserviceCycle = parameters.get(service + "_service_cycle"); //12个月
 			timeline.setPeriod(newserviceCycle!=null? Integer.parseInt(newserviceCycle.substring(0, newserviceCycle.length()-2)) : 0);

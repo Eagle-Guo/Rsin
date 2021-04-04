@@ -206,7 +206,6 @@ function showAndHideRecord(type) {
 function confirmTimelineInfo() {
 	console.log("timeLineForm: " + $('#timeLineForm').serialize());
 	console.log("timeLineNewserviceForm: " + $('#timeLineNewserviceForm').serialize());
-	
 	var checkBox = document.getElementById("infoCheckbox_timeLineRecord");
 	var locked = false;
 	if (checkBox.checked == true) {

@@ -347,7 +347,7 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 				TimelineDetail timelineDetail =  new TimelineDetail();
 				try {
 					String newservicePlanDate = parameters.get("new_service_plan_date_gen_"+j);
-					timelineDetail.setEstimateDate(newservicePlanDate!=null? new SimpleDateFormat("dd/MM/yyyy").parse(newservicePlanDate.substring(0, 10)):null);
+					timelineDetail.setEstimateDate(newservicePlanDate!=null? new SimpleDateFormat("yyyy-MM-dd").parse(newservicePlanDate.substring(0, 10)):null);
 					String newserviceaActualDate = parameters.get("new_service_actual_date_gen_"+j);
 					timelineDetail.setActualDate(newserviceaActualDate!=null? new SimpleDateFormat("yyyy-MM-dd").parse(newserviceaActualDate.substring(0, 10)):null);
 				} catch (Exception ex) {

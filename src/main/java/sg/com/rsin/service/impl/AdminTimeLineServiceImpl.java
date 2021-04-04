@@ -364,21 +364,21 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 		//Update new service 
 		genList = parameters.keySet().stream().filter(x -> x.endsWith("_service")).collect(Collectors.toList());
 		company  = companyRepository.findById(companyId).get();
-		for (int i=1; i<=genList.size(); i++) {
+		for (int i=0; i<genList.size(); i++) {
 			String serviceParameter = genList.get(i);
 			String service = parameters.get(serviceParameter);
 			Timeline timeline = timelineRepository.findByServiceAndCompanyId(service, companyId);
 			if (timeline == null) {
 				timeline = new Timeline();
-				timeline.setService(parameters.get(serviceParameter));
+				timeline.setService(parameters.get(service));
 			}
 			
-			timeline.setComment(parameters.get(serviceParameter + "_comment"));
-			String newserviceCycle = parameters.get(serviceParameter + "_service_cycle"); //12个月
+			timeline.setComment(parameters.get(service + "_comment"));
+			String newserviceCycle = parameters.get(service + "_service_cycle"); //12个月
 			timeline.setPeriod(newserviceCycle!=null? Integer.parseInt(newserviceCycle.substring(0, newserviceCycle.length()-2)) : 0);
-			String newserviceTimes = parameters.get(serviceParameter + "_service_times");
+			String newserviceTimes = parameters.get(service + "_service_times");
 			timeline.setTimes(newserviceTimes!=null? Integer.parseInt(newserviceTimes) : 0);
-			String newserviceStartDate = parameters.get(serviceParameter + "_start_date");
+			String newserviceStartDate = parameters.get(service + "_start_date");
 			try {
 				timeline.setStartDate(newserviceStartDate!=null? new SimpleDateFormat("yyyy-MM-dd").parse(newserviceStartDate.substring(0, 10)) : null );
 			} catch (Exception ex) {
@@ -387,22 +387,32 @@ public class AdminTimeLineServiceImpl implements AdminTimelineService {
 			timeline.setCompany(company);
 			timelineRepository.save(timeline);
 			
+			//TODO for the existed record. need to copy into list first then remove all and insert again
 			// save to timeline detail
 			timelineDetailRepository.deleteAll(timelineDetailRepository.findByTimelineId(timeline.getId()));
 			
-			List<String> newServideDetail = parameters.keySet().stream().filter(x -> x.startsWith(serviceParameter + "_actual_date_gen")).collect(Collectors.toList());
+			List<String> newServideDetail = parameters.keySet().stream().filter(x -> x.startsWith(service + "_actual_date_gen") ||
+				x.startsWith(service + "_actual_date_exist")).collect(Collectors.toList());
 			for (int j=0; j<newServideDetail.size(); j++) {
+				String newService = newServideDetail.get(j);
+				String dbNumber = newService.substring(newService.lastIndexOf('_',newService.lastIndexOf('_')-1)+1);//exist_975
 				TimelineDetail timelineDetail = new TimelineDetail();
 				try {
-					String newservicePlanDate = parameters.get(newServideDetail.get(j));
-					timelineDetail.setEstimateDate(newservicePlanDate!=null? new SimpleDateFormat("dd/MM/yyyy").parse(newservicePlanDate.substring(0, 10)):null);
-					String newserviceaActualDate = parameters.get("new_service_actual_date_gen_"+j);
+					String newserviceaActualDate = parameters.get(newService);
 					timelineDetail.setActualDate(newserviceaActualDate!=null? new SimpleDateFormat("yyyy-MM-dd").parse(newserviceaActualDate.substring(0, 10)):null);
+					String newservicePlanDate = parameters.get(service + "_plan_date_"+dbNumber);
+					timelineDetail.setEstimateDate(newservicePlanDate!=null? new SimpleDateFormat("yyyy-MM-dd").parse(newservicePlanDate.substring(0, 10)):null);
+					
+					//newservicePlanDate = parameters.get(newService);
+					//timelineDetail.setEstimateDate(newservicePlanDate!=null? new SimpleDateFormat("yyyy-MM-dd").parse(newservicePlanDate.substring(0, 10)):null);
+					
+					//String newserviceaActualDate = parameters.get(service + "_actual_date_gen_"+j);
+					//timelineDetail.setActualDate(newserviceaActualDate!=null? new SimpleDateFormat("yyyy-MM-dd").parse(newserviceaActualDate.substring(0, 10)):null);
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
-				timelineDetail.setComment(parameters.get("new_service_comment_gen_"+j));
-				String status = parameters.get("new_service_status_gen_"+j);
+				timelineDetail.setComment(parameters.get(service + "_comment_"+dbNumber));
+				String status = parameters.get(service + "_status_"+dbNumber);
 				timelineDetail.setResult(status !=null && status.equals("on")? true: false);
 				timelineDetail.setTimeline(timeline);
 				timelineDetailRepository.save(timelineDetail);

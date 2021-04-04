@@ -184,7 +184,7 @@
 														                    </div>	
 														                    <div class="inline">														            	
 																            	<span> | </span><input type="file" id="file_com_upload${docs.id}" style="display:none" onchange="companyuploadfile(${company.id }, ${docs.id})"/>
-																            					<a id="upload_company_file${docs.id}" class="btnMenu view"  onclick="companyshowfilediag(${docs.id})">上传</a>		
+																            		<a id="upload_company_file${docs.id}" class="btnMenu view"  onclick="companyshowfilediag(${docs.id})">上传</a>		
 																			</div>
 																		</div>
 																	</div>
@@ -211,49 +211,7 @@
 																	</div>
 																</c:forEach> 
 																
-															<div id="newUploadFileArea_company">	
-																<!--<c:forEach var="docs" items="${docCompanyList}" >-->
-																<!-- <div>
-																	<div class="row">
-															            <div class="col-12 col-md-4 col-lg-4 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport${docs.id}" style="cursor: pointer">
-															           	   <input type="text" class="form-control">		                  
-																		</div>
-															            <div class="col-12 col-md-4 col-lg-4">	
-																			<div class="form-check">
-														                        <input class="form-check-input" type="checkbox"  id="companyfilelock${docs.id}"  onclick="lock(${docs.id})">
-														                        <label class="form-check-label" for="gridCheck">确认锁定 </label>
-														                    </div>	
-														                    <div class="inline">														            	
-																            	<span> | </span><input type="file" id="file_com_upload${docs.id}" style="display:none" onchange=""/>
-																            					<a id="upload_company_file${docs.id}" class="btnMenu view"  onclick="companyshowfilediag(${docs.id})">上传</a>		
-																			</div>
-																		</div>
-																	</div>
-
-																	<div id="showReport${docs.id}" class="collapse in">
-																		
-																			<div id="AttachedReport${docHistory.referenceNo}">							
-																				<div class="row">
-																						<div class="col-12 col-md-1 col-lg-1"></div>		
-																			            <div class="col-12 col-md-7 col-lg-7">	
-																			           	 	<span>修改记录：</span> ${docHistory.createdDate}		                  
-																						</div>
-																		            <div class="col-12 col-md-4 col-lg-4">														            	
-																		            	<div class="inline">														            	
-																			            	<a id="download_company_file${docHistory.id}" class="btnMenu view"  onclick="companydownloadfile('${docHistory.referenceNo}')" >下载</a>	
-																			            	<span> | </span><a id="preview_company_file${docHistory.id}" class="btnMenu view" onclick="companypreviewfile('${docHistory.referenceNo}')">浏览</a>			
-																			            	<span> | </span><a id="delete_company_file${docHistory.id}" class="btnMenu view delete_company_file" onclick="companydeletefile('${docHistory.referenceNo}')">删除</a>						                  
-																						</div>							                  
-																					</div>		
-																					<div class="col-12 col-md-1 col-lg-1"></div>					
-																				</div>
-																			</div>
-						
-																	</div>
-																<!--</c:forEach>-->																
-																<!-- </div> -->
-																
-															</div>	
+															<div id="newUploadFileArea_company"></div>	
 																
 																<div class="inline">	
 															          <div class="badge badge-danger"><span  id="addNewUploadFile"  onclick="addNewUploadFile_company()" style="cursor: pointer;">增加上传文件</span></div>												            	
@@ -499,11 +457,10 @@
 																	</div>
 																</c:forEach>
 																
-																<div id="newUploadFileArea_personal">																	
-																</div>	
+																<div id="newUploadFileArea_personal"></div>	
 																	
 																<div class="inline">	
-																       <div class="badge badge-danger"><span  id="addNewUploadFile_personal"  onclick="addNewUploadFile_personal()" style="cursor: pointer;">增加上传文件</span></div>												            	
+																   <div class="badge badge-danger"><span id="addNewUploadFile_personal"  onclick="addNewUploadFile_personal()" style="cursor: pointer;">增加上传文件</span></div>												            	
 																</div>																	
 																
 											                  </div>

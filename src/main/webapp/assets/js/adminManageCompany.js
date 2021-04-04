@@ -263,8 +263,12 @@ function personlock(x) {
 	}
 }	
 
+function companyshowfilediag_new (doc_id){
+	$('#file_com_upload'+doc_id).trigger('click');	
+}
 
-function addNewUploadFile_company(){
+function addNewUploadFile_company(companyId){
+	var id = new Date().getTime();
 	$("#newUploadFileArea_company").append(`
 		<div id="newArea_company">
 			<div class="row" style="padding-top:1%;">
@@ -277,11 +281,11 @@ function addNewUploadFile_company(){
                         <input class="form-check-input" type="checkbox"  id="companyfilelock$_new"  onclick="lock(new)">
                         <label class="form-check-label" for="gridCheck">确认锁定 </label>
                     </div>	
-                    <div class="inline">														            	
-		            	<span> | </span><input type="file" id="file_com_upload_new" style="display:none" onchange=""/>
-		            					<a id="upload_company_file_new" class="btnMenu view"  onclick="companyshowfilediag_new">上传</a>	
+                    <div class="inline">
+		            	<span> | </span><input type="file" id="file_com_upload_new`+ id +`" style="display:none" onchange="companyuploadfile(`+ companyId + ", " + id +`)"/>
+		            			<a id="upload_company_file_new" class="btnMenu view"  onclick="companyshowfilediag_new(` + id + `)">上传</a>	
 		            	<span> | </span><input type="file" id="file_com_del_new" style="display:none" onchange=""/>
-		            					<a id="" class="btnMenu view"  onclick="del_newAdd_company()">删除</a>					
+		            			<a id="" class="btnMenu view"  onclick="del_newAdd_company()">删除</a>					
 					</div>
 				</div>
 			</div>

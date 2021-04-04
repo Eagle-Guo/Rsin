@@ -74,7 +74,7 @@ function generateRecord(type){
             "<td><a href='javascript:;'>删除此记录</a></td>" ;
     	} else {
     		tr.innerHTML="<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
-    			"<input type='hidden' name='" + type + "_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
+    			"<input type='hidden' name='" + type + "_plan_date_gen_" + i + "' value='" + startDate.toISOString().split('T')[0] + "'/></td>"+
 	        "<td><div class='form-group'><input type='date' class='form-control' name='" + type + "_actual_date_gen_"+ i +"'></div></td>" +
 			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='" + type + "_status_gen_" + i + "'> " +
 				"<label class='form-check-label' for='" + type + "_status_gen_"+ i +"'>已完成</label>" +
@@ -105,7 +105,7 @@ function generateNewserviceRecord(type){
     	var tr = document.createElement("tr");
     	tr.innerHTML="" +
     		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
-    			"<input type='hidden' name='new_service_plan_date_gen_" + i + "' value='" + startDate.toLocaleDateString('en-GB') + "'/></td>"+
+    			"<input type='hidden' name='new_service_plan_date_gen_" + i + "' value='" + startDate.toISOString().split('T')[0] + "'/></td>"+
 	        "<td><div class='form-group'><input type='date' class='form-control' name='new_service_actual_date_gen_"+ i +"'></div></td>" +
 			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='new_service_status_gen_" + i + "'> " +
 				"<label class='form-check-label' for='new_service_status_gen_"+ i +"'>已完成</label>" +

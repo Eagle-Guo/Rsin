@@ -33,6 +33,7 @@ CREATE TABLE `users` (
   `city` varchar(50) DEFAULT NULL,
   `postal_code` varchar(10) DEFAULT NULL,
   `username` varchar(50) NOT NULL,
+  `reg_date` date,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
@@ -190,6 +191,7 @@ INSERT INTO document_type (document_type_code, document_type_desc, document_type
 INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_19','Register of Auditor', '', sysdate());
 INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_20','Register of Controllers', '', sysdate());
 INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_21','Register of Beneficial Owner', '', sysdate());
+INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_COM_0','Others', '其他文件', sysdate());
 	
 INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_1','IC Front', 'IC正面', sysdate());
 INSERT INTO document_type (document_type_code, document_type_desc, document_type_desc_cn, created_date) value ('TYPE_PER_2','IC Back', 'IC背面', sysdate());
@@ -293,6 +295,8 @@ insert into document (document_type_code, category, display_sequence, document_d
 insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_PER_4', 'P', 14, '中国身份证','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
 insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_PER_5', 'P', 15, '持护照（打开有照片页）上半身照','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
 insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_PER_6', 'P', 16, '住所证明','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
+
+insert into document (document_type_code, category, display_sequence, document_desc, document_desc_cn, user_id, company_id, created_by, created_date) values ('TYPE_PER_0', 'P', 17, '其他文件','', 'test2020122301@gmail.com', 28, 'admin', sysdate());
 
 CREATE TABLE `document_history` (
   `id` int(11) NOT NULL auto_increment,

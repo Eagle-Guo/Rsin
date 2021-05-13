@@ -1,6 +1,7 @@
 package sg.com.rsin.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,6 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 	@Autowired
 	EmployeeDao employeeDao;
 	
-	//@Autowired
-	// JdbcUserDetailsManager jdbcUserDetailsManager;
-
 	@Autowired
 	private PasswordEncoder  passwordEncoder;
 	
@@ -51,7 +49,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 			userRegistrationObject.getFirstName() == null) {
 			errorList.add(new ErrorObject("姓名密码为空，请重新输入！"));
 		}
-		if (errorList.size() >0 ) {
+		if (errorList.size() > 0 ) {
 			response.setResponseCode(ResponseCode.VALIDATE_NULL_VALUES);
 			response.setErrorList(errorList);
 			return response;
@@ -61,6 +59,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 		userRegistrationObject.setPassword(encodedPassword);
 		userRegistrationObject.setStatus(UserStatus.ACTIVE);
 		userRegistrationObject.setUsername(userRegistrationObject.getEmail());
+		userRegistrationObject.setRegDate(new Date());
 		
 		try {
 			userRegistrationRepository.save(userRegistrationObject);

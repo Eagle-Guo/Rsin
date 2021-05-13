@@ -62,6 +62,7 @@ function companypreviewfile(uuid) {
     };
     req.send();
 }
+
 function companyuploadfile(company_id, id) {
 	var formData = new FormData();
     formData.append("file",$("#file_com_upload" + id)[0].files[0]);
@@ -89,6 +90,38 @@ function companyuploadfile(company_id, id) {
 												</div>		
 												<div class="col-12 col-md-1 col-lg-1"></div>					
 											</div>
+										</div>`);
+        	alert('上传文件成功');
+        },
+        error: function(e) {
+        	console.error("ERROR : ", e)
+        	alert('上传文件失败');
+        }
+    });
+}
+
+function companyuploadothertypefile (company_id, id) {
+	var formData = new FormData();
+	var name = $("#description_" + id).val();
+	if (name === undefined || name == null || name.length <= 0) {
+		alert('请先输入文档类型！');
+		return false;
+	}
+    formData.append("file",$("#file_com_upload" + id)[0].files[0]);
+    formData.append("company_id", company_id);
+    formData.append("id", id);
+    // formData.append("desc", $("#description_" + id));
+    formData.append("desc", name);
+    $.ajax({
+        url:'/api/company/other/document/upload/'+company_id,
+        type:'post',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response){
+        	console.log("Upload Successful", response);
+        	var obj = JSON.parse(response);
+        	$("#showReport"+id).append(`<div id='AttachedReport${obj.referenceNo}'>						
 										</div>`);
         	alert('上传文件成功');
         },
@@ -206,26 +239,39 @@ function lock(x) {
 	}
 }	
 
+function status_check(status, info_id, info_name) {
+	document.getElementById("title_"+ info_id).innerHTML=(status=='on') ? 
+			"董事/股东/联系人: <span>"+info_name+" 状态 (有效)</span>" : 
+			"董事/股东/联系人: <span>"+info_name+" 状态 (撤销)</span>";
+	
+}
+
 function confirmShareholderInfo(shareholderId) {
 	var checkBox = document.getElementById("shareholder_info_" + shareholderId);
-	console.log($('#shareholderDetailForm_' + shareholderId).serialize());
+	var formData = $('#shareholderDetailForm_' + shareholderId).serialize();
+	console.log(formData);
+	/*var n = formData.indexOf("status_valid_"+shareholderId+"=on");
+	if (n == -1) {
+		document.getElementById("demo").innerHTML = n;
+	}*/
 	$.ajax({
         url: '/api/shareholder/manage/update/' + shareholderId,
         type : "POST",
-        data: $('#shareholderDetailForm_' + shareholderId).serialize(),
+        data: formData,
         timeout: 600000,
         success: function(response){
         	console.log("Update Successful", response);
         },
         error: function(e) {
-        console.error("ERROR : ", e);
-    }
+        	console.error("ERROR : ", e);
+        }
     });
 
 	if (checkBox.checked == true) {
 		$("#lock_shareholder_" + shareholderId).val("yes");
 		$("#shareholderDetailForm_" + shareholderId + " input").prop("disabled", true);
 		$("#shareholder_id_" + shareholderId).prop('disabled', false);
+		
 	} else {
 		$("#lock_shareholder_" + shareholderId).val("no");
 		$("#shareholderDetailForm_" + shareholderId + " input").prop('disabled', false);
@@ -263,34 +309,31 @@ function personlock(x) {
 	}
 }	
 
-function companyshowfilediag_new (doc_id){
-	$('#file_com_upload'+doc_id).trigger('click');	
-}
-
 function addNewUploadFile_company(companyId){
-	var id = new Date().getTime();
+	var dateString = new Date().getTime().toString();
+	var id = dateString.slice(dateString.length - 9).replace(/^0+/, ''); // need to remove 0
 	$("#newUploadFileArea_company").append(`
 		<div id="newArea_company">
 			<div class="row" style="padding-top:1%;">
 			
-	            <div class="col-12 col-md-8 col-lg-8 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport_new" style="cursor: pointer;padding-right: 8%;display: inherit;padding-bottom: 1%;">
-	           	   <input type="text" class="form-control">		                  
+	            <div class="col-12 col-md-8 col-lg-8 collapsible_record collapsed" data-toggle="collapse"  data-target="#showReport` + id + `" style="cursor: pointer;padding-right: 8%;display: inherit;padding-bottom: 1%;">
+	           	   <input type="text" class="form-control" id = "description_` + id + `">		                  
 				</div>
 	            <div class="col-12 col-md-4 col-lg-4">	
 					<div class="form-check">
-                        <input class="form-check-input" type="checkbox"  id="companyfilelock$_new"  onclick="lock(new)">
+                        <input class="form-check-input" type="checkbox"  id="companyfilelock`+ id +`"  onclick="lock(` + id + `)">
                         <label class="form-check-label" for="gridCheck">确认锁定 </label>
                     </div>	
                     <div class="inline">
-		            	<span> | </span><input type="file" id="file_com_upload_new`+ id +`" style="display:none" onchange="companyuploadfile(`+ companyId + ", " + id +`)"/>
-		            			<a id="upload_company_file_new" class="btnMenu view"  onclick="companyshowfilediag_new(` + id + `)">上传</a>	
+		            	<span> | </span><input type="file" id="file_com_upload`+ id +`" style="display:none" onchange="companyuploadothertypefile(`+ companyId + ", " + id +`)"/>
+		            			<a id="upload_company_file` + id + `" class="btnMenu view"  onclick="companyshowfilediag(` + id + `)">上传</a>	
 		            	<span> | </span><input type="file" id="file_com_del_new" style="display:none" onchange=""/>
 		            			<a id="" class="btnMenu view"  onclick="del_newAdd_company()">删除</a>					
 					</div>
 				</div>
 			</div>
 
-			<div id="showReport_new" class="collapse in">
+			<div id="showReport` + id + `" class="collapse in">
 				
 					<div id="AttachedReport_new">							
 						<div class="row">
@@ -322,10 +365,7 @@ function del_newAdd_company() {
 	parent.removeChild(child);
 };
 
-
-
-
-
+/*
 function addNewUploadFile_personal(){
 	$("#newUploadFileArea_personal").append(`
 		<div id="newArea_personal">
@@ -340,7 +380,7 @@ function addNewUploadFile_personal(){
                         <label class="form-check-label" for="gridCheck">确认锁定 </label>
                     </div>	
                     <div class="inline">														            	
-		            	<span> | </span><input type="file" id="file_com_upload_new" style="display:none" onchange=""/>
+		            	<span> | </span><input type="file" id="file_com_upload" style="display:none" onchange=""/>
 		            					<a id="upload_company_file_new" class="btnMenu view"  onclick="personalshowfilediag_new()">上传</a>	
 		            	<span> | </span><input type="file" id="file_com_del_new" style="display:none" onchange=""/>
 		            					<a id="" class="btnMenu view"  onclick="del_newAdd_personal()">删除</a>					
@@ -372,7 +412,7 @@ function addNewUploadFile_personal(){
 																
 	`);
 	}
-
+*/
 
 function del_newAdd_personal() {
 	var parent=document.getElementById("newUploadFileArea_personal");

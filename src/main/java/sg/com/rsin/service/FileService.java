@@ -5,6 +5,7 @@ import java.io.InputStream;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.entity.DocumentType;
@@ -23,4 +24,7 @@ public interface FileService {
 	public DocumentHistory getDocHistory(String uuid);
 	
 	public Document getDocument (long id);
+	
+	public Document saveToDocument(String createdBy, String userId, String category, int displaySequence, 
+			String documentDesc, String documentDesccn, boolean lockFlag, long companyId, String documentType);
 }

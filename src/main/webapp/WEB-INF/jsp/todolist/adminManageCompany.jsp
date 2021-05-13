@@ -214,7 +214,7 @@
 															<div id="newUploadFileArea_company"></div>	
 																
 																<div class="inline">	
-															          <div class="badge badge-danger"><span  id="addNewUploadFile"  onclick="addNewUploadFile_company()" style="cursor: pointer;">增加上传文件</span></div>												            	
+															          <div class="badge badge-danger"><span  id="addNewUploadFile"  onclick="addNewUploadFile_company(${company.id })" style="cursor: pointer;">增加上传文件</span></div>												            	
 																</div>																
 																
 											                  </div>
@@ -233,7 +233,7 @@
 							                	<div class="card-body" id="accordion_${shareholderInfo.id}">
 						                      		<div class="accordion">
 								                        <div class="accordion-header collapsible1  collapsed" role="button" data-toggle="collapse" data-target="#panel-body-2" aria-expanded="false">
-								                         	<h4>董事/股东/联系人: <span>${shareholderInfo.name }</span>
+								                         	<h4 id="title_${shareholderInfo.id}">董事/股东/联系人: <span>${shareholderInfo.name }</span>
 								                         	     <c:choose>
 								                         	     	<c:when test="${shareholderInfo.status}"><span>状态 (有效)</span></c:when>
 								                         	     	<c:otherwise><span>状态 (撤销)</span></c:otherwise>
@@ -272,11 +272,11 @@
 																							<div class="form-check form-check-inline">
 																								<input type="hidden" id="shareholder_id_${shareholderInfo.id }" name="shareholder_id_${shareholderInfo.id }" value="${shareholderInfo.id }">
 													                                			<input type="hidden" name="lock_shareholder_${shareholderInfo.id }" value="yes">
-																								<input class="form-check-input" type="radio" name="status_valid_${shareholderInfo.id }" value="on" id="status_valid_${shareholderInfo.id }" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${shareholderInfo.status}">checked</c:if>/> 
+																								<input class="form-check-input" type="radio" name="status_valid_${shareholderInfo.id }" value="on" onclick="status_check(this.value, ${shareholderInfo.id}, '${shareholderInfo.name}')" id="status_valid_${shareholderInfo.id }" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${shareholderInfo.status}">checked</c:if>/> 
 																								<label style="height: auto;" class="form-check-label">有效</label>
 																							</div>
 																							<div class="form-check form-check-inline">
-																								<input class="form-check-input" type="radio" name="status_valid_${shareholderInfo.id }" value="off" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${not shareholderInfo.status}">checked </c:if> />
+																								<input class="form-check-input" type="radio" name="status_valid_${shareholderInfo.id }" value="off" onclick="status_check(this.value, ${shareholderInfo.id}, '${shareholderInfo.name}')" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> <c:if test="${not shareholderInfo.status}">checked </c:if> />
 																								<label style="height: auto;" class="form-check-label">撤销</label>
 																							</div>
 																						</div>

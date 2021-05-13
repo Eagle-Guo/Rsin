@@ -106,6 +106,40 @@ public class FileDownloadController {
 	    }
 	}
 	
+	@RequestMapping(value = "/company/other/document/upload/{company_id}")
+    public ResponseEntity<?> companyUploadOtherFile(@PathVariable long company_id, @RequestParam("id") int documentId, 
+    		@RequestParam("file") MultipartFile uploadfile, @RequestParam("desc") String desc,
+    		HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String userId = (String) request.getSession().getAttribute("loginUsername");
+		Document document = fileService.getDocument(documentId);
+		if (document.getId() == null) {
+			// create the new document record
+			document = fileService.saveToDocument(userId, userId, "C", 11, desc, null, false, company_id, "TYPE_COM_0");
+			
+		}
+		String filename = document.getDocumentDesc();
+
+        response.setContentType("application/pdf");
+        response.setHeader("fileName", filename);
+        response.setHeader("content-disposition", "attachment;");
+
+        SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+        	DocumentHistory dh = fileService.saveToDocmentAndHistory(userId, company_id, filename, uploadfile, document);
+        	DocumentHistoryDto documentHistoryDto = new DocumentHistoryDto();
+        	documentHistoryDto.setCreatedBy(dh.getCreatedBy());
+        	documentHistoryDto.setCreatedDate(sm.format(dh.getCreatedDate()));
+        	documentHistoryDto.setDocumentName(dh.getDocumentName());
+        	documentHistoryDto.setDocumentPath(dh.getDocumentPath());
+        	documentHistoryDto.setId(dh.getId());
+        	documentHistoryDto.setReferenceNo(dh.getReferenceNo());
+        	String result = new ObjectMapper().writeValueAsString(documentHistoryDto);
+        	 return new ResponseEntity<String>(result, HttpStatus.OK);
+        } catch (IOException ex) {
+        	return new ResponseEntity<String>("File upload Failed", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+	
 	@RequestMapping(value = "/company/company/document/upload/{company_id}")
     public ResponseEntity<?> companyUploadFile(@PathVariable long company_id, @RequestParam("id") int documentId, @RequestParam("file") MultipartFile uploadfile,
     		HttpServletRequest request, HttpServletResponse response) throws IOException {

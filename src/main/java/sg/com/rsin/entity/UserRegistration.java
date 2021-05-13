@@ -1,6 +1,6 @@
 package sg.com.rsin.entity;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -68,6 +68,9 @@ public class UserRegistration {
 	
 	@Column(name = "postal_code", length = 10)
 	private String postalCode;
+	
+	@Column(name = "reg_date")
+	private Date regDate;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name="user_role",joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
@@ -169,6 +172,12 @@ public class UserRegistration {
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
 	public Set<Role> getRoles() {
 		return roles;

@@ -20,6 +20,7 @@ import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.DocumentHistoryRepository;
 import sg.com.rsin.dao.DocumentRepository;
 import sg.com.rsin.dao.DocumentTypeRepository;
+import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.entity.DocumentType;
@@ -44,15 +45,34 @@ public class FileServiceImpl implements FileService {
 	DocumentTypeRepository documentTypeRepository;
 	
 	public DocumentType getDocumentTypeCode (long id) {
-		Optional<Document> doc = documentRepository.findById(id);
-		return doc.get().getDocumentType();
+		Optional<Document> document = documentRepository.findById(id);
+		Document doc = document.orElseGet(() -> new Document());
+		return doc.getDocumentType();
 	}
 	
 	public Document getDocument (long id) {
 		Optional<Document> doc = documentRepository.findById(id);
-		return doc.get();
+		return doc.orElseGet(() -> new Document());
 	}
 
+	public Document saveToDocument(String createdBy, String userId, String category, int displaySequence, 
+			String documentDesc, String documentDesccn, boolean lockFlag, long companyId, String documentType) {
+		Company company = companyRepository.findById(companyId).get();
+		DocumentType docType = documentTypeRepository.findByDocumentTypeCode(documentType);
+		Document document = new Document();
+		document.setCreatedBy(createdBy);
+		document.setCreatedDate(new Date());
+		document.setUserId(userId);
+		document.setCategory(category);
+		document.setDisplaySequence(displaySequence);
+		document.setDocumentDesc(documentDesc);
+		document.setDocumentDesccn(documentDesccn);
+		document.setLockFlag(lockFlag);
+		document.setCompany(company);
+		document.setDocumentType(docType);
+		documentRepository.save(document);
+		return document;
+	}
 	public DocumentHistory saveToDocmentAndHistory(String userId, long companyId, String filename, MultipartFile uploadfile, Document document) throws IOException {
 		String referenceNo = UUID.randomUUID().toString();
 		filename = referenceNo.replace("-", "").concat("_").concat(filename);
@@ -73,19 +93,6 @@ public class FileServiceImpl implements FileService {
 	    	throw ex;
 	    }
 		
-		/*
-		 * Document document = documentRepository.findByDocumentTypeAndUserIdAndCompany(documentType.getDocumentTypeCode(), userId, companyId);
-		if ( document == null) {
-			document = new Document();
-			document.setCreatedBy(userId);
-			document.setCreatedDate(new Date());
-			document.setDocumentType(documentType);
-			document.setUserId(userId);
-			document.setCategory("C");
-		    document.setCompany(companyRepository.findById(companyId).orElse(null));
-		    documentRepository.save(document);
-		}*/
-
 	    DocumentHistory documentHistory = new DocumentHistory();
 	    documentHistory.setCreatedBy(userId);
 	    documentHistory.setCreatedDate(new Date());

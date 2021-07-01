@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +41,8 @@ public class CommonDataServiceImpl implements CommonDataService {
 
 	@Autowired
 	CompanyShareholderInfoRepository companyShareholderInfoRepository;
+	
+	private final Logger logger = LoggerFactory.getLogger(CommonDataServiceImpl.class);
 	
 	public Map<String, Object> getAllCompanyUserData(String userEmail) {
 		if (userEmail == null || "".equals(userEmail)) {
@@ -72,6 +76,9 @@ public class CommonDataServiceImpl implements CommonDataService {
 
 	public Map<String, Object> getSingleCompanyUserData(String userEmail, String companyId) {
 		if (userEmail == null || "".equals(userEmail)) {
+			return null;
+		}
+		if (companyId == null) {
 			return null;
 		}
 
@@ -155,6 +162,9 @@ public class CommonDataServiceImpl implements CommonDataService {
 		SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
 		companyStatusTimes.stream().forEach(time -> {
 			Calendar registerDate = Calendar.getInstance();
+			if (time.getCompany().getRegistrationDate() == null) {
+				time.getCompany().setRegistrationDate(new Date());
+			}
 			registerDate.setTime(time.getCompany().getRegistrationDate());
 			registerDate.add(Calendar.MONTH, 12);
 
@@ -188,7 +198,14 @@ public class CommonDataServiceImpl implements CommonDataService {
 	}
 	
 	public Set<CompanyDto> getAllCompanies() {
-		List<Company> companies = companyRepository.findAll();
+		List<Company> companies = null;
+		
+		try {
+			companies = companyRepository.findAll();
+		} catch (Exception ex) {
+			logger.error(ex.getMessage());
+			ex.printStackTrace();
+		}
 		if (companies == null) {
 			return null;
 		}
@@ -196,6 +213,9 @@ public class CommonDataServiceImpl implements CommonDataService {
 		Set<CompanyDto> allCompanies = new LinkedHashSet<CompanyDto>();
 		SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
 		companies.stream().forEach(company -> {
+			if (company.getRegistrationDate() == null) {
+				company.setRegistrationDate(new Date());
+			}
 			Calendar registerDate = Calendar.getInstance();
 			registerDate.setTime(company.getRegistrationDate());
 			registerDate.add(Calendar.MONTH, 12);

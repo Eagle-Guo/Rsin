@@ -8,5 +8,5 @@ import sg.com.rsin.entity.DocumentHistory;
 public interface DocumentHistoryRepository extends JpaRepository<DocumentHistory, String> {
 	DocumentHistory findByReferenceNo(String referenceNo);
 	
-	List<DocumentHistory> findByDocumentId(Long id);
+	List<DocumentHistory> findByDocumentIdOrderByIdDesc(Long id);
 }

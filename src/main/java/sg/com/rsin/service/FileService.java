@@ -2,10 +2,10 @@ package sg.com.rsin.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.entity.DocumentType;
@@ -25,6 +25,12 @@ public interface FileService {
 	
 	public Document getDocument (long id);
 	
+	public Document getDocumentByName (long companyId, String name);
+
 	public Document saveToDocument(String createdBy, String userId, String category, int displaySequence, 
 			String documentDesc, String documentDesccn, boolean lockFlag, long companyId, String documentType);
+	
+	public List<DocumentHistory> getDocumentsByCompanyId(long companyId, String type);
+	
+	public void updateDocumentFlag(long docId, String flag);
 }

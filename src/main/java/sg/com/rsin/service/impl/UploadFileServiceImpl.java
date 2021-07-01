@@ -58,10 +58,10 @@ public class UploadFileServiceImpl implements UploadFileService {
 	CompanyShareholderInfoRepository companyShareHolderInfoRepository;
 
 	public void uploadOfflineFile(List<MultipartFile> files, int shareholderId, int id, String userid, String companyId) throws IOException {
-		File offlineFileFolder = new File (uploadFilePathRoot.concat(companyId).concat(File.separator).concat(uploadFileOfflinePath).concat(File.separator));
+		File offlineFileFolder = new File (uploadFilePathRoot.concat(companyId).concat(File.separator).concat(uploadFileOfflinePath));
 		
 		if (!offlineFileFolder.exists()) {
-			offlineFileFolder.mkdir();
+			offlineFileFolder.mkdirs();
 		}
 		
 		CompanyShareholderInfo companyShareholderInfo = companyShareHolderInfoRepository.findById(shareholderId);
@@ -114,6 +114,7 @@ public class UploadFileServiceImpl implements UploadFileService {
 			document.setCompany(company.get());
 			document.setCreatedBy(userid);
 			document.setCreatedDate(new Date());
+			document.setCategory("C");
 			documentRepository.save(document);
 			
 			DocumentHistory documentHistory = new DocumentHistory();
@@ -130,11 +131,10 @@ public class UploadFileServiceImpl implements UploadFileService {
 	public void uploadPersonalFile(List<MultipartFile> files, String id, String userid, String companyId) throws IOException {
 		Optional<Company> company = companyRepository.findById(Long.parseLong(companyId));
 		
-		File personalFileFolder = new File (uploadFilePathRoot.concat(companyId).concat(File.separator)
-									.concat(uploadFilePersonalPath).concat(File.separator));
+		File personalFileFolder = new File (uploadFilePathRoot.concat(companyId).concat(File.separator).concat(uploadFilePersonalPath));
 		
 		if (!personalFileFolder.exists()) {
-			personalFileFolder.mkdir();
+			personalFileFolder.mkdirs();
 		}
 		for (MultipartFile file : files) {
 			if (file.isEmpty()) {
@@ -173,6 +173,7 @@ public class UploadFileServiceImpl implements UploadFileService {
 				break;
 			}
 			DocumentType documentType = documentTypeRepository.findByDocumentTypeCode(documentTypeCode.name());
+			document.setCategory("P");
 			document.setDocumentType(documentType);
 			documentRepository.save(document);
 			

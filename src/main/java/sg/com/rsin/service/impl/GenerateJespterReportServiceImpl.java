@@ -105,7 +105,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		shareholder.append("Total: \t\t").append(Integer.parseInt(userData.get("totalStockAmount").toString()));
 
 		try {
-			String signatureFileDirectory = uploadFilePathRoot.concat(File.separator).concat(signatureFilePathRoot).concat(companyId).concat(File.separator);
+			String signatureFileDirectory = uploadFilePathRoot.concat(signatureFilePathRoot).concat(companyId).concat(File.separator);
 			File directory = new File(signatureFileDirectory);
 		    if (! directory.exists()){
 		        directory.mkdirs();
@@ -144,6 +144,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	public Map<String, String> generateNewCompanyPDFWithSignature(String userId, String ip, byte[] bytes, String companyId) {
 
 		Map<String, Object> userData = commonDataService.getSingleCompanyUserData(userId, companyId);
+		long companyIdLong = Long.parseLong(companyId);
 		String companyName = userData.get("companyName").toString();
 		CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) userData.get("selfCompanyShareholderInfo");
 		
@@ -152,12 +153,12 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		signatureLog.setActionDesc(userData.get("shareholderName").toString() + " 提交签名!");
 		signatureLog.setCreatedBy(userId);
 		signatureLog.setCreatedDate(new Date());
-		signatureLog.setCompany(companyRepository.findById(Long.parseLong(companyId)).get());
+		signatureLog.setCompany(companyRepository.findById(companyIdLong).get());
 		signatureLogRepository.save(signatureLog);
 
 		List<CompanyShareholderInfo> userCompanyShareholderInfos = (List<CompanyShareholderInfo>) userData.get("sameCompanyShareholderInfos");
 		try {
-			String signatureFileDirectory = signatureFilePathRoot.concat(companyId).concat(File.separator);
+			String signatureFileDirectory = uploadFilePathRoot.concat(signatureFilePathRoot).concat(File.separator).concat(companyId).concat(File.separator);
 			File directory = new File(signatureFileDirectory);
 		    if (! directory.exists()){
 		        directory.mkdirs();
@@ -179,8 +180,8 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		    reportParamMapTwo.put("qrCode", qrCodeText);
 		    
 		    StringBuilder sb = new StringBuilder();
-		    List <SignatureLog> signatureLogs = signatureLogRepository.findByCompanyId(Long.parseLong(companyId));
-		    signatureLogs.stream().skip(signatureLogs.size() - 6).forEach(signLog -> {
+		    List <SignatureLog> signatureLogs = signatureLogRepository.findByCompanyId(companyIdLong);
+		    signatureLogs.stream().limit(6).forEach(signLog -> {
 		    	sb.append(signLog.getCreatedDate()).append(": ").append(signLog.getActionDesc()).append("\n");
 		    });
 		    
@@ -307,7 +308,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			info.setIp(ip);
 			info.setChecksum(md5Checksum);
 			info.setSignatureName(userid + SIGNATURE_SUFFIX);
-			info.setSignaturePath(signatureFilePathRoot.concat(companyId).concat(File.separator));
+			info.setSignaturePath(uploadFilePathRoot.concat(signatureFilePathRoot).concat(File.separator).concat(companyId).concat(File.separator));
 			companyShareHolderInfoRepository.save(info);
 		});
 		// update the signature timing
@@ -317,15 +318,6 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	}
 	private void saveDocumentDetail (String companyId, int documentTypeId, String userid, String filename, String referenceNo) {
 		Optional<Company> company = companyRepository.findById(Long.parseLong(companyId));
-		Document document = new Document();
-		document.setCompany(company.get());
-		document.setCreatedBy(userid);
-		document.setCreatedDate(new Date());
-		//document.setDocumentName(filename);
-		//document.setReferenceNo(referenceNo);
-		document.setUserId(userid);
-		//document.setDocumentPath(signatureFilePathRoot.concat(companyId).concat(File.separator));
-		
 		DocumentTypeCode documentTypeCode = null; 
 		switch (documentTypeId) {
 		case 1 :
@@ -353,13 +345,26 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			documentTypeCode = DocumentTypeCode.TYPE_COM_8;
 			break;
 		}
+		Document document = documentRepository.findByDocumentTypeAndUserIdAndCompany(documentTypeCode.name(), userid, Long.parseLong(companyId));
+		if (document == null) {
+			document = new Document();
+		}
+		document.setCompany(company.get());
+		document.setCreatedBy(userid);
+		document.setCreatedDate(new Date());
+		document.setUserId(userid);
+		document.setDisplaySequence(documentTypeId);
+		
 		DocumentType documentType = documentTypeRepository.findByDocumentTypeCode(documentTypeCode.name());
 		document.setDocumentType(documentType);
+		document.setDocumentDesc(documentTypeCode.getDescription());
+		// TODO need to verify whether the personal document also come here
+		document.setCategory("C");
 		documentRepository.save(document);
 		
 		DocumentHistory documentHistory = new DocumentHistory();
 		documentHistory.setReferenceNo(referenceNo);
-		documentHistory.setDocumentPath(signatureFilePathRoot.concat(companyId).concat(File.separator));
+		documentHistory.setDocumentPath(uploadFilePathRoot.concat(signatureFilePathRoot).concat(File.separator).concat(companyId).concat(File.separator));
 		documentHistory.setDocumentName(filename);
 		documentHistory.setCreatedBy(userid);
 		documentHistory.setCreatedDate(new Date());
@@ -371,7 +376,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	}
 	
 	public Map<String, String> onlineSubmitSignatureFile(String userId, String ip, MultipartFile uploadfile, String companyId) {
-		String fileDirectory = signatureFilePathRoot.concat(companyId).concat(File.separator);
+		String fileDirectory = uploadFilePathRoot.concat(signatureFilePathRoot).concat(File.separator).concat(companyId).concat(File.separator);
 		File directory = new File(fileDirectory);
 	    if (!directory.exists()){
 	        directory.mkdirs();
@@ -400,11 +405,11 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		return new HashMap<String, String>();
 	}
 	
-	public InputStream downloadWithSignatureFile(String fileName, String userId) {
-		List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareHolderInfoRepository.findByEmailOrderById(userId);
-		String companyId = userCompanyShareholderInfos.get(0).getCompany().getId().toString();
+	public InputStream downloadWithSignatureFile(String companyId, String fileName, String userId) {
+		//List<CompanyShareholderInfo> userCompanyShareholderInfos = companyShareHolderInfoRepository.findByEmailOrderById(userId);
+		//String companyId = userCompanyShareholderInfos.get(0).getCompany().getId().toString();
 		try {
-			String fileDirectory = signatureFilePathRoot.concat(File.separator).concat(companyId).concat(File.separator);
+			String fileDirectory = uploadFilePathRoot.concat(signatureFilePathRoot).concat(File.separator).concat(companyId).concat(File.separator);
 	    	File initialFile = new File(fileDirectory, fileName);
 	        InputStream is = new FileInputStream(initialFile);
 	        return is;

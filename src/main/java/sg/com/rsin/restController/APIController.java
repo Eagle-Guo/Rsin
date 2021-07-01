@@ -15,6 +15,7 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -83,120 +84,36 @@ public class APIController {
     public String  all() {
         return "This information from API controller";
     }
-    
+
+    // Company
     @PostMapping("/newcompany/sendemail")
     public String newCompanySendEmail(@RequestBody String data) {
         String response = "Your request Data is : " + data;
         return response;
     }
-    
-    @PostMapping("/uploadfiles")
-    public ResponseEntity<?> uploadFiles(@RequestParam("file") MultipartFile uploadfile){
-    	logger.debug("Single file upload!");
 
-        if (uploadfile.isEmpty()) {
-            return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
-        }
-        try {
-        	saveUploadedFiles(Arrays.asList(uploadfile));
-        } catch (IOException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        logger.debug("file name " + uploadfile.getOriginalFilename());
-        return new ResponseEntity<String>("Successfully uploaded - " +
-                uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
-    }
-    private void saveUploadedFiles(List<MultipartFile> files) throws IOException {
-		for (MultipartFile file : files) {
-			if (file.isEmpty()) {
-				continue;
-			}
+    @PostMapping("/newCompany")
+    public ResponseEntity<String> newCompany(@RequestBody String receivedData, HttpServletRequest request) {
+		logger.info("new Company info" + receivedData);
 
-			byte[] bytes = file.getBytes();
-			Path path = Paths.get(uploadFilePathRoot + file.getOriginalFilename());
-			Files.write(path, bytes);
+		long companyId = newCompanyService.addCompany(receivedData);
+		if (companyId < 1) {
+			return new ResponseEntity<>("Company existed", HttpStatus.CONFLICT);
 		}
-	}
-    
-    @PostMapping("/uploadfile/offline/singature/{shareholderId}")
-    public ResponseEntity<?> uploadOfflineSingature(@PathVariable int shareholderId,  @RequestParam int doc, 
-    		@RequestParam("file") MultipartFile uploadfile, HttpServletRequest request){
-    	logger.debug("Single file upload!");
-    	
-    	String userId = (String) request.getSession().getAttribute("loginUsername");
-    	String companyId = (String) request.getSession().getAttribute("companyId");
-		
-        if (uploadfile.isEmpty()) {
-            return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
-        }
-        try {
-        	uploadFileService.uploadOfflineFile(Arrays.asList(uploadfile), shareholderId, doc, userId, companyId);
-        } catch (IOException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        logger.debug("file name " + uploadfile.getOriginalFilename());
-        return new ResponseEntity<String>("Successfully uploaded - " +
-                uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
-
-    }
-
-    @PostMapping("uploadfile/personal/file/{id}")
-    public ResponseEntity<?> uploadPersonalFile(@PathVariable String id, @RequestParam("file") MultipartFile uploadfile,
-    		HttpServletRequest request){
-    	logger.debug("Single file upload!");
-    	
-    	String userId = (String) request.getSession().getAttribute("loginUsername");
-    	String companyId = (String) request.getSession().getAttribute("companyId");
-		
-        if (uploadfile.isEmpty()) {
-            return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
-        }
-        try {
-        	uploadFileService.uploadPersonalFile(Arrays.asList(uploadfile), id, userId, companyId);
-        } catch (IOException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        logger.debug("file name " + uploadfile.getOriginalFilename());
-        return new ResponseEntity<String>("Successfully uploaded - " +
-                uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
-
-    }
-
-    @PostMapping("/sendemail") 
-    public void sendEmail(@RequestBody String data) {
-    	String result = "";
-    	String toRecipient = "yuzhiqwe@gmail.com";
-    	try {
-    		result = URLDecoder.decode(data, StandardCharsets.UTF_8.toString());
-    		System.out.println("Recevied data output:[" + result + "] and Sending email....");
-    	    //result = java.net.URLDecoder.decode(data, StandardCharsets.UTF_8.name());
-    	    //logger.info("Recevied data:[" + result + "] and Sending email....");
-    	} catch (UnsupportedEncodingException e) {
-    	    e.printStackTrace();
-    	}
-    	emailService.sendEmail(result, toRecipient);
-    }
-    
-    @GetMapping("/categories") 
-    public List<String> getCategories() {
-    	return industryService.getAllIndustries();
-    }
-    
-    @GetMapping("/category") 
-    public List<Industry> getCategoryByName(@RequestParam("term") String name) {
-    	return industryService.getIndustryByName(name);
+		request.setAttribute("companyId", companyId);
+		return new ResponseEntity<>(HttpStatus.OK);
     }
     
     @GetMapping(path="/allPendingCompanies", produces=MediaType.APPLICATION_JSON_VALUE)
     public Set<CompanyDto> allPendingCompanies() {
     	return commonDataService.getAllPendingCompanies();
     }
-    
+
     @GetMapping(path="/allCompanies", produces=MediaType.APPLICATION_JSON_VALUE)
     public Set<CompanyDto> allCompanies() {
     	return commonDataService.getAllCompanies();
     }
-    
+
     @PostMapping(path="/company/manage/update")
     public ResponseEntity<?> updateCompanyDetail(HttpServletRequest request) {
     	String id = request.getParameter("hide_id");
@@ -240,17 +157,130 @@ public class APIController {
     	newCompanyService.saveCompany(company);
     	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
     }
+
+    // File
+    @PostMapping("/uploadfiles")
+    public ResponseEntity<?> uploadFiles(@RequestParam("file") MultipartFile uploadfile){
+    	logger.debug("Single file upload!");
+
+        if (uploadfile.isEmpty()) {
+            return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
+        }
+        try {
+        	saveUploadedFiles(Arrays.asList(uploadfile));
+        } catch (IOException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        logger.debug("file name " + uploadfile.getOriginalFilename());
+        return new ResponseEntity<String>("Successfully uploaded - " +
+                uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
+    }
+    private void saveUploadedFiles(List<MultipartFile> files) throws IOException {
+		for (MultipartFile file : files) {
+			if (file.isEmpty()) {
+				continue;
+			}
+
+			byte[] bytes = file.getBytes();
+			Path path = Paths.get(uploadFilePathRoot + file.getOriginalFilename());
+			Files.write(path, bytes);
+		}
+	}
+
+    @PostMapping("/uploadfile/offline/singature/{shareholderId}")
+    public ResponseEntity<?> uploadOfflineSingature(@PathVariable int shareholderId,  @RequestParam int doc, 
+    		@RequestParam("file") MultipartFile uploadfile, HttpServletRequest request){
+    	logger.debug("Single file upload!");
+    	
+    	String userId = (String) request.getSession().getAttribute("loginUsername");
+    	String companyId = (String) request.getSession().getAttribute("companyId");
+		
+        if (uploadfile.isEmpty()) {
+            return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
+        }
+        try {
+        	uploadFileService.uploadOfflineFile(Arrays.asList(uploadfile), shareholderId, doc, userId, companyId);
+        } catch (IOException e) {
+        	logger.error(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        logger.debug("file name " + uploadfile.getOriginalFilename());
+        return new ResponseEntity<String>("Successfully uploaded - " +
+                uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
+
+    }
+
+    @PostMapping("uploadfile/personal/file/{id}")
+    public ResponseEntity<?> uploadPersonalFile(@PathVariable String id, @RequestParam("file") MultipartFile uploadfile,
+    		HttpServletRequest request){
+    	logger.debug("Single file upload!");
+    	
+    	String userId = (String) request.getSession().getAttribute("loginUsername");
+    	String companyId = (String) request.getSession().getAttribute("companyId");
+		
+        if (uploadfile.isEmpty()) {
+            return new ResponseEntity<String>("Please Select a file!", HttpStatus.NOT_FOUND);
+        }
+        try {
+        	uploadFileService.uploadPersonalFile(Arrays.asList(uploadfile), id, userId, companyId);
+        } catch (IOException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        logger.debug("file name " + uploadfile.getOriginalFilename());
+        return new ResponseEntity<String>("Successfully uploaded - " +
+                uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
+    }
+
+    // Email
+    @PostMapping("/sendemail") 
+    public void sendEmail(@RequestBody String data) {
+    	String result = "";
+    	String toRecipient = "yuzhiqwe@gmail.com";
+    	try {
+    		result = URLDecoder.decode(data, StandardCharsets.UTF_8.toString());
+    		System.out.println("Recevied data output:[" + result + "] and Sending email....");
+    	    //result = java.net.URLDecoder.decode(data, StandardCharsets.UTF_8.name());
+    	    //logger.info("Recevied data:[" + result + "] and Sending email....");
+    	} catch (UnsupportedEncodingException e) {
+    	    e.printStackTrace();
+    	}
+    	emailService.sendEmail(result, toRecipient);
+    }
     
+    @GetMapping("/categories") 
+    public List<String> getCategories() {
+    	return industryService.getAllIndustries();
+    }
+    
+    @GetMapping("/category") 
+    public List<Industry> getCategoryByName(@RequestParam("term") String name) {
+    	return industryService.getIndustryByName(name);
+    }
+
     @PostMapping(path="/shareholder/manage/update/{id}")
     public ResponseEntity<?> updateShareholderDetail(@PathVariable String id, HttpServletRequest request) {
     	
-    	CompanyShareholderInfo info = shareholderInfoService.getShareholderInfoById(Long.parseLong(id)) ;
-    	if (info == null) {
-    		return new ResponseEntity<String>("CompanyShareholderInfo not existed", new HttpHeaders(), HttpStatus.NOT_FOUND);
-    	}
+    	Optional<CompanyShareholderInfo> infoTemp1 = shareholderInfoService.getShareholderInfoById(Long.parseLong(id));
+    	CompanyShareholderInfo info = null;
+		// if is new shareholder then need to base on the new shareholder info to check if existed
+    	if (!infoTemp1.isPresent()) {
+    		List<CompanyShareholderInfo> infoTemp2 = shareholderInfoService.getShareholderInfoByNameAndCompanyId(request.getParameter("name_" + id), Long.parseLong(id));
+    		if (infoTemp2.size() > 0) {
+    			info = infoTemp2.get(0);
+    		} else {
+    			info = new CompanyShareholderInfo();
+    		}
+		} else {
+			info = infoTemp1.get();
+		}
+    	/*
+		 * if (info == null) { return new
+		 * ResponseEntity<String>("CompanyShareholderInfo not existed", new
+		 * HttpHeaders(), HttpStatus.NOT_FOUND); }
+		 */
 
     	String lockRecord = request.getParameter("lock_shareholder_" + id);
-    	if (lockRecord == null) {
+    	if (info.getId() != null && lockRecord == null) {
     		info.setLockFlag(false);
     	} else {
     		info.setLockFlag(true);
@@ -283,18 +313,23 @@ public class APIController {
     			sb.append("联系人, ");
     		} 
     		info.setPositionType(sb.substring(0, sb.length() -2));
-    		String aa = request.getParameter("status_valid_" + id);
     		if (("on").equals(request.getParameter("status_valid_" + id))) {
     			info.setStatus(true);
     		} else {
     			info.setStatus(false);
     		}
     		info.setValuePerStock(request.getParameter("value_per_stock_" + id)!=null? Integer.parseInt(request.getParameter("value_per_stock_" + id)) : 1);
+    		if (info.getId() == null) {
+    			Company company = companyRepository.findById(Long.parseLong(request.getParameter("company_id"))).get();
+    			info.setCompany(company);
+    		}
     	}
     	shareholderInfoService.saveShareholderInfo(info);
-    	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
+    	
+    	return new ResponseEntity<String>(info.getId()+"", new HttpHeaders(), HttpStatus.OK);
     }
     
+	// Time line
     @PostMapping(path="/timeline/manage/update")
     public ResponseEntity<?> updateTimelineDetail(HttpServletRequest request) {
     	Enumeration<String> parameterNames = request.getParameterNames();

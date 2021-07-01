@@ -179,7 +179,9 @@
 																		</c:choose>
 															            <div class="col-12 col-md-4 col-lg-4">	
 																			<div class="form-check">
-														                        <input class="form-check-input" type="checkbox"  id="companyfilelock${docs.id}"  onclick="lock(${docs.id})">
+														                        <input class="form-check-input" type="checkbox"  id="companyfilelock${docs.id}" <c:if test="${docs.lockFlag}">checked</c:if>
+														                                onclick="lock(${docs.id})">
+														                        <img src="../../../assets/img/p-50.png" onload="onloadlock(${docs.id})" width="0" height="0">
 														                        <label class="form-check-label" for="gridCheck">确认锁定 </label>
 														                    </div>	
 														                    <div class="inline">														            	
@@ -232,7 +234,7 @@
 							                <div class="card downLoadFile">
 							                	<div class="card-body" id="accordion_${shareholderInfo.id}">
 						                      		<div class="accordion">
-								                        <div class="accordion-header collapsible1  collapsed" role="button" data-toggle="collapse" data-target="#panel-body-2" aria-expanded="false">
+								                        <div class="accordion-header collapsible1  collapsed" role="button" data-toggle="collapse" data-target="#panel-body-${shareholderInfo.id}" aria-expanded="false">
 								                         	<h4 id="title_${shareholderInfo.id}">董事/股东/联系人: <span>${shareholderInfo.name }</span>
 								                         	     <c:choose>
 								                         	     	<c:when test="${shareholderInfo.status}"><span>状态 (有效)</span></c:when>
@@ -240,7 +242,7 @@
 								                         	     </c:choose>
 								                         	</h4>
 								                        </div>
-								                        <div class="accordion-body collapse" id="panel-body-2" data-parent="#accordion_${shareholderInfo.id}">
+								                        <div class="accordion-body collapse" id="panel-body-${shareholderInfo.id}" data-parent="#accordion_${shareholderInfo.id}">
 											                <div class="card">
 											                  <div class="card-body">
 											                  	<div class="row">
@@ -425,7 +427,7 @@
 																		</c:choose>
 																		<div class="col-12 col-md-4 col-lg-4">	
 																			<div class="form-check">
-																				<input class="form-check-input" type="checkbox"  id="personalfilelock${docpers.id}"  onclick="personlock(${docpers.id})">
+																				<input class="form-check-input" type="checkbox"  id="personalfilelock${docpers.id}"  <c:if test="${docpers.lockFlag}">checked</c:if> onclick="personlock(${docpers.id})">
 																				<label class="form-check-label" for="gridCheck">确认锁定 </label>
 																			</div>	
 																			<div class="inline">														            	
@@ -476,7 +478,7 @@
 								<div class="row" id="newPersonArea_personal">																	
 								</div>	
 								<div class="inline" style="text-align: center;padding-top: 2%;padding-bottom: 2%;">	
-									 <div class="badge badge-danger"><span  id=""  onclick="addNewPerson_personal()" style="cursor: pointer;">增加股东/董事/联系人</span></div>												            	
+									 <div class="badge badge-danger"><span  id=""  onclick="addNewPerson_personal(${company.id })" style="cursor: pointer;">增加股东/董事/联系人</span></div>												            	
 								</div>	                       			
        				</div>
                </div>

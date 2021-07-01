@@ -6,6 +6,16 @@ $(document).ready(function() {
         }
     } );
     $('#adminRecord').DataTable( {
+    	dom: 'Bfrtip',
+        "buttons": [{  
+             'extend': 'excelHtml5',  
+             'text': '导出excel',//定义导出excel按钮的文字  
+             'exportOptions': {  
+                 'modifier': {  
+                     'page': 'current'  
+                 }  
+             }  
+        }],
     	ajax: {
             url: '/api/allCompanies',
             method: "GET",

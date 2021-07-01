@@ -105,12 +105,12 @@ function generateNewserviceRecord(type){
     	var tr = document.createElement("tr");
     	tr.innerHTML="" +
     		"<td colspan='2' scope='col'>"+startDate.toLocaleDateString('en-GB')+
-    			"<input type='hidden' name='new_service_plan_date_gen_" + i + "' value='" + startDate.toISOString().split('T')[0] + "'/></td>"+
-	        "<td><div class='form-group'><input type='date' class='form-control' name='new_service_actual_date_gen_"+ i +"'></div></td>" +
-			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='new_service_status_gen_" + i + "'> " +
-				"<label class='form-check-label' for='new_service_status_gen_"+ i +"'>已完成</label>" +
+    			"<input type='hidden' name='new_service_plan_date_gen_" + type + "_" + i + "' value='" + startDate.toISOString().split('T')[0] + "'/></td>"+
+	        "<td><div class='form-group'><input type='date' class='form-control' name='new_service_actual_date_gen_"+ type + "_" + i +"'></div></td>" +
+			"<td><div class='form-check'><input class='form-check-input' type='checkbox' name='new_service_status_gen_" + type + "_" + i + "'> " +
+				"<label class='form-check-label' for='new_service_status_gen_"+ type + "_" + i +"'>已完成</label>" +
 				"</div></td>" +
-			"<td><div class='form-group'><input type='text' class='form-control' name='new_service_comment_gen_"+ i + "'></div></td>" +
+			"<td><div class='form-group'><input type='text' class='form-control' name='new_service_comment_gen_"+ type + "_" + i + "'></div></td>" +
             "<td><a href='javascript:;'>删除此记录</a></td>" ;
 
         var a = tr.getElementsByTagName("a")[0];

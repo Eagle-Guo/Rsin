@@ -19,6 +19,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
+  `gender` varchar(4) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `password` varchar(120) NOT NULL,
   `country_code` varchar(8) DEFAULT NULL,
@@ -67,7 +68,7 @@ CREATE TABLE `company` (
   `activity_one` varchar (255),
   `activity_two` varchar (255),
   `address` varchar(255),
-  `status` varchar(10) NOT NULL,
+  `step` varchar(10) NOT NULL,
   `total_shareholder` int not null default 0,
   `shareholder_comfirm` int not null default 0,
   `registration_date` DATETIME,
@@ -114,9 +115,9 @@ CREATE TABLE `company_shareholder_info` (
   `id` int(11) NOT NULL auto_increment,
   `position_type` varchar(30) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `nationality` varchar(100) NOT NULL,
-  `ic_type` varchar(10) NOT NULL,
+  `gender` varchar(10),
+  `nationality` varchar(100),
+  `ic_type` varchar(10),
   `ic_number` varchar(50),
   `email` varchar(100),
   `contact_number` varchar(20),
@@ -211,33 +212,33 @@ CREATE TABLE `initiate_document` (
   PRIMARY KEY (`id`),
   CONSTRAINT `initiate_document_type_fk` FOREIGN KEY (`document_type_code`) REFERENCES `document_type` (`document_type_code`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_9', 1, 1, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_10', 1, 2, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_11', 1, 3, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_1', 1, 4, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_12', 1, 5, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_13', 1, 6, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_2', 1, 7, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_14', 1, 8, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_15', 1, 9, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_16', 1, 10, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_9', 'C', 1, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_10', 'C', 2, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_11', 'C', 3, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_1', 'C', 4, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_12', 'C', 5, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_13', 'C', 6, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_2', 'C', 7, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_14', 'C', 8, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_15', 'C', 9, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_16', 'C', 10, 'admin', sysdate());
 
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_3', 2, 1, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_4', 2, 2, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_5', 2, 3, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_6', 2, 4, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_7', 2, 5, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_17', 2, 6, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_18', 2, 7, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_19', 2, 8, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_20', 2, 9, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_21', 2, 10, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_1', 2, 11, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_2', 2, 12, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_3', 2, 13, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_4', 2, 14, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_5', 2, 15, 'admin', sysdate());
-insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_6', 2, 16, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_3', 'P', 1, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_4', 'P', 2, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_5', 'P', 3, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_6', 'P', 4, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_7', 'P', 5, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_17', 'P', 6, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_18', 'P', 7, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_19', 'P', 8, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_20', 'P', 9, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_COM_21', 'P', 10, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_1', 'P', 11, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_2', 'P', 12, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_3', 'P', 13, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_4', 'P', 14, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_5', 'P', 15, 'admin', sysdate());
+insert into initiate_document (document_type_code, category, display_sequence, created_by, created_date) values ('TYPE_PER_6', 'P', 16, 'admin', sysdate());
 /*
 CREATE TABLE `dynamic_document` (
   `id` int(11) NOT NULL auto_increment,

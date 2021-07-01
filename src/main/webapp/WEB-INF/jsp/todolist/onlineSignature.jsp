@@ -39,10 +39,10 @@
 								<div class="row">
 									<div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
 										<div class="multisteps-form__progress">
-											<button class="multisteps-form__progress-btn   js-active " type="button" title="选择服务">选择服务</button>
-											<button class="multisteps-form__progress-btn    js-active " type="button" title="信息填报">信息填报</button>
-											<button class="multisteps-form__progress-btn    js-active " type="button" title="在线支付">在线支付</button>
-											<button class="multisteps-form__progress-btn  js-active" type="button" title="电子签名" >电子签名</button>
+											<button class="multisteps-form__progress-btn js-active " type="button" title="选择服务">选择服务</button>
+											<button class="multisteps-form__progress-btn js-active " type="button" title="信息填报">信息填报</button>
+											<button class="multisteps-form__progress-btn js-active " type="button" title="在线支付">在线支付</button>
+											<button class="multisteps-form__progress-btn js-active" type="button" title="电子签名" >电子签名</button>
 											<button class="multisteps-form__progress-btn" type="button" title="上传资料"  onclick="top.location='uploadPage?compid=${compid}'">上传资料</button>
 											<button class="multisteps-form__progress-btn disable-button" type="button" title="注册受理中">注册受理中</button>
 											<button class="multisteps-form__progress-btn disable-button" type="button" title="注册完成、查看文件">注册完成</button>																					
@@ -192,7 +192,8 @@
 										            </div>				           				            
 										            <div class="col-lg-8 col-md-12 col-12 col-sm-12 viewFilePart">
 										               <div id="editor"></div>
-										               <div id="temporary" style="display: none;"></div>				               
+										               <div id="temporary" style="display: none;"></div>
+
 										               <div class="card priDesc" id="b8${loop.index}">
 										                <div class="card-header">
 										                  <h4>文件查看区</h4>
@@ -3190,7 +3191,7 @@
       
       <footer class="main-footer">
         <div class="footer-left">
-                      版权所有 &copy; 2020 <div class="bullet"></div> 设计是由 <a href="#">睿信集团</a>
+                      版权所有 &copy; 2021 <div class="bullet"></div> 设计是由 <a href="#">睿信集团</a>
         </div>
         <div class="footer-right">
           1.1.0

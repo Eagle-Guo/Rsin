@@ -8,8 +8,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -53,6 +55,11 @@ public class FileServiceImpl implements FileService {
 	public Document getDocument (long id) {
 		Optional<Document> doc = documentRepository.findById(id);
 		return doc.orElseGet(() -> new Document());
+	}
+	
+	public Document getDocumentByName (long companyId, String name) {
+		List<Document> doc = documentRepository.findByDocumentDesc(companyId, name);
+		return (doc != null && doc.size() > 0) ? doc.get(0): new Document();
 	}
 
 	public Document saveToDocument(String createdBy, String userId, String category, int displaySequence, 
@@ -137,4 +144,21 @@ public class FileServiceImpl implements FileService {
 	public DocumentHistory getDocHistory(String uuid) {
 		return documentHistoryRepository.findByReferenceNo(uuid);
 	}
+
+	public List<DocumentHistory> getDocumentsByCompanyId (long companyId, String type) {
+		List <Document> documents = documentRepository.findByCompanyIdAndCategoryOrderByDisplaySequenceAsc(companyId, type);
+		
+		List <DocumentHistory> histories = documents.stream().map(doc->{
+			List <DocumentHistory> documentHistorie = documentHistoryRepository.findByDocumentIdOrderByIdDesc(doc.getId());
+			return documentHistorie.size() > 0 ? documentHistorie.get(0) : new DocumentHistory();
+		}).collect(Collectors.toList());
+		return histories;
+	}
+	
+	public void updateDocumentFlag(long docId, String flag) {
+		Document document= documentRepository.findById(docId).get();
+		document.setLockFlag("true".equals(flag)?true:false);
+		documentRepository.save(document);
+	}
+
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,6 +36,7 @@ import sg.com.rsin.enums.ResponseCode;
 import sg.com.rsin.enums.TimeLineType;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmployeeService;
+import sg.com.rsin.service.FileService;
 import sg.com.rsin.service.NewCompanyService;
 import sg.com.rsin.service.AdminManageCompanyService;
 import sg.com.rsin.service.AdminTimelineService;
@@ -62,7 +64,8 @@ public class ViewController {
 	CompanyRepository companyRepository;
 	@Autowired
 	NewCompanyService newCompanyService;
-
+	@Autowired
+	FileService fileService;
 	@Autowired
 	CompanyStatusTimeRepository companyStatusTimeRepository;
 
@@ -189,11 +192,6 @@ public class ViewController {
 		return model;
 	}	
 
-	@RequestMapping("/mybusiness/downLoadFile")
-	public ModelAndView downLoadFile() {
-		ModelAndView model = new ModelAndView("mybusiness/downLoadFile");
-		return model;
-	}	
 	@RequestMapping("/adminManageCompany")
 	public ModelAndView adminManageCompany(@RequestParam("id") Long companyId) {
 		ModelAndView model = new ModelAndView("todolist/adminManageCompany");
@@ -297,7 +295,6 @@ public class ViewController {
 		return model;
 	}	
 	
-	
 	@RequestMapping("/onekey/oneKeyService")
 	public ModelAndView oneKeyService() {
 		ModelAndView model = new ModelAndView("onekey/oneKeyService");
@@ -366,23 +363,26 @@ public class ViewController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/onlineSignature")
 	public ModelAndView onlineSignature(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("todolist/onlineSignature");
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		String companyId = (String) request.getParameter("compid");
-		request.getSession().setAttribute("companyId", companyId);
+		if (companyId == null) {
+			companyId = (String) request.getSession().getAttribute("companyId");
+		}
+		
+		if (companyId == null) {
+			model.addObject("displayAll", true);
+			return model;
+		}
 
-		ModelAndView model = new ModelAndView("todolist/onlineSignature");
+		request.getSession().setAttribute("companyId", companyId);
+		model.addObject("compid", companyId);
 
 		Map<String, Object> pageData = commonDataService.getSingleCompanyUserData(userEmail, companyId);
 		model.addObject("companyName", pageData.get("companyName"));
 		
 		//model.addObject("userName", pageData.get("shareholderName"));
 		//model.addObject("address", pageData.get("address"));
-		
-		model.addObject("compid", companyId);
-		if (companyId == null) {
-			model.addObject("displayAll", true);
-			return model;
-		}
 
 		Map<String, Integer> shareholderAndStockMap = (Map<String, Integer>) pageData.get("shareholderAndStock");
 		StringBuffer shareholders = new StringBuffer();
@@ -427,17 +427,19 @@ public class ViewController {
 		
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		String companyId = (String) request.getParameter("compid");
+		if (companyId == null) {
+			companyId = (String) request.getSession().getAttribute("companyId");
+		}
+		if (companyId == null) {
+			model.addObject("displayAll", true);
+			return model;
+		}
 		request.getSession().setAttribute("companyId", companyId);
 		
 		Map<String, Object> pageData = commonDataService.getSingleCompanyUserData(userEmail, companyId);
 		model.addObject("companyName", pageData.get("companyName"));
 		model.addObject("address", pageData.get("address"));
 		model.addObject("compid", companyId);
-		
-		if (companyId == null) {
-			model.addObject("displayAll", true);
-			return model;
-		}
 		
 		CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) pageData.get("selfCompanyShareholderInfo");
 		if (selfCompanyShareholderInfo.getIcType().contains("公民") || selfCompanyShareholderInfo.getPositionType().contains("永久居民")) {
@@ -449,9 +451,10 @@ public class ViewController {
 		}
 
 		return model;
-	}		
-	@RequestMapping("/schedule")
-	public ModelAndView schedule() {
+	}
+
+	@RequestMapping("/schedule/{company_id}")
+	public ModelAndView schedule(@PathVariable long company_id) {
 		ModelAndView model = new ModelAndView("todolist/schedule");
 		return model;
 	}		
@@ -484,5 +487,18 @@ public class ViewController {
 		ModelAndView view = new ModelAndView("mybusiness/newCompany");
 		return view;
 	}
+	
+	@RequestMapping("/mybusiness/downLoadFile/{company_id}")
+	public ModelAndView downLoadFile(@PathVariable long company_id) {
+		ModelAndView model = new ModelAndView("mybusiness/downLoadFile");
+		//get the company and the document list
+		Company company =  companyRepository.findById(company_id).orElse(new Company());
+		model.addObject("company", company);
+		//base on the company to get the document list
+		model.addObject("companyDoc", fileService.getDocumentsByCompanyId(company.getId(),"C"));
+		model.addObject("personalDoc", fileService.getDocumentsByCompanyId(company.getId(),"P"));
+		
+		return model;
+	}	
 
 }

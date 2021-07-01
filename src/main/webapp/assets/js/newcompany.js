@@ -168,6 +168,38 @@ function removeDongShi (input) {
   input.parentNode.parentNode.parentNode.remove();
 }
 
+function showServiceTable(){
+	var number = services.length;
+    var totalamount = 0;
+    var selectedsummaryhtml = "<table class='table table-striped table-hover table-md'>";
+    selectedsummaryhtml +=   `<tr>
+							    <th data-width="40">#</th>
+							    <th>服务类型</th>
+							    <th class="text-center">价格</th>
+							    <th class="text-center">数量</th>
+							    <th class="text-right">总价</th>
+							  </tr>`;
+    for (let i=0; i<services.length; i++) {
+        totalamount = totalamount + services[i].price;
+        selectedsummaryhtml += "<tr>";
+        selectedsummaryhtml += "<td>" + (parseInt(i) +1) + "</td>";
+        selectedsummaryhtml += "<td>" + services[i].name + "</td>";
+        selectedsummaryhtml += "<td>" + services[i].price + "</td>";
+        selectedsummaryhtml += "<td> 1 </td>";
+        selectedsummaryhtml += "<td>" + services[i].price + "</td>";
+        selectedsummaryhtml += "</tr>";
+    }                  
+
+    selectedsummaryhtml += "<tr> <th data-width='40'></th> <th>总计金额</th> <th></th> <th></th> <th class='text-right'>" + totalamount + " </th> </tr>";
+    selectedsummaryhtml += "</table>";
+    document.getElementById("companyinfo_summary").innerHTML = selectedsummaryhtml;
+
+    $("#subtotal").text("$" + totalamount);
+    $("#shipping").text("$15");
+    $("#subtotal").text("$" + (totalamount + 15));
+   
+}
+
 function listSummary() {
 	companyInfos = [];
 	shareholderInfos = [];
@@ -781,9 +813,6 @@ $('body').on('click','.removeNode', function() {
 $(function () { $('#collapseOne').collapse('hide')});
 
 
-
-
-
 var coll = document.getElementsByClassName("collapsible1");
 var i;
 
@@ -793,7 +822,6 @@ for (i = 0; i < coll.length; i++) {
     var content = this.nextElementSibling;
   });
 }
-
 
 function viewcontent_sing() {
 	/*document.getElementsByClassName("me_education nav-item dropdown")[0].classList.add("open");*/

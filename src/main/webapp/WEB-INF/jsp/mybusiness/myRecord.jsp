@@ -63,9 +63,9 @@
                         <c:forEach items="${companies}" var="company">
 	                        <tr>
 	                          <td>${company.name}</td>
-	                          <td><div class="badge badge-success" ><a href="/mybusiness/downLoadFile" target="_blank">文件下载</a></div></td>
+	                          <td><div class="badge badge-success" ><a href="/mybusiness/downLoadFile/${company.id}" target="_blank">文件下载</a></div></td>
 	                          <td><div class="badge badge-warning"><a href="/onekey/oneKeyService" target="_blank">新服务</a></div></td>
-	                          <td><div class="badge badge-danger"><a href="/schedule" target="_blank">时间表</a></div></td>
+	                          <td><div class="badge badge-danger"><a href="/schedule/${company.id}" target="_blank">时间表</a></div></td>
 	                        </tr>
                         </c:forEach>
                       </table>

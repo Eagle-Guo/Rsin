@@ -1,1 +1,4 @@
-yuzhiqwe@gmail.com / Amazon
+yuzhirsin@gmail.com / Amazon
+
+database-1.cteq9chmtyma.ap-southeast-1.rds.amazonaws.com
+admin/administrator

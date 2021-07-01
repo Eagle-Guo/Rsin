@@ -12,10 +12,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import sg.com.rsin.dao.EmployeeDao;
+import sg.com.rsin.dao.RoleRepository;
 import sg.com.rsin.dao.UserRegistrationRepository;
+import sg.com.rsin.dao.UserRoleRepository;
 import sg.com.rsin.entity.CommonResponse;
 import sg.com.rsin.entity.ErrorObject;
 import sg.com.rsin.entity.UserRegistration;
+import sg.com.rsin.entity.UserRole;
 import sg.com.rsin.enums.ResponseCode;
 import sg.com.rsin.enums.UserStatus;
 import sg.com.rsin.service.UserRegistrationService;
@@ -31,7 +34,11 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 	
 	@Autowired
 	UserRegistrationRepository userRegistrationRepository;
-
+	@Autowired
+	RoleRepository roleRepository;
+	@Autowired
+	UserRoleRepository userRoleRepository;
+	
 	@Override
 	public CommonResponse addNewRegistrationUser(UserRegistration userRegistrationObject) {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
@@ -49,6 +56,11 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 			userRegistrationObject.getFirstName() == null) {
 			errorList.add(new ErrorObject("姓名密码为空，请重新输入！"));
 		}
+		// if user existed
+		if (userRegistrationRepository.findByEmail(userRegistrationObject.getEmail()).size() > 0) {
+			errorList.add(new ErrorObject("该用户已经注册，请重新输入！"));
+		}
+		
 		if (errorList.size() > 0 ) {
 			response.setResponseCode(ResponseCode.VALIDATE_NULL_VALUES);
 			response.setErrorList(errorList);
@@ -73,8 +85,11 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 			response.setErrorList(errorList);
 			return response;
 		}
-//		User user = new User(userRegistrationObject.getEmail(), encodedPassword, authorities);
-//		jdbcUserDetailsManager.createUser(user);
+		// add to the user_role table
+		UserRole userRole = new UserRole();
+		userRole.setUserId(userRegistrationObject.getId());
+		userRole.setRoleId(roleRepository.findByName("ROLE_USER").stream().findFirst().get().getId());
+		userRoleRepository.save(userRole);
 		response.setResponseCode(ResponseCode.SUCCESS);
 		return response;
 	}

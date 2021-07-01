@@ -18,4 +18,7 @@ public interface CompanyShareholderInfoRepository extends JpaRepository<CompanyS
 	
 	@Query("select csi from CompanyShareholderInfo csi, Company c where c.id = csi.company.id and csi.email = :email and c.id = :id")
 	List<CompanyShareholderInfo> findByEmailAndCompanyId (@Param("email")String email, @Param("id") long id);
+	
+	@Query("select csi from CompanyShareholderInfo csi, Company c where c.id = csi.company.id and csi.name = :name and c.id = :id")
+	List<CompanyShareholderInfo> findByNameAndCompanyId (@Param("name")String name, @Param("id") long id);
 }

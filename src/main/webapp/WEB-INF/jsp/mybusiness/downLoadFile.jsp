@@ -38,7 +38,7 @@
               <div class="col-12">
                 <div class="card ">
                   <div class="card-header">
-                    <h4>公司AAA</h4>
+                    <h4>公司 ${company.name }</h4>
                     <div class="card-header-form">
                       <form>
                         <div class="input-group">
@@ -72,27 +72,27 @@
 										                      <tbody>
 										                        <tr>
 										                          <th scope="row">ID</th>
-										                          <td>0000000001</td>
+										                          <td>${company.id }</td>
 										                        </tr>
 										                        <tr>
 										                          <th scope="row">UEN(注册号)</th>
-										                          <td>201500518N</td>
+										                          <td>${company.uen }</td>
 										                        </tr>
 										                        <tr>
 										                          <th scope="row">公司名称</th>
-										                          <td>KNOCKNOCK TECHNOLOGIES ASIA PTE. LTD</td>
+										                          <td>${company.name }</td>
 										                        </tr>
 										                        <tr>
 										                          <th scope="row">公司类型</th>
-										                          <td>私人有限公司 (PTE. LTD.)</td>
+										                          <td>${company.type }</td>
 										                        </tr>
 										                        <tr>
 										                          <th scope="row">商业 活动1</th>
-										                          <td>AGRICULTURE AND RELATED SERVICE ACTIVITIES: 农业及相关服务</td>
+										                          <td>${company.activityOne }</td>
 										                        </tr>										                        
 										                        <tr>
 										                          <th scope="row">商业 活动2</th>
-										                          <td>AGRICULTURE AND RELATED SERVICE ACTIVITIES: 农业及相关服务</td>
+										                          <td>${company.activityTwo }</td>
 										                        </tr>										                        
 										                        <tr>
 										                          <th scope="row">挂名董事</th>
@@ -112,15 +112,15 @@
 										                        </tr>																
 										                        <tr>
 										                          <th scope="row">注册资本</th>
-										                          <td>743968</td>
+										                          <td>${company.totalStockCapital }</td>
 										                        </tr>																	
 										                        <tr>
 										                          <th scope="row">实缴资本</th>
-										                          <td>743968</td>
+										                          <td>${company.actualStockCapital }</td>
 										                        </tr>		
 										                        <tr>
 										                          <th scope="row">注册时间</th>
-										                          <td>12/12/2020</td>
+										                          <td>${company.registrationDate }</td>
 										                        </tr>																						                        									                        
 										                      </tbody>
 										                    </table>
@@ -129,23 +129,19 @@
 										                <div class="card">
 										                  <div class="card-body">
 															<div class="row">
-														            <div class="col-12 col-md-5 col-lg-5">	
-														           	   <b>Constitution of Company（公司章程）</b>			                  
-																	</div>
-														            <div class="col-12 col-md-5 col-lg-5">	
-														            					                  
-																	</div>		
-														            <div class="col-12 col-md-2 col-lg-2">	
-														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
-																	</div>																									
+													            <div class="col-12 col-md-5 col-lg-5">	
+													           	   <b>Constitution of Company（公司章程）</b>			                  
+																</div>
+													            <div class="col-12 col-md-5 col-lg-5"></div>		
+													            <div class="col-12 col-md-2 col-lg-2">	
+													            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																</div>																									
 															</div>	
 															<div class="row">
 														            <div class="col-12 col-md-5 col-lg-5" data-toggle="collapse"  data-target="#AttachedReport" style="cursor: pointer">	
 														           	    <b>Attached AML/CFT Report</b><span style="color: #6777ef;">(最新版)</span>                 
 																	</div>
-														            <div class="col-12 col-md-5 col-lg-5">	
-														            						                  
-																	</div>		
+														            <div class="col-12 col-md-5 col-lg-5"></div>		
 														            <div class="col-12 col-md-2 col-lg-2">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
 																	</div>								
@@ -154,7 +150,7 @@
 																<div class="row">
 																		<div class="col-12 col-md-1 col-lg-1"></div>		
 															            <div class="col-12 col-md-6 col-lg-6">	
-															           	 <span>修改记录：</span> 28.02.2019 07:44:11		                  
+															           	 <span>修改记录：</span> 28.02.2019 07:44:11	
 																		</div>
 														            <div class="col-12 col-md-4 col-lg-4">	
 														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>										                  
@@ -163,15 +159,13 @@
 																</div>
 															</div>		
 															<div class="row">
-														            <div class="col-12 col-md-5 col-lg-5">	
-														           	   <b>Certificate of Incorporation（公司注册证书）</b>			                  
-																	</div>
-														            <div class="col-12 col-md-5 col-lg-5">	
-														            				                  
-																	</div>		
-														            <div class="col-12 col-md-2 col-lg-2">	
-														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
-																	</div>																									
+													            <div class="col-12 col-md-5 col-lg-5">	
+													           	   <b>Certificate of Incorporation（公司注册证书）</b>			                  
+																</div>
+													            <div class="col-12 col-md-5 col-lg-5"></div>		
+													            <div class="col-12 col-md-2 col-lg-2">	
+													            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																</div>																									
 															</div>	
 															<div class="row">
 														            <div class="col-12 col-md-5 col-lg-5">	
@@ -196,59 +190,59 @@
 																	</div>																									
 															</div>	
 															<div class="row">
-														            <div class="col-12 col-md-5 col-lg-5">	
-														           	   <b>Risk Assessment Checklist（风险评估清单）</b>			                  
-																	</div>
-														            <div class="col-12 col-md-5 col-lg-5">	
-														            					                  
-																	</div>		
-														            <div class="col-12 col-md-2 col-lg-2">	
-														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
-																	</div>																									
+													            <div class="col-12 col-md-5 col-lg-5">	
+													           	   <b>Risk Assessment Checklist（风险评估清单）</b>			                  
+																</div>
+													            <div class="col-12 col-md-5 col-lg-5">	
+													            					                  
+																</div>		
+													            <div class="col-12 col-md-2 col-lg-2">	
+													            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																</div>																									
 															</div>	
 															<div class="row">
-														            <div class="col-12 col-md-5 col-lg-5">	
-														           	   <b>Secretary Agreement（秘书协议）</b>			                  
-																	</div>
-														            <div class="col-12 col-md-5 col-lg-5">	
-														            		签名人员：签名人1(已签名)、签名人2（待签名）、签名人3	（已签名）			                  
-																	</div>		
-														            <div class="col-12 col-md-2 col-lg-2">	
-														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
-																	</div>																									
+													            <div class="col-12 col-md-5 col-lg-5">	
+													           	   <b>Secretary Agreement（秘书协议）</b>			                  
+																</div>
+													            <div class="col-12 col-md-5 col-lg-5">	
+													            		签名人员：签名人1(已签名)、签名人2（待签名）、签名人3	（已签名）			                  
+																</div>		
+													            <div class="col-12 col-md-2 col-lg-2">	
+													            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																</div>																									
 															</div>	
 															<div class="row">
-														            <div class="col-12 col-md-5 col-lg-5">	
-														           	   <b>Company info（公司信息）</b>			                  
-																	</div>
-														            <div class="col-12 col-md-5 col-lg-5">	
-														            					                  
-																	</div>		
-														            <div class="col-12 col-md-2 col-lg-2">	
-														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
-																	</div>																									
+													            <div class="col-12 col-md-5 col-lg-5">	
+													           	   <b>Company info（公司信息）</b>			                  
+																</div>
+													            <div class="col-12 col-md-5 col-lg-5">	
+													            					                  
+																</div>		
+													            <div class="col-12 col-md-2 col-lg-2">	
+													            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																</div>																									
 															</div>	
 															<div class="row">
-														            <div class="col-12 col-md-5 col-lg-5">	
-														           	   <b>Register of Charges（收费登记册）</b>			                  
-																	</div>
-														            <div class="col-12 col-md-5 col-lg-5">	
-														            					                  
-																	</div>		
-														            <div class="col-12 col-md-2 col-lg-2">	
-														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
-																	</div>																									
+													            <div class="col-12 col-md-5 col-lg-5">	
+													           	   <b>Register of Charges（收费登记册）</b>			                  
+																</div>
+													            <div class="col-12 col-md-5 col-lg-5">	
+													            					                  
+																</div>		
+													            <div class="col-12 col-md-2 col-lg-2">	
+													            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																</div>																									
 															</div>	
 															<div class="row">
-														            <div class="col-12 col-md-5 col-lg-5">	
-														           	   <b>Register of Secretary（秘书名册）</b>			                  
-																	</div>
-														            <div class="col-12 col-md-5 col-lg-5">	
-														            				                  
-																	</div>		
-														            <div class="col-12 col-md-2 col-lg-2">	
-														            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
-																	</div>																									
+													            <div class="col-12 col-md-5 col-lg-5">	
+													           	   <b>Register of Secretary（秘书名册）</b>			                  
+																</div>
+													            <div class="col-12 col-md-5 col-lg-5">	
+													            				                  
+																</div>		
+													            <div class="col-12 col-md-2 col-lg-2">	
+													            	<a href="#" >下载</a>	<span> | </span><a href="#" >浏览</a>						                  
+																</div>																									
 															</div>															
 																						                  
 										                  </div>

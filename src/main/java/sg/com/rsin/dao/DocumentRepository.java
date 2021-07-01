@@ -17,4 +17,7 @@ public interface DocumentRepository extends JpaRepository<Document, Long> {
 	public List<Document> findByUserIdAndCompany(@Param("userId") String userId, @Param("companyId") Long companyId);
 	
 	public List<Document> findByCompanyIdAndCategoryOrderByDisplaySequenceAsc(Long companyId, String category);
+	
+	@Query("select d from Document d where d.documentDesc = :name and d.company.id = :companyId ")
+	public List<Document> findByDocumentDesc(long companyId, String name);
 }

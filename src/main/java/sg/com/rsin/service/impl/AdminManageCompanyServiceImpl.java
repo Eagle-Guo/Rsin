@@ -1,10 +1,13 @@
 package sg.com.rsin.service.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.jfree.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,9 +46,14 @@ public class AdminManageCompanyServiceImpl implements AdminManageCompanyService 
 
 	@Override
 	public List<String> getDirectors(Long companyId) {
-		List<CompanyShareholderInfo> companyShareholderInfos = companyShareholderInfoRepository.findByCompanyId(companyId);
-		List<String> name = companyShareholderInfos.stream().filter(shareholder -> shareholder.getPositionType().contains("董事")).map(CompanyShareholderInfo::getName).collect(Collectors.toList());
-		return name;
+		try {
+			List<CompanyShareholderInfo> companyShareholderInfos = companyShareholderInfoRepository.findByCompanyId(companyId);
+			List<String> name = companyShareholderInfos.stream().filter(shareholder -> shareholder.getPositionType().contains("董事")).map(CompanyShareholderInfo::getName).collect(Collectors.toList());
+			return name;
+		} catch (Exception ex) {
+			Log.error("Getting shareholder info error: " + ex.getMessage());
+		}
+		return new ArrayList<String>();
 	}
 
 	@Override
@@ -61,7 +69,7 @@ public class AdminManageCompanyServiceImpl implements AdminManageCompanyService 
 		documents.stream().forEach(doc -> {
 			String type = doc.getDocumentType().getDocumentTypeCode();
 			//String desc = doc.getDocumentDesc() + ((doc.getDocumentDesccn() == null || "".equals(doc.getDocumentDesccn())) ? "" : " (" + doc.getDocumentDesccn() + ")");
-			List<DocumentHistory> hiss = documentHistoryRepository.findByDocumentId(doc.getId());
+			List<DocumentHistory> hiss = documentHistoryRepository.findByDocumentIdOrderByIdDesc(doc.getId());
 			fileMap.put(type, hiss);
 		});
 		
@@ -81,7 +89,7 @@ public class AdminManageCompanyServiceImpl implements AdminManageCompanyService 
 		documents.stream().forEach(doc -> {
 			String type = doc.getDocumentType().getDocumentTypeCode();
 			//String desc = doc.getDocumentDesc() + ((doc.getDocumentDesccn() == null || "".equals(doc.getDocumentDesccn())) ? "" : " (" + doc.getDocumentDesccn() + ")");
-			List<DocumentHistory> hiss = documentHistoryRepository.findByDocumentId(doc.getId());
+			List<DocumentHistory> hiss = documentHistoryRepository.findByDocumentIdOrderByIdDesc(doc.getId());
 			fileMap.put(type, hiss);
 		});
 		

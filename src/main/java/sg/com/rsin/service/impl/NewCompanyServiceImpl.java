@@ -35,6 +35,8 @@ import sg.com.rsin.dao.CompanyServiceRepository;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
 import sg.com.rsin.dao.CompanyStatusTimeRepository;
 import sg.com.rsin.dao.DocumentRepository;
+import sg.com.rsin.dao.DocumentTypeRepository;
+import sg.com.rsin.dao.InitiateDocumentRepository;
 import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.RoleRepository;
 import sg.com.rsin.dao.UserRegistrationRepository;
@@ -43,12 +45,12 @@ import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.CompanyStatusTime;
 import sg.com.rsin.entity.Document;
+import sg.com.rsin.entity.DocumentType;
 import sg.com.rsin.entity.Mail;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Role;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.NewCompanyInfoEnum;
-import sg.com.rsin.restController.NewCompanyController;
 import sg.com.rsin.service.EmailService;
 import sg.com.rsin.service.NewCompanyService;
 import sg.com.rsin.util.CommonUtils;
@@ -60,7 +62,7 @@ import sg.com.rsin.vo.CompanyServiceVO;
 @ConfigurationProperties
 public class NewCompanyServiceImpl implements NewCompanyService {
 
-	private static final Logger logger = LoggerFactory.getLogger(NewCompanyController.class);
+	private static final Logger logger = LoggerFactory.getLogger(NewCompanyServiceImpl.class);
 	
 	@Autowired
 	EmailService emailService;
@@ -83,6 +85,10 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 	private DocumentRepository documentRepository;
 	@Autowired
 	private CompanyStatusTimeRepository companyStatusTimeRepository;
+	@Autowired
+	private InitiateDocumentRepository initiateDocumentRepository;
+	@Autowired
+	private DocumentTypeRepository documentTypeRepository;
 	
 	
 	@Value("${rsin.application.domain}")
@@ -140,8 +146,6 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 		company.setStep("2"); //Complete the first 2 steps: 选择服务 and 信息填报
 		company.setCreatedDate(new Date());
 		companyRepository.save(company);
-		
-		
 
 		//Save to company_service
 		CompanyService companyService = CommonUtils.phaseNewCompanyService(companyServiceVOs);
@@ -170,19 +174,45 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 			if (ObjectUtils.isEmpty(userRecord)) {
 				Set<Role> role = roleRepository.findByName("ROLE_USER");
 				UserRegistration userRegistration = new UserRegistration();
+				userRegistration.setUsername(shareholderEmail.getEmail()); //need to use this name to login
 				userRegistration.setFirstName(shareholderEmail.getName());
-				userRegistration.setUsername(shareholderEmail.getEmail());
 				userRegistration.setEmail(shareholderEmail.getEmail());
 				userRegistration.setPassword(bCryptPasswordEncoder.encode(defaultPassword));
-				
+				userRegistration.setGender(shareholderEmail.getGender());
 				userRegistration.setRoles(role);
 				userRegistrationRepository.save(userRegistration);
 			}
 		}
+		
+		List<DocumentType> documentTypes = documentTypeRepository.findAll();
+		
+		List<Document> defaultDoc = new ArrayList<Document> ();
+		initiateDocumentRepository.findAll().stream().forEach(init -> {
+			Document doc = new Document();
+			DocumentType type = documentTypes.parallelStream().filter( type1 -> type1.getDocumentTypeCode().equals(init.getDocumentType().getDocumentTypeCode()) ).findFirst().get();
+			doc.setDocumentType(init.getDocumentType());
+			doc.setCategory(init.getCategory());
+			doc.setDisplaySequence(init.getDisplaySequence());
+			doc.setDocumentDesc(type.getDocumentTypeDesc());
+			doc.setDocumentDesccn(type.getDocumentTypeDescCn());
+			//doc.setUserId("App_Initial");
+			doc.setCompany(company);
+			doc.setCreatedBy("App_Initial");
+			doc.setCreatedDate(new Date());
+			doc.setLockFlag(false);
+			defaultDoc.add(doc);			
+		});
+		documentRepository.saveAll(defaultDoc);
+		
+		//TODO Add default timelines into table
+
 		// Send the email to shareholder
 		for (CompanyShareholderInfo shareholder: companyShareholderInfos) {
 			try {
-				sendEmailToShareHolder(company, shareholder);
+				List<UserRegistration> userRecord =  userRegistrationRepository.findByEmail(shareholder.getEmail());
+				if (ObjectUtils.isEmpty(userRecord)) {
+					sendEmailToShareHolder(company, shareholder);
+				}
 			} catch (MessagingException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -236,6 +266,8 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 		Map<String, List<String>> signedFiles = new HashMap<String,List<String>>();
 		//1. Get all the company shareholders and directors
 		List<CompanyShareholderInfo> shareholders = companyShareholderInfoRepository.findByCompanyId(companyId);
+		if (shareholders.size()==0) 
+			return signedFiles;
 		//2. check the file have signed
 		shareholders.stream().forEach(shareholder -> {
 			List<Document> documents = documentRepository.findByUserIdAndCompany(shareholder.getEmail(), companyId);
@@ -247,6 +279,8 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 
 	public String listSignedUserName(Map<String, List<String>> signedDocs, String documentType) {
 		StringBuilder sb = new StringBuilder();
+		if (signedDocs.size() == 0) 
+			return sb.toString();
 		signedDocs.forEach((k, value) -> {
 			if (value.contains(documentType)) {
 				sb.append(", " + k + "(已签名)");

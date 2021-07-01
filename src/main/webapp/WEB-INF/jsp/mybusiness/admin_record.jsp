@@ -13,6 +13,9 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../../../assets/css/style.css">
   <link rel="stylesheet" href="../../../assets/css/components.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css"/>
 </head>
 
 <body>
@@ -103,202 +106,6 @@
           </div>
         </section>
       </div> 		        
-	   <!-- 
-      <div class="">
-        <section class="section admin_editRecord">
-          <div class="section-body">
-            <div class="row mt-4">
-              <div class="col-12">
-                <div class="card search">
-                  <div class="card-header">
-                    <div class="section-title" style="padding-right:3%;">条件筛选</div>
-                    <div class="form-group" style="width:60%;">
-                      <div class="input-group">
-                        <select class="custom-select" id="inputGroupSelect05">
-                          <option selected>全部</option>
-                          <option value="1">公司名称</option>
-                          <option value="2">注册日期</option>
-                          <option value="3">年审时间</option>
-                          <option value="4">财务年度时间</option>
-                          <option value="5">关键词</option>                                                   
-                        </select>
-                        <input type="text" class="form-control">
-                        <div class="input-group-append">
-                          <button class="btn btn-primary" type="button">搜索</button>
-                        </div>
-                      </div>
-                    </div>
-                   <div  style="padding-left:3%;"><div class="badge badge-danger">导出全部</div></div> 
-                  </div>
-                  <div class="card-body">
-                    <div class="clearfix mb-3"></div>
-
-                    <div class="table-responsive">
-                      <table class="table table-striped">
-                        <tr>
-                          <th>UEN</th>
-                          <th>公司名称</th>                         
-                          <th>注册日期</th>
-                          <th>董事</th>
-                          <th>挂名董事</th>
-                          <th>股东</th>                          
-                          <th>秘书</th>                                
-                          <th>联系人</th>                                
-                          <th>注册资本</th>                                
-                          <th>实缴资本</th>  
-                          <th>预计年审时间</th>                          
-                          <th>财务年度时间</th>                                
-                          <th>消费税报税</th>                                
-                          <th>ECI</th>                                
-                          <th>所得税报税</th>                           
-                          <th>所得锐缴税</th>                                               
-                          <th>公司地址 </th>    
-                          <th>服务进度</th>    
-                          <th>渠道方</th>                              
-                          <th>服务记录（时间表）</th>                       
-                          <th>导出公司信息 </th>                                                                                                    
-                          <th>下载全部文件</th>                                                                          
-                          <th>备注</th>  																			                          
-                        </tr>
-                        <tr>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                           
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                                                
-                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                          
-                          <th><div class="badge badge-danger"><a href="#" target="_blank">下载</a></div></th>
-                          <th></th> 																			                          
-                        </tr>   
-                        <tr>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                           
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                                               
-                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                          
-                          <th><div class="badge badge-danger"><a href="#" target="_blank">下载</a></div></th>
-                          <th></th> 																			                          
-                        </tr>   
-                        <tr>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                           
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                                                  
-                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                          
-                          <th><div class="badge badge-danger"><a href="#" target="_blank">下载</a></div></th>
-                          <th></th> 																			                          
-                        </tr>                           
-                         <tr>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                           
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>      
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>
-                          <th>data</th>                          
-                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                                                 
-                          <th> <div class="badge badge-danger"><a href="#" target="_blank">导出</a></div></th>                          
-                          <th><div class="badge badge-danger"><a href="#" target="_blank">下载</a></div></th>
-                          <th></th> 																			                          
-                        </tr>                          
-                        
-                                                                    
-                      </table>
-                    </div> 
-                    <br/><br/>
-                    <div class="float-right">
-                      <nav>
-                        <ul class="pagination">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                              <span aria-hidden="true">&laquo;</span>
-                              <span class="sr-only">Previous</span>
-                            </a>
-                          </li>
-                          <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">&raquo;</span>
-                              <span class="sr-only">Next</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </nav>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>  -->    
         </section>
       </div>
       
@@ -328,5 +135,15 @@
   <script src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>  
   <script src="../../../assets/js/admin_record.js"></script> 
   
+  <!-- DataTables -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.js"></script>
+  
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.flash.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.js"></script>
 </body>
 </html>

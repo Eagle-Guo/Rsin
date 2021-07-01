@@ -34,6 +34,9 @@ public class UserRegistration {
 	@Column(name = "last_name", length = 50)
 	private String lastName;
 	
+	@Column(name = "gender", length = 4)
+	private String gender;
+	
 	@Column(name = "email", length = 50)
 	private String email;
 	
@@ -94,6 +97,12 @@ public class UserRegistration {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	public String getEmail() {
 		return email;

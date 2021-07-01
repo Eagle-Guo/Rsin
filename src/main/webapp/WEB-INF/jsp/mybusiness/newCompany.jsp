@@ -68,10 +68,10 @@
 								                        </div>
 								                        <div class="accordion-body collapse show" id="panel-body-1" data-parent="#accordion">
 								                        	<p class="mb-0">此申请步骤约需20分钟；申请前请准备好以下资料，以方便更快填报信息。<br/>
-																						1、新加坡公民或PR，需准备IC；<br/>
-																						2、中国公民，需准备护照、中国身份证；<br/>
-																						3、其它国家公民，需准备护照、住所证明。<br/>
-																						备注：请确保所填内容是英文形式。
+																			1、新加坡公民或PR，需准备IC；<br/>
+																			2、中国公民，需准备护照、中国身份证；<br/>
+																			3、其它国家公民，需准备护照、住所证明。<br/>
+																			备注：请确保所填内容是英文形式。
 															</p>
 								                        </div>
 						                      		</div>
@@ -87,7 +87,7 @@
 									          <div class="section-body">
 									            <h2 class="section-title">“在线签名”步骤</h2>
 									            <p class="section-lead">
-									                                                    请点击<a href="/onlineSignature">“此处”</a>完成“在线签名”步骤。
+									                                  请点击<a href="/onlineSignature"> "此处" </a>完成 "在线签名" 步骤。
 									            </p> </div>
 						                 	 </div>
 						                </div>
@@ -530,33 +530,12 @@
 																	<i class="far fa-user"></i>增加填报人员
 																</a>
 															</div>																																											
-															<!--<div class="row">
-																<div class="col-sm-9">
-																	<select class="custom-select c-select-info  appinfo" id="addContactNo">
-																		<option value="1" selected>1</option>
-																		<option value="2">2</option>
-																		<option value="3">3</option>
-																		<option value="4">4</option>
-																		<option value="5">5</option>
-																		<option value="6">6</option>
-																		<option value="7">7</option>
-																		<option value="8">8</option>
-																		<option value="9">9</option>
-																		<option value="10">10</option>
-																	</select>
-																</div>
-																<a class="btn btn-icon icon-left btn-warning" onclick="addContactP()">	<i class="far fa-user"></i>增加填报人员 </a>
-															</div>		
-															<div class="form-group row" id="addContactPDiv0"></div>-->
 														</div>	
 														<div class="button-row d-flex mt-4">
 															<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
 															<button class="btn btn-primary saveBtn" type="button" title="save" onclick="saveToBackend()">保存所填信息</button>
-															<!--<div class="form-check form-check-inline infoConfirm">
-																			<input class="form-check-input" type="checkbox" id="checkb_dongshi0"> 
-																			<label style="height: auto;" class="form-check-label">请确定所填信息准确无误后点击“下一步”。</label>
-															</div>  -->
-															<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="listSummary()" id="step2next">下一步</button>
+															<%-- <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="listSummary()" id="step2next">下一步</button> --%>
+															<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next" onclick="showServiceTable()" id="step2next">下一步</button>
 														</div>
 													</div>
 												</div>
@@ -574,39 +553,11 @@
 													              <div class="invoice-print">
 													                <div class="row mt-12">
 													                  <div class="col-md-12">
-													                    <div class="section-title">Order Summary</div>
-													                    <p class="section-lead">All items here cannot be deleted.</p>
-													                    <div class="table-responsive">
-													                      <table class="table table-striped table-hover table-md">
-													                        <tr>
-													                          <th data-width="40">#</th>
-													                          <th>Item</th>
-													                          <th class="text-center">Price</th>
-													                          <th class="text-center">Quantity</th>
-													                          <th class="text-right">Totals</th>
-													                        </tr>
-													                        <tr>
-													                          <td>1</td>
-													                          <td>Mouse Wireless</td>
-													                          <td class="text-center">$10.99</td>
-													                          <td class="text-center">1</td>
-													                          <td class="text-right">$10.99</td>
-													                        </tr>
-													                        <tr>
-													                          <td>2</td>
-													                          <td>Keyboard Wireless</td>
-													                          <td class="text-center">$20.00</td>
-													                          <td class="text-center">3</td>
-													                          <td class="text-right">$60.00</td>
-													                        </tr>
-													                        <tr>
-													                          <td>3</td>
-													                          <td>Headphone Blitz TDR-3000</td>
-													                          <td class="text-center">$600.00</td>
-													                          <td class="text-center">1</td>
-													                          <td class="text-right">$600.00</td>
-													                        </tr>
-													                      </table>
+													                    <div class="section-title">订单详情</div>
+													                    <p class="section-lead">这里的服务不能删除，需要重新选择服务，请点击上一步进行修改</p>
+
+													                    <div class="table-responsive" id="companyinfo_summary">
+
 													                    </div>
 													                    <div class="row mt-4">
 													                      <div class="col-lg-8">
@@ -622,16 +573,16 @@
 													                      <div class="col-lg-4 text-right">
 													                        <div class="invoice-detail-item">
 													                          <div class="invoice-detail-name">Subtotal</div>
-													                          <div class="invoice-detail-value">$670.99</div>
+													                          <div class="invoice-detail-value" id="subtotal">$670.99</div>
 													                        </div>
 													                        <div class="invoice-detail-item">
 													                          <div class="invoice-detail-name">Shipping</div>
-													                          <div class="invoice-detail-value">$15</div>
+													                          <div class="invoice-detail-value" id="shipping">$15</div>
 													                        </div>
 													                        <hr class="mt-2 mb-2">
 													                        <div class="invoice-detail-item">
 													                          <div class="invoice-detail-name">Total</div>
-													                          <div class="invoice-detail-value invoice-detail-value-lg">$685.99</div>
+													                          <div class="invoice-detail-value invoice-detail-value-lg" id="total">$685.99</div>
 													                        </div>
 													                      </div>
 													                    </div>
@@ -654,20 +605,13 @@
 													</div>
 												</div>
 											</div>
-	
-										</form>
 									</div>
-	
+
 									<!-- right side -->
 									<div class="col-lg-4 col-md-12 col-12 col-sm-12">
 										<!-- Right side -->
 										<div class="summary-item" id="selected_summary"></div>
 									</div>
-									
-								
-									
-									
-									
 									
 								</div>
 							</div>

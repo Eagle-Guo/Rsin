@@ -53,7 +53,7 @@
 					<a href="#" class="nav-link has-dropdown"><i class="fas fa-map-marker-alt"></i>
 						<span>我的帐号</span></a>
 					<ul class="dropdown-menu">
-						<li><a href="coming.html">个人帐户信息</a></li>
+						<li><a href="/coming">个人帐户信息</a></li>
 					</ul>
 				</li>
 				<li class="nav-item dropdown">

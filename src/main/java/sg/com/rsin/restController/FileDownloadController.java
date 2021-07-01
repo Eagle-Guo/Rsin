@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.service.CommonDataService;
@@ -40,6 +41,9 @@ public class FileDownloadController {
 
 	@Autowired
 	CommonDataService commonDataService;
+
+	@Autowired
+	CompanyRepository companyRepository;
 	
 	@Autowired
 	FileService fileService;
@@ -96,8 +100,9 @@ public class FileDownloadController {
 	@RequestMapping(value = "/downloadFiles/{file_name}", method = RequestMethod.GET)
 	public void getFile( @PathVariable("file_name") String fileName, HttpServletRequest request, HttpServletResponse response) {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
+		String companyId = (String) request.getSession().getAttribute("companyId");
 		try {
-			InputStream is = generateJespterReportService.downloadWithSignatureFile(fileName, userId);
+			InputStream is = generateJespterReportService.downloadWithSignatureFile(companyId, fileName, userId);
 		    org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
 		    response.flushBuffer();
 	    } catch (IOException ex) {
@@ -113,6 +118,8 @@ public class FileDownloadController {
 		String userId = (String) request.getSession().getAttribute("loginUsername");
 		Document document = fileService.getDocument(documentId);
 		if (document.getId() == null) {
+			// get the document name again if the document save before and upload 2nd file
+			document = fileService.getDocumentByName(company_id, desc);
 			// create the new document record
 			document = fileService.saveToDocument(userId, userId, "C", 11, desc, null, false, company_id, "TYPE_COM_0");
 			
@@ -222,5 +229,15 @@ public class FileDownloadController {
         } catch (IOException ex) {
         	return new ResponseEntity<String>("File upload Failed", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+	@PostMapping("update/document/flag/{flag}")
+    public ResponseEntity<?> updateUploadDocumentFlag(@PathVariable String flag, @RequestParam("id") int documentId) {
+		try {
+			fileService.updateDocumentFlag(documentId,flag);
+        } catch (Exception ex) {
+        	return new ResponseEntity<String>("File flag update failed", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<String>("File flag update successful", HttpStatus.OK);
     }
 }

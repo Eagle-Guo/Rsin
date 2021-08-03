@@ -402,3 +402,13 @@ CREATE TABLE `timeline_detail` (
   PRIMARY KEY (`id`),
   CONSTRAINT `timeline_detail_id_fk` FOREIGN KEY (`timeline_id`) REFERENCES `timeline` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE `pending_company` (
+  `id` int(11) NOT NULL auto_increment,
+  `company_id` int(11) NOT NULL,
+  `due_date` DATETIME,
+  `comment` varchar(255),
+  `created_date` DATETIME,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `pending_company_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;

@@ -3,6 +3,7 @@ package sg.com.rsin.controllers;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.CompanyStatusTimeRepository;
-import sg.com.rsin.entity.CommonResponse;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
@@ -27,24 +26,24 @@ import sg.com.rsin.entity.CompanyStatusTime;
 import sg.com.rsin.entity.Document;
 import sg.com.rsin.entity.DocumentHistory;
 import sg.com.rsin.entity.Employee;
-import sg.com.rsin.entity.ErrorObject;
 import sg.com.rsin.entity.Timeline;
 import sg.com.rsin.entity.TimelineAddition;
 import sg.com.rsin.entity.TimelineDetail;
-import sg.com.rsin.entity.UserRegistration;
-import sg.com.rsin.enums.ResponseCode;
 import sg.com.rsin.enums.TimeLineType;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmployeeService;
 import sg.com.rsin.service.FileService;
 import sg.com.rsin.service.NewCompanyService;
+import sg.com.rsin.service.ShareholderInfoService;
 import sg.com.rsin.service.AdminManageCompanyService;
 import sg.com.rsin.service.AdminTimelineService;
 import sg.com.rsin.service.UserRegistrationService;
+import sg.com.rsin.vo.CompanyDto;
+import sg.com.rsin.vo.CompanyShareholderDto;
 import sg.com.rsin.vo.OnlineSignatureVO;
 
 @Controller
-public class ViewController {
+public class AdminViewController {
 
 	@Autowired
 	private EmployeeService employeeService;
@@ -59,6 +58,9 @@ public class ViewController {
 	AdminManageCompanyService adminManageCompanyService;
 	@Autowired
 	AdminTimelineService adminTimelineService;
+	
+	@Autowired
+	ShareholderInfoService shareholderInfoService;
 
 	@Autowired
 	CompanyRepository companyRepository;
@@ -69,69 +71,7 @@ public class ViewController {
 	@Autowired
 	CompanyStatusTimeRepository companyStatusTimeRepository;
 
-	@RequestMapping("/")
-	public ModelAndView allPage() {
-		return new ModelAndView("login");
-	}
-	
-	@RequestMapping("/userWelcome")
-	public ModelAndView userPage() {
-		return new ModelAndView("userWelcome");
-	}
-
-	@RequestMapping("/adminWelcome")
-	public ModelAndView adminPage() {
-		return new ModelAndView("adminWelcome");
-	}
-
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public ModelAndView register() {
-		return new ModelAndView("registration", "userRegistration", new UserRegistration());
-	}
-
-	@RequestMapping(value = "/error", method = RequestMethod.GET)
-	public ModelAndView error() {
-		return new ModelAndView("error/error");
-	}
-	@RequestMapping(value = "/404", method = RequestMethod.GET)
-	public ModelAndView error404() {
-		return new ModelAndView("error/404");
-	}
-	@RequestMapping(value = "/500", method = RequestMethod.GET)
-	public ModelAndView error500() {
-		return new ModelAndView("error/500");
-	}
-
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String processRegister(Model model, @ModelAttribute("userRegistration") UserRegistration userRegistrationObject) {
-		CommonResponse response = userRegistrationService.addNewRegistrationUser(userRegistrationObject);
-		if (response.getResponseCode().equals(ResponseCode.SUCCESS)) {
-			//return new ModelAndView("redirect:/login");
-			return "login";
-		} else {
-			List<ErrorObject> errors =  response.getErrorList();
-			errors.get(0).getErrorMessage();
-			model.addAttribute("errorMsg", errors.stream().map(x-> x.getErrorMessage()).collect(Collectors.toList()));
-			return "registration";
-		}
-	}
-
-	@RequestMapping(value = "/addNewEmployee", method = RequestMethod.GET)
-	public ModelAndView show() {
-		return new ModelAndView("addEmployee", "emp", new Employee());
-	}
-
-	@RequestMapping(value = "/addNewEmployee", method = RequestMethod.POST)
-	public ModelAndView processRequest(@ModelAttribute("emp") Employee emp) {
-
-		employeeService.insertEmployee(emp);
-		List<Employee> employees = employeeService.getAllEmployees();
-		ModelAndView model = new ModelAndView("getEmployees");
-		model.addObject("employees", employees);
-		return model;
-	}
-
-	@RequestMapping("/getEmployees")
+	@RequestMapping("/admin/getEmployees")
 	public ModelAndView getEmployees() {
 		List<Employee> employees = employeeService.getAllEmployees();
 		ModelAndView model = new ModelAndView("getEmployees");
@@ -139,60 +79,64 @@ public class ViewController {
 		return model;
 	}
 
-	@RequestMapping("/mybusiness/newCompany")
+	/**
+	 * 管理员新公司注册
+	 * @return
+	 */
+	@RequestMapping("/admin/allservice/adminNewCompany")
 	public ModelAndView newCompany() {
-		ModelAndView model = new ModelAndView("mybusiness/newCompany");
+		ModelAndView model = new ModelAndView("admin/allservice/adminNewCompany");
 		return model;
 	}
 
-	@RequestMapping("/mybusiness/licenseApplication")
+	@RequestMapping("/admin/allservice/licenseApplication")
 	public ModelAndView licenseApplication() {
-		ModelAndView model = new ModelAndView("mybusiness/licenseApplication");
+		ModelAndView model = new ModelAndView("admin/allservice/licenseApplication");
 		return model;
 	}	
 
-	@RequestMapping("/mybusiness/GSTApplication")
+	@RequestMapping("/admin/allservice/GSTApplication")
 	public ModelAndView GSTApplication() {
-		ModelAndView model = new ModelAndView("mybusiness/GSTApplication");
+		ModelAndView model = new ModelAndView("admin/allservice/GSTApplication");
 		return model;
 	}	
 
-	@RequestMapping("/mybusiness/annualReview")
-	public ModelAndView annualReview() {
-		ModelAndView model = new ModelAndView("mybusiness/annualReview");
-		return model;
-	}	
-
-	@RequestMapping("/mybusiness/accountingServices")
+	@RequestMapping("/admin/allservice/accountingServices")
 	public ModelAndView accountingServices() {
-		ModelAndView model = new ModelAndView("mybusiness/accountingServices");
+		ModelAndView model = new ModelAndView("admin/allservice/accountingServices");
 		return model;
 	}	
 
-	@RequestMapping("/mybusiness/callService")
+	@RequestMapping("/admin/allservice/callService")
 	public ModelAndView callService() {
-		ModelAndView model = new ModelAndView("mybusiness/callService");
+		ModelAndView model = new ModelAndView("admin/allservice/callService");
 		return model;
 	}	
 
-	@RequestMapping("/mybusiness/officeService")
+	@RequestMapping("/admin/allservice/officeService")
 	public ModelAndView officeService() {
-		ModelAndView model = new ModelAndView("mybusiness/officeService");
+		ModelAndView model = new ModelAndView("admin/allservice/officeService");
 		return model;
 	}	
 
-	@RequestMapping("/mybusiness/myRecord")
+	@RequestMapping("/admin/allservice/myRecord")
 	public ModelAndView myRecord(HttpServletRequest request) {
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
-		ModelAndView model = new ModelAndView("mybusiness/myRecord");
+		ModelAndView model = new ModelAndView("admin/allservice/myRecord");
 
-		Map<String, Object> pageData = commonDataService.getAllCompanyUserData(userEmail);
+		Map<String, Object> pageData = commonDataService.getUserAllCompanyUserData(userEmail);
 		model.addObject("companies", pageData.get("companies"));
 
 		return model;
 	}	
 
-	@RequestMapping("/adminManageCompany")
+	@RequestMapping("/admin/tolist/annualReview")
+	public ModelAndView annualReview() {
+		ModelAndView model = new ModelAndView("admin/tolist/annualReview");
+		return model;
+	}
+	
+	@RequestMapping("/admin/adminManageCompany")
 	public ModelAndView adminManageCompany(@RequestParam("id") Long companyId) {
 		ModelAndView model = new ModelAndView("todolist/adminManageCompany");
 		Optional<Company> company = companyRepository.findById(companyId);
@@ -236,7 +180,33 @@ public class ViewController {
 
 		return model;
 	}
-	@RequestMapping("/adminTimeLine")
+
+	@RequestMapping("/admin/mapCompanyPerson")
+	public ModelAndView mapCompanyPerson(@RequestParam("id") Long companyId) {
+		ModelAndView model = new ModelAndView("admin/info/mapCompanyPerson");
+		Optional<Company> company = companyRepository.findById(companyId);
+
+		if (company.isPresent()) {
+			model.addObject("company", company.get());
+		}
+
+		//Get all director, Shareholder and contact
+		Set<CompanyShareholderDto> allPersons = commonDataService.getAllShareholders();
+		model.addObject("allPersons", allPersons);
+		
+		//Get this company director, shareholder and contact
+		List<CompanyShareholderInfo> infos = adminManageCompanyService.getCompanyShareholders(company.get().getId());
+		model.addObject("infos", infos);
+		
+		
+		model.addObject("oldDirector", shareholderInfoService.getShareholderNames("董事", company.get().getId()));
+		model.addObject("oldShareholder", shareholderInfoService.getShareholderNames("股东", company.get().getId()));
+		model.addObject("oldContactPerson", shareholderInfoService.getShareholderNames("联系人", company.get().getId()));
+
+		return model;
+	}
+
+	@RequestMapping("/admin/adminTimeLine")
 	public ModelAndView adminTimeLine(@RequestParam("id") Long companyId) {
 		ModelAndView model = new ModelAndView("todolist/adminTimeLine");
 		Optional<Company> company = companyRepository.findById(companyId);
@@ -283,76 +253,74 @@ public class ViewController {
 	}	
 
 	
-	@RequestMapping("/mybusiness/admin_record")
+	@RequestMapping("/admin/mybusiness/admin_record")
 	public ModelAndView admin_record() {
 		ModelAndView model = new ModelAndView("mybusiness/admin_record");
 		return model;
 	}	
 	
-	@RequestMapping("/mybusiness/admin_editRecord")
+	@RequestMapping("/admin/mybusiness/admin_editRecord")
 	public ModelAndView admin_editRecord() {
 		ModelAndView model = new ModelAndView("mybusiness/admin_editRecord");
 		return model;
 	}	
 	
-	@RequestMapping("/onekey/oneKeyService")
+	@RequestMapping("/admin/oneKeyService")
 	public ModelAndView oneKeyService() {
-		ModelAndView model = new ModelAndView("onekey/oneKeyService");
+		ModelAndView model = new ModelAndView("admin/oneKeyService");
 		return model;
 	}
 	
-	@RequestMapping("/notice/notice")
+	@RequestMapping("/admin/notice/notice")
 	public ModelAndView notice() {
 		ModelAndView model = new ModelAndView("notice/notice");
 		return model;
 	}
-	@RequestMapping("/notice/admin_notice")
+	@RequestMapping("/admin/notice/admin_notice")
 	public ModelAndView admin_notice() {
 		ModelAndView model = new ModelAndView("notice/admin_notice");
 		return model;
 	}
-	@RequestMapping("/notice/admin_notice_create")
+	@RequestMapping("/admin/notice/admin_notice_create")
 	public ModelAndView admin_notice_create() {
 		ModelAndView model = new ModelAndView("notice/admin_notice_create");
 		return model;
 	}			
 	
-	@RequestMapping("/annualReviewList")
+	@RequestMapping("/admin/annualReviewList")
 	public ModelAndView annualReviewList() {
 		ModelAndView model = new ModelAndView("todolist/annualReviewList");
 		return model;
 	}	
 
-	@RequestMapping("/toDoList")
+	@RequestMapping("/admin/toDoList")
 	public ModelAndView toDoList(HttpServletRequest request) {
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		ModelAndView model = new ModelAndView("todolist/toDoList");
 		
-		Map<String, Object> pageData = commonDataService.getAllCompanyUserData(userEmail);
+		Map<String, Object> pageData = commonDataService.getUserAllCompanyUserData(userEmail);
 		model.addObject("companies", pageData.get("companies"));
 
 		return model;
 	}	
 
-	@RequestMapping("/todolist/admin_toDoList")
+	@RequestMapping("/admin/todolist/admin_toDoList")
 	public ModelAndView admin_toDoList() {
 		ModelAndView model = new ModelAndView("todolist/admin_toDoList");
 
-		/*
-		 * Set<Company> companies = commonDataService.getAllPendingCompany();
-		 * model.addObject("companies", companies);
-		 */
+		Set<CompanyDto> companies = commonDataService.getAllPendingCompanies();
+		model.addObject("companies", companies);
 		return model;
 	}
 
-	@RequestMapping("/pendingStep")
+	@RequestMapping("/admin/pendingStep")
 	public ModelAndView pendingStep(HttpServletRequest request) {
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		String companyId = (String) request.getParameter("compid");
 		request.getSession().setAttribute("companyId", companyId);
 		ModelAndView model = new ModelAndView("todolist/pendingStep");
 		
-		Map<String, Object> pageData = commonDataService.getSingleCompanyUserData(userEmail, companyId);
+		Map<String, Object> pageData = commonDataService.getUserSingleCompanyUserData(userEmail, companyId);
 		model.addObject("company", pageData.get("selfCompany"));
 		
 		CompanyStatusTime companyStatusTime = companyStatusTimeRepository.findByCompanyId(Long.parseLong(companyId));
@@ -360,17 +328,26 @@ public class ViewController {
 		return model;
 	}	
 	
+	/**
+	 * No payment online signature page
+	 * @param request
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping("/onlineSignature")
+	@RequestMapping("/admin/onlineSignature")
 	public ModelAndView onlineSignature(HttpServletRequest request) {
-		ModelAndView model = new ModelAndView("todolist/onlineSignature");
+		ModelAndView model = new ModelAndView("admin/allservice/onlineSignature");
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		String companyId = (String) request.getParameter("compid");
-		if (companyId == null) {
+		
+		//TODO For testing purpose
+		//request.getSession().setAttribute("companyId", "3");
+
+		if (companyId == null || "".equals(companyId)) {
 			companyId = (String) request.getSession().getAttribute("companyId");
 		}
 		
-		if (companyId == null) {
+		if (companyId == null || "".equals(companyId)) {
 			model.addObject("displayAll", true);
 			return model;
 		}
@@ -378,12 +355,12 @@ public class ViewController {
 		request.getSession().setAttribute("companyId", companyId);
 		model.addObject("compid", companyId);
 
-		Map<String, Object> pageData = commonDataService.getSingleCompanyUserData(userEmail, companyId);
+		Map<String, Object> pageData = commonDataService.getSingleCompanyUserData(companyId);
+		if (pageData == null) {
+			return model;
+		}
 		model.addObject("companyName", pageData.get("companyName"));
 		
-		//model.addObject("userName", pageData.get("shareholderName"));
-		//model.addObject("address", pageData.get("address"));
-
 		Map<String, Integer> shareholderAndStockMap = (Map<String, Integer>) pageData.get("shareholderAndStock");
 		StringBuffer shareholders = new StringBuffer();
 		shareholderAndStockMap.forEach((k, v) -> shareholders.append("<span> ").append(k).append("</span>").append("<span> ").append(v).append("</span> <br/>"));
@@ -421,12 +398,21 @@ public class ViewController {
 		return model;
 	}	
 
-	@RequestMapping("/uploadPage")
+	/**
+	 * No payment online upload new company files
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/admin/uploadPage")
 	public ModelAndView uploadPage(HttpServletRequest request) {
-		ModelAndView model = new ModelAndView("todolist/uploadPage");
+		ModelAndView model = new ModelAndView("admin/allservice/uploadPage");
 		
 		String userEmail = (String) request.getSession().getAttribute("loginUsername");
 		String companyId = (String) request.getParameter("compid");
+		
+		//TODO For testing purpose
+		//request.getSession().setAttribute("companyId", "3");
+
 		if (companyId == null) {
 			companyId = (String) request.getSession().getAttribute("companyId");
 		}
@@ -436,7 +422,7 @@ public class ViewController {
 		}
 		request.getSession().setAttribute("companyId", companyId);
 		
-		Map<String, Object> pageData = commonDataService.getSingleCompanyUserData(userEmail, companyId);
+		Map<String, Object> pageData = commonDataService.getUserSingleCompanyUserData(userEmail, companyId);
 		model.addObject("companyName", pageData.get("companyName"));
 		model.addObject("address", pageData.get("address"));
 		model.addObject("compid", companyId);
@@ -453,42 +439,24 @@ public class ViewController {
 		return model;
 	}
 
-	@RequestMapping("/schedule/{company_id}")
+	@RequestMapping("/admin/schedule/{company_id}")
 	public ModelAndView schedule(@PathVariable long company_id) {
 		ModelAndView model = new ModelAndView("todolist/schedule");
 		return model;
 	}		
-	@RequestMapping("/mybusiness/openAccount")
+	@RequestMapping("/admin/mybusiness/openAccount")
 	public ModelAndView openAccount() {
 		ModelAndView model = new ModelAndView("mybusiness/openAccount");
 		return model;
 	}
 	
-	@RequestMapping("/coming")
-	public ModelAndView coming() {
-		ModelAndView model = new ModelAndView("coming");
-		return model;
-	}
-	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Model model, String error, String logout) {
-		if (error != null && !"".equals(error)) {
-			model.addAttribute("errorMsg", "您的用户名或者密码不正确！");
-		}
-
-		if (logout != null) {
-			model.addAttribute("msg", "您已经成功退出！");
-		}
-		return "login";
-	}
-	
-	@RequestMapping(value = "/view/registerNewCompany", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/view/registerNewCompany", method = RequestMethod.POST)
 	public ModelAndView registerNewCompny(Model model) {
 		ModelAndView view = new ModelAndView("mybusiness/newCompany");
 		return view;
 	}
 	
-	@RequestMapping("/mybusiness/downLoadFile/{company_id}")
+	@RequestMapping("/admin/mybusiness/downLoadFile/{company_id}")
 	public ModelAndView downLoadFile(@PathVariable long company_id) {
 		ModelAndView model = new ModelAndView("mybusiness/downLoadFile");
 		//get the company and the document list

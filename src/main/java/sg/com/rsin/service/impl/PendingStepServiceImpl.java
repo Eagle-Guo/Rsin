@@ -23,7 +23,7 @@ public class PendingStepServiceImpl implements PendingStepService {
 	
 	@SuppressWarnings("unchecked")
 	public Company getCompany (String userEmail, String companyId) {
-		Map<String, Object> pageData = commonDataService.getAllCompanyUserData(userEmail);
+		Map<String, Object> pageData = commonDataService.getUserAllCompanyUserData(userEmail);
 		Set<Company> companies = (Set<Company>) pageData.get("companies");
 		return companies.stream().filter(com -> com.getId().toString().equals(companyId)).findFirst().get();
 	}

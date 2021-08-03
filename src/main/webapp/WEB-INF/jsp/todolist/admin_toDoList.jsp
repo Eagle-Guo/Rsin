@@ -14,7 +14,40 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../../../assets/css/style.css">
   <link rel="stylesheet" href="../../../assets/css/components.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+  <!-- table sorter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/jquery.tablesorter.pager.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/extras/jquery.tablesorter.pager.min.js"></script>
+
+  <style type="text/css">
+	.tableheader {
+		font-family: verdana, arial, helvetica, sans-serif;
+		font-size: 14px;
+		color: #FFFFFF;
+		font-weight: bold;
+		background: #3964A9;
+		text-align: center;
+	}
+	.tableRowEven {
+		background-color: #F2F2F2;
+		font-family:Verdana, Arial, Helvetica, sans-serif;
+		font-size: 14px;
+		line-height: normal;
+		color: #FFFFFF;
+	}
+	.tableRowOdd {
+		background-color: #CCCCCC;
+		font-family:Verdana, Arial, Helvetica, sans-serif;
+		font-size: 14px;
+		line-height: normal;
+		color: #FFFFFF;
+	}
+	.label {
+	color: black;
+	}
+  </style>
+
 </head>
 
 <body>
@@ -35,32 +68,72 @@
                     <h4>待办事项清单</h4>
                   </div>
                   <div class="card-body admin_toDoList">
-                    <!-- <div class="float-right">
-                      <form>
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search">
-                          <div class="input-group-append">
-                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                          </div>
-                        </div>
-                      </form>
-                    </div> -->
-
                     <div class="clearfix mb-3"></div>
 
 					<div class="table-responsive">
-						<table id="example" class="table table-striped display" style="width:100%" >
-					        <thead>
-					            <tr>
-					                  <th>公司名称</th>
-			                          <th>创建日期</th>
-			                          <th>待办事项</th>
-			                          <th>其它</th>
-					            </tr>
-					        </thead>
-					    </table>
+                   		<table id="companysTable" class="tablesorter" border="0" cellpadding="2" cellspacing="1" width="100%">
+                   			<thead>
+                   				<tr>
+                   					<th class="tableheader header headerSortDown" width="5%">序号</th>
+                   					<th class="tableheader header" width="30%">公司名称</th>
+                                	<th class="tableheader header" width="30%">公司备用名称</th>
+                                    <th class="tableheader header" width="10%">UEN</th>
+                                    <th class="tableheader header" width="10%">注册日期</th>
+                                    <th class="tableheader header" width="15%">待办事项</th>
+                                </tr>
+                   			</thead>
+                   			<tbody>
+                   			 	<c:forEach items="${companies}" var="company" varStatus="companyStatus">
+                    			 	<tr align="right">
+                    			 		<td class="label" align="center">
+                    						<c:out value="${companyStatus.index+1}"/>
+                    					</td>
+                    					<td class="label" align="center">
+                    						<c:out value="${company.name}"/>
+	                                    </td>
+	                                    <td class="label" align="center">
+                    						<c:out value="${company.backupName}"/>
+	                                    </td>
+	                                    <td class="label" align="center">
+	                                    	<c:out value="${company.uen}"/>
+	                                    	<%-- <a href="${flowExecutionUrl}&_eventId=detail&submitType=detail&matricno=${student.studentId}"><c:out value="${student.name}"/></a> --%>
+	                                    </td>
+	                                    <td class="label" align="center">
+	                                    	<c:out value="${company.registrationDate}"/>
+	                                    </td>
+	                                    <td class="label" align="center">
+	                                    	<div class="badge badge-danger"><a href="/admin/adminManageCompany?id=${company.id}" target="_blank">新公司注册</a></div> 
+	                                    	<div class="badge badge-danger"><a href="/admin/adminTimeLine?id=${company.id}" target="_blank">时间表</a></div>
+	                                    </td>
+                    				</tr>
+                                  	</c:forEach>
+                   			</tbody>
+                           </table>
 					</div>
-
+					<div id="pager" class="pager">
+						<form>
+							<img src="../../../assets/icons/first.png" class="first"/>
+							<img src="../../../assets/icons/prev.png" class="prev"/>
+							<input type="text" class="pagedisplay"/>
+							<img src="../../../assets/icons/next.png" class="next"/>
+							<img src="../../../assets/icons/last.png" class="last"/>
+							<select class="pagesize">
+								<option value="10" selected="selected">10</option>
+								<option value="20">20</option>
+								<option value="30">30</option>
+								<option value="40">40</option>
+							</select>
+						</form>
+						<!-- <table style="float: right">
+				      		<tr>
+								<td class="badge badge-danger" colspan="5">
+									<form method="get" action="file.doc">
+									   <button type="submit" class="label">导出文件</button>
+									</form>
+								</td>
+							</tr>
+					    </table> -->
+					</div>
                   </div>
                 </div>
               </div>
@@ -82,16 +155,12 @@
   
 
   <!-- General JS Scripts -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-  <!-- <script src="../../../assets/js/html2canvas.js"></script> -->
-  
-  <script src="../../../assets/js/page/index-0.js"></script>
-  <script src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
   <script src="../../../assets/js/admin_toDolist.js"></script>
+  
+  
 </body>
 </html>

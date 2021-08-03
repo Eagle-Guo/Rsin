@@ -72,21 +72,11 @@
             <li class="menu-header">快速服务</li>
             <li>
                 <a href="/mybusiness/admin_editRecord" class="nav-link"><i class="fas fa-columns"></i><span>客户信息</span></a>
-            </li>            
-            <!--<li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>业务报表查询</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="/mybusiness/newCompany">新加坡公司注册</a></li>
-                    <li><a class="nav-link" href="/mybusiness/openAccount">新加坡银行开户</a></li>
-                    <li><a class="nav-link" href="/onekey/oneKeyService">离岸银行开户</a></li>
-                    <li><a class="nav-link" href="/onekey/oneKeyService">新加坡商标与执照申请</a></li>
-                    <li><a class="nav-link" href="/onekey/oneKeyService">新加坡消费税申请</a></li>
-                    <li><a class="nav-link" href="/onekey/oneKeyService">新加坡公司年审</a></li>
-                    <li><a class="nav-link" href="/onekey/oneKeyService">新加坡会计服务</a></li>
-                    <li><a class="nav-link" href="/onekey/oneKeyService">呼叫转移服务</a></li>
-                    <li><a class="nav-link" href="/onekey/oneKeyService">新加坡共享办公室</a></li>
-                </ul>
-            </li>  -->
+            </li> 
+			<li class="">
+				<a href="/admin/oneKeyService" class="nav-link"><i class="fas fa-columns"></i><span>所有服务</span></a>
+			</li>			           
+            </li>
             <li class="menu-header">客户清单</li>
             <li class="nav-item dropdown">
                 <a href="/mybusiness/admin_record" class="nav-link"><i class="fas fa-th-large"></i> <span>数据库</span></a>

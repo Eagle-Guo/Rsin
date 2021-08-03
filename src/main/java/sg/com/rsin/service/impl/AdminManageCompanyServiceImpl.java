@@ -1,6 +1,8 @@
 package sg.com.rsin.service.impl;
 
-import java.lang.reflect.InvocationTargetException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -96,4 +98,13 @@ public class AdminManageCompanyServiceImpl implements AdminManageCompanyService 
 		return fileMap;
 	}
 	
+	@Override
+	public InputStream exportCompanies() {
+		try {
+			return new FileInputStream("It is pending");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

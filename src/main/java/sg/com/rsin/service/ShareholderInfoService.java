@@ -13,4 +13,6 @@ public interface ShareholderInfoService {
 	public void saveShareholderInfo(CompanyShareholderInfo info);
 	
 	public List<CompanyShareholderInfo> getShareholderInfoByNameAndCompanyId(String name, Long companyId);
+
+	public String getShareholderNames(String type, Long companyId);
 }

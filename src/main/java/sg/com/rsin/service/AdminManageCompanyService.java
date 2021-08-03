@@ -1,5 +1,6 @@
 package sg.com.rsin.service;
 
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -19,4 +20,6 @@ public interface AdminManageCompanyService {
 	public List<Document> getPersonalDocumentList(Long companyId);
 	
 	public List<CompanyShareholderInfo> getCompanyShareholders(Long companyId);
+	
+	public InputStream exportCompanies();
 }

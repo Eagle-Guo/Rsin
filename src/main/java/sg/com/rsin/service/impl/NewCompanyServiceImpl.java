@@ -7,12 +7,14 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.mail.MessagingException;
 
@@ -39,6 +41,8 @@ import sg.com.rsin.dao.DocumentTypeRepository;
 import sg.com.rsin.dao.InitiateDocumentRepository;
 import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.RoleRepository;
+import sg.com.rsin.dao.TimelineDetailRepository;
+import sg.com.rsin.dao.TimelineRepository;
 import sg.com.rsin.dao.UserRegistrationRepository;
 import sg.com.rsin.entity.CompanyOTHAccess;
 import sg.com.rsin.entity.CompanyService;
@@ -49,8 +53,11 @@ import sg.com.rsin.entity.DocumentType;
 import sg.com.rsin.entity.Mail;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.Role;
+import sg.com.rsin.entity.Timeline;
+import sg.com.rsin.entity.TimelineDetail;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.NewCompanyInfoEnum;
+import sg.com.rsin.enums.TimeLineType;
 import sg.com.rsin.service.EmailService;
 import sg.com.rsin.service.NewCompanyService;
 import sg.com.rsin.util.CommonUtils;
@@ -89,7 +96,10 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 	private InitiateDocumentRepository initiateDocumentRepository;
 	@Autowired
 	private DocumentTypeRepository documentTypeRepository;
-	
+	@Autowired
+	private TimelineRepository timelineRepository;
+	@Autowired
+	private TimelineDetailRepository timelineDetailRepository;
 	
 	@Value("${rsin.application.domain}")
 	private String mainDomain;
@@ -105,6 +115,7 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 	
 	public long addCompany(String receivedData) {
 		String result = "";
+		Date currentDate = new Date();
 		List<CompanyServiceVO> companyServiceVOs = new ArrayList<CompanyServiceVO>();
 		List<CompanyInfoVO> companyInfoVOs = new ArrayList<CompanyInfoVO>();
 		List<CompanyInfoVO> companyShareholderInfoVOs = new ArrayList<CompanyInfoVO>();
@@ -144,7 +155,9 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 			return -1;
 		}
 		company.setStep("2"); //Complete the first 2 steps: 选择服务 and 信息填报
-		company.setCreatedDate(new Date());
+		company.setCreatedDate(currentDate);
+		company.setLockFlag(true);
+		company.setTimelineLockFlag(true);
 		companyRepository.save(company);
 
 		//Save to company_service
@@ -162,8 +175,8 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 		//Save the new company status time
 		CompanyStatusTime companyStatusTime = new CompanyStatusTime();
 		companyStatusTime.setCompany(company);
-		companyStatusTime.setServices(new Date());
-		companyStatusTime.setInformation(new Date());
+		companyStatusTime.setServices(currentDate);
+		companyStatusTime.setInformation(currentDate);
 		companyStatusTimeRepository.save(companyStatusTime);
 
 		//Save to to user table for user to login
@@ -198,20 +211,45 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 			//doc.setUserId("App_Initial");
 			doc.setCompany(company);
 			doc.setCreatedBy("App_Initial");
-			doc.setCreatedDate(new Date());
+			doc.setCreatedDate(currentDate);
 			doc.setLockFlag(false);
 			defaultDoc.add(doc);			
 		});
 		documentRepository.saveAll(defaultDoc);
 		
+		//Save the timeline and timeline detail
 		//TODO Add default timelines into table
+		//TODO Create the initial timeline table to intial the timeline for new company
+		Stream.of(TimeLineType.values())
+        .forEach(timeLineType-> {
+        	Timeline timeline = new Timeline();
+    		timeline.setService(timeLineType.getDescription());
+    		timeline.setRegistrationDate(company.getRegistrationDate());
+    		timeline.setPeriod(12);
+    		timeline.setTimes(2);
+    		timeline.setStartDate(currentDate);
+        	timeline.setCompany(company);;
+        	timelineRepository.save(timeline);
+        	
+        	if (!timeLineType.name().equals("TYPE_3")) {
+        		Calendar calendar = Calendar.getInstance();
+            	calendar.setTime(currentDate);
+            	for (int i=0; i<2; i++) {
+            		TimelineDetail timelineDetail = new TimelineDetail();
+            		calendar.add(Calendar.YEAR, i);
+            		timelineDetail.setEstimateDate(calendar.getTime());
+            		timelineDetail.setTimeline(timeline);
+                	timelineDetailRepository.save(timelineDetail);
+            	}
+        	}
+        });
 
 		// Send the email to shareholder
 		for (CompanyShareholderInfo shareholder: companyShareholderInfos) {
 			try {
 				List<UserRegistration> userRecord =  userRegistrationRepository.findByEmail(shareholder.getEmail());
 				if (ObjectUtils.isEmpty(userRecord)) {
-					sendEmailToShareHolder(company, shareholder);
+					sendEmailToShareHolderWithAccount(company, shareholder);
 				}
 			} catch (MessagingException e) {
 				e.printStackTrace();
@@ -222,7 +260,154 @@ public class NewCompanyServiceImpl implements NewCompanyService {
 		
 		return company.getId();
 	}
+	
+	/**
+	 * Add company without create the user account for login
+	 */
+	public long addCompanyWithoutAccount(String receivedData) {
+		String result = "";
+		Date currentDate = new Date();
+		List<CompanyServiceVO> companyServiceVOs = new ArrayList<CompanyServiceVO>();
+		List<CompanyInfoVO> companyInfoVOs = new ArrayList<CompanyInfoVO>();
+		List<CompanyInfoVO> companyShareholderInfoVOs = new ArrayList<CompanyInfoVO>();
+    	try {
+    		result = URLDecoder.decode(receivedData, StandardCharsets.UTF_8.toString());
+    		logger.info("Recevied new company:[" + result + "]");
+    		String[] allcompanysinfo = result.split("\\&");
+    		for (String dataInfo: allcompanysinfo) {
+    			String[] data = dataInfo.split("=");
+    			if (NewCompanyInfoEnum.SERVICES.getDescription().equals(data[0])) {
+    				companyServiceVOs = mapper.readValue(data[1], mapper.getTypeFactory().constructCollectionType(List.class, CompanyServiceVO.class));
+    			} else if (NewCompanyInfoEnum.COMPANYINFOS.getDescription().equals(data[0])) {
+    				companyInfoVOs = mapper.readValue(data[1], mapper.getTypeFactory().constructCollectionType(List.class, CompanyInfoVO.class));
+    			} else if (NewCompanyInfoEnum.SHAREHOLDERINFOS.getDescription().equals(data[0])) {
+    				companyShareholderInfoVOs = mapper.readValue(data[1], mapper.getTypeFactory().constructCollectionType(List.class, CompanyInfoVO.class));
+    			}
+    		}
+    	} catch (UnsupportedEncodingException e) {
+    		logger.error("Get error to decode the new company data ");
+    	} catch (JsonMappingException e) {
+    		logger.error("Get error to parse new company data to json ");
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			logger.error("Get error to parse new company data to json ");
+			e.printStackTrace();
+		} catch (Exception e) {
+			logger.error("Get error to parse new company data to json ");
+			e.printStackTrace();
+		}
+    	
+		//Check the company name is exited to avoid double submit. If not existed then save to DB
+		Company company = CommonUtils.phaseNewCompany(companyInfoVOs);
+		
+		// Save the company info But may need to check the UEM as well if existed
+		Company existedCompany = companyRepository.findByName(company.getName());
+		if (existedCompany != null) {
+			logger.info("Company " + existedCompany.getName() + " is existed!");
+			return -1;
+		}
+		company.setStep("2"); //Complete the first 2 steps: 选择服务 and 信息填报
+		company.setCreatedDate(currentDate);
+		companyRepository.save(company);
+
+		//Save the company service
+		CompanyService companyService = CommonUtils.phaseNewCompanyService(companyServiceVOs);
+		companyService.setCompany(company);
+		companyServiceRepository.save(companyService);
+		
+		//Save the company shareholderinfo
+		List<CompanyShareholderInfo> companyShareholderInfos = CommonUtils.phaseNewCompanyShareholderInfo(companyShareholderInfoVOs);
+		for (CompanyShareholderInfo companyShareholderInfo: companyShareholderInfos) {
+			companyShareholderInfo.setStatus(true);
+			companyShareholderInfo.setCompany(company);
+			companyShareholderInfoRepository.save(companyShareholderInfo);
+		}
+		
+		//Save the new company status time
+		CompanyStatusTime companyStatusTime = new CompanyStatusTime();
+		companyStatusTime.setCompany(company);
+		companyStatusTime.setServices(currentDate);
+		companyStatusTime.setInformation(currentDate);
+		companyStatusTimeRepository.save(companyStatusTime);
+
+		//Save the documents
+		List<DocumentType> documentTypes = documentTypeRepository.findAll();
+		List<Document> defaultDoc = new ArrayList<Document> ();
+		initiateDocumentRepository.findAll().stream().forEach(init -> {
+			Document doc = new Document();
+			DocumentType type = documentTypes.parallelStream().filter( type1 -> type1.getDocumentTypeCode().equals(init.getDocumentType().getDocumentTypeCode()) ).findFirst().get();
+			doc.setDocumentType(init.getDocumentType());
+			doc.setCategory(init.getCategory());
+			doc.setDisplaySequence(init.getDisplaySequence());
+			doc.setDocumentDesc(type.getDocumentTypeDesc());
+			doc.setDocumentDesccn(type.getDocumentTypeDescCn());
+			//doc.setUserId("App_Initial");
+			doc.setCompany(company);
+			doc.setCreatedBy("App_Initial");
+			doc.setCreatedDate(currentDate);
+			doc.setLockFlag(false);
+			defaultDoc.add(doc);			
+		});
+		documentRepository.saveAll(defaultDoc);
+		
+		//Save the timeline and timeline detail
+		//TODO Add default timelines into table
+		//TODO Create the initial timeline table to intial the timeline for new company
+		Stream.of(TimeLineType.values())
+        .forEach(timeLineType-> {
+        	Timeline timeline = new Timeline();
+    		timeline.setService(timeLineType.getDescription());
+    		timeline.setRegistrationDate(company.getRegistrationDate());
+    		timeline.setPeriod(12);
+    		timeline.setTimes(2);
+    		timeline.setStartDate(currentDate);
+        	timeline.setCompany(company);;
+        	timelineRepository.save(timeline);
+        	
+        	if (!timeLineType.name().equals("TYPE_3")) {
+        		Calendar calendar = Calendar.getInstance();
+            	calendar.setTime(currentDate);
+            	for (int i=0; i<2; i++) {
+            		TimelineDetail timelineDetail = new TimelineDetail();
+            		calendar.add(Calendar.YEAR, i);
+            		timelineDetail.setEstimateDate(calendar.getTime());
+            		timelineDetail.setTimeline(timeline);
+                	timelineDetailRepository.save(timelineDetail);
+            	}
+        	}
+        });
+				
+		// Send the email to shareholder
+		for (CompanyShareholderInfo shareholder: companyShareholderInfos) {
+			try {
+				sendEmailToShareHolder(company, shareholder);
+			} catch (MessagingException e) {
+				e.printStackTrace();
+				logger.error("Sending email with error: " + e.getMessage());
+			} catch (IOException e) {
+				e.printStackTrace();
+				logger.error("Sending email with error: " + e.getMessage());
+			}
+		}
+		return company.getId();
+	}
+	
 	private void sendEmailToShareHolder(Company company, CompanyShareholderInfo companyShareholderInfo) throws MessagingException, IOException {
+		Mail mail = new Mail();
+        mail.setTo("yuzhiqwe@gmail.com");
+        mail.setSubject("创建新公司 确认邮件");
+        
+        Map<String, String> model = new HashMap<String, String>();
+        model.put("name", companyShareholderInfo.getName());
+        model.put("completedLink", "");
+        model.put("signature", "睿信集团");
+        mail.setModel(model);
+        logger.info("Prepare to send email....with URL");
+        emailService.sendEmail(mail);
+        
+	}
+
+	private void sendEmailToShareHolderWithAccount(Company company, CompanyShareholderInfo companyShareholderInfo) throws MessagingException, IOException {
 		//Send email to ShareHolder and Director
 		//1. Get the access link
 		//String password = CommonUtils.getHashValue("" + company.getId() + company.getStatus() + company.getCreatedDate() + companyShareholderInfo.getDescription());

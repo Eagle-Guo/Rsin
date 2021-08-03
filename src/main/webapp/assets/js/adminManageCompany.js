@@ -410,7 +410,7 @@ function addNewUploadFile_company(companyId){
 		            	<span> | </span><input type="file" id="file_com_upload`+ id +`" style="display:none" onchange="companyuploadothertypefile(`+ companyId + ", " + id +`)"/>
 		            			<a id="upload_company_file` + id + `" class="btnMenu view"  onclick="companyshowfilediag(` + id + `)">上传</a>	
 		            	<span> | </span><input type="file" id="file_com_del_new" style="display:none" onchange=""/>
-		            			<a id="" class="btnMenu view"  onclick="del_newAdd_company()">删除</a>					
+		            			<a id="" class="btnMenu view"  onclick="del_newAdd_company('company_newfile_`+ id + `')">删除</a>					
 					</div>
 				</div>
 			</div>
@@ -424,9 +424,9 @@ function addNewUploadFile_company(companyId){
 
 
 
-function del_newAdd_company() {
+function del_newAdd_company(childId) {
 	var parent=document.getElementById("newUploadFileArea_company");
-	var child=document.getElementById("newArea_company");
+	var child=document.getElementById(childId);
 	alert("确定要删除此条记录吗？");
 	parent.removeChild(child);
 };

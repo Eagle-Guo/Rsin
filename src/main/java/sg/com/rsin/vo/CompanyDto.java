@@ -4,6 +4,7 @@ public class CompanyDto {
 	private long id;
 	private String uen;
 	private String name;
+	private String backupName;
 	private String registrationDate;
 	private String directors;
 	private String nominated;
@@ -39,6 +40,12 @@ public class CompanyDto {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getBackupName() {
+		return backupName;
+	}
+	public void setBackupName(String backupName) {
+		this.backupName = backupName;
 	}
 	public String getRegistrationDate() {
 		return registrationDate;

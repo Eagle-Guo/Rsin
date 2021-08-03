@@ -21,9 +21,9 @@ $(document).ready(function() {
             { "data": "financePeriod" },                      
             { "data": "id",
                 "render": function (data, type, row, meta) {
-                	return  "<div class='badge badge-danger'><a href='/adminManageCompany?id=" + data + 
-                	        "' target='_blank'>公司信息修改</a></div> <div class='badge badge-danger'><a href='/adminTimeLine?id=" + data + 
-                	        "' target='_blank'>时间表信息修改</a></div>"},
+                	return "<div class='badge badge-danger'><a href='/admin/adminManageCompany?id=" + data + "' target='_blank'>公司信息修改</a></div>" +
+                           "<div class='badge badge-danger'><a href='/admin/mapCompanyPerson?id=" + data + "' target='_blank'>股东联系人修改</a></div>" +
+                           "<div class='badge badge-danger'><a href='/admin/adminTimeLine?id=" + data + "' target='_blank'>时间表信息修改</a></div>"},
             },
             {"data": "step"}
         ],

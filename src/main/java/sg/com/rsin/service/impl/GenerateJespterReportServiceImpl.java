@@ -98,7 +98,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 
 	@SuppressWarnings("unchecked")
 	public byte[] generateJasperPDF(String userId, int id, String companyId) {
-		Map<String, Object> userData = commonDataService.getSingleCompanyUserData(userId, companyId);
+		Map<String, Object> userData = commonDataService.getUserSingleCompanyUserData(userId, companyId);
 		Map<String, Integer> shareholderAndStock = (Map<String, Integer>) userData.get("shareholderAndStock");
 		StringBuffer shareholder = new StringBuffer();
 		shareholderAndStock.forEach((k, v) -> shareholder.append(k).append("\t\t").append(v).append("\n"));
@@ -143,7 +143,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	@SuppressWarnings("unchecked")
 	public Map<String, String> generateNewCompanyPDFWithSignature(String userId, String ip, byte[] bytes, String companyId) {
 
-		Map<String, Object> userData = commonDataService.getSingleCompanyUserData(userId, companyId);
+		Map<String, Object> userData = commonDataService.getUserSingleCompanyUserData(userId, companyId);
 		long companyIdLong = Long.parseLong(companyId);
 		String companyName = userData.get("companyName").toString();
 		CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) userData.get("selfCompanyShareholderInfo");

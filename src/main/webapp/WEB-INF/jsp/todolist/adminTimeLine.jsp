@@ -274,7 +274,7 @@
 																				<th scope="col">生成记录</th> 	
 																      		</tr>
 																      		<tr>        
-																			<th scope="row" id="GST_service">消费费申报</th>
+																			<th scope="row" id="GST_service">消费税申报</th>
 																			<th scope="row" id="GST_registerDate"><fmt:formatDate pattern = 'dd/MM/yyyy' value='${gsttimeline.registrationDate}' /></th>
 																				<td>
 																					<div class="form-group">

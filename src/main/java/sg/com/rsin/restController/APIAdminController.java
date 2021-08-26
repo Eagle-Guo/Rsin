@@ -39,6 +39,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.entity.Company;
@@ -48,10 +49,12 @@ import sg.com.rsin.service.AdminManageCompanyService;
 import sg.com.rsin.service.AdminTimelineService;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmailService;
+import sg.com.rsin.service.GenerateJespterReportService;
 import sg.com.rsin.service.IndustryService;
 import sg.com.rsin.service.NewCompanyService;
 import sg.com.rsin.service.ShareholderInfoService;
 import sg.com.rsin.service.UploadFileService;
+import sg.com.rsin.util.CommonUtils;
 import sg.com.rsin.vo.CompanyDto;
 import sg.com.rsin.vo.CompanyShareholderDto;
 
@@ -86,6 +89,9 @@ public class APIAdminController {
 	
 	@Autowired
 	CompanyRepository companyRepository;
+	
+	@Autowired
+	GenerateJespterReportService generateJespterReportService;
 	
     @GetMapping("/employees")
     public String  all() {
@@ -411,5 +417,20 @@ public class APIAdminController {
         adminTimelineService.saveTimelineAddition(companyId, parameters);
 
     	return new ResponseEntity<String>("Update Successfully", new HttpHeaders(), HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/downloadAllFiles/{companyId}", method = RequestMethod.GET)
+    public StreamingResponseBody downloadFile(@PathVariable int companyId,
+    		HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String userId = (String) request.getSession().getAttribute("loginUsername");
+		
+        response.setContentType("application/pdf");
+        response.setHeader("fileName", "company_"+companyId+".zip");
+        response.setHeader("content-disposition", "attachment;");
+        
+        byte[] source = generateJespterReportService.exportCompanyAllFiles(companyId);
+        return outputStream -> {
+            outputStream.write(source);
+        };
     }
 }

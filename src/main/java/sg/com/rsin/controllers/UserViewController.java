@@ -27,7 +27,6 @@ import sg.com.rsin.entity.Employee;
 import sg.com.rsin.entity.ErrorObject;
 import sg.com.rsin.entity.UserRegistration;
 import sg.com.rsin.enums.ResponseCode;
-import sg.com.rsin.enums.TimeLineType;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.service.EmployeeService;
 import sg.com.rsin.service.FileService;
@@ -74,6 +73,11 @@ public class UserViewController {
 		return new ModelAndView("userWelcome");
 	}
 
+	@RequestMapping("/secretaryWelcome")
+	public ModelAndView secretaryPage() {
+		return new ModelAndView("secretaryWelcome");
+	}
+	
 	@RequestMapping("/adminWelcome")
 	public ModelAndView adminPage() {
 		return new ModelAndView("adminWelcome");

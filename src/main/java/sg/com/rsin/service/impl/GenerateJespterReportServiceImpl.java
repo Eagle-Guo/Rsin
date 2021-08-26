@@ -86,7 +86,13 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	CommonDataService commonDataService;
 	
 	@Value("${file.main.path}")
+	private String mainFilePathRoot;
+	
+	@Value("${file.upload.path}")
 	private String uploadFilePathRoot;
+	
+	@Value("${file.download.path}")
+	private String downloadFilePathRoot;
 	
 	@Value("${signature.path}")
 	private String signatureFilePathRoot;
@@ -105,7 +111,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		shareholder.append("Total: \t\t").append(Integer.parseInt(userData.get("totalStockAmount").toString()));
 
 		try {
-			String signatureFileDirectory = uploadFilePathRoot.concat(signatureFilePathRoot).concat(companyId).concat(File.separator);
+			String signatureFileDirectory = uploadFilePathRoot.concat(signatureFilePathRoot).concat(File.separator).concat(companyId).concat(File.separator);
 			File directory = new File(signatureFileDirectory);
 		    if (! directory.exists()){
 		        directory.mkdirs();
@@ -373,6 +379,63 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 	}
 	public byte[] exportReport(String reportFormat, String userId, int id, String companyId) {
 		return generateJasperPDF(userId, id, companyId);
+	}
+	
+	/**
+	 * generate company all files to zip file
+	 * @param reportFormat
+	 * @param userId
+	 * @param id
+	 * @param companyId
+	 * @return
+	 */
+	public byte[] exportCompanyAllFiles(int companyId) {
+		return generateAllPDFs(companyId);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public byte[] generateAllPDFs(int comId) {
+		String companyId = String.valueOf(comId);
+		Map<String, Object> userData = commonDataService.getSingleCompanyUserData(companyId);
+		Map<String, Integer> shareholderAndStock = (Map<String, Integer>) userData.get("shareholderAndStock");
+		StringBuffer shareholder = new StringBuffer();
+		shareholderAndStock.forEach((k, v) -> shareholder.append(k).append("\t\t").append(v).append("\n"));
+		shareholder.append("Total: \t\t").append(Integer.parseInt(userData.get("totalStockAmount").toString()));
+
+		try {
+			String signatureFileDirectory = downloadFilePathRoot.concat(signatureFilePathRoot).concat(File.separator).concat(companyId).concat(File.separator);
+			File directory = new File(signatureFileDirectory);
+		    if (! directory.exists()){
+		        directory.mkdirs();
+		    }
+		    //TODO  Need to update to generate all files
+		    String templateName = CommonUtils.getJaspterTemplateName(1);
+		    String fileName = CommonUtils.getFileName(1);
+		    File file = new File(signatureFileDirectory + fileName);
+		    if (file.exists()) {
+		    	return Files.readAllBytes(file.toPath());
+		    }
+
+			InputStream employeeReportStream = resourceLoader.getResource("classpath:reports/" + templateName).getInputStream();
+			JasperReport jasperReportOne = JasperCompileManager.compileReport(employeeReportStream);
+			
+			Map<String, Object> reportParamMapOne = new HashMap<>();
+			reportParamMapOne.put("createdBy", "Rsin Group");
+			reportParamMapOne.put("companyName", userData.get("companyName") + " PTE.LTD.");
+			reportParamMapOne.put("registeredOffice", userData.get("address"));
+			reportParamMapOne.put("shareholder", shareholder.toString());
+
+			JasperPrint jasperPrintOne = JasperFillManager.fillReport(jasperReportOne, reportParamMapOne, new JREmptyDataSource());
+			JasperExportManager.exportReportToPdfFile(jasperPrintOne, signatureFileDirectory + fileName);
+			return JasperExportManager.exportReportToPdf(jasperPrintOne);
+		} catch (JRException jre) {
+			jre.printStackTrace();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public Map<String, String> onlineSubmitSignatureFile(String userId, String ip, MultipartFile uploadfile, String companyId) {

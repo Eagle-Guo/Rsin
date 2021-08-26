@@ -38,10 +38,14 @@ public class RsinAuthenticationSuccessHandler implements AuthenticationSuccessHa
 
 		boolean hasUserRole = false;
 		boolean hasAdminRole = false;
+		boolean hasSecretaryRole = false;
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		for (GrantedAuthority grantedAuthority : authorities) {
 			if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
 				hasUserRole = true;
+				break;
+			} else if (grantedAuthority.getAuthority().equals("ROLE_SECRETARY")) {
+				hasSecretaryRole = true;
 				break;
 			} else if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
 				hasAdminRole = true;
@@ -63,6 +67,8 @@ public class RsinAuthenticationSuccessHandler implements AuthenticationSuccessHa
 				"Anonymous");
 		if (hasUserRole) {
 			redirectStrategy.sendRedirect(request, response, "/userWelcome");
+		} else if (hasSecretaryRole) {
+			redirectStrategy.sendRedirect(request, response, "/secretaryWelcome");
 		} else if (hasAdminRole) {
 			redirectStrategy.sendRedirect(request, response, "/adminWelcome");
 		} else {

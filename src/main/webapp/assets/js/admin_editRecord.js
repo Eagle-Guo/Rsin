@@ -23,7 +23,8 @@ $(document).ready(function() {
                 "render": function (data, type, row, meta) {
                 	return "<div class='badge badge-danger'><a href='/admin/adminManageCompany?id=" + data + "' target='_blank'>公司信息修改</a></div>" +
                            "<div class='badge badge-danger'><a href='/admin/mapCompanyPerson?id=" + data + "' target='_blank'>股东联系人修改</a></div>" +
-                           "<div class='badge badge-danger'><a href='/admin/adminTimeLine?id=" + data + "' target='_blank'>时间表信息修改</a></div>"},
+                           "<div class='badge badge-danger'><a href='/admin/adminTimeLine?id=" + data + "' target='_blank'>时间表信息修改</a></div>" +
+                           "<div class='badge badge-danger'><a href='/api/admin/downloadAllFiles/" + data + "' target='_blank'>下载公司所有文件</a></div>"},
             },
             {"data": "step"}
         ],

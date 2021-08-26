@@ -1,7 +1,9 @@
 $(document).ready(function() {
 	$('#adminRecord tfoot th').each( function () {
         var title = $(this).text();
-        if (title == 'UEN' || title == '公司名称' || title == '注册日期') {
+        if (title == 'UEN' || title == '公司名称' || title == '注册日期' 
+        	|| title == '董事' || title == '挂名董事' || title == '股东'
+        	|| title == '秘书' || title == '联系人') {
         	$(this).html( '<input type="text" placeholder="搜索 '+title+'" />' );
         }
     } );

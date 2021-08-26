@@ -7,14 +7,14 @@ function addName(name){
 	var name = arrayIdAndName[1];
 	var type = $("#select_type").val();
 	if (type == '董事') {
-		$("#director_name").append("<div class='element' id='div_"+ id +"'></div>");
-		$("#div_"+ id).append("<input type='text' readonly id='person_"+ id +"'  value='"+name+"'>&nbsp;<span id='remove_" + id + "' class='remove'>X</span>");
+		$("#director_name").append("<div class='element' id='div_1"+ id +"'></div>");
+		$("#div_1"+ id).append("<input type='text' readonly id='person_1"+ id +"'  value='"+name+"'>&nbsp;<span id='remove_1" + id + "' class='remove'>X</span>");
 	} else if (type == '股东') {
-		$("#shareholder_name").append("<div class='element' id='div_"+ id +"'></div>");
-		$("#div_"+ id).append("<input type='text' readonly id='person_"+ id +"'  value='"+name+"'>&nbsp;<span id='remove_" + id + "' class='remove'>X</span>");
+		$("#shareholder_name").append("<div class='element' id='div_2"+ id +"'></div>");
+		$("#div_2"+ id).append("<input type='text' readonly id='person_2"+ id +"'  value='"+name+"'>&nbsp;<span id='remove_2" + id + "' class='remove'>X</span>");
 	} else if (type == '联系人') {
-		$("#contact_name").append("<div class='element' id='div_"+ id +"'></div>");
-		$("#div_"+ id).append("<input type='text' readonly id='person_"+ id +"'  value='"+name+"'>&nbsp;<span id='remove_" + id + "' class='remove'>X</span>");
+		$("#contact_name").append("<div class='element' id='div_3"+ id +"'></div>");
+		$("#div_3"+ id).append("<input type='text' readonly id='person_3"+ id +"'  value='"+name+"'>&nbsp;<span id='remove_3" + id + "' class='remove'>X</span>");
 	}
 }
 

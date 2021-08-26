@@ -11,4 +11,6 @@ public interface GenerateJespterReportService {
 	public Map<String, String> onlineSubmitSignatureFile(String userId, String ip, MultipartFile uploadfile, String companyId);
 
 	public InputStream downloadWithSignatureFile(String companyId, String fileName, String userId);
+	
+	public byte[] exportCompanyAllFiles(int companyId);
 }

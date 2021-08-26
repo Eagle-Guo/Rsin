@@ -62,6 +62,19 @@
 			</ul>
 		</security:authorize>
 
+		<security:authorize access="hasAnyRole('ROLE_SECRETARY')">
+			<ul class="sidebar-menu">
+            <li class="menu-header">秘书后台</li>
+            <li>
+                <a href="/secretary/secretaryToDoList" class="nav-link"><i class="fas fa-square"></i><span>待办事项</span></a>
+            </li>
+            <li class="menu-header">客户清单</li>
+            <li>
+                <a href="/secretary/secretaryEditRecord" class="nav-link"><i class="fas fa-columns"></i><span>客户信息</span></a>
+            </li> 
+        </ul>
+		</security:authorize>
+		
 		<security:authorize access="hasAnyRole('ROLE_ADMIN')">
 			<ul class="sidebar-menu">
             <li class="menu-header">管理员后台</li>
@@ -76,7 +89,6 @@
 			<li class="">
 				<a href="/admin/oneKeyService" class="nav-link"><i class="fas fa-columns"></i><span>所有服务</span></a>
 			</li>			           
-            </li>
             <li class="menu-header">客户清单</li>
             <li class="nav-item dropdown">
                 <a href="/mybusiness/admin_record" class="nav-link"><i class="fas fa-th-large"></i> <span>数据库</span></a>

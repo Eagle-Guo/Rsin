@@ -13,23 +13,21 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "timeline")
-public class Timeline {
+@Table(name = "pending_timeline")
+public class PendingTimeline {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(name="service")
 	private String service;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-	@Column(name="registration_date")
-	private Date registrationDate;
-	@Column(name="period")
-	private int period;
-	@Column(name="times")
-	private int times;
+	@Column(name="created_date")
+	private Date createdDate;
+	@Column(name="flag")
+	private int flag;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-	@Column(name="start_date")
-	private Date startDate;
+	@Column(name="due_date")
+	private Date dueDate;
 	@Column(name="comment")
 	private String comment;
 
@@ -37,21 +35,19 @@ public class Timeline {
     @JoinColumn(name = "company_id", nullable = false)
 	private Company company;
     
-    public Timeline() {}
+    public PendingTimeline() {}
 
-	public Timeline(Long id, String service, Date registrationDate, int period, String comment, int times, Date startDate,
-			Company company) {
+	public PendingTimeline(Long id, String service, Date createdDate, int flag, 
+			String comment, Date dueDate, Company company) {
 		super();
 		this.id = id;
 		this.service = service;
-		this.registrationDate = registrationDate;
-		this.period = period;
+		this.createdDate = createdDate;
 		this.comment = comment;
-		this.times = times;
-		this.startDate = startDate;
+		this.flag = flag;
+		this.dueDate = dueDate;
 		this.company = company;
 	}
-
 	public Long getId() {
 		return id;
 	}
@@ -64,35 +60,29 @@ public class Timeline {
 	public void setService(String service) {
 		this.service = service;
 	}
-	public Date getRegistrationDate() {
-		return registrationDate;
+	public Date getCreatedDate() {
+		return createdDate;
 	}
-	public void setRegistrationDate(Date registrationDate) {
-		this.registrationDate = registrationDate;
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
-	public int getPeriod() {
-		return period;
+	public int getFlag() {
+		return flag;
 	}
-	public void setPeriod(int period) {
-		this.period = period;
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
+	public Date getDueDate() {
+		return dueDate;
+	}
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
 	}
 	public String getComment() {
 		return comment;
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
-	}
-	public int getTimes() {
-		return times;
-	}
-	public void setTimes(int times) {
-		this.times = times;
-	}
-	public Date getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
 	}
 	public Company getCompany() {
 		return company;

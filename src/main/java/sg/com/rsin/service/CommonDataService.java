@@ -20,4 +20,8 @@ public interface CommonDataService {
 	public Set<CompanyDto> getAllCompanies();
 	
 	public Set<CompanyShareholderDto> getAllShareholders();
+	
+	public Set<CompanyDto> getAllPendingTimetable();
+
+	public Set<CompanyDto> getAllPendingStepAndTimetableByCompany(Long companyId);
 }

@@ -28,6 +28,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-json</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -124,9 +130,9 @@
 
 		<!-- Jaspter report -->
 		<dependency>
-			<groupId>net.sf.jasperreports</groupId>
-			<artifactId>jasperreports</artifactId>
-			<version>6.11.0</version>
+		    <groupId>net.sf.jasperreports</groupId>
+		    <artifactId>jasperreports</artifactId>
+		    <version>6.17.0</version>
 		</dependency>
 		<!-- data jar -->
 		<dependency>
@@ -200,6 +206,20 @@
 		    <version>1.5-beta1</version>
 		</dependency>
 		
+		<dependency>
+        	<groupId>com.stripe</groupId>
+	        <artifactId>stripe-java</artifactId>
+	        <version>20.75.0</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>com.sparkjava</groupId>
+	        <artifactId>spark-core</artifactId>
+	        <version>2.9.3</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>com.google.code.gson</groupId>
+	        <artifactId>gson</artifactId>
+	    </dependency>
 
 		<!-- <dependency> <groupId>com.fasterxml.jackson.core</groupId> <artifactId>jackson-databind</artifactId> 
 			</dependency> <dependency> <groupId>com.fasterxml.jackson.core</groupId> 

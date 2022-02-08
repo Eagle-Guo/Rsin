@@ -101,6 +101,7 @@ public class RsinSecurityConfiguration extends WebSecurityConfigurerAdapter {
 			   .antMatchers("/mybusiness/**").hasAnyRole("USER","ADMIN")
 			   .antMatchers("/quickbooks/**").hasAnyRole("USER","ADMIN")
 			   .antMatchers("/oauth2redirect").hasAnyRole("USER","ADMIN")
+			   .antMatchers("/payment/**").hasAnyRole("USER","ADMIN")
 			   .antMatchers("/newcompany_confirm").hasAnyRole("USER")
 			   .anyRequest().authenticated().and().formLogin().successHandler(successHandler)
 			   .loginPage("/login").permitAll().and().logout().permitAll().and().rememberMe();

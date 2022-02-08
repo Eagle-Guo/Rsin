@@ -111,11 +111,11 @@
 
 
 									<!-- Left side -->
-									<div class="col-lg-8 col-md-12 col-12 col-sm-12 leftside">
-										<form class="newCompany multisteps-form__form" action="/view/registerNewCompany" method="post" enctype="multipart/form-data" id="newcompanyForm">
-
+									<div class="col-lg-8 col-md-12 col-12 col-sm-12 leftside newCompany multisteps-form__form">
 											<!--single form panel-->
 											<div class="multisteps-form__panel shadow p-4 rounded bg-white ad js-active" data-animation="scaleIn" id="companytype">
+												<form class="newCompany multisteps-form__form" action="/view/registerNewCompany" 
+										method="post" enctype="multipart/form-data" id="newcompanyForm">
 												<h3 class="multisteps-form__title">选择服务</h3>
 												<div class="multisteps-form__content">
 													<div class="section-title">新注册公司类型</div>
@@ -344,6 +344,7 @@
 														<button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">下一步</button>
 													</div>
 												</div>
+												</form>
 											</div>
 	
 											<!--single form panel-->
@@ -573,16 +574,16 @@
 													                      <div class="col-lg-4 text-right">
 													                        <div class="invoice-detail-item">
 													                          <div class="invoice-detail-name">Subtotal</div>
-													                          <div class="invoice-detail-value" id="subtotal">$670.99</div>
+													                          <div class="invoice-detail-value" id="subtotal">$0</div>
 													                        </div>
 													                        <div class="invoice-detail-item">
 													                          <div class="invoice-detail-name">Shipping</div>
-													                          <div class="invoice-detail-value" id="shipping">$15</div>
+													                          <div class="invoice-detail-value" id="shipping">$0</div>
 													                        </div>
 													                        <hr class="mt-2 mb-2">
 													                        <div class="invoice-detail-item">
 													                          <div class="invoice-detail-name">Total</div>
-													                          <div class="invoice-detail-value invoice-detail-value-lg" id="total">$685.99</div>
+													                          <div class="invoice-detail-value invoice-detail-value-lg" id="total">$0</div>
 													                        </div>
 													                      </div>
 													                    </div>
@@ -595,13 +596,15 @@
 													        </section>
 													      </div>								
 													
-													
 													</div>
 												</div>
 												<div class="row">
 													<div class="button-row d-flex mt-4 col-12">
 														<button class="btn btn-primary js-btn-prev" type="button" title="Prev">上一步</button>
-														<button class="btn btn-primary ml-auto js-btn-next" type="submit" title="Send">进行付款</button>
+														<form action="/create-checkout-session" method="POST">
+														    <input type="hidden" id="paymentamount" name="paymentamount">
+													        <button class="btn btn-primary ml-auto js-btn-next" type="submit" title="Send" id="checkout-button">确定付款</button>
+													    </form>
 													</div>
 												</div>
 											</div>
@@ -647,6 +650,7 @@
 	    <script src="../../../assets/js/fileupload.js"></script>  
         <script src="../../../assets/js/intlTel/countrySelect.js"></script>
         <script src="../../../assets/js/intlTel/intlTelInput.js"></script>
+        <script src="https://js.stripe.com/v3/"></script>
         <script>
         var input = document.querySelector("#phone0");
 	  	  window.intlTelInput(input, {

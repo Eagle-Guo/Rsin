@@ -334,7 +334,7 @@ public class UserViewController {
 		return model;
 	}	
 
-	@RequestMapping("/todolist/admin_toDoList")
+	@RequestMapping("/todolist/user_toDoList")
 	public ModelAndView admin_toDoList() {
 		ModelAndView model = new ModelAndView("todolist/admin_toDoList");
 
@@ -498,6 +498,24 @@ public class UserViewController {
 		model.addObject("personalDoc", fileService.getDocumentsByCompanyId(company.getId(),"P"));
 		
 		return model;
-	}	
+	}
+	
+	@RequestMapping("/payment/checkout")
+	public ModelAndView paymentCheckout(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("payment/checkout");
+		return model;
+	}
+
+	@RequestMapping("/payment/success")
+	public ModelAndView paymentSuccess(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("payment/success");
+		return model;
+	}
+
+	@RequestMapping("/payment/cancel")
+	public ModelAndView paymentCancel(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("payment/cancel");
+		return model;
+	}
 
 }

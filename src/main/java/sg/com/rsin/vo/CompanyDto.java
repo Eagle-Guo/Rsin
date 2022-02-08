@@ -1,5 +1,7 @@
 package sg.com.rsin.vo;
 
+import java.util.Date;
+
 public class CompanyDto {
 	private long id;
 	private String uen;
@@ -22,6 +24,8 @@ public class CompanyDto {
 	private String address;
 	private String step;
 	private String agency;
+	private String service; 
+	private Date dueDate; 
 
 	public long getId() {
 		return id;
@@ -148,5 +152,17 @@ public class CompanyDto {
 	}
 	public void setAgency(String agency) {
 		this.agency = agency;
+	}
+	public String getService() {
+		return service;
+	}
+	public void setService(String service) {
+		this.service = service;
+	}
+	public Date getDueDate() {
+		return dueDate;
+	}
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
 	}
 }

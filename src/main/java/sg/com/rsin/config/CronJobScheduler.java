@@ -21,12 +21,13 @@ public class CronJobScheduler {
     
     // Everydate 9 AM
     @Scheduled(cron = "* * 9 * * ?") 
-    //@Scheduled(cron = "0 * * * * ?")
+    //@Scheduled(cron = "0 * * * * ?") // test every minute
     public void checkPendingTasks() throws Exception {
     	
     	//Update all the actual date to estimate date if empty
-    	//TODO to check if need to update instead of update all
-    	pendingTimelineService.updateAllEmptyActualDate();
+    	if (pendingTimelineService.countActualDateNull() > 0) {
+    		pendingTimelineService.updateAllEmptyActualDate();
+    	}
     	
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         Date now = new Date();

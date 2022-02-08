@@ -12,5 +12,5 @@ public interface CompanyStatusTimeRepository extends JpaRepository<CompanyStatus
 	@Query("select cst from CompanyStatusTime cst, Company c where c.id = cst.company.id and c.id = :id")
 	CompanyStatusTime findByCompanyId (@Param("id") long id);
 	
-	List<CompanyStatusTime> findByPaymentNotNullOrSignatureNotNullOrUploadfileStatusNotNull();
+	List<CompanyStatusTime> findByPaymentIsNullOrSignatureIsNullOrUploadfileStatusIsNull();
 }

@@ -133,6 +133,9 @@ function refreshRightSummary() {
     selectedsummaryhtml += services.length
     selectedsummaryhtml += ") </span>  总计金额（S$）  (<span class='text-muted media-right'>" + totalamount + "</span>)</h6>";
     document.getElementById("selected_summary").innerHTML = selectedsummaryhtml;
+    $("#subtotal").val(totalamount);
+    $("#total").val(totalamount);
+    $("#paymentamount").val(totalamount);
 }
 
 function addGudong () {
@@ -195,8 +198,8 @@ function showServiceTable(){
     document.getElementById("companyinfo_summary").innerHTML = selectedsummaryhtml;
 
     $("#subtotal").text("$" + totalamount);
-    $("#shipping").text("$15");
-    $("#subtotal").text("$" + (totalamount + 15));
+    $("#shipping").text("$0");
+    $("#total").text("$" + (totalamount + 0));
    
 }
 

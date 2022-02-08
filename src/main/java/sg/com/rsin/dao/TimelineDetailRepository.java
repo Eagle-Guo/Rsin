@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import sg.com.rsin.entity.TimelineDetail;
@@ -22,5 +23,13 @@ public interface TimelineDetailRepository extends JpaRepository<TimelineDetail, 
 	@Modifying
 	@Transactional
 	@Query("update TimelineDetail td set td.actualDate = td.estimateDate WHERE td.actualDate IS NULL")
-	void updateActualDateNull ();
+	void updateActualDateNull();
+	
+	@Query("SELECT count(td.id) FROM TimelineDetail td WHERE td.actualDate IS NULL")
+	long countActualDateNull(); 
+	
+	@Modifying
+	@Transactional
+	@Query("update TimelineDetail td set td.result = :result WHERE td.id = :id")
+	int updateFlagOnly(@Param("id")long id, @Param("result")boolean result); 
 }

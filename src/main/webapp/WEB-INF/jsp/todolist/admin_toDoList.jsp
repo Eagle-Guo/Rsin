@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -78,12 +79,13 @@
                    					<th class="tableheader header" width="30%">公司名称</th>
                                 	<th class="tableheader header" width="30%">公司备用名称</th>
                                     <th class="tableheader header" width="10%">UEN</th>
-                                    <th class="tableheader header" width="10%">注册日期</th>
+                                    <th class="tableheader header" width="10%">待办服务</th>
+                                    <th class="tableheader header" width="10%">待办日期</th>
                                     <th class="tableheader header" width="15%">待办事项</th>
                                 </tr>
                    			</thead>
                    			<tbody>
-                   			 	<c:forEach items="${companies}" var="company" varStatus="companyStatus">
+                   			 	<c:forEach items="${allCompanies}" var="company" varStatus="companyStatus">
                     			 	<tr align="right">
                     			 		<td class="label" align="center">
                     						<c:out value="${companyStatus.index+1}"/>
@@ -96,14 +98,24 @@
 	                                    </td>
 	                                    <td class="label" align="center">
 	                                    	<c:out value="${company.uen}"/>
-	                                    	<%-- <a href="${flowExecutionUrl}&_eventId=detail&submitType=detail&matricno=${student.studentId}"><c:out value="${student.name}"/></a> --%>
 	                                    </td>
 	                                    <td class="label" align="center">
-	                                    	<c:out value="${company.registrationDate}"/>
+	                                    	<c:out value="${company.service}"/>
 	                                    </td>
 	                                    <td class="label" align="center">
-	                                    	<div class="badge badge-danger"><a href="/admin/adminManageCompany?id=${company.id}" target="_blank">新公司注册</a></div> 
-	                                    	<div class="badge badge-danger"><a href="/admin/adminTimeLine?id=${company.id}" target="_blank">时间表</a></div>
+	                                    	<fmt:formatDate pattern="dd/MM/yyyy" value="${company.dueDate}" />
+	                                    </td>
+	                                    <td class="label" align="center">
+	                                        <c:forEach var="companyDetail" items="${companiesServices}">
+											    <c:if test="${company.name eq companyDetail.name}">
+											       <div class="badge badge-danger"><a href="/admin/adminManageCompany?id=${company.id}" target="_blank">新公司注册</a></div> 
+											    </c:if>
+											</c:forEach>
+	                                    	<c:forEach var="companyTimetable" items="${companyTimetables}">
+											    <c:if test="${company.name eq companyTimetable.name}">
+											       <div class="badge badge-danger"><a href="/admin/adminTimeLine?id=${company.id}" target="_blank">时间表</a></div> 
+											    </c:if>
+											</c:forEach>
 	                                    </td>
                     				</tr>
                                   	</c:forEach>

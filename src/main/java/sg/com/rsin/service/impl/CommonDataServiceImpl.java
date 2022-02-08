@@ -20,10 +20,12 @@ import sg.com.rsin.dao.CompanyRepository;
 import sg.com.rsin.dao.CompanyServiceRepository;
 import sg.com.rsin.dao.CompanyShareholderInfoRepository;
 import sg.com.rsin.dao.CompanyStatusTimeRepository;
+import sg.com.rsin.dao.PendingTimelineRepository;
 import sg.com.rsin.entity.Company;
 import sg.com.rsin.entity.CompanyService;
 import sg.com.rsin.entity.CompanyShareholderInfo;
 import sg.com.rsin.entity.CompanyStatusTime;
+import sg.com.rsin.entity.PendingTimeline;
 import sg.com.rsin.service.CommonDataService;
 import sg.com.rsin.vo.CompanyDto;
 import sg.com.rsin.vo.CompanyShareholderDto;
@@ -36,12 +38,15 @@ public class CommonDataServiceImpl implements CommonDataService {
 
     @Autowired
     CompanyServiceRepository companyServiceRepository;
-    
+
     @Autowired
     CompanyStatusTimeRepository companyStatusTimeRepository;
 
     @Autowired
     CompanyShareholderInfoRepository companyShareholderInfoRepository;
+
+    @Autowired
+    PendingTimelineRepository pendingTimelineRepository;
     
     private final Logger logger = LoggerFactory.getLogger(CommonDataServiceImpl.class);
     
@@ -62,15 +67,14 @@ public class CommonDataServiceImpl implements CommonDataService {
         
         Set<Company> allCompanies = new LinkedHashSet<Company>();
 
-        //Get All shareholderInfoa for this user's all companies
+        //Get all shareholderInfos for this user's all companies
         userCompanyShareholderInfos.stream().forEach(info -> {
             allCompanyShareholderInfos.addAll(companyShareholderInfoRepository.findByCompanyId(info.getCompany().getId()));
         });
-        
+
         for(CompanyShareholderInfo companyShareholderInfo : allCompanyShareholderInfos) {
             allCompanies.add(companyShareholderInfo.getCompany());
         }
-        //pageData.put("allCompanyShareholderInfos",  allCompanyShareholderInfos);
         pageData.put("companies", allCompanies);
         return pageData;
     }
@@ -176,7 +180,7 @@ public class CommonDataServiceImpl implements CommonDataService {
         }
         CompanyService selfCompanyService = companyServiceRepository.findByCompanyId(companyIdlong);
         
-        List<CompanyShareholderInfo> allCompanyShareholderInfos = new ArrayList<CompanyShareholderInfo>();
+        //List<CompanyShareholderInfo> allCompanyShareholderInfos = new ArrayList<CompanyShareholderInfo>();
         List<CompanyShareholderInfo> sameCompanyShareholderInfos = new ArrayList<CompanyShareholderInfo>();
         
         int total = 0;
@@ -213,7 +217,7 @@ public class CommonDataServiceImpl implements CommonDataService {
     }
     
     public Set<CompanyDto> getAllPendingCompanies() {
-        List<CompanyStatusTime> companyStatusTimes = companyStatusTimeRepository.findByPaymentNotNullOrSignatureNotNullOrUploadfileStatusNotNull();
+        List<CompanyStatusTime> companyStatusTimes = companyStatusTimeRepository.findByPaymentIsNullOrSignatureIsNullOrUploadfileStatusIsNull();
         if (companyStatusTimes == null) {
             return null;
         }
@@ -329,5 +333,66 @@ public class CommonDataServiceImpl implements CommonDataService {
         });
         
         return allCompanies;
+    }
+
+    /**
+     * Get all pending timetable company
+     * @return
+     */
+    public Set<CompanyDto> getAllPendingTimetable() {
+        List<PendingTimeline> timelines = pendingTimelineRepository.findAllPendingTimeline();
+        if (timelines == null) {
+            return null;
+        }
+
+        Set<CompanyDto> allCompanies = new LinkedHashSet<CompanyDto>();
+        SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
+        timelines.stream().forEach(time -> {
+            Calendar registerDate = Calendar.getInstance();
+            if (time.getCompany().getRegistrationDate() == null) {
+                time.getCompany().setRegistrationDate(new Date());
+            }
+            registerDate.setTime(time.getCompany().getRegistrationDate());
+            registerDate.add(Calendar.MONTH, 12);
+
+            CompanyDto companyDto = new CompanyDto();
+            companyDto.setId(time.getCompany().getId());
+            companyDto.setUen(time.getCompany().getUen());
+            companyDto.setName(time.getCompany().getName()); 
+            companyDto.setBackupName(time.getCompany().getBackupName()); 
+            companyDto.setRegistrationDate(sm.format(time.getCompany().getRegistrationDate()));
+            companyDto.setDirectors("");
+            companyDto.setNominated(time.getCompany().getNominatedDirector());
+            companyDto.setShareholder("");
+            companyDto.setSecretary(time.getCompany().getSecretary());
+            companyDto.setContactPerson("");
+            companyDto.setActualStockCapital(time.getCompany().getActualStockCapital());
+            companyDto.setActualStockCapital(time.getCompany().getActualStockCapital()); 
+            
+            companyDto.setAnnualAudit(sm.format(registerDate.getTime()));
+            companyDto.setFinancePeriod(sm.format(registerDate.getTime()));
+            companyDto.setGstax("");
+            companyDto.setEci("");
+            companyDto.setIncometaxSubmit("");
+            companyDto.setIncometaxPay("");
+            companyDto.setAddress(time.getCompany().getAddress());
+            companyDto.setStep(time.getCompany().getStep());
+            companyDto.setAgency(""); 
+
+            companyDto.setService(time.getService());
+            companyDto.setDueDate(time.getDueDate());
+            
+            allCompanies.add(companyDto);
+        });
+        
+        return allCompanies;
+    }
+
+    /**
+     * Get pending timetable or steps for company
+     * @return
+     */
+    public Set<CompanyDto> getAllPendingStepAndTimetableByCompany(Long companyId) {
+    	return null;
     }
 }

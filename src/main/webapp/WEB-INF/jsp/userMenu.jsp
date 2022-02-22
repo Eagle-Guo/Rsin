@@ -50,14 +50,13 @@
 					</a>
 				</li>																	
 				<li class="nav-item dropdown">
-					<a href="#" class="nav-link has-dropdown"><i class="fas fa-map-marker-alt"></i>
-						<span>我的帐号</span></a>
+					<a href="#" class="nav-link"><i class="fas fa-map-marker-alt"></i><span>我的帐号</span></a>
 					<ul class="dropdown-menu">
 						<li><a href="/coming">个人帐户信息</a></li>
 					</ul>
 				</li>
 				<li class="nav-item dropdown">
-					<a href="#" class="nav-link has-dropdown"><i class="fas fa-plug"></i> <span>帮助中心</span></a>
+					<a href="#" class="nav-link"><i class="fas fa-plug"></i> <span>帮助中心</span></a>
 				</li>
 			</ul>
 		</security:authorize>
@@ -98,10 +97,11 @@
             </li>
         </ul>
 		</security:authorize>
+
 		<div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-			<a href="https://getstisla.com/docs"
-				class="btn btn-primary btn-lg btn-block btn-icon-split"> <i
-				class="fas fa-rocket"></i> 支持文档
+			<a href="#"
+				class="btn btn-primary btn-lg btn-block btn-icon-split"> 
+				<i class="fas fa-rocket"></i> 支持文档
 			</a>
 		</div>
 	</aside>

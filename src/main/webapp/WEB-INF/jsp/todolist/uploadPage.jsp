@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-  <!-- Template CSS -->
+  <!-- Template CSS 
   <link rel="stylesheet" href="../../assets/css/style.css">
-  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">-->
   <link rel="stylesheet" href="../../../assets/css/multiplepage.css">
   <link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
 </head>
@@ -190,14 +190,7 @@
 										               
         </section>
       </div>
-      <footer class="main-footer">
-        <div class="footer-left">
-                      版权所有 &copy; 2020 <div class="bullet"></div> 设计是由 <a href="#">睿信集团</a>
-        </div>
-        <div class="footer-right">
-          1.1.0
-        </div>
-      </footer>
+       <jsp:include page="../footer.jsp" />  
   
 
   <!-- General JS Scripts -->

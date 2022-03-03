@@ -12,11 +12,11 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" >
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Template CSS -->
-  <link rel="stylesheet" href="../../../assets/css/style.css">
-  <link rel="stylesheet" href="../../../assets/css/components.css">
-  <link rel="stylesheet" href="../../../assets/css/multiplepage.css">
-  <link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
-  <link rel="stylesheet" href="../../../assets/css/rsin.css">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../../assets/css/components.css">
+  <link rel="stylesheet" href="../../../../assets/css/multiplepage.css">
+  <link rel="stylesheet" href="../../../../assets/css/jquery-ui.css">
+  <link rel="stylesheet" href="../../../../assets/css/rsin.css">
 </head>
 
 <body>
@@ -3203,15 +3203,7 @@
         
         </section>
       </div>
-      
-      <footer class="main-footer">
-        <div class="footer-left">
-                      版权所有 &copy; 2021 <div class="bullet"></div> 设计是由 <a href="#">睿信集团</a>
-        </div>
-        <div class="footer-right">
-          1.1.0
-        </div>
-      </footer>
+      <jsp:include page="../../footer.jsp" />  
   
 
   <!-- General JS Scripts -->
@@ -3222,14 +3214,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.228/pdf.min.js"></script>
-  <script src="../../../assets/js/stisla.js"></script>
+  <script src="../../../../assets/js/stisla.js"></script>
   <!-- Template JS File -->
-  <script src="../../../assets/js/scripts.js"></script>
-  <script src="../../../assets/js/custom.js"></script>
+  <script src="../../../../assets/js/scripts.js"></script>
+  <script src="../../../../assets/js/custom.js"></script>
 
-  <script src="../../../assets/js/page/index-0.js"></script>
-  <script src="../../../assets/js/onlineSignature.js"></script>
-  <script src="../../../assets/js/signaturePad/signature_pad.umd.js"></script>
-  <script src="../../../assets/js/signaturePad/app.js"></script>
+  <script src="../../../../assets/js/page/index-0.js"></script>
+  <script src="../../../../assets/js/onlineSignature.js"></script>
+  <script src="../../../../assets/js/signaturePad/signature_pad.umd.js"></script>
+  <script src="../../../../assets/js/signaturePad/app.js"></script>
 </body>
 </html>

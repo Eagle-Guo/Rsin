@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
   <!-- Template CSS -->
-  <link rel="stylesheet" href="../../assets/css/style.css">
-  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/components.css">
 </head>
 
 <body>
@@ -95,14 +95,7 @@
 
       </section>
       </div>
-      <footer class="main-footer">
-        <div class="footer-left">
-                      版权所有 &copy; 2020 <div class="bullet"></div> 设计是由 <a href="#">睿信集团</a>
-        </div>
-        <div class="footer-right">
-          1.1.0
-        </div>
-      </footer>
+      <jsp:include page="../footer.jsp" />
 
    <script type="text/javascript">
        function viewPri(x) {
@@ -121,21 +114,21 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="../assets/js/stisla.js"></script>
+  <script src="../../../assets/js/stisla.js"></script>
 
-  <!-- JS Libraies -->
+  <!-- JS Libraies 
   <script src="../node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
   <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
   <script src="../node_modules/jqvmap/dist/jquery.vmap.min.js"></script>
   <script src="../node_modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
   <script src="../node_modules/summernote/dist/summernote-bs4.js"></script>
-  <script src="../node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+  <script src="../node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>-->
 
   <!-- Template JS File -->
-  <script src="../assets/js/scripts.js"></script>
-  <script src="../assets/js/custom.js"></script>
+  <script src="../../../assets/js/scripts.js"></script>
+  <script src="../../../assets/js/custom.js"></script>
 
   <!-- Page Specific JS File -->
-  <script src="../assets/js/page/index-0.js"></script>
+  <script src="../../../assets/js/page/index-0.js"></script>
 </body>
 </html>

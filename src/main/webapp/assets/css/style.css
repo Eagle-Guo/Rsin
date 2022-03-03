@@ -2283,6 +2283,16 @@ h6 .badge {
 	border-color: transparent;
 }
 
+.search {
+	border-radius: 0 3px 3px 0;
+	background-image: URL(../icons/search.png);
+	background-repeat: no-repeat;
+	height: 30px;
+	width: 30px;
+	padding: 9px 15px 9px 15px;
+	border-color: transparent;
+}
+
 .navbar .form-inline .search-backdrop {
 	position: fixed;
 	top: 0;

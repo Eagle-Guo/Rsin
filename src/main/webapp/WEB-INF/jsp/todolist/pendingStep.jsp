@@ -103,16 +103,9 @@
         </section>
       </div>        
 
-        </section>
+    </section>
       </div>
-      <footer class="main-footer">
-        <div class="footer-left">
-                      版权所有 &copy; 2020 <div class="bullet"></div> 设计是由 <a href="#">睿信集团</a>
-        </div>
-        <div class="footer-right">
-          1.1.0
-        </div>
-      </footer>
+      <jsp:include page="../footer.jsp" />  
   
 
   <!-- General JS Scripts -->
@@ -122,6 +115,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="../../../assets/js/uploadPage.js"></script>
-   <script src="../assets/js/stisla.js"></script>
+  <!-- <script src="../assets/js/stisla.js"></script> --> 
 </body>
 </html>

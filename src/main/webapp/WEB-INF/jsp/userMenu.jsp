@@ -51,9 +51,9 @@
 				</li>																	
 				<li class="nav-item dropdown">
 					<a href="#" class="nav-link"><i class="fas fa-map-marker-alt"></i><span>我的帐号</span></a>
-					<ul class="dropdown-menu">
+					<!-- <ul class="dropdown-menu">
 						<li><a href="/coming">个人帐户信息</a></li>
-					</ul>
+					</ul> -->
 				</li>
 				<li class="nav-item dropdown">
 					<a href="#" class="nav-link"><i class="fas fa-plug"></i> <span>帮助中心</span></a>

@@ -425,23 +425,16 @@
 		 </div>
         </section>
       </div>
-      <footer class="main-footer">
-        <div class="footer-left">
-                      版权所有 &copy; 2020 <div class="bullet"></div> 设计是由 <a href="#">睿信集团</a>
-        </div>
-        <div class="footer-right">
-          1.1.0
-        </div>
-      </footer>
+      <jsp:include page="../footer.jsp" />  
 
   <!-- General JS Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="../assets/js/stisla.js"></script>
+  <script src="../../../assets/js/stisla.js"></script>
 
     <script type="text/javascript">
 
@@ -846,32 +839,32 @@
 	  {      
 	 aaaa = aaaa + `<br/><br/>              	
 	    <li class="list-group-item" id="InfoVIP">
-							                  	<label class="custom-switch mt-2 justify-content-between">
-								                    <span class="custom-switch-description nc_subttitle"><b>私人银行贵宾户口</b> </span>
-								                </label>
-							                	<div class="card-body" id="openAccountDeatil7">						                	               						                	
-										             <div class="form-group row">
-								                      	 <label  class="col-sm-3 col-form-label">个人姓名</label>
-								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="个人姓名"></div>
-								                     </div>
-										             <div class="form-group row">
-								                      	 <label  class="col-sm-3 col-form-label">开户国籍</label>
-								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="开户国籍"></div>
-								                     </div>                    		
-										             <div class="form-group row">
-								                      	 <label  class="col-sm-3 col-form-label">联系人电话</label>
-								                      		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="联系人电话"></div>
-								                     </div>     							             
-								                     <div class="form-group row">
-								                      	 <label  class="col-sm-3 col-form-label">联系人邮箱</label>
-								                      		<div class="col-sm-9"><input type="email" class="form-control"  placeholder="联系人邮箱"></div>
-								                     </div>  	
-			   							             <div class="form-group row">
-								                      	 <label  class="col-sm-3 col-form-label">其它联系方式</label>
-								                      		<div class="col-sm-9"><input class="form-control"  placeholder="其它联系方式"></input></div>
-								                     </div> 			                    	
-							                    </div>
-						                    </li>`;  
+           <label class="custom-switch mt-2 justify-content-between">
+              <span class="custom-switch-description nc_subttitle"><b>私人银行贵宾户口</b> </span>
+               </label>
+              	<div class="card-body" id="openAccountDeatil7">						                	               						                	
+	             <div class="form-group row">
+                     	 <label  class="col-sm-3 col-form-label">个人姓名</label>
+                     		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="个人姓名"></div>
+                    </div>
+	             <div class="form-group row">
+                     	 <label  class="col-sm-3 col-form-label">开户国籍</label>
+                     		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="开户国籍"></div>
+                    </div>                    		
+	             <div class="form-group row">
+                     	 <label  class="col-sm-3 col-form-label">联系人电话</label>
+                     		<div class="col-sm-9"><input type="text" class="form-control"  placeholder="联系人电话"></div>
+                    </div>     							             
+                    <div class="form-group row">
+                     	 <label  class="col-sm-3 col-form-label">联系人邮箱</label>
+                     		<div class="col-sm-9"><input type="email" class="form-control"  placeholder="联系人邮箱"></div>
+                    </div>  	
+				             <div class="form-group row">
+                     	 <label  class="col-sm-3 col-form-label">其它联系方式</label>
+                     		<div class="col-sm-9"><input class="form-control"  placeholder="其它联系方式"></input></div>
+                    </div> 			                    	
+                  </div>
+                 </li>`;  
 	  }
 	  text.innerHTML = aaaa;
 	} 

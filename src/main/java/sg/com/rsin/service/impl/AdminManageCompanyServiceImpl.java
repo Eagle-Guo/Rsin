@@ -36,7 +36,7 @@ public class AdminManageCompanyServiceImpl implements AdminManageCompanyService 
 	@Override
 	public List<String> getShareholders(Long companyId) {
 		List<CompanyShareholderInfo> companyShareholderInfos = companyShareholderInfoRepository.findByCompanyId(companyId);
-		List<String> name = companyShareholderInfos.stream().filter(shareholder -> shareholder.getPositionType().contains("股东")).map(CompanyShareholderInfo::getName).collect(Collectors.toList());
+		List<String> name = companyShareholderInfos.stream().filter(shareholder -> shareholder.getPositionType2().contains("股东")).map(CompanyShareholderInfo::getName).collect(Collectors.toList());
 		return name;
 	}
 	
@@ -50,7 +50,7 @@ public class AdminManageCompanyServiceImpl implements AdminManageCompanyService 
 	public List<String> getDirectors(Long companyId) {
 		try {
 			List<CompanyShareholderInfo> companyShareholderInfos = companyShareholderInfoRepository.findByCompanyId(companyId);
-			List<String> name = companyShareholderInfos.stream().filter(shareholder -> shareholder.getPositionType().contains("董事")).map(CompanyShareholderInfo::getName).collect(Collectors.toList());
+			List<String> name = companyShareholderInfos.stream().filter(shareholder -> shareholder.getPositionType1().contains("董事")).map(CompanyShareholderInfo::getName).collect(Collectors.toList());
 			return name;
 		} catch (Exception ex) {
 			Log.error("Getting shareholder info error: " + ex.getMessage());

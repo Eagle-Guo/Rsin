@@ -45,7 +45,14 @@ public class ShareholderInfoServiceImpl implements ShareholderInfoService {
 	public String getShareholderNames(String type, Long companyId) {
 		logger.info("get the shareholder name from company " + companyId + " with type " + type);
 		List<CompanyShareholderInfo> companyShareholderInfos = companyShareholderInfoRepository.findByCompanyId(companyId);
-		List<String> names = companyShareholderInfos.stream().filter(name -> name.getPositionType().contains(type)).map (info ->info.getName()).collect(Collectors.toList());
+		List<String> names = null;
+		if ("董事".equals(type)) {
+			names = companyShareholderInfos.stream().filter(name -> name.getPositionType1().contains(type)).map (info ->info.getName()).collect(Collectors.toList());
+		} else if ("股东".equals(type)) {
+			names = companyShareholderInfos.stream().filter(name -> name.getPositionType2().contains(type)).map (info ->info.getName()).collect(Collectors.toList());
+		} else if ("联系人".equals(type)) {
+			names = companyShareholderInfos.stream().filter(name -> name.getPositionType3().contains(type)).map (info ->info.getName()).collect(Collectors.toList());
+		}
 		return names.toString();
 	}
 }

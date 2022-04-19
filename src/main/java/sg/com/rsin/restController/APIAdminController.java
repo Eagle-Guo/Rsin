@@ -343,15 +343,14 @@ public class APIAdminController {
 
     		StringBuilder sb = new StringBuilder();
     		if ("on".equals(request.getParameter("director_" + id))) {
-    			sb.append("董事, ");
+    			info.setPositionType1("董事");
     		}
     		if ("on".equals(request.getParameter("shareholder_" + id))) {
-    			sb.append("股东, ");
+    			info.setPositionType2("股东");
     		}
     		if ("on".equals(request.getParameter("cotact_" + id))) {
-    			sb.append("联系人, ");
+    			info.setPositionType3("联系人");
     		} 
-    		info.setPositionType(sb.substring(0, sb.length() -2));
     		if (("on").equals(request.getParameter("status_valid_" + id))) {
     			info.setStatus(true);
     		} else {

@@ -397,10 +397,10 @@ public class AdminViewController {
             
             onlineSignatureVO.setShareholderAndStock(shareholders.toString());
 
-            if (companyShareholderInfo.getPositionType().contains("董事")) {
+            if (companyShareholderInfo.getPositionType1().contains("董事")) {
                 onlineSignatureVO.setbDirector(true);
             }
-            if (companyShareholderInfo.getPositionType().contains("股东")) {
+            if (companyShareholderInfo.getPositionType2().contains("股东")) {
                 onlineSignatureVO.setbShareholder(true);
             }
             CompanyService companyService = (CompanyService)pageData.get("companyService");
@@ -450,7 +450,7 @@ public class AdminViewController {
         model.addObject("compid", companyId);
         
         CompanyShareholderInfo selfCompanyShareholderInfo = (CompanyShareholderInfo) pageData.get("selfCompanyShareholderInfo");
-        if (selfCompanyShareholderInfo.getIcType().contains("公民") || selfCompanyShareholderInfo.getPositionType().contains("永久居民")) {
+        if (selfCompanyShareholderInfo.getIcType().contains("公民") || selfCompanyShareholderInfo.getIcType().contains("永久居民")) {
             model.addObject("isSCOrPR", true);
         } else if (selfCompanyShareholderInfo.getNationality().startsWith("China")) {
             model.addObject("isChinese", true);

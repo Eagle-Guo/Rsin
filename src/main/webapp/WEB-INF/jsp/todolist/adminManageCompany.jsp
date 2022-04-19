@@ -291,15 +291,21 @@
 															                          <td>
 																						<div class="form-group">
 																							<div class="form-check form-check-inline">
-																								<input class="form-check-input" type="checkbox" id="director_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> name="director_${shareholderInfo.id}" <c:if test="${fn:contains(shareholderInfo.positionType, '董事')}">checked</c:if> /> 
+																								<input class="form-check-input" type="checkbox" id="director_${shareholderInfo.id}" 
+																								    <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> name="director_${shareholderInfo.id}" 
+																								    <c:if test="${fn:contains(shareholderInfo.positionType1, '董事')}">checked</c:if> /> 
 																								<label style="height: auto;" class="form-check-label">董事</label>
 																							</div>
 																							<div class="form-check form-check-inline">
-																								<input class="form-check-input" type="checkbox" id="shareholder_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> name="shareholder_${shareholderInfo.id}" <c:if test="${fn:contains(shareholderInfo.positionType, '股东')}">checked</c:if> />
+																								<input class="form-check-input" type="checkbox" id="shareholder_${shareholderInfo.id}" 
+																								     <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> name="shareholder_${shareholderInfo.id}" 
+																								     <c:if test="${fn:contains(shareholderInfo.positionType2, '股东')}">checked</c:if> />
 																								<label style="height: auto;" class="form-check-label">股东</label>
 																							</div>
 																							<div class="form-check form-check-inline">
-																								<input class="form-check-input" type="checkbox" id="cotact_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> name="cotact_${shareholderInfo.id}" <c:if test="${fn:contains(shareholderInfo.positionType, '联系人')}">checked</c:if> /> 
+																								<input class="form-check-input" type="checkbox" id="cotact_${shareholderInfo.id}" 
+																								      <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> name="cotact_${shareholderInfo.id}" 
+																								      <c:if test="${fn:contains(shareholderInfo.positionType3, '联系人')}">checked</c:if> /> 
 																								<label style="height: auto;" class="form-check-label">联系人</label>
 																							</div>
 																						</div>
@@ -307,33 +313,41 @@
 															                        </tr>														                        
 															                        <tr>
 															                          <th scope="row">国籍</th>
-															                          <td><input type="text" class="form-control form-control-sm" id="national_${shareholderInfo.id}" name="national_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.nationality}"></td>
+															                          <td><input type="text" class="form-control form-control-sm" id="national_${shareholderInfo.id}" name="national_${shareholderInfo.id}" 
+															                              <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.nationality}"></td>
 															                          <th scope="row">发行股份数量</th>
-															                          <td><input type="text" class="form-control form-control-sm" id="issue_stock_${shareholderInfo.id}" name="issue_stock_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.issueStockAmount}"></td>	
+															                          <td><input type="text" class="form-control form-control-sm" id="issue_stock_${shareholderInfo.id}" name="issue_stock_${shareholderInfo.id}" 
+															                              <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.issueStockAmount}"></td>	
 															                        </tr>
 															                        <tr>
 															                          <th scope="row">证件类型</th>
-															                          <td><input type="text" class="form-control form-control-sm" id="ic_type_${shareholderInfo.id}" name="ic_type_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.icType}"></td>		
+															                          <td><input type="text" class="form-control form-control-sm" id="ic_type_${shareholderInfo.id}" name="ic_type_${shareholderInfo.id}" 
+															                              <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.icType}"></td>		
 																					  <th scope="row">实缴股份数量</th>
-															                          <td><input type="text" class="form-control form-control-sm" id="actual_stock_${shareholderInfo.id}" name="actual_stock_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.actualStockAmount}"></td>		
+															                          <td><input type="text" class="form-control form-control-sm" id="actual_stock_${shareholderInfo.id}" name="actual_stock_${shareholderInfo.id}" 
+															                              <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.actualStockAmount}"></td>		
 															                        </tr>
 															                        <tr>
 															                          <th scope="row">证件号码</th>
-															                          <td><input type="text" class="form-control form-control-sm" id="ic_number_${shareholderInfo.id}" name="ic_number_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.icNumber}"></td>	
+															                          <td><input type="text" class="form-control form-control-sm" id="ic_number_${shareholderInfo.id}" name="ic_number_${shareholderInfo.id}" 
+															                              <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.icNumber}"></td>	
 															                          <th scope="row">每股价值S$</th>
-															                          <td><input type="text" class="form-control form-control-sm" id="value_per_stock_${shareholderInfo.id}" name="value_per_stock_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.valuePerStock}"></td>															                          
+															                          <td><input type="text" class="form-control form-control-sm" id="value_per_stock_${shareholderInfo.id}" name="value_per_stock_${shareholderInfo.id}" 
+															                              <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.valuePerStock}"></td>															                          
 															                        </tr>
 															                        <tr>
 															                          <th scope="row">联系电话</th>
-															                          <td><input type="text" class="form-control form-control-sm" id="contact_number_${shareholderInfo.id}" name="contact_number_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.contactNumber}"></td>
+															                          <td><input type="text" class="form-control form-control-sm" id="contact_number_${shareholderInfo.id}" name="contact_number_${shareholderInfo.id}" 
+															                              <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.contactNumber}"></td>
 															                          <th scope="row">电子邮箱</th>
-															                          <td><input type="text" class="form-control form-control-sm" id="email_${shareholderInfo.id}" name="email_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.email}"></td>														                         
+															                          <td><input type="text" class="form-control form-control-sm" id="email_${shareholderInfo.id}" name="email_${shareholderInfo.id}" 
+															                              <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> value="${shareholderInfo.email}"></td>														                         
 															                        </tr>
 															                        <tr>														                         
 															                          <th scope="row">个人地址及邮编</th>
 															                          <td colspan="3">
-															                          	<input type="text" class="form-control form-control-sm" id="address_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> 
-															                          	name="address_${shareholderInfo.id}" value="${shareholderInfo.address}">
+															                          	 <input type="text" class="form-control form-control-sm" id="address_${shareholderInfo.id}" 
+															                          	 <c:if test="${shareholderInfo.lockFlag }">disabled</c:if> name="address_${shareholderInfo.id}" value="${shareholderInfo.address}">
 															                          </td>
 															                        </tr>										                        																						                        									                        
 															                      </tbody>
@@ -344,7 +358,8 @@
 																	            <div class="col-12 col-md-4 col-lg-4"></div>		
 																	            <div class="col-12 col-md-3 col-lg-3" style="padding-left: 5%;">	
 																				<div class="form-check">
-															                        <input class="form-check-input" type="checkbox"  id="shareholder_info_${shareholderInfo.id}" <c:if test="${shareholderInfo.lockFlag }">checked</c:if> onclick="confirmShareholderInfo(${shareholderInfo.id})">
+															                        <input class="form-check-input" type="checkbox"  id="shareholder_info_${shareholderInfo.id}" 
+															                              <c:if test="${shareholderInfo.lockFlag }">checked</c:if> onclick="confirmShareholderInfo(${shareholderInfo.id})">
 															                        <label class="form-check-label" for="gridCheck">
 															                       		 确认锁定
 															                        </label>

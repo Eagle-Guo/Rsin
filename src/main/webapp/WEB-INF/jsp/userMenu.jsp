@@ -63,9 +63,9 @@
 
 		<security:authorize access="hasAnyRole('ROLE_SECRETARY')">
 			<ul class="sidebar-menu">
-            <li class="menu-header">秘书后台</li>
+            <li class="menu-header">待办事项</li>
             <li>
-                <a href="/secretary/secretaryToDoList" class="nav-link"><i class="fas fa-square"></i><span>待办事项</span></a>
+                <a href="/secretary/secretaryToDoList" class="nav-link"><i class="fas fa-square"></i><span>等待签名</span></a>
             </li>
             <li class="menu-header">客户清单</li>
             <li>

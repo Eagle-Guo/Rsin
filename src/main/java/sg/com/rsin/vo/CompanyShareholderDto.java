@@ -7,7 +7,7 @@ public class CompanyShareholderDto {
 
 	public CompanyShareholderDto() {}
 
-	public CompanyShareholderDto(Long id, String positionType, String name, String email) {
+	public CompanyShareholderDto(Long id, String name, String email) {
 		super();
 		this.id = id;
 		this.name = name;

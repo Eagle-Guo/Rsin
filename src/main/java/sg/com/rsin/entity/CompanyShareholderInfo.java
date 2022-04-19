@@ -15,8 +15,12 @@ public class CompanyShareholderInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-    @Column(name="position_type")
-	private String positionType;
+    @Column(name="position_type1")
+	private String positionType1;
+    @Column(name="position_type2")
+	private String positionType2;
+    @Column(name="position_type3")
+	private String positionType3;
     @Column(name="name")
 	private String name;
     @Column(name="gender")
@@ -61,13 +65,16 @@ public class CompanyShareholderInfo {
 
 	public CompanyShareholderInfo() {}
 
-	public CompanyShareholderInfo(Long id, String positionType, String name, String gender, String nationality,
+	public CompanyShareholderInfo(Long id, String positionType1, String positionType2, String positionType3, 
+			String name, String gender, String nationality,
 			String icType, String icNumber, String email, String contactNumber, int issueStockAmount,
 			int actualStockAmount, int valuePerStock, String address, int seq, String signatureName, 
 			String ip, String checksum, boolean status, boolean lockFlag, String signaturePath,  Company company) {
 		super();
 		this.id = id;
-		this.positionType = positionType;
+		this.positionType1 = positionType1;
+		this.positionType2 = positionType2;
+		this.positionType3 = positionType3;
 		this.name = name;
 		this.gender = gender;
 		this.nationality = nationality;
@@ -100,11 +107,23 @@ public class CompanyShareholderInfo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPositionType() {
-		return positionType;
+	public String getPositionType1() {
+		return positionType1;
 	}
-	public void setPositionType(String positionType) {
-		this.positionType = positionType;
+	public void setPositionType1(String positionType1) {
+		this.positionType1 = positionType1;
+	}
+	public String getPositionType2() {
+		return positionType2;
+	}
+	public void setPositionType2(String positionType2) {
+		this.positionType2 = positionType2;
+	}
+	public String getPositionType3() {
+		return positionType3;
+	}
+	public void setPositionType3(String positionType3) {
+		this.positionType3 = positionType3;
 	}
 	public String getGender() {
 		return gender;

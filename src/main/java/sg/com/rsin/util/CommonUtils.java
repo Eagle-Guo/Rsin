@@ -154,7 +154,15 @@ public class CommonUtils {
 
 			for(CompanyInfoVO companyInfoVO : companyInfoVOs) {
 				if (companyInfoVO.getName().equals("职位填报类型"+i)) {
-					companyShareholderInfo.setPositionType(companyInfoVO.getDescription());
+					if (companyInfoVO.getDescription().contains("董事") ) {
+						companyShareholderInfo.setPositionType1("董事");
+					}
+					if (companyInfoVO.getDescription().contains("股东") ) {
+						companyShareholderInfo.setPositionType2("股东");
+					}
+					if (companyInfoVO.getDescription().contains("联系人") ) {
+						companyShareholderInfo.setPositionType3("联系人");
+					}
 				} else if (companyInfoVO.getName().equals("全名"+i)) {
 					companyShareholderInfo.setName(companyInfoVO.getDescription());
 				} else if (companyInfoVO.getName().equals("性别"+i)) {

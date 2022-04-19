@@ -220,8 +220,8 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 			CompanyService selfCompanyService = (CompanyService) userData.get("companyService");
 		    // Generate all 8 documents
 		    for (int i=1; i<=8; i++) {
-		    	if (selfCompanyShareholderInfo.getPositionType().contains("董事")) {
-		    		if (!selfCompanyShareholderInfo.getPositionType().contains("股东")) {// only 董事
+		    	if (selfCompanyShareholderInfo.getPositionType1() != null) {
+		    		if (selfCompanyShareholderInfo.getPositionType2() != null) {// only 董事
 		    			if (i==2||i==3||i==4||i==7) {
 		    				continue;
 		    			}
@@ -230,7 +230,7 @@ public class GenerateJespterReportServiceImpl implements GenerateJespterReportSe
 		    				continue;
 		    			}
 		    		}
-		    	} else if (selfCompanyShareholderInfo.getPositionType().contains("股东")) {// only 股东
+		    	} else if (selfCompanyShareholderInfo.getPositionType2() != null) {// only 股东
 		    		if (i==1||i==6) {
 		    			continue;
 		    		} else if (selfCompanyService.getNominalDirector()<=0 || i==8) {
